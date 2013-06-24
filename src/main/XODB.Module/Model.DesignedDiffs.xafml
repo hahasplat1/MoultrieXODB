@@ -1,28 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Company="Xstract" Copyright="This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA." Logo="" WebSite="http://xodb.xstractgroup.com" Description="Contact Andrew Grosser at enquiries@xstractgroup.com for support enquiries." Subtitle="Xstract Open Database" AboutInfoString="&lt;br&gt;{0:ProductName}&lt;br&gt;&lt;br&gt;{0:Version}&lt;br&gt;{0:Copyright}&lt;br&gt;&lt;br&gt;{0:Description}" VersionFormat="Version {0}.{1}.{2}">
-  <BOModel>
-    <Class Name="XODB.Module.BusinessObjects.XODB.AssayGroup">
-      <OwnMembers>
-        <Member Name="LabCompanyID" LookupProperty="CompanyID.CompanyName" />
-      </OwnMembers>
-    </Class>
-    <Class Name="XODB.Module.BusinessObjects.XODB.Drilling">
-      <OwnMembers>
-        <Member Name="DrillingCompanyID" LookupProperty="CompanyID.CompanyName" />
-      </OwnMembers>
-    </Class>
-    <Class Name="XODB.Module.BusinessObjects.XODB.Header">
-      <OwnMembers>
-        <Member Name="GeologyCompanyID" LookupProperty="CompanyID.CompanyName" />
-        <Member Name="GeophysicalLoggingCompanyID" LookupProperty="CompanyID.CompanyName" />
-      </OwnMembers>
-    </Class>
-    <Class Name="XODB.Module.BusinessObjects.XODB.Survey">
-      <OwnMembers>
-        <Member Name="SurveyCompanyID" LookupProperty="CompanyID.CompanyName" />
-      </OwnMembers>
-    </Class>
-  </BOModel>
   <NavigationItems DefaultChildItemsDisplayStyle="LargeIcons" DefaultLeafImageName="ModelEditor_Default" DefaultParentImageName="Action_Open" NavigationStyle="TreeList" StartupNavigationItem="@73a17b76-9212-47f3-91fd-a0042a75ff7e">
     <Items>
       <Item Id="@48f3c81d-8c1e-4e84-8916-d16aceb63521" Caption="Business" Index="0" ImageName="BO_Customer" IsNewNode="True">
@@ -567,8 +544,8 @@
           <LayoutGroup Id="SimpleEditors">
             <LayoutGroup Id="FileData">
               <LayoutGroup Id="FileData_col1">
-                <LayoutItem Id="FilePreview" Index="-1" Removed="True" />
-                <LayoutItem Id="ParentFileID" Removed="True" />
+                <LayoutItem Id="FilePreview" Index="-1" ViewItem="FilePreview" Removed="True" />
+                <LayoutItem Id="ParentFileID" ViewItem="ParentFileID" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
