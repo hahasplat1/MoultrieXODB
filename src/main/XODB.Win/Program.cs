@@ -41,15 +41,16 @@ namespace XODB.Win
             try
             {
                 winApplication.Setup();
-                //Too confusing for new users
-                //if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed && System.Deployment.Application.ApplicationDeployment.CurrentDeployment.IsFirstRun)
-                //{
-                //    using (var f = new XODB.Module.Win.Controllers.UpdateConfig())
-                //    {
-                //        f.ShowDialog();
-                //    }
-                //}
-                if (AppDomain.CurrentDomain.SetupInformation.ActivationArguments != null && AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData != null && AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData.Length > 0)
+                
+                if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed && System.Deployment.Application.ApplicationDeployment.CurrentDeployment.IsFirstRun)
+                {
+                    //Too confusing for new users
+                    //using (var f = new XODB.Module.Win.Controllers.UpdateConfig())
+                    //{
+                    //    f.ShowDialog();
+                    //}
+                }
+                else if (AppDomain.CurrentDomain.SetupInformation.ActivationArguments != null && AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData != null && AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData.Length > 0)
                 {
                     //Kill other processes
                     var p = Process.GetCurrentProcess();
