@@ -1,0 +1,12 @@
+﻿Name: XODB TeamInsight
+AntiForgery: enabled
+Author: Xstract
+Website: http://xodb.xstractgroup.com
+Version: 1.0
+OrchardVersion: 1.0
+Description: HR intelligence system.
+Features:
+    XODB.TeamInsight:
+        Description: Provides insight into your human resources leveraging XODB.
+		Category: Business
+		Dependencies: XODB

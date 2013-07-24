@@ -4,14 +4,14 @@ using Orchard.ContentManagement;
 
 namespace XODB.Models {
     
-    public class ProjectSettingsPart : ContentPart<ProjectSettingsPartRecord> {
+    public class XODBSettingsPart : ContentPart<XODBSettingsPartRecord> {
         public string UploadAllowedFileTypeWhitelist {
             get { return Record.UploadAllowedFileTypeWhitelist; }
             set { Record.UploadAllowedFileTypeWhitelist = value; }
         }
     }
     
-    public class ProjectSettingsPartRecord : ContentPartRecord {
+    public class XODBSettingsPartRecord : ContentPartRecord {
         internal const string DefaultWhitelist = "xodb zip";
         private string _whitelist = DefaultWhitelist;
 

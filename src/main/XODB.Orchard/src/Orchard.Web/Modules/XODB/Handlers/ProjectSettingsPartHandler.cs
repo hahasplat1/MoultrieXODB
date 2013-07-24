@@ -7,12 +7,12 @@ using XODB.Models;
 
 namespace XODB.Handlers {
     [UsedImplicitly]
-    public class ProjectSettingsPartHandler : ContentHandler {
-        public ProjectSettingsPartHandler(IRepository<ProjectSettingsPartRecord> repository) {
+    public class XODBSettingsPartHandler : ContentHandler {
+        public XODBSettingsPartHandler(IRepository<XODBSettingsPartRecord> repository) {
             T = NullLocalizer.Instance;
-            Filters.Add(new ActivatingFilter<ProjectSettingsPart>("Site"));
+            Filters.Add(new ActivatingFilter<XODBSettingsPart>("Site"));
             Filters.Add(StorageFilter.For(repository));
-            Filters.Add(new TemplateFilterForRecord<ProjectSettingsPartRecord>("ProjectSettings", "Parts/XODB.ProjectSettings", "mining"));
+            Filters.Add(new TemplateFilterForRecord<XODBSettingsPartRecord>("Settings", "Parts/XODB.Settings", "business"));
         }
 
         public Localizer T { get; set; }
@@ -21,7 +21,7 @@ namespace XODB.Handlers {
             if (context.ContentItem.ContentType != "Site")
                 return;
             base.GetItemMetadata(context);
-            context.Metadata.EditorGroupInfo.Add(new GroupInfo(T("Mining")));
+            context.Metadata.EditorGroupInfo.Add(new GroupInfo(T("Business")));
         }
     }
 }

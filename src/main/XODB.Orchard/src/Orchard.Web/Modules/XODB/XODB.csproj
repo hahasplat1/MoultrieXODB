@@ -320,7 +320,7 @@
     <Content Include="Views\User\ProjectList.cshtml" />
     <Content Include="Views\EditorTemplates\UserSync.Settings.cshtml" />
     <Content Include="Views\User\AppendToModel.cshtml" />
-    <Content Include="Views\EditorTemplates\Parts\XODB.ProjectSettings.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\XODB.Settings.cshtml" />
     <Content Include="Views\User\ModelParameters.cshtml" />
     <Content Include="Views\User\ModelParametersPartial.cshtml" />
     <Content Include="Views\User\ModelParametersEdit.cshtml" />
@@ -478,7 +478,7 @@
     <Compile Include="Models\OwnerGuidPart.cs" />
     <Compile Include="Models\UserSyncSettingsPart.cs" />
     <Compile Include="Models\ProjectPart.cs" />
-    <Compile Include="Models\ProjectSettingsPart.cs" />
+    <Compile Include="Models\XODBSettingsPart.cs" />
     <Compile Include="Models\Projects.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
