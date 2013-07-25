@@ -26,6 +26,9 @@ using Orchard.Logging;
 using XODB.Helpers;
 using Orchard.Tasks.Scheduling;
 using Orchard.Data;
+using Orchard.Environment.Configuration;
+using Orchard.Utility.Extensions;
+using System.Web.Configuration;
 
 namespace XODB.Services {
     
@@ -37,6 +40,7 @@ namespace XODB.Services {
         private readonly IMessageManager _messageManager;
         private readonly IScheduledTaskManager _taskManager;
         private PrincipalContext _securityContext;
+        private readonly ShellSettings _shellSettings;
         private PrincipalContext securityContext
         {
             get
@@ -50,7 +54,7 @@ namespace XODB.Services {
         public ILogger Logger { get; set; }
 
 
-        public UsersService(IContentManager contentManager, IOrchardServices orchardServices, IRoleService roleService, IMessageManager messageManager, IScheduledTaskManager taskManager, IRepository<EmailPartRecord> repository)
+        public UsersService(IContentManager contentManager, IOrchardServices orchardServices, IRoleService roleService, IMessageManager messageManager, IScheduledTaskManager taskManager, IRepository<EmailPartRecord> repository, ShellSettings shellSettings ) 
         {
             _repository = repository;
             _orchardServices = orchardServices;
@@ -58,14 +62,37 @@ namespace XODB.Services {
             _roleService = roleService;
             _messageManager = messageManager;
             _taskManager = taskManager;
+            _shellSettings = shellSettings;
             T = NullLocalizer.Instance;
             Logger = NullLogger.Instance;
         }
 
         public Localizer T { get; set; }
 
+        private System.Web.Configuration.AuthenticationMode? authenticationMode = null;
+        public System.Web.Configuration.AuthenticationMode AuthenticationMode
+        {
+            get 
+            {
+                if (authenticationMode == null)
+                {
+                    var configuration = WebConfigurationManager.OpenWebConfiguration("/");
+                    authenticationMode = ((AuthenticationSection)configuration.GetSection("system.web/authentication")).Mode;
+                }
+                return authenticationMode.Value;
+            }
+        }
+
         public void SyncUsers()
         {
+
+            //Get Authmode
+
+            //Set the app data
+            //_shellSettings.Name
+            
+            //Get the roles
+            //_roleService.GetRoles();
 
             //Get Orchard Users
             var orchardusers = _contentManager.Query<UserPart, UserPartRecord>().List();
@@ -126,7 +153,7 @@ namespace XODB.Services {
                     c.ContactID = o.guid.HasValue ? o.guid.Value : Guid.NewGuid();
                     c.Username = o.username;
                     c.Firstname = o.givenName;
-                    c.ContactName = string.Join(string.Empty, string.Format("{0}[{1}]", o.name, o.username).Take(120));
+                    c.ContactName = string.Join(string.Empty, string.Format("{0} [{1}]", o.name, o.username).Take(120));
                     c.Surname = o.sn;
                     c.DefaultEmail = o.email;
                     d.Contacts.InsertOnSubmit(c);
@@ -147,7 +174,7 @@ namespace XODB.Services {
                 {
                     var c = xodbusers.First(x => x.ContactID == o.ContactID);
                     c.Firstname = o.givenName;
-                    c.ContactName = string.Join(string.Empty, string.Format("{0}[{1}]", o.name, o.username).Take(120));
+                    c.ContactName = string.Join(string.Empty, string.Format("{0} [{1}]", o.name, o.username).Take(120));
                     c.Surname = o.sn;
                     c.DefaultEmail = o.email;
                 }
