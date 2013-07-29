@@ -17,6 +17,7 @@ using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Security.Principal;
 using Orchard.Roles.Services;
+using Orchard.Roles.Models;
 using Orchard.Users.Services;
 using Orchard.Users.Models;
 using System.Text.RegularExpressions;
@@ -50,19 +51,21 @@ namespace XODB.Services {
                 return _securityContext;
             }
         }
-        private readonly IRepository<EmailPartRecord> _repository;
+        private readonly IRepository<EmailPartRecord> _emailRepository;
+        private readonly IRepository<UserRolesPartRecord> _userRolesRepository;
         public ILogger Logger { get; set; }
 
 
-        public UsersService(IContentManager contentManager, IOrchardServices orchardServices, IRoleService roleService, IMessageManager messageManager, IScheduledTaskManager taskManager, IRepository<EmailPartRecord> repository, ShellSettings shellSettings ) 
+        public UsersService(IContentManager contentManager, IOrchardServices orchardServices, IRoleService roleService, IMessageManager messageManager, IScheduledTaskManager taskManager, IRepository<EmailPartRecord> emailRepository, ShellSettings shellSettings, IRepository<UserRolesPartRecord> userRolesRepository ) 
         {
-            _repository = repository;
+            _emailRepository = emailRepository;
             _orchardServices = orchardServices;
             _contentManager = contentManager;
             _roleService = roleService;
             _messageManager = messageManager;
             _taskManager = taskManager;
             _shellSettings = shellSettings;
+            _userRolesRepository = userRolesRepository;
             T = NullLocalizer.Instance;
             Logger = NullLogger.Instance;
         }
@@ -83,108 +86,141 @@ namespace XODB.Services {
             }
         }
 
+        private Guid? applicationID = null;
+        public Guid ApplicationID
+        {
+            get
+            {
+                if (applicationID == null)
+                {
+                    using (new TransactionScope(TransactionScopeOption.Suppress))
+                    {
+                        var c = new ContactsDataContext();
+                        var app = (from o in c.Applications where o.ApplicationName == _shellSettings.Name select o.ApplicationId).FirstOrDefault();
+                        if (applicationID == default(Guid))
+                        {
+                            applicationID = Guid.NewGuid();
+                            c.aspnet_Applications_CreateApplication(_shellSettings.Name, ref applicationID);
+                        }
+                    }
+                }
+                return applicationID.Value;
+            }
+        }
+
         public void SyncUsers()
         {
 
-            //Get Authmode
-
-            //Set the app data
-            //_shellSettings.Name
-            
-            //Get the roles
-            //_roleService.GetRoles();
-
-            //Get Orchard Users
-            var orchardusers = _contentManager.Query<UserPart, UserPartRecord>().List();
-
-            //Get AD Users
-            // throw new NotImplementedException();
-            // get a DirectorySearcher object
-            DirectorySearcher search = new DirectorySearcher();
-
-            // specify the search filter
-            search.Filter = "(&(objectCategory=person)(objectClass=user))";
-            //search.Filter = "(&(objectClass=user)(anr=agrosser))"; //TEST
-            
-            //// specify which property values to return in the search
-            search.PropertiesToLoad.Add("name");   // first name
-            search.PropertiesToLoad.Add("givenName");   // first name
-            search.PropertiesToLoad.Add("sn");          // last name
-            search.PropertiesToLoad.Add("mail");        // smtp mail address
-            search.PropertiesToLoad.Add("samaccountname");        // account name
-            search.PropertiesToLoad.Add("memberof");        // groups
-            search.PropertiesToLoad.Add("objectsid");
-            search.PropertiesToLoad.Add("objectguid");
-            search.PropertiesToLoad.Add("title");
-
-            // perform the search
-            SearchResultCollection results = search.FindAll(); //.FindOne();
-
-            var sessionRoleCache = new Dictionary<string,string>();
-            var adusers = from SearchResult o in results
-                       select new
-                           {
-                               name = o.Properties["name"] != null && o.Properties["name"].Count > 0 ? string.Format("{0}", o.Properties["name"][0]) : null,
-                               givenName = o.Properties["givenName"] != null && o.Properties["givenName"].Count > 0 ? string.Format("{0}", o.Properties["givenName"][0]) : null,
-                               sn = o.Properties["sn"] != null && o.Properties["sn"].Count > 0 ? string.Format("{0}", o.Properties["sn"][0]) : null,
-                               email = o.Properties["mail"] != null && o.Properties["mail"].Count > 0 ? string.Format("{0}", o.Properties["mail"][0]) : null,
-                               samaccountname = o.Properties["samaccountname"] != null && o.Properties["samaccountname"].Count > 0 ? string.Format("{0}", o.Properties["samaccountname"][0]) : null,
-                               username = o.Properties["objectsid"] != null && o.Properties["objectsid"].Count > 0 ? ((NTAccount)(new SecurityIdentifier((byte[])o.Properties["objectsid"][0], 0)).Translate(typeof(NTAccount))).ToString() : null,
-                               guid = o.Properties["objectguid"] != null && o.Properties["objectguid"].Count > 0 ? new Guid((byte[])o.Properties["objectguid"][0]) : (Guid?)null,
-                               title = o.Properties["title"] != null && o.Properties["title"].Count > 0 ? string.Format("{0}", o.Properties["title"][0]) : null,
-                               roles = o.Properties["memberof"] != null ? (from string m in o.Properties["memberof"] select getNameFromFQDN(m, sessionRoleCache)).ToArray() : new string[] { }
-                           };
-
-            //Get XODB Users
-            Contact[] xodbusers;
-            using (new TransactionScope(TransactionScopeOption.Suppress))
+            //Get Orchard Users & Roles
+            var orchardUsers = _contentManager.Query<UserPart, UserPartRecord>().List();
+            var orchardRoles = _roleService.GetRoles().ToArray();
+            var orchardUserRoles = _userRolesRepository.Table.ToArray();
+            //Get Authmode & Then Update
+            if (AuthenticationMode == System.Web.Configuration.AuthenticationMode.Forms)
             {
-                var d = new ContactsDataContext();
-                xodbusers = (from o in d.Contacts select o).ToArray();
-
-                //Sync AD, Orchard, XODB
-                //New into XODB
-                //We need firstname, surname
-                var ad_new = (from o in adusers where o.givenName != null && o.sn != null && (o.guid.HasValue && !(from x in xodbusers select x.ContactID).Contains((Guid)o.guid)) || (!o.guid.HasValue && !(from x in xodbusers select x.Username.ToLowerInvariant()).Contains(o.username.ToLowerInvariant())) select o);
-                
-                foreach (var o in ad_new)
+                using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
-                    Contact c = new Contact();
-                    c.ContactID = o.guid.HasValue ? o.guid.Value : Guid.NewGuid();
-                    c.Username = o.username;
-                    c.Firstname = o.givenName;
-                    c.ContactName = string.Join(string.Empty, string.Format("{0} [{1}]", o.name, o.username).Take(120));
-                    c.Surname = o.sn;
-                    c.DefaultEmail = o.email;
-                    d.Contacts.InsertOnSubmit(c);
+                    var c = new ContactsDataContext();
+                    var r = (from o in c.Roles where o.ApplicationId == ApplicationID select o).ToArray();
+                    var u = (from o in c.Users where o.ApplicationId == ApplicationID select o).ToArray();
+                    var ur = (from o in c.UsersInRoles where (from or in r select or.RoleId).Contains(o.RoleId) select o).ToArray();
+                    
+                    //TODO: Update....
+                    var nu = (from o in orchardUsers where !(from ou in u select ou.UserName).Contains(o.UserName) select o);
+
+                 
                 }
 
-                //Updates into XODB
-                var ad_diff = from o in adusers
-                              from x in xodbusers
-                              where ((o.guid.HasValue && o.guid.Value == x.ContactID) || (o.username != null && x.Username!=null && o.username.ToLowerInvariant() == x.Username.ToLowerInvariant()))
+            }
+            else if (AuthenticationMode == System.Web.Configuration.AuthenticationMode.Windows)
+            {
+                //Module syncs only users - only all admin for now
+
+                //Get AD Users
+                // throw new NotImplementedException();
+                // get a DirectorySearcher object
+                DirectorySearcher search = new DirectorySearcher();
+
+                // specify the search filter
+                search.Filter = "(&(objectCategory=person)(objectClass=user))";
+                //search.Filter = "(&(objectClass=user)(anr=agrosser))"; //TEST
+
+                //// specify which property values to return in the search
+                search.PropertiesToLoad.Add("name");   // first name
+                search.PropertiesToLoad.Add("givenName");   // first name
+                search.PropertiesToLoad.Add("sn");          // last name
+                search.PropertiesToLoad.Add("mail");        // smtp mail address
+                search.PropertiesToLoad.Add("samaccountname");        // account name
+                search.PropertiesToLoad.Add("memberof");        // groups
+                search.PropertiesToLoad.Add("objectsid");
+                search.PropertiesToLoad.Add("objectguid");
+                search.PropertiesToLoad.Add("title");
+
+                // perform the search
+                SearchResultCollection results = search.FindAll(); //.FindOne();
+
+                var sessionRoleCache = new Dictionary<string, string>();
+                var adusers = from SearchResult o in results
+                              select new
+                                  {
+                                      name = o.Properties["name"] != null && o.Properties["name"].Count > 0 ? string.Format("{0}", o.Properties["name"][0]) : null,
+                                      givenName = o.Properties["givenName"] != null && o.Properties["givenName"].Count > 0 ? string.Format("{0}", o.Properties["givenName"][0]) : null,
+                                      sn = o.Properties["sn"] != null && o.Properties["sn"].Count > 0 ? string.Format("{0}", o.Properties["sn"][0]) : null,
+                                      email = o.Properties["mail"] != null && o.Properties["mail"].Count > 0 ? string.Format("{0}", o.Properties["mail"][0]) : null,
+                                      samaccountname = o.Properties["samaccountname"] != null && o.Properties["samaccountname"].Count > 0 ? string.Format("{0}", o.Properties["samaccountname"][0]) : null,
+                                      username = o.Properties["objectsid"] != null && o.Properties["objectsid"].Count > 0 ? ((NTAccount)(new SecurityIdentifier((byte[])o.Properties["objectsid"][0], 0)).Translate(typeof(NTAccount))).ToString() : null,
+                                      guid = o.Properties["objectguid"] != null && o.Properties["objectguid"].Count > 0 ? new Guid((byte[])o.Properties["objectguid"][0]) : (Guid?)null,
+                                      title = o.Properties["title"] != null && o.Properties["title"].Count > 0 ? string.Format("{0}", o.Properties["title"][0]) : null,
+                                      roles = o.Properties["memberof"] != null ? (from string m in o.Properties["memberof"] select getNameFromFQDN(m, sessionRoleCache)).ToArray() : new string[] { }
+                                  };
+
+                //Get XODB Users
+                Contact[] xodbusers;
+                using (new TransactionScope(TransactionScopeOption.Suppress))
+                {
+                    var d = new ContactsDataContext();
+                    xodbusers = (from o in d.Contacts select o).ToArray();
+
+                    //Sync AD, Orchard, XODB
+                    //New into XODB
+                    //We need firstname, surname
+                    var ad_new = (from o in adusers where o.givenName != null && o.sn != null && (o.guid.HasValue && !(from x in xodbusers select x.ContactID).Contains((Guid)o.guid)) || (!o.guid.HasValue && !(from x in xodbusers select x.Username.ToLowerInvariant()).Contains(o.username.ToLowerInvariant())) select o);
+
+                    foreach (var o in ad_new)
+                    {
+                        Contact c = new Contact();
+                        c.ContactID = o.guid.HasValue ? o.guid.Value : Guid.NewGuid();
+                        c.Username = o.username;
+                        c.Firstname = o.givenName;
+                        c.ContactName = string.Join(string.Empty, string.Format("{0} [{1}]", o.name, o.username).Take(120));
+                        c.Surname = o.sn;
+                        c.DefaultEmail = o.email;
+                        d.Contacts.InsertOnSubmit(c);
+                    }
+
+                    //Updates into XODB
+                    var ad_diff = from o in adusers
+                                  from x in xodbusers
+                                  where ((o.guid.HasValue && o.guid.Value == x.ContactID) || (o.username != null && x.Username != null && o.username.ToLowerInvariant() == x.Username.ToLowerInvariant()))
                                       //Things to update
-                                      && ( 
-                                      o.givenName != x.Firstname
-                                      || o.sn != x.Surname
-                                      || o.email != x.DefaultEmail
-                                      || o.name != x.ContactName
-                              ) select new {x.ContactID, o.givenName, o.sn, o.email, o.name, o.username};
-                foreach (var o in ad_diff)
-                {
-                    var c = xodbusers.First(x => x.ContactID == o.ContactID);
-                    c.Firstname = o.givenName;
-                    c.ContactName = string.Join(string.Empty, string.Format("{0} [{1}]", o.name, o.username).Take(120));
-                    c.Surname = o.sn;
-                    c.DefaultEmail = o.email;
+                                          && (
+                                          o.givenName != x.Firstname
+                                          || o.sn != x.Surname
+                                          || o.email != x.DefaultEmail
+                                          || o.name != x.ContactName
+                                  )
+                                  select new { x.ContactID, o.givenName, o.sn, o.email, o.name, o.username };
+                    foreach (var o in ad_diff)
+                    {
+                        var c = xodbusers.First(x => x.ContactID == o.ContactID);
+                        c.Firstname = o.givenName;
+                        c.ContactName = string.Join(string.Empty, string.Format("{0} [{1}]", o.name, o.username).Take(120));
+                        c.Surname = o.sn;
+                        c.DefaultEmail = o.email;
+                    }
+                    d.SubmitChanges();
+
                 }
-                d.SubmitChanges();                          
-
-                //New into Orchard
-                //TODO: Could do it? No. Let's let the AD Module handle this for now.
-
-                //Let's ignore AD for now too...
-                
             }
 
 

@@ -393,6 +393,11 @@
       <DependentUpon>Assays.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\BlockModelPart.cs" />
+    <Compile Include="Models\Software.designer.cs">
+      <DependentUpon>Software.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Models\Geophysics.designer.cs">
       <DependentUpon>Geophysics.dbml</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -535,6 +540,11 @@
       <LastGenOutput>Geophysics.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Models\Software.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Software.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Models\Projects.dbml.layout">
       <DependentUpon>Projects.dbml</DependentUpon>
     </None>
@@ -553,6 +563,9 @@
   <ItemGroup>
     <None Include="Models\Geophysics.dbml.layout">
       <DependentUpon>Geophysics.dbml</DependentUpon>
+    </None>
+    <None Include="Models\Software.dbml.layout">
+      <DependentUpon>Software.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Reports\GeophysicsReport.resx">
       <DependentUpon>GeophysicsReport.cs</DependentUpon>
