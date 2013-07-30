@@ -169,6 +169,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XODB.TeamInsight", "Orchard.Web\Modules\XODB.TeamInsight\XODB.TeamInsight.csproj", "{E5740151-E988-4C99-8840-A6539623731E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XODB.SpatialDMS", "Orchard.Web\Modules\XODB.SpatialDMS\XODB.SpatialDMS.csproj", "{D3DCB6D3-22DB-4342-9140-4F7D254AFDD5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{33B1BC8D-E292-4972-A363-22056B207156} = {33B1BC8D-E292-4972-A363-22056B207156}
+		{50B779EA-EC00-4699-84C0-03B395C365D2} = {50B779EA-EC00-4699-84C0-03B395C365D2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

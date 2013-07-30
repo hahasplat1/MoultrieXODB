@@ -119,18 +119,30 @@ namespace XODB.Services {
 
                 try
                 {
+                    var hostnames = new List<string>();
+                    var ips = new List<string>();
+                    var uniqueids = new List<string>();
+
                     var h = Dns.GetHostName();
                     var iph = Dns.GetHostEntry(h);
                     var ip = iph.AddressList;
+                    hostnames.Add(h);
+                    ips.AddRange(from o in ip select o.ToString());
+
 
                     h = Environment.MachineName;
                     iph = Dns.GetHostEntry(h);
                     ip = iph.AddressList;
+                    hostnames.Add(h);
+                    ips.AddRange(from o in ip select o.ToString());
+
 
                     var i = _orchardServices.WorkContext.CurrentSite.BaseUrl;
                     h = i.Substring(i.LastIndexOf('/'), i.Length - i.LastIndexOf('/'));
                     iph = Dns.GetHostEntry(h);
                     ip = iph.AddressList;
+                    hostnames.Add(h);
+                    ips.AddRange(from o in ip select o.ToString());
 
                     //Public IP
                     var check = "http://checkip.dyndns.org";
@@ -140,16 +152,17 @@ namespace XODB.Services {
                     c.Proxy = p;
                     c.Credentials = CredentialCache.DefaultNetworkCredentials;
                     var d = c.OpenRead(check);
-
                     //HtmlWeb web = new HtmlWeb();
                     HtmlDocument doc = new HtmlDocument(); //web.Load(, "GET", , );
                     doc.Load(d);
                     var n = doc.DocumentNode.SelectSingleNode("/html/body");
                     var s = n.InnerText.Trim();
                     s = s.Substring(s.LastIndexOf(' '), s.Length - s.LastIndexOf(' '));
+                    ips.Add(s);
 
+                    var sid1 = new SecurityIdentifier((byte[])new DirectoryEntry(string.Format("WinNT://{0},Computer", Environment.MachineName)).Children.Cast<DirectoryEntry>().First().InvokeGet("objectSID"), 0).AccountDomainSid.Value;
+                    uniqueids.Add(sid1);
 
-                    var sid1 = new SecurityIdentifier((byte[])new DirectoryEntry(string.Format("WinNT://{0},Computer", Environment.MachineName)).Children.Cast<DirectoryEntry>().First().InvokeGet("objectSID"), 0).AccountDomainSid;
                     var sid2 = "";
                     using (var mo = new ManagementObject(String.Format("win32_useraccount.domain='{0}',name ='{1}'", Environment.MachineName, "administrator")))
                     {
@@ -157,6 +170,7 @@ namespace XODB.Services {
                         sid2 = mo["SID"].ToString();
                         sid2 = sid2.Substring(0, sid2.Length - 4);
                     }
+                    uniqueids.Add(sid2);
 
                     var sid3 = "";
                     var cpus = new List<string>();
@@ -165,18 +179,18 @@ namespace XODB.Services {
                         cpus.Add(mo.Properties["processorID"].Value.ToString());
                     }
                     sid3 = cpus.OrderBy(f => f).ToArray().FlattenStringArray();
+                    uniqueids.Add(sid3);
 
                     //Update all server info
 
                     //Update ServerApplication
-
-                    return serverID.Value;
 
                 }
                 catch (Exception ex)
                 {
                     Logger.Information("Could not update server fingerprint. Corresponding licenses may fail.");
                 }
+                throw new NotImplementedException();
 
             }
         }
