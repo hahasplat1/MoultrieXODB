@@ -14,6 +14,7 @@ using Orchard.Settings;
 using Orchard.Validation;
 using Orchard;
 using System.DirectoryServices;
+using System.DirectoryServices.ActiveDirectory;
 using System.DirectoryServices.AccountManagement;
 using System.Security.Principal;
 using Orchard.Roles.Services;
@@ -121,7 +122,14 @@ namespace XODB.Services {
                 {
                     var hostnames = new List<string>();
                     var ips = new List<string>();
-                    var uniqueids = new List<string>();
+                    string sid1 = "", sid2 = "", sid3 = "";
+                    string domain = null;
+
+                    try
+                    {
+                        domain = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
+                    }
+                    catch { }
 
                     var h = Dns.GetHostName();
                     var iph = Dns.GetHostEntry(h);
@@ -138,59 +146,160 @@ namespace XODB.Services {
 
 
                     var i = _orchardServices.WorkContext.CurrentSite.BaseUrl;
-                    h = i.Substring(i.LastIndexOf('/'), i.Length - i.LastIndexOf('/'));
-                    iph = Dns.GetHostEntry(h);
-                    ip = iph.AddressList;
+                    h = i.Substring(i.LastIndexOf('/')+1, i.Length - i.LastIndexOf('/')-1);
                     hostnames.Add(h);
-                    ips.AddRange(from o in ip select o.ToString());
-
-                    //Public IP
-                    var check = "http://checkip.dyndns.org";
-                    var p = WebRequest.GetSystemWebProxy();
-                    var c = new WebClient();
-                    c.Headers.Add("Lynx/2.8.8dev.3 libwww-FM/2.14 SSL-MM/1.4.1");
-                    c.Proxy = p;
-                    c.Credentials = CredentialCache.DefaultNetworkCredentials;
-                    var d = c.OpenRead(check);
-                    //HtmlWeb web = new HtmlWeb();
-                    HtmlDocument doc = new HtmlDocument(); //web.Load(, "GET", , );
-                    doc.Load(d);
-                    var n = doc.DocumentNode.SelectSingleNode("/html/body");
-                    var s = n.InnerText.Trim();
-                    s = s.Substring(s.LastIndexOf(' '), s.Length - s.LastIndexOf(' '));
-                    ips.Add(s);
-
-                    var sid1 = new SecurityIdentifier((byte[])new DirectoryEntry(string.Format("WinNT://{0},Computer", Environment.MachineName)).Children.Cast<DirectoryEntry>().First().InvokeGet("objectSID"), 0).AccountDomainSid.Value;
-                    uniqueids.Add(sid1);
-
-                    var sid2 = "";
-                    using (var mo = new ManagementObject(String.Format("win32_useraccount.domain='{0}',name ='{1}'", Environment.MachineName, "administrator")))
+                    try
                     {
-                        mo.Get();
-                        sid2 = mo["SID"].ToString();
-                        sid2 = sid2.Substring(0, sid2.Length - 4);
+                        iph = Dns.GetHostEntry(h);
+                        ip = iph.AddressList;
+                        ips.AddRange(from o in ip select o.ToString());
                     }
-                    uniqueids.Add(sid2);
+                    catch { }
 
-                    var sid3 = "";
-                    var cpus = new List<string>();
-                    foreach (ManagementObject mo in new ManagementClass("win32_processor").GetInstances())
+                    try
                     {
-                        cpus.Add(mo.Properties["processorID"].Value.ToString());
+                        //Public IP
+                        var check = "http://checkip.dyndns.org";
+                        var p = WebRequest.GetSystemWebProxy();
+                        var c = new WebClient();
+                        c.Headers.Add("user-agent", "Lynx/2.8.8dev.3 libwww-FM/2.14 SSL-MM/1.4.1");
+                        c.Proxy = p;
+                        c.Credentials = CredentialCache.DefaultNetworkCredentials;
+                        var d = c.OpenRead(check);
+                        //HtmlWeb web = new HtmlWeb();
+                        HtmlDocument doc = new HtmlDocument(); //web.Load(, "GET", , );
+                        doc.Load(d);
+                        var n = doc.DocumentNode.SelectSingleNode("/html/body");
+                        var pub = n.InnerText.Trim();
+                        pub = pub.Substring(pub.LastIndexOf(' ') + 1, pub.Length - pub.LastIndexOf(' ') - 1);
+                        ips.Add(pub);
                     }
-                    sid3 = cpus.OrderBy(f => f).ToArray().FlattenStringArray();
-                    uniqueids.Add(sid3);
+                    catch { }
 
-                    //Update all server info
+                    try
+                    {
+                        sid1 = new SecurityIdentifier((byte[])new DirectoryEntry(string.Format("WinNT://{0},Computer", Environment.MachineName)).Children.Cast<DirectoryEntry>().First().InvokeGet("objectSID"), 0).AccountDomainSid.Value;
+                    }
+                    catch { }
 
-                    //Update ServerApplication
+                    try
+                    {
+                        //using (var mo = new ManagementObject(String.Format("Win32_UserAccount.Name='{0}',Domain='{1}'", "administrator", Environment.MachineName)))
+                        //{
+                        //    mo.Get();
+                        //    sid2 = mo["SID"].ToString();
+                        //    sid2 = sid2.Substring(0, sid2.Length - 4);
+                        //}
+
+                        byte[] domainSid;
+
+                        var directoryContext = new DirectoryContext(DirectoryContextType.Domain, domain);
+
+                        using (var dom = Domain.GetDomain(directoryContext))
+                        using (var directoryEntry = dom.GetDirectoryEntry())
+                            domainSid = (byte[])directoryEntry.Properties["objectSid"].Value;
+                        sid2 = new SecurityIdentifier(domainSid, 0).AccountDomainSid.Value;
+                    }
+                    catch { }
+
+
+                    try
+                    {
+                        var cpus = new List<string>();
+                        foreach (ManagementObject mo in new ManagementClass("win32_processor").GetInstances())
+                        {
+                            cpus.Add(mo.Properties["processorID"].Value.ToString());
+                        }
+                        sid3 = cpus.OrderBy(f => f).ToArray().FlattenStringArray();
+                    }
+                    catch { }
+
+                    var servers = from xip in ips
+                                  from xh in hostnames 
+                                  select new {domain, ip=xip,host=xh,sid1,sid2,sid3};
+
+                    var ss = (from o in servers.Distinct() select new {newid=Guid.NewGuid(),o.domain,o.ip,o.host,o.sid1,o.sid2,o.sid3}).ToArray();
+
+                    using (new TransactionScope(TransactionScopeOption.Suppress))
+                    {
+                        var sw = new SoftwareDataContext();
+                        //Update all server info
+                        //Existing
+                        var sos = (from o in sw.Servers
+                                      where 
+                                      o.Domain==domain 
+                                      && o.ServerUniqueMachineCode1==sid1 
+                                      && o.ServerUniqueMachineCode2==sid2 
+                                      && o.ServerUniqueMachineCode3==sid3
+                                      select o).ToArray();
+                        var os = (from o in sos
+                                  from s in ss 
+                                      where 
+                                      o.Domain==s.domain 
+                                      && o.IP==s.ip 
+                                      && o.Hostname==s.host 
+                                      && o.ServerUniqueMachineCode1==s.sid1 
+                                      && o.ServerUniqueMachineCode2==s.sid2 
+                                      && o.ServerUniqueMachineCode3==s.sid3
+                                      select new {s.newid,o.ServerID});
+                        //New
+                        var ns = from x in ss where !(from o in os select o.newid).Contains(x.newid) select x;
+                        //insert
+                        foreach (var s in ns)
+                        {
+                            var xs = new Server();
+                            xs.ServerID = s.newid;
+                            xs.Domain = s.domain;
+                            xs.Hostname = s.host;
+                            xs.IP = s.ip;
+                            xs.ServerUniqueMachineCode1 = s.sid1;
+                            xs.ServerUniqueMachineCode2 = s.sid2;
+                            xs.ServerUniqueMachineCode3 = s.sid3;
+                            sw.Servers.InsertOnSubmit(xs);
+                        }
+                        sw.SubmitChanges();
+                        
+                        //Update ServerApplication
+                        //Merge new and existing
+                        var sa = (from xsa in (from o in os select o.ServerID).Union(from o in ns select o.newid) select new {ServerID = xsa, ApplicationID }).Distinct();
+                        var sai = (from o in sa select new { newid = Guid.NewGuid(), o.ServerID, o.ApplicationID }).ToArray();
+                        //old
+                        var osas = (from o in sw.ServerApplications                                   
+                                   where o.ApplicationID == ApplicationID 
+                                   select o).ToArray();
+
+                        
+                        var osa = (from o in osas
+                                   from s in sai
+                                   where o.ApplicationID == s.ApplicationID && o.ServerID == s.ServerID
+                                   select new { o.ServerApplicationID, s.newid });
+                        //new
+                        var nsa = from x in sai where !(from o in osa select o.newid).Contains(x.newid) select x;
+                        //insert
+                        foreach (var s in nsa)
+                        {
+                            var xs = new ServerApplication();
+                            xs.ServerApplicationID = s.newid;
+                            xs.ServerID = xs.ServerID;
+                            xs.ApplicationID = xs.ApplicationID;
+                            sw.ServerApplications.InsertOnSubmit(xs);
+                        }
+                        sw.SubmitChanges();
+                        
+                        //Choose 1
+                        var xsid = (from o in sw.ServerApplications
+                                   from x in sw.Servers
+                                   where o.ServerID==x.ServerID && o.ApplicationID==ApplicationID
+                                   select x).ToArray();
+                        serverID = (from o in xsid orderby NetworkHelper.IsLocal(o.IP), o.IP descending select o.ServerID).FirstOrDefault();                                                                 
+                    }
 
                 }
                 catch (Exception ex)
                 {
                     Logger.Information("Could not update server fingerprint. Corresponding licenses may fail.");
                 }
-                throw new NotImplementedException();
+                return serverID.Value;
 
             }
         }
@@ -214,7 +323,7 @@ namespace XODB.Services {
                     
                     //TODO: Update....
                     var nu = (from o in orchardUsers where !(from ou in u select ou.UserName).Contains(o.UserName) select o);
-                 
+                    var x = ServerID;
                 }
 
             }

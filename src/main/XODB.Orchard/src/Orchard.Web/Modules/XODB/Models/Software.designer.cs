@@ -45,12 +45,12 @@ namespace XODB.Models
     partial void InsertServerApplication(ServerApplication instance);
     partial void UpdateServerApplication(ServerApplication instance);
     partial void DeleteServerApplication(ServerApplication instance);
-    partial void InsertLicense(License instance);
-    partial void UpdateLicense(License instance);
-    partial void DeleteLicense(License instance);
     partial void InsertServer(Server instance);
     partial void UpdateServer(Server instance);
     partial void DeleteServer(Server instance);
+    partial void InsertLicense(License instance);
+    partial void UpdateLicense(License instance);
+    partial void DeleteLicense(License instance);
     #endregion
 		
 		public SoftwareDataContext() : 
@@ -123,19 +123,19 @@ namespace XODB.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<License> Licenses
-		{
-			get
-			{
-				return this.GetTable<License>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Server> Servers
 		{
 			get
 			{
 				return this.GetTable<Server>();
+			}
+		}
+		
+		public System.Data.Linq.Table<License> Licenses
+		{
+			get
+			{
+				return this.GetTable<License>();
 			}
 		}
 	}
@@ -1962,6 +1962,476 @@ namespace XODB.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.X_Server")]
+	public partial class Server : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _ServerID;
+		
+		private string _Hostname;
+		
+		private string _Domain;
+		
+		private string _IP;
+		
+		private string _ServerUniqueMachineCode1;
+		
+		private string _ServerUniqueMachineCode2;
+		
+		private string _ServerUniqueMachineCode3;
+		
+		private string _Certificate1;
+		
+		private string _Certificate2;
+		
+		private int _Version;
+		
+		private System.Nullable<System.Guid> _VersionAntecedentID;
+		
+		private System.Nullable<int> _VersionCertainty;
+		
+		private System.Nullable<System.Guid> _VersionWorkflowInstanceID;
+		
+		private System.Nullable<System.Guid> _VersionUpdatedBy;
+		
+		private System.Nullable<System.Guid> _VersionDeletedBy;
+		
+		private System.Nullable<System.Guid> _VersionOwnerContactID;
+		
+		private System.Nullable<System.Guid> _VersionOwnerCompanyID;
+		
+		private System.Nullable<System.DateTime> _VersionUpdated;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnServerIDChanging(System.Guid value);
+    partial void OnServerIDChanged();
+    partial void OnHostnameChanging(string value);
+    partial void OnHostnameChanged();
+    partial void OnDomainChanging(string value);
+    partial void OnDomainChanged();
+    partial void OnIPChanging(string value);
+    partial void OnIPChanged();
+    partial void OnServerUniqueMachineCode1Changing(string value);
+    partial void OnServerUniqueMachineCode1Changed();
+    partial void OnServerUniqueMachineCode2Changing(string value);
+    partial void OnServerUniqueMachineCode2Changed();
+    partial void OnServerUniqueMachineCode3Changing(string value);
+    partial void OnServerUniqueMachineCode3Changed();
+    partial void OnCertificate1Changing(string value);
+    partial void OnCertificate1Changed();
+    partial void OnCertificate2Changing(string value);
+    partial void OnCertificate2Changed();
+    partial void OnVersionChanging(int value);
+    partial void OnVersionChanged();
+    partial void OnVersionAntecedentIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionAntecedentIDChanged();
+    partial void OnVersionCertaintyChanging(System.Nullable<int> value);
+    partial void OnVersionCertaintyChanged();
+    partial void OnVersionWorkflowInstanceIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionWorkflowInstanceIDChanged();
+    partial void OnVersionUpdatedByChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionUpdatedByChanged();
+    partial void OnVersionDeletedByChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionDeletedByChanged();
+    partial void OnVersionOwnerContactIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionOwnerContactIDChanged();
+    partial void OnVersionOwnerCompanyIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionOwnerCompanyIDChanged();
+    partial void OnVersionUpdatedChanging(System.Nullable<System.DateTime> value);
+    partial void OnVersionUpdatedChanged();
+    #endregion
+		
+		public Server()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServerID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid ServerID
+		{
+			get
+			{
+				return this._ServerID;
+			}
+			set
+			{
+				if ((this._ServerID != value))
+				{
+					this.OnServerIDChanging(value);
+					this.SendPropertyChanging();
+					this._ServerID = value;
+					this.SendPropertyChanged("ServerID");
+					this.OnServerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hostname", DbType="NVarChar(255)")]
+		public string Hostname
+		{
+			get
+			{
+				return this._Hostname;
+			}
+			set
+			{
+				if ((this._Hostname != value))
+				{
+					this.OnHostnameChanging(value);
+					this.SendPropertyChanging();
+					this._Hostname = value;
+					this.SendPropertyChanged("Hostname");
+					this.OnHostnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Domain", DbType="NVarChar(255)")]
+		public string Domain
+		{
+			get
+			{
+				return this._Domain;
+			}
+			set
+			{
+				if ((this._Domain != value))
+				{
+					this.OnDomainChanging(value);
+					this.SendPropertyChanging();
+					this._Domain = value;
+					this.SendPropertyChanged("Domain");
+					this.OnDomainChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP", DbType="NVarChar(64)")]
+		public string IP
+		{
+			get
+			{
+				return this._IP;
+			}
+			set
+			{
+				if ((this._IP != value))
+				{
+					this.OnIPChanging(value);
+					this.SendPropertyChanging();
+					this._IP = value;
+					this.SendPropertyChanged("IP");
+					this.OnIPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServerUniqueMachineCode1", DbType="NVarChar(255)")]
+		public string ServerUniqueMachineCode1
+		{
+			get
+			{
+				return this._ServerUniqueMachineCode1;
+			}
+			set
+			{
+				if ((this._ServerUniqueMachineCode1 != value))
+				{
+					this.OnServerUniqueMachineCode1Changing(value);
+					this.SendPropertyChanging();
+					this._ServerUniqueMachineCode1 = value;
+					this.SendPropertyChanged("ServerUniqueMachineCode1");
+					this.OnServerUniqueMachineCode1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServerUniqueMachineCode2", DbType="NVarChar(255)")]
+		public string ServerUniqueMachineCode2
+		{
+			get
+			{
+				return this._ServerUniqueMachineCode2;
+			}
+			set
+			{
+				if ((this._ServerUniqueMachineCode2 != value))
+				{
+					this.OnServerUniqueMachineCode2Changing(value);
+					this.SendPropertyChanging();
+					this._ServerUniqueMachineCode2 = value;
+					this.SendPropertyChanged("ServerUniqueMachineCode2");
+					this.OnServerUniqueMachineCode2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServerUniqueMachineCode3", DbType="NVarChar(255)")]
+		public string ServerUniqueMachineCode3
+		{
+			get
+			{
+				return this._ServerUniqueMachineCode3;
+			}
+			set
+			{
+				if ((this._ServerUniqueMachineCode3 != value))
+				{
+					this.OnServerUniqueMachineCode3Changing(value);
+					this.SendPropertyChanging();
+					this._ServerUniqueMachineCode3 = value;
+					this.SendPropertyChanged("ServerUniqueMachineCode3");
+					this.OnServerUniqueMachineCode3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Certificate1", DbType="NVarChar(MAX)")]
+		public string Certificate1
+		{
+			get
+			{
+				return this._Certificate1;
+			}
+			set
+			{
+				if ((this._Certificate1 != value))
+				{
+					this.OnCertificate1Changing(value);
+					this.SendPropertyChanging();
+					this._Certificate1 = value;
+					this.SendPropertyChanged("Certificate1");
+					this.OnCertificate1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Certificate2", DbType="NVarChar(MAX)")]
+		public string Certificate2
+		{
+			get
+			{
+				return this._Certificate2;
+			}
+			set
+			{
+				if ((this._Certificate2 != value))
+				{
+					this.OnCertificate2Changing(value);
+					this.SendPropertyChanging();
+					this._Certificate2 = value;
+					this.SendPropertyChanged("Certificate2");
+					this.OnCertificate2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", DbType="Int NOT NULL")]
+		public int Version
+		{
+			get
+			{
+				return this._Version;
+			}
+			set
+			{
+				if ((this._Version != value))
+				{
+					this.OnVersionChanging(value);
+					this.SendPropertyChanging();
+					this._Version = value;
+					this.SendPropertyChanged("Version");
+					this.OnVersionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionAntecedentID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionAntecedentID
+		{
+			get
+			{
+				return this._VersionAntecedentID;
+			}
+			set
+			{
+				if ((this._VersionAntecedentID != value))
+				{
+					this.OnVersionAntecedentIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionAntecedentID = value;
+					this.SendPropertyChanged("VersionAntecedentID");
+					this.OnVersionAntecedentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionCertainty", DbType="Int")]
+		public System.Nullable<int> VersionCertainty
+		{
+			get
+			{
+				return this._VersionCertainty;
+			}
+			set
+			{
+				if ((this._VersionCertainty != value))
+				{
+					this.OnVersionCertaintyChanging(value);
+					this.SendPropertyChanging();
+					this._VersionCertainty = value;
+					this.SendPropertyChanged("VersionCertainty");
+					this.OnVersionCertaintyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionWorkflowInstanceID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionWorkflowInstanceID
+		{
+			get
+			{
+				return this._VersionWorkflowInstanceID;
+			}
+			set
+			{
+				if ((this._VersionWorkflowInstanceID != value))
+				{
+					this.OnVersionWorkflowInstanceIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionWorkflowInstanceID = value;
+					this.SendPropertyChanged("VersionWorkflowInstanceID");
+					this.OnVersionWorkflowInstanceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionUpdatedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionUpdatedBy
+		{
+			get
+			{
+				return this._VersionUpdatedBy;
+			}
+			set
+			{
+				if ((this._VersionUpdatedBy != value))
+				{
+					this.OnVersionUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._VersionUpdatedBy = value;
+					this.SendPropertyChanged("VersionUpdatedBy");
+					this.OnVersionUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionDeletedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionDeletedBy
+		{
+			get
+			{
+				return this._VersionDeletedBy;
+			}
+			set
+			{
+				if ((this._VersionDeletedBy != value))
+				{
+					this.OnVersionDeletedByChanging(value);
+					this.SendPropertyChanging();
+					this._VersionDeletedBy = value;
+					this.SendPropertyChanged("VersionDeletedBy");
+					this.OnVersionDeletedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionOwnerContactID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionOwnerContactID
+		{
+			get
+			{
+				return this._VersionOwnerContactID;
+			}
+			set
+			{
+				if ((this._VersionOwnerContactID != value))
+				{
+					this.OnVersionOwnerContactIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionOwnerContactID = value;
+					this.SendPropertyChanged("VersionOwnerContactID");
+					this.OnVersionOwnerContactIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionOwnerCompanyID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionOwnerCompanyID
+		{
+			get
+			{
+				return this._VersionOwnerCompanyID;
+			}
+			set
+			{
+				if ((this._VersionOwnerCompanyID != value))
+				{
+					this.OnVersionOwnerCompanyIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionOwnerCompanyID = value;
+					this.SendPropertyChanged("VersionOwnerCompanyID");
+					this.OnVersionOwnerCompanyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionUpdated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> VersionUpdated
+		{
+			get
+			{
+				return this._VersionUpdated;
+			}
+			set
+			{
+				if ((this._VersionUpdated != value))
+				{
+					this.OnVersionUpdatedChanging(value);
+					this.SendPropertyChanging();
+					this._VersionUpdated = value;
+					this.SendPropertyChanged("VersionUpdated");
+					this.OnVersionUpdatedChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.X_License")]
 	public partial class License : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2001,6 +2471,8 @@ namespace XODB.Models
 		private string _ServerName;
 		
 		private System.Nullable<System.Guid> _ServerID;
+		
+		private System.Nullable<System.Guid> _ApplicationID;
 		
 		private System.Nullable<System.DateTime> _ValidFrom;
 		
@@ -2126,6 +2598,8 @@ namespace XODB.Models
     partial void OnServerNameChanged();
     partial void OnServerIDChanging(System.Nullable<System.Guid> value);
     partial void OnServerIDChanged();
+    partial void OnApplicationIDChanging(System.Nullable<System.Guid> value);
+    partial void OnApplicationIDChanged();
     partial void OnValidFromChanging(System.Nullable<System.DateTime> value);
     partial void OnValidFromChanged();
     partial void OnExpiryChanging(System.Nullable<System.DateTime> value);
@@ -2555,6 +3029,26 @@ namespace XODB.Models
 					this._ServerID = value;
 					this.SendPropertyChanged("ServerID");
 					this.OnServerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> ApplicationID
+		{
+			get
+			{
+				return this._ApplicationID;
+			}
+			set
+			{
+				if ((this._ApplicationID != value))
+				{
+					this.OnApplicationIDChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationID = value;
+					this.SendPropertyChanged("ApplicationID");
+					this.OnApplicationIDChanged();
 				}
 			}
 		}
@@ -3235,476 +3729,6 @@ namespace XODB.Models
 					this._LicenseKeyCode = value;
 					this.SendPropertyChanged("LicenseKeyCode");
 					this.OnLicenseKeyCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", DbType="Int NOT NULL")]
-		public int Version
-		{
-			get
-			{
-				return this._Version;
-			}
-			set
-			{
-				if ((this._Version != value))
-				{
-					this.OnVersionChanging(value);
-					this.SendPropertyChanging();
-					this._Version = value;
-					this.SendPropertyChanged("Version");
-					this.OnVersionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionAntecedentID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionAntecedentID
-		{
-			get
-			{
-				return this._VersionAntecedentID;
-			}
-			set
-			{
-				if ((this._VersionAntecedentID != value))
-				{
-					this.OnVersionAntecedentIDChanging(value);
-					this.SendPropertyChanging();
-					this._VersionAntecedentID = value;
-					this.SendPropertyChanged("VersionAntecedentID");
-					this.OnVersionAntecedentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionCertainty", DbType="Int")]
-		public System.Nullable<int> VersionCertainty
-		{
-			get
-			{
-				return this._VersionCertainty;
-			}
-			set
-			{
-				if ((this._VersionCertainty != value))
-				{
-					this.OnVersionCertaintyChanging(value);
-					this.SendPropertyChanging();
-					this._VersionCertainty = value;
-					this.SendPropertyChanged("VersionCertainty");
-					this.OnVersionCertaintyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionWorkflowInstanceID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionWorkflowInstanceID
-		{
-			get
-			{
-				return this._VersionWorkflowInstanceID;
-			}
-			set
-			{
-				if ((this._VersionWorkflowInstanceID != value))
-				{
-					this.OnVersionWorkflowInstanceIDChanging(value);
-					this.SendPropertyChanging();
-					this._VersionWorkflowInstanceID = value;
-					this.SendPropertyChanged("VersionWorkflowInstanceID");
-					this.OnVersionWorkflowInstanceIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionUpdatedBy", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionUpdatedBy
-		{
-			get
-			{
-				return this._VersionUpdatedBy;
-			}
-			set
-			{
-				if ((this._VersionUpdatedBy != value))
-				{
-					this.OnVersionUpdatedByChanging(value);
-					this.SendPropertyChanging();
-					this._VersionUpdatedBy = value;
-					this.SendPropertyChanged("VersionUpdatedBy");
-					this.OnVersionUpdatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionDeletedBy", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionDeletedBy
-		{
-			get
-			{
-				return this._VersionDeletedBy;
-			}
-			set
-			{
-				if ((this._VersionDeletedBy != value))
-				{
-					this.OnVersionDeletedByChanging(value);
-					this.SendPropertyChanging();
-					this._VersionDeletedBy = value;
-					this.SendPropertyChanged("VersionDeletedBy");
-					this.OnVersionDeletedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionOwnerContactID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionOwnerContactID
-		{
-			get
-			{
-				return this._VersionOwnerContactID;
-			}
-			set
-			{
-				if ((this._VersionOwnerContactID != value))
-				{
-					this.OnVersionOwnerContactIDChanging(value);
-					this.SendPropertyChanging();
-					this._VersionOwnerContactID = value;
-					this.SendPropertyChanged("VersionOwnerContactID");
-					this.OnVersionOwnerContactIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionOwnerCompanyID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionOwnerCompanyID
-		{
-			get
-			{
-				return this._VersionOwnerCompanyID;
-			}
-			set
-			{
-				if ((this._VersionOwnerCompanyID != value))
-				{
-					this.OnVersionOwnerCompanyIDChanging(value);
-					this.SendPropertyChanging();
-					this._VersionOwnerCompanyID = value;
-					this.SendPropertyChanged("VersionOwnerCompanyID");
-					this.OnVersionOwnerCompanyIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionUpdated", DbType="DateTime")]
-		public System.Nullable<System.DateTime> VersionUpdated
-		{
-			get
-			{
-				return this._VersionUpdated;
-			}
-			set
-			{
-				if ((this._VersionUpdated != value))
-				{
-					this.OnVersionUpdatedChanging(value);
-					this.SendPropertyChanging();
-					this._VersionUpdated = value;
-					this.SendPropertyChanged("VersionUpdated");
-					this.OnVersionUpdatedChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.X_Server")]
-	public partial class Server : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _ServerID;
-		
-		private string _Hostname;
-		
-		private string _Domain;
-		
-		private string _IP;
-		
-		private string _ServerUniqueMachineCode1;
-		
-		private string _ServerUniqueMachineCode2;
-		
-		private string _ServerUniqueMachineCode3;
-		
-		private string _Certificate1;
-		
-		private string _Certificate2;
-		
-		private int _Version;
-		
-		private System.Nullable<System.Guid> _VersionAntecedentID;
-		
-		private System.Nullable<int> _VersionCertainty;
-		
-		private System.Nullable<System.Guid> _VersionWorkflowInstanceID;
-		
-		private System.Nullable<System.Guid> _VersionUpdatedBy;
-		
-		private System.Nullable<System.Guid> _VersionDeletedBy;
-		
-		private System.Nullable<System.Guid> _VersionOwnerContactID;
-		
-		private System.Nullable<System.Guid> _VersionOwnerCompanyID;
-		
-		private System.Nullable<System.DateTime> _VersionUpdated;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnServerIDChanging(System.Guid value);
-    partial void OnServerIDChanged();
-    partial void OnHostnameChanging(string value);
-    partial void OnHostnameChanged();
-    partial void OnDomainChanging(string value);
-    partial void OnDomainChanged();
-    partial void OnIPChanging(string value);
-    partial void OnIPChanged();
-    partial void OnServerUniqueMachineCode1Changing(string value);
-    partial void OnServerUniqueMachineCode1Changed();
-    partial void OnServerUniqueMachineCode2Changing(string value);
-    partial void OnServerUniqueMachineCode2Changed();
-    partial void OnServerUniqueMachineCode3Changing(string value);
-    partial void OnServerUniqueMachineCode3Changed();
-    partial void OnCertificate1Changing(string value);
-    partial void OnCertificate1Changed();
-    partial void OnCertificate2Changing(string value);
-    partial void OnCertificate2Changed();
-    partial void OnVersionChanging(int value);
-    partial void OnVersionChanged();
-    partial void OnVersionAntecedentIDChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionAntecedentIDChanged();
-    partial void OnVersionCertaintyChanging(System.Nullable<int> value);
-    partial void OnVersionCertaintyChanged();
-    partial void OnVersionWorkflowInstanceIDChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionWorkflowInstanceIDChanged();
-    partial void OnVersionUpdatedByChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionUpdatedByChanged();
-    partial void OnVersionDeletedByChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionDeletedByChanged();
-    partial void OnVersionOwnerContactIDChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionOwnerContactIDChanged();
-    partial void OnVersionOwnerCompanyIDChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionOwnerCompanyIDChanged();
-    partial void OnVersionUpdatedChanging(System.Nullable<System.DateTime> value);
-    partial void OnVersionUpdatedChanged();
-    #endregion
-		
-		public Server()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServerID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid ServerID
-		{
-			get
-			{
-				return this._ServerID;
-			}
-			set
-			{
-				if ((this._ServerID != value))
-				{
-					this.OnServerIDChanging(value);
-					this.SendPropertyChanging();
-					this._ServerID = value;
-					this.SendPropertyChanged("ServerID");
-					this.OnServerIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hostname", DbType="NVarChar(255)")]
-		public string Hostname
-		{
-			get
-			{
-				return this._Hostname;
-			}
-			set
-			{
-				if ((this._Hostname != value))
-				{
-					this.OnHostnameChanging(value);
-					this.SendPropertyChanging();
-					this._Hostname = value;
-					this.SendPropertyChanged("Hostname");
-					this.OnHostnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Domain", DbType="NVarChar(255)")]
-		public string Domain
-		{
-			get
-			{
-				return this._Domain;
-			}
-			set
-			{
-				if ((this._Domain != value))
-				{
-					this.OnDomainChanging(value);
-					this.SendPropertyChanging();
-					this._Domain = value;
-					this.SendPropertyChanged("Domain");
-					this.OnDomainChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP", DbType="NVarChar(64)")]
-		public string IP
-		{
-			get
-			{
-				return this._IP;
-			}
-			set
-			{
-				if ((this._IP != value))
-				{
-					this.OnIPChanging(value);
-					this.SendPropertyChanging();
-					this._IP = value;
-					this.SendPropertyChanged("IP");
-					this.OnIPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServerUniqueMachineCode1", DbType="NVarChar(255)")]
-		public string ServerUniqueMachineCode1
-		{
-			get
-			{
-				return this._ServerUniqueMachineCode1;
-			}
-			set
-			{
-				if ((this._ServerUniqueMachineCode1 != value))
-				{
-					this.OnServerUniqueMachineCode1Changing(value);
-					this.SendPropertyChanging();
-					this._ServerUniqueMachineCode1 = value;
-					this.SendPropertyChanged("ServerUniqueMachineCode1");
-					this.OnServerUniqueMachineCode1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServerUniqueMachineCode2", DbType="NVarChar(255)")]
-		public string ServerUniqueMachineCode2
-		{
-			get
-			{
-				return this._ServerUniqueMachineCode2;
-			}
-			set
-			{
-				if ((this._ServerUniqueMachineCode2 != value))
-				{
-					this.OnServerUniqueMachineCode2Changing(value);
-					this.SendPropertyChanging();
-					this._ServerUniqueMachineCode2 = value;
-					this.SendPropertyChanged("ServerUniqueMachineCode2");
-					this.OnServerUniqueMachineCode2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServerUniqueMachineCode3", DbType="NVarChar(255)")]
-		public string ServerUniqueMachineCode3
-		{
-			get
-			{
-				return this._ServerUniqueMachineCode3;
-			}
-			set
-			{
-				if ((this._ServerUniqueMachineCode3 != value))
-				{
-					this.OnServerUniqueMachineCode3Changing(value);
-					this.SendPropertyChanging();
-					this._ServerUniqueMachineCode3 = value;
-					this.SendPropertyChanged("ServerUniqueMachineCode3");
-					this.OnServerUniqueMachineCode3Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Certificate1", DbType="NVarChar(MAX)")]
-		public string Certificate1
-		{
-			get
-			{
-				return this._Certificate1;
-			}
-			set
-			{
-				if ((this._Certificate1 != value))
-				{
-					this.OnCertificate1Changing(value);
-					this.SendPropertyChanging();
-					this._Certificate1 = value;
-					this.SendPropertyChanged("Certificate1");
-					this.OnCertificate1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Certificate2", DbType="NVarChar(MAX)")]
-		public string Certificate2
-		{
-			get
-			{
-				return this._Certificate2;
-			}
-			set
-			{
-				if ((this._Certificate2 != value))
-				{
-					this.OnCertificate2Changing(value);
-					this.SendPropertyChanging();
-					this._Certificate2 = value;
-					this.SendPropertyChanged("Certificate2");
-					this.OnCertificate2Changed();
 				}
 			}
 		}

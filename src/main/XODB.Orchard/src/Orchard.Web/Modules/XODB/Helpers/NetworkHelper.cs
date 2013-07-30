@@ -9,7 +9,7 @@ namespace XODB.Helpers
     public class NetworkHelper
     {
 
-        private static bool IsLocal(IPAddress ipaddress)
+        public static bool IsLocal(IPAddress ipaddress)
         {
             if (ipaddress.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
             {
@@ -30,6 +30,11 @@ namespace XODB.Helpers
                 if (ipaddress.IsIPv6LinkLocal || ipaddress.IsIPv6Multicast || ipaddress.IsIPv6SiteLocal || ipaddress.IsIPv6Teredo) return true;
             }
             return false;
+        }
+
+        public static bool IsLocal(string ipaddress)
+        {
+            return IsLocal(IPAddress.Parse(ipaddress));
         }
 
         public class IPAddressRange
