@@ -30,6 +30,9 @@ using Orchard.Data;
 using Orchard.Environment.Configuration;
 using Orchard.Utility.Extensions;
 using System.Web.Configuration;
+using HtmlAgilityPack;
+using System.Net;
+using System.Management;
 
 namespace XODB.Services {
     
@@ -96,7 +99,7 @@ namespace XODB.Services {
                     using (new TransactionScope(TransactionScopeOption.Suppress))
                     {
                         var c = new ContactsDataContext();
-                        var app = (from o in c.Applications where o.ApplicationName == _shellSettings.Name select o.ApplicationId).FirstOrDefault();
+                        applicationID = (from o in c.Applications where o.ApplicationName == _shellSettings.Name select o.ApplicationId).FirstOrDefault();
                         if (applicationID == default(Guid))
                         {
                             applicationID = Guid.NewGuid();
@@ -105,6 +108,76 @@ namespace XODB.Services {
                     }
                 }
                 return applicationID.Value;
+            }
+        }
+
+        private Guid? serverID = null;
+        public Guid ServerID
+        {
+            get
+            {
+
+                try
+                {
+                    var h = Dns.GetHostName();
+                    var iph = Dns.GetHostEntry(h);
+                    var ip = iph.AddressList;
+
+                    h = Environment.MachineName;
+                    iph = Dns.GetHostEntry(h);
+                    ip = iph.AddressList;
+
+                    var i = _orchardServices.WorkContext.CurrentSite.BaseUrl;
+                    h = i.Substring(i.LastIndexOf('/'), i.Length - i.LastIndexOf('/'));
+                    iph = Dns.GetHostEntry(h);
+                    ip = iph.AddressList;
+
+                    //Public IP
+                    var check = "http://checkip.dyndns.org";
+                    var p = WebRequest.GetSystemWebProxy();
+                    var c = new WebClient();
+                    c.Headers.Add("Lynx/2.8.8dev.3 libwww-FM/2.14 SSL-MM/1.4.1");
+                    c.Proxy = p;
+                    c.Credentials = CredentialCache.DefaultNetworkCredentials;
+                    var d = c.OpenRead(check);
+
+                    //HtmlWeb web = new HtmlWeb();
+                    HtmlDocument doc = new HtmlDocument(); //web.Load(, "GET", , );
+                    doc.Load(d);
+                    var n = doc.DocumentNode.SelectSingleNode("/html/body");
+                    var s = n.InnerText.Trim();
+                    s = s.Substring(s.LastIndexOf(' '), s.Length - s.LastIndexOf(' '));
+
+
+                    var sid1 = new SecurityIdentifier((byte[])new DirectoryEntry(string.Format("WinNT://{0},Computer", Environment.MachineName)).Children.Cast<DirectoryEntry>().First().InvokeGet("objectSID"), 0).AccountDomainSid;
+                    var sid2 = "";
+                    using (var mo = new ManagementObject(String.Format("win32_useraccount.domain='{0}',name ='{1}'", Environment.MachineName, "administrator")))
+                    {
+                        mo.Get();
+                        sid2 = mo["SID"].ToString();
+                        sid2 = sid2.Substring(0, sid2.Length - 4);
+                    }
+
+                    var sid3 = "";
+                    var cpus = new List<string>();
+                    foreach (ManagementObject mo in new ManagementClass("win32_processor").GetInstances())
+                    {
+                        cpus.Add(mo.Properties["processorID"].Value.ToString());
+                    }
+                    sid3 = cpus.OrderBy(f => f).ToArray().FlattenStringArray();
+
+                    //Update all server info
+
+                    //Update ServerApplication
+
+                    return serverID.Value;
+
+                }
+                catch (Exception ex)
+                {
+                    Logger.Information("Could not update server fingerprint. Corresponding licenses may fail.");
+                }
+
             }
         }
 
@@ -127,7 +200,6 @@ namespace XODB.Services {
                     
                     //TODO: Update....
                     var nu = (from o in orchardUsers where !(from ou in u select ou.UserName).Contains(o.UserName) select o);
-
                  
                 }
 
