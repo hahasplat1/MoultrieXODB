@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Orchard.Mvc.Routes;
 
-namespace XODB
+namespace XODB.SpatialDMS
 {
     public class Routes : IRouteProvider
     {
@@ -21,16 +21,16 @@ namespace XODB
                     Route = new Route(
                         "Xstract/SpatialDMS/{controller}/{action}",
                         new RouteValueDictionary {
-                            {"area", "SpatialDMS"},
+                            {"area", "XODB.SpatialDMS"},
                             {"controller", "User"},
                             {"action", "Index"}
                         },
                         new RouteValueDictionary {
-                            {"area", "SpatialDMS"},
+                            {"area", "XODB.SpatialDMS"},
                             {"controller", "User"}
                         },
                         new RouteValueDictionary {
-                            {"area", "SpatialDMS"}
+                            {"area", "XODB.SpatialDMS"}
                         },
                         new MvcRouteHandler())
                 },
@@ -39,15 +39,15 @@ namespace XODB
                     Route = new Route(
                         "Xstract/SpatialDMS/{controller}/{action}/{id}/{verb}",
                         new RouteValueDictionary {
-                            {"area", "SpatialDMS"},
+                            {"area", "XODB.SpatialDMS"},
                             {"controller", "User"}                            
                         },
                         new RouteValueDictionary {
-                            {"area", "SpatialDMS"},
+                            {"area", "XODB.SpatialDMS"},
                             {"controller", "User"},                          
                         },
                         new RouteValueDictionary {
-                            {"area", "SpatialDMS"}
+                            {"area", "XODB.SpatialDMS"}
                         },
                         new MvcRouteHandler())
                 }

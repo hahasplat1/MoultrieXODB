@@ -165,6 +165,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\..\..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="ImpromptuInterface">
       <HintPath>..\..\..\..\lib\impromptu-interface-bin\ImpromptuInterface.dll</HintPath>
     </Reference>
@@ -200,6 +203,8 @@
     <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
     <Reference Include="System.Runtime.Serialization">
       <Private>True</Private>
     </Reference>
@@ -385,6 +390,7 @@
     <Compile Include="Helpers\CacheHelper.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\InterfaceHelper.cs" />
+    <Compile Include="Helpers\NetworkHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Helpers\TaskHelper.cs" />
     <Compile Include="Models\Assays.designer.cs">
@@ -393,6 +399,11 @@
       <DependentUpon>Assays.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\BlockModelPart.cs" />
+    <Compile Include="Models\Software.designer.cs">
+      <DependentUpon>Software.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Models\Geophysics.designer.cs">
       <DependentUpon>Geophysics.dbml</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -535,6 +546,11 @@
       <LastGenOutput>Geophysics.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Models\Software.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Software.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Models\Projects.dbml.layout">
       <DependentUpon>Projects.dbml</DependentUpon>
     </None>
@@ -553,6 +569,9 @@
   <ItemGroup>
     <None Include="Models\Geophysics.dbml.layout">
       <DependentUpon>Geophysics.dbml</DependentUpon>
+    </None>
+    <None Include="Models\Software.dbml.layout">
+      <DependentUpon>Software.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Reports\GeophysicsReport.resx">
       <DependentUpon>GeophysicsReport.cs</DependentUpon>
