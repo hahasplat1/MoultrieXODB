@@ -21,7 +21,8 @@ namespace XODB.Import.ImportUtils
             string nameLookupColumnPrediction = "Custom" + partA + "Name";
             string stdLookupColumnPrediction = "Standard" + partA + "Name";
 
-            string statement1 = "SELECT " + fkColumnKey + " FROM " + fkTable + " WHERE " + nameLookupColumnPrediction + " = \'" + columnValue + "\'";
+
+            string statement1 = "SELECT " + fkColumnKey + " FROM " + fkTable + " WHERE " + stdLookupColumnPrediction + " = \'" + columnValue + "\'";
 
             SqlCommand sqc = new SqlCommand(statement1, connection);
             SqlDataReader reader = sqc.ExecuteReader();
@@ -33,6 +34,21 @@ namespace XODB.Import.ImportUtils
             }
             reader.Close();
 
+            if (results == null || results.Count == 0)
+            {
+
+                statement1 = "SELECT " + fkColumnKey + " FROM " + fkTable + " WHERE " + nameLookupColumnPrediction + " = \'" + columnValue + "\'";
+
+                sqc = new SqlCommand(statement1, connection);
+                reader = sqc.ExecuteReader();
+                results = new List<string>();
+                while (reader.Read())
+                {
+                    string fkName = reader[0].ToString();
+                    results.Add(fkName);
+                }
+                reader.Close();
+            }
             if (results.Count == 0 && genNewFK == true)
             {
                 // there is no matching entry in this dictionary.  Make a new entry

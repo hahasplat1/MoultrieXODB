@@ -86,12 +86,16 @@ namespace XODB.Import.ImportUtils
                 {
                     while ((line = sr.ReadLine()) != null)
                     {
-                        
+                       
                         repCount++;
                         bct++;
-
-                        progress = ((float)bct / fNumLines)*100.0f;
+                        progress = ((float)bct / fNumLines) * 100.0f;
                         linesRead++;
+                        if (line != null && line.Trim().Length == 0) {
+                            mos.AddWarningMessage("Empty data line found at line " + linesRead + ".");
+                            continue;
+                        }
+                       
                         if (ct >= importMap.dataStartLine)
                         {
                             
