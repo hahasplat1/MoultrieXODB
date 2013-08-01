@@ -22,9 +22,21 @@ namespace XODB.Import.ImportUtils
             {
                 CollarInfo ci = new CollarInfo();
                 ci.Name = xx.HoleName;
-                ci.Easting = (double)xx.Easting;
-                ci.Northing = (double)xx.Northing;
-                ci.RL = (double)xx.Elevation;
+                if (xx.Easting != null) {
+                    ci.Easting = (double)xx.Easting;
+                }
+
+                
+                if (xx.Northing != null)
+                {
+                    ci.Northing = (double)xx.Northing;
+                } 
+                
+                if (xx.Elevation != null)
+                {
+                    ci.RL = (double)xx.Elevation;    
+                }
+                
                 ss.Add(ci);
             }
 

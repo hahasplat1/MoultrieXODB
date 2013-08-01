@@ -26,7 +26,18 @@ namespace XODB.Import.ImportUtils
             SqlConnection secondaryConnection = null;
             Dictionary<string,int> uniqueHoleNames = new Dictionary<string,int>();
             List<List<string>> rejectedLines = new List<List<string>>();
-            Dictionary<string, string> holeWarningMessages = new Dictionary<string, string>(); 
+            Dictionary<string, string> holeWarningMessages = new Dictionary<string, string>();
+
+            // this loop makes sure that any guids are properly types so that a text string for that guid can be passed into the query
+            foreach (ColumnMap cmap in importMap.columnMap)
+            {
+                bool isFKColumn = cmap.hasFKRelation;
+                if (isFKColumn)
+                {
+                    cmap.importDataType = ImportDataMap.TEXTDATATYPE;
+                }
+            }
+
             // get a connection to the database
             try
             {
@@ -67,7 +78,7 @@ namespace XODB.Import.ImportUtils
 
                 // get the column containing the hole name 
                 ColumnMap cmapHeader = importMap.FindItemsByTargetName("HoleName");
-                
+                cmapHeader.importDataType = ImportDataMap.TEXTDATATYPE;
                 int headerIDX = cmapHeader.sourceColumnNumber;
                 int numberOfHolesAdded = 0;
                 
@@ -81,6 +92,12 @@ namespace XODB.Import.ImportUtils
                    
                         bct++;
                         linesRead++;
+                        if (linesRead == 75) {
+                            bool breakHere;
+                            int cc = 0;
+                            double ff =  Math.PI * 10;
+
+                        }
                         if (ct >= importMap.dataStartLine)
                         {
                             
@@ -93,6 +110,9 @@ namespace XODB.Import.ImportUtils
                             // using the column map, pick out the hole name field and see if it is in the database already
                             string headerNameItem = items[headerIDX];
                             // check if this holename is a duplicate in the file
+                            if(headerNameItem.Trim().Equals("A11A")){
+                                bool b = true;
+                            }
 
                             bool hasHolenameEntryInFile = uniqueHoleNames.ContainsKey(headerNameItem.Trim());
                             if (hasHolenameEntryInFile) { 
@@ -150,11 +170,12 @@ namespace XODB.Import.ImportUtils
                                     // go and search for the appropriate value from the foreign key table
                                     string newValue = ForeignKeyUtils.FindFKValueInDictionary(columnValue, cmap, secondaryConnection, true);
                                     columnValue = newValue;
+                                   
                                 }
 
                                 if (cmap.importDataType.Equals(ImportDataMap.NUMERICDATATYPE))
                                 {
-                                    if (columnValue.Equals("-"))
+                                    if (columnValue.Equals("-") || columnValue.Trim().Length == 0)
                                     {
                                         if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
                                         {
@@ -185,14 +206,14 @@ namespace XODB.Import.ImportUtils
 
                                 else
                                 {
-                                    //if (columnValue.Equals("-"))
-                                    //{
-                                    //    if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
-                                    //    {
-                                    //        columnValue = cmap.defaultValue;
-                                    //    }
+                                    if (columnValue.Equals("-") || columnValue.Trim().Length == 0)
+                                    {
+                                        if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
+                                        {
+                                            columnValue = cmap.defaultValue;
+                                        }
 
-                                    //}
+                                    }
                                     clauseParameters += "\'" + columnValue + "\',";
                                 }
                             }
@@ -206,7 +227,14 @@ namespace XODB.Import.ImportUtils
                             numberOfHolesAdded++;
                             if (commitToDB)
                             {
-                                sqc.ExecuteNonQuery();
+                                try
+                                {
+                                    sqc.ExecuteNonQuery();
+                                }
+                                catch (Exception ex) {
+                                    string err = "" + ex.ToString();
+                                    throw ex;
+                                }
                             }
                             tb++;
                             if (tb == transactionBatchLimit)
@@ -299,7 +327,7 @@ namespace XODB.Import.ImportUtils
 
                 // get the column containing the hole name 
                 ColumnMap cmapHeader = importMap.FindItemsByTargetName("HoleName");
-                
+                cmapHeader.importDataType = ImportDataMap.TEXTDATATYPE;
                 int headerIDX = cmapHeader.sourceColumnNumber;
                 int numberOfHolesAdded = 0;
                 int linesRead = 0;
@@ -308,7 +336,12 @@ namespace XODB.Import.ImportUtils
                 // get all fo the header IDs in one go before we try the insert
                 
                 Dictionary<string, Guid> holeIDLookups = CollarQueries.FindHeaderGuidsForProject(XODBProjectID);
-               
+                // this loop makes sure that any guids are properly types so that a text string for that guid can be passed into the query
+                foreach (ColumnMap cmap in importMap.columnMap)
+                {
+                    bool isFKColumn = cmap.hasFKRelation;
+                    cmap.importDataType = ImportDataMap.TEXTDATATYPE;
+                }
 
 
                 foreach (List<string> columnData in rejectedLines)
@@ -367,11 +400,12 @@ namespace XODB.Import.ImportUtils
                                 // go and search for the appropriate value from the foreign key table
                                 string newValue = ForeignKeyUtils.FindFKValueInDictionary(columnValue, cmap, secondaryConnection, true);
                                 columnValue = newValue;
+                                
                             }
 
                             if (cmap.importDataType.Equals(ImportDataMap.NUMERICDATATYPE))
                             {
-                                if (columnValue.Equals("-"))
+                                if (columnValue.Equals("-") || columnValue.Trim().Length == 0)
                                 {
                                     if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
                                     {
@@ -401,7 +435,7 @@ namespace XODB.Import.ImportUtils
                             }
                             else
                             {
-                                columnValue += "\'" + columnValue + "\'";
+                                columnValue = "\'" + columnValue + "\'";
                             }
                             clauseValues += columnValue + ",";
 

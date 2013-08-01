@@ -33,6 +33,13 @@ namespace XODB.Import.ImportUtils
             LithoQueries lq = new LithoQueries();
             lq.SetEntityObject(entityObj);
 
+            // this loop makes sure that any guids are properly types so that a text string for that guid can be passed into the query
+            foreach (ColumnMap cmap in importMap.columnMap)
+            {
+                bool isFKColumn = cmap.hasFKRelation;
+                cmap.importDataType = ImportDataMap.TEXTDATATYPE;
+            }
+
             // get a connection to the database
             try
             {
@@ -225,47 +232,61 @@ namespace XODB.Import.ImportUtils
                                         string newValue = ForeignKeyUtils.FindFKValueInDictionary(columnValue, cmap, secondaryConnection, true);
                                         columnValue = "\'" + newValue + "\'";
                                     }
-
-                                    if (cmap.importDataType.Equals(ImportDataMap.NUMERICDATATYPE))
+                                    else
                                     {
-                                        if (columnValue.Equals("-") || columnValue.Equals(""))
+
+                                        if (cmap.importDataType.Equals(ImportDataMap.NUMERICDATATYPE))
                                         {
-                                            if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
+                                            if (columnValue.Equals("-") || columnValue.Equals(""))
                                             {
-                                                columnValue = cmap.defaultValue;
+                                                if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
+                                                {
+                                                    columnValue = cmap.defaultValue;
+                                                }
+                                                else
+                                                {
+                                                    columnValue = "NULL";
+                                                }
+                                            }
+                                            clauseParameters += columnValue + ",";
+                                        }
+
+                                        else
+                                        {
+                                            if (cmap.targetColumnName.Trim().Equals("Description"))
+                                            {
+                                                if (columnValue != null && columnValue.Length > 254)
+                                                {
+                                                    columnValue = columnValue.Substring(0, 254);
+                                                    mos.AddWarningMessage("Description too long, truncated to 255 characters.  Line " + linesRead);
+
+                                                }
+                                                clauseParameters += "\'" + columnValue + "\',";
                                             }
                                             else
                                             {
-                                                columnValue = "NULL";
+
+                                                if (columnValue.Equals("-") || columnValue.Equals(""))
+                                                {
+                                                    if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
+                                                    {
+                                                        columnValue = cmap.defaultValue;
+                                                    }
+
+
+                                                    clauseParameters += "\'" + columnValue + "\',";
+                                                }
                                             }
-                                        }
-                                        clauseParameters += columnValue + ",";
-                                    }
+                                            //if (columnValue.Equals("-"))
+                                            //{
+                                            //    if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
+                                            //    {
+                                            //        columnValue = cmap.defaultValue;
+                                            //    }
 
-                                    else
-                                    {
-                                        if (cmap.targetColumnName.Trim().Equals("Description"))
-                                        {
-                                            if (columnValue != null && columnValue.Length > 254)
-                                            {
-                                                columnValue = columnValue.Substring(0, 254);
-                                                mos.AddWarningMessage("Description too long, truncated to 255 characters.  Line "+linesRead);
+                                            //}
 
-                                            }
-                                            clauseParameters += "\'" + columnValue + "\',";
                                         }
-                                        else {
-                                            clauseParameters += "\'" + columnValue + "\',";
-                                        }
-                                        //if (columnValue.Equals("-"))
-                                        //{
-                                        //    if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
-                                        //    {
-                                        //        columnValue = cmap.defaultValue;
-                                        //    }
-
-                                        //}
-                                        
                                     }
                                 }
                             }
