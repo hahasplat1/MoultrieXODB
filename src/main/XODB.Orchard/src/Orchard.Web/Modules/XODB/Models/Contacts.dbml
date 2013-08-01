@@ -29,10 +29,10 @@
       <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Contact_Experience" Member="Experiences" ThisKey="ContactID" OtherKey="ContactID" Type="Experience" />
-      <Association Name="Contact_X_Company" Member="Companies" ThisKey="ContactID" OtherKey="PrimaryContactID" Type="Company" />
-      <Association Name="Contact_X_SecurityBlacklist" Member="SecurityBlacklists" ThisKey="ContactID" OtherKey="AccessorContactID" Type="SecurityBlacklist" />
-      <Association Name="Contact_X_SecurityWhitelist" Member="X_SecurityWhitelists" ThisKey="ContactID" OtherKey="AccessorContactID" Type="SecurityWhitelist" />
-      <Association Name="Contact_X_SecurityWhitelist1" Member="SecurityWhitelists" ThisKey="ContactID" OtherKey="AccessorContactID" Type="SecurityWhitelist" />
+      <Association Name="Contact_Company" Member="Companies" ThisKey="ContactID" OtherKey="PrimaryContactID" Type="Company" />
+      <Association Name="Contact_SecurityBlacklist" Member="SecurityBlacklists" ThisKey="ContactID" OtherKey="AccessorContactID" Type="SecurityBlacklist" />
+      <Association Name="Contact_SecurityWhitelist" Member="X_SecurityWhitelists" ThisKey="ContactID" OtherKey="AccessorContactID" Type="SecurityWhitelist" />
+      <Association Name="Contact_SecurityWhitelist1" Member="SecurityWhitelists" ThisKey="ContactID" OtherKey="AccessorContactID" Type="SecurityWhitelist" />
     </Type>
   </Table>
   <Table Name="dbo.X_Experience" Member="Experiences">
@@ -67,7 +67,7 @@
       <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Contact_Experience" Member="Contact" ThisKey="ContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
-      <Association Name="X_Company_Experience" Member="Company" ThisKey="CompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_Experience" Member="Company" ThisKey="CompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_Applications" Member="Applications">
@@ -76,8 +76,8 @@
       <Column Name="LoweredApplicationName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
-      <Association Name="aspnet_Application_aspnet_User" Member="Users" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="User" />
-      <Association Name="aspnet_Application_aspnet_Role" Member="Roles" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Role" />
+      <Association Name="Application_User" Member="Users" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="User" />
+      <Association Name="Application_Role" Member="Roles" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Role" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_Users" Member="Users">
@@ -89,16 +89,16 @@
       <Column Name="MobileAlias" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
       <Column Name="IsAnonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="aspnet_User_aspnet_UsersInRole" Member="UsersInRoles" ThisKey="UserId" OtherKey="UserId" Type="UsersInRole" />
-      <Association Name="aspnet_Application_aspnet_User" Member="Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Application" IsForeignKey="true" />
+      <Association Name="User_UsersInRole" Member="UsersInRoles" ThisKey="UserId" OtherKey="UserId" Type="UsersInRole" />
+      <Association Name="Application_User" Member="Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Application" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_UsersInRoles" Member="UsersInRoles">
     <Type Name="UsersInRole">
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="aspnet_User_aspnet_UsersInRole" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
-      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="Role" ThisKey="RoleId" OtherKey="RoleId" Type="Role" IsForeignKey="true" />
+      <Association Name="User_UsersInRole" Member="User" ThisKey="UserId" OtherKey="UserId" Type="User" IsForeignKey="true" />
+      <Association Name="Role_UsersInRole" Member="Role" ThisKey="RoleId" OtherKey="RoleId" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_Roles" Member="Roles">
@@ -108,8 +108,8 @@
       <Column Name="RoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="LoweredRoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
-      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="UsersInRoles" ThisKey="RoleId" OtherKey="RoleId" Type="UsersInRole" />
-      <Association Name="aspnet_Application_aspnet_Role" Member="Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Application" IsForeignKey="true" />
+      <Association Name="Role_UsersInRole" Member="UsersInRoles" ThisKey="RoleId" OtherKey="RoleId" Type="UsersInRole" />
+      <Association Name="Application_Role" Member="Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="Application" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.X_Company" Member="Companies">
@@ -128,15 +128,15 @@
       <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="X_Company_Experience" Member="Experiences" ThisKey="CompanyID" OtherKey="CompanyID" Type="Experience" />
-      <Association Name="X_Company_X_CompanyRelation" Member="X_CompanyRelations" ThisKey="CompanyID" OtherKey="CompanyID" Type="CompanyRelation" />
-      <Association Name="X_Company_X_CompanyRelation1" Member="CompanyRelations" ThisKey="CompanyID" OtherKey="ParentCompanyID" Type="CompanyRelation" />
-      <Association Name="X_Company_X_CompanyAddress" Member="CompanyAddresses" ThisKey="CompanyID" OtherKey="CompanyID" Type="CompanyAddress" />
-      <Association Name="X_Company_X_SecurityBlacklist" Member="X_SecurityBlacklists" ThisKey="CompanyID" OtherKey="OwnerCompanyID" Type="SecurityBlacklist" />
-      <Association Name="X_Company_X_SecurityBlacklist1" Member="SecurityBlacklists" ThisKey="CompanyID" OtherKey="AccessorCompanyID" Type="SecurityBlacklist" />
-      <Association Name="X_Company_X_SecurityWhitelist" Member="X_SecurityWhitelists" ThisKey="CompanyID" OtherKey="OwnerCompanyID" Type="SecurityWhitelist" />
-      <Association Name="X_Company_X_SecurityWhitelist1" Member="SecurityWhitelists" ThisKey="CompanyID" OtherKey="AccessorCompanyID" Type="SecurityWhitelist" />
-      <Association Name="Contact_X_Company" Member="Contact" ThisKey="PrimaryContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
+      <Association Name="Company_Experience" Member="Experiences" ThisKey="CompanyID" OtherKey="CompanyID" Type="Experience" />
+      <Association Name="Company_CompanyRelation" Member="X_CompanyRelations" ThisKey="CompanyID" OtherKey="CompanyID" Type="CompanyRelation" />
+      <Association Name="Company_CompanyRelation1" Member="CompanyRelations" ThisKey="CompanyID" OtherKey="ParentCompanyID" Type="CompanyRelation" />
+      <Association Name="Company_CompanyAddress" Member="CompanyAddresses" ThisKey="CompanyID" OtherKey="CompanyID" Type="CompanyAddress" />
+      <Association Name="Company_SecurityBlacklist" Member="X_SecurityBlacklists" ThisKey="CompanyID" OtherKey="OwnerCompanyID" Type="SecurityBlacklist" />
+      <Association Name="Company_SecurityBlacklist1" Member="SecurityBlacklists" ThisKey="CompanyID" OtherKey="AccessorCompanyID" Type="SecurityBlacklist" />
+      <Association Name="Company_SecurityWhitelist" Member="X_SecurityWhitelists" ThisKey="CompanyID" OtherKey="OwnerCompanyID" Type="SecurityWhitelist" />
+      <Association Name="Company_SecurityWhitelist1" Member="SecurityWhitelists" ThisKey="CompanyID" OtherKey="AccessorCompanyID" Type="SecurityWhitelist" />
+      <Association Name="Contact_Company" Member="Contact" ThisKey="PrimaryContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.X_CompanyRelation" Member="CompanyRelations">
@@ -155,8 +155,8 @@
       <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="X_Company_X_CompanyRelation" Member="X_Company" ThisKey="CompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
-      <Association Name="X_Company_X_CompanyRelation1" Member="Company" ThisKey="ParentCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_CompanyRelation" Member="X_Company" ThisKey="CompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_CompanyRelation1" Member="Company" ThisKey="ParentCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.X_CompanyAddress" Member="CompanyAddresses">
@@ -173,7 +173,7 @@
       <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="X_Company_X_CompanyAddress" Member="Company" ThisKey="CompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_CompanyAddress" Member="Company" ThisKey="CompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.X_SecurityBlacklist" Member="SecurityBlacklists">
@@ -205,9 +205,9 @@
       <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="X_Company_X_SecurityBlacklist" Member="X_Company" ThisKey="OwnerCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
-      <Association Name="X_Company_X_SecurityBlacklist1" Member="Company" ThisKey="AccessorCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
-      <Association Name="Contact_X_SecurityBlacklist" Member="Contact" ThisKey="AccessorContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
+      <Association Name="Company_SecurityBlacklist" Member="X_Company" ThisKey="OwnerCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_SecurityBlacklist1" Member="Company" ThisKey="AccessorCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
+      <Association Name="Contact_SecurityBlacklist" Member="Contact" ThisKey="AccessorContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.X_SecurityWhitelist" Member="SecurityWhitelists">
@@ -239,15 +239,10 @@
       <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="X_Company_X_SecurityWhitelist" Member="X_Company" ThisKey="OwnerCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
-      <Association Name="X_Company_X_SecurityWhitelist1" Member="Company" ThisKey="AccessorCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
-      <Association Name="Contact_X_SecurityWhitelist" Member="Contact" ThisKey="AccessorContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
-      <Association Name="Contact_X_SecurityWhitelist1" Member="Contact1" ThisKey="AccessorContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
+      <Association Name="Company_SecurityWhitelist" Member="X_Company" ThisKey="OwnerCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
+      <Association Name="Company_SecurityWhitelist1" Member="Company" ThisKey="AccessorCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
+      <Association Name="Contact_SecurityWhitelist" Member="Contact" ThisKey="AccessorContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
+      <Association Name="Contact_SecurityWhitelist1" Member="Contact1" ThisKey="AccessorContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
     </Type>
   </Table>
-  <Function Name="dbo.aspnet_Applications_CreateApplication" Method="aspnet_Applications_CreateApplication">
-    <Parameter Name="ApplicationName" Parameter="applicationName" Type="System.String" DbType="NVarChar(256)" />
-    <Parameter Name="ApplicationId" Parameter="applicationId" Type="System.Guid" DbType="UniqueIdentifier" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
 </Database>

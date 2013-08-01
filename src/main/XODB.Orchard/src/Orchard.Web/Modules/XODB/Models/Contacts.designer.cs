@@ -182,14 +182,6 @@ namespace XODB.Models
 				return this.GetTable<SecurityWhitelist>();
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.aspnet_Applications_CreateApplication")]
-		public int aspnet_Applications_CreateApplication([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ApplicationName", DbType="NVarChar(256)")] string applicationName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ApplicationId", DbType="UniqueIdentifier")] ref System.Nullable<System.Guid> applicationId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), applicationName, applicationId);
-			applicationId = ((System.Nullable<System.Guid>)(result.GetParameterValue(1)));
-			return ((int)(result.ReturnValue));
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.X_Contact")]
@@ -861,7 +853,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_X_Company", Storage="_Companies", ThisKey="ContactID", OtherKey="PrimaryContactID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_Company", Storage="_Companies", ThisKey="ContactID", OtherKey="PrimaryContactID")]
 		public EntitySet<Company> Companies
 		{
 			get
@@ -874,7 +866,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_X_SecurityBlacklist", Storage="_SecurityBlacklists", ThisKey="ContactID", OtherKey="AccessorContactID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_SecurityBlacklist", Storage="_SecurityBlacklists", ThisKey="ContactID", OtherKey="AccessorContactID")]
 		public EntitySet<SecurityBlacklist> SecurityBlacklists
 		{
 			get
@@ -887,7 +879,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_X_SecurityWhitelist", Storage="_X_SecurityWhitelists", ThisKey="ContactID", OtherKey="AccessorContactID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_SecurityWhitelist", Storage="_X_SecurityWhitelists", ThisKey="ContactID", OtherKey="AccessorContactID")]
 		public EntitySet<SecurityWhitelist> X_SecurityWhitelists
 		{
 			get
@@ -900,7 +892,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_X_SecurityWhitelist1", Storage="_SecurityWhitelists", ThisKey="ContactID", OtherKey="AccessorContactID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_SecurityWhitelist1", Storage="_SecurityWhitelists", ThisKey="ContactID", OtherKey="AccessorContactID")]
 		public EntitySet<SecurityWhitelist> SecurityWhitelists
 		{
 			get
@@ -1755,7 +1747,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_Experience", Storage="_Company", ThisKey="CompanyID", OtherKey="CompanyID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Experience", Storage="_Company", ThisKey="CompanyID", OtherKey="CompanyID", IsForeignKey=true)]
 		public Company Company
 		{
 			get
@@ -1929,7 +1921,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Application_aspnet_User", Storage="_Users", ThisKey="ApplicationId", OtherKey="ApplicationId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Application_User", Storage="_Users", ThisKey="ApplicationId", OtherKey="ApplicationId")]
 		public EntitySet<User> Users
 		{
 			get
@@ -1942,7 +1934,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Application_aspnet_Role", Storage="_Roles", ThisKey="ApplicationId", OtherKey="ApplicationId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Application_Role", Storage="_Roles", ThisKey="ApplicationId", OtherKey="ApplicationId")]
 		public EntitySet<Role> Roles
 		{
 			get
@@ -2195,7 +2187,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_User_aspnet_UsersInRole", Storage="_UsersInRoles", ThisKey="UserId", OtherKey="UserId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UsersInRole", Storage="_UsersInRoles", ThisKey="UserId", OtherKey="UserId")]
 		public EntitySet<UsersInRole> UsersInRoles
 		{
 			get
@@ -2208,7 +2200,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Application_aspnet_User", Storage="_Application", ThisKey="ApplicationId", OtherKey="ApplicationId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Application_User", Storage="_Application", ThisKey="ApplicationId", OtherKey="ApplicationId", IsForeignKey=true)]
 		public Application Application
 		{
 			get
@@ -2354,7 +2346,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_User_aspnet_UsersInRole", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UsersInRole", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
 		public User User
 		{
 			get
@@ -2388,7 +2380,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Role_aspnet_UsersInRole", Storage="_Role", ThisKey="RoleId", OtherKey="RoleId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_UsersInRole", Storage="_Role", ThisKey="RoleId", OtherKey="RoleId", IsForeignKey=true)]
 		public Role Role
 		{
 			get
@@ -2590,7 +2582,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Role_aspnet_UsersInRole", Storage="_UsersInRoles", ThisKey="RoleId", OtherKey="RoleId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_UsersInRole", Storage="_UsersInRoles", ThisKey="RoleId", OtherKey="RoleId")]
 		public EntitySet<UsersInRole> UsersInRoles
 		{
 			get
@@ -2603,7 +2595,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Application_aspnet_Role", Storage="_Application", ThisKey="ApplicationId", OtherKey="ApplicationId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Application_Role", Storage="_Application", ThisKey="ApplicationId", OtherKey="ApplicationId", IsForeignKey=true)]
 		public Application Application
 		{
 			get
@@ -3054,7 +3046,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_Experience", Storage="_Experiences", ThisKey="CompanyID", OtherKey="CompanyID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Experience", Storage="_Experiences", ThisKey="CompanyID", OtherKey="CompanyID")]
 		public EntitySet<Experience> Experiences
 		{
 			get
@@ -3067,7 +3059,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_CompanyRelation", Storage="_X_CompanyRelations", ThisKey="CompanyID", OtherKey="CompanyID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_CompanyRelation", Storage="_X_CompanyRelations", ThisKey="CompanyID", OtherKey="CompanyID")]
 		public EntitySet<CompanyRelation> X_CompanyRelations
 		{
 			get
@@ -3080,7 +3072,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_CompanyRelation1", Storage="_CompanyRelations", ThisKey="CompanyID", OtherKey="ParentCompanyID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_CompanyRelation1", Storage="_CompanyRelations", ThisKey="CompanyID", OtherKey="ParentCompanyID")]
 		public EntitySet<CompanyRelation> CompanyRelations
 		{
 			get
@@ -3093,7 +3085,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_CompanyAddress", Storage="_CompanyAddresses", ThisKey="CompanyID", OtherKey="CompanyID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_CompanyAddress", Storage="_CompanyAddresses", ThisKey="CompanyID", OtherKey="CompanyID")]
 		public EntitySet<CompanyAddress> CompanyAddresses
 		{
 			get
@@ -3106,7 +3098,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_SecurityBlacklist", Storage="_X_SecurityBlacklists", ThisKey="CompanyID", OtherKey="OwnerCompanyID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_SecurityBlacklist", Storage="_X_SecurityBlacklists", ThisKey="CompanyID", OtherKey="OwnerCompanyID")]
 		public EntitySet<SecurityBlacklist> X_SecurityBlacklists
 		{
 			get
@@ -3119,7 +3111,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_SecurityBlacklist1", Storage="_SecurityBlacklists", ThisKey="CompanyID", OtherKey="AccessorCompanyID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_SecurityBlacklist1", Storage="_SecurityBlacklists", ThisKey="CompanyID", OtherKey="AccessorCompanyID")]
 		public EntitySet<SecurityBlacklist> SecurityBlacklists
 		{
 			get
@@ -3132,7 +3124,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_SecurityWhitelist", Storage="_X_SecurityWhitelists", ThisKey="CompanyID", OtherKey="OwnerCompanyID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_SecurityWhitelist", Storage="_X_SecurityWhitelists", ThisKey="CompanyID", OtherKey="OwnerCompanyID")]
 		public EntitySet<SecurityWhitelist> X_SecurityWhitelists
 		{
 			get
@@ -3145,7 +3137,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_SecurityWhitelist1", Storage="_SecurityWhitelists", ThisKey="CompanyID", OtherKey="AccessorCompanyID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_SecurityWhitelist1", Storage="_SecurityWhitelists", ThisKey="CompanyID", OtherKey="AccessorCompanyID")]
 		public EntitySet<SecurityWhitelist> SecurityWhitelists
 		{
 			get
@@ -3158,7 +3150,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_X_Company", Storage="_Contact", ThisKey="PrimaryContactID", OtherKey="ContactID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_Company", Storage="_Contact", ThisKey="PrimaryContactID", OtherKey="ContactID", IsForeignKey=true)]
 		public Contact Contact
 		{
 			get
@@ -3676,7 +3668,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_CompanyRelation", Storage="_X_Company", ThisKey="CompanyID", OtherKey="CompanyID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_CompanyRelation", Storage="_X_Company", ThisKey="CompanyID", OtherKey="CompanyID", IsForeignKey=true)]
 		public Company X_Company
 		{
 			get
@@ -3710,7 +3702,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_CompanyRelation1", Storage="_Company", ThisKey="ParentCompanyID", OtherKey="CompanyID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_CompanyRelation1", Storage="_Company", ThisKey="ParentCompanyID", OtherKey="CompanyID", IsForeignKey=true)]
 		public Company Company
 		{
 			get
@@ -4077,7 +4069,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_CompanyAddress", Storage="_Company", ThisKey="CompanyID", OtherKey="CompanyID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_CompanyAddress", Storage="_Company", ThisKey="CompanyID", OtherKey="CompanyID", IsForeignKey=true)]
 		public Company Company
 		{
 			get
@@ -4818,7 +4810,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_SecurityBlacklist", Storage="_X_Company", ThisKey="OwnerCompanyID", OtherKey="CompanyID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_SecurityBlacklist", Storage="_X_Company", ThisKey="OwnerCompanyID", OtherKey="CompanyID", IsForeignKey=true)]
 		public Company X_Company
 		{
 			get
@@ -4852,7 +4844,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_SecurityBlacklist1", Storage="_Company", ThisKey="AccessorCompanyID", OtherKey="CompanyID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_SecurityBlacklist1", Storage="_Company", ThisKey="AccessorCompanyID", OtherKey="CompanyID", IsForeignKey=true)]
 		public Company Company
 		{
 			get
@@ -4886,7 +4878,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_X_SecurityBlacklist", Storage="_Contact", ThisKey="AccessorContactID", OtherKey="ContactID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_SecurityBlacklist", Storage="_Contact", ThisKey="AccessorContactID", OtherKey="ContactID", IsForeignKey=true)]
 		public Contact Contact
 		{
 			get
@@ -5630,7 +5622,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_SecurityWhitelist", Storage="_X_Company", ThisKey="OwnerCompanyID", OtherKey="CompanyID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_SecurityWhitelist", Storage="_X_Company", ThisKey="OwnerCompanyID", OtherKey="CompanyID", IsForeignKey=true)]
 		public Company X_Company
 		{
 			get
@@ -5664,7 +5656,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="X_Company_X_SecurityWhitelist1", Storage="_Company", ThisKey="AccessorCompanyID", OtherKey="CompanyID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_SecurityWhitelist1", Storage="_Company", ThisKey="AccessorCompanyID", OtherKey="CompanyID", IsForeignKey=true)]
 		public Company Company
 		{
 			get
@@ -5698,7 +5690,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_X_SecurityWhitelist", Storage="_Contact", ThisKey="AccessorContactID", OtherKey="ContactID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_SecurityWhitelist", Storage="_Contact", ThisKey="AccessorContactID", OtherKey="ContactID", IsForeignKey=true)]
 		public Contact Contact
 		{
 			get
@@ -5732,7 +5724,7 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_X_SecurityWhitelist1", Storage="_Contact1", ThisKey="AccessorContactID", OtherKey="ContactID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_SecurityWhitelist1", Storage="_Contact1", ThisKey="AccessorContactID", OtherKey="ContactID", IsForeignKey=true)]
 		public Contact Contact1
 		{
 			get

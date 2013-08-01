@@ -564,7 +564,7 @@ namespace XODB.Services {
             return IsValidInXODB(_orchardServices.WorkContext.CurrentUser.UserName);
         }
 
-
+        //Down to field level - companies downstream - object types - rows/user - blacklist - whitelist - use webcache 
         public bool HasPermission()
         {
             throw new NotImplementedException();
