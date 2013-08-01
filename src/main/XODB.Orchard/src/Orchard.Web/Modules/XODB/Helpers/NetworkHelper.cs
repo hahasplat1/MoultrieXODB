@@ -6,28 +6,36 @@ using System.Net;
 
 namespace XODB.Helpers
 {
-    public class NetworkHelper
+    public static class NetworkHelper
     {
+
+        public static List<IPAddressRange> PublicRangeIP4 = new List<IPAddressRange>();
+        public static List<IPAddressRange> PublicRangeIP6 = new List<IPAddressRange>();
+        static NetworkHelper()
+        {
+            PublicRangeIP4.Add(new IPAddressRange(IPAddress.Parse("10.0.0.0"), IPAddress.Parse("10.255.255.255")));
+            PublicRangeIP4.Add(new IPAddressRange(IPAddress.Parse("169.254.0.0"), IPAddress.Parse("169.254.255.255")));
+            PublicRangeIP4.Add(new IPAddressRange(IPAddress.Parse("192.168.0.0"), IPAddress.Parse("192.168.255.255")));
+            PublicRangeIP4.Add(new IPAddressRange(IPAddress.Parse("172.16.0.0"), IPAddress.Parse("172.31.255.255")));
+            PublicRangeIP4.Add(new IPAddressRange(IPAddress.Parse("127.0.0.1"), IPAddress.Parse("127.0.0.1")));
+            
+            PublicRangeIP6.Add(new IPAddressRange(IPAddress.Parse("::1"), IPAddress.Parse("::1")));
+
+        }
 
         public static bool IsLocal(IPAddress ipaddress)
         {
             if (ipaddress.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-            {
-
-                var ipr = new List<IPAddressRange>();
-                ipr.Add(new IPAddressRange(IPAddress.Parse("10.0.0.0"), IPAddress.Parse("10.255.255.255")));
-                ipr.Add(new IPAddressRange(IPAddress.Parse("169.254.0.0"), IPAddress.Parse("169.254.255.255")));
-                ipr.Add(new IPAddressRange(IPAddress.Parse("192.168.0.0"), IPAddress.Parse("192.168.255.255")));
-                ipr.Add(new IPAddressRange(IPAddress.Parse("172.16.0.0"), IPAddress.Parse("172.31.255.255")));
-                foreach (var range in ipr)
-                {
-                    if (range.IsInRange(ipaddress)) return true;
-
-                }
+            {               
+               return (from o in PublicRangeIP4 where o.IsInRange(ipaddress) == true select o).Any();
             }
             if (ipaddress.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6)
             {
-                if (ipaddress.IsIPv6LinkLocal || ipaddress.IsIPv6Multicast || ipaddress.IsIPv6SiteLocal || ipaddress.IsIPv6Teredo) return true;
+                return (ipaddress.IsIPv6LinkLocal 
+                    || ipaddress.IsIPv6Multicast 
+                    || ipaddress.IsIPv6SiteLocal 
+                    || ipaddress.IsIPv6Teredo
+                    || (from o in PublicRangeIP6 where o.IsInRange(ipaddress) == true select o).Any());
             }
             return false;
         }
@@ -35,6 +43,26 @@ namespace XODB.Helpers
         public static bool IsLocal(string ipaddress)
         {
             return IsLocal(IPAddress.Parse(ipaddress));
+        }
+        public static long IPAsLong(this IPAddress ip)
+        {
+            if (ip == null)
+                return 0;
+
+            //lsb
+            var ipb = ip.GetAddressBytes();
+            long value = 0;
+            for (int i = 0; i < ipb.Length; i++)
+            {
+               value += ((long) ipb[i] & 0xffL) << (8 * i);
+            }
+            return value;
+            ////msb
+            //for (int i = 0; i < ipb.Length; i++)
+            //{
+            //   value = (value << 8) + (ipb[i] & 0xff);
+            //}
+
         }
 
         public class IPAddressRange

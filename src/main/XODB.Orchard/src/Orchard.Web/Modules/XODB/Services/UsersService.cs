@@ -104,7 +104,13 @@ namespace XODB.Services {
                         if (applicationID == default(Guid))
                         {
                             applicationID = Guid.NewGuid();
-                            c.aspnet_Applications_CreateApplication(_shellSettings.Name, ref applicationID);
+                            var application = new Application();
+                            application.ApplicationId = applicationID.Value;
+                            application.ApplicationName = _shellSettings.Name;
+                            application.LoweredApplicationName = _shellSettings.Name.ToLower();
+                            application.Description = "Orchard";
+                            c.Applications.InsertOnSubmit(application);
+                            c.SubmitChanges();
                         }
                     }
                 }
@@ -117,187 +123,192 @@ namespace XODB.Services {
         {
             get
             {
-
-                try
+                if (!serverID.HasValue)
                 {
-                    var hostnames = new List<string>();
-                    var ips = new List<string>();
-                    string sid1 = "", sid2 = "", sid3 = "";
-                    string domain = null;
-
                     try
                     {
-                        domain = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
-                    }
-                    catch { }
+                        var hostnames = new List<string>();
+                        var ips = new List<string>();
+                        string sid1 = "", sid2 = "", sid3 = "", pub = null;
+                        string domain = null;
 
-                    var h = Dns.GetHostName();
-                    var iph = Dns.GetHostEntry(h);
-                    var ip = iph.AddressList;
-                    hostnames.Add(h);
-                    ips.AddRange(from o in ip select o.ToString());
+                        try
+                        {
+                            domain = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
+                        }
+                        catch { }
+
+                        var h = Dns.GetHostName();
+                        var iph = Dns.GetHostEntry(h);
+                        var ip = iph.AddressList;
+                        hostnames.Add(h);
+                        ips.AddRange(from o in ip select o.ToString());
 
 
-                    h = Environment.MachineName;
-                    iph = Dns.GetHostEntry(h);
-                    ip = iph.AddressList;
-                    hostnames.Add(h);
-                    ips.AddRange(from o in ip select o.ToString());
-
-
-                    var i = _orchardServices.WorkContext.CurrentSite.BaseUrl;
-                    h = i.Substring(i.LastIndexOf('/')+1, i.Length - i.LastIndexOf('/')-1);
-                    hostnames.Add(h);
-                    try
-                    {
+                        h = Environment.MachineName;
                         iph = Dns.GetHostEntry(h);
                         ip = iph.AddressList;
+                        hostnames.Add(h);
                         ips.AddRange(from o in ip select o.ToString());
-                    }
-                    catch { }
-
-                    try
-                    {
-                        //Public IP
-                        var check = "http://checkip.dyndns.org";
-                        var p = WebRequest.GetSystemWebProxy();
-                        var c = new WebClient();
-                        c.Headers.Add("user-agent", "Lynx/2.8.8dev.3 libwww-FM/2.14 SSL-MM/1.4.1");
-                        c.Proxy = p;
-                        c.Credentials = CredentialCache.DefaultNetworkCredentials;
-                        var d = c.OpenRead(check);
-                        //HtmlWeb web = new HtmlWeb();
-                        HtmlDocument doc = new HtmlDocument(); //web.Load(, "GET", , );
-                        doc.Load(d);
-                        var n = doc.DocumentNode.SelectSingleNode("/html/body");
-                        var pub = n.InnerText.Trim();
-                        pub = pub.Substring(pub.LastIndexOf(' ') + 1, pub.Length - pub.LastIndexOf(' ') - 1);
-                        ips.Add(pub);
-                    }
-                    catch { }
-
-                    try
-                    {
-                        sid1 = new SecurityIdentifier((byte[])new DirectoryEntry(string.Format("WinNT://{0},Computer", Environment.MachineName)).Children.Cast<DirectoryEntry>().First().InvokeGet("objectSID"), 0).AccountDomainSid.Value;
-                    }
-                    catch { }
-
-                    try
-                    {
-                        //using (var mo = new ManagementObject(String.Format("Win32_UserAccount.Name='{0}',Domain='{1}'", "administrator", Environment.MachineName)))
-                        //{
-                        //    mo.Get();
-                        //    sid2 = mo["SID"].ToString();
-                        //    sid2 = sid2.Substring(0, sid2.Length - 4);
-                        //}
-
-                        byte[] domainSid;
-
-                        var directoryContext = new DirectoryContext(DirectoryContextType.Domain, domain);
-
-                        using (var dom = Domain.GetDomain(directoryContext))
-                        using (var directoryEntry = dom.GetDirectoryEntry())
-                            domainSid = (byte[])directoryEntry.Properties["objectSid"].Value;
-                        sid2 = new SecurityIdentifier(domainSid, 0).AccountDomainSid.Value;
-                    }
-                    catch { }
 
 
-                    try
-                    {
-                        var cpus = new List<string>();
-                        foreach (ManagementObject mo in new ManagementClass("win32_processor").GetInstances())
+                        var i = _orchardServices.WorkContext.CurrentSite.BaseUrl;
+                        h = i.Substring(i.LastIndexOf('/') + 1, i.Length - i.LastIndexOf('/') - 1);
+                        hostnames.Add(h);
+                        try
                         {
-                            cpus.Add(mo.Properties["processorID"].Value.ToString());
+                            iph = Dns.GetHostEntry(h);
+                            ip = iph.AddressList;
+                            ips.AddRange(from o in ip select o.ToString());
                         }
-                        sid3 = cpus.OrderBy(f => f).ToArray().FlattenStringArray();
+                        catch { }
+
+                        try
+                        {
+                            //Public IP
+                            var check = "http://checkip.dyndns.org";
+                            var p = WebRequest.GetSystemWebProxy();
+                            var c = new WebClient();
+                            c.Headers.Add("user-agent", "Lynx/2.8.8dev.3 libwww-FM/2.14 SSL-MM/1.4.1");
+                            c.Proxy = p;
+                            c.Credentials = CredentialCache.DefaultNetworkCredentials;
+                            var d = c.OpenRead(check);
+                            //HtmlWeb web = new HtmlWeb();
+                            HtmlDocument doc = new HtmlDocument(); //web.Load(, "GET", , );
+                            doc.Load(d);
+                            var n = doc.DocumentNode.SelectSingleNode("/html/body");
+                            pub = n.InnerText.Trim();
+                            pub = pub.Substring(pub.LastIndexOf(' ') + 1, pub.Length - pub.LastIndexOf(' ') - 1);
+                            ips.Add(pub);
+                        }
+                        catch { }
+
+                        try
+                        {
+                            sid1 = new SecurityIdentifier((byte[])new DirectoryEntry(string.Format("WinNT://{0},Computer", Environment.MachineName)).Children.Cast<DirectoryEntry>().First().InvokeGet("objectSID"), 0).AccountDomainSid.Value;
+                        }
+                        catch { }
+
+                        try
+                        {
+                            //using (var mo = new ManagementObject(String.Format("Win32_UserAccount.Name='{0}',Domain='{1}'", "administrator", Environment.MachineName)))
+                            //{
+                            //    mo.Get();
+                            //    sid2 = mo["SID"].ToString();
+                            //    sid2 = sid2.Substring(0, sid2.Length - 4);
+                            //}
+
+                            byte[] domainSid;
+
+                            var directoryContext = new DirectoryContext(DirectoryContextType.Domain, domain);
+
+                            using (var dom = Domain.GetDomain(directoryContext))
+                            using (var directoryEntry = dom.GetDirectoryEntry())
+                                domainSid = (byte[])directoryEntry.Properties["objectSid"].Value;
+                            sid2 = new SecurityIdentifier(domainSid, 0).AccountDomainSid.Value;
+                        }
+                        catch { }
+
+
+                        try
+                        {
+                            var cpus = new List<string>();
+                            foreach (ManagementObject mo in new ManagementClass("win32_processor").GetInstances())
+                            {
+                                cpus.Add(mo.Properties["processorID"].Value.ToString());
+                            }
+                            sid3 = cpus.OrderBy(f => f).ToArray().FlattenStringArray();
+                        }
+                        catch { }
+
+                        var servers = from xip in ips
+                                      from xh in hostnames
+                                      select new { domain, ip = xip, host = xh, sid1, sid2, sid3 };
+
+                        var ss = (from o in servers.Distinct() select new { newid = Guid.NewGuid(), o.domain, o.ip, o.host, o.sid1, o.sid2, o.sid3 }).ToArray();
+
+                        using (new TransactionScope(TransactionScopeOption.Suppress))
+                        {
+                            var sw = new SoftwareDataContext();
+                            //Update all server info
+                            //Existing
+                            var sos = (from o in sw.Servers
+                                       where
+                                       o.Domain == domain
+                                       && o.ServerUniqueMachineCode1 == sid1
+                                       && o.ServerUniqueMachineCode2 == sid2
+                                       && o.ServerUniqueMachineCode3 == sid3
+                                       select o).ToArray();
+                            var os = (from o in sos
+                                      from s in ss
+                                      where
+                                      o.Domain == s.domain
+                                      && o.IP == s.ip
+                                      && o.Hostname == s.host
+                                      && o.ServerUniqueMachineCode1 == s.sid1
+                                      && o.ServerUniqueMachineCode2 == s.sid2
+                                      && o.ServerUniqueMachineCode3 == s.sid3
+                                      select new { s.newid, o.ServerID });
+                            //New
+                            var ns = from x in ss where !(from o in os select o.newid).Contains(x.newid) select x;
+                            //insert
+                            foreach (var s in ns)
+                            {
+                                var xs = new Server();
+                                xs.ServerID = s.newid;
+                                xs.Domain = s.domain;
+                                xs.Hostname = s.host;
+                                xs.IP = s.ip;
+                                xs.ServerUniqueMachineCode1 = s.sid1;
+                                xs.ServerUniqueMachineCode2 = s.sid2;
+                                xs.ServerUniqueMachineCode3 = s.sid3;
+                                sw.Servers.InsertOnSubmit(xs);
+                            }
+                            sw.SubmitChanges();
+
+                            //Update ServerApplication
+                            //Merge new and existing
+                            var sa = (from xsa in (from o in os select o.ServerID).Union(from o in ns select o.newid) select new { ServerID = xsa, ApplicationID }).Distinct();
+                            var sai = (from o in sa select new { newid = Guid.NewGuid(), o.ServerID, o.ApplicationID }).ToArray();
+                            //old
+                            var osas = (from o in sw.ServerApplications
+                                        where o.ApplicationID == ApplicationID
+                                        select o).ToArray();
+
+
+                            var osa = (from o in osas
+                                       from s in sai
+                                       where o.ApplicationID == s.ApplicationID && o.ServerID == s.ServerID
+                                       select new { o.ServerApplicationID, s.newid });
+                            //new
+                            var nsa = from x in sai where !(from o in osa select o.newid).Contains(x.newid) select x;
+                            //insert
+                            foreach (var s in nsa)
+                            {
+                                var xs = new ServerApplication();
+                                xs.ServerApplicationID = s.newid;
+                                xs.ServerID = s.ServerID;
+                                xs.ApplicationID = s.ApplicationID;
+                                sw.ServerApplications.InsertOnSubmit(xs);
+                            }
+                            sw.SubmitChanges();
+
+                            //Choose 1
+                            var xsid = (from o in sw.ServerApplications
+                                        from x in sw.Servers
+                                        where o.ServerID == x.ServerID && o.ApplicationID == ApplicationID
+                                        select x).ToArray();
+                            if (string.IsNullOrEmpty(pub))
+                                serverID = (from o in xsid orderby NetworkHelper.IsLocal(o.IP) ascending, IPAddress.Parse(o.IP).IPAsLong(), o.Domain, o.Hostname descending where o.Hostname == Environment.MachineName select o.ServerID).FirstOrDefault();
+                            else
+                                serverID = (from o in xsid orderby NetworkHelper.IsLocal(o.IP) ascending, IPAddress.Parse(o.IP).IPAsLong(), o.Domain, o.Hostname descending where o.Hostname == Environment.MachineName && o.IP == pub select o.ServerID).FirstOrDefault();
+                        }
+
                     }
-                    catch { }
-
-                    var servers = from xip in ips
-                                  from xh in hostnames 
-                                  select new {domain, ip=xip,host=xh,sid1,sid2,sid3};
-
-                    var ss = (from o in servers.Distinct() select new {newid=Guid.NewGuid(),o.domain,o.ip,o.host,o.sid1,o.sid2,o.sid3}).ToArray();
-
-                    using (new TransactionScope(TransactionScopeOption.Suppress))
+                    catch (Exception ex)
                     {
-                        var sw = new SoftwareDataContext();
-                        //Update all server info
-                        //Existing
-                        var sos = (from o in sw.Servers
-                                      where 
-                                      o.Domain==domain 
-                                      && o.ServerUniqueMachineCode1==sid1 
-                                      && o.ServerUniqueMachineCode2==sid2 
-                                      && o.ServerUniqueMachineCode3==sid3
-                                      select o).ToArray();
-                        var os = (from o in sos
-                                  from s in ss 
-                                      where 
-                                      o.Domain==s.domain 
-                                      && o.IP==s.ip 
-                                      && o.Hostname==s.host 
-                                      && o.ServerUniqueMachineCode1==s.sid1 
-                                      && o.ServerUniqueMachineCode2==s.sid2 
-                                      && o.ServerUniqueMachineCode3==s.sid3
-                                      select new {s.newid,o.ServerID});
-                        //New
-                        var ns = from x in ss where !(from o in os select o.newid).Contains(x.newid) select x;
-                        //insert
-                        foreach (var s in ns)
-                        {
-                            var xs = new Server();
-                            xs.ServerID = s.newid;
-                            xs.Domain = s.domain;
-                            xs.Hostname = s.host;
-                            xs.IP = s.ip;
-                            xs.ServerUniqueMachineCode1 = s.sid1;
-                            xs.ServerUniqueMachineCode2 = s.sid2;
-                            xs.ServerUniqueMachineCode3 = s.sid3;
-                            sw.Servers.InsertOnSubmit(xs);
-                        }
-                        sw.SubmitChanges();
-                        
-                        //Update ServerApplication
-                        //Merge new and existing
-                        var sa = (from xsa in (from o in os select o.ServerID).Union(from o in ns select o.newid) select new {ServerID = xsa, ApplicationID }).Distinct();
-                        var sai = (from o in sa select new { newid = Guid.NewGuid(), o.ServerID, o.ApplicationID }).ToArray();
-                        //old
-                        var osas = (from o in sw.ServerApplications                                   
-                                   where o.ApplicationID == ApplicationID 
-                                   select o).ToArray();
-
-                        
-                        var osa = (from o in osas
-                                   from s in sai
-                                   where o.ApplicationID == s.ApplicationID && o.ServerID == s.ServerID
-                                   select new { o.ServerApplicationID, s.newid });
-                        //new
-                        var nsa = from x in sai where !(from o in osa select o.newid).Contains(x.newid) select x;
-                        //insert
-                        foreach (var s in nsa)
-                        {
-                            var xs = new ServerApplication();
-                            xs.ServerApplicationID = s.newid;
-                            xs.ServerID = xs.ServerID;
-                            xs.ApplicationID = xs.ApplicationID;
-                            sw.ServerApplications.InsertOnSubmit(xs);
-                        }
-                        sw.SubmitChanges();
-                        
-                        //Choose 1
-                        var xsid = (from o in sw.ServerApplications
-                                   from x in sw.Servers
-                                   where o.ServerID==x.ServerID && o.ApplicationID==ApplicationID
-                                   select x).ToArray();
-                        serverID = (from o in xsid orderby NetworkHelper.IsLocal(o.IP), o.IP descending select o.ServerID).FirstOrDefault();                                                                 
+                        Logger.Information("Could not update server fingerprint. Corresponding licenses may fail.");
                     }
-
-                }
-                catch (Exception ex)
-                {
-                    Logger.Information("Could not update server fingerprint. Corresponding licenses may fail.");
                 }
                 return serverID.Value;
 
@@ -310,20 +321,103 @@ namespace XODB.Services {
             //Get Orchard Users & Roles
             var orchardUsers = _contentManager.Query<UserPart, UserPartRecord>().List();
             var orchardRoles = _roleService.GetRoles().ToArray();
-            var orchardUserRoles = _userRolesRepository.Table.ToArray();
+            var orchardUserRoles = (from xur in  _userRolesRepository.Table.ToArray()
+                                   join xu in orchardUsers on xur.UserId equals xu.Id
+                                   join xr in orchardRoles on xur.Role.Id equals xr.Id
+                                   select new {xu.UserName, RoleName=xr.Name}).ToArray();
             //Get Authmode & Then Update
             if (AuthenticationMode == System.Web.Configuration.AuthenticationMode.Forms)
             {
                 using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
                     var c = new ContactsDataContext();
-                    var r = (from o in c.Roles where o.ApplicationId == ApplicationID select o).ToArray();
-                    var u = (from o in c.Users where o.ApplicationId == ApplicationID select o).ToArray();
-                    var ur = (from o in c.UsersInRoles where (from or in r select or.RoleId).Contains(o.RoleId) select o).ToArray();
-                    
-                    //TODO: Update....
+                    var r = from o in c.Roles where o.ApplicationId == ApplicationID select o;
+                    var u = from o in c.Users where o.ApplicationId == ApplicationID select o;
+                    var updated = DateTime.UtcNow;
+                    //New User
                     var nu = (from o in orchardUsers where !(from ou in u select ou.UserName).Contains(o.UserName) select o);
-                    var x = ServerID;
+                    foreach (var n in nu)
+                    {
+                        var user = new User();
+                        user.UserId = Guid.NewGuid();
+                        user.UserName = n.UserName;
+                        user.ApplicationId = ApplicationID;
+                        user.LoweredUserName = n.UserName.ToLower();
+                        user.LastActivityDate = updated;
+                        c.Users.InsertOnSubmit(user);
+                        var contacts = (from o in c.Contacts where o.Username == user.UserName select o);
+                        foreach (var nc in contacts)
+                        {
+                            nc.AspNetUserID = user.UserId;
+                        }
+                        if (!contacts.Any())
+                        {
+                            var contact = new Contact();
+                            contact.ContactID = Guid.NewGuid();
+                            contact.Username = user.UserName;
+                            contact.AspNetUserID = user.UserId;
+                            contact.DefaultEmail = n.Email;
+                            contact.ContactName = string.Format("Orchard User: {0}", user.UserName);
+                            contact.VersionUpdated = updated;
+                            contact.Surname = "";
+                            contact.Firstname = "";
+                            c.Contacts.InsertOnSubmit(contact);
+                        }
+                    }
+                    //New Role
+                    var nr = (from o in orchardRoles where !(from or in r select or.RoleName).Contains(o.Name) select o);
+                    foreach (var n in nr)
+                    {
+                        var role = new Role();
+                        role.RoleName = n.Name;
+                        role.ApplicationId = ApplicationID;
+                        role.RoleId = Guid.NewGuid();
+                        role.LoweredRoleName = n.Name.ToLower();
+                        c.Roles.InsertOnSubmit(role);
+                    }
+                    c.SubmitChanges();
+                    //New UserRole
+                    var ur = (from o in c.UsersInRoles where (from or in r select or.RoleId).Contains(o.RoleId) select new { o.User.UserName, o.Role.RoleName }).ToArray();
+                    var ur_exists = from xur in orchardUserRoles
+                                    join yur in ur on new { xur.UserName, xur.RoleName } equals new { yur.UserName, yur.RoleName }
+                                    //where !(from our in ur select string.Format("{0} {1}", our.Role.RoleName, our.User.UserName)).Contains(string.Format("{0} {1}", xr.Name, xu.UserName))
+                                    select yur;
+                    var nur = orchardUserRoles.Except(ur_exists);
+                    foreach (var n in nur)
+                    {
+                        var userRole = new UsersInRole();
+                        userRole.RoleId = r.Single(f => f.RoleName == n.RoleName).RoleId;
+                        userRole.UserId = u.Single(f => f.UserName == n.UserName).UserId;
+                        c.UsersInRoles.InsertOnSubmit(userRole);
+                    }
+                    //Remove UserRole
+                    var rur = ur.Except(ur_exists);
+                    foreach (var rem in rur)
+                    {
+                        var roleID = r.Single(f => f.RoleName == rem.RoleName).RoleId;
+                        var userID = u.Single(f => f.UserName == rem.UserName).UserId;
+                        var userRole = (from o in c.UsersInRoles where o.UserId == userID && o.RoleId == roleID select o).Single();
+                        c.UsersInRoles.DeleteOnSubmit(userRole);                        
+                    }
+                    c.SubmitChanges();
+                    var ru = (from o in u where !(from ou in orchardUsers select ou.UserName).Contains(o.UserName) select o.UserId); //can just delete from users table
+                    foreach (var rem in ru)
+                    {
+                        var ruru = from o in c.UsersInRoles where o.UserId==rem select o;
+                        foreach (var remru in ruru)
+                            c.UsersInRoles.DeleteOnSubmit(remru);
+                    }
+                    c.SubmitChanges();
+                    //Keep roles... TODO?
+                    //Reinstated TODO? Maybe not necessary? May need change in versioning if required.
+                    //var reu = (from o in c.Contacts where !(o.VersionDeletedBy==null || o.VersionDeletedBy == Guid.Empty) && o.Version==0                  
+                    //Remove User
+                    foreach (var rem in ru)
+                    {
+                        var user = (from o in c.Users where o.UserId == rem select o).Single();
+                        c.Users.DeleteOnSubmit(user);
+                    }
+                    c.SubmitChanges();
                 }
 
             }
@@ -450,6 +544,30 @@ namespace XODB.Services {
                 var d = new ContactsDataContext();
                 return d.Contacts.Where(x=>x.Username == username).Select(x=>x.ContactID).FirstOrDefault();
             }
+        }
+
+        public bool IsValidInXODB(string username)
+        {
+             using (new TransactionScope(TransactionScopeOption.Suppress))
+            {                
+                var c = new ContactsDataContext();
+                if (default(Guid) == (from u in c.Users join contacts in c.Contacts on u.UserId equals contacts.AspNetUserID where u.UserName == username && contacts.Username == username && contacts.Version == 0 && contacts.VersionDeletedBy == null select contacts.ContactID).SingleOrDefault())
+                    return false;
+                else
+                    return true;
+            }
+            
+        }
+
+        public bool IsValidInXODB()
+        {
+            return IsValidInXODB(_orchardServices.WorkContext.CurrentUser.UserName);
+        }
+
+
+        public bool HasPermission()
+        {
+            throw new NotImplementedException();
         }
 
         private string getNameFromFQDN(string fqdn, Dictionary<string,string> cache)
