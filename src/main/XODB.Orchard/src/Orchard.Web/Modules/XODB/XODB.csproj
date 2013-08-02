@@ -425,8 +425,10 @@
       <DependentUpon>GeophysicsReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\AppendModelScheduledTaskHandler.cs" />
+    <Compile Include="Services\Authority.cs" />
     <Compile Include="Services\ConcurrentTaskService.cs" />
     <Compile Include="Services\AssayService.cs" />
+    <Compile Include="Services\IAuthority.cs" />
     <Compile Include="Services\IGeophysicsService.cs" />
     <Compile Include="Services\GeophysicsService.cs" />
     <Compile Include="Services\IAssayService.cs" />

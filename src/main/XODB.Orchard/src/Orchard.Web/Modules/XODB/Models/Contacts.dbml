@@ -28,46 +28,11 @@
       <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Contact_Experience" Member="Experiences" ThisKey="ContactID" OtherKey="ContactID" Type="Experience" />
       <Association Name="Contact_Company" Member="Companies" ThisKey="ContactID" OtherKey="PrimaryContactID" Type="Company" />
       <Association Name="Contact_SecurityBlacklist" Member="SecurityBlacklists" ThisKey="ContactID" OtherKey="AccessorContactID" Type="SecurityBlacklist" />
       <Association Name="Contact_SecurityWhitelist" Member="X_SecurityWhitelists" ThisKey="ContactID" OtherKey="AccessorContactID" Type="SecurityWhitelist" />
       <Association Name="Contact_SecurityWhitelist1" Member="SecurityWhitelists" ThisKey="ContactID" OtherKey="AccessorContactID" Type="SecurityWhitelist" />
-    </Type>
-  </Table>
-  <Table Name="dbo.X_Experience" Member="Experiences">
-    <Type Name="Experience">
-      <Column Name="ExperienceID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="ProjectID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="ContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="LocationID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="WorkTypeID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="ProfessionID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="PositionID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="ClientAlias" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Division" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OfficeLocationAlias" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ExternalProjectCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="EstimatedDurationDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UserExperienceLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="AssignedExperienceLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NormalizedExperienceLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DateStart" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="DateFinished" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Expiry" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Comment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="VersionAntecedentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="VersionCertainty" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="VersionWorkflowInstanceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="VersionUpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="VersionDeletedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Contact_Experience" Member="Contact" ThisKey="ContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
-      <Association Name="Company_Experience" Member="Company" ThisKey="CompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
+      <Association Name="Contact_X_Experience" Member="Experiences" ThisKey="ContactID" OtherKey="ContactID" Type="Experience" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_Applications" Member="Applications">
@@ -128,7 +93,6 @@
       <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Company_Experience" Member="Experiences" ThisKey="CompanyID" OtherKey="CompanyID" Type="Experience" />
       <Association Name="Company_CompanyRelation" Member="X_CompanyRelations" ThisKey="CompanyID" OtherKey="CompanyID" Type="CompanyRelation" />
       <Association Name="Company_CompanyRelation1" Member="CompanyRelations" ThisKey="CompanyID" OtherKey="ParentCompanyID" Type="CompanyRelation" />
       <Association Name="Company_CompanyAddress" Member="CompanyAddresses" ThisKey="CompanyID" OtherKey="CompanyID" Type="CompanyAddress" />
@@ -136,6 +100,7 @@
       <Association Name="Company_SecurityBlacklist1" Member="SecurityBlacklists" ThisKey="CompanyID" OtherKey="AccessorCompanyID" Type="SecurityBlacklist" />
       <Association Name="Company_SecurityWhitelist" Member="X_SecurityWhitelists" ThisKey="CompanyID" OtherKey="OwnerCompanyID" Type="SecurityWhitelist" />
       <Association Name="Company_SecurityWhitelist1" Member="SecurityWhitelists" ThisKey="CompanyID" OtherKey="AccessorCompanyID" Type="SecurityWhitelist" />
+      <Association Name="Company_X_Experience" Member="Experiences" ThisKey="CompanyID" OtherKey="CompanyID" Type="Experience" />
       <Association Name="Contact_Company" Member="Contact" ThisKey="PrimaryContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
     </Type>
   </Table>
@@ -243,6 +208,49 @@
       <Association Name="Company_SecurityWhitelist1" Member="Company" ThisKey="AccessorCompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
       <Association Name="Contact_SecurityWhitelist" Member="Contact" ThisKey="AccessorContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
       <Association Name="Contact_SecurityWhitelist1" Member="Contact1" ThisKey="AccessorContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.X_Experience" Member="Experiences">
+    <Type Name="Experience">
+      <Column Name="ExperienceID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ExperienceName" Type="System.String" DbType="NVarChar(120)" CanBeNull="true" />
+      <Column Name="CompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ProjectID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="LocationID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ProvinceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="WorkTypeID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ProfessionID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PositionID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ClientAlias" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Division" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OfficeLocationAlias" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ExternalProjectCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EstimatedDurationDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserExperienceLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AssignedExperienceLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NormalizedExperienceLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateStart" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateFinished" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Expiry" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HourlyRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DailyRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="AnnualRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BlendedHourlyRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="BlendedHourlyCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VersionAntecedentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionCertainty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VersionWorkflowInstanceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionDeletedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Company_X_Experience" Member="Company" ThisKey="CompanyID" OtherKey="CompanyID" Type="Company" IsForeignKey="true" />
+      <Association Name="Contact_X_Experience" Member="Contact" ThisKey="ContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

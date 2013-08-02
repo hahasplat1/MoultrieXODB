@@ -34,11 +34,19 @@ using System.Web.Configuration;
 using HtmlAgilityPack;
 using System.Net;
 using System.Management;
+using Orchard.Caching;
+using Orchard.Services;
+using System.Data;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+
 
 namespace XODB.Services {
     
     [UsedImplicitly]
-    public class UsersService : IUsersService {
+    public class UsersService : IUsersService , IAuthority
+    {
         private readonly IOrchardServices _orchardServices;
         private readonly IContentManager _contentManager;
         private readonly IRoleService _roleService;
@@ -46,6 +54,9 @@ namespace XODB.Services {
         private readonly IScheduledTaskManager _taskManager;
         private PrincipalContext _securityContext;
         private readonly ShellSettings _shellSettings;
+        private readonly ISignals _signals;
+        private readonly IClock _clock;
+        ICacheManager _cache;
         private PrincipalContext securityContext
         {
             get
@@ -58,10 +69,13 @@ namespace XODB.Services {
         private readonly IRepository<EmailPartRecord> _emailRepository;
         private readonly IRepository<UserRolesPartRecord> _userRolesRepository;
         public ILogger Logger { get; set; }
+        private readonly string cachedAuthorityKey;
 
-
-        public UsersService(IContentManager contentManager, IOrchardServices orchardServices, IRoleService roleService, IMessageManager messageManager, IScheduledTaskManager taskManager, IRepository<EmailPartRecord> emailRepository, ShellSettings shellSettings, IRepository<UserRolesPartRecord> userRolesRepository ) 
+        public UsersService(IContentManager contentManager, IOrchardServices orchardServices, IRoleService roleService, IMessageManager messageManager, IScheduledTaskManager taskManager, IRepository<EmailPartRecord> emailRepository, ShellSettings shellSettings, IRepository<UserRolesPartRecord> userRolesRepository, ICacheManager cache, IClock clock, ISignals signals) 
         {
+            _signals = signals;
+            _clock = clock;
+            _cache = cache;
             _emailRepository = emailRepository;
             _orchardServices = orchardServices;
             _contentManager = contentManager;
@@ -72,6 +86,7 @@ namespace XODB.Services {
             _userRolesRepository = userRolesRepository;
             T = NullLocalizer.Instance;
             Logger = NullLogger.Instance;
+            cachedAuthorityKey = string.Format("{0}_{1}_Authority", ApplicationID, GetContactID(_orchardServices.WorkContext.CurrentUser.UserName));
         }
 
         public Localizer T { get; set; }
@@ -537,7 +552,7 @@ namespace XODB.Services {
             }
         }
 
-        public Guid GetUserID(string username)
+        public Guid GetContactID(string username)
         {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
@@ -564,10 +579,126 @@ namespace XODB.Services {
             return IsValidInXODB(_orchardServices.WorkContext.CurrentUser.UserName);
         }
 
-        //Down to field level - companies downstream - object types - rows/user - blacklist - whitelist - use webcache 
-        public bool HasPermission()
+        public bool IsAuthorised(bool checkLicense,
+          Authority.ActionType action,
+          string dataType,
+          string tableType,
+          string field,
+          Guid? referenceID,
+          Guid? applicationID,
+          Guid? licenseID, //Chcek license elsewhere too in binary form, optional implementation for 3rd party modules
+          Guid? assetID,
+          Guid? modelID,
+          Guid? partID,
+          Guid? companyID,
+          Guid? contactID,
+          Guid? projectID,
+          Guid? roleID)
         {
-            throw new NotImplementedException();
+            if (_orchardServices.WorkContext.CurrentUser.UserName == "admin")
+                return AdminAuthority
+                    .IsAuthorised(checkLicense, action, dataType, tableType, field, referenceID, applicationID, licenseID, assetID, modelID, partID, companyID, contactID, projectID, roleID);
+            else
+                return CachedAuthority
+                    .IsAuthorised(checkLicense, action, dataType, tableType, field, referenceID, applicationID, licenseID, assetID, modelID, partID, companyID, contactID, projectID, roleID);
+        }
+
+        
+        public Authority CachedAuthority
+        {
+            get
+            {                
+                try
+                {
+                    var auth =  _cache.Get<string, Authority>(cachedAuthorityKey, ctx =>
+                    {
+                        return BuildAuthority(GetContactID(_orchardServices.WorkContext.CurrentUser.UserName));
+                    });
+                    if ((DateTime.UtcNow - auth.LastUpdated) > new TimeSpan(0, 5, 0))
+                       throw new ExpiredAuthorityException();
+                    return auth;
+                }
+                catch (ExpiredAuthorityException ex)
+                {
+                    _signals.Trigger(cachedAuthorityKey);
+                    Logger.Information(string.Format("User Authority Expired ({0}) - Renewing @ {1}", _orchardServices.WorkContext.CurrentUser.UserName, System.DateTime.UtcNow));
+                    return _cache.Get<string, Authority>(cachedAuthorityKey, ctx =>
+                    {
+                        return BuildAuthority(GetContactID(_orchardServices.WorkContext.CurrentUser.UserName));
+                    });
+                }
+
+            }
+        }
+
+        private static Authority AdminAuthority = new Authority(Guid.Empty, null, null, "admin");
+        public Authority BuildAuthority(Guid contactID)
+        {            
+            if (!IsValidInXODB())
+                throw new AuthorityException("No authority to connect to XODB.");
+            //First add to white list - I can change what I own - this can be taken back in blacklist
+            //NOTHING ELSE IS GIVEN
+            
+            var wl = new List<SecurityWhitelist>();
+            wl.Add(new SecurityWhitelist { OwnerContactID = contactID, CanCreate = true, CanDelete = true, CanRead = true, CanUpdate = true });
+            var bl = new List<SecurityBlacklist>();
+             //Get Authmode & Then Update
+            using (new TransactionScope(TransactionScopeOption.Suppress))
+            {
+                var c = new ContactsDataContext();
+                var s = new SoftwareDataContext();
+
+                var username = (from o in c.Contacts where o.ContactID == contactID && o.Version==0 && o.VersionDeletedBy==null select o.Username).Single();
+                var userID = (from o in c.Users where o.ApplicationId == ApplicationID && o.UserName == username select o.UserId).Single();
+                var r = (from o in c.UsersInRoles where o.UserId==userID select o.RoleId);
+                var myCompanies = (from o in c.Experiences where o.ContactID==contactID && o.CompanyID!=null select o.CompanyID).ToArray();
+                var allCompanies = new List<Guid>();
+                var rootCompanies = new List<Guid>();
+                using (DataTable table = new DataTable()) 
+                {
+                    using(var con = new SqlConnection(c.Transaction.Connection.ConnectionString))
+                    using(var cmd = new SqlCommand("X_SP_GetCompanies", con))
+                    using(var da = new SqlDataAdapter(cmd))
+                    {
+                       cmd.CommandType = CommandType.StoredProcedure;
+                       da.Fill(table);
+                    }
+
+                    //Get the roots that the company is in and the children
+                    foreach (DataRow row in table.Rows)
+                    {
+                        var found = false;
+                        var rowRoot = (Guid)row[1];
+                        for (int i=1; i < table.Columns.Count; i+=2)
+                        {
+                            var checking = (Guid)row[i];
+                            if (found && checking==allCompanies.Last())
+                                break;
+                            if (!found && myCompanies.Contains(checking))
+                            {
+                                found = true;
+                                rootCompanies.Add(rowRoot);
+                            }
+                            if (found)
+                                allCompanies.Add(checking);
+                        }
+                    }
+                }
+
+                var experiences = (from o in c.Experiences where o.ContactID == contactID select o);
+
+                //Get my licenses & applications, assets, models, parts
+                var licenses = (from o in s.Licenses where o.ContactID==contactID && o.LicenseID!=null select o);
+                var assets = (from o in s.LicenseAssets where !(from x in s.Licenses where x.ContactID==contactID select x.LicenseID).Contains(o.LicenseID.Value) select o);
+                var parts = (from o in s.LicenseAssetModelParts where !(from x in assets select x.LicenseAssetID).Contains(o.LicenseAssetID.Value) select o);
+                var users = (from o in c.Users where o.UserName==username select o.UserId);
+                //TODO: Do this for derived info too ie. projects
+                bl.AddRange((from o in c.SecurityBlacklists select o));
+                wl.AddRange((from o in c.SecurityWhitelists where o.AccessorContactID==contactID select o));
+                return new Authority(contactID, bl, wl, username, userID, r, experiences, licenses,assets,parts,users, allCompanies, rootCompanies);
+            }
+            
+
         }
 
         private string getNameFromFQDN(string fqdn, Dictionary<string,string> cache)

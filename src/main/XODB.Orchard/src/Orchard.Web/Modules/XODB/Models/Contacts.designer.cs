@@ -33,9 +33,6 @@ namespace XODB.Models
     partial void InsertContact(Contact instance);
     partial void UpdateContact(Contact instance);
     partial void DeleteContact(Contact instance);
-    partial void InsertExperience(Experience instance);
-    partial void UpdateExperience(Experience instance);
-    partial void DeleteExperience(Experience instance);
     partial void InsertApplication(Application instance);
     partial void UpdateApplication(Application instance);
     partial void DeleteApplication(Application instance);
@@ -63,6 +60,9 @@ namespace XODB.Models
     partial void InsertSecurityWhitelist(SecurityWhitelist instance);
     partial void UpdateSecurityWhitelist(SecurityWhitelist instance);
     partial void DeleteSecurityWhitelist(SecurityWhitelist instance);
+    partial void InsertExperience(Experience instance);
+    partial void UpdateExperience(Experience instance);
+    partial void DeleteExperience(Experience instance);
     #endregion
 		
 		public ContactsDataContext() : 
@@ -100,14 +100,6 @@ namespace XODB.Models
 			get
 			{
 				return this.GetTable<Contact>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Experience> Experiences
-		{
-			get
-			{
-				return this.GetTable<Experience>();
 			}
 		}
 		
@@ -182,6 +174,14 @@ namespace XODB.Models
 				return this.GetTable<SecurityWhitelist>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Experience> Experiences
+		{
+			get
+			{
+				return this.GetTable<Experience>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.X_Contact")]
@@ -242,8 +242,6 @@ namespace XODB.Models
 		
 		private System.Nullable<System.DateTime> _VersionUpdated;
 		
-		private EntitySet<Experience> _Experiences;
-		
 		private EntitySet<Company> _Companies;
 		
 		private EntitySet<SecurityBlacklist> _SecurityBlacklists;
@@ -251,6 +249,8 @@ namespace XODB.Models
 		private EntitySet<SecurityWhitelist> _X_SecurityWhitelists;
 		
 		private EntitySet<SecurityWhitelist> _SecurityWhitelists;
+		
+		private EntitySet<Experience> _Experiences;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -312,11 +312,11 @@ namespace XODB.Models
 		
 		public Contact()
 		{
-			this._Experiences = new EntitySet<Experience>(new Action<Experience>(this.attach_Experiences), new Action<Experience>(this.detach_Experiences));
 			this._Companies = new EntitySet<Company>(new Action<Company>(this.attach_Companies), new Action<Company>(this.detach_Companies));
 			this._SecurityBlacklists = new EntitySet<SecurityBlacklist>(new Action<SecurityBlacklist>(this.attach_SecurityBlacklists), new Action<SecurityBlacklist>(this.detach_SecurityBlacklists));
 			this._X_SecurityWhitelists = new EntitySet<SecurityWhitelist>(new Action<SecurityWhitelist>(this.attach_X_SecurityWhitelists), new Action<SecurityWhitelist>(this.detach_X_SecurityWhitelists));
 			this._SecurityWhitelists = new EntitySet<SecurityWhitelist>(new Action<SecurityWhitelist>(this.attach_SecurityWhitelists), new Action<SecurityWhitelist>(this.detach_SecurityWhitelists));
+			this._Experiences = new EntitySet<Experience>(new Action<Experience>(this.attach_Experiences), new Action<Experience>(this.detach_Experiences));
 			OnCreated();
 		}
 		
@@ -840,19 +840,6 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_Experience", Storage="_Experiences", ThisKey="ContactID", OtherKey="ContactID")]
-		public EntitySet<Experience> Experiences
-		{
-			get
-			{
-				return this._Experiences;
-			}
-			set
-			{
-				this._Experiences.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_Company", Storage="_Companies", ThisKey="ContactID", OtherKey="PrimaryContactID")]
 		public EntitySet<Company> Companies
 		{
@@ -905,6 +892,19 @@ namespace XODB.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_X_Experience", Storage="_Experiences", ThisKey="ContactID", OtherKey="ContactID")]
+		public EntitySet<Experience> Experiences
+		{
+			get
+			{
+				return this._Experiences;
+			}
+			set
+			{
+				this._Experiences.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -923,18 +923,6 @@ namespace XODB.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Experiences(Experience entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contact = this;
-		}
-		
-		private void detach_Experiences(Experience entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contact = null;
 		}
 		
 		private void attach_Companies(Company entity)
@@ -984,821 +972,17 @@ namespace XODB.Models
 			this.SendPropertyChanging();
 			entity.Contact1 = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.X_Experience")]
-	public partial class Experience : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _ExperienceID;
-		
-		private System.Nullable<System.Guid> _CompanyID;
-		
-		private System.Nullable<System.Guid> _ProjectID;
-		
-		private System.Nullable<System.Guid> _ContactID;
-		
-		private System.Nullable<System.Guid> _LocationID;
-		
-		private System.Nullable<System.Guid> _WorkTypeID;
-		
-		private System.Nullable<System.Guid> _ProfessionID;
-		
-		private System.Nullable<System.Guid> _PositionID;
-		
-		private string _ClientAlias;
-		
-		private string _Division;
-		
-		private string _OfficeLocationAlias;
-		
-		private string _ExternalProjectCode;
-		
-		private System.Nullable<int> _EstimatedDurationDays;
-		
-		private System.Nullable<int> _UserExperienceLevel;
-		
-		private System.Nullable<int> _AssignedExperienceLevel;
-		
-		private System.Nullable<int> _NormalizedExperienceLevel;
-		
-		private System.DateTime _DateStart;
-		
-		private System.Nullable<System.DateTime> _DateFinished;
-		
-		private System.Nullable<System.DateTime> _Expiry;
-		
-		private string _Comment;
-		
-		private int _Version;
-		
-		private System.Nullable<System.Guid> _VersionAntecedentID;
-		
-		private System.Nullable<int> _VersionCertainty;
-		
-		private System.Nullable<System.Guid> _VersionWorkflowInstanceID;
-		
-		private System.Nullable<System.Guid> _VersionUpdatedBy;
-		
-		private System.Nullable<System.Guid> _VersionDeletedBy;
-		
-		private System.Nullable<System.Guid> _VersionOwnerContactID;
-		
-		private System.Nullable<System.Guid> _VersionOwnerCompanyID;
-		
-		private System.Nullable<System.DateTime> _VersionUpdated;
-		
-		private EntityRef<Contact> _Contact;
-		
-		private EntityRef<Company> _Company;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnExperienceIDChanging(System.Guid value);
-    partial void OnExperienceIDChanged();
-    partial void OnCompanyIDChanging(System.Nullable<System.Guid> value);
-    partial void OnCompanyIDChanged();
-    partial void OnProjectIDChanging(System.Nullable<System.Guid> value);
-    partial void OnProjectIDChanged();
-    partial void OnContactIDChanging(System.Nullable<System.Guid> value);
-    partial void OnContactIDChanged();
-    partial void OnLocationIDChanging(System.Nullable<System.Guid> value);
-    partial void OnLocationIDChanged();
-    partial void OnWorkTypeIDChanging(System.Nullable<System.Guid> value);
-    partial void OnWorkTypeIDChanged();
-    partial void OnProfessionIDChanging(System.Nullable<System.Guid> value);
-    partial void OnProfessionIDChanged();
-    partial void OnPositionIDChanging(System.Nullable<System.Guid> value);
-    partial void OnPositionIDChanged();
-    partial void OnClientAliasChanging(string value);
-    partial void OnClientAliasChanged();
-    partial void OnDivisionChanging(string value);
-    partial void OnDivisionChanged();
-    partial void OnOfficeLocationAliasChanging(string value);
-    partial void OnOfficeLocationAliasChanged();
-    partial void OnExternalProjectCodeChanging(string value);
-    partial void OnExternalProjectCodeChanged();
-    partial void OnEstimatedDurationDaysChanging(System.Nullable<int> value);
-    partial void OnEstimatedDurationDaysChanged();
-    partial void OnUserExperienceLevelChanging(System.Nullable<int> value);
-    partial void OnUserExperienceLevelChanged();
-    partial void OnAssignedExperienceLevelChanging(System.Nullable<int> value);
-    partial void OnAssignedExperienceLevelChanged();
-    partial void OnNormalizedExperienceLevelChanging(System.Nullable<int> value);
-    partial void OnNormalizedExperienceLevelChanged();
-    partial void OnDateStartChanging(System.DateTime value);
-    partial void OnDateStartChanged();
-    partial void OnDateFinishedChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateFinishedChanged();
-    partial void OnExpiryChanging(System.Nullable<System.DateTime> value);
-    partial void OnExpiryChanged();
-    partial void OnCommentChanging(string value);
-    partial void OnCommentChanged();
-    partial void OnVersionChanging(int value);
-    partial void OnVersionChanged();
-    partial void OnVersionAntecedentIDChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionAntecedentIDChanged();
-    partial void OnVersionCertaintyChanging(System.Nullable<int> value);
-    partial void OnVersionCertaintyChanged();
-    partial void OnVersionWorkflowInstanceIDChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionWorkflowInstanceIDChanged();
-    partial void OnVersionUpdatedByChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionUpdatedByChanged();
-    partial void OnVersionDeletedByChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionDeletedByChanged();
-    partial void OnVersionOwnerContactIDChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionOwnerContactIDChanged();
-    partial void OnVersionOwnerCompanyIDChanging(System.Nullable<System.Guid> value);
-    partial void OnVersionOwnerCompanyIDChanged();
-    partial void OnVersionUpdatedChanging(System.Nullable<System.DateTime> value);
-    partial void OnVersionUpdatedChanged();
-    #endregion
-		
-		public Experience()
+		private void attach_Experiences(Experience entity)
 		{
-			this._Contact = default(EntityRef<Contact>);
-			this._Company = default(EntityRef<Company>);
-			OnCreated();
+			this.SendPropertyChanging();
+			entity.Contact = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExperienceID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid ExperienceID
+		private void detach_Experiences(Experience entity)
 		{
-			get
-			{
-				return this._ExperienceID;
-			}
-			set
-			{
-				if ((this._ExperienceID != value))
-				{
-					this.OnExperienceIDChanging(value);
-					this.SendPropertyChanging();
-					this._ExperienceID = value;
-					this.SendPropertyChanged("ExperienceID");
-					this.OnExperienceIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> CompanyID
-		{
-			get
-			{
-				return this._CompanyID;
-			}
-			set
-			{
-				if ((this._CompanyID != value))
-				{
-					if (this._Company.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCompanyIDChanging(value);
-					this.SendPropertyChanging();
-					this._CompanyID = value;
-					this.SendPropertyChanged("CompanyID");
-					this.OnCompanyIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> ProjectID
-		{
-			get
-			{
-				return this._ProjectID;
-			}
-			set
-			{
-				if ((this._ProjectID != value))
-				{
-					this.OnProjectIDChanging(value);
-					this.SendPropertyChanging();
-					this._ProjectID = value;
-					this.SendPropertyChanged("ProjectID");
-					this.OnProjectIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> ContactID
-		{
-			get
-			{
-				return this._ContactID;
-			}
-			set
-			{
-				if ((this._ContactID != value))
-				{
-					if (this._Contact.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnContactIDChanging(value);
-					this.SendPropertyChanging();
-					this._ContactID = value;
-					this.SendPropertyChanged("ContactID");
-					this.OnContactIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> LocationID
-		{
-			get
-			{
-				return this._LocationID;
-			}
-			set
-			{
-				if ((this._LocationID != value))
-				{
-					this.OnLocationIDChanging(value);
-					this.SendPropertyChanging();
-					this._LocationID = value;
-					this.SendPropertyChanged("LocationID");
-					this.OnLocationIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkTypeID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> WorkTypeID
-		{
-			get
-			{
-				return this._WorkTypeID;
-			}
-			set
-			{
-				if ((this._WorkTypeID != value))
-				{
-					this.OnWorkTypeIDChanging(value);
-					this.SendPropertyChanging();
-					this._WorkTypeID = value;
-					this.SendPropertyChanged("WorkTypeID");
-					this.OnWorkTypeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProfessionID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> ProfessionID
-		{
-			get
-			{
-				return this._ProfessionID;
-			}
-			set
-			{
-				if ((this._ProfessionID != value))
-				{
-					this.OnProfessionIDChanging(value);
-					this.SendPropertyChanging();
-					this._ProfessionID = value;
-					this.SendPropertyChanged("ProfessionID");
-					this.OnProfessionIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> PositionID
-		{
-			get
-			{
-				return this._PositionID;
-			}
-			set
-			{
-				if ((this._PositionID != value))
-				{
-					this.OnPositionIDChanging(value);
-					this.SendPropertyChanging();
-					this._PositionID = value;
-					this.SendPropertyChanged("PositionID");
-					this.OnPositionIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientAlias", DbType="NVarChar(50)")]
-		public string ClientAlias
-		{
-			get
-			{
-				return this._ClientAlias;
-			}
-			set
-			{
-				if ((this._ClientAlias != value))
-				{
-					this.OnClientAliasChanging(value);
-					this.SendPropertyChanging();
-					this._ClientAlias = value;
-					this.SendPropertyChanged("ClientAlias");
-					this.OnClientAliasChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Division", DbType="NVarChar(50)")]
-		public string Division
-		{
-			get
-			{
-				return this._Division;
-			}
-			set
-			{
-				if ((this._Division != value))
-				{
-					this.OnDivisionChanging(value);
-					this.SendPropertyChanging();
-					this._Division = value;
-					this.SendPropertyChanged("Division");
-					this.OnDivisionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfficeLocationAlias", DbType="NVarChar(50)")]
-		public string OfficeLocationAlias
-		{
-			get
-			{
-				return this._OfficeLocationAlias;
-			}
-			set
-			{
-				if ((this._OfficeLocationAlias != value))
-				{
-					this.OnOfficeLocationAliasChanging(value);
-					this.SendPropertyChanging();
-					this._OfficeLocationAlias = value;
-					this.SendPropertyChanged("OfficeLocationAlias");
-					this.OnOfficeLocationAliasChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExternalProjectCode", DbType="NVarChar(50)")]
-		public string ExternalProjectCode
-		{
-			get
-			{
-				return this._ExternalProjectCode;
-			}
-			set
-			{
-				if ((this._ExternalProjectCode != value))
-				{
-					this.OnExternalProjectCodeChanging(value);
-					this.SendPropertyChanging();
-					this._ExternalProjectCode = value;
-					this.SendPropertyChanged("ExternalProjectCode");
-					this.OnExternalProjectCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstimatedDurationDays", DbType="Int")]
-		public System.Nullable<int> EstimatedDurationDays
-		{
-			get
-			{
-				return this._EstimatedDurationDays;
-			}
-			set
-			{
-				if ((this._EstimatedDurationDays != value))
-				{
-					this.OnEstimatedDurationDaysChanging(value);
-					this.SendPropertyChanging();
-					this._EstimatedDurationDays = value;
-					this.SendPropertyChanged("EstimatedDurationDays");
-					this.OnEstimatedDurationDaysChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserExperienceLevel", DbType="Int")]
-		public System.Nullable<int> UserExperienceLevel
-		{
-			get
-			{
-				return this._UserExperienceLevel;
-			}
-			set
-			{
-				if ((this._UserExperienceLevel != value))
-				{
-					this.OnUserExperienceLevelChanging(value);
-					this.SendPropertyChanging();
-					this._UserExperienceLevel = value;
-					this.SendPropertyChanged("UserExperienceLevel");
-					this.OnUserExperienceLevelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssignedExperienceLevel", DbType="Int")]
-		public System.Nullable<int> AssignedExperienceLevel
-		{
-			get
-			{
-				return this._AssignedExperienceLevel;
-			}
-			set
-			{
-				if ((this._AssignedExperienceLevel != value))
-				{
-					this.OnAssignedExperienceLevelChanging(value);
-					this.SendPropertyChanging();
-					this._AssignedExperienceLevel = value;
-					this.SendPropertyChanged("AssignedExperienceLevel");
-					this.OnAssignedExperienceLevelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NormalizedExperienceLevel", DbType="Int")]
-		public System.Nullable<int> NormalizedExperienceLevel
-		{
-			get
-			{
-				return this._NormalizedExperienceLevel;
-			}
-			set
-			{
-				if ((this._NormalizedExperienceLevel != value))
-				{
-					this.OnNormalizedExperienceLevelChanging(value);
-					this.SendPropertyChanging();
-					this._NormalizedExperienceLevel = value;
-					this.SendPropertyChanged("NormalizedExperienceLevel");
-					this.OnNormalizedExperienceLevelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateStart", DbType="Date NOT NULL")]
-		public System.DateTime DateStart
-		{
-			get
-			{
-				return this._DateStart;
-			}
-			set
-			{
-				if ((this._DateStart != value))
-				{
-					this.OnDateStartChanging(value);
-					this.SendPropertyChanging();
-					this._DateStart = value;
-					this.SendPropertyChanged("DateStart");
-					this.OnDateStartChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateFinished", DbType="Date")]
-		public System.Nullable<System.DateTime> DateFinished
-		{
-			get
-			{
-				return this._DateFinished;
-			}
-			set
-			{
-				if ((this._DateFinished != value))
-				{
-					this.OnDateFinishedChanging(value);
-					this.SendPropertyChanging();
-					this._DateFinished = value;
-					this.SendPropertyChanged("DateFinished");
-					this.OnDateFinishedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Expiry", DbType="Date")]
-		public System.Nullable<System.DateTime> Expiry
-		{
-			get
-			{
-				return this._Expiry;
-			}
-			set
-			{
-				if ((this._Expiry != value))
-				{
-					this.OnExpiryChanging(value);
-					this.SendPropertyChanging();
-					this._Expiry = value;
-					this.SendPropertyChanged("Expiry");
-					this.OnExpiryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(255)")]
-		public string Comment
-		{
-			get
-			{
-				return this._Comment;
-			}
-			set
-			{
-				if ((this._Comment != value))
-				{
-					this.OnCommentChanging(value);
-					this.SendPropertyChanging();
-					this._Comment = value;
-					this.SendPropertyChanged("Comment");
-					this.OnCommentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", DbType="Int NOT NULL")]
-		public int Version
-		{
-			get
-			{
-				return this._Version;
-			}
-			set
-			{
-				if ((this._Version != value))
-				{
-					this.OnVersionChanging(value);
-					this.SendPropertyChanging();
-					this._Version = value;
-					this.SendPropertyChanged("Version");
-					this.OnVersionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionAntecedentID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionAntecedentID
-		{
-			get
-			{
-				return this._VersionAntecedentID;
-			}
-			set
-			{
-				if ((this._VersionAntecedentID != value))
-				{
-					this.OnVersionAntecedentIDChanging(value);
-					this.SendPropertyChanging();
-					this._VersionAntecedentID = value;
-					this.SendPropertyChanged("VersionAntecedentID");
-					this.OnVersionAntecedentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionCertainty", DbType="Int")]
-		public System.Nullable<int> VersionCertainty
-		{
-			get
-			{
-				return this._VersionCertainty;
-			}
-			set
-			{
-				if ((this._VersionCertainty != value))
-				{
-					this.OnVersionCertaintyChanging(value);
-					this.SendPropertyChanging();
-					this._VersionCertainty = value;
-					this.SendPropertyChanged("VersionCertainty");
-					this.OnVersionCertaintyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionWorkflowInstanceID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionWorkflowInstanceID
-		{
-			get
-			{
-				return this._VersionWorkflowInstanceID;
-			}
-			set
-			{
-				if ((this._VersionWorkflowInstanceID != value))
-				{
-					this.OnVersionWorkflowInstanceIDChanging(value);
-					this.SendPropertyChanging();
-					this._VersionWorkflowInstanceID = value;
-					this.SendPropertyChanged("VersionWorkflowInstanceID");
-					this.OnVersionWorkflowInstanceIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionUpdatedBy", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionUpdatedBy
-		{
-			get
-			{
-				return this._VersionUpdatedBy;
-			}
-			set
-			{
-				if ((this._VersionUpdatedBy != value))
-				{
-					this.OnVersionUpdatedByChanging(value);
-					this.SendPropertyChanging();
-					this._VersionUpdatedBy = value;
-					this.SendPropertyChanged("VersionUpdatedBy");
-					this.OnVersionUpdatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionDeletedBy", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionDeletedBy
-		{
-			get
-			{
-				return this._VersionDeletedBy;
-			}
-			set
-			{
-				if ((this._VersionDeletedBy != value))
-				{
-					this.OnVersionDeletedByChanging(value);
-					this.SendPropertyChanging();
-					this._VersionDeletedBy = value;
-					this.SendPropertyChanged("VersionDeletedBy");
-					this.OnVersionDeletedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionOwnerContactID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionOwnerContactID
-		{
-			get
-			{
-				return this._VersionOwnerContactID;
-			}
-			set
-			{
-				if ((this._VersionOwnerContactID != value))
-				{
-					this.OnVersionOwnerContactIDChanging(value);
-					this.SendPropertyChanging();
-					this._VersionOwnerContactID = value;
-					this.SendPropertyChanged("VersionOwnerContactID");
-					this.OnVersionOwnerContactIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionOwnerCompanyID", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> VersionOwnerCompanyID
-		{
-			get
-			{
-				return this._VersionOwnerCompanyID;
-			}
-			set
-			{
-				if ((this._VersionOwnerCompanyID != value))
-				{
-					this.OnVersionOwnerCompanyIDChanging(value);
-					this.SendPropertyChanging();
-					this._VersionOwnerCompanyID = value;
-					this.SendPropertyChanged("VersionOwnerCompanyID");
-					this.OnVersionOwnerCompanyIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionUpdated", DbType="DateTime")]
-		public System.Nullable<System.DateTime> VersionUpdated
-		{
-			get
-			{
-				return this._VersionUpdated;
-			}
-			set
-			{
-				if ((this._VersionUpdated != value))
-				{
-					this.OnVersionUpdatedChanging(value);
-					this.SendPropertyChanging();
-					this._VersionUpdated = value;
-					this.SendPropertyChanged("VersionUpdated");
-					this.OnVersionUpdatedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_Experience", Storage="_Contact", ThisKey="ContactID", OtherKey="ContactID", IsForeignKey=true)]
-		public Contact Contact
-		{
-			get
-			{
-				return this._Contact.Entity;
-			}
-			set
-			{
-				Contact previousValue = this._Contact.Entity;
-				if (((previousValue != value) 
-							|| (this._Contact.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contact.Entity = null;
-						previousValue.Experiences.Remove(this);
-					}
-					this._Contact.Entity = value;
-					if ((value != null))
-					{
-						value.Experiences.Add(this);
-						this._ContactID = value.ContactID;
-					}
-					else
-					{
-						this._ContactID = default(Nullable<System.Guid>);
-					}
-					this.SendPropertyChanged("Contact");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Experience", Storage="_Company", ThisKey="CompanyID", OtherKey="CompanyID", IsForeignKey=true)]
-		public Company Company
-		{
-			get
-			{
-				return this._Company.Entity;
-			}
-			set
-			{
-				Company previousValue = this._Company.Entity;
-				if (((previousValue != value) 
-							|| (this._Company.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Company.Entity = null;
-						previousValue.Experiences.Remove(this);
-					}
-					this._Company.Entity = value;
-					if ((value != null))
-					{
-						value.Experiences.Add(this);
-						this._CompanyID = value.CompanyID;
-					}
-					else
-					{
-						this._CompanyID = default(Nullable<System.Guid>);
-					}
-					this.SendPropertyChanged("Company");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			this.SendPropertyChanging();
+			entity.Contact = null;
 		}
 	}
 	
@@ -2696,8 +1880,6 @@ namespace XODB.Models
 		
 		private System.Nullable<System.DateTime> _VersionUpdated;
 		
-		private EntitySet<Experience> _Experiences;
-		
 		private EntitySet<CompanyRelation> _X_CompanyRelations;
 		
 		private EntitySet<CompanyRelation> _CompanyRelations;
@@ -2711,6 +1893,8 @@ namespace XODB.Models
 		private EntitySet<SecurityWhitelist> _X_SecurityWhitelists;
 		
 		private EntitySet<SecurityWhitelist> _SecurityWhitelists;
+		
+		private EntitySet<Experience> _Experiences;
 		
 		private EntityRef<Contact> _Contact;
 		
@@ -2750,7 +1934,6 @@ namespace XODB.Models
 		
 		public Company()
 		{
-			this._Experiences = new EntitySet<Experience>(new Action<Experience>(this.attach_Experiences), new Action<Experience>(this.detach_Experiences));
 			this._X_CompanyRelations = new EntitySet<CompanyRelation>(new Action<CompanyRelation>(this.attach_X_CompanyRelations), new Action<CompanyRelation>(this.detach_X_CompanyRelations));
 			this._CompanyRelations = new EntitySet<CompanyRelation>(new Action<CompanyRelation>(this.attach_CompanyRelations), new Action<CompanyRelation>(this.detach_CompanyRelations));
 			this._CompanyAddresses = new EntitySet<CompanyAddress>(new Action<CompanyAddress>(this.attach_CompanyAddresses), new Action<CompanyAddress>(this.detach_CompanyAddresses));
@@ -2758,6 +1941,7 @@ namespace XODB.Models
 			this._SecurityBlacklists = new EntitySet<SecurityBlacklist>(new Action<SecurityBlacklist>(this.attach_SecurityBlacklists), new Action<SecurityBlacklist>(this.detach_SecurityBlacklists));
 			this._X_SecurityWhitelists = new EntitySet<SecurityWhitelist>(new Action<SecurityWhitelist>(this.attach_X_SecurityWhitelists), new Action<SecurityWhitelist>(this.detach_X_SecurityWhitelists));
 			this._SecurityWhitelists = new EntitySet<SecurityWhitelist>(new Action<SecurityWhitelist>(this.attach_SecurityWhitelists), new Action<SecurityWhitelist>(this.detach_SecurityWhitelists));
+			this._Experiences = new EntitySet<Experience>(new Action<Experience>(this.attach_Experiences), new Action<Experience>(this.detach_Experiences));
 			this._Contact = default(EntityRef<Contact>);
 			OnCreated();
 		}
@@ -3046,19 +2230,6 @@ namespace XODB.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_Experience", Storage="_Experiences", ThisKey="CompanyID", OtherKey="CompanyID")]
-		public EntitySet<Experience> Experiences
-		{
-			get
-			{
-				return this._Experiences;
-			}
-			set
-			{
-				this._Experiences.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_CompanyRelation", Storage="_X_CompanyRelations", ThisKey="CompanyID", OtherKey="CompanyID")]
 		public EntitySet<CompanyRelation> X_CompanyRelations
 		{
@@ -3150,6 +2321,19 @@ namespace XODB.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_X_Experience", Storage="_Experiences", ThisKey="CompanyID", OtherKey="CompanyID")]
+		public EntitySet<Experience> Experiences
+		{
+			get
+			{
+				return this._Experiences;
+			}
+			set
+			{
+				this._Experiences.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_Company", Storage="_Contact", ThisKey="PrimaryContactID", OtherKey="ContactID", IsForeignKey=true)]
 		public Contact Contact
 		{
@@ -3202,18 +2386,6 @@ namespace XODB.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Experiences(Experience entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = this;
-		}
-		
-		private void detach_Experiences(Experience entity)
-		{
-			this.SendPropertyChanging();
-			entity.Company = null;
 		}
 		
 		private void attach_X_CompanyRelations(CompanyRelation entity)
@@ -3295,6 +2467,18 @@ namespace XODB.Models
 		}
 		
 		private void detach_SecurityWhitelists(SecurityWhitelist entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_Experiences(Experience entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_Experiences(Experience entity)
 		{
 			this.SendPropertyChanging();
 			entity.Company = null;
@@ -5754,6 +4938,1014 @@ namespace XODB.Models
 						this._AccessorContactID = default(Nullable<System.Guid>);
 					}
 					this.SendPropertyChanged("Contact1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.X_Experience")]
+	public partial class Experience : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _ExperienceID;
+		
+		private string _ExperienceName;
+		
+		private System.Nullable<System.Guid> _CompanyID;
+		
+		private System.Nullable<System.Guid> _ProjectID;
+		
+		private System.Nullable<System.Guid> _ContactID;
+		
+		private System.Nullable<System.Guid> _LocationID;
+		
+		private System.Nullable<System.Guid> _ProvinceID;
+		
+		private System.Nullable<System.Guid> _WorkTypeID;
+		
+		private System.Nullable<System.Guid> _ProfessionID;
+		
+		private System.Nullable<System.Guid> _PositionID;
+		
+		private string _ClientAlias;
+		
+		private string _Division;
+		
+		private string _OfficeLocationAlias;
+		
+		private string _ExternalProjectCode;
+		
+		private System.Nullable<int> _EstimatedDurationDays;
+		
+		private System.Nullable<int> _UserExperienceLevel;
+		
+		private System.Nullable<int> _AssignedExperienceLevel;
+		
+		private System.Nullable<int> _NormalizedExperienceLevel;
+		
+		private System.DateTime _DateStart;
+		
+		private System.Nullable<System.DateTime> _DateFinished;
+		
+		private System.Nullable<System.DateTime> _Expiry;
+		
+		private System.Nullable<decimal> _HourlyRate;
+		
+		private System.Nullable<decimal> _DailyRate;
+		
+		private System.Nullable<decimal> _AnnualRate;
+		
+		private System.Nullable<decimal> _BlendedHourlyRate;
+		
+		private System.Nullable<decimal> _BlendedHourlyCost;
+		
+		private string _Comment;
+		
+		private System.Nullable<bool> _IsApproved;
+		
+		private int _Version;
+		
+		private System.Nullable<System.Guid> _VersionAntecedentID;
+		
+		private System.Nullable<int> _VersionCertainty;
+		
+		private System.Nullable<System.Guid> _VersionWorkflowInstanceID;
+		
+		private System.Nullable<System.Guid> _VersionUpdatedBy;
+		
+		private System.Nullable<System.Guid> _VersionDeletedBy;
+		
+		private System.Nullable<System.Guid> _VersionOwnerContactID;
+		
+		private System.Nullable<System.Guid> _VersionOwnerCompanyID;
+		
+		private System.Nullable<System.DateTime> _VersionUpdated;
+		
+		private EntityRef<Company> _Company;
+		
+		private EntityRef<Contact> _Contact;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnExperienceIDChanging(System.Guid value);
+    partial void OnExperienceIDChanged();
+    partial void OnExperienceNameChanging(string value);
+    partial void OnExperienceNameChanged();
+    partial void OnCompanyIDChanging(System.Nullable<System.Guid> value);
+    partial void OnCompanyIDChanged();
+    partial void OnProjectIDChanging(System.Nullable<System.Guid> value);
+    partial void OnProjectIDChanged();
+    partial void OnContactIDChanging(System.Nullable<System.Guid> value);
+    partial void OnContactIDChanged();
+    partial void OnLocationIDChanging(System.Nullable<System.Guid> value);
+    partial void OnLocationIDChanged();
+    partial void OnProvinceIDChanging(System.Nullable<System.Guid> value);
+    partial void OnProvinceIDChanged();
+    partial void OnWorkTypeIDChanging(System.Nullable<System.Guid> value);
+    partial void OnWorkTypeIDChanged();
+    partial void OnProfessionIDChanging(System.Nullable<System.Guid> value);
+    partial void OnProfessionIDChanged();
+    partial void OnPositionIDChanging(System.Nullable<System.Guid> value);
+    partial void OnPositionIDChanged();
+    partial void OnClientAliasChanging(string value);
+    partial void OnClientAliasChanged();
+    partial void OnDivisionChanging(string value);
+    partial void OnDivisionChanged();
+    partial void OnOfficeLocationAliasChanging(string value);
+    partial void OnOfficeLocationAliasChanged();
+    partial void OnExternalProjectCodeChanging(string value);
+    partial void OnExternalProjectCodeChanged();
+    partial void OnEstimatedDurationDaysChanging(System.Nullable<int> value);
+    partial void OnEstimatedDurationDaysChanged();
+    partial void OnUserExperienceLevelChanging(System.Nullable<int> value);
+    partial void OnUserExperienceLevelChanged();
+    partial void OnAssignedExperienceLevelChanging(System.Nullable<int> value);
+    partial void OnAssignedExperienceLevelChanged();
+    partial void OnNormalizedExperienceLevelChanging(System.Nullable<int> value);
+    partial void OnNormalizedExperienceLevelChanged();
+    partial void OnDateStartChanging(System.DateTime value);
+    partial void OnDateStartChanged();
+    partial void OnDateFinishedChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateFinishedChanged();
+    partial void OnExpiryChanging(System.Nullable<System.DateTime> value);
+    partial void OnExpiryChanged();
+    partial void OnHourlyRateChanging(System.Nullable<decimal> value);
+    partial void OnHourlyRateChanged();
+    partial void OnDailyRateChanging(System.Nullable<decimal> value);
+    partial void OnDailyRateChanged();
+    partial void OnAnnualRateChanging(System.Nullable<decimal> value);
+    partial void OnAnnualRateChanged();
+    partial void OnBlendedHourlyRateChanging(System.Nullable<decimal> value);
+    partial void OnBlendedHourlyRateChanged();
+    partial void OnBlendedHourlyCostChanging(System.Nullable<decimal> value);
+    partial void OnBlendedHourlyCostChanged();
+    partial void OnCommentChanging(string value);
+    partial void OnCommentChanged();
+    partial void OnIsApprovedChanging(System.Nullable<bool> value);
+    partial void OnIsApprovedChanged();
+    partial void OnVersionChanging(int value);
+    partial void OnVersionChanged();
+    partial void OnVersionAntecedentIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionAntecedentIDChanged();
+    partial void OnVersionCertaintyChanging(System.Nullable<int> value);
+    partial void OnVersionCertaintyChanged();
+    partial void OnVersionWorkflowInstanceIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionWorkflowInstanceIDChanged();
+    partial void OnVersionUpdatedByChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionUpdatedByChanged();
+    partial void OnVersionDeletedByChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionDeletedByChanged();
+    partial void OnVersionOwnerContactIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionOwnerContactIDChanged();
+    partial void OnVersionOwnerCompanyIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionOwnerCompanyIDChanged();
+    partial void OnVersionUpdatedChanging(System.Nullable<System.DateTime> value);
+    partial void OnVersionUpdatedChanged();
+    #endregion
+		
+		public Experience()
+		{
+			this._Company = default(EntityRef<Company>);
+			this._Contact = default(EntityRef<Contact>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExperienceID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid ExperienceID
+		{
+			get
+			{
+				return this._ExperienceID;
+			}
+			set
+			{
+				if ((this._ExperienceID != value))
+				{
+					this.OnExperienceIDChanging(value);
+					this.SendPropertyChanging();
+					this._ExperienceID = value;
+					this.SendPropertyChanged("ExperienceID");
+					this.OnExperienceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExperienceName", DbType="NVarChar(120)")]
+		public string ExperienceName
+		{
+			get
+			{
+				return this._ExperienceName;
+			}
+			set
+			{
+				if ((this._ExperienceName != value))
+				{
+					this.OnExperienceNameChanging(value);
+					this.SendPropertyChanging();
+					this._ExperienceName = value;
+					this.SendPropertyChanged("ExperienceName");
+					this.OnExperienceNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> CompanyID
+		{
+			get
+			{
+				return this._CompanyID;
+			}
+			set
+			{
+				if ((this._CompanyID != value))
+				{
+					if (this._Company.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCompanyIDChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyID = value;
+					this.SendPropertyChanged("CompanyID");
+					this.OnCompanyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> ProjectID
+		{
+			get
+			{
+				return this._ProjectID;
+			}
+			set
+			{
+				if ((this._ProjectID != value))
+				{
+					this.OnProjectIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectID = value;
+					this.SendPropertyChanged("ProjectID");
+					this.OnProjectIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> ContactID
+		{
+			get
+			{
+				return this._ContactID;
+			}
+			set
+			{
+				if ((this._ContactID != value))
+				{
+					if (this._Contact.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnContactIDChanging(value);
+					this.SendPropertyChanging();
+					this._ContactID = value;
+					this.SendPropertyChanged("ContactID");
+					this.OnContactIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LocationID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> LocationID
+		{
+			get
+			{
+				return this._LocationID;
+			}
+			set
+			{
+				if ((this._LocationID != value))
+				{
+					this.OnLocationIDChanging(value);
+					this.SendPropertyChanging();
+					this._LocationID = value;
+					this.SendPropertyChanged("LocationID");
+					this.OnLocationIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProvinceID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> ProvinceID
+		{
+			get
+			{
+				return this._ProvinceID;
+			}
+			set
+			{
+				if ((this._ProvinceID != value))
+				{
+					this.OnProvinceIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProvinceID = value;
+					this.SendPropertyChanged("ProvinceID");
+					this.OnProvinceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkTypeID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> WorkTypeID
+		{
+			get
+			{
+				return this._WorkTypeID;
+			}
+			set
+			{
+				if ((this._WorkTypeID != value))
+				{
+					this.OnWorkTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._WorkTypeID = value;
+					this.SendPropertyChanged("WorkTypeID");
+					this.OnWorkTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProfessionID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> ProfessionID
+		{
+			get
+			{
+				return this._ProfessionID;
+			}
+			set
+			{
+				if ((this._ProfessionID != value))
+				{
+					this.OnProfessionIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProfessionID = value;
+					this.SendPropertyChanged("ProfessionID");
+					this.OnProfessionIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PositionID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> PositionID
+		{
+			get
+			{
+				return this._PositionID;
+			}
+			set
+			{
+				if ((this._PositionID != value))
+				{
+					this.OnPositionIDChanging(value);
+					this.SendPropertyChanging();
+					this._PositionID = value;
+					this.SendPropertyChanged("PositionID");
+					this.OnPositionIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClientAlias", DbType="NVarChar(50)")]
+		public string ClientAlias
+		{
+			get
+			{
+				return this._ClientAlias;
+			}
+			set
+			{
+				if ((this._ClientAlias != value))
+				{
+					this.OnClientAliasChanging(value);
+					this.SendPropertyChanging();
+					this._ClientAlias = value;
+					this.SendPropertyChanged("ClientAlias");
+					this.OnClientAliasChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Division", DbType="NVarChar(50)")]
+		public string Division
+		{
+			get
+			{
+				return this._Division;
+			}
+			set
+			{
+				if ((this._Division != value))
+				{
+					this.OnDivisionChanging(value);
+					this.SendPropertyChanging();
+					this._Division = value;
+					this.SendPropertyChanged("Division");
+					this.OnDivisionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfficeLocationAlias", DbType="NVarChar(50)")]
+		public string OfficeLocationAlias
+		{
+			get
+			{
+				return this._OfficeLocationAlias;
+			}
+			set
+			{
+				if ((this._OfficeLocationAlias != value))
+				{
+					this.OnOfficeLocationAliasChanging(value);
+					this.SendPropertyChanging();
+					this._OfficeLocationAlias = value;
+					this.SendPropertyChanged("OfficeLocationAlias");
+					this.OnOfficeLocationAliasChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExternalProjectCode", DbType="NVarChar(50)")]
+		public string ExternalProjectCode
+		{
+			get
+			{
+				return this._ExternalProjectCode;
+			}
+			set
+			{
+				if ((this._ExternalProjectCode != value))
+				{
+					this.OnExternalProjectCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ExternalProjectCode = value;
+					this.SendPropertyChanged("ExternalProjectCode");
+					this.OnExternalProjectCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EstimatedDurationDays", DbType="Int")]
+		public System.Nullable<int> EstimatedDurationDays
+		{
+			get
+			{
+				return this._EstimatedDurationDays;
+			}
+			set
+			{
+				if ((this._EstimatedDurationDays != value))
+				{
+					this.OnEstimatedDurationDaysChanging(value);
+					this.SendPropertyChanging();
+					this._EstimatedDurationDays = value;
+					this.SendPropertyChanged("EstimatedDurationDays");
+					this.OnEstimatedDurationDaysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserExperienceLevel", DbType="Int")]
+		public System.Nullable<int> UserExperienceLevel
+		{
+			get
+			{
+				return this._UserExperienceLevel;
+			}
+			set
+			{
+				if ((this._UserExperienceLevel != value))
+				{
+					this.OnUserExperienceLevelChanging(value);
+					this.SendPropertyChanging();
+					this._UserExperienceLevel = value;
+					this.SendPropertyChanged("UserExperienceLevel");
+					this.OnUserExperienceLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssignedExperienceLevel", DbType="Int")]
+		public System.Nullable<int> AssignedExperienceLevel
+		{
+			get
+			{
+				return this._AssignedExperienceLevel;
+			}
+			set
+			{
+				if ((this._AssignedExperienceLevel != value))
+				{
+					this.OnAssignedExperienceLevelChanging(value);
+					this.SendPropertyChanging();
+					this._AssignedExperienceLevel = value;
+					this.SendPropertyChanged("AssignedExperienceLevel");
+					this.OnAssignedExperienceLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NormalizedExperienceLevel", DbType="Int")]
+		public System.Nullable<int> NormalizedExperienceLevel
+		{
+			get
+			{
+				return this._NormalizedExperienceLevel;
+			}
+			set
+			{
+				if ((this._NormalizedExperienceLevel != value))
+				{
+					this.OnNormalizedExperienceLevelChanging(value);
+					this.SendPropertyChanging();
+					this._NormalizedExperienceLevel = value;
+					this.SendPropertyChanged("NormalizedExperienceLevel");
+					this.OnNormalizedExperienceLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateStart", DbType="Date NOT NULL")]
+		public System.DateTime DateStart
+		{
+			get
+			{
+				return this._DateStart;
+			}
+			set
+			{
+				if ((this._DateStart != value))
+				{
+					this.OnDateStartChanging(value);
+					this.SendPropertyChanging();
+					this._DateStart = value;
+					this.SendPropertyChanged("DateStart");
+					this.OnDateStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateFinished", DbType="Date")]
+		public System.Nullable<System.DateTime> DateFinished
+		{
+			get
+			{
+				return this._DateFinished;
+			}
+			set
+			{
+				if ((this._DateFinished != value))
+				{
+					this.OnDateFinishedChanging(value);
+					this.SendPropertyChanging();
+					this._DateFinished = value;
+					this.SendPropertyChanged("DateFinished");
+					this.OnDateFinishedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Expiry", DbType="Date")]
+		public System.Nullable<System.DateTime> Expiry
+		{
+			get
+			{
+				return this._Expiry;
+			}
+			set
+			{
+				if ((this._Expiry != value))
+				{
+					this.OnExpiryChanging(value);
+					this.SendPropertyChanging();
+					this._Expiry = value;
+					this.SendPropertyChanged("Expiry");
+					this.OnExpiryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HourlyRate", DbType="Money")]
+		public System.Nullable<decimal> HourlyRate
+		{
+			get
+			{
+				return this._HourlyRate;
+			}
+			set
+			{
+				if ((this._HourlyRate != value))
+				{
+					this.OnHourlyRateChanging(value);
+					this.SendPropertyChanging();
+					this._HourlyRate = value;
+					this.SendPropertyChanged("HourlyRate");
+					this.OnHourlyRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DailyRate", DbType="Money")]
+		public System.Nullable<decimal> DailyRate
+		{
+			get
+			{
+				return this._DailyRate;
+			}
+			set
+			{
+				if ((this._DailyRate != value))
+				{
+					this.OnDailyRateChanging(value);
+					this.SendPropertyChanging();
+					this._DailyRate = value;
+					this.SendPropertyChanged("DailyRate");
+					this.OnDailyRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnnualRate", DbType="Money")]
+		public System.Nullable<decimal> AnnualRate
+		{
+			get
+			{
+				return this._AnnualRate;
+			}
+			set
+			{
+				if ((this._AnnualRate != value))
+				{
+					this.OnAnnualRateChanging(value);
+					this.SendPropertyChanging();
+					this._AnnualRate = value;
+					this.SendPropertyChanged("AnnualRate");
+					this.OnAnnualRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BlendedHourlyRate", DbType="Money")]
+		public System.Nullable<decimal> BlendedHourlyRate
+		{
+			get
+			{
+				return this._BlendedHourlyRate;
+			}
+			set
+			{
+				if ((this._BlendedHourlyRate != value))
+				{
+					this.OnBlendedHourlyRateChanging(value);
+					this.SendPropertyChanging();
+					this._BlendedHourlyRate = value;
+					this.SendPropertyChanged("BlendedHourlyRate");
+					this.OnBlendedHourlyRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BlendedHourlyCost", DbType="Money")]
+		public System.Nullable<decimal> BlendedHourlyCost
+		{
+			get
+			{
+				return this._BlendedHourlyCost;
+			}
+			set
+			{
+				if ((this._BlendedHourlyCost != value))
+				{
+					this.OnBlendedHourlyCostChanging(value);
+					this.SendPropertyChanging();
+					this._BlendedHourlyCost = value;
+					this.SendPropertyChanged("BlendedHourlyCost");
+					this.OnBlendedHourlyCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(255)")]
+		public string Comment
+		{
+			get
+			{
+				return this._Comment;
+			}
+			set
+			{
+				if ((this._Comment != value))
+				{
+					this.OnCommentChanging(value);
+					this.SendPropertyChanging();
+					this._Comment = value;
+					this.SendPropertyChanged("Comment");
+					this.OnCommentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsApproved", DbType="Bit")]
+		public System.Nullable<bool> IsApproved
+		{
+			get
+			{
+				return this._IsApproved;
+			}
+			set
+			{
+				if ((this._IsApproved != value))
+				{
+					this.OnIsApprovedChanging(value);
+					this.SendPropertyChanging();
+					this._IsApproved = value;
+					this.SendPropertyChanged("IsApproved");
+					this.OnIsApprovedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", DbType="Int NOT NULL")]
+		public int Version
+		{
+			get
+			{
+				return this._Version;
+			}
+			set
+			{
+				if ((this._Version != value))
+				{
+					this.OnVersionChanging(value);
+					this.SendPropertyChanging();
+					this._Version = value;
+					this.SendPropertyChanged("Version");
+					this.OnVersionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionAntecedentID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionAntecedentID
+		{
+			get
+			{
+				return this._VersionAntecedentID;
+			}
+			set
+			{
+				if ((this._VersionAntecedentID != value))
+				{
+					this.OnVersionAntecedentIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionAntecedentID = value;
+					this.SendPropertyChanged("VersionAntecedentID");
+					this.OnVersionAntecedentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionCertainty", DbType="Int")]
+		public System.Nullable<int> VersionCertainty
+		{
+			get
+			{
+				return this._VersionCertainty;
+			}
+			set
+			{
+				if ((this._VersionCertainty != value))
+				{
+					this.OnVersionCertaintyChanging(value);
+					this.SendPropertyChanging();
+					this._VersionCertainty = value;
+					this.SendPropertyChanged("VersionCertainty");
+					this.OnVersionCertaintyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionWorkflowInstanceID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionWorkflowInstanceID
+		{
+			get
+			{
+				return this._VersionWorkflowInstanceID;
+			}
+			set
+			{
+				if ((this._VersionWorkflowInstanceID != value))
+				{
+					this.OnVersionWorkflowInstanceIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionWorkflowInstanceID = value;
+					this.SendPropertyChanged("VersionWorkflowInstanceID");
+					this.OnVersionWorkflowInstanceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionUpdatedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionUpdatedBy
+		{
+			get
+			{
+				return this._VersionUpdatedBy;
+			}
+			set
+			{
+				if ((this._VersionUpdatedBy != value))
+				{
+					this.OnVersionUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._VersionUpdatedBy = value;
+					this.SendPropertyChanged("VersionUpdatedBy");
+					this.OnVersionUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionDeletedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionDeletedBy
+		{
+			get
+			{
+				return this._VersionDeletedBy;
+			}
+			set
+			{
+				if ((this._VersionDeletedBy != value))
+				{
+					this.OnVersionDeletedByChanging(value);
+					this.SendPropertyChanging();
+					this._VersionDeletedBy = value;
+					this.SendPropertyChanged("VersionDeletedBy");
+					this.OnVersionDeletedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionOwnerContactID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionOwnerContactID
+		{
+			get
+			{
+				return this._VersionOwnerContactID;
+			}
+			set
+			{
+				if ((this._VersionOwnerContactID != value))
+				{
+					this.OnVersionOwnerContactIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionOwnerContactID = value;
+					this.SendPropertyChanged("VersionOwnerContactID");
+					this.OnVersionOwnerContactIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionOwnerCompanyID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionOwnerCompanyID
+		{
+			get
+			{
+				return this._VersionOwnerCompanyID;
+			}
+			set
+			{
+				if ((this._VersionOwnerCompanyID != value))
+				{
+					this.OnVersionOwnerCompanyIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionOwnerCompanyID = value;
+					this.SendPropertyChanged("VersionOwnerCompanyID");
+					this.OnVersionOwnerCompanyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionUpdated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> VersionUpdated
+		{
+			get
+			{
+				return this._VersionUpdated;
+			}
+			set
+			{
+				if ((this._VersionUpdated != value))
+				{
+					this.OnVersionUpdatedChanging(value);
+					this.SendPropertyChanging();
+					this._VersionUpdated = value;
+					this.SendPropertyChanged("VersionUpdated");
+					this.OnVersionUpdatedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_X_Experience", Storage="_Company", ThisKey="CompanyID", OtherKey="CompanyID", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.Experiences.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.Experiences.Add(this);
+						this._CompanyID = value.CompanyID;
+					}
+					else
+					{
+						this._CompanyID = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contact_X_Experience", Storage="_Contact", ThisKey="ContactID", OtherKey="ContactID", IsForeignKey=true)]
+		public Contact Contact
+		{
+			get
+			{
+				return this._Contact.Entity;
+			}
+			set
+			{
+				Contact previousValue = this._Contact.Entity;
+				if (((previousValue != value) 
+							|| (this._Contact.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contact.Entity = null;
+						previousValue.Experiences.Remove(this);
+					}
+					this._Contact.Entity = value;
+					if ((value != null))
+					{
+						value.Experiences.Add(this);
+						this._ContactID = value.ContactID;
+					}
+					else
+					{
+						this._ContactID = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("Contact");
 				}
 			}
 		}
