@@ -14,6 +14,7 @@ using Orchard.Core.Contents.Controllers;
 using Orchard.Mvc;
 using System.Threading.Tasks;
 using ImpromptuInterface;
+using XODB.SpatialDMS.ViewModels;
 
 namespace XODB.SpatialDMS.Controllers {
     
@@ -31,5 +32,23 @@ namespace XODB.SpatialDMS.Controllers {
         {
             return View();
         }
+
+        public ActionResult Index2()
+        {
+            return View();
+        }
+
+        public ActionResult Digitise()
+        {
+            return View();
+        }
+
+     
+        public ActionResult DigitiseOnMapComplete(DigitiseOnMapViewModel m)
+        {
+            string ss = m.Coordinates;
+            return View(m);
+        }
+
     }
 }
