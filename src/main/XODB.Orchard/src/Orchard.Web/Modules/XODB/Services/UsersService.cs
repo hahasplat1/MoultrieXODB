@@ -631,18 +631,12 @@ namespace XODB.Services {
             }
         }
 
-        private static Authority AdminAuthority = new Authority(Guid.Empty, null, null, "admin");
+        private static Authority AdminAuthority = new Authority(new Guid("370846E4-36DC-4BAC-8FB5-C788C730BB45"), null, null, "admin"); //Admin service account id, different from contact who is admin
         public Authority BuildAuthority(Guid contactID)
         {            
             if (!IsValidInXODB())
                 throw new AuthorityException("No authority to connect to XODB.");
-            //First add to white list - I can change what I own - this can be taken back in blacklist
-            //NOTHING ELSE IS GIVEN
-            
-            var wl = new List<SecurityWhitelist>();
-            wl.Add(new SecurityWhitelist { OwnerContactID = contactID, CanCreate = true, CanDelete = true, CanRead = true, CanUpdate = true });
-            var bl = new List<SecurityBlacklist>();
-             //Get Authmode & Then Update
+
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
                 var c = new ContactsDataContext();
@@ -685,17 +679,17 @@ namespace XODB.Services {
                     }
                 }
 
-                var experiences = (from o in c.Experiences where o.ContactID == contactID select o);
-
                 //Get my licenses & applications, assets, models, parts
                 var licenses = (from o in s.Licenses where o.ContactID==contactID && o.LicenseID!=null select o);
                 var assets = (from o in s.LicenseAssets where !(from x in s.Licenses where x.ContactID==contactID select x.LicenseID).Contains(o.LicenseID.Value) select o);
                 var parts = (from o in s.LicenseAssetModelParts where !(from x in assets select x.LicenseAssetID).Contains(o.LicenseAssetID.Value) select o);
                 var users = (from o in c.Users where o.UserName==username select o.UserId);
-                //TODO: Do this for derived info too ie. projects
-                bl.AddRange((from o in c.SecurityBlacklists select o));
-                wl.AddRange((from o in c.SecurityWhitelists where o.AccessorContactID==contactID select o));
-                return new Authority(contactID, bl, wl, username, userID, r, experiences, licenses,assets,parts,users, allCompanies, rootCompanies);
+
+                var experiences = (from o in c.Experiences where o.ContactID == contactID select o);
+                //TODO: Do this based on experience instead of all!!! HACK!
+                var bl = (from o in c.SecurityBlacklists select o);
+                var wl = (from o in c.SecurityWhitelists select o);
+                return new Authority(contactID, bl, wl, username, userID, r, experiences, licenses, assets, parts, users, allCompanies, rootCompanies);
             }
             
 

@@ -38,8 +38,8 @@ namespace XODB.Services
             get { return lastUpdated; }
             set { lastUpdated = value; }
         }
-        private SecurityWhitelist[] authorisedList;
-        public SecurityWhitelist[] AuthorisedList { get { return authorisedList; } }
+        private List<SecurityWhitelist> authorisedList;
+        public List<SecurityWhitelist> AuthorisedList { get { return authorisedList; } }
         
         public Authority(Guid contactID, 
                          IEnumerable<SecurityBlacklist> blackList, 
@@ -77,8 +77,11 @@ namespace XODB.Services
         {
             if (username == "admin")
                 return;
-            var bl = (blackList == null) ? new SecurityBlacklist[] { } : blackList.ToArray();
-            var wl = (whiteList == null) ? new SecurityWhitelist[] { } : whiteList.ToArray();
+            //I can change what I own - this can be taken back in blacklist
+            authorisedList.Add(new SecurityWhitelist { OwnerContactID = contactID, CanCreate = true, CanDelete = true, CanRead = true, CanUpdate = true });
+            //NOTHING ELSE IS GIVEN            
+            blackList = blackList ?? new SecurityBlacklist[] { };
+            whiteList = whiteList ?? new SecurityWhitelist[] { };
             //update authorisedList
             //Integrate now to the existing white-list
             //Simplify
