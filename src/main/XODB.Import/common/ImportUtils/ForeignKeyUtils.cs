@@ -14,25 +14,44 @@ namespace XODB.Import.ImportUtils
 
         public static string FindFKValueInDictionary(string columnValue, ColumnMap cmap, SqlConnection connection, bool genNewFK)
         {
-
+            bool doStandardLookupFirst = false;
             string fkTable = cmap.fkRelationTable;
             string fkColumnKey = cmap.fkRelationColumn;
             string partA = fkTable.Substring("X_Dictionary".Length);
             string nameLookupColumnPrediction = "Custom" + partA + "Name";
             string stdLookupColumnPrediction = "Standard" + partA + "Name";
-
-            string statement1 = "SELECT " + fkColumnKey + " FROM " + fkTable + " WHERE " + nameLookupColumnPrediction + " = \'" + columnValue + "\'";
-
-            SqlCommand sqc = new SqlCommand(statement1, connection);
-            SqlDataReader reader = sqc.ExecuteReader();
-            List<string> results = new List<string>();
-            while (reader.Read())
+            List<string> results = new List<string>(); ;
+            if (doStandardLookupFirst)
             {
-                string fkName = reader[0].ToString();
-                results.Add(fkName);
-            }
-            reader.Close();
 
+                string statement1 = "SELECT " + fkColumnKey + " FROM " + fkTable + " WHERE " + stdLookupColumnPrediction + " = \'" + columnValue + "\'";
+
+                SqlCommand sqc = new SqlCommand(statement1, connection);
+                SqlDataReader reader = sqc.ExecuteReader();
+              
+                while (reader.Read())
+                {
+                    string fkName = reader[0].ToString();
+                    results.Add(fkName);
+                }
+                reader.Close();
+            }
+
+            if (results == null || results.Count == 0)
+            {
+
+                string statement1 = "SELECT " + fkColumnKey + " FROM " + fkTable + " WHERE " + nameLookupColumnPrediction + " = \'" + columnValue + "\'";
+
+                SqlCommand sqc = new SqlCommand(statement1, connection);
+                SqlDataReader reader = sqc.ExecuteReader();
+                results = new List<string>();
+                while (reader.Read())
+                {
+                    string fkName = reader[0].ToString();
+                    results.Add(fkName);
+                }
+                reader.Close();
+            }
             if (results.Count == 0 && genNewFK == true)
             {
                 // there is no matching entry in this dictionary.  Make a new entry

@@ -62,8 +62,16 @@ namespace XODB.Import.Client.UI
             double maxY = double.MinValue;
 
             foreach (CollarInfo ci in existingHoles) {
-                double east = ci.Easting;
-                double north = ci.Northing;
+                double east = 0;
+                double north = 0;
+                try
+                {
+                    east = ci.Easting;
+                    north = ci.Northing;
+                }
+                catch (Exception ex) {
+                    continue;
+                }
                 c1.Series["Collars"].Points.AddXY(east, north);
                 c1.Series["Collars"].Points[i].ToolTip = ci.Name;
                 collarNames.Add(ci.Name);
