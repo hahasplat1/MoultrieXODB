@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="XODB" Class="SoftwareDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=xodbdb;Initial Catalog=XODB;Persist Security Info=True;User ID=xodb_user1;MultipleActiveResultSets=True;Connect Timeout=60;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="XODBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.X_LicenseHistory" Member="LicenseHistories">
+    <Type Name="LicenseHistory">
+      <Column Name="LicenseeGUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LastLicenseID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="LicenseHistoryEncrypted" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VersionAntecedentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionCertainty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VersionWorkflowInstanceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionDeletedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.X_LicenseAsset" Member="LicenseAssets">
+    <Type Name="LicenseAsset">
+      <Column Name="LicenseAssetID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LicenseID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="AssetID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ModelID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Restrictions" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VersionAntecedentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionCertainty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VersionWorkflowInstanceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionDeletedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.X_LicenseAssetModelPart" Member="LicenseAssetModelParts">
+    <Type Name="LicenseAssetModelPart">
+      <Column Name="LicenseAssetModelPartID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LicenseAssetID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ModelPartID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Restrictions" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VersionAntecedentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionCertainty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VersionWorkflowInstanceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionDeletedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.X_Usage" Member="Usages">
+    <Type Name="Usage">
+      <Column Name="UsageID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AssetID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ModelID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PartID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DurationStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DurationEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UnitID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Measurement" Type="System.Decimal" DbType="Decimal(38,20)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VersionAntecedentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionCertainty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VersionWorkflowInstanceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionDeletedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.X_ServerApplication" Member="ServerApplications">
+    <Type Name="ServerApplication">
+      <Column Name="ServerApplicationID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ServerID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ApplicationID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VersionAntecedentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionCertainty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VersionWorkflowInstanceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionDeletedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.X_Server" Member="Servers">
+    <Type Name="Server">
+      <Column Name="ServerID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Hostname" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Domain" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IP" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="ServerUniqueMachineCode1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ServerUniqueMachineCode2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ServerUniqueMachineCode3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Certificate1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Certificate2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VersionAntecedentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionCertainty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VersionWorkflowInstanceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionDeletedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.X_License" Member="Licenses">
+    <Type Name="License">
+      <Column Name="LicenseID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="LicenseeGUID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="LicenseeName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LicenseeUsername" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LicenseeUniqueMachineCode1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LicenseeUniqueMachineCode2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LicenseeGroupID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="LicensorIP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LicensorName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LicenseType" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LicenseURL" Type="System.String" DbType="NVarChar(2048)" CanBeNull="true" />
+      <Column Name="RootServerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RootServerID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ServerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ServerID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ApplicationID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ValidFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Expiry" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SupportExpiry" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ValidForDuration" Type="System.Decimal" DbType="Decimal(38,20)" CanBeNull="true" />
+      <Column Name="ValidForUnitID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ValidForUnitTarget" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="VersionMajor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VersionMinor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VersionBuild" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SupportedToMajor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SupportedToMinor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SupportedToBuild" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nuked" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NukedReason" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="TimeServerID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="TimeServerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TimeServerResolutionMask" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TimeServerIP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PreAuthorizationCode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PreAuthorizationExecuted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Signatory1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Signatory2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Signatory3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Signature1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Signature2" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Signature3" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Received" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CheckedIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LicenceeCertificate" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LicensorCertificate" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ChecksumType" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="Checksum" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EncryptedKey" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LicenseKeyCode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Version" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VersionAntecedentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionCertainty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VersionWorkflowInstanceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionDeletedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerContactID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionOwnerCompanyID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VersionUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -64,7 +64,7 @@ namespace XODB.Controllers {
 
         private Guid getCurrentUserID()
         {
-            return UserService.GetUserID(Services.WorkContext.CurrentUser.UserName);
+            return UserService.GetContactID(Services.WorkContext.CurrentUser.UserName);
         }
 
         [HttpGet]
@@ -350,7 +350,7 @@ namespace XODB.Controllers {
                 var model = new ProjectViewModel
                 {
                     Projects = ProjectService.GetProjectList(),
-                    User = UserService.GetUserID(Services.WorkContext.CurrentUser.UserName)
+                    User = UserService.GetContactID(Services.WorkContext.CurrentUser.UserName)
                 };
                 model.Project = new Guid(id);
                 model.Stages = ProjectService.GetStagesList(model.Project);
