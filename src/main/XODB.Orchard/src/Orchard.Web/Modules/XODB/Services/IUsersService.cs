@@ -18,7 +18,7 @@ namespace XODB.Services
          IEnumerable<Contact> GetContacts();
 
          [OperationContract]
-         Guid GetContactID(string username);
+         Guid? GetContactID(string username);
 
          [OperationContract]
          string[] GetUserEmails(Guid[] users);

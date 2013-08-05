@@ -20,6 +20,7 @@ namespace XODB.Services
 
         private Guid contactID;
         private Guid? userID;
+        private Guid? applicationID;
         private string username;
         private Guid[] users;
         private Guid[] rootCompanies;
@@ -30,7 +31,7 @@ namespace XODB.Services
         private LicenseAsset[] assets;
         private LicenseAssetModelPart[] parts;
         private Experience[] experiences;
-        private static TimeSpan expirationMaximum = new TimeSpan(1, 0, 0);
+        private TimeSpan expirationMaximum = new TimeSpan(1, 0, 0);
 
         private DateTime lastUpdated;
         public DateTime LastUpdated
@@ -38,7 +39,7 @@ namespace XODB.Services
             get { return lastUpdated; }
             set { lastUpdated = value; }
         }
-        private List<SecurityWhitelist> authorisedList;
+        private List<SecurityWhitelist> authorisedList = new List<SecurityWhitelist>();
         public List<SecurityWhitelist> AuthorisedList {
             get
             {
@@ -49,10 +50,12 @@ namespace XODB.Services
         }
         
         public Authority(Guid contactID, 
-                         IEnumerable<SecurityBlacklist> blackList = null, 
-                         IEnumerable<SecurityWhitelist> whiteList = null,
                          string username = null,
                          Guid? userID = null,
+                         Guid? applicationID = null,
+                         IEnumerable<SecurityBlacklist> blackList = null,
+                         IEnumerable<SecurityWhitelist> whiteList = null,
+                         IEnumerable<Guid> applications = null,
                          IEnumerable<Guid> roles = null,
                          IEnumerable<Experience> experiences = null,
                          IEnumerable<License> licenses = null,
@@ -64,9 +67,11 @@ namespace XODB.Services
                         )
         {
             this.contactID = contactID;
-            updateAuthority(blackList, whiteList);
             this.username = username;
             this.userID = userID;
+            this.applicationID = applicationID;
+            updateAuthority(blackList, whiteList);
+            this.applications = (applications == null) ? new Guid[] { } : applications.ToArray();
             this.roles = (roles == null) ? new Guid[] { } : roles.ToArray();
             this.experiences = (experiences == null) ? new Experience[] { } : experiences.ToArray();
             this.licenses = (licenses == null) ? new License[] { } : licenses.ToArray();
