@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Web;
@@ -18,7 +18,7 @@ namespace XODB.Services
          IEnumerable<Contact> GetContacts();
 
          [OperationContract]
-         Guid GetUserID(string username);
+         Guid GetContactID(string username);
 
          [OperationContract]
          string[] GetUserEmails(Guid[] users);

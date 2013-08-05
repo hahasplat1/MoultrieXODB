@@ -29,10 +29,11 @@ namespace XODB {
 				.ContentPartRecord()
 			);
 
-			// Creating table ProjectSettingsPartRecord
-			SchemaBuilder.CreateTable("ProjectSettingsPartRecord", table => table
+			// Creating table XODBSettingsPartRecord
+			SchemaBuilder.CreateTable("XODBSettingsPartRecord", table => table
 				.ContentPartRecord()
 				.Column("UploadAllowedFileTypeWhitelist", DbType.String)
+                .Column("XODBConnectionString", DbType.String)
 			);
 
             ContentDefinitionManager.AlterTypeDefinition("ProjectInfoWidget", cfg => cfg

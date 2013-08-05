@@ -4,4 +4,9 @@ backup
 Thumbs.db
 UnusableNodes*.xml
 *Andrew*
-*.user
+*.user*
+*bin/
+*obj/
+*.suo
+*.dll
+*.exe

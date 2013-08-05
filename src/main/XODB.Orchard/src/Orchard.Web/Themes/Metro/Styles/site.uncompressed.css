@@ -211,7 +211,7 @@ body {
   background-color: white;
 }
 a {
-  color: #4890dc;
+  color: #E41B40;
   text-decoration: none;
 }
 a:hover,
@@ -3601,13 +3601,13 @@ ul.icons li [class*=" icon-"] {
   text-decoration: none;
   color: white;
   background-color: #3f8bda;
-  background-image: -moz-linear-gradient(top, #4890dc, #3383d8);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4890dc), to(#3383d8));
-  background-image: -webkit-linear-gradient(top, #4890dc, #3383d8);
-  background-image: -o-linear-gradient(top, #4890dc, #3383d8);
-  background-image: linear-gradient(to bottom, #4890dc, #3383d8);
+  background-image: -moz-linear-gradient(top, #E41B40, #3383d8);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E41B40), to(#3383d8));
+  background-image: -webkit-linear-gradient(top, #E41B40, #3383d8);
+  background-image: -o-linear-gradient(top, #E41B40, #3383d8);
+  background-image: linear-gradient(to bottom, #E41B40, #3383d8);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4890dc', endColorstr='#ff3383d8', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffE41B40', endColorstr='#ff3383d8', GradientType=0);
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
@@ -3616,13 +3616,13 @@ ul.icons li [class*=" icon-"] {
   text-decoration: none;
   outline: 0;
   background-color: #3f8bda;
-  background-image: -moz-linear-gradient(top, #4890dc, #3383d8);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4890dc), to(#3383d8));
-  background-image: -webkit-linear-gradient(top, #4890dc, #3383d8);
-  background-image: -o-linear-gradient(top, #4890dc, #3383d8);
-  background-image: linear-gradient(to bottom, #4890dc, #3383d8);
+  background-image: -moz-linear-gradient(top, #E41B40, #3383d8);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E41B40), to(#3383d8));
+  background-image: -webkit-linear-gradient(top, #E41B40, #3383d8);
+  background-image: -o-linear-gradient(top, #E41B40, #3383d8);
+  background-image: linear-gradient(to bottom, #E41B40, #3383d8);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4890dc', endColorstr='#ff3383d8', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffE41B40', endColorstr='#ff3383d8', GradientType=0);
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
@@ -3964,13 +3964,13 @@ input[type="button"].btn-block {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #377cc4;
-  background-image: -moz-linear-gradient(top, #4890dc, #1f5d9f);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4890dc), to(#1f5d9f));
-  background-image: -webkit-linear-gradient(top, #4890dc, #1f5d9f);
-  background-image: -o-linear-gradient(top, #4890dc, #1f5d9f);
-  background-image: linear-gradient(to bottom, #4890dc, #1f5d9f);
+  background-image: -moz-linear-gradient(top, #E41B40, #1f5d9f);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E41B40), to(#1f5d9f));
+  background-image: -webkit-linear-gradient(top, #E41B40, #1f5d9f);
+  background-image: -o-linear-gradient(top, #E41B40, #1f5d9f);
+  background-image: linear-gradient(to bottom, #E41B40, #1f5d9f);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff4890dc', endColorstr='#ff1f5d9f', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffE41B40', endColorstr='#ff1f5d9f', GradientType=0);
   border-color: #1f5d9f #1f5d9f #12385f;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #1f5d9f;
@@ -4273,7 +4273,7 @@ input[type="submit"].btn.btn-mini {
 .btn-link {
   border-color: transparent;
   cursor: pointer;
-  color: #4890dc;
+  color: #E41B40;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -4617,7 +4617,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list > .active > a:focus {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #4890dc;
+  background-color: #E41B40;
 }
 .nav-list [class^="icon-"],
 .nav-list [class*=" icon-"] {
@@ -4712,7 +4712,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a:hover,
 .nav-pills > .active > a:focus {
   color: white;
-  background-color: #4890dc;
+  background-color: #E41B40;
 }
 .nav-stacked > li {
   float: none;
@@ -4767,8 +4767,8 @@ input[type="submit"].btn.btn-mini {
   border-radius: 6px;
 }
 .nav .dropdown-toggle .caret {
-  border-top-color: #4890dc;
-  border-bottom-color: #4890dc;
+  border-top-color: #E41B40;
+  border-bottom-color: #E41B40;
   margin-top: 6px;
 }
 .nav .dropdown-toggle:hover .caret,
@@ -5484,7 +5484,7 @@ input[type="submit"].btn.btn-mini {
 }
 a.thumbnail:hover,
 a.thumbnail:focus {
-  border-color: #4890dc;
+  border-color: #E41B40;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
@@ -7743,7 +7743,7 @@ a.badge:focus {
 
 h1,
 h3 {
-  color: #4890dc;
+  color: #E41B40;
   font-weight: normal;
 }
 h2,
@@ -7782,7 +7782,7 @@ a.btn:active {
   text-shadow: none;
 }
 .btn-primary {
-  background: #4890dc;
+  background: #E41B40;
 }
 a.btn-primary,
 a.btn-info,
@@ -7834,14 +7834,14 @@ header {
   padding-bottom: 20px;
 }
 #NavAux div {
-  background: #4890dc;
+  background: #E41B40;
   float: right;
   margin-left: 1px;
   padding: 25px 15px;
   height: 16px;
 }
 #NavAux div:hover {
-  background: #2776ca;
+  background: #640C1C;
 }
 #NavAux div div {
   background: transparent;
@@ -7902,7 +7902,7 @@ header {
   color: rgba(0, 0, 0, 0.5);
 }
 .C04 {
-  background-color: #4890dc;
+  background-color: #E41B40;
 }
 .C04 .CTitle {
   color: black;
@@ -8096,7 +8096,7 @@ header {
 #MenuH ul.menu > li:hover > span,
 #MenuH ul.menu > li.current > a,
 #MenuH ul.menu > li.current > span {
-  color: #4890dc;
+  color: #E41B40;
   font-family: inherit;
   font-size: 15px !important;
   padding: 11px;
@@ -8145,7 +8145,7 @@ header {
 }
 #MenuV ul.menu > li:hover,
 #MenuV ul.menu > li.current {
-  background-color: #4890dc;
+  background-color: #E41B40;
   margin: 0 0 1px 0;
   text-decoration: none;
 }
@@ -8330,7 +8330,7 @@ header {
     z-index: 10;
   }
   #MenuH > select + span {
-    color: #4890dc;
+    color: #E41B40;
     display: block;
     font-size: 22px;
     height: 44px;
@@ -8343,7 +8343,7 @@ header {
     z-index: 1;
   }
   #MenuH > select + span:before {
-    color: #4890dc;
+    color: #E41B40;
     content: "\f0c9";
     font-family: FontAwesome;
     font-size: 21px;
