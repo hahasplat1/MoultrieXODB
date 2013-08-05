@@ -1,12 +1,9 @@
 [submodule "src/main/XODB.Orchard/src/Orchard.Web/Modules/XODB.SpatialDMS"]
 	path = src/main/XODB.Orchard/src/Orchard.Web/Modules/XODB.SpatialDMS
-#	url = https://github.com/dioptre/SpatialDMS.git
 	url = ssh://au-bne-ds-001/home/developer/spatialdms
-
 [submodule "src/main/XODB.Orchard/lib/impromptu-interface"]
 	path= src/main/XODB.Orchard/lib/impromptu-interface
 	url = https://github.com/ekonbenefits/impromptu-interface.git
 [submodule "src/main/XODB.Orchard/src/Orchard.Web/Modules/XODB.TeamInsight"]
 	path = src/main/XODB.Orchard/src/Orchard.Web/Modules/XODB.TeamInsight
-#	url = https://github.com/dioptre/TeamInsight.git
 	url = ssh://au-bne-ds-001/home/developer/teaminsight
