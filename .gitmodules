@@ -1,0 +1,7 @@
+[submodule "src/main/XODB.Orchard/src/Orchard.Web/Modules/XODB.SpatialDMS"]
+	path = src/main/XODB.Orchard/src/Orchard.Web/Modules/XODB.SpatialDMS
+	url = https://github.com/dioptre/SpatialDMS.git
+
+[submodule "src/main/XODB.Orchard/lib/impromptu-interface"]
+	path= src/main/XODB.Orchard/lib/impromptu-interface
+	url = https://github.com/ekonbenefits/impromptu-interface.git
