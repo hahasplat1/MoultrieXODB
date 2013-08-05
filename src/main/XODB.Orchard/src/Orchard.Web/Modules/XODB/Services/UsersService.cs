@@ -614,13 +614,13 @@ namespace XODB.Services {
                     {
                         return BuildAuthority(GetContactID(_orchardServices.WorkContext.CurrentUser.UserName));
                     });
-                    if ((DateTime.UtcNow - auth.LastUpdated) > new TimeSpan(0, 5, 0))
+                    if ((DateTime.UtcNow - auth.LastUpdated) > new TimeSpan(0, 5, 0)) //TODO: Nick suggests this is based on new white-list/black-list entry event/change in DB... good idea! Look at SQL Events for bl,wl,experiences etc.
                        throw new ExpiredAuthorityException();
                     return auth;
                 }
                 catch (ExpiredAuthorityException ex)
                 {
-                    _signals.Trigger(cachedAuthorityKey);
+                    _signals.Trigger(cachedAuthorityKey);  
                     Logger.Information(string.Format("User Authority Expired ({0}) - Renewing @ {1}", _orchardServices.WorkContext.CurrentUser.UserName, System.DateTime.UtcNow));
                     return _cache.Get<string, Authority>(cachedAuthorityKey, ctx =>
                     {

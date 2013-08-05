@@ -30,7 +30,7 @@ namespace XODB.Services
         private LicenseAsset[] assets;
         private LicenseAssetModelPart[] parts;
         private Experience[] experiences;
-
+        private static TimeSpan expirationMaximum = new TimeSpan(1, 0, 0);
 
         private DateTime lastUpdated;
         public DateTime LastUpdated
@@ -39,11 +39,18 @@ namespace XODB.Services
             set { lastUpdated = value; }
         }
         private List<SecurityWhitelist> authorisedList;
-        public List<SecurityWhitelist> AuthorisedList { get { return authorisedList; } }
+        public List<SecurityWhitelist> AuthorisedList {
+            get
+            {
+                if ((DateTime.UtcNow - lastUpdated) > expirationMaximum)
+                    throw new ExpiredAuthorityException();
+                return authorisedList;
+            }
+        }
         
         public Authority(Guid contactID, 
-                         IEnumerable<SecurityBlacklist> blackList, 
-                         IEnumerable<SecurityWhitelist> whiteList,
+                         IEnumerable<SecurityBlacklist> blackList = null, 
+                         IEnumerable<SecurityWhitelist> whiteList = null,
                          string username = null,
                          Guid? userID = null,
                          IEnumerable<Guid> roles = null,
@@ -108,7 +115,7 @@ namespace XODB.Services
             if (username == "admin")
                 return true;
             //Force recalculation of user's rights - internal limit
-            if ((DateTime.UtcNow - lastUpdated) > new TimeSpan(1, 0, 0))
+            if ((DateTime.UtcNow - lastUpdated) > expirationMaximum)
                 throw new ExpiredAuthorityException();
             throw new NotImplementedException();
             //Check request against authorisedList
