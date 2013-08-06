@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="507e49f314684f779fc0d17f2df141cf" Name="Diagram1" >
+        <EntityTypeShape EntityType="Contacts.Application" Width="1.5" PointX="8.4320062810704144" PointY="24.836957525851652" />
+        <EntityTypeShape EntityType="Contacts.Role" Width="1.5" PointX="0.625" PointY="6.5" />
+        <EntityTypeShape EntityType="Contacts.User" Width="1.5" PointX="1.4024024556402128" PointY="0.6847287419646646" />
+        <EntityTypeShape EntityType="Contacts.Company" Width="1.5" PointX="1.9150696051842857" PointY="28.991423605471581" />
+        <EntityTypeShape EntityType="Contacts.CompanyAddress" Width="1.5" PointX="1.4593941389859628" PointY="9.3553060932808112" />
+        <EntityTypeShape EntityType="Contacts.CompanyRelation" Width="1.5" PointX="0.79279235414825022" PointY="16.116989128346084" />
+        <EntityTypeShape EntityType="Contacts.Contact" Width="1.5" PointX="4.9212753497628849" PointY="3.0968844159957416" />
+        <EntityTypeShape EntityType="Contacts.ContactAddress" Width="1.5" PointX="3.8786547108919613" PointY="19.358819001987026" />
+        <EntityTypeShape EntityType="Contacts.Experience" Width="1.5" PointX="7.1347999289328232" PointY="14.159126392639767" />
+        <EntityTypeShape EntityType="Contacts.SecurityBlacklist" Width="1.5" PointX="11.560166068170297" PointY="18.813474410592335" />
+        <EntityTypeShape EntityType="Contacts.SecurityWhitelist" Width="1.5" PointX="8.704662612036179" PointY="21.583676050223261" />
+        <AssociationConnector Association="Contacts.FK__aspnet_Ro__Appli__2077C861" />
+        <AssociationConnector Association="Contacts.FK__aspnet_Us__Appli__758D6A5C" />
+        <AssociationConnector Association="Contacts.FK_X_Company_X_Person" />
+        <AssociationConnector Association="Contacts.FK_X_CompanyAddress_X_Company" />
+        <AssociationConnector Association="Contacts.FK_X_CompanyRelation_X_Company" />
+        <AssociationConnector Association="Contacts.FK_X_CompanyRelation_X_Company1" />
+        <AssociationConnector Association="Contacts.FK_X_Experience_X_Company" />
+        <AssociationConnector Association="Contacts.FK_X_SecurityBlacklist_X_Company" />
+        <AssociationConnector Association="Contacts.FK_X_SecurityBlacklist_X_Company1" />
+        <AssociationConnector Association="Contacts.FK_X_SecurityWhitelist_X_Company" />
+        <AssociationConnector Association="Contacts.FK_X_SecurityWhitelist_X_Company1" />
+        <AssociationConnector Association="Contacts.FK_X_ContactAddress_X_Contact" />
+        <AssociationConnector Association="Contacts.FK_X_Experience_X_Contact" />
+        <AssociationConnector Association="Contacts.FK_X_SecurityBlacklist_X_Contact" />
+        <AssociationConnector Association="Contacts.FK_X_SecurityWhitelist_X_Contact" />
+        <AssociationConnector Association="Contacts.FK_X_SecurityWhitelist_X_Contact1" />
+        <AssociationConnector Association="Contacts.aspnet_UsersInRoles" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

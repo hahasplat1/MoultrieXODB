@@ -5,6 +5,11 @@ using System.Web;
 using System.Reflection;
 using System.Data.Linq.Mapping;
 using System.Threading;
+using System.Data;
+using System.Data.Sql;
+using System.Data.EntityClient;
+using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace XODB.Helpers
 {
@@ -55,6 +60,16 @@ namespace XODB.Helpers
                 }
                 return _defaultTimeout.Value;
             }
+        }
+
+        public static string GetEnityConnectionString(string providerConnectionString, string entityType)
+        {
+            System.Data.SqlClient.SqlConnectionStringBuilder scsb = new System.Data.SqlClient.SqlConnectionStringBuilder(providerConnectionString);
+            EntityConnectionStringBuilder ecb = new EntityConnectionStringBuilder();
+            ecb.Metadata = string.Format(@"res://*/Models.{0}.csdl|res://*/Models.{0}.ssdl|res://*/Models.{0}.msl", entityType);
+            ecb.Provider = "System.Data.SqlClient";
+            ecb.ProviderConnectionString = scsb.ConnectionString;
+            return ecb.ConnectionString;
         }
     }
 }
