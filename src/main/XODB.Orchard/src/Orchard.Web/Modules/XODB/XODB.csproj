@@ -268,11 +268,6 @@
       <LastGenOutput>Models.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Models\Contacts.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Contacts.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="packages.config" />
     <Content Include="Models\BMMetaData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -395,6 +390,16 @@
       <DependentUpon>Assays.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\BlockModelPart.cs" />
+    <Compile Include="Models\Contacts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contacts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contacts.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Content.designer.cs">
       <DependentUpon>Content.dbml</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -482,11 +487,6 @@
     <Compile Include="Helpers\ReportHelper.cs" />
     <Compile Include="Helpers\UIHelper.cs" />
     <Compile Include="Migrations.cs" />
-    <Compile Include="Models\Contacts.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Contacts.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Models\Models.designer.cs">
       <DependentUpon>Models.dbml</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -563,6 +563,23 @@
       <LastGenOutput>Content.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <EntityDeploy Include="Models\Contacts.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Contacts.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Contacts.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Contacts.edmx</DependentUpon>
+      <LastGenOutput>Contacts.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Contacts.edmx.diagram">
+      <DependentUpon>Contacts.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Contacts.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Contacts.edmx</DependentUpon>
+      <LastGenOutput>Contacts.cs</LastGenOutput>
+    </Content>
     <None Include="Models\Projects.dbml.layout">
       <DependentUpon>Projects.dbml</DependentUpon>
     </None>
@@ -588,11 +605,6 @@
   <ItemGroup>
     <None Include="Models\Models.dbml.layout">
       <DependentUpon>Models.dbml</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Models\Contacts.dbml.layout">
-      <DependentUpon>Contacts.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

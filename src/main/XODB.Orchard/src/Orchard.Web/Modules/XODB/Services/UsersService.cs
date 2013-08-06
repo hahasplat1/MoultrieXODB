@@ -143,7 +143,7 @@ namespace XODB.Services {
                 {
                     using (new TransactionScope(TransactionScopeOption.Suppress))
                     {
-                        var c = new ContactsDataContext();
+                        var c = new ContactsContainer();
                         applicationID = (from o in c.Applications where o.ApplicationName == _shellSettings.Name select o.ApplicationId).FirstOrDefault();
                         if (applicationID == default(Guid))
                         {
@@ -153,8 +153,8 @@ namespace XODB.Services {
                             application.ApplicationName = _shellSettings.Name;
                             application.LoweredApplicationName = _shellSettings.Name.ToLower();
                             application.Description = "Orchard";
-                            c.Applications.InsertOnSubmit(application);
-                            c.SubmitChanges();
+                            c.Applications.AddObject(application);
+                            c.SaveChanges();
                         }
                     }
                 }
@@ -374,7 +374,7 @@ namespace XODB.Services {
             {
                 using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
-                    var c = new ContactsDataContext();
+                    var c = new ContactsContainer();
                     var r = from o in c.Roles where o.ApplicationId == ApplicationID select o;
                     var u = from o in c.Users where o.ApplicationId == ApplicationID select o;
                     var updated = DateTime.UtcNow;
@@ -388,7 +388,7 @@ namespace XODB.Services {
                         user.ApplicationId = ApplicationID;
                         user.LoweredUserName = n.UserName.ToLower();
                         user.LastActivityDate = updated;
-                        c.Users.InsertOnSubmit(user);
+                        c.Users.AddObject(user);
                         var contacts = (from o in c.Contacts where o.Username == user.UserName select o);
                         foreach (var nc in contacts)
                         {
@@ -405,7 +405,7 @@ namespace XODB.Services {
                             contact.VersionUpdated = updated;
                             contact.Surname = "";
                             contact.Firstname = "";
-                            c.Contacts.InsertOnSubmit(contact);
+                            c.Contacts.AddObject(contact);
                         }
                     }
                     //New Role
@@ -417,9 +417,9 @@ namespace XODB.Services {
                         role.ApplicationId = ApplicationID;
                         role.RoleId = Guid.NewGuid();
                         role.LoweredRoleName = n.Name.ToLower();
-                        c.Roles.InsertOnSubmit(role);
+                        c.Roles.AddObject(role);
                     }
-                    c.SubmitChanges();
+                    c.SaveChanges();
                     //New UserRole
                     var ur = (from o in c.UsersInRoles where (from or in r select or.RoleId).Contains(o.RoleId) select new { o.User.UserName, o.Role.RoleName }).ToArray();
                     var ur_exists = from xur in orchardUserRoles
@@ -443,7 +443,7 @@ namespace XODB.Services {
                         var userRole = (from o in c.UsersInRoles where o.UserId == userID && o.RoleId == roleID select o).Single();
                         c.UsersInRoles.DeleteOnSubmit(userRole);                        
                     }
-                    c.SubmitChanges();
+                    c.SaveChanges();
                     var ru = (from o in u where !(from ou in orchardUsers select ou.UserName).Contains(o.UserName) select o.UserId); //can just delete from users table
                     foreach (var rem in ru)
                     {
@@ -451,7 +451,7 @@ namespace XODB.Services {
                         foreach (var remru in ruru)
                             c.UsersInRoles.DeleteOnSubmit(remru);
                     }
-                    c.SubmitChanges();
+                    c.SaveChanges();
                     //Keep roles... TODO?
                     //Reinstated TODO? Maybe not necessary? May need change in versioning if required.
                     //var reu = (from o in c.Contacts where !(o.VersionDeletedBy==null || o.VersionDeletedBy == Guid.Empty) && o.Version==0                  
@@ -459,9 +459,9 @@ namespace XODB.Services {
                     foreach (var rem in ru)
                     {
                         var user = (from o in c.Users where o.UserId == rem select o).Single();
-                        c.Users.DeleteOnSubmit(user);
+                        c.Users.DeleteObject(user);
                     }
-                    c.SubmitChanges();
+                    c.SaveChanges();
                 }
 
             }
@@ -511,7 +511,7 @@ namespace XODB.Services {
                 Contact[] xodbusers;
                 using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
-                    var d = new ContactsDataContext();
+                    var d = new ContactsContainer();
                     xodbusers = (from o in d.Contacts select o).ToArray();
 
                     //Sync AD, Orchard, XODB
@@ -528,7 +528,7 @@ namespace XODB.Services {
                         c.ContactName = string.Join(string.Empty, string.Format("{0} [{1}]", o.name, o.username).Take(120));
                         c.Surname = o.sn;
                         c.DefaultEmail = o.email;
-                        d.Contacts.InsertOnSubmit(c);
+                        d.Contacts.AddObject(c);
                     }
 
                     //Updates into XODB
@@ -551,7 +551,7 @@ namespace XODB.Services {
                         c.Surname = o.sn;
                         c.DefaultEmail = o.email;
                     }
-                    d.SubmitChanges();
+                    d.SaveChanges();
 
                 }
             }
@@ -563,7 +563,7 @@ namespace XODB.Services {
         {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var dataContext = new ContactsDataContext();
+                var dataContext = new ContactsContainer();
                 return dataContext.Contacts.OrderBy(x=>x.ContactName).ToArray();
             }
         }
@@ -574,7 +574,7 @@ namespace XODB.Services {
                 return new string[] { };
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var d = new ContactsDataContext();
+                var d = new ContactsContainer();
                 var o = from c in d.Contacts where users.Contains(c.ContactID) && c.DefaultEmail != null
                         select c.DefaultEmail;
                 return o.ToArray();
@@ -587,7 +587,7 @@ namespace XODB.Services {
                 return null;
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var d = new ContactsDataContext();
+                var d = new ContactsContainer();
                 return d.Contacts.Where(x=>x.Username == username).Select(x=>x.ContactID).FirstOrDefault();
             }
         }
@@ -598,7 +598,7 @@ namespace XODB.Services {
                 return false;
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var c = new ContactsDataContext();
+                var c = new ContactsContainer();
                 if (default(Guid) == (from u in c.Users join contacts in c.Contacts on u.UserId equals contacts.AspNetUserID where u.UserName == username && contacts.Username == username && contacts.Version == 0 && contacts.VersionDeletedBy == null select contacts.ContactID).SingleOrDefault())
                     return false;
                 else
@@ -673,7 +673,7 @@ namespace XODB.Services {
 
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var c = new ContactsDataContext();
+                var c = new ContactsContainer();
                 var s = new SoftwareDataContext();
 
                 var username = (from o in c.Contacts where o.ContactID == contactID && o.Version==0 && o.VersionDeletedBy==null select o.Username).Single();
@@ -684,7 +684,7 @@ namespace XODB.Services {
                 var rootCompanies = new List<Guid>();
                 using (DataTable table = new DataTable()) 
                 {
-                    using(var con = new SqlConnection(c.Transaction.Connection.ConnectionString))
+                    using(var con = new SqlConnection(c.Connection.ConnectionString))
                     using(var cmd = new SqlCommand("X_SP_GetCompanies", con))
                     using(var da = new SqlDataAdapter(cmd))
                     {
