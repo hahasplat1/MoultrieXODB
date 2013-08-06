@@ -340,7 +340,10 @@ namespace XODB.Import.ImportUtils
                 foreach (ColumnMap cmap in importMap.columnMap)
                 {
                     bool isFKColumn = cmap.hasFKRelation;
-                    cmap.importDataType = ImportDataMap.TEXTDATATYPE;
+                    if (isFKColumn)
+                    {
+                        cmap.importDataType = ImportDataMap.TEXTDATATYPE;
+                    }
                 }
 
 

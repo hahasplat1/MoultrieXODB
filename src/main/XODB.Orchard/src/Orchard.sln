@@ -149,6 +149,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpgradeTo16", "Orchard.Web\Modules\UpgradeTo16\UpgradeTo16.csproj", "{8A9FDB57-342D-49C2-BAFC-D885AAE5CC7C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XODB", "Orchard.Web\Modules\XODB\XODB.csproj", "{1B5A2A6B-28E0-4A54-9CA4-147C925F3BBB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6022DAAC-C54B-42DA-9BC7-DB60108DCCF7} = {6022DAAC-C54B-42DA-9BC7-DB60108DCCF7}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laughlin.ErrorLog", "Orchard.Web\Modules\Laughlin.ErrorLog\Laughlin.ErrorLog.csproj", "{6022DAAC-C54B-42DA-9BC7-DB60108DCCF7}"
 EndProject

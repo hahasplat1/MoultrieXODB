@@ -56,7 +56,7 @@ namespace XODB.Services {
         private readonly ShellSettings _shellSettings;
         private readonly ISignals _signals;
         private readonly IClock _clock;
-        ICacheManager _cache;
+        private readonly ICacheManager _cache;
         private PrincipalContext securityContext
         {
             get
@@ -69,9 +69,19 @@ namespace XODB.Services {
         private readonly IRepository<EmailPartRecord> _emailRepository;
         private readonly IRepository<UserRolesPartRecord> _userRolesRepository;
         public ILogger Logger { get; set; }
-        private readonly string cachedAuthorityKey;
 
-        public UsersService(IContentManager contentManager, IOrchardServices orchardServices, IRoleService roleService, IMessageManager messageManager, IScheduledTaskManager taskManager, IRepository<EmailPartRecord> emailRepository, ShellSettings shellSettings, IRepository<UserRolesPartRecord> userRolesRepository, ICacheManager cache, IClock clock, ISignals signals) 
+        public UsersService(
+            IContentManager contentManager, 
+            IOrchardServices orchardServices, 
+            IRoleService roleService, 
+            IMessageManager messageManager, 
+            IScheduledTaskManager taskManager, 
+            IRepository<EmailPartRecord> emailRepository, 
+            ShellSettings shellSettings, 
+            IRepository<UserRolesPartRecord> userRolesRepository, 
+            ICacheManager cache, 
+            IClock clock, 
+            ISignals signals) 
         {
             _signals = signals;
             _clock = clock;
@@ -85,8 +95,7 @@ namespace XODB.Services {
             _shellSettings = shellSettings;
             _userRolesRepository = userRolesRepository;
             T = NullLocalizer.Instance;
-            Logger = NullLogger.Instance;
-            cachedAuthorityKey = string.Format("{0}_{1}_Authority", ApplicationID, GetContactID(_orchardServices.WorkContext.CurrentUser.UserName));
+            Logger = NullLogger.Instance;            
         }
 
         public Localizer T { get; set; }
@@ -104,6 +113,26 @@ namespace XODB.Services {
                 return authenticationMode.Value;
             }
         }
+
+        public string Username
+        {
+            get
+            {
+
+                if (_orchardServices.WorkContext != null && _orchardServices.WorkContext.CurrentUser != null)
+                    return _orchardServices.WorkContext.CurrentUser.UserName;
+                else return null;
+            }
+        }
+
+        public Guid? ContactID
+        {
+            get
+            {
+                return GetContactID(Username);                
+            }
+        }
+
 
         private Guid? applicationID = null;
         public Guid ApplicationID
@@ -322,7 +351,7 @@ namespace XODB.Services {
                     }
                     catch (Exception ex)
                     {
-                        Logger.Information("Could not update server fingerprint. Corresponding licenses may fail.");
+                        Logger.Information(ex, "Could not update server fingerprint. Corresponding licenses may fail.");
                     }
                 }
                 return serverID.Value;
@@ -552,8 +581,10 @@ namespace XODB.Services {
             }
         }
 
-        public Guid GetContactID(string username)
+        public Guid? GetContactID(string username)
         {
+            if (username == null)
+                return null;
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
                 var d = new ContactsDataContext();
@@ -563,8 +594,10 @@ namespace XODB.Services {
 
         public bool IsValidInXODB(string username)
         {
-             using (new TransactionScope(TransactionScopeOption.Suppress))
-            {                
+            if (string.IsNullOrEmpty(username))
+                return false;
+            using (new TransactionScope(TransactionScopeOption.Suppress))
+            {
                 var c = new ContactsDataContext();
                 if (default(Guid) == (from u in c.Users join contacts in c.Contacts on u.UserId equals contacts.AspNetUserID where u.UserName == username && contacts.Username == username && contacts.Version == 0 && contacts.VersionDeletedBy == null select contacts.ContactID).SingleOrDefault())
                     return false;
@@ -576,7 +609,7 @@ namespace XODB.Services {
 
         public bool IsValidInXODB()
         {
-            return IsValidInXODB(_orchardServices.WorkContext.CurrentUser.UserName);
+            return IsValidInXODB(Username);
         }
 
         public bool IsAuthorised(bool checkLicense,
@@ -608,33 +641,34 @@ namespace XODB.Services {
         {
             get
             {                
+                var cachedAuthorityKey = string.Format("{0}_{1}_Authority", ApplicationID, ContactID); //TODO: can prob cache these values too
                 try
                 {
                     var auth =  _cache.Get<string, Authority>(cachedAuthorityKey, ctx =>
                     {
-                        return BuildAuthority(GetContactID(_orchardServices.WorkContext.CurrentUser.UserName));
+                        return BuildAuthority(ContactID);
                     });
                     if ((DateTime.UtcNow - auth.LastUpdated) > new TimeSpan(0, 5, 0)) //TODO: Nick suggests this is based on new white-list/black-list entry event/change in DB... good idea! Look at SQL Events for bl,wl,experiences etc.
                        throw new ExpiredAuthorityException();
                     return auth;
                 }
-                catch (ExpiredAuthorityException ex)
+                catch (ExpiredAuthorityException)
                 {
                     _signals.Trigger(cachedAuthorityKey);  
                     Logger.Information(string.Format("User Authority Expired ({0}) - Renewing @ {1}", _orchardServices.WorkContext.CurrentUser.UserName, System.DateTime.UtcNow));
                     return _cache.Get<string, Authority>(cachedAuthorityKey, ctx =>
                     {
-                        return BuildAuthority(GetContactID(_orchardServices.WorkContext.CurrentUser.UserName));
+                        return BuildAuthority(ContactID);
                     });
                 }
 
             }
         }
 
-        private static Authority AdminAuthority = new Authority(new Guid("370846E4-36DC-4BAC-8FB5-C788C730BB45"), null, null, "admin"); //Admin service account id, different from contact who is admin
-        public Authority BuildAuthority(Guid contactID)
+        private Authority AdminAuthority = new Authority(new Guid("370846E4-36DC-4BAC-8FB5-C788C730BB45"), "admin"); //Admin service account id, different from contact who is admin
+        public Authority BuildAuthority(Guid? contactID)
         {            
-            if (!IsValidInXODB())
+            if (!IsValidInXODB() || !contactID.HasValue)
                 throw new AuthorityException("No authority to connect to XODB.");
 
             using (new TransactionScope(TransactionScopeOption.Suppress))
@@ -684,12 +718,12 @@ namespace XODB.Services {
                 var assets = (from o in s.LicenseAssets where !(from x in s.Licenses where x.ContactID==contactID select x.LicenseID).Contains(o.LicenseID.Value) select o);
                 var parts = (from o in s.LicenseAssetModelParts where !(from x in assets select x.LicenseAssetID).Contains(o.LicenseAssetID.Value) select o);
                 var users = (from o in c.Users where o.UserName==username select o.UserId);
-
+                var applications = (from o in c.Applications join x in c.Users on o.ApplicationId equals x.ApplicationId where x.UserName == username select o.ApplicationId);
                 var experiences = (from o in c.Experiences where o.ContactID == contactID select o);
                 //TODO: Do this based on experience instead of all!!! HACK!
                 var bl = (from o in c.SecurityBlacklists select o);
                 var wl = (from o in c.SecurityWhitelists select o);
-                return new Authority(contactID, bl, wl, username, userID, r, experiences, licenses, assets, parts, users, allCompanies, rootCompanies);
+                return new Authority(contactID.Value, username, userID, ApplicationID, bl, wl, applications, r, experiences, licenses, assets, parts, users, allCompanies, rootCompanies);
             }
             
 

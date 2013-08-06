@@ -446,8 +446,8 @@
     <Compile Include="Fields\UserGuidField.cs" />
     <Compile Include="Fields\GuidField.cs" />
     <Compile Include="Handlers\UserSyncSettingsPartHandler.cs" />
-    <Compile Include="Handlers\ProjectSettingsPartHandler.cs" />
-    <Compile Include="Handlers\ProjectInfoWidgetHandler.cs" />
+    <Compile Include="Handlers\XODBSettingsPartHandler.cs" />
+    <Compile Include="Handlers\XODBInfoWidgetHandler.cs" />
     <Compile Include="Helpers\BMImportHelper.cs" />
     <Compile Include="Helpers\BusinessHelper.cs" />
     <Compile Include="Helpers\DBHelper.cs" />

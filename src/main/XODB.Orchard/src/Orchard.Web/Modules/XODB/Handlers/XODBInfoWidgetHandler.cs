@@ -12,13 +12,13 @@ using Orchard;
 
 namespace XODB.Handlers
 {
-    public class ProjectInfoWidgetHandler : ContentHandler
+    public class XODBInfoWidgetHandler : ContentHandler
     {
 		protected override void BuildDisplayShape(BuildDisplayContext context)
 		{
 			base.BuildDisplayShape(context);
 			
-			if (context.ContentItem.ContentType == "ProjectInfoWidget")
+			if (context.ContentItem.ContentType == "XODBInfoWidget")
 			{
                 dynamic packageDisplay = context.New.ProjectInfo(
 					ProjectCount: 10					
