@@ -359,6 +359,15 @@ namespace XODB.Services {
             }
         }
 
+        private string applicationConnectionString;
+        public string ApplicationConnectionString
+        {
+            get
+            {
+                return System.Configuration.ConfigurationManager.ConnectionStrings["XODBEntities"].ConnectionString;
+            }
+        }
+
         public void SyncUsers()
         {
 
@@ -374,7 +383,7 @@ namespace XODB.Services {
             {
                 using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
-                    var c = new ContactsContainer();
+                    var c = new ContactsContainer(ApplicationConnectionString);
                     var r = from o in c.Roles where o.ApplicationId == ApplicationID select o;
                     var u = from o in c.Users where o.ApplicationId == ApplicationID select o;
                     var updated = DateTime.UtcNow;
@@ -387,7 +396,7 @@ namespace XODB.Services {
                         user.UserName = n.UserName;
                         user.ApplicationId = ApplicationID;
                         user.LoweredUserName = n.UserName.ToLower();
-                        user.LastActivityDate = updated;
+                        user.LastActivityDate = updated;                       
                         c.Users.AddObject(user);
                         var contacts = (from o in c.Contacts where o.Username == user.UserName select o);
                         foreach (var nc in contacts)
@@ -420,46 +429,28 @@ namespace XODB.Services {
                         c.Roles.AddObject(role);
                     }
                     c.SaveChanges();
-                    //New UserRole
-                    var ur = (from o in c.UsersInRoles where (from or in r select or.RoleId).Contains(o.RoleId) select new { o.User.UserName, o.Role.RoleName }).ToArray();
-                    var ur_exists = from xur in orchardUserRoles
-                                    join yur in ur on new { xur.UserName, xur.RoleName } equals new { yur.UserName, yur.RoleName }
-                                    //where !(from our in ur select string.Format("{0} {1}", our.Role.RoleName, our.User.UserName)).Contains(string.Format("{0} {1}", xr.Name, xu.UserName))
-                                    select yur;
-                    var nur = orchardUserRoles.Except(ur_exists);
-                    foreach (var n in nur)
+                    c.Refresh(System.Data.Objects.RefreshMode.StoreWins, r);
+                    c.Refresh(System.Data.Objects.RefreshMode.StoreWins, u);
+                    foreach (var role in r)
                     {
-                        var userRole = new UsersInRole();
-                        userRole.RoleId = r.Single(f => f.RoleName == n.RoleName).RoleId;
-                        userRole.UserId = u.Single(f => f.UserName == n.UserName).UserId;
-                        c.UsersInRoles.InsertOnSubmit(userRole);
-                    }
-                    //Remove UserRole
-                    var rur = ur.Except(ur_exists);
-                    foreach (var rem in rur)
-                    {
-                        var roleID = r.Single(f => f.RoleName == rem.RoleName).RoleId;
-                        var userID = u.Single(f => f.UserName == rem.UserName).UserId;
-                        var userRole = (from o in c.UsersInRoles where o.UserId == userID && o.RoleId == roleID select o).Single();
-                        c.UsersInRoles.DeleteOnSubmit(userRole);                        
+                        foreach (var user in role.aspnet_Users)
+                        {
+                            //Remove
+                            if (!orchardUserRoles.Any(f => f.RoleName == role.RoleName && f.UserName == user.UserName))
+                                role.aspnet_Users.Remove(user);
+                        }
+                        foreach (var user in u)
+                        {
+                            //Add
+                            if (orchardUserRoles.Any(f => f.RoleName == role.RoleName && f.UserName == user.UserName) && !role.aspnet_Users.Any(f=>f.UserName == user.UserName))
+                                role.aspnet_Users.Add(user);
+                        }
                     }
                     c.SaveChanges();
-                    var ru = (from o in u where !(from ou in orchardUsers select ou.UserName).Contains(o.UserName) select o.UserId); //can just delete from users table
+                    var ru = (from o in u where !(from ou in orchardUsers select ou.UserName).Contains(o.UserName) select o); //can just delete from users table
                     foreach (var rem in ru)
                     {
-                        var ruru = from o in c.UsersInRoles where o.UserId==rem select o;
-                        foreach (var remru in ruru)
-                            c.UsersInRoles.DeleteOnSubmit(remru);
-                    }
-                    c.SaveChanges();
-                    //Keep roles... TODO?
-                    //Reinstated TODO? Maybe not necessary? May need change in versioning if required.
-                    //var reu = (from o in c.Contacts where !(o.VersionDeletedBy==null || o.VersionDeletedBy == Guid.Empty) && o.Version==0                  
-                    //Remove User
-                    foreach (var rem in ru)
-                    {
-                        var user = (from o in c.Users where o.UserId == rem select o).Single();
-                        c.Users.DeleteObject(user);
+                        c.DeleteObject(rem);
                     }
                     c.SaveChanges();
                 }
@@ -678,7 +669,8 @@ namespace XODB.Services {
 
                 var username = (from o in c.Contacts where o.ContactID == contactID && o.Version==0 && o.VersionDeletedBy==null select o.Username).Single();
                 var userID = (from o in c.Users where o.ApplicationId == ApplicationID && o.UserName == username select o.UserId).Single();
-                var r = (from o in c.UsersInRoles where o.UserId==userID select o.RoleId);
+                var r = (from o in c.Users
+                         from x in o.aspnet_Roles where o.UserId==userID select x.RoleId);
                 var myCompanies = (from o in c.Experiences where o.ContactID==contactID && o.CompanyID!=null select o.CompanyID).ToArray();
                 var allCompanies = new List<Guid>();
                 var rootCompanies = new List<Guid>();

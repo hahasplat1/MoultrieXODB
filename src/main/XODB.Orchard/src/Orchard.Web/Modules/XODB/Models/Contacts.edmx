@@ -640,8 +640,7 @@
             <End Role="aspnet_Roles" EntitySet="Roles" />
             <End Role="aspnet_Users" EntitySet="Users" />
           </AssociationSet>
-          <EntitySet Name="UsersInRoles" EntityType="Contacts.UsersInRole" />
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Application">
           <Key>
             <PropertyRef Name="ApplicationId" />
@@ -1113,8 +1112,7 @@
           <End Type="Contacts.Role" Role="aspnet_Roles" Multiplicity="*" />
           <End Type="Contacts.User" Role="aspnet_Users" Multiplicity="*" />
         </Association>
-        <EntityType Name="UsersInRole" />
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
