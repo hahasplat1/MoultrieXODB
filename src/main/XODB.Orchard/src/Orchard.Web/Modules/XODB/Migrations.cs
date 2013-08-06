@@ -36,7 +36,7 @@ namespace XODB {
                 .Column("XODBConnectionString", DbType.String)
 			);
 
-            ContentDefinitionManager.AlterTypeDefinition("ProjectInfoWidget", cfg => cfg
+            ContentDefinitionManager.AlterTypeDefinition("XODBInfoWidget", cfg => cfg
                .WithPart("WidgetPart")
                .WithPart("CommonPart")
                .WithSetting("Stereotype", "Widget"));

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -446,8 +446,8 @@
     <Compile Include="Fields\UserGuidField.cs" />
     <Compile Include="Fields\GuidField.cs" />
     <Compile Include="Handlers\UserSyncSettingsPartHandler.cs" />
-    <Compile Include="Handlers\ProjectSettingsPartHandler.cs" />
-    <Compile Include="Handlers\ProjectInfoWidgetHandler.cs" />
+    <Compile Include="Handlers\XODBSettingsPartHandler.cs" />
+    <Compile Include="Handlers\XODBInfoWidgetHandler.cs" />
     <Compile Include="Helpers\BMImportHelper.cs" />
     <Compile Include="Helpers\BusinessHelper.cs" />
     <Compile Include="Helpers\DBHelper.cs" />

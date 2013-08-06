@@ -56,7 +56,7 @@ namespace XODB.Services {
         private readonly ShellSettings _shellSettings;
         private readonly ISignals _signals;
         private readonly IClock _clock;
-        ICacheManager _cache;
+        private readonly ICacheManager _cache;
         private PrincipalContext securityContext
         {
             get
@@ -69,9 +69,19 @@ namespace XODB.Services {
         private readonly IRepository<EmailPartRecord> _emailRepository;
         private readonly IRepository<UserRolesPartRecord> _userRolesRepository;
         public ILogger Logger { get; set; }
-        private readonly string cachedAuthorityKey;
 
-        public UsersService(IContentManager contentManager, IOrchardServices orchardServices, IRoleService roleService, IMessageManager messageManager, IScheduledTaskManager taskManager, IRepository<EmailPartRecord> emailRepository, ShellSettings shellSettings, IRepository<UserRolesPartRecord> userRolesRepository, ICacheManager cache, IClock clock, ISignals signals) 
+        public UsersService(
+            IContentManager contentManager, 
+            IOrchardServices orchardServices, 
+            IRoleService roleService, 
+            IMessageManager messageManager, 
+            IScheduledTaskManager taskManager, 
+            IRepository<EmailPartRecord> emailRepository, 
+            ShellSettings shellSettings, 
+            IRepository<UserRolesPartRecord> userRolesRepository, 
+            ICacheManager cache, 
+            IClock clock, 
+            ISignals signals) 
         {
             _signals = signals;
             _clock = clock;
@@ -85,8 +95,7 @@ namespace XODB.Services {
             _shellSettings = shellSettings;
             _userRolesRepository = userRolesRepository;
             T = NullLocalizer.Instance;
-            Logger = NullLogger.Instance;
-            cachedAuthorityKey = string.Format("{0}_{1}_Authority", ApplicationID, ContactID);
+            Logger = NullLogger.Instance;            
         }
 
         public Localizer T { get; set; }
@@ -632,6 +641,7 @@ namespace XODB.Services {
         {
             get
             {                
+                var cachedAuthorityKey = string.Format("{0}_{1}_Authority", ApplicationID, ContactID); //TODO: can prob cache these values too
                 try
                 {
                     var auth =  _cache.Get<string, Authority>(cachedAuthorityKey, ctx =>
