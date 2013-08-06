@@ -35,5 +35,11 @@ namespace XODB.Services
              [OperationContract]
              get;
          }
+
+         List<SecurityWhitelist> AuthorisedList
+         {
+             [OperationContract]
+             get;
+         }
     }
 }

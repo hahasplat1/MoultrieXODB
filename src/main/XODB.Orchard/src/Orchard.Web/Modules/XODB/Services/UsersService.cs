@@ -625,6 +625,16 @@ namespace XODB.Services {
                     .IsAuthorised(checkLicense, action, dataType, tableType, field, referenceID, applicationID, licenseID, assetID, modelID, partID, companyID, contactID, projectID, roleID);
         }
 
+        public List<SecurityWhitelist> AuthorisedList
+        {
+            get
+            {
+                if (_orchardServices.WorkContext.CurrentUser.UserName == "admin")
+                    return AdminAuthority.AuthorisedList;
+                else
+                    return CachedAuthority.AuthorisedList;
+            }
+        }
         
         public Authority CachedAuthority
         {
