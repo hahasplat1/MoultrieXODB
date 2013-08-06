@@ -273,11 +273,6 @@
       <LastGenOutput>Contacts.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Models\Internals.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Internals.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="packages.config" />
     <Content Include="Models\BMMetaData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -389,6 +384,7 @@
     <Compile Include="Handlers\FileGeneratingResult.cs" />
     <Compile Include="Helpers\CacheHelper.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
+    <Compile Include="Helpers\DocHelper.cs" />
     <Compile Include="Helpers\InterfaceHelper.cs" />
     <Compile Include="Helpers\NetworkHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
@@ -399,6 +395,11 @@
       <DependentUpon>Assays.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\BlockModelPart.cs" />
+    <Compile Include="Models\Content.designer.cs">
+      <DependentUpon>Content.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Models\Software.designer.cs">
       <DependentUpon>Software.dbml</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -412,6 +413,16 @@
     <Compile Include="Models\EmailPart.cs" />
     <Compile Include="Models\IMessage.cs" />
     <Compile Include="Models\ShellTask.cs" />
+    <Compile Include="Models\Spatial.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Spatial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Spatial.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\AssaysReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -428,6 +439,8 @@
     <Compile Include="Services\Authority.cs" />
     <Compile Include="Services\ConcurrentTaskService.cs" />
     <Compile Include="Services\AssayService.cs" />
+    <Compile Include="Services\ISpatialService.cs" />
+    <Compile Include="Services\SpatialService.cs" />
     <Compile Include="Services\IAuthority.cs" />
     <Compile Include="Services\IGeophysicsService.cs" />
     <Compile Include="Services\GeophysicsService.cs" />
@@ -456,14 +469,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BMMetaData.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Internals.cs">
-      <DependentUpon>Internals.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Internals.designer.cs">
-      <DependentUpon>Internals.dbml</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Reports\CompareModelReport.cs">
       <SubType>Component</SubType>
@@ -553,10 +558,32 @@
       <LastGenOutput>Software.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Models\Content.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Content.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Models\Projects.dbml.layout">
       <DependentUpon>Projects.dbml</DependentUpon>
     </None>
     <Content Include="Views\User\ReportGeophysics.cshtml" />
+    <EntityDeploy Include="Models\Spatial.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Spatial.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Spatial.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Spatial.edmx</DependentUpon>
+      <LastGenOutput>Spatial.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Spatial.edmx.diagram">
+      <DependentUpon>Spatial.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Spatial.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Spatial.edmx</DependentUpon>
+      <LastGenOutput>Spatial.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Models\Models.dbml.layout">
@@ -575,6 +602,9 @@
     <None Include="Models\Software.dbml.layout">
       <DependentUpon>Software.dbml</DependentUpon>
     </None>
+    <None Include="Models\Content.dbml.layout">
+      <DependentUpon>Content.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Reports\GeophysicsReport.resx">
       <DependentUpon>GeophysicsReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -584,9 +614,6 @@
     <EmbeddedResource Include="Reports\CompareModelReport.resx">
       <DependentUpon>CompareModelReport.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Models\Internals.dbml.layout">
-      <DependentUpon>Internals.dbml</DependentUpon>
-    </None>
     <None Include="Models\BMMetaData.dbml.layout">
       <DependentUpon>BMMetaData.dbml</DependentUpon>
     </None>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Contacts">
+  <DataContextMoniker Name="/ContentContext" />
+  <nestedChildShapes>
+    <classShape Id="0050b3e7-ede0-470a-8fa5-a3b43d88c9a6" absoluteBounds="4, 2.375, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/ContentContext/FileData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6ba6eac9-cf5c-4451-a399-058c161a978a" absoluteBounds="4.015, 2.835, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="718dbcdb-d628-4053-8e64-771b061fc7f8" isExpanded="false" absoluteBounds="8.125, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/ContentContext/PrivateData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6deb0155-897d-4f0d-9ded-99cefdaec11c" absoluteBounds="8.14, 4.085, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3bd365d4-6f79-4050-b563-c4118f534c10" absoluteBounds="3.75, 0.75, 2, 3.1170068359375">
+      <DataClassMoniker Name="/ContentContext/MetaData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d80d418-3a7e-4daf-b65d-41c0f6394e3f" absoluteBounds="3.765, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dc9e616f-8f1b-4b19-b055-1f85b46c615a" absoluteBounds="8, 1.375, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/ContentContext/MetaDataRelation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98b0d733-8ae7-4292-9b8c-c67847682e63" absoluteBounds="8.015, 1.835, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.70923076923077 : 7.60732259114583); (4.70923076923077 : 7.85732259114583); (5.30461538461539 : 7.85732259114583); (5.30461538461539 : 7.60732259114583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ContentContext/FileData/FileData_FileData" />
+      <nodes>
+        <classShapeMoniker Id="0050b3e7-ede0-470a-8fa5-a3b43d88c9a6" />
+        <classShapeMoniker Id="0050b3e7-ede0-470a-8fa5-a3b43d88c9a6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 1.84375); (8 : 1.84375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContentContext/MetaData/MetaData_MetaDataRelation" />
+      <nodes>
+        <classShapeMoniker Id="3bd365d4-6f79-4050-b563-c4118f534c10" />
+        <classShapeMoniker Id="dc9e616f-8f1b-4b19-b055-1f85b46c615a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

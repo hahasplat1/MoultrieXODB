@@ -46,7 +46,7 @@ namespace XODB.Services
         {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var d = new InternalsContext();
+                var d = new ContentContext();
                 var o = d.PrivateDatas.Where(x => x.UniqueID == lookup).FirstOrDefault();
                 if (o == null)
                     return null;
@@ -63,7 +63,7 @@ namespace XODB.Services
         {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var d = new InternalsContext();
+                var d = new ContentContext();
                 var o = from r in d.MetaDataRelations where r.ReferenceID==referenceID join m in d.MetaDatas
                                                       on r.MetaDataID equals m.MetaDataID
                                                       select m;
@@ -90,7 +90,7 @@ namespace XODB.Services
         {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var d = new InternalsContext();
+                var d = new ContentContext();
                 var o = d.PrivateDatas.Where(x => x.UniqueID == lookup).FirstOrDefault();
                 if (o == null)
                 {
@@ -124,7 +124,7 @@ namespace XODB.Services
         {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var d = new InternalsContext();
+                var d = new ContentContext();
                 var cmd = d.Connection.CreateCommand();
                 cmd.CommandText = "SELECT column_name FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE OBJECTPROPERTY(OBJECT_ID(constraint_name), 'IsPrimaryKey') = 1 AND table_name = '" + tablename.CleanTokenForSQL() + "'";
                 var t = new DataTable("t");

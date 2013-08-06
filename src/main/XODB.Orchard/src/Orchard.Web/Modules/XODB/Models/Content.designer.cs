@@ -23,13 +23,16 @@ namespace XODB.Models
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="XODB")]
-	public partial class InternalsContext : System.Data.Linq.DataContext
+	public partial class ContentContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertFileData(FileData instance);
+    partial void UpdateFileData(FileData instance);
+    partial void DeleteFileData(FileData instance);
     partial void InsertPrivateData(PrivateData instance);
     partial void UpdatePrivateData(PrivateData instance);
     partial void DeletePrivateData(PrivateData instance);
@@ -41,34 +44,42 @@ namespace XODB.Models
     partial void DeleteMetaDataRelation(MetaDataRelation instance);
     #endregion
 		
-		public InternalsContext() : 
+		public ContentContext() : 
 				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["XODBConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public InternalsContext(string connection) : 
+		public ContentContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public InternalsContext(System.Data.IDbConnection connection) : 
+		public ContentContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public InternalsContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public ContentContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public InternalsContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public ContentContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<FileData> FileDatas
+		{
+			get
+			{
+				return this.GetTable<FileData>();
+			}
 		}
 		
 		public System.Data.Linq.Table<PrivateData> PrivateDatas
@@ -93,6 +104,665 @@ namespace XODB.Models
 			{
 				return this.GetTable<MetaDataRelation>();
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.X_FileData")]
+	public partial class FileData : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _FileDataID;
+		
+		private System.Nullable<System.Guid> _ParentFileID;
+		
+		private string _TableType;
+		
+		private System.Guid _ReferenceID;
+		
+		private System.Nullable<System.Guid> _WorkerID;
+		
+		private System.Nullable<System.Guid> _FileTypeID;
+		
+		private string _FileName;
+		
+		private string _DocumentType;
+		
+		private string _MimeType;
+		
+		private string _Author;
+		
+		private System.Data.Linq.Binary _FileBytes;
+		
+		private string _FileContent;
+		
+		private string _FileChecksum;
+		
+		private string _Comment;
+		
+		private int _Version;
+		
+		private System.Nullable<System.Guid> _VersionAntecedentID;
+		
+		private System.Nullable<int> _VersionCertainty;
+		
+		private System.Nullable<System.Guid> _VersionWorkflowInstanceID;
+		
+		private System.Nullable<System.Guid> _VersionUpdatedBy;
+		
+		private System.Nullable<System.Guid> _VersionDeletedBy;
+		
+		private System.Nullable<System.Guid> _VersionOwnerContactID;
+		
+		private System.Nullable<System.Guid> _VersionOwnerCompanyID;
+		
+		private System.Nullable<System.DateTime> _VersionUpdated;
+		
+		private EntitySet<FileData> _FileDatas;
+		
+		private EntityRef<FileData> _X_FileData1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFileDataIDChanging(System.Guid value);
+    partial void OnFileDataIDChanged();
+    partial void OnParentFileIDChanging(System.Nullable<System.Guid> value);
+    partial void OnParentFileIDChanged();
+    partial void OnTableTypeChanging(string value);
+    partial void OnTableTypeChanged();
+    partial void OnReferenceIDChanging(System.Guid value);
+    partial void OnReferenceIDChanged();
+    partial void OnWorkerIDChanging(System.Nullable<System.Guid> value);
+    partial void OnWorkerIDChanged();
+    partial void OnFileTypeIDChanging(System.Nullable<System.Guid> value);
+    partial void OnFileTypeIDChanged();
+    partial void OnFileNameChanging(string value);
+    partial void OnFileNameChanged();
+    partial void OnDocumentTypeChanging(string value);
+    partial void OnDocumentTypeChanged();
+    partial void OnMimeTypeChanging(string value);
+    partial void OnMimeTypeChanged();
+    partial void OnAuthorChanging(string value);
+    partial void OnAuthorChanged();
+    partial void OnFileBytesChanging(System.Data.Linq.Binary value);
+    partial void OnFileBytesChanged();
+    partial void OnFileContentChanging(string value);
+    partial void OnFileContentChanged();
+    partial void OnFileChecksumChanging(string value);
+    partial void OnFileChecksumChanged();
+    partial void OnCommentChanging(string value);
+    partial void OnCommentChanged();
+    partial void OnVersionChanging(int value);
+    partial void OnVersionChanged();
+    partial void OnVersionAntecedentIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionAntecedentIDChanged();
+    partial void OnVersionCertaintyChanging(System.Nullable<int> value);
+    partial void OnVersionCertaintyChanged();
+    partial void OnVersionWorkflowInstanceIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionWorkflowInstanceIDChanged();
+    partial void OnVersionUpdatedByChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionUpdatedByChanged();
+    partial void OnVersionDeletedByChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionDeletedByChanged();
+    partial void OnVersionOwnerContactIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionOwnerContactIDChanged();
+    partial void OnVersionOwnerCompanyIDChanging(System.Nullable<System.Guid> value);
+    partial void OnVersionOwnerCompanyIDChanged();
+    partial void OnVersionUpdatedChanging(System.Nullable<System.DateTime> value);
+    partial void OnVersionUpdatedChanged();
+    #endregion
+		
+		public FileData()
+		{
+			this._FileDatas = new EntitySet<FileData>(new Action<FileData>(this.attach_FileDatas), new Action<FileData>(this.detach_FileDatas));
+			this._X_FileData1 = default(EntityRef<FileData>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileDataID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid FileDataID
+		{
+			get
+			{
+				return this._FileDataID;
+			}
+			set
+			{
+				if ((this._FileDataID != value))
+				{
+					this.OnFileDataIDChanging(value);
+					this.SendPropertyChanging();
+					this._FileDataID = value;
+					this.SendPropertyChanged("FileDataID");
+					this.OnFileDataIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentFileID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> ParentFileID
+		{
+			get
+			{
+				return this._ParentFileID;
+			}
+			set
+			{
+				if ((this._ParentFileID != value))
+				{
+					if (this._X_FileData1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnParentFileIDChanging(value);
+					this.SendPropertyChanging();
+					this._ParentFileID = value;
+					this.SendPropertyChanged("ParentFileID");
+					this.OnParentFileIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TableType
+		{
+			get
+			{
+				return this._TableType;
+			}
+			set
+			{
+				if ((this._TableType != value))
+				{
+					this.OnTableTypeChanging(value);
+					this.SendPropertyChanging();
+					this._TableType = value;
+					this.SendPropertyChanged("TableType");
+					this.OnTableTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReferenceID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid ReferenceID
+		{
+			get
+			{
+				return this._ReferenceID;
+			}
+			set
+			{
+				if ((this._ReferenceID != value))
+				{
+					this.OnReferenceIDChanging(value);
+					this.SendPropertyChanging();
+					this._ReferenceID = value;
+					this.SendPropertyChanged("ReferenceID");
+					this.OnReferenceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkerID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> WorkerID
+		{
+			get
+			{
+				return this._WorkerID;
+			}
+			set
+			{
+				if ((this._WorkerID != value))
+				{
+					this.OnWorkerIDChanging(value);
+					this.SendPropertyChanging();
+					this._WorkerID = value;
+					this.SendPropertyChanged("WorkerID");
+					this.OnWorkerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileTypeID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> FileTypeID
+		{
+			get
+			{
+				return this._FileTypeID;
+			}
+			set
+			{
+				if ((this._FileTypeID != value))
+				{
+					this.OnFileTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._FileTypeID = value;
+					this.SendPropertyChanged("FileTypeID");
+					this.OnFileTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileName", DbType="NVarChar(255)")]
+		public string FileName
+		{
+			get
+			{
+				return this._FileName;
+			}
+			set
+			{
+				if ((this._FileName != value))
+				{
+					this.OnFileNameChanging(value);
+					this.SendPropertyChanging();
+					this._FileName = value;
+					this.SendPropertyChanged("FileName");
+					this.OnFileNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocumentType", DbType="NVarChar(50)")]
+		public string DocumentType
+		{
+			get
+			{
+				return this._DocumentType;
+			}
+			set
+			{
+				if ((this._DocumentType != value))
+				{
+					this.OnDocumentTypeChanging(value);
+					this.SendPropertyChanging();
+					this._DocumentType = value;
+					this.SendPropertyChanged("DocumentType");
+					this.OnDocumentTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MimeType", DbType="NVarChar(50)")]
+		public string MimeType
+		{
+			get
+			{
+				return this._MimeType;
+			}
+			set
+			{
+				if ((this._MimeType != value))
+				{
+					this.OnMimeTypeChanging(value);
+					this.SendPropertyChanging();
+					this._MimeType = value;
+					this.SendPropertyChanged("MimeType");
+					this.OnMimeTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="NVarChar(50)")]
+		public string Author
+		{
+			get
+			{
+				return this._Author;
+			}
+			set
+			{
+				if ((this._Author != value))
+				{
+					this.OnAuthorChanging(value);
+					this.SendPropertyChanging();
+					this._Author = value;
+					this.SendPropertyChanged("Author");
+					this.OnAuthorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileBytes", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary FileBytes
+		{
+			get
+			{
+				return this._FileBytes;
+			}
+			set
+			{
+				if ((this._FileBytes != value))
+				{
+					this.OnFileBytesChanging(value);
+					this.SendPropertyChanging();
+					this._FileBytes = value;
+					this.SendPropertyChanged("FileBytes");
+					this.OnFileBytesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileContent", DbType="NVarChar(MAX)")]
+		public string FileContent
+		{
+			get
+			{
+				return this._FileContent;
+			}
+			set
+			{
+				if ((this._FileContent != value))
+				{
+					this.OnFileContentChanging(value);
+					this.SendPropertyChanging();
+					this._FileContent = value;
+					this.SendPropertyChanged("FileContent");
+					this.OnFileContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileChecksum", DbType="NVarChar(50)")]
+		public string FileChecksum
+		{
+			get
+			{
+				return this._FileChecksum;
+			}
+			set
+			{
+				if ((this._FileChecksum != value))
+				{
+					this.OnFileChecksumChanging(value);
+					this.SendPropertyChanging();
+					this._FileChecksum = value;
+					this.SendPropertyChanged("FileChecksum");
+					this.OnFileChecksumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comment", DbType="NVarChar(255)")]
+		public string Comment
+		{
+			get
+			{
+				return this._Comment;
+			}
+			set
+			{
+				if ((this._Comment != value))
+				{
+					this.OnCommentChanging(value);
+					this.SendPropertyChanging();
+					this._Comment = value;
+					this.SendPropertyChanged("Comment");
+					this.OnCommentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Version", DbType="Int NOT NULL")]
+		public int Version
+		{
+			get
+			{
+				return this._Version;
+			}
+			set
+			{
+				if ((this._Version != value))
+				{
+					this.OnVersionChanging(value);
+					this.SendPropertyChanging();
+					this._Version = value;
+					this.SendPropertyChanged("Version");
+					this.OnVersionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionAntecedentID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionAntecedentID
+		{
+			get
+			{
+				return this._VersionAntecedentID;
+			}
+			set
+			{
+				if ((this._VersionAntecedentID != value))
+				{
+					this.OnVersionAntecedentIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionAntecedentID = value;
+					this.SendPropertyChanged("VersionAntecedentID");
+					this.OnVersionAntecedentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionCertainty", DbType="Int")]
+		public System.Nullable<int> VersionCertainty
+		{
+			get
+			{
+				return this._VersionCertainty;
+			}
+			set
+			{
+				if ((this._VersionCertainty != value))
+				{
+					this.OnVersionCertaintyChanging(value);
+					this.SendPropertyChanging();
+					this._VersionCertainty = value;
+					this.SendPropertyChanged("VersionCertainty");
+					this.OnVersionCertaintyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionWorkflowInstanceID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionWorkflowInstanceID
+		{
+			get
+			{
+				return this._VersionWorkflowInstanceID;
+			}
+			set
+			{
+				if ((this._VersionWorkflowInstanceID != value))
+				{
+					this.OnVersionWorkflowInstanceIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionWorkflowInstanceID = value;
+					this.SendPropertyChanged("VersionWorkflowInstanceID");
+					this.OnVersionWorkflowInstanceIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionUpdatedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionUpdatedBy
+		{
+			get
+			{
+				return this._VersionUpdatedBy;
+			}
+			set
+			{
+				if ((this._VersionUpdatedBy != value))
+				{
+					this.OnVersionUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._VersionUpdatedBy = value;
+					this.SendPropertyChanged("VersionUpdatedBy");
+					this.OnVersionUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionDeletedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionDeletedBy
+		{
+			get
+			{
+				return this._VersionDeletedBy;
+			}
+			set
+			{
+				if ((this._VersionDeletedBy != value))
+				{
+					this.OnVersionDeletedByChanging(value);
+					this.SendPropertyChanging();
+					this._VersionDeletedBy = value;
+					this.SendPropertyChanged("VersionDeletedBy");
+					this.OnVersionDeletedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionOwnerContactID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionOwnerContactID
+		{
+			get
+			{
+				return this._VersionOwnerContactID;
+			}
+			set
+			{
+				if ((this._VersionOwnerContactID != value))
+				{
+					this.OnVersionOwnerContactIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionOwnerContactID = value;
+					this.SendPropertyChanged("VersionOwnerContactID");
+					this.OnVersionOwnerContactIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionOwnerCompanyID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> VersionOwnerCompanyID
+		{
+			get
+			{
+				return this._VersionOwnerCompanyID;
+			}
+			set
+			{
+				if ((this._VersionOwnerCompanyID != value))
+				{
+					this.OnVersionOwnerCompanyIDChanging(value);
+					this.SendPropertyChanging();
+					this._VersionOwnerCompanyID = value;
+					this.SendPropertyChanged("VersionOwnerCompanyID");
+					this.OnVersionOwnerCompanyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VersionUpdated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> VersionUpdated
+		{
+			get
+			{
+				return this._VersionUpdated;
+			}
+			set
+			{
+				if ((this._VersionUpdated != value))
+				{
+					this.OnVersionUpdatedChanging(value);
+					this.SendPropertyChanging();
+					this._VersionUpdated = value;
+					this.SendPropertyChanged("VersionUpdated");
+					this.OnVersionUpdatedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FileData_FileData", Storage="_FileDatas", ThisKey="FileDataID", OtherKey="ParentFileID")]
+		public EntitySet<FileData> FileDatas
+		{
+			get
+			{
+				return this._FileDatas;
+			}
+			set
+			{
+				this._FileDatas.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FileData_FileData", Storage="_X_FileData1", ThisKey="ParentFileID", OtherKey="FileDataID", IsForeignKey=true)]
+		public FileData X_FileData1
+		{
+			get
+			{
+				return this._X_FileData1.Entity;
+			}
+			set
+			{
+				FileData previousValue = this._X_FileData1.Entity;
+				if (((previousValue != value) 
+							|| (this._X_FileData1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._X_FileData1.Entity = null;
+						previousValue.FileDatas.Remove(this);
+					}
+					this._X_FileData1.Entity = value;
+					if ((value != null))
+					{
+						value.FileDatas.Add(this);
+						this._ParentFileID = value.FileDataID;
+					}
+					else
+					{
+						this._ParentFileID = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("X_FileData1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_FileDatas(FileData entity)
+		{
+			this.SendPropertyChanging();
+			entity.X_FileData1 = this;
+		}
+		
+		private void detach_FileDatas(FileData entity)
+		{
+			this.SendPropertyChanging();
+			entity.X_FileData1 = null;
 		}
 	}
 	
