@@ -384,12 +384,35 @@
     <Compile Include="Helpers\NetworkHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Helpers\TaskHelper.cs" />
+    <Compile Include="Models\Application.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Assays.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Assays.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\BlockModelPart.cs" />
+    <Compile Include="Models\Company.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyAddress.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyRelation.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactAddress.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contacts.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contacts.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Contacts.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -400,25 +423,44 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Contacts.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ContactsContainer.cs" />
     <Compile Include="Models\Content.designer.cs">
       <DependentUpon>Content.dbml</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+    <Compile Include="Models\Experience.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\Location.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Compile Include="Models\LocationAlias.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LocationData.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LocationHistories.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Province.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProvinceData.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProvinceRelation.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecurityBlacklist.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecurityWhitelist.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Software.designer.cs">
       <DependentUpon>Software.dbml</DependentUpon>
@@ -433,6 +475,11 @@
     <Compile Include="Models\EmailPart.cs" />
     <Compile Include="Models\IMessage.cs" />
     <Compile Include="Models\ShellTask.cs" />
+    <Compile Include="Models\Spatial.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Spatial.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Spatial.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -442,6 +489,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Spatial.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
     </Compile>
     <Compile Include="Reports\AssaysReport.cs">
       <SubType>Component</SubType>
@@ -594,23 +644,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Contacts.edmx</DependentUpon>
       <LastGenOutput>Contacts.cs</LastGenOutput>
-    </Content>
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <None Include="Models\Projects.dbml.layout">
       <DependentUpon>Projects.dbml</DependentUpon>

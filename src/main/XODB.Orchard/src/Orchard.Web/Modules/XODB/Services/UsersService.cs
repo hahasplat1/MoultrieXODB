@@ -153,7 +153,7 @@ namespace XODB.Services {
                             application.ApplicationName = _shellSettings.Name;
                             application.LoweredApplicationName = _shellSettings.Name.ToLower();
                             application.Description = "Orchard";
-                            c.Applications.AddObject(application);
+                            c.Applications.Add(application);
                             c.SaveChanges();
                         }
                     }
@@ -360,11 +360,11 @@ namespace XODB.Services {
         }
 
         private string applicationConnectionString;
-        public string ApplicationConnectionString
+        public string ApplicationConnectionString //TODO: This needs to be multi-tenant?
         {
             get
             {
-                return System.Configuration.ConfigurationManager.ConnectionStrings["XODBEntities"].ConnectionString;
+                return System.Configuration.ConfigurationManager.ConnectionStrings["XODB"].ConnectionString;
             }
         }
 
@@ -384,8 +384,8 @@ namespace XODB.Services {
                 using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
                     var c = new ContactsContainer(ApplicationConnectionString);
-                    var r = from o in c.Roles where o.ApplicationId == ApplicationID select o;
-                    var u = from o in c.Users where o.ApplicationId == ApplicationID select o;
+                    var r = from o in c.Roles.Include("aspnet_Users") where o.ApplicationId == ApplicationID select o;
+                    var u = from o in c.Users.Include("aspnet_Roles") where o.ApplicationId == ApplicationID select o;
                     var updated = DateTime.UtcNow;
                     //New User
                     var nu = (from o in orchardUsers where !(from ou in u select ou.UserName).Contains(o.UserName) select o);
@@ -397,7 +397,7 @@ namespace XODB.Services {
                         user.ApplicationId = ApplicationID;
                         user.LoweredUserName = n.UserName.ToLower();
                         user.LastActivityDate = updated;                       
-                        c.Users.AddObject(user);
+                        c.Users.Add(user);
                         var contacts = (from o in c.Contacts where o.Username == user.UserName select o);
                         foreach (var nc in contacts)
                         {
@@ -414,7 +414,7 @@ namespace XODB.Services {
                             contact.VersionUpdated = updated;
                             contact.Surname = "";
                             contact.Firstname = "";
-                            c.Contacts.AddObject(contact);
+                            c.Contacts.Add(contact);
                         }
                     }
                     //New Role
@@ -426,31 +426,29 @@ namespace XODB.Services {
                         role.ApplicationId = ApplicationID;
                         role.RoleId = Guid.NewGuid();
                         role.LoweredRoleName = n.Name.ToLower();
-                        c.Roles.AddObject(role);
+                        c.Roles.Add(role);
                     }
                     c.SaveChanges();
-                    c.Refresh(System.Data.Objects.RefreshMode.StoreWins, r);
-                    c.Refresh(System.Data.Objects.RefreshMode.StoreWins, u);
                     foreach (var role in r)
                     {
                         foreach (var user in role.aspnet_Users)
                         {
                             //Remove
                             if (!orchardUserRoles.Any(f => f.RoleName == role.RoleName && f.UserName == user.UserName))
-                                role.aspnet_Users.Remove(user);
+                                user.aspnet_Roles.Remove(role);
                         }
                         foreach (var user in u)
                         {
                             //Add
                             if (orchardUserRoles.Any(f => f.RoleName == role.RoleName && f.UserName == user.UserName) && !role.aspnet_Users.Any(f=>f.UserName == user.UserName))
-                                role.aspnet_Users.Add(user);
+                                user.aspnet_Roles.Add(role);
                         }
                     }
                     c.SaveChanges();
-                    var ru = (from o in u where !(from ou in orchardUsers select ou.UserName).Contains(o.UserName) select o); //can just delete from users table
+                    var ru = (from o in u.ToArray() where !(from ou in orchardUsers select ou.UserName).Contains(o.UserName) select o); //can just delete from users table
                     foreach (var rem in ru)
                     {
-                        c.DeleteObject(rem);
+                        c.Users.Remove(rem);
                     }
                     c.SaveChanges();
                 }
@@ -519,7 +517,7 @@ namespace XODB.Services {
                         c.ContactName = string.Join(string.Empty, string.Format("{0} [{1}]", o.name, o.username).Take(120));
                         c.Surname = o.sn;
                         c.DefaultEmail = o.email;
-                        d.Contacts.AddObject(c);
+                        d.Contacts.Add(c);
                     }
 
                     //Updates into XODB
@@ -676,7 +674,7 @@ namespace XODB.Services {
                 var rootCompanies = new List<Guid>();
                 using (DataTable table = new DataTable()) 
                 {
-                    using(var con = new SqlConnection(c.Connection.ConnectionString))
+                    using(var con = new SqlConnection(c.Database.Connection.ConnectionString))
                     using(var cmd = new SqlCommand("X_SP_GetCompanies", con))
                     using(var da = new SqlDataAdapter(cmd))
                     {
