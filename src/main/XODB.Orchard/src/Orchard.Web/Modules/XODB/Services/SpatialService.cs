@@ -66,7 +66,7 @@ namespace XODB.Services {
            
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                using (var context = new SpatialContainer())
+                using (var context = new SpatialContainer(_users.ApplicationConnectionString))
                 {
                     var s = (from o in context.Locations select o).FirstOrDefault();
                     
