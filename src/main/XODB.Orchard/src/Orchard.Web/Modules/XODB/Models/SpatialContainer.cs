@@ -13,7 +13,7 @@ namespace XODB.Models
         public SpatialContainer(string providerConnectionString)
             : //base("name=SpatialContainer")
               //base(new System.Data.SqlClient.SqlConnection(providerConnectionString), true)
-              base(DBHelper.GetEnityConnectionString(providerConnectionString))
+              base(DBHelper.GetEnityConnectionString(providerConnectionString, "Spatial"))
         {
             this.Configuration.LazyLoadingEnabled = false; //Explicit queries only
         }

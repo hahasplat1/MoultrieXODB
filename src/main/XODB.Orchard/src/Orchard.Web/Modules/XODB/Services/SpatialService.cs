@@ -66,7 +66,7 @@ namespace XODB.Services {
            
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                using (var context = new SpatialContainer(_users.ApplicationConnectionString))
+                using (var context = new SpatialContainer())
                 {
                     var s = (from o in context.Locations select o).FirstOrDefault();
                     
@@ -83,8 +83,7 @@ namespace XODB.Services {
                     //                  orderby u.Location.Distance(myLocation)
                     //                  select u).FirstOrDefault();
 
-                }
-                throw new NotImplementedException();
+                }                
             }
         }      
 

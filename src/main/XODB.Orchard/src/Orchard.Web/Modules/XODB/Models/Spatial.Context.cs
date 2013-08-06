@@ -16,7 +16,7 @@ namespace XODB.Models
     public partial class SpatialContainer : DbContext
     {
         public SpatialContainer()
-            : base("name=XODB")
+            : base("name=SpatialContainer")
         {
         }
     
