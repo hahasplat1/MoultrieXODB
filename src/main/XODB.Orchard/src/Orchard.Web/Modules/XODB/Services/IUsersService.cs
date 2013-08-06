@@ -28,5 +28,12 @@ namespace XODB.Services
 
          [OperationContract]
          void EmailUsersAsync(string[] recipients, string subject, string body);
+
+
+         string ApplicationConnectionString
+         {
+             [OperationContract]
+             get;
+         }
     }
 }

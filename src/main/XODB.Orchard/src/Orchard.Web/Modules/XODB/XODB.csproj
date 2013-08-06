@@ -423,12 +423,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Contacts.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\ContactsContainer.cs" />
+    <Compile Include="Models\SpatialContainer.cs" />
     <Compile Include="Models\Content.designer.cs">
       <DependentUpon>Content.dbml</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="Models\Copy of ContactsContainer.cs" />
     <Compile Include="Models\Experience.cs">
       <DependentUpon>Contacts.tt</DependentUpon>
     </Compile>
