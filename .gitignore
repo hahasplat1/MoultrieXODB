@@ -10,3 +10,4 @@ UnusableNodes*.xml
 *.suo
 *.dll
 *.exe
+*.user
