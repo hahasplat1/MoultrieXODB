@@ -20,7 +20,12 @@ namespace XODB.Helpers
             MaxFileSize = 209715200
         };
 
-        public static void ucCallbacks_AppendModelUploadComplete(object sender, FileUploadCompleteEventArgs e)
+        public static readonly DevExpress.Web.ASPxUploadControl.ValidationSettings AppendAnythingValidationSettings = new DevExpress.Web.ASPxUploadControl.ValidationSettings
+        {           
+            MaxFileSize = 209715200
+        };
+
+        public static void ucCallbacks_AppendComplete(object sender, FileUploadCompleteEventArgs e)
         {
             if (e.UploadedFile.IsValid)
             {

@@ -443,7 +443,7 @@ namespace XODB.Controllers {
         [HttpPost, ValidateInput(false)]
         public ActionResult AppendToModelUpload()
         {
-            UploadControlExtension.GetUploadedFiles("ucCallbacks", UIHelper.AppendModelValidationSettings, UIHelper.ucCallbacks_AppendModelUploadComplete);
+            UploadControlExtension.GetUploadedFiles("ucCallbacks", UIHelper.AppendModelValidationSettings, UIHelper.ucCallbacks_AppendComplete);
             return null;
         }
 
