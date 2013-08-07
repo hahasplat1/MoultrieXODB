@@ -37,7 +37,10 @@ namespace XODB.Import.ImportUtils
             foreach (ColumnMap cmap in importMap.columnMap)
             {
                 bool isFKColumn = cmap.hasFKRelation;
-                cmap.importDataType = ImportDataMap.TEXTDATATYPE;
+                if (isFKColumn)
+                {
+                    cmap.importDataType = ImportDataMap.TEXTDATATYPE;
+                }
             }
 
             // get a connection to the database
@@ -230,14 +233,22 @@ namespace XODB.Import.ImportUtils
                                     {
                                         // go and search for the appropriate value from the foreign key table
                                         string newValue = ForeignKeyUtils.FindFKValueInDictionary(columnValue, cmap, secondaryConnection, true);
-                                        columnValue = "\'" + newValue + "\'";
+                                        if (newValue != null && newValue.Trim().Length > 0)
+                                        {
+                                            columnValue = "\'" + newValue + "\'";
+                                        }
+                                        else
+                                        {
+                                            columnValue = "NULL";
+                                        }
+                                        clauseParameters +=  columnValue + ",";
                                     }
                                     else
                                     {
 
                                         if (cmap.importDataType.Equals(ImportDataMap.NUMERICDATATYPE))
                                         {
-                                            if (columnValue.Equals("-") || columnValue.Equals(""))
+                                            if (columnValue.Equals("-") || columnValue.Trim().Equals(""))
                                             {
                                                 if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
                                                 {
@@ -472,14 +483,20 @@ namespace XODB.Import.ImportUtils
                         {
                             // go and search for the appropriate value from the foreign key table
                             string newValue = ForeignKeyUtils.FindFKValueInDictionary(columnValue, cmap, secondaryConnection, true);
-                            columnValue = "\'" + newValue + "\'";
+                            if (newValue != null && newValue.Trim().Length > 0)
+                            {
+                                columnValue = "\'" + newValue + "\'";
+                            }
+                            else {
+                                columnValue = "NULL";
+                            }
                         }
                         else
                         {
 
                             if (cmap.importDataType.Equals(ImportDataMap.NUMERICDATATYPE))
                             {
-                                if (columnValue.Equals("-"))
+                                if (columnValue.Equals("-") || columnValue.Trim().Length == 0)
                                 {
                                     if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
                                     {
@@ -518,7 +535,7 @@ namespace XODB.Import.ImportUtils
                     SqlCommand sqc = new SqlCommand(commandText, connection, trans);
                     string msg = "";
                     //holeWarningMessages.TryGetValue(headerNameItem, out msg);
-                    msg = "Litho for hole " + headerNameItem + " (" + clauseValues + ") was overwritten with new data";
+                    msg = "Litho for hole " + headerNameItem + " was overwritten with new data";
                     holeWarningMessages[headerNameItem] = msg;
 
                     numberOfHolesAdded++;

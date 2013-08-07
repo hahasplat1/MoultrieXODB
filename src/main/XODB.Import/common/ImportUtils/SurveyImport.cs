@@ -216,35 +216,44 @@ namespace XODB.Import.ImportUtils
                                         // go and search for the appropriate value from the foreign key table
                                         string newValue = ForeignKeyUtils.FindFKValueInDictionary(columnValue, cmap, secondaryConnection, true);
                                         columnValue = newValue;
-                                    }
-
-                                    if (cmap.importDataType.Equals(ImportDataMap.NUMERICDATATYPE))
-                                    {
-                                        if (columnValue.Equals("-") || columnValue.Equals(""))
+                                        if (newValue != null && newValue.Trim().Length > 0)
                                         {
-                                            if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
-                                            {
-                                                columnValue = cmap.defaultValue;
-                                            }
-                                            else
-                                            {
-                                                columnValue = "NULL";
-                                            }
+                                            clauseParameters += "\'" + columnValue + "\',";
                                         }
-                                        clauseParameters += columnValue + ",";
+                                        else {
+                                            clauseParameters += "NULL,";
+                                        }
                                     }
-
                                     else
                                     {
-                                        //if (columnValue.Equals("-"))
-                                        //{
-                                        //    if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
-                                        //    {
-                                        //        columnValue = cmap.defaultValue;
-                                        //    }
+                                        if (cmap.importDataType.Equals(ImportDataMap.NUMERICDATATYPE))
+                                        {
+                                            if (columnValue.Equals("-") || columnValue.Equals(""))
+                                            {
+                                                if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
+                                                {
+                                                    columnValue = cmap.defaultValue;
+                                                }
+                                                else
+                                                {
+                                                    columnValue = "NULL";
+                                                }
+                                            }
+                                            clauseParameters += columnValue + ",";
+                                        }
 
-                                        //}
-                                        clauseParameters += "\'" + columnValue + "\',";
+                                        else
+                                        {
+                                            //if (columnValue.Equals("-"))
+                                            //{
+                                            //    if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
+                                            //    {
+                                            //        columnValue = cmap.defaultValue;
+                                            //    }
+
+                                            //}
+                                            clauseParameters += "\'" + columnValue + "\',";
+                                        }
                                     }
                                 }
                             }
@@ -430,28 +439,40 @@ namespace XODB.Import.ImportUtils
                             // go and search for the appropriate value from the foreign key table
                             string newValue = ForeignKeyUtils.FindFKValueInDictionary(columnValue, cmap, secondaryConnection, true);
                             columnValue = newValue;
-                        }
-
-                        if (cmap.importDataType.Equals(ImportDataMap.NUMERICDATATYPE))
-                        {
-                            if (columnValue.Equals("-"))
+                            columnValue = newValue;
+                            if (newValue != null && newValue.Trim().Length > 0)
                             {
-                                if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
-                                {
-                                    columnValue = cmap.defaultValue;
-                                }
-                                else
-                                {
-                                    columnValue = "NULL";
-                                }
+                                clauseValues += "\'" + columnValue + "\',";
                             }
-
+                            else
+                            {
+                                clauseValues += "NULL,";
+                            }
                         }
                         else
                         {
-                            columnValue += "\'" + columnValue + "\',";
+                            if (cmap.importDataType.Equals(ImportDataMap.NUMERICDATATYPE))
+                            {
+                                if (columnValue.Equals("-") || columnValue.Trim().Length == 0)
+                                {
+                                    if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
+                                    {
+                                        columnValue = cmap.defaultValue;
+                                    }
+                                    else
+                                    {
+                                        columnValue = "NULL";
+                                    }
+                                }
+
+                            }
+                            else
+                            {
+                                columnValue += "\'" + columnValue + "\',";
+                            }
+
+                            clauseValues += columnValue + ",";
                         }
-                        clauseValues += columnValue + ",";
 
                     }
                     #endregion
