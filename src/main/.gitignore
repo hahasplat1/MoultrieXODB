@@ -1,6 +1,6 @@
-*bin/
-*obj/
+obj/
+bin/
 *.suo
-*.dll
-*.exe
-*.log
+build/
+buildtasks/
+artifacts/
