@@ -463,428 +463,429 @@ namespace XODB.Helpers
               ref Guid riid, ref object ppunk);
         }
 
-    }
 
-    /// <summary>
-    /// Implements a TextReader that reads from an IFilter. 
-    /// </summary>
-    public class FilterReader : TextReader
-    {
-        DocHelper.IFilter _filter;
-        private bool _done;
-        private DocHelper.STAT_CHUNK _currentChunk;
-        private bool _currentChunkValid;
-        private char[] _charsLeftFromLastRead;
 
-        public override void Close()
+        /// <summary>
+        /// Implements a TextReader that reads from an IFilter. 
+        /// </summary>
+        public class FilterReader : TextReader
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+            DocHelper.IFilter _filter;
+            private bool _done;
+            private DocHelper.STAT_CHUNK _currentChunk;
+            private bool _currentChunkValid;
+            private char[] _charsLeftFromLastRead;
 
-        ~FilterReader()
-        {
-            Dispose(false);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (_filter != null)
-                Marshal.ReleaseComObject(_filter);
-        }
-
-        public override int Read(char[] array, int offset, int count)
-        {
-            int endOfChunksCount = 0;
-            int charsRead = 0;
-
-            while (!_done && charsRead < count)
+            public override void Close()
             {
-                if (_charsLeftFromLastRead != null)
+                Dispose(true);
+                GC.SuppressFinalize(this);
+            }
+
+            ~FilterReader()
+            {
+                Dispose(false);
+            }
+
+            protected override void Dispose(bool disposing)
+            {
+                if (_filter != null)
+                    Marshal.ReleaseComObject(_filter);
+            }
+
+            public override int Read(char[] array, int offset, int count)
+            {
+                int endOfChunksCount = 0;
+                int charsRead = 0;
+
+                while (!_done && charsRead < count)
                 {
-                    int charsToCopy = (_charsLeftFromLastRead.Length < count - charsRead) ? _charsLeftFromLastRead.Length : count - charsRead;
-                    Array.Copy(_charsLeftFromLastRead, 0, array, offset + charsRead, charsToCopy);
-                    charsRead += charsToCopy;
-                    if (charsToCopy < _charsLeftFromLastRead.Length)
+                    if (_charsLeftFromLastRead != null)
                     {
-                        char[] tmp = new char[_charsLeftFromLastRead.Length - charsToCopy];
-                        Array.Copy(_charsLeftFromLastRead, charsToCopy, tmp, 0, tmp.Length);
-                        _charsLeftFromLastRead = tmp;
-                    }
-                    else
-                        _charsLeftFromLastRead = null;
-                    continue;
-                };
-
-                if (!_currentChunkValid)
-                {
-                    DocHelper.IFilterReturnCode res = _filter.GetChunk(out _currentChunk);
-                    _currentChunkValid = (res == DocHelper.IFilterReturnCode.S_OK) && ((_currentChunk.flags & DocHelper.CHUNKSTATE.CHUNK_TEXT) != 0);
-
-                    if (res == DocHelper.IFilterReturnCode.FILTER_E_END_OF_CHUNKS)
-                        endOfChunksCount++;
-
-                    if (endOfChunksCount > 1)
-                        _done = true; //That's it. no more chuncks available
-                }
-
-                if (_currentChunkValid)
-                {
-                    uint bufLength = (uint)(count - charsRead);
-                    if (bufLength < 8192)
-                        bufLength = 8192; //Read ahead
-
-                    char[] buffer = new char[bufLength];
-                    DocHelper.IFilterReturnCode res = _filter.GetText(ref bufLength, buffer);
-                    if (res == DocHelper.IFilterReturnCode.S_OK || res == DocHelper.IFilterReturnCode.FILTER_S_LAST_TEXT)
-                    {
-                        int cRead = (int)bufLength;
-                        if (cRead + charsRead > count)
+                        int charsToCopy = (_charsLeftFromLastRead.Length < count - charsRead) ? _charsLeftFromLastRead.Length : count - charsRead;
+                        Array.Copy(_charsLeftFromLastRead, 0, array, offset + charsRead, charsToCopy);
+                        charsRead += charsToCopy;
+                        if (charsToCopy < _charsLeftFromLastRead.Length)
                         {
-                            int charsLeft = (cRead + charsRead - count);
-                            _charsLeftFromLastRead = new char[charsLeft];
-                            Array.Copy(buffer, cRead - charsLeft, _charsLeftFromLastRead, 0, charsLeft);
-                            cRead -= charsLeft;
+                            char[] tmp = new char[_charsLeftFromLastRead.Length - charsToCopy];
+                            Array.Copy(_charsLeftFromLastRead, charsToCopy, tmp, 0, tmp.Length);
+                            _charsLeftFromLastRead = tmp;
                         }
                         else
                             _charsLeftFromLastRead = null;
+                        continue;
+                    };
 
-                        Array.Copy(buffer, 0, array, offset + charsRead, cRead);
-                        charsRead += cRead;
-                    }
-
-                    if (res == DocHelper.IFilterReturnCode.FILTER_S_LAST_TEXT || res == DocHelper.IFilterReturnCode.FILTER_E_NO_MORE_TEXT)
-                        _currentChunkValid = false;
-                }
-            }
-            return charsRead;
-        }
-
-        public FilterReader(string fileName)
-        {
-            _filter = FilterLoader.LoadAndInitIFilter(fileName);
-            if (_filter == null)
-                throw new ArgumentException("no filter defined for " + fileName);
-        }
-    }
-
-    /// <summary>
-    /// FilterLoader finds the dll and ClassID of the COM object responsible  
-    /// for filtering a specific file extension. 
-    /// It then loads that dll, creates the appropriate COM object and returns 
-    /// a pointer to an DocHelper.IFilter instance
-    /// </summary>
-    static class FilterLoader
-    {
-        #region CacheEntry
-        private class CacheEntry
-        {
-            public string DllName;
-            public string ClassName;
-
-            public CacheEntry(string dllName, string className)
-            {
-                DllName = dllName;
-                ClassName = className;
-            }
-        }
-        #endregion
-
-        static Dictionary<string, CacheEntry> _cache = new Dictionary<string, CacheEntry>();
-
-        #region Registry Read String helper
-        static string ReadStrFromHKLM(string key)
-        {
-            return ReadStrFromHKLM(key, null);
-        }
-        static string ReadStrFromHKLM(string key, string value)
-        {
-            RegistryKey rk = Registry.LocalMachine.OpenSubKey(key);
-            if (rk == null)
-                return null;
-
-            using (rk)
-            {
-                return (string)rk.GetValue(value);
-            }
-        }
-        #endregion
-
-        /// <summary>
-        /// finds an DocHelper.IFilter implementation for a file type
-        /// </summary>
-        /// <param name="ext">The extension of the file</param>
-        /// <returns>an DocHelper.IFilter instance used to retreive text from that file type</returns>
-        private static DocHelper.IFilter LoadIFilter(string ext)
-        {
-            string dllName, filterPersistClass;
-
-            //Find the dll and ClassID
-            if (GetFilterDllAndClass(ext, out dllName, out filterPersistClass))
-            {
-                //load the dll and return an DocHelper.IFilter instance.
-                return LoadFilterFromDll(dllName, filterPersistClass);
-            }
-            return null;
-        }
-
-        internal static DocHelper.IFilter LoadAndInitIFilter(string fileName)
-        {
-            return LoadAndInitIFilter(fileName, Path.GetExtension(fileName));
-        }
-
-        internal static DocHelper.IFilter LoadAndInitIFilter(string fileName, string extension)
-        {
-            DocHelper.IFilter filter = LoadIFilter(extension);
-            if (filter == null)
-                return null;
-
-            IPersistFile persistFile = (filter as IPersistFile);
-            if (persistFile != null)
-            {
-                persistFile.Load(fileName, 0);
-                DocHelper.IFILTER_FLAGS flags;
-                DocHelper.IFILTER_INIT iflags =
-                            DocHelper.IFILTER_INIT.CANON_HYPHENS |
-                            DocHelper.IFILTER_INIT.CANON_PARAGRAPHS |
-                            DocHelper.IFILTER_INIT.CANON_SPACES |
-                            DocHelper.IFILTER_INIT.APPLY_INDEX_ATTRIBUTES |
-                            DocHelper.IFILTER_INIT.HARD_LINE_BREAKS |
-                            DocHelper.IFILTER_INIT.FILTER_OWNED_VALUE_OK;
-
-                if (filter.Init(iflags, 0, IntPtr.Zero, out flags) == DocHelper.IFilterReturnCode.S_OK)
-                    return filter;
-            }
-            //If we failed to retreive an IPersistFile interface or to initialize 
-            //the filter, we release it and return null.
-            Marshal.ReleaseComObject(filter);
-            return null;
-        }
-
-        private static DocHelper.IFilter LoadFilterFromDll(string dllName, string filterPersistClass)
-        {
-            //Get a classFactory for our classID
-            IClassFactory classFactory = ComHelper.GetClassFactory(dllName, filterPersistClass);
-            if (classFactory == null)
-                return null;
-
-            //And create an DocHelper.IFilter instance using that class factory
-            Guid IFilterGUID = new Guid("89BCB740-6119-101A-BCB7-00DD010655AF");
-            Object obj;
-            classFactory.CreateInstance(null, ref IFilterGUID, out obj);
-            return (obj as DocHelper.IFilter);
-        }
-
-        private static bool GetFilterDllAndClass(string ext, out string dllName, out string filterPersistClass)
-        {
-            if (!GetFilterDllAndClassFromCache(ext, out dllName, out filterPersistClass))
-            {
-                string persistentHandlerClass;
-
-                persistentHandlerClass = GetPersistentHandlerClass(ext, true);
-                if (persistentHandlerClass != null)
-                {
-                    GetFilterDllAndClassFromPersistentHandler(persistentHandlerClass,
-                      out dllName, out filterPersistClass);
-                }
-                AddExtensionToCache(ext, dllName, filterPersistClass);
-            }
-            return (dllName != null && filterPersistClass != null);
-        }
-
-        private static void AddExtensionToCache(string ext, string dllName, string filterPersistClass)
-        {
-            lock (_cache)
-            {
-                _cache.Add(ext.ToLower(), new CacheEntry(dllName, filterPersistClass));
-            }
-        }
-
-        private static bool GetFilterDllAndClassFromPersistentHandler(string persistentHandlerClass, out string dllName, out string filterPersistClass)
-        {
-            dllName = null;
-            filterPersistClass = null;
-
-            //Read the CLASS ID of the DocHelper.IFilter persistent handler
-            filterPersistClass = ReadStrFromHKLM(@"Software\Classes\CLSID\" + persistentHandlerClass +
-              @"\PersistentAddinsRegistered\{89BCB740-6119-101A-BCB7-00DD010655AF}");
-            if (String.IsNullOrEmpty(filterPersistClass))
-                return false;
-
-            //Read the dll name 
-            dllName = ReadStrFromHKLM(@"Software\Classes\CLSID\" + filterPersistClass +
-              @"\InprocServer32");
-            return (!String.IsNullOrEmpty(dllName));
-        }
-
-        private static string GetPersistentHandlerClass(string ext, bool searchContentType)
-        {
-            //Try getting the info from the file extension
-            string persistentHandlerClass = GetPersistentHandlerClassFromExtension(ext);
-            if (String.IsNullOrEmpty(persistentHandlerClass))
-                //try getting the info from the document type 
-                persistentHandlerClass = GetPersistentHandlerClassFromDocumentType(ext);
-            if (searchContentType && String.IsNullOrEmpty(persistentHandlerClass))
-                //Try getting the info from the Content Type
-                persistentHandlerClass = GetPersistentHandlerClassFromContentType(ext);
-            return persistentHandlerClass;
-        }
-
-        private static string GetPersistentHandlerClassFromContentType(string ext)
-        {
-            string contentType = ReadStrFromHKLM(@"Software\Classes\" + ext, "Content Type");
-            if (String.IsNullOrEmpty(contentType))
-                return null;
-
-            string contentTypeExtension = ReadStrFromHKLM(@"Software\Classes\MIME\Database\Content Type\" + contentType,
-                "Extension");
-            if (ext.Equals(contentTypeExtension, StringComparison.CurrentCultureIgnoreCase))
-                return null; //No need to look further. This extension does not have any persistent handler
-
-            //We know the extension that is assciated with that content type. Simply try again with the new extension
-            return GetPersistentHandlerClass(contentTypeExtension, false); //Don't search content type this time.
-        }
-
-        private static string GetPersistentHandlerClassFromDocumentType(string ext)
-        {
-            //Get the DocumentType of this file extension
-            string docType = ReadStrFromHKLM(@"Software\Classes\" + ext);
-            if (String.IsNullOrEmpty(docType))
-                return null;
-
-            //Get the Class ID for this document type
-            string docClass = ReadStrFromHKLM(@"Software\Classes\" + docType + @"\CLSID");
-            if (String.IsNullOrEmpty(docType))
-                return null;
-
-            //Now get the PersistentHandler for that Class ID
-            return ReadStrFromHKLM(@"Software\Classes\CLSID\" + docClass + @"\PersistentHandler");
-        }
-
-        private static string GetPersistentHandlerClassFromExtension(string ext)
-        {
-            return ReadStrFromHKLM(@"Software\Classes\" + ext + @"\PersistentHandler");
-        }
-
-        private static bool GetFilterDllAndClassFromCache(string ext, out string dllName, out string filterPersistClass)
-        {
-            string lowerExt = ext.ToLower();
-            lock (_cache)
-            {
-                CacheEntry cacheEntry;
-                if (_cache.TryGetValue(lowerExt, out cacheEntry))
-                {
-                    dllName = cacheEntry.DllName;
-                    filterPersistClass = cacheEntry.ClassName;
-                    return true;
-                }
-            }
-            dllName = null;
-            filterPersistClass = null;
-            return false;
-        }
-    }
-
-    [ComVisible(false)]
-    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("00000001-0000-0000-C000-000000000046")]
-    internal interface IClassFactory
-    {
-        void CreateInstance([MarshalAs(UnmanagedType.Interface)] object pUnkOuter, ref Guid refiid, [MarshalAs(UnmanagedType.Interface)] out object ppunk);
-        void LockServer(bool fLock);
-    }
-
-    /// <summary>
-    /// Utility class to get a Class Factory for a certain Class ID 
-    /// by loading the dll that implements that class
-    /// </summary>
-    internal static class ComHelper
-    {
-        //DllGetClassObject fuction pointer signature
-        private delegate int DllGetClassObject(ref Guid ClassId, ref Guid InterfaceId, [Out, MarshalAs(UnmanagedType.Interface)] out object ppunk);
-
-        //Some win32 methods to load\unload dlls and get a function pointer
-        private class Win32NativeMethods
-        {
-            [DllImport("kernel32.dll", CharSet = CharSet.Ansi)]
-            public static extern IntPtr GetProcAddress(IntPtr hModule, string lpProcName);
-
-            [DllImport("kernel32.dll")]
-            public static extern bool FreeLibrary(IntPtr hModule);
-
-            [DllImport("kernel32.dll")]
-            public static extern IntPtr LoadLibrary(string lpFileName);
-        }
-
-        /// <summary>
-        /// Holds a list of dll handles and unloads the dlls 
-        /// in the destructor
-        /// </summary>
-        private class DllList
-        {
-            private List<IntPtr> _dllList = new List<IntPtr>();
-            public void AddDllHandle(IntPtr dllHandle)
-            {
-                lock (_dllList)
-                {
-                    _dllList.Add(dllHandle);
-                }
-            }
-
-            ~DllList()
-            {
-                foreach (IntPtr dllHandle in _dllList)
-                {
-                    try
+                    if (!_currentChunkValid)
                     {
-                        Win32NativeMethods.FreeLibrary(dllHandle);
+                        DocHelper.IFilterReturnCode res = _filter.GetChunk(out _currentChunk);
+                        _currentChunkValid = (res == DocHelper.IFilterReturnCode.S_OK) && ((_currentChunk.flags & DocHelper.CHUNKSTATE.CHUNK_TEXT) != 0);
+
+                        if (res == DocHelper.IFilterReturnCode.FILTER_E_END_OF_CHUNKS)
+                            endOfChunksCount++;
+
+                        if (endOfChunksCount > 1)
+                            _done = true; //That's it. no more chuncks available
                     }
-                    catch { };
+
+                    if (_currentChunkValid)
+                    {
+                        uint bufLength = (uint)(count - charsRead);
+                        if (bufLength < 8192)
+                            bufLength = 8192; //Read ahead
+
+                        char[] buffer = new char[bufLength];
+                        DocHelper.IFilterReturnCode res = _filter.GetText(ref bufLength, buffer);
+                        if (res == DocHelper.IFilterReturnCode.S_OK || res == DocHelper.IFilterReturnCode.FILTER_S_LAST_TEXT)
+                        {
+                            int cRead = (int)bufLength;
+                            if (cRead + charsRead > count)
+                            {
+                                int charsLeft = (cRead + charsRead - count);
+                                _charsLeftFromLastRead = new char[charsLeft];
+                                Array.Copy(buffer, cRead - charsLeft, _charsLeftFromLastRead, 0, charsLeft);
+                                cRead -= charsLeft;
+                            }
+                            else
+                                _charsLeftFromLastRead = null;
+
+                            Array.Copy(buffer, 0, array, offset + charsRead, cRead);
+                            charsRead += cRead;
+                        }
+
+                        if (res == DocHelper.IFilterReturnCode.FILTER_S_LAST_TEXT || res == DocHelper.IFilterReturnCode.FILTER_E_NO_MORE_TEXT)
+                            _currentChunkValid = false;
+                    }
                 }
+                return charsRead;
+            }
+
+            public FilterReader(string fileName)
+            {
+                _filter = FilterLoader.LoadAndInitIFilter(fileName);
+                if (_filter == null)
+                    throw new ArgumentException("no filter defined for " + fileName);
             }
         }
 
-        static DllList _dllList = new DllList();
-
         /// <summary>
-        /// Gets a class factory for a specific COM Class ID. 
+        /// FilterLoader finds the dll and ClassID of the COM object responsible  
+        /// for filtering a specific file extension. 
+        /// It then loads that dll, creates the appropriate COM object and returns 
+        /// a pointer to an DocHelper.IFilter instance
         /// </summary>
-        /// <param name="dllName">The dll where the COM class is implemented</param>
-        /// <param name="filterPersistClass">The requested Class ID</param>
-        /// <returns>IClassFactory instance used to create instances of that class</returns>
-        internal static IClassFactory GetClassFactory(string dllName, string filterPersistClass)
+        static class FilterLoader
         {
-            //Load the class factory from the dll
-            IClassFactory classFactory = GetClassFactoryFromDll(dllName, filterPersistClass);
-            return classFactory;
+            #region CacheEntry
+            private class CacheEntry
+            {
+                public string DllName;
+                public string ClassName;
+
+                public CacheEntry(string dllName, string className)
+                {
+                    DllName = dllName;
+                    ClassName = className;
+                }
+            }
+            #endregion
+
+            static Dictionary<string, CacheEntry> _cache = new Dictionary<string, CacheEntry>();
+
+            #region Registry Read String helper
+            static string ReadStrFromHKLM(string key)
+            {
+                return ReadStrFromHKLM(key, null);
+            }
+            static string ReadStrFromHKLM(string key, string value)
+            {
+                RegistryKey rk = Registry.LocalMachine.OpenSubKey(key);
+                if (rk == null)
+                    return null;
+
+                using (rk)
+                {
+                    return (string)rk.GetValue(value);
+                }
+            }
+            #endregion
+
+            /// <summary>
+            /// finds an DocHelper.IFilter implementation for a file type
+            /// </summary>
+            /// <param name="ext">The extension of the file</param>
+            /// <returns>an DocHelper.IFilter instance used to retreive text from that file type</returns>
+            private static DocHelper.IFilter LoadIFilter(string ext)
+            {
+                string dllName, filterPersistClass;
+
+                //Find the dll and ClassID
+                if (GetFilterDllAndClass(ext, out dllName, out filterPersistClass))
+                {
+                    //load the dll and return an DocHelper.IFilter instance.
+                    return LoadFilterFromDll(dllName, filterPersistClass);
+                }
+                return null;
+            }
+
+            internal static DocHelper.IFilter LoadAndInitIFilter(string fileName)
+            {
+                return LoadAndInitIFilter(fileName, Path.GetExtension(fileName));
+            }
+
+            internal static DocHelper.IFilter LoadAndInitIFilter(string fileName, string extension)
+            {
+                DocHelper.IFilter filter = LoadIFilter(extension);
+                if (filter == null)
+                    return null;
+
+                IPersistFile persistFile = (filter as IPersistFile);
+                if (persistFile != null)
+                {
+                    persistFile.Load(fileName, 0);
+                    DocHelper.IFILTER_FLAGS flags;
+                    DocHelper.IFILTER_INIT iflags =
+                                DocHelper.IFILTER_INIT.CANON_HYPHENS |
+                                DocHelper.IFILTER_INIT.CANON_PARAGRAPHS |
+                                DocHelper.IFILTER_INIT.CANON_SPACES |
+                                DocHelper.IFILTER_INIT.APPLY_INDEX_ATTRIBUTES |
+                                DocHelper.IFILTER_INIT.HARD_LINE_BREAKS |
+                                DocHelper.IFILTER_INIT.FILTER_OWNED_VALUE_OK;
+
+                    if (filter.Init(iflags, 0, IntPtr.Zero, out flags) == DocHelper.IFilterReturnCode.S_OK)
+                        return filter;
+                }
+                //If we failed to retreive an IPersistFile interface or to initialize 
+                //the filter, we release it and return null.
+                Marshal.ReleaseComObject(filter);
+                return null;
+            }
+
+            private static DocHelper.IFilter LoadFilterFromDll(string dllName, string filterPersistClass)
+            {
+                //Get a classFactory for our classID
+                IClassFactory classFactory = ComHelper.GetClassFactory(dllName, filterPersistClass);
+                if (classFactory == null)
+                    return null;
+
+                //And create an DocHelper.IFilter instance using that class factory
+                Guid IFilterGUID = new Guid("89BCB740-6119-101A-BCB7-00DD010655AF");
+                Object obj;
+                classFactory.CreateInstance(null, ref IFilterGUID, out obj);
+                return (obj as DocHelper.IFilter);
+            }
+
+            private static bool GetFilterDllAndClass(string ext, out string dllName, out string filterPersistClass)
+            {
+                if (!GetFilterDllAndClassFromCache(ext, out dllName, out filterPersistClass))
+                {
+                    string persistentHandlerClass;
+
+                    persistentHandlerClass = GetPersistentHandlerClass(ext, true);
+                    if (persistentHandlerClass != null)
+                    {
+                        GetFilterDllAndClassFromPersistentHandler(persistentHandlerClass,
+                          out dllName, out filterPersistClass);
+                    }
+                    AddExtensionToCache(ext, dllName, filterPersistClass);
+                }
+                return (dllName != null && filterPersistClass != null);
+            }
+
+            private static void AddExtensionToCache(string ext, string dllName, string filterPersistClass)
+            {
+                lock (_cache)
+                {
+                    _cache.Add(ext.ToLower(), new CacheEntry(dllName, filterPersistClass));
+                }
+            }
+
+            private static bool GetFilterDllAndClassFromPersistentHandler(string persistentHandlerClass, out string dllName, out string filterPersistClass)
+            {
+                dllName = null;
+                filterPersistClass = null;
+
+                //Read the CLASS ID of the DocHelper.IFilter persistent handler
+                filterPersistClass = ReadStrFromHKLM(@"Software\Classes\CLSID\" + persistentHandlerClass +
+                  @"\PersistentAddinsRegistered\{89BCB740-6119-101A-BCB7-00DD010655AF}");
+                if (String.IsNullOrEmpty(filterPersistClass))
+                    return false;
+
+                //Read the dll name 
+                dllName = ReadStrFromHKLM(@"Software\Classes\CLSID\" + filterPersistClass +
+                  @"\InprocServer32");
+                return (!String.IsNullOrEmpty(dllName));
+            }
+
+            private static string GetPersistentHandlerClass(string ext, bool searchContentType)
+            {
+                //Try getting the info from the file extension
+                string persistentHandlerClass = GetPersistentHandlerClassFromExtension(ext);
+                if (String.IsNullOrEmpty(persistentHandlerClass))
+                    //try getting the info from the document type 
+                    persistentHandlerClass = GetPersistentHandlerClassFromDocumentType(ext);
+                if (searchContentType && String.IsNullOrEmpty(persistentHandlerClass))
+                    //Try getting the info from the Content Type
+                    persistentHandlerClass = GetPersistentHandlerClassFromContentType(ext);
+                return persistentHandlerClass;
+            }
+
+            private static string GetPersistentHandlerClassFromContentType(string ext)
+            {
+                string contentType = ReadStrFromHKLM(@"Software\Classes\" + ext, "Content Type");
+                if (String.IsNullOrEmpty(contentType))
+                    return null;
+
+                string contentTypeExtension = ReadStrFromHKLM(@"Software\Classes\MIME\Database\Content Type\" + contentType,
+                    "Extension");
+                if (ext.Equals(contentTypeExtension, StringComparison.CurrentCultureIgnoreCase))
+                    return null; //No need to look further. This extension does not have any persistent handler
+
+                //We know the extension that is assciated with that content type. Simply try again with the new extension
+                return GetPersistentHandlerClass(contentTypeExtension, false); //Don't search content type this time.
+            }
+
+            private static string GetPersistentHandlerClassFromDocumentType(string ext)
+            {
+                //Get the DocumentType of this file extension
+                string docType = ReadStrFromHKLM(@"Software\Classes\" + ext);
+                if (String.IsNullOrEmpty(docType))
+                    return null;
+
+                //Get the Class ID for this document type
+                string docClass = ReadStrFromHKLM(@"Software\Classes\" + docType + @"\CLSID");
+                if (String.IsNullOrEmpty(docType))
+                    return null;
+
+                //Now get the PersistentHandler for that Class ID
+                return ReadStrFromHKLM(@"Software\Classes\CLSID\" + docClass + @"\PersistentHandler");
+            }
+
+            private static string GetPersistentHandlerClassFromExtension(string ext)
+            {
+                return ReadStrFromHKLM(@"Software\Classes\" + ext + @"\PersistentHandler");
+            }
+
+            private static bool GetFilterDllAndClassFromCache(string ext, out string dllName, out string filterPersistClass)
+            {
+                string lowerExt = ext.ToLower();
+                lock (_cache)
+                {
+                    CacheEntry cacheEntry;
+                    if (_cache.TryGetValue(lowerExt, out cacheEntry))
+                    {
+                        dllName = cacheEntry.DllName;
+                        filterPersistClass = cacheEntry.ClassName;
+                        return true;
+                    }
+                }
+                dllName = null;
+                filterPersistClass = null;
+                return false;
+            }
         }
 
-        private static IClassFactory GetClassFactoryFromDll(string dllName, string filterPersistClass)
+        [ComVisible(false)]
+        [ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("00000001-0000-0000-C000-000000000046")]
+        internal interface IClassFactory
         {
-            //Load the dll
-            IntPtr dllHandle = Win32NativeMethods.LoadLibrary(dllName);
-            if (dllHandle == IntPtr.Zero)
-                return null;
+            void CreateInstance([MarshalAs(UnmanagedType.Interface)] object pUnkOuter, ref Guid refiid, [MarshalAs(UnmanagedType.Interface)] out object ppunk);
+            void LockServer(bool fLock);
+        }
 
-            //Keep a reference to the dll until the process\AppDomain dies
-            _dllList.AddDllHandle(dllHandle);
+        /// <summary>
+        /// Utility class to get a Class Factory for a certain Class ID 
+        /// by loading the dll that implements that class
+        /// </summary>
+        internal static class ComHelper
+        {
+            //DllGetClassObject fuction pointer signature
+            private delegate int DllGetClassObject(ref Guid ClassId, ref Guid InterfaceId, [Out, MarshalAs(UnmanagedType.Interface)] out object ppunk);
 
-            //Get a pointer to the DllGetClassObject function
-            IntPtr dllGetClassObjectPtr = Win32NativeMethods.GetProcAddress(dllHandle, "DllGetClassObject");
-            if (dllGetClassObjectPtr == IntPtr.Zero)
-                return null;
+            //Some win32 methods to load\unload dlls and get a function pointer
+            private class Win32NativeMethods
+            {
+                [DllImport("kernel32.dll", CharSet = CharSet.Ansi)]
+                public static extern IntPtr GetProcAddress(IntPtr hModule, string lpProcName);
 
-            //Convert the function pointer to a .net delegate
-            DllGetClassObject dllGetClassObject = (DllGetClassObject)Marshal.GetDelegateForFunctionPointer(dllGetClassObjectPtr, typeof(DllGetClassObject));
+                [DllImport("kernel32.dll")]
+                public static extern bool FreeLibrary(IntPtr hModule);
 
-            //Call the DllGetClassObject to retreive a class factory for out Filter class
-            Guid filterPersistGUID = new Guid(filterPersistClass);
-            Guid IClassFactoryGUID = new Guid("00000001-0000-0000-C000-000000000046"); //IClassFactory class id
-            Object unk;
-            if (dllGetClassObject(ref filterPersistGUID, ref IClassFactoryGUID, out unk) != 0)
-                return null;
+                [DllImport("kernel32.dll")]
+                public static extern IntPtr LoadLibrary(string lpFileName);
+            }
 
-            //Yippie! cast the returned object to IClassFactory
-            return (unk as IClassFactory);
+            /// <summary>
+            /// Holds a list of dll handles and unloads the dlls 
+            /// in the destructor
+            /// </summary>
+            private class DllList
+            {
+                private List<IntPtr> _dllList = new List<IntPtr>();
+                public void AddDllHandle(IntPtr dllHandle)
+                {
+                    lock (_dllList)
+                    {
+                        _dllList.Add(dllHandle);
+                    }
+                }
+
+                ~DllList()
+                {
+                    foreach (IntPtr dllHandle in _dllList)
+                    {
+                        try
+                        {
+                            Win32NativeMethods.FreeLibrary(dllHandle);
+                        }
+                        catch { };
+                    }
+                }
+            }
+
+            static DllList _dllList = new DllList();
+
+            /// <summary>
+            /// Gets a class factory for a specific COM Class ID. 
+            /// </summary>
+            /// <param name="dllName">The dll where the COM class is implemented</param>
+            /// <param name="filterPersistClass">The requested Class ID</param>
+            /// <returns>IClassFactory instance used to create instances of that class</returns>
+            internal static IClassFactory GetClassFactory(string dllName, string filterPersistClass)
+            {
+                //Load the class factory from the dll
+                IClassFactory classFactory = GetClassFactoryFromDll(dllName, filterPersistClass);
+                return classFactory;
+            }
+
+            private static IClassFactory GetClassFactoryFromDll(string dllName, string filterPersistClass)
+            {
+                //Load the dll
+                IntPtr dllHandle = Win32NativeMethods.LoadLibrary(dllName);
+                if (dllHandle == IntPtr.Zero)
+                    return null;
+
+                //Keep a reference to the dll until the process\AppDomain dies
+                _dllList.AddDllHandle(dllHandle);
+
+                //Get a pointer to the DllGetClassObject function
+                IntPtr dllGetClassObjectPtr = Win32NativeMethods.GetProcAddress(dllHandle, "DllGetClassObject");
+                if (dllGetClassObjectPtr == IntPtr.Zero)
+                    return null;
+
+                //Convert the function pointer to a .net delegate
+                DllGetClassObject dllGetClassObject = (DllGetClassObject)Marshal.GetDelegateForFunctionPointer(dllGetClassObjectPtr, typeof(DllGetClassObject));
+
+                //Call the DllGetClassObject to retreive a class factory for out Filter class
+                Guid filterPersistGUID = new Guid(filterPersistClass);
+                Guid IClassFactoryGUID = new Guid("00000001-0000-0000-C000-000000000046"); //IClassFactory class id
+                Object unk;
+                if (dllGetClassObject(ref filterPersistGUID, ref IClassFactoryGUID, out unk) != 0)
+                    return null;
+
+                //Yippie! cast the returned object to IClassFactory
+                return (unk as IClassFactory);
+            }
         }
     }
 }

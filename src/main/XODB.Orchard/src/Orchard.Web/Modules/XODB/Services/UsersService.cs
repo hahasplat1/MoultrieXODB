@@ -133,6 +133,28 @@ namespace XODB.Services {
             }
         }
 
+        private Guid? companyID;
+        public Guid CompanyID
+        {
+            get
+            {
+                if (companyID == null)
+                {
+                    using (new TransactionScope(TransactionScopeOption.Suppress))
+                    {
+                        var d = new SoftwareDataContext();
+                        var c = (from o in d.Licenses orderby o.Expiry descending where o.ApplicationID == ApplicationID && o.CompanyID != null select o.CompanyID).FirstOrDefault();
+                        if (c.HasValue)
+                            companyID = c.Value;
+                        else
+                            companyID = new Guid("6887ABC9-E2D8-4A2D-B143-6C3E5245C565"); //DEFAULT company GUID
+                    }
+                }
+                return companyID.Value;
+
+            }
+        }
+
 
         private Guid? applicationID = null;
         public Guid ApplicationID
