@@ -2,8 +2,8 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
-    <PublishUrlHistory>http://xodb.xstractgroup.com/publish/xodb-importer/0/|http://xodb.xstractgroup.com/publish/xodb-installer/0/|http://xodbi/|H:\importer_test\</PublishUrlHistory>
-    <InstallUrlHistory>http://xodb.xstractgroup.com/publish/xodb-importer/0/|http://xodb.xstractgroup.com/publish/xodb-installer/0/</InstallUrlHistory>
+    <PublishUrlHistory>\\au-bne-ds-002\c%24\XODB\publish\publish\xodb-importer\0\|http://xodb.xstractgroup.com/publish/xodb-importer/0/|http://xodb.xstractgroup.com/publish/xodb-installer/0/|http://xodbi/|H:\importer_test\</PublishUrlHistory>
+    <InstallUrlHistory>http://xodb.xstractgroup.com/publish/xodb-importer/0/|\\au-bne-ds-002\c%24\XODB\publish\publish\xodb-importer\0\|http://xodb.xstractgroup.com/publish/xodb-installer/0/</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />
