@@ -41,5 +41,23 @@ namespace XODB.Services
              [OperationContract]
              get;
          }
+
+         Guid? ContactID
+         {
+             [OperationContract]
+             get;
+         }
+
+         Guid ApplicationID
+         {
+             [OperationContract]
+             get;
+         }
+
+         Guid CompanyID
+         {
+             [OperationContract]
+             get;
+         }
     }
 }
