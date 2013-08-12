@@ -223,9 +223,18 @@ namespace XODB.Import.Client
             AssignEventsToButtons(commandMapping);            
 
             ImportDataPreview.targetMainDataType = MapConfigTable.collarPrimaryTableName;
-            LocateSqlInstances();
+           // LocateSqlInstances();
             InitialiseDatabaseColumnHeadings();
 
+            try {
+                if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+                {
+                    System.Deployment.Application.ApplicationDeployment ad = System.Deployment.Application.ApplicationDeployment.CurrentDeployment;
+                    LabelVersion.Content = ad.CurrentVersion.ToString();
+                }
+                
+            }
+            catch (Exception exc1) { }
             SelectedImportType = -1;
         }
 
@@ -1661,6 +1670,8 @@ namespace XODB.Import.Client
             RibbonTabLithoFile.IsEnabled = to;
             RibbonTabAssayFile.IsEnabled = to;
             RibbonTabCollarFile.IsEnabled = to;
+            RibbonTabLASFile.IsEnabled = to;
+            RibbonTabMultiLAS.IsEnabled = to;
         }
 
         private void SetRibbonEnabledStatus(int selectedType)
@@ -1779,6 +1790,7 @@ namespace XODB.Import.Client
             MapConfigTable.Visibility = Visibility.Visible;
             groupBoxMapConfigTable.Visibility = Visibility.Visible;
             groupBoxBatchLas.Visibility = Visibility.Hidden;
+
             if (ButtonOpenBM.IsVisible)
             {
                 ModelDefGroupBox.Visibility = Visibility.Visible;
