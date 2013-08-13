@@ -13,7 +13,7 @@ using System.Data.SqlClient;
 
 namespace XODB.Helpers
 {
-    public class DBHelper
+    public static class DBHelper
     {
         public static PropertyInfo GetPrimaryKey<T>()
         {

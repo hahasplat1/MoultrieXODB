@@ -378,9 +378,11 @@
     <Compile Include="Handlers\EmailHandler.cs" />
     <Compile Include="Handlers\FileGeneratingResult.cs" />
     <Compile Include="Helpers\CacheHelper.cs" />
+    <Compile Include="Helpers\DataReaderEnumerable.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\DocHelper.cs" />
     <Compile Include="Helpers\InterfaceHelper.cs" />
+    <Compile Include="Helpers\LinqHelper.cs" />
     <Compile Include="Helpers\NetworkHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Helpers\TaskHelper.cs" />
