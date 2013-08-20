@@ -10,6 +10,10 @@ var isFirstCall = true;
 var xPan = 0;
 var map;
 
+var boundsCheckObj;
+var CheckBoundsTimer = setInterval(function () { CheckBounds() }, 1000);
+
+
 function SetupMap() {
     var mapOptions = {
         zoomLevel: 5,
@@ -19,7 +23,7 @@ function SetupMap() {
 
     google.maps.event.addListener(map, 'idle', function () {
         if (!isFirstCall) {
-            DoMapUpdateOnMove();
+         //   DoMapUpdateOnMove();
         }
         isFirstCall = false;
     }); //time in ms, that will reset if next 'bounds_changed' call is send, otherwise code will be executed after that time is up
@@ -65,6 +69,20 @@ function RedrawMap() {
 
     }
 
+}
+
+function CheckBounds() {
+    if (map) {
+        var localBounds = map.getBounds();
+        if (!boundsCheckObj) {
+            boundsCheckObj = localBounds;
+        }
+        if (boundsCheckObj.toString() != localBounds.toString()) {
+            //alert('Bounds have changed - do an update');
+            boundsCheckObj = localBounds;
+            DoMapUpdateOnMove();
+        }
+    }
 }
 
 function UpdateMap() {
