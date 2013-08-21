@@ -101,7 +101,7 @@ function CreateBoundsPolygon(ne, sw) {
           new google.maps.LatLng(x1, y1),
           new google.maps.LatLng(x1, y2),
           new google.maps.LatLng(x2, y2),
-          new google.maps.LatLng(x2, y1),
+          new google.maps.LatLng(x2, y1), 
           new google.maps.LatLng(x1, y1)
     ];
 
@@ -117,6 +117,7 @@ function DoMapUpdateOnMove() {
     var bounds = map.getBounds();
     var ne = bounds.getNorthEast();
     var sw = bounds.getSouthWest();
+    var center = map.center;
     //do whatever you want with those bounds
     var textOut = ne.toString();
     document.getElementById("BoundsNE").value = textOut;
@@ -126,13 +127,13 @@ function DoMapUpdateOnMove() {
 
     $('#BoundsNE').val(ne.toString());
     $('#BoundsSW').val(sw.toString());
-    $('#CentreString').val(map.centre);
+    $('#CentreString').val(center.toString());
 
 
-    var centre = map.centre;
+   
     var viewport = ne + "," + sw;
 
-    OnMapUpdate(centre, viewport);
+    OnMapUpdate(center.toString(), viewport);
 
 }
 
