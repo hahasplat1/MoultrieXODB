@@ -9,10 +9,10 @@ var timeout;
 var isFirstCall = true;
 var xPan = 0;
 var map;
-
+var boundsPoly;
 var boundsCheckObj;
 var CheckBoundsTimer = setInterval(function () { CheckBounds() }, 1000);
-
+var isDragging = false;
 
 function SetupMap() {
     var mapOptions = {
@@ -28,6 +28,12 @@ function SetupMap() {
         isFirstCall = false;
     }); //time in ms, that will reset if next 'bounds_changed' call is send, otherwise code will be executed after that time is up
 
+    google.maps.event.addListener(map, 'dragstart', function () {
+      //  isDragging = true;
+    }); 
+    google.maps.event.addListener(map, 'dragend', function () {
+     //   isDragging = false;
+    });
     RedrawMap();
 }
 
@@ -63,7 +69,31 @@ function RedrawMap() {
 
         if (boundsPassedIn == false) {
             map.fitBounds(bounds);
-        }
+        } 
+
+            var mbounds = map.getBounds();
+            var ne = mbounds.getNorthEast();
+            var sw = mbounds.getSouthWest();
+            var boundsCoords = CreateBoundsPolygon(ne, sw);
+            
+            if (boundsPoly) {
+                boundsPoly.setMap(null);
+            }
+            // Construct the polygon
+            boundsPoly = new google.maps.Polygon({
+                paths: boundsCoords,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.35
+            });
+
+            
+
+            boundsPoly.setMap(map);
+
+        
 
 
 
@@ -72,7 +102,7 @@ function RedrawMap() {
 }
 
 function CheckBounds() {
-    if (map) {
+    if (map && !isDragging) {
         var localBounds = map.getBounds();
         if (!boundsCheckObj) {
             boundsCheckObj = localBounds;
@@ -98,11 +128,11 @@ function CreateBoundsPolygon(ne, sw) {
     var y2 = sw.lat();
 
     var boundCoords = [
-          new google.maps.LatLng(x1, y1),
-          new google.maps.LatLng(x1, y2),
-          new google.maps.LatLng(x2, y2),
-          new google.maps.LatLng(x2, y1), 
-          new google.maps.LatLng(x1, y1)
+          new google.maps.LatLng(y1, x1),
+          new google.maps.LatLng(y2, x1),
+          new google.maps.LatLng(y2, x2),
+          new google.maps.LatLng(y1, x2),
+          new google.maps.LatLng(y1, x1)
     ];
 
     //Bermuda Triangle Test
@@ -157,6 +187,7 @@ function addMarker(map, markerPos, descMessage) {
             infowindow.setContent("<html><body><br><b>" + cont2 + "</b></body></html>");
             infowindow.setPosition(event.latLng);
             infowindow.open(map, mark1);
+            UpdateDetails();
         });
 
     } catch (err) {
