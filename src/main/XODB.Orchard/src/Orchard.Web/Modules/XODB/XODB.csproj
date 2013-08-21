@@ -293,6 +293,7 @@
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\XODB.jquery.dynamic.js" />
     <Content Include="Scripts\XODB.maps.js" />
     <Content Include="Styles\menu.xodb-projects-admin.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -671,7 +672,6 @@
       <DependentUpon>Spatial.edmx</DependentUpon>
       <LastGenOutput>Spatial.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\XODB.jquery.dynamic.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Models\Models.dbml.layout">
