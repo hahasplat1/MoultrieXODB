@@ -6,6 +6,7 @@ using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Security.Cryptography;
+using System.Web.Script.Serialization;
 
 namespace XODB.Helpers
 {
@@ -44,6 +45,12 @@ namespace XODB.Helpers
                 serializer.WriteObject(ms, o);
                 return Encoding.UTF8.GetString(ms.ToArray());
             }
+        }
+
+        public static string ToJsonWithType(this object o)
+        {
+            JavaScriptSerializer js = new JavaScriptSerializer(new SimpleTypeResolver());
+            return js.Serialize(o);
         }
 
         public static T Deserialize<T>(this string json)
