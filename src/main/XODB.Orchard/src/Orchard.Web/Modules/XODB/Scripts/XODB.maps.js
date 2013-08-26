@@ -11,7 +11,8 @@ var map;
 var poly;
 var boundsPoly;
 var boundsCheckObj;
-var CheckBoundsTimer = setInterval(function () { CheckBounds() }, 1000);
+var CheckBoundsTimer = setInterval(function () { CheckBounds() }, 50);
+var CheckedBounds = 0;
 var isDragging = false;
 var drawDebugViewportPoly = false;
 var mapOverlays = new Array();
@@ -31,19 +32,25 @@ function SetupMap() {
         center: uluru,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-    google.maps.event.addListener(map, 'idle', function () {
-        if (!isFirstCall) {
-            isDragging = false;
-        }
-        isFirstCall = false;
-    }); //time in ms, that will reset if next 'bounds_changed' call is send, otherwise code will be executed after that time is up
+    //google.maps.event.addListener(map, 'idle', function () {
+    //    if (!isFirstCall) {
+    //        isDragging = false;
+    //    }
+    //    isFirstCall = false;
+    //}); //time in ms, that will reset if next 'bounds_changed' call is send, otherwise code will be executed after that time is up
 
     google.maps.event.addListener(map, 'dragstart', function () {
-       isDragging = true;
+        //isDragging = true;
+        CheckedBounds++;
     }); 
-    google.maps.event.addListener(map, 'dragend', function () {
-        isDragging = false;
+    //google.maps.event.addListener(map, 'dragend', function () {
+    //    isDragging = false;
+    //});
+
+    google.maps.event.addListener(map, 'zoom_changed', function () {
+        CheckedBounds++;
     });
+
     RedrawMap();
 }
 
@@ -224,18 +231,30 @@ function RedrawMap() {
 
 // Check the bounds of the current map, and if they have changed force the location data table to updte
 function CheckBounds() {
-    if (map && !isDragging) {
+    if (map) {
         var localBounds = map.getBounds();
         if (!localBounds)
             return;
         if (!boundsCheckObj) {
             boundsCheckObj = localBounds;
+            return;
         }
         if (boundsCheckObj.toString() != localBounds.toString()) {
-            //alert('Bounds have changed - do an update');
-            boundsCheckObj = localBounds;
-            DoMapUpdateOnMove();
+            //get ready to redraw
+            CheckedBounds = 1;
         }
+        if (CheckedBounds > 0 && boundsCheckObj.toString() == localBounds.toString()) {
+            if (CheckedBounds % 6 == 0) { //300msec = 6*50msec from poll above 'CheckBoundsTimer'
+                //alert('Bounds have changed - do an update');
+                CheckedBounds = 0;
+                DoMapUpdateOnMove();
+                return;
+            }
+            else {
+                CheckedBounds++;
+            }
+        }
+        boundsCheckObj = localBounds;
     }
 }
 
@@ -276,10 +295,6 @@ function DoMapUpdateOnMove() {
     var ne = bounds.getNorthEast();
     var sw = bounds.getSouthWest();
     var center = map.center;
-    var textOut = ne.toString();
-    document.getElementById("BoundsNE").value = textOut;
-    textOut = sw.toString();
-    document.getElementById("BoundsSW").value = textOut;
     $('#BoundsNE').val(ne.toString());
     $('#BoundsSW').val(sw.toString());
     $('#CentreString').val(center.toString());
