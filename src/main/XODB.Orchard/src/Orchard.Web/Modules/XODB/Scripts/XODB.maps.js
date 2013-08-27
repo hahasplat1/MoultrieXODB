@@ -198,7 +198,7 @@ function RedrawMap() {
             boundspoly.setmap(map);
         }
     }
-
+    pageIsLoaded = true;
 }
 
 // Check the bounds of the current map, and if they have changed force the location data table to updte
@@ -234,7 +234,6 @@ function CheckBounds() {
 // The locations are found in the HTML, and parsed into google maps compatible objects
 function UpdateMap() {
     RedrawMap();
-    pageIsLoaded = true;
 }
 
 // Create a polygon that represents the map bounds - useful for debugging dynamic searching etc.
@@ -419,11 +418,6 @@ function SetSelection(shape) {
     drawingManager.changed();
 }
 
-/////////////////////////////////////
-///MERGE ////////
-//////////////////////////////
-
-
 
 function DrawPolyFromText(polygon) {
 
@@ -457,7 +451,7 @@ function OverlayDone(event) {
         SetSelection(newShape);
     });
     SetSelection(newShape);
-    MapUpdated({ eventType: 'EDITED' });
+    MapUpdated({ eventType: 'EDITED', eventSource: newShape });
     //AttachClickListener(event.overlay);
     //openInfowindow(event.overlay, getShapeCenter(event.overlay), getEditorContent(event.overlay));
 }
