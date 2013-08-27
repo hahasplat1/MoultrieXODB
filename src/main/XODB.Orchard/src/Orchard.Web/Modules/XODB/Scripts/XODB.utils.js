@@ -1,4 +1,14 @@
-﻿function IsGUID(id) {
+﻿function LoadScript(url, callback) {
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+    script.onreadystatechange = callback;
+    script.onload = callback;
+    head.appendChild(script);
+}
+
+function IsGUID(id) {
     return /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id);
 }
 

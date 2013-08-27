@@ -1,27 +1,19 @@
-﻿
-var neighborhoods = [];
-var markers = [];
-var descMessage = [];
-var bounds = new google.maps.LatLngBounds();
+﻿var bounds = new google.maps.LatLngBounds();
 var infowindow = new google.maps.InfoWindow();
-var timeout;
-var isFirstCall = true;
-var xPan = 0;
+var timeout = 50;
+var CheckBoundsTimer = setInterval(function () { CheckBounds() }, timeout);
 var map;
-var poly;
 var boundsPoly;
 var boundsCheckObj;
-var CheckBoundsTimer = setInterval(function () { CheckBounds() }, 50);
-var CheckedBounds = 0;
-var isDragging = false;
+var CheckedBounds = 0; 
 var drawDebugViewportPoly = false;
-var mapOverlays = new Array();
+var mapOverlays = new Array(); //ALL THE MAP DATA IS STORED HERE
 var selectedShape;
 var geocoder;
 var drawingManager;
 var uluru;
-var gepcoder;
 var path = new google.maps.MVCArray;
+var pageIsLoaded = false;
 
 // Construct the map object, and register events
 function SetupMap() {
@@ -32,23 +24,19 @@ function SetupMap() {
         center: uluru,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
+
     //google.maps.event.addListener(map, 'idle', function () {
-    //    if (!isFirstCall) {
-    //        isDragging = false;
-    //    }
-    //    isFirstCall = false;
     //}); //time in ms, that will reset if next 'bounds_changed' call is send, otherwise code will be executed after that time is up
 
     google.maps.event.addListener(map, 'dragstart', function () {
-        //isDragging = true;
-        CheckedBounds++;
+        CheckedBounds = 1;
     }); 
+
     //google.maps.event.addListener(map, 'dragend', function () {
-    //    isDragging = false;
     //});
 
     google.maps.event.addListener(map, 'zoom_changed', function () {
-        CheckedBounds++;
+        CheckedBounds = 1;
     });
 
     RedrawMap();
@@ -58,16 +46,16 @@ function SetupDrawingMap() {
     SetupMap();
     map.setZoom(8);
     map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
-    poly = new google.maps.Polygon({
-        strokeWeight: 3,
-        fillColor: '#5555FF'
+    //poly = new google.maps.Polygon({
+    //    strokeWeight: 3,
+    //    fillColor: '#5555FF'
 
-    });
-    poly.setMap(map);
-    poly.setPaths(new google.maps.MVCArray([path]));
-    poly.setOptions({
-        editable: true
-    });
+    //});
+    //poly.setMap(map);
+    //poly.setPaths(new google.maps.MVCArray([path]));
+    //poly.setOptions({
+    //    editable: true
+    //});
 
     //        google.maps.event.addListener(poly, 'mouseover', function () {
     //            poly.setOptions({
@@ -113,20 +101,8 @@ function SetupDrawingMap() {
     });
 
 
-    // google.maps.event.addListener(drawingManager, "overlaycomplete", overlayDone);
+    google.maps.event.addListener(drawingManager, "overlaycomplete", OverlayDone);
 
-    google.maps.event.addListener(drawingManager, 'overlaycomplete', function (e) {
-        if (e.type != google.maps.drawing.OverlayType.MARKER) {
-            overlayDone(e);
-        } else {
-            var uniqueid = uniqid();
-            e.overlay.uniqueid = uniqueid;
-            e.overlay.title = "";
-            e.overlay.content = "";
-            e.overlay.type = e.type;
-            mapOverlays.push(e.overlay);
-        }
-    });
 
     //        google.maps.event.addListener(drawingManager, 'overlaycomplete', function (e) {
     //            if (e.type != google.maps.drawing.OverlayType.MARKER) {
@@ -138,18 +114,18 @@ function SetupDrawingMap() {
     //                var newShape = e.overlay;
     //                newShape.type = e.type;
     //                google.maps.event.addListener(newShape, 'click', function () {
-    //                    setSelection(newShape);
+    //                    SetSelection(newShape);
     //                });
-    //                setSelection(newShape);
+    //                SetSelection(newShape);
     //            }
     //        });
-    google.maps.event.addListener(drawingManager, 'drawingmode_changed', clearSelection);
-    google.maps.event.addListener(map, 'click', clearSelection);
-    // google.maps.event.addDomListener(document.getElementById('delete-button'), 'click', deleteSelectedShape);
+    google.maps.event.addListener(drawingManager, 'drawingmode_changed', ClearSelection);
+    google.maps.event.addListener(map, 'click', ClearSelection);
+    // google.maps.event.addDomListener(document.getElementById('delete-button'), 'click', DeleteSelectedShape);
 
 
     drawingManager.setMap(map);
-
+    drawingManager.setDrawingMode(null);
     //google.maps.event.addListener(map, 'bounds_changed', function () {
     //    var bounds = map.getBounds();
     //    var ne = bounds.getNorthEast();
@@ -168,16 +144,10 @@ function SetupDrawingMap() {
 }
 
 // Redraw a map.  This method removes all previous markers and looks a the google latlng opbjects in the 
-// neighbourhoods array
+// points array
 function RedrawMap() {
     pageIsLoaded = false;
     bounds = new google.maps.LatLngBounds();
-    for (var i = 0 ; i < markers.length; i++) {
-
-        markers[i].setMap(null);
-    }
-    markers = [];
-    
     // try and get existing bounds
     var boundsPassedIn = false;
     var bne = $('#BoundsNE').val();
@@ -186,15 +156,17 @@ function RedrawMap() {
     if (bne != '') {
         boundsPassedIn = true;
     }
-    // if locations exist
-    if (neighborhoods.length > 0) {
-        mapCentre = neighborhoods[0]
-        var count = neighborhoods.length;
-        for (var i = 0; i < neighborhoods.length; i++) {
-            addMarker(map, neighborhoods[i], descMessage[i]);
-            // if no bounds defined (by a zoom or pan action) then manually expand the bounds to fit this marker
-            if (boundsPassedIn == false) {
-                bounds.extend(neighborhoods[i]);
+    DeleteShapes();
+    var spatial = GetSpatialObjects();
+    // if geography exist
+    if (spatial.length > 0) {
+        for (var i = 0; i < spatial.length; i++) {
+            if (spatial[i] && spatial[i].geography instanceof google.maps.LatLng) {
+                AddMarker(map, spatial[i].geography, false, spatial[i].description);
+                // if no bounds defined (by a zoom or pan action) then manually expand the bounds to fit this marker
+                if (boundsPassedIn == false) {
+                    bounds.extend(spatial[i].geography);
+                }
             }
         }
 
@@ -247,7 +219,7 @@ function CheckBounds() {
             if (CheckedBounds % 6 == 0) { //300msec = 6*50msec from poll above 'CheckBoundsTimer'
                 //alert('Bounds have changed - do an update');
                 CheckedBounds = 0;
-                DoMapUpdateOnMove();
+                MapUpdated({ eventType: 'BOUNDS' });
                 return;
             }
             else {
@@ -261,7 +233,6 @@ function CheckBounds() {
 // this is called when the lcoation data source has been updated and the map needs refreshing
 // The locations are found in the HTML, and parsed into google maps compatible objects
 function UpdateMap() {
-    GetSpatialObjects();
     RedrawMap();
     pageIsLoaded = true;
 }
@@ -289,7 +260,7 @@ function CreateBoundsPolygon(ne, sw) {
 
 // This is called when the map has moved or zoomed.  The relevent data (the map bounds and centre point) 
 // are collated and stored in page variables, so that the data source can grab them during fresh web queries.
-function DoMapUpdateOnMove() {
+function MapUpdated(event) {
 
     var bounds = map.getBounds();
     var ne = bounds.getNorthEast();
@@ -299,30 +270,62 @@ function DoMapUpdateOnMove() {
     $('#BoundsSW').val(sw.toString());
     $('#CentreString').val(center.toString());
     var viewport = ne + "," + sw;
-    OnMapUpdate(center.toString(), viewport);
+    OnMapUpdate(event, center.toString(), viewport);
 }
 
 // Add a parker to the page.  Each marker will be assigned an event which will cause the popup to appear on click
-function addMarker(map, markerPos, descMessage) {
+function AddMarker(map, location, editable, popupText) {
     try {
-        var mark1 = new google.maps.Marker({
-            position: markerPos,
+        if (!editable)
+            editable = false;
+        var marker = new google.maps.Marker({
+            position: location,
             map: map,
-            draggable: false,
-            title: descMessage
+            draggable: editable,
+            title: popupText
         });
-        markers.push(mark1);
-        var cont2 = descMessage;
-        google.maps.event.addListener(mark1, 'click', function (event) {
-            infowindow.setContent("<html><body><br><b>" + cont2 + "</b></body></html>");
-            infowindow.setPosition(event.latLng);
-            infowindow.open(map, mark1);
-            UpdateDetails();
-        });
-
+        mapOverlays.push(marker);
+        SetSelection(marker);
+        AddMarkerClickEvent(marker, popupText);
     } catch (err) {
         alert("Error with data " + err);
     }
+}
+
+function AddMarkerClickEvent(marker, popupText) {
+    if (popupText != null && popupText != "") {
+        google.maps.event.addListener(marker, 'click', function (event) {
+            infowindow.setContent("<html><body><br><b>" + popupText + "</b></body></html>");
+            infowindow.setPosition(event.latLng);
+            infowindow.open(map, marker);
+            SetSelection(marker);
+        });
+    }
+}
+
+function AddPolygon(map, polygonArray, editable, popupText) {
+    //grep should be replaced with tha call to your backend for getting data for fk_id
+    if (!editable)
+        editable = false;
+    var polygon = new google.maps.Polygon({
+        paths: polygonArray,
+        strokeColor: "#FF8800",
+        strokeOpacity: 0.8,
+        strokeWeight: 3,
+        fillColor: "#FF8800",
+        fillOpacity: 0.35,
+        editable: editable
+    });
+    polygon.setMap(map);
+    mapOverlays.push(polygon);
+    SetSelection(polygon);
+    AddPolygonClickEvent(polygon, popupText);
+}
+
+function AddPolygonClickEvent(polygon, popuptext) {
+    google.maps.event.addListener(polygon, 'click', function () {
+        SetSelection(polygon);
+    });
 }
 
 if (!String.prototype.startsWith) {
@@ -333,17 +336,18 @@ if (!String.prototype.startsWith) {
 
 // Get the coordinates from the page, that are stored within the .gvResults and .gvResultText divs
 function GetSpatialObjects() {
-    var pointObs = [];
-    var pointDescriptions = [];
+    var spatial = [];
     //could use document.getElementsByClassName
     $('.gvResultID').each(function (index, element) {
-        pointObs.push(ParseLocationData(element.innerHTML));
+        if (!spatial[index]) spatial[index] = {};
+        spatial[index].geography = ParseLocationData(element.innerHTML);
     });
     $('.gvResultText').each(function (index, element) {
-        pointDescriptions.push(element.innerHTML);
+        if (!spatial[index]) spatial[index] = {};
+        spatial[index].description = element.innerHTML;
     });
-    neighborhoods = pointObs;
-    descMessage = pointDescriptions;
+    //TODO: do locations and provinces and lines
+    return spatial;
 }
 
 // Using the text data, construct a valid google maps LatLng object
@@ -353,19 +357,67 @@ function ParseLocationData(locationInput) {
     if (p < 0)
         throw "Bad Location, or not yet implemented."
     var pe = locationInput.toLowerCase().indexOf(')', p + 1);
-    var points = locationInput.substring(p + 6, pe).replace(/[\()]/g, '').replace(/[,;: +]/g, ':').split(':');
-    var ml = new google.maps.LatLng(points[1], points[0])
+    var pt = locationInput.substring(p + 6, pe).replace(/[\()]/g, '').replace(/[,;: +]/g, ':').split(':');
+    var ml = new google.maps.LatLng(pt[1], pt[0])
     return ml;
 }
 
 function GetAddressLocation(address, callee) {
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            callee(new google.maps.LatLng(results[0].geometry.location.mb, results[0].geometry.location.nb));
+            callee(new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()));
         } 
     });
 }
 
+
+function ClearSelection() {
+    if (selectedShape && selectedShape instanceof google.maps.Polygon) {
+        selectedShape.setEditable(false);
+    }
+    selectedShape = null;
+}
+
+
+function DeleteSelectedShape() {
+    if (selectedShape) {
+        selectedShape.setMap(null);
+        if (selectedShape instanceof google.maps.Polygon) {
+
+        }
+        else if (selectedShape instanceof google.maps.Marker) {
+
+        }
+
+    }
+    delete selectedShape;
+    selectedShape = null;
+}
+
+function DeleteShapes() {
+    for (var i = 0 ; i < mapOverlays.length; i++) {
+
+        mapOverlays[i].setMap(null);
+        delete mapOverlays[i];
+    }
+    mapOverlays = [];
+}
+
+function SetSelection(shape) {
+    if (!drawingManager || !pageIsLoaded)
+        return;
+    ClearSelection();
+    //selectedShape.setStrokeWeight(1);
+    selectedShape = shape;
+    if (selectedShape) {
+        if (selectedShape instanceof google.maps.Polygon) {
+            selectedShape.setEditable(true);
+        }
+    }
+    //shape.setStrokeWeight(2);
+    //selectColor(shape.get('fillColor') || shape.get('strokeColor'));
+    drawingManager.changed();
+}
 
 /////////////////////////////////////
 ///MERGE ////////
@@ -373,93 +425,27 @@ function GetAddressLocation(address, callee) {
 
 
 
-function DrawPolyFromText() {
+function DrawPolyFromText(polygon) {
 
-
-    //fake database info
-    var p1 = [
-     new google.maps.LatLng(-25.204785835916102, 131.275634765625),
-     new google.maps.LatLng(-25.229634139099637, 132.82470703125),
-     new google.maps.LatLng(-26.244002317636177, 131.275634765625)
-    ];
-    var p2 = [
-     new google.maps.LatLng(-26.39663644161043, 131.539306640625),
-     new google.maps.LatLng(-25.462959542582798, 132.945556640625),
-     new google.maps.LatLng(-26.603109396158036, 132.9400634765625)
-    ];
+    if (!polygon) {
+        //fake database info
+        polygon = [
+         new google.maps.LatLng(-25.204785835916102, 131.275634765625),
+         new google.maps.LatLng(-25.229634139099637, 132.82470703125),
+         new google.maps.LatLng(-26.244002317636177, 131.275634765625)
+        ];
+    }
 
     //write polygon in map
-    loadWithFk(p1);
-    loadWithFk(p2);
-}
-
-function loadWithFk(polyArray1) {
-    //grep should be replaced with tha call to your backend for getting data for fk_id
-
-    var mapPoly = new google.maps.Polygon({
-        paths: polyArray1,
-        strokeColor: "#FF8800",
-        strokeOpacity: 0.8,
-        strokeWeight: 3,
-        fillColor: "#FF8800",
-        fillOpacity: 0.35,
-        editable: true
-
-    });
-    mapPoly.setMap(map);
-
-
-
-
-
-    mapOverlays.push(mapPoly);
-
-    google.maps.event.addListener(drawingManager, 'overlaycomplete', function (e) {
-
-        overlayDone(e);
-    });
-
-    google.maps.event.addListener(mapPoly, 'click', function () {
-        setSelection(mapPoly);
-    });
-    setSelection(mapPoly);
-
-    drawingManager.changed();
-
+    AddPolygon(map,polygon,true);
 
 }
 
-function clearSelection() {
-    if (selectedShape) {
-        selectedShape.setEditable(false);
-        selectedShape = null;
-    }
-}
 
-
-function deleteSelectedShape() {
-    if (selectedShape) {
-        selectedShape.setMap(null);
-    }
-}
-
-function setSelection(shape) {
-    clearSelection();
-    //selectedShape.setStrokeWeight(1);
-    if (selectedShape) {
-        selectedShape.setEditable(false);
-    }
-    selectedShape = shape;
-    shape.setEditable(true);
-    //shape.setStrokeWeight(2);
-    //selectColor(shape.get('fillColor') || shape.get('strokeColor'));
-}
-
-function overlayDone(event) {
+function OverlayDone(event) {
 
     drawingManager.setDrawingMode(null);
-    var uniqueid = uniqid();
-    event.overlay.uniqueid = uniqueid;
+    event.overlay.uniqueid = NewGUID();
     event.overlay.title = "";
     event.overlay.content = "";
     event.overlay.type = event.type;
@@ -468,22 +454,16 @@ function overlayDone(event) {
     var newShape = event.overlay;
     newShape.type = event.type;
     google.maps.event.addListener(newShape, 'click', function () {
-        setSelection(newShape);
+        SetSelection(newShape);
     });
-    setSelection(newShape);
-    addtext();
+    SetSelection(newShape);
+    MapUpdated({ eventType: 'EDITED' });
     //AttachClickListener(event.overlay);
     //openInfowindow(event.overlay, getShapeCenter(event.overlay), getEditorContent(event.overlay));
 }
 
-function uniqid() {
-    var newDate = new Date;
-    return newDate.getTime();
-}
 
-
-
-function mapToObject() {
+function MapObjects() {
     var tmpMap = new Object;
 
     var outputString = "";
@@ -534,7 +514,7 @@ function mapToObject() {
         if (mapOverlays[i].type == "polygon" || typeof (mapOverlays[i]) == google.maps.Polygon) {
             tmpOverlay.paths = new Array();
             paths = mapOverlays[i].getPaths();
-            outputString += "Polygon " + i + "\n";
+            outputString += "\n";
             for (var j = 0; j < paths.length; j++) {
                 tmpOverlay.paths[j] = new Array();
                 for (var k = 0; k < paths.getAt(j).length; k++) {
@@ -573,26 +553,6 @@ function mapToObject() {
     return outputString;
 
 }
-
-
-
-
-
-function addtext() {
-
-
-    var tmpMap = mapToObject();
-    var textOut = tmpMap.toString();
-    document.getElementById("Coordinates").value = textOut;
-
-
-}
-
-
-/////////////////////////////////////
-///MERGE ABOVE ////////
-//////////////////////////////
-
 
 
 // When the window is loaded, casue the map to intiialise, and populate it with table data

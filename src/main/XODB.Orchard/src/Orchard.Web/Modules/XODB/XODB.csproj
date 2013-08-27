@@ -275,6 +275,7 @@
       <LastGenOutput>BMMetaData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Scripts\jquery.linq.min.js" />
     <Content Include="Scripts\XODB.utils.js" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
