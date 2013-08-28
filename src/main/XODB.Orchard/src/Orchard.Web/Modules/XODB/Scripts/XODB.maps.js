@@ -292,7 +292,8 @@ function AddMarker(map, location, editable, popupText) {
             position: location,
             map: map,
             draggable: editable,
-            title: popupText
+            title: popupText,
+            type: 'marker'
         });
         mapOverlays.push(marker);
         SetSelection(marker);
@@ -334,7 +335,8 @@ function AddPolygon(map, polygonArray, editable, popupText) {
         strokeWeight: 3,
         fillColor: "#FF8800",
         fillOpacity: 0.35,
-        editable: editable
+        editable: editable,
+        type: 'polygon'
     });
     polygon.setMap(map);
     mapOverlays.push(polygon);
@@ -354,13 +356,22 @@ if (!String.prototype.startsWith) {
     }
 }
 
-function AddGeographyUnique(map, locationInput, editable, popupText) {
+function AddGeographyUnique(map, locationInput, editable, popupText, autoExtend) {
     DeleteShapes();
+    var bounds = new google.maps.LatLngBounds();
     var geoData = ParseGeographyData(locationInput);
     if (HasPolygon(geoData)) {    
         var p = GetPolygonsFromGeography(geoData);
-        for (var i = 0; i < p.length; i++)
+        for (var i = 0; i < p.length; i++) {
             AddPolygon(map, p[i], editable, popupText);
+            if (autoExtend) {
+                for (var j = 0; j < p[i].length; j++) {
+                    bounds.extend(p[i][j]);
+                }
+            }
+        }
+        if (autoExtend)
+            map.fitBounds(bounds);
     }
     else {
         AddMarkerSingle(map, GetFirstLocation(geoData), editable, popupText);
@@ -466,14 +477,20 @@ function HasPolygon(geoData) {
             continue;
         if (geoData[i] == null)
             continue;
+        if (geoData[i].geographyType == 'polygon') {
+            return true;
+        }
         if (geoData[i] instanceof Array) {
             var rgd = HasPolygon(geoData[i]);
             if (rgd)
                 return true;
         }
-        else if (geoData[i].geographyType == 'polygon') {
-            return true;
+        if (geoData[i].geography instanceof Array) {
+            rgd = HasPolygon(geoData[i].geography);
+            if (rgd)
+                return rgd;
         }
+       
     }
     return false;
 }
@@ -506,7 +523,10 @@ function GetPolygonsWithArray(geoData, polygonArray) {
         if (geoData[i] instanceof Array) {
             GetPolygonsWithArray(geoData[i], polygonArray);
         }
-        else if (geoData[i].geographyType == 'polygon') {
+        if (geoData[i].geography instanceof Array) {
+            GetPolygonsWithArray(geoData[i].geography, polygonArray);
+        }
+        if (geoData[i].geographyType == 'polygon') {
             if (geoData[i].geography.length < 3)
                 return;
             if (geoData[i].geography[0][0].geography.lat() != geoData[i].geography[geoData[i].geography.length - 1][0].geography.lat()
