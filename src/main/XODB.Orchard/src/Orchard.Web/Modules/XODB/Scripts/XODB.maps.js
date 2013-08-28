@@ -168,6 +168,14 @@ function RedrawMap() {
                     bounds.extend(spatial[i].geography);
                 }
             }
+            else if (spatial[i] && spatial[i].geography instanceof google.maps.Polygon) {
+                AddPolygon(map, spatial[i].geography, false, spatial[i].description);
+                if (boundsPassedIn == false) {
+                    alert('to check auto expansion with poly');
+                    bounds.extend(spatial[i].geography);
+                }
+
+            }
         }
 
         if (boundsPassedIn == false) {
@@ -292,14 +300,24 @@ function AddMarker(map, location, editable, popupText) {
 }
 
 function AddMarkerClickEvent(marker, popupText) {
-    if (popupText != null && popupText != "") {
-        google.maps.event.addListener(marker, 'click', function (event) {
+    google.maps.event.addListener(marker, 'click', function (event) {
+        if (popupText != null && popupText != "") {
             infowindow.setContent("<html><body><br><b>" + popupText + "</b></body></html>");
             infowindow.setPosition(event.latLng);
             infowindow.open(map, marker);
-            SetSelection(marker);
-        });
-    }
+        }
+        SetSelection(marker);
+    });
+}
+
+function AddMarkerSingle(map, location, editable, popupText) {
+    AddMarker(map, location, editable, popupText);
+    StopEditingMap();
+}
+
+function AddMarkerUnique(map, location, editable, popupText) {
+    DeleteShapes();
+    AddMarkerSingle(map, location, editable, popupText);
 }
 
 function AddPolygon(map, polygonArray, editable, popupText) {
@@ -337,9 +355,13 @@ if (!String.prototype.startsWith) {
 function GetSpatialObjects() {
     var spatial = [];
     //could use document.getElementsByClassName
-    $('.gvResultID').each(function (index, element) {
+    $('.gvResultSpatial').each(function (index, element) {
         if (!spatial[index]) spatial[index] = {};
-        spatial[index].geography = ParseLocationData(element.innerHTML);
+        spatial[index].geography = ParseGeographyData(element.innerHTML);
+    });
+    $('.gvResultCentre').each(function (index, element) {
+        if (!spatial[index]) spatial[index] = {};
+        spatial[index].centre = ParseGeographyData(element.innerHTML);
     });
     $('.gvResultText').each(function (index, element) {
         if (!spatial[index]) spatial[index] = {};
@@ -350,7 +372,7 @@ function GetSpatialObjects() {
 }
 
 // Using the text data, construct a valid google maps LatLng object
-function ParseLocationData(locationInput) {
+function ParseGeographyData(locationInput) {
     // single points look like this: SRID=4326;POINT (-90.1704 42.95081)
     var p = locationInput.toLowerCase().indexOf('point');
     if (p < 0)
@@ -379,23 +401,61 @@ function ClearSelection() {
 
 
 function DeleteSelectedShape() {
-    if (selectedShape) {
-        selectedShape.setMap(null);
-        if (selectedShape instanceof google.maps.Polygon) {
-
-        }
-        else if (selectedShape instanceof google.maps.Marker) {
-
-        }
-
-    }
-    delete selectedShape;
-    selectedShape = null;
+    DeleteShape(selectedShape);   
 }
 
-function DeleteShapes() {
-    for (var i = 0 ; i < mapOverlays.length; i++) {
+function DeleteShape(shape) {
+    HideShape(shape);
+    for (var i = mapOverlays.length - 1; i >= 0; i--) {
+        if (mapOverlays[i] && mapOverlays[i].uniqueid == shape.uniqueid) {
+            delete mapOverlays[i];
+            mapOverlays.splice(i, 1);
+            break;
+        }
+    }
+}
 
+function DeleteExceptedShape(shape) {
+    for (var i = mapOverlays.length - 1; i >= 0; i--) {
+        if (mapOverlays[i] && mapOverlays[i].uniqueid != selectedShape.uniqueid) {
+            HideShape(mapOverlays[i]);
+            delete mapOverlays[i];
+            mapOverlays.splice(i, 1);
+        }
+    }
+}
+
+function DeleteSelectedExceptedShapeTypes() {
+    DeleteExceptedShapeTypes(selectedShape);
+}
+
+function DeleteExceptedShapeTypes(shape) {
+    for (var i = mapOverlays.length - 1; i >= 0; i--) {
+        if (mapOverlays[i] && mapOverlays[i].type != selectedShape.type) {
+            HideShape(mapOverlays[i]);
+            delete mapOverlays[i];
+            mapOverlays.splice(i, 1);
+        }
+    }
+}
+
+function HideSelectedShape() {
+    HideShape(selectedShape);
+}
+
+function HideShape(shape) {
+    shape.setMap(null);
+    if (shape instanceof google.maps.Polygon) {
+        //Do something custom
+    }
+    else if (shape instanceof google.maps.Marker) {
+        //Do something custom
+    }
+}
+
+
+function DeleteShapes() {
+    for (var i = 0 ; i < mapOverlays.length; i++) {        
         mapOverlays[i].setMap(null);
         delete mapOverlays[i];
     }
@@ -438,26 +498,30 @@ function DrawPolyFromText(polygon) {
 
 function OverlayDone(event) {
 
-    drawingManager.setDrawingMode(null);
     event.overlay.uniqueid = NewGUID();
     event.overlay.title = "";
     event.overlay.content = "";
     event.overlay.type = event.type;
     mapOverlays.push(event.overlay);
-
     var newShape = event.overlay;
     newShape.type = event.type;
-    google.maps.event.addListener(newShape, 'click', function () {
-        SetSelection(newShape);
-    });
     SetSelection(newShape);
+    if (newShape instanceof google.maps.Marker) {
+        newShape.setDraggable(true);
+        AddMarkerClickEvent(newShape, '');
+    }
+    else if (newShape instanceof google.maps.Polygon)
+        AddPolygonClickEvent(newShape, '');
     MapUpdated({ eventType: 'EDITED', eventSource: newShape });
     //AttachClickListener(event.overlay);
     //openInfowindow(event.overlay, getShapeCenter(event.overlay), getEditorContent(event.overlay));
 }
 
+function StopEditingMap() {
+    drawingManager.setDrawingMode(null);
+}
 
-function MapObjects() {
+function MapObjectsToString(map) {
     var tmpMap = new Object;
 
     var outputString = "";
@@ -469,13 +533,16 @@ function MapObjects() {
     tmpMap.overlays = new Array();
 
     for (var i = 0; i < mapOverlays.length; i++) {
-        if (mapOverlays[i].getMap() == null) {
+        if (mapOverlays[i].getMap() != map) {
             continue;
         }
         tmpOverlay = new Object;
         tmpOverlay.type = mapOverlays[i].type;
         tmpOverlay.title = mapOverlays[i].title;
         tmpOverlay.content = mapOverlays[i].content;
+
+        if (i > 0)
+            outputString += "\n";
 
         if (mapOverlays[i].fillColor) {
             tmpOverlay.fillColor = mapOverlays[i].fillColor;
@@ -508,7 +575,6 @@ function MapObjects() {
         if (mapOverlays[i].type == "polygon" || typeof (mapOverlays[i]) == google.maps.Polygon) {
             tmpOverlay.paths = new Array();
             paths = mapOverlays[i].getPaths();
-            outputString += "\n";
             for (var j = 0; j < paths.length; j++) {
                 tmpOverlay.paths[j] = new Array();
                 for (var k = 0; k < paths.getAt(j).length; k++) {
@@ -533,13 +599,10 @@ function MapObjects() {
                 ne: { lat: mapOverlays[i].getBounds().getNorthEast().lat(), lng: mapOverlays[i].getBounds().getNorthEast().lng() }
             };
         } else if (mapOverlays[i].type == "marker") {
-            outputString += "Point " + i + "\n";
             tmpOverlay.position = { lat: mapOverlays[i].getPosition().lat(), lng: mapOverlays[i].getPosition().lng() };
             outputString += mapOverlays[i].getPosition().lat() + "," + mapOverlays[i].getPosition().lng() + "\n";
         } else {
-
-            alert("Type: " + mapOverlays[i].type);
-
+            alert("Unknown Map Type: " + mapOverlays[i].type);
         }
         tmpMap.overlays.push(tmpOverlay);
     }
