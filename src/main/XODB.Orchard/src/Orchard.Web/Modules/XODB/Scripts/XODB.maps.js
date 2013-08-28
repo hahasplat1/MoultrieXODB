@@ -176,6 +176,9 @@ function RedrawMap() {
                 }
 
             }
+            else if (spatial[i] && spatial[i].geography instanceof Array) {
+                alert('array not implemented on redraw');
+            }
         }
 
         if (boundsPassedIn == false) {
@@ -351,6 +354,19 @@ if (!String.prototype.startsWith) {
     }
 }
 
+function AddGeographyUnique(map, locationInput, editable, popupText) {
+    DeleteShapes();
+    var geoData = ParseGeographyData(locationInput);
+    if (HasPolygon(geoData)) {    
+        var p = GetPolygonsFromGeography(geoData);
+        for (var i = 0; i < p.length; i++)
+            AddPolygon(map, p[i], editable, popupText);
+    }
+    else {
+        AddMarkerSingle(map, GetFirstLocation(geoData), editable, popupText);
+    }
+}
+
 // Get the coordinates from the page, that are stored within the .gvResults and .gvResultText divs
 function GetSpatialObjects() {
     var spatial = [];
@@ -361,7 +377,7 @@ function GetSpatialObjects() {
     });
     $('.gvResultCentre').each(function (index, element) {
         if (!spatial[index]) spatial[index] = {};
-        spatial[index].centre = ParseGeographyData(element.innerHTML);
+        spatial[index].centre = GetLocation(element.innerHTML);
     });
     $('.gvResultText').each(function (index, element) {
         if (!spatial[index]) spatial[index] = {};
@@ -371,16 +387,134 @@ function GetSpatialObjects() {
     return spatial;
 }
 
-// Using the text data, construct a valid google maps LatLng object
+//LONGITUDE, LATITUDE as per SQL
+// Using the text data, construct a valid google maps latlng recursive array 
 function ParseGeographyData(locationInput) {
+    var geoData = [];
+    if (locationInput.match(/geometrycollection.?/i) != null) {
+        var p = locationInput.toLowerCase().indexOf('geometrycollection');
+        geoData.push(ParseGeographyData(locationInput.substring(p + 19)));
+    }
+    else if (locationInput.match(/polygon.?/i) != null) {
+        var p = locationInput.toLowerCase().indexOf('polygon');
+        var pe = locationInput.indexOf(')', p + 1);
+        var pts = locationInput.substring(p + 8, pe).replace(/[\()]/g, '').split(',');
+        if (pts.length > 0) {
+            var polygon = [];
+            for (var i = 0; i < pts.length; i++) {
+                polygon.push(ParseGeographyData(pts[i].replace(/^\s+|\s+$/g, '')));
+            }
+            geoData.push({ geography: polygon, geographyType: 'polygon' });
+        }
+        geoData.push(ParseGeographyData(locationInput.substring(pe)));
+    }
     // single points look like this: SRID=4326;POINT (-90.1704 42.95081)
-    var p = locationInput.toLowerCase().indexOf('point');
-    if (p < 0)
-        throw "Bad Location, or not yet implemented."
-    var pe = locationInput.toLowerCase().indexOf(')', p + 1);
-    var pt = locationInput.substring(p + 6, pe).replace(/[\()]/g, '').replace(/[,;: +]/g, ':').split(':');
-    var ml = new google.maps.LatLng(pt[1], pt[0])
-    return ml;
+    else if (locationInput.match(/point.?/i) != null) {
+        var p = locationInput.toLowerCase().indexOf('point');
+        var pe = locationInput.indexOf(')', p + 1);
+        var pt = locationInput.substring(p + 6, pe).replace(/[\()]/g, '').replace(/[,;: +]/g, ':').split(':');
+        geoData.push({ geography: new google.maps.LatLng(pt[1], pt[0]), geographyType: 'point' });
+        geoData.push(ParseGeographyData(locationInput.substring(pe)));
+    }
+    else if (locationInput.match(/\n.?/) != null) {
+        var pts = locationInput.split('\n');
+        for (var i = 0; i < pts.length; i++) {
+            geoData.push(ParseGeographyData(pts[i]));
+        }
+    }
+    else {
+        var pt = locationInput.replace(/[\()]/g, '').replace(/[,;: +]/g, ':').split(':');
+        if (pt.length != 2)
+            return null;
+        geoData.push({ geography: new google.maps.LatLng(pt[1], pt[0]), geographyType: 'point' });
+    }
+    return geoData;
+}
+
+function GetFirstLocation(geoData) {
+    var rgd;
+    for (var i = 0; i < geoData.length; i++) {
+        if (!geoData[i])
+            continue;
+        if (geoData[i] == null)
+            continue;
+        if (geoData[i].geographyType == 'point') {
+            rgd = geoData[i].geography;
+            return rgd;
+        }
+        if (geoData[i] instanceof Array) {
+            rgd = GetFirstLocation(geoData[i]);
+            if (rgd)
+                return rgd;
+        }
+        if (geoData[i].geography instanceof Array) {
+            rgd = GetFirstLocation(geoData[i].geography);
+            if (rgd)
+                return rgd;
+        }
+    }
+    return rgd;
+}
+
+function GetLocation(locationInput) {
+   return GetFirstLocation(ParseGeographyData(locationInput));
+}
+
+function HasPolygon(geoData) {
+    for (var i = 0; i < geoData.length; i++) {
+        if (!geoData[i])
+            continue;
+        if (geoData[i] == null)
+            continue;
+        if (geoData[i] instanceof Array) {
+            var rgd = HasPolygon(geoData[i]);
+            if (rgd)
+                return true;
+        }
+        else if (geoData[i].geographyType == 'polygon') {
+            return true;
+        }
+    }
+    return false;
+}
+
+function HasPolygonString(locationInput) {
+    return locationInput.match(/polygon.?/i) != null;
+}
+
+function GetPolygons(locationInput) {
+    GetPolygonsFromGeography(ParseGeographyData(locationInput));
+}
+
+function GetPolygonsFromGeography(geoData) {
+    var polygonArray = [];
+    GetPolygonsWithArray(geoData, polygonArray);
+    for (var i = 0; i < polygonArray.length; i++) {
+        for (var j = 0; j < polygonArray[i].length; j++) {
+            polygonArray[i][j] = polygonArray[i][j][0].geography;
+        }
+    }
+    return polygonArray;
+}
+
+function GetPolygonsWithArray(geoData, polygonArray) {
+    for (var i = 0; i < geoData.length; i++) {
+        if (!geoData[i])
+            continue;
+        if (geoData[i] == null)
+            continue;
+        if (geoData[i] instanceof Array) {
+            GetPolygonsWithArray(geoData[i], polygonArray);
+        }
+        else if (geoData[i].geographyType == 'polygon') {
+            if (geoData[i].geography.length < 3)
+                return;
+            if (geoData[i].geography[0][0].geography.lat() != geoData[i].geography[geoData[i].geography.length - 1][0].geography.lat()
+                || geoData[i].geography[0][0].geography.lng() != geoData[i].geography[geoData[i].geography.length - 1][0].geography.lng())
+                geoData[i].geography.push(geoData[i].geography[0]);
+            polygonArray.push(geoData[i].geography);
+        }
+    }
 }
 
 function GetAddressLocation(address, callee) {
@@ -521,6 +655,8 @@ function StopEditingMap() {
     drawingManager.setDrawingMode(null);
 }
 
+
+//LONGITUDE LATITUDE as per SQL Server
 function MapObjectsToString(map) {
     var tmpMap = new Object;
 
@@ -579,7 +715,7 @@ function MapObjectsToString(map) {
                 tmpOverlay.paths[j] = new Array();
                 for (var k = 0; k < paths.getAt(j).length; k++) {
                     tmpOverlay.paths[j][k] = { lat: paths.getAt(j).getAt(k).lat().toString(), lng: paths.getAt(j).getAt(k).lng().toString() };
-                    outputString += paths.getAt(j).getAt(k).lat().toString() + "," + paths.getAt(j).getAt(k).lng().toString() + "\n";
+                    outputString += paths.getAt(j).getAt(k).lng().toString() + " " + paths.getAt(j).getAt(k).lat().toString() + "\n";
                 }
             }
 
@@ -600,7 +736,7 @@ function MapObjectsToString(map) {
             };
         } else if (mapOverlays[i].type == "marker") {
             tmpOverlay.position = { lat: mapOverlays[i].getPosition().lat(), lng: mapOverlays[i].getPosition().lng() };
-            outputString += mapOverlays[i].getPosition().lat() + "," + mapOverlays[i].getPosition().lng() + "\n";
+            outputString += mapOverlays[i].getPosition().lng() + " " + mapOverlays[i].getPosition().lat() + "\n";
         } else {
             alert("Unknown Map Type: " + mapOverlays[i].type);
         }
