@@ -95,7 +95,7 @@ function SetupDrawingMap() {
             fillColor: '#ff0000',
             clickable: true,
             zIndex: 1,
-            dragable: true
+            draggable: true
         }
 
     });
@@ -161,23 +161,24 @@ function RedrawMap() {
     // if geography exist
     if (spatial.length > 0) {
         for (var i = 0; i < spatial.length; i++) {
-            if (spatial[i] && spatial[i].geography instanceof google.maps.LatLng) {
-                AddMarker(map, spatial[i].geography, false, spatial[i].description);
+            if (!spatial[i])
+                continue;
+            if (spatial[i].geography && HasPolygon(spatial[i].geography)) {
+                var p = GetPolygonsFromGeography(spatial[i].geography);
+                for (var j = 0; j < p.length; j++) {
+                    AddPolygon(map, p[j], false, spatial[i].description);
+                    if (boundsPassedIn == false) {
+                        for (var k =0; k < p[j].length; k++)
+                            bounds.extend(p[j][k]);
+                    }
+                }
+            }
+            else if (spatial[i].centre) {
+                AddMarker(map, spatial[i].centre, false, spatial[i].description);
                 // if no bounds defined (by a zoom or pan action) then manually expand the bounds to fit this marker
                 if (boundsPassedIn == false) {
-                    bounds.extend(spatial[i].geography);
+                    bounds.extend(spatial[i].centre);
                 }
-            }
-            else if (spatial[i] && spatial[i].geography instanceof google.maps.Polygon) {
-                AddPolygon(map, spatial[i].geography, false, spatial[i].description);
-                if (boundsPassedIn == false) {
-                    alert('to check auto expansion with poly');
-                    bounds.extend(spatial[i].geography);
-                }
-
-            }
-            else if (spatial[i] && spatial[i].geography instanceof Array) {
-                alert('array not implemented on redraw');
             }
         }
 
@@ -298,6 +299,8 @@ function AddMarker(map, location, editable, popupText) {
         mapOverlays.push(marker);
         SetSelection(marker);
         AddMarkerClickEvent(marker, popupText);
+        if (editable)
+            AddMarkerDragEvent(marker);
     } catch (err) {
         alert("Error with data " + err);
     }
@@ -311,6 +314,12 @@ function AddMarkerClickEvent(marker, popupText) {
             infowindow.open(map, marker);
         }
         SetSelection(marker);
+    });
+}
+
+function AddMarkerDragEvent(marker) {
+    google.maps.event.addListener(marker, 'dragend', function () {
+        MapUpdated({ eventType: 'MARKER_DRAGEND', eventSource: marker });
     });
 }
 
@@ -342,6 +351,10 @@ function AddPolygon(map, polygonArray, editable, popupText) {
     mapOverlays.push(polygon);
     SetSelection(polygon);
     AddPolygonClickEvent(polygon, popupText);
+    if (editable) {
+        AddPolygonDragEvent(polygon);
+        AddPolygonVertexEvent(polygon);
+    }
 }
 
 function AddPolygonClickEvent(polygon, popuptext) {
@@ -349,6 +362,26 @@ function AddPolygonClickEvent(polygon, popuptext) {
         SetSelection(polygon);
     });
 }
+
+function AddPolygonDragEvent(polygon) {
+    google.maps.event.addListener(polygon, 'dragend', function () {
+        MapUpdated({ eventType: 'POLYGON_DRAGEND', eventSource: polygon });
+    });
+}
+
+function AddPolygonVertexEvent(polygon) {
+    google.maps.event.addListener(polygon.getPath(), 'set_at', function (index) {
+        MapUpdated({ eventType: 'POLYGON_VERTEX_SET', eventSource: polygon });
+    });
+    google.maps.event.addListener(polygon.getPath(), 'remove_at', function (index) {
+        MapUpdated({ eventType: 'POLYGON_VERTEX_REMOVED', eventSource: polygon });
+    });
+    google.maps.event.addListener(polygon.getPath(), 'insert_at', function (index) {
+        MapUpdated({ eventType: 'POLYGON_VERTEX_INSERTED', eventSource: polygon });
+    });
+}
+
+
 
 if (!String.prototype.startsWith) {
     String.prototype.startsWith = function (str) {
@@ -399,7 +432,7 @@ function GetSpatialObjects() {
 }
 
 //LONGITUDE, LATITUDE as per SQL
-// Using the text data, construct a valid google maps latlng recursive array 
+// Using the text data, construct a valid google maps latlng recursive array 'GeoData'
 function ParseGeographyData(locationInput) {
     var geoData = [];
     if (locationInput.match(/geometrycollection.?/i) != null) {
@@ -443,6 +476,8 @@ function ParseGeographyData(locationInput) {
 }
 
 function GetFirstLocation(geoData) {
+    if (!geoData)
+        return null;
     var rgd;
     for (var i = 0; i < geoData.length; i++) {
         if (!geoData[i])
@@ -551,14 +586,17 @@ function ClearSelection() {
         selectedShape.setEditable(false);
     }
     selectedShape = null;
+    //MapUpdated({ eventType: 'SELECT_CLEARED', eventSource: shape });
 }
 
 
 function DeleteSelectedShape() {
-    DeleteShape(selectedShape);   
+    DeleteShape(selectedShape);
 }
 
 function DeleteShape(shape) {
+    if (!shape)
+        return;
     HideShape(shape);
     for (var i = mapOverlays.length - 1; i >= 0; i--) {
         if (mapOverlays[i] && mapOverlays[i].uniqueid == shape.uniqueid) {
@@ -567,6 +605,7 @@ function DeleteShape(shape) {
             break;
         }
     }
+    MapUpdated({ eventType: 'DELETED_SHAPE', eventSource: shape });
 }
 
 function DeleteExceptedShape(shape) {
@@ -577,6 +616,7 @@ function DeleteExceptedShape(shape) {
             mapOverlays.splice(i, 1);
         }
     }
+    MapUpdated({ eventType: 'DELETED_EXCEPTED_SHAPE', eventSource: shape });
 }
 
 function DeleteSelectedExceptedShapeTypes() {
@@ -591,6 +631,7 @@ function DeleteExceptedShapeTypes(shape) {
             mapOverlays.splice(i, 1);
         }
     }
+    MapUpdated({ eventType: 'DELETED_SHAPE_TYPE', eventSource: shape });
 }
 
 function HideSelectedShape() {
@@ -598,6 +639,8 @@ function HideSelectedShape() {
 }
 
 function HideShape(shape) {
+    if (!shape)
+        return;
     shape.setMap(null);
     if (shape instanceof google.maps.Polygon) {
         //Do something custom
@@ -605,6 +648,7 @@ function HideShape(shape) {
     else if (shape instanceof google.maps.Marker) {
         //Do something custom
     }
+    //MapUpdated({ eventType: 'HIDE_SHAPE', eventSource: shape });
 }
 
 
@@ -614,6 +658,7 @@ function DeleteShapes() {
         delete mapOverlays[i];
     }
     mapOverlays = [];
+    //MapUpdated({ eventType: 'DELETED_ALL_SHAPES', eventSource: null });
 }
 
 function SetSelection(shape) {
@@ -630,23 +675,88 @@ function SetSelection(shape) {
     //shape.setStrokeWeight(2);
     //selectColor(shape.get('fillColor') || shape.get('strokeColor'));
     drawingManager.changed();
+    //MapUpdated({ eventType: 'SELECT_CHANGED', eventSource: shape });
 }
 
 
-function DrawPolyFromText(polygon) {
-
-    if (!polygon) {
-        //fake database info
-        polygon = [
-         new google.maps.LatLng(-25.204785835916102, 131.275634765625),
-         new google.maps.LatLng(-25.229634139099637, 132.82470703125),
-         new google.maps.LatLng(-26.244002317636177, 131.275634765625)
-        ];
+//LONGITUDE LATITUDE
+function DrawFromText(map, locationInput, editable, popupText, autoUpdate) {
+    try {
+        pageIsLoaded = false;
+        var bounds = new google.maps.LatLngBounds();
+        if (!autoUpdate)
+            autoUpdate = false;
+        DeleteShapes();
+        var rows = locationInput.replace(/\r\n/g, '\n').replace(/\n\r/g, '\n').replace(/[\t,;:]/g, ' ').replace(/^\s+|\s+$/g, '').split('\n');
+        if (rows.length < 1)
+            return;
+        if (rows.length == 1) {
+            var columns = rows[0].split(' ');
+            if (columns < 2) {
+                return;
+            }
+            if (columns.length == 2) {
+                var pt = new google.maps.LatLng(columns[1], columns[0])
+                if (autoUpdate)
+                    bounds.extend(pt);
+                AddMarker(map, pt, editable, popupText);
+                return;
+            }
+            if (columns.length > 2 && columns.length % 2 == 0) {
+                //Is a long string (no /n) - can only make a single polygon
+                var polygonArray = [];
+                for (var i = 0; i < columns.length; i = i + 2) {
+                    if (isNaN(columns[i]) || isNaN(columns[i + 1])) {
+                        return;
+                    }
+                    var pt = new google.maps.LatLng(columns[i + 1], columns[i]);
+                    polygonArray.push(pt);
+                    if (autoUpdate)
+                        bounds.extend(pt);
+                }
+                AddPolygon(map, polygonArray, editable, popupText);               
+            }
+        }
+        else {
+            rows.push(null);
+            var currentShape = [];
+            for (var i = 0; i < rows.length; i++) {
+                var recordOK = true;
+                var columns;
+                if (!rows[i])
+                    recordOK = false;
+                else 
+                    columns = rows[i].split(' ');
+                if (!recordOK || !columns || columns.length != 2) {
+                    if (currentShape.length == 1) {
+                        AddMarker(map, currentShape[0], editable, popupText);
+                    }
+                    else if (currentShape.length > 1) {
+                        AddPolygon(map, currentShape, editable, popupText); //TODO: this should also include line-strings etc. (1st should repeat last)
+                    }
+                    currentShape = [];
+                    continue;
+                }
+                else if (isNaN(columns[0]) || isNaN(columns[1])) {
+                    return;
+                }
+                else {
+                    var pt = new google.maps.LatLng(columns[1], columns[0]);
+                    currentShape.push(pt);
+                    if (autoUpdate)
+                        bounds.extend(pt);
+                }
+            }
+        }
     }
-
-    //write polygon in map
-    AddPolygon(map,polygon,true);
-
+    catch (e) { }
+    finally {
+        pageIsLoaded = true;
+        if (autoUpdate) {
+            map.fitBounds(bounds);
+            map.setCenter(bounds.getCenter());
+        }
+    }
 }
 
 
@@ -663,9 +773,13 @@ function OverlayDone(event) {
     if (newShape instanceof google.maps.Marker) {
         newShape.setDraggable(true);
         AddMarkerClickEvent(newShape, '');
+        AddMarkerDragEvent(newShape);
     }
-    else if (newShape instanceof google.maps.Polygon)
+    else if (newShape instanceof google.maps.Polygon) {
         AddPolygonClickEvent(newShape, '');
+        AddPolygonDragEvent(newShape);
+        AddPolygonVertexEvent(newShape);
+    }
     MapUpdated({ eventType: 'EDITED', eventSource: newShape });
     //AttachClickListener(event.overlay);
     //openInfowindow(event.overlay, getShapeCenter(event.overlay), getEditorContent(event.overlay));
