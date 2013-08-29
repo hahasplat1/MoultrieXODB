@@ -45,7 +45,8 @@ function SetupMap() {
 function SetupDrawingMap() {
     SetupMap();
     map.setZoom(8);
-    map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+    //map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+
     //poly = new google.maps.Polygon({
     //    strokeWeight: 3,
     //    fillColor: '#5555FF'
