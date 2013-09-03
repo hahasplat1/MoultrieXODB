@@ -15,6 +15,8 @@ var uluru;
 var path = new google.maps.MVCArray;
 var pageIsLoaded = false;
 
+
+
 // Construct the map object, and register events
 function SetupMap() {
     uluru = new google.maps.LatLng(-25.344, 131.036);
