@@ -34145,3 +34145,301 @@ Loaded assemblies
 24.06.13 16:29:29.120	2f0s1uqhinkxt1q45rncpjgv	====================
 24.06.13 16:29:29.158	2f0s1uqhinkxt1q45rncpjgv	Application is disposed
 24.06.13 16:29:29.158	2f0s1uqhinkxt1q45rncpjgv	========================
+03.09.13 09:29:58.235	bgr1es4rewzxc5emtwfbj10c	================================================================================
+03.09.13 09:29:58.249	bgr1es4rewzxc5emtwfbj10c	Trace Log for /LM/W3SVC/2/ROOT-1-130226381914124568 is started
+03.09.13 09:29:58.250	bgr1es4rewzxc5emtwfbj10c	================================================================================
+03.09.13 09:29:58.260	bgr1es4rewzxc5emtwfbj10c	System Environment
+	OS Version: Microsoft Windows NT 6.2.9200.0
+	.Net Framework Versions: v2.0.50727, v4.0.30319
+
+	CLR Version: 4.0.30319.17929
+	eXpressApp Version: 12.1.8.0
+Application config
+	Modules=
+	ErrorReportEmail=
+	ErrorReportEmailServer=
+	SimpleErrorReportPage=
+	RichErrorReportPage=Error.aspx
+	EnableDiagnosticActions=False
+03.09.13 09:29:58.263	bgr1es4rewzxc5emtwfbj10c		session.Timeout: 20
+03.09.13 09:29:58.264	bgr1es4rewzxc5emtwfbj10c		SessionID: bgr1es4rewzxc5emtwfbj10c
+03.09.13 09:29:58.341	bgr1es4rewzxc5emtwfbj10c	--------------------------------------------------------------------------------
+03.09.13 09:29:58.344	bgr1es4rewzxc5emtwfbj10c	Initialize Modules Manager
+03.09.13 09:29:58.348	bgr1es4rewzxc5emtwfbj10c	--------------------------------------------------------------------------------
+03.09.13 09:29:58.349	bgr1es4rewzxc5emtwfbj10c	
+03.09.13 09:29:58.505	bgr1es4rewzxc5emtwfbj10c	--------------------------------------------------------------------------------
+Loaded assemblies
+	App_global.asax.nilqdcf3, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, Location=C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\148ebbcf\eab3888e\App_global.asax.nilqdcf3.dll
+	DevExpress.Data.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Data.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Data.v12.1.dll
+	DevExpress.Data.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Data.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Data.v12.1.resources.dll
+	DevExpress.Data.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Data.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Data.v12.1.resources.dll
+	DevExpress.Data.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Data.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Data.v12.1.resources.dll
+	DevExpress.Data.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Data.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Data.v12.1.resources.dll
+	DevExpress.ExpressApp.Images.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Images.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.ExpressApp.Images.v12.1.dll
+	DevExpress.ExpressApp.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.ExpressApp.v12.1.dll
+	DevExpress.ExpressApp.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.ExpressApp.v12.1.resources.dll
+	DevExpress.ExpressApp.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.ExpressApp.v12.1.resources.dll
+	DevExpress.ExpressApp.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.ExpressApp.v12.1.resources.dll
+	DevExpress.ExpressApp.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.ExpressApp.v12.1.resources.dll
+	DevExpress.ExpressApp.Validation.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Validation.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.ExpressApp.Validation.v12.1.dll
+	DevExpress.ExpressApp.Validation.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Validation.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.ExpressApp.Validation.v12.1.resources.dll
+	DevExpress.ExpressApp.Validation.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Validation.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.ExpressApp.Validation.v12.1.resources.dll
+	DevExpress.ExpressApp.Validation.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Validation.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.ExpressApp.Validation.v12.1.resources.dll
+	DevExpress.ExpressApp.Validation.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Validation.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.ExpressApp.Validation.v12.1.resources.dll
+	DevExpress.ExpressApp.Web.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Web.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.ExpressApp.Web.v12.1.dll
+	DevExpress.ExpressApp.Web.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Web.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.ExpressApp.Web.v12.1.resources.dll
+	DevExpress.ExpressApp.Web.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Web.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.ExpressApp.Web.v12.1.resources.dll
+	DevExpress.ExpressApp.Web.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Web.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.ExpressApp.Web.v12.1.resources.dll
+	DevExpress.ExpressApp.Xpo.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Xpo.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.ExpressApp.Xpo.v12.1.dll
+	DevExpress.Persistent.Base.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Persistent.Base.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Persistent.Base.v12.1.dll
+	DevExpress.Persistent.BaseImpl.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Persistent.BaseImpl.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Persistent.BaseImpl.v12.1.dll
+	DevExpress.Printing.v12.1.Core, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Printing.v12.1.Core\12.1.8.0__b88d1754d700e49a\DevExpress.Printing.v12.1.Core.dll
+	DevExpress.Printing.v12.1.Core.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Printing.v12.1.Core.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Printing.v12.1.Core.resources.dll
+	DevExpress.Printing.v12.1.Core.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Printing.v12.1.Core.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Printing.v12.1.Core.resources.dll
+	DevExpress.Printing.v12.1.Core.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Printing.v12.1.Core.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Printing.v12.1.Core.resources.dll
+	DevExpress.Printing.v12.1.Core.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Printing.v12.1.Core.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Printing.v12.1.Core.resources.dll
+	DevExpress.Utils.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Utils.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Utils.v12.1.dll
+	DevExpress.Web.ASPxEditors.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxEditors.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Web.ASPxEditors.v12.1.dll
+	DevExpress.Web.ASPxEditors.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxEditors.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Web.ASPxEditors.v12.1.resources.dll
+	DevExpress.Web.ASPxEditors.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxEditors.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Web.ASPxEditors.v12.1.resources.dll
+	DevExpress.Web.ASPxEditors.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxEditors.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Web.ASPxEditors.v12.1.resources.dll
+	DevExpress.Web.ASPxEditors.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxEditors.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Web.ASPxEditors.v12.1.resources.dll
+	DevExpress.Web.ASPxGridView.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxGridView.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Web.ASPxGridView.v12.1.dll
+	DevExpress.Web.ASPxGridView.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxGridView.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Web.ASPxGridView.v12.1.resources.dll
+	DevExpress.Web.ASPxGridView.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxGridView.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Web.ASPxGridView.v12.1.resources.dll
+	DevExpress.Web.ASPxGridView.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxGridView.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Web.ASPxGridView.v12.1.resources.dll
+	DevExpress.Web.ASPxGridView.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxGridView.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Web.ASPxGridView.v12.1.resources.dll
+	DevExpress.Web.ASPxThemes.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxThemes.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Web.ASPxThemes.v12.1.dll
+	DevExpress.Web.ASPxTreeList.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxTreeList.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Web.ASPxTreeList.v12.1.dll
+	DevExpress.Web.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Web.v12.1.dll
+	DevExpress.Web.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Web.v12.1.resources.dll
+	DevExpress.Web.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Web.v12.1.resources.dll
+	DevExpress.Web.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Web.v12.1.resources.dll
+	DevExpress.Web.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Web.v12.1.resources.dll
+	DevExpress.Xpo.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Xpo.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Xpo.v12.1.dll
+	DevExpress.Xpo.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Xpo.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Xpo.v12.1.resources.dll
+	DevExpress.Xpo.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Xpo.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Xpo.v12.1.resources.dll
+	DevExpress.Xpo.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Xpo.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Xpo.v12.1.resources.dll
+	DevExpress.Xpo.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Xpo.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Xpo.v12.1.resources.dll
+	Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, Location=C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\148ebbcf\eab3888e\assembly\dl3\ba5a607f\7a79d8db_1ed8cd01\Ionic.Zip.dll
+	Microsoft.Build.Utilities.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Build.Utilities.v4.0\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Utilities.v4.0.dll
+	Microsoft.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.CSharp\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.CSharp.dll
+	Microsoft.JScript, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.JScript\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.JScript.dll
+	Microsoft.VisualStudio.Web.PageInspector.Loader, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Loader\v4.0_1.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Loader.dll
+	Microsoft.VisualStudio.Web.PageInspector.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Runtime\v4.0_1.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Runtime.dll
+	Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Web.Infrastructure\v4.0_1.0.0.0__31bf3856ad364e35\Microsoft.Web.Infrastructure.dll
+	mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll
+	SMDiagnostics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll
+	System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll
+	System.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Activities\v4.0_4.0.0.0__31bf3856ad364e35\System.Activities.dll
+	System.ComponentModel.DataAnnotations, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ComponentModel.DataAnnotations\v4.0_4.0.0.0__31bf3856ad364e35\System.ComponentModel.DataAnnotations.dll
+	System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll
+	System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll
+	System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll
+	System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll
+	System.Data.Services.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.Services.Design\v4.0_4.0.0.0__b77a5c561934e089\System.Data.Services.Design.dll
+	System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll
+	System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll
+	System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.IdentityModel\v4.0_4.0.0.0__b77a5c561934e089\System.IdentityModel.dll
+	System.Runtime.Caching, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Caching\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.Caching.dll
+	System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll
+	System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll
+	System.ServiceModel.Activation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Activation\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Activation.dll
+	System.ServiceModel.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Activities\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Activities.dll
+	System.ServiceModel.Internals, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll
+	System.ServiceModel.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Web\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Web.dll
+	System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll
+	System.Web.ApplicationServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.ApplicationServices\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.ApplicationServices.dll
+	System.Web.DynamicData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.DynamicData\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.DynamicData.dll
+	System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Extensions\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.Extensions.dll
+	System.Web.Mobile, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Mobile\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Mobile.dll
+	System.Web.RegularExpressions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.RegularExpressions\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll
+	System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll
+	System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.WebPages.Deployment\v4.0_1.0.0.0__31bf3856ad364e35\System.Web.WebPages.Deployment.dll
+	System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.WebPages.Deployment\v4.0_2.0.0.0__31bf3856ad364e35\System.Web.WebPages.Deployment.dll
+	System.WorkflowServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.WorkflowServices\v4.0_4.0.0.0__31bf3856ad364e35\System.WorkflowServices.dll
+	System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xaml\v4.0_4.0.0.0__b77a5c561934e089\System.Xaml.dll
+	System.Xaml.Hosting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xaml.Hosting\v4.0_4.0.0.0__31bf3856ad364e35\System.Xaml.Hosting.dll
+	System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll
+	System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll
+	XODB.Module, Version=1.0.4923.21221, Culture=neutral, PublicKeyToken=null, Location=C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\148ebbcf\eab3888e\assembly\dl3\2f863915\8d54cac5_7c70ce01\XODB.Module.dll
+	XODB.Module.Web, Version=1.0.4994.17092, Culture=neutral, PublicKeyToken=null, Location=C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\148ebbcf\eab3888e\assembly\dl3\ca1fffbd\a672104f_34a8ce01\XODB.Module.Web.dll
+	XODB.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null, Location=C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\148ebbcf\eab3888e\assembly\dl3\b856290c\a05b3750_34a8ce01\XODB.Web.dll
+03.09.13 09:29:59.812	bgr1es4rewzxc5emtwfbj10c	SetupModules
+03.09.13 09:30:01.011	bgr1es4rewzxc5emtwfbj10c	Customize TypesInfo
+03.09.13 09:30:03.909	bgr1es4rewzxc5emtwfbj10c	--------------------------------------------------------------------------------
+03.09.13 09:30:03.910	bgr1es4rewzxc5emtwfbj10c	Start logon process
+03.09.13 09:30:03.913	bgr1es4rewzxc5emtwfbj10c	--------------------------------------------------------------------------------
+03.09.13 09:30:03.914	bgr1es4rewzxc5emtwfbj10c	Checking Compatibility
+03.09.13 09:30:03.916	bgr1es4rewzxc5emtwfbj10c		ConnectionString: Data Source=xodbdb;Initial Catalog=XODBWEB;Persist Security Info=True;User ID=xodb_user1;
+03.09.13 09:30:05.320	bgr1es4rewzxc5emtwfbj10c	--------------------------------------------------------------------------------
+03.09.13 09:30:05.322	bgr1es4rewzxc5emtwfbj10c	UpdateDB
+03.09.13 09:30:05.348	bgr1es4rewzxc5emtwfbj10c		ConnectionString: Data Source=xodbdb;Initial Catalog=XODBWEB;Persist Security Info=True;User ID=xodb_user1;
+03.09.13 09:30:05.414	bgr1es4rewzxc5emtwfbj10c	Check App Name Compatibility
+03.09.13 09:30:05.971	bgr1es4rewzxc5emtwfbj10c	Check stored module versions against the versions of the loaded modules
+03.09.13 09:30:05.972	bgr1es4rewzxc5emtwfbj10c	module 'SystemModule' (DevExpress.ExpressApp.v12.1). Local version: 12.1.8.0, Version on DB: 0.0.0.0
+03.09.13 09:30:05.972	bgr1es4rewzxc5emtwfbj10c	DatabaseIsOld
+03.09.13 09:30:06.171	bgr1es4rewzxc5emtwfbj10c	Check is table 'X_PrivateData' exists
+03.09.13 09:30:06.172	bgr1es4rewzxc5emtwfbj10c	ExecuteScalarCommand: 'SELECT count(1) FROM sysobjects WHERE name = 'X_PrivateData' AND type = 'U'', silent=True
+03.09.13 09:30:06.190	bgr1es4rewzxc5emtwfbj10c	ExecuteScalarCommand: 'select [value] from X_PrivateData where UniqueID='XODBSchemaVersion'', silent=False
+03.09.13 09:30:09.051	bgr1es4rewzxc5emtwfbj10c	Module: SystemModule. Old version: 0.0.0.0. New version: 12.1.8.0
+03.09.13 09:30:09.055	bgr1es4rewzxc5emtwfbj10c	Module: SystemAspNetModule. Old version: 0.0.0.0. New version: 12.1.8.0
+03.09.13 09:30:09.058	bgr1es4rewzxc5emtwfbj10c	Module: XODBModule. Old version: 0.0.0.0. New version: 1.0.4923.21221
+03.09.13 09:30:09.063	bgr1es4rewzxc5emtwfbj10c	Module: XODBAspNetModule. Old version: 0.0.0.0. New version: 1.0.4994.17092
+03.09.13 09:30:09.066	bgr1es4rewzxc5emtwfbj10c	Module: ValidationModule. Old version: 0.0.0.0. New version: 12.1.8.0
+03.09.13 09:30:09.143	bgr1es4rewzxc5emtwfbj10c	Check App Name Compatibility
+03.09.13 09:30:09.146	bgr1es4rewzxc5emtwfbj10c	Check stored module versions against the versions of the loaded modules
+03.09.13 09:30:09.148	bgr1es4rewzxc5emtwfbj10c	module 'SystemModule' (DevExpress.ExpressApp.v12.1). Local version: 12.1.8.0, Version on DB: 12.1.8.0
+03.09.13 09:30:09.149	bgr1es4rewzxc5emtwfbj10c	module 'SystemAspNetModule' (DevExpress.ExpressApp.Web.v12.1). Local version: 12.1.8.0, Version on DB: 12.1.8.0
+03.09.13 09:30:09.151	bgr1es4rewzxc5emtwfbj10c	module 'XODBModule' (XODB.Module). Local version: 1.0.4923.21221, Version on DB: 1.0.4923.21221
+03.09.13 09:30:09.154	bgr1es4rewzxc5emtwfbj10c	module 'XODBAspNetModule' (XODB.Module.Web). Local version: 1.0.4994.17092, Version on DB: 1.0.4994.17092
+03.09.13 09:30:09.155	bgr1es4rewzxc5emtwfbj10c	module 'ValidationModule' (DevExpress.ExpressApp.Validation.v12.1). Local version: 12.1.8.0, Version on DB: 12.1.8.0
+03.09.13 09:30:09.171	bgr1es4rewzxc5emtwfbj10c	--------------------------------------------------------------------------------
+03.09.13 09:30:09.172	bgr1es4rewzxc5emtwfbj10c	Logon successful
+03.09.13 09:30:09.220	bgr1es4rewzxc5emtwfbj10c	The FormsAuthentication timeout is less than the ASP.NET Session timeout: '10' and '20'. The ASP.NET Session timeout is used for FormsAuthentication.
+03.09.13 09:30:09.223	bgr1es4rewzxc5emtwfbj10c		CurrentUserName: 
+03.09.13 09:30:09.225	bgr1es4rewzxc5emtwfbj10c	--------------------------------------------------------------------------------
+03.09.13 09:30:09.227	bgr1es4rewzxc5emtwfbj10c	Logon completed
+03.09.13 09:30:09.506	bgr1es4rewzxc5emtwfbj10c	--------------------------------------------------------------------------------
+03.09.13 09:30:09.506	bgr1es4rewzxc5emtwfbj10c	Initialize 'ShowNavigationItem' action items
+03.09.13 09:30:12.059	bgr1es4rewzxc5emtwfbj10c	Generate default Model for Action containers
+03.09.13 09:30:12.318	bgr1es4rewzxc5emtwfbj10c		TotalApplications: 1
+03.09.13 09:30:12.321	bgr1es4rewzxc5emtwfbj10c		DisposedApplications: 0
+03.09.13 09:30:12.323	bgr1es4rewzxc5emtwfbj10c		FinalizedApplications: 0
+03.09.13 09:30:12.324	bgr1es4rewzxc5emtwfbj10c		GC.GetTotalMemory(False) (Mb): 37
+03.09.13 09:30:12.328	bgr1es4rewzxc5emtwfbj10c	The user already logged on, redirecting to the default page
+03.09.13 09:30:15.617	bgr1es4rewzxc5emtwfbj10c	--------------------------------------------------------------------------------
+03.09.13 09:30:15.621	bgr1es4rewzxc5emtwfbj10c	Execute action
+03.09.13 09:30:15.627	bgr1es4rewzxc5emtwfbj10c		Type: DevExpress.ExpressApp.Actions.SingleChoiceAction
+03.09.13 09:30:15.628	bgr1es4rewzxc5emtwfbj10c		ID: ShowNavigationItem
+03.09.13 09:30:15.630	bgr1es4rewzxc5emtwfbj10c		Category: ViewsNavigation
+03.09.13 09:30:15.632	bgr1es4rewzxc5emtwfbj10c		SelectedItem: Headers (Collars)
+03.09.13 09:30:19.031	bgr1es4rewzxc5emtwfbj10c	Save model changes
+03.09.13 09:30:19.035	bgr1es4rewzxc5emtwfbj10c	===================
+03.09.13 09:30:19.049	bgr1es4rewzxc5emtwfbj10c	Action 'ShowNavigationItem' done
+03.09.13 09:30:20.222	bgr1es4rewzxc5emtwfbj10c	Save model changes
+03.09.13 09:30:20.224	bgr1es4rewzxc5emtwfbj10c	===================
+03.09.13 16:14:47.227	lqteidw3a4onik1ih1i4w3pm	================================================================================
+03.09.13 16:14:47.229	lqteidw3a4onik1ih1i4w3pm	Trace Log for /LM/W3SVC/2/ROOT-1-130226624863130239 is started
+03.09.13 16:14:47.229	lqteidw3a4onik1ih1i4w3pm	================================================================================
+03.09.13 16:14:47.238	lqteidw3a4onik1ih1i4w3pm	System Environment
+	OS Version: Microsoft Windows NT 6.2.9200.0
+	.Net Framework Versions: v2.0.50727, v4.0.30319
+
+	CLR Version: 4.0.30319.17929
+	eXpressApp Version: 12.1.8.0
+Application config
+	Modules=
+	ErrorReportEmail=
+	ErrorReportEmailServer=
+	SimpleErrorReportPage=
+	RichErrorReportPage=Error.aspx
+	EnableDiagnosticActions=False
+03.09.13 16:14:47.245	lqteidw3a4onik1ih1i4w3pm		session.Timeout: 20
+03.09.13 16:14:47.245	lqteidw3a4onik1ih1i4w3pm		SessionID: lqteidw3a4onik1ih1i4w3pm
+03.09.13 16:14:47.353	lqteidw3a4onik1ih1i4w3pm	--------------------------------------------------------------------------------
+03.09.13 16:14:47.353	lqteidw3a4onik1ih1i4w3pm	Initialize Modules Manager
+03.09.13 16:14:47.360	lqteidw3a4onik1ih1i4w3pm	--------------------------------------------------------------------------------
+03.09.13 16:14:47.360	lqteidw3a4onik1ih1i4w3pm	
+03.09.13 16:14:47.627	lqteidw3a4onik1ih1i4w3pm	--------------------------------------------------------------------------------
+Loaded assemblies
+	App_global.asax.n9cebuip, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, Location=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\e64df2b4\eab3888e\App_global.asax.n9cebuip.dll
+	DevExpress.Data.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Data.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Data.v12.1.dll
+	DevExpress.Data.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Data.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Data.v12.1.resources.dll
+	DevExpress.Data.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Data.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Data.v12.1.resources.dll
+	DevExpress.Data.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Data.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Data.v12.1.resources.dll
+	DevExpress.Data.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Data.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Data.v12.1.resources.dll
+	DevExpress.ExpressApp.Images.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Images.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.ExpressApp.Images.v12.1.dll
+	DevExpress.ExpressApp.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.ExpressApp.v12.1.dll
+	DevExpress.ExpressApp.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.ExpressApp.v12.1.resources.dll
+	DevExpress.ExpressApp.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.ExpressApp.v12.1.resources.dll
+	DevExpress.ExpressApp.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.ExpressApp.v12.1.resources.dll
+	DevExpress.ExpressApp.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.ExpressApp.v12.1.resources.dll
+	DevExpress.ExpressApp.Validation.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Validation.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.ExpressApp.Validation.v12.1.dll
+	DevExpress.ExpressApp.Validation.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Validation.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.ExpressApp.Validation.v12.1.resources.dll
+	DevExpress.ExpressApp.Validation.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Validation.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.ExpressApp.Validation.v12.1.resources.dll
+	DevExpress.ExpressApp.Validation.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Validation.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.ExpressApp.Validation.v12.1.resources.dll
+	DevExpress.ExpressApp.Validation.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Validation.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.ExpressApp.Validation.v12.1.resources.dll
+	DevExpress.ExpressApp.Web.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Web.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.ExpressApp.Web.v12.1.dll
+	DevExpress.ExpressApp.Web.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Web.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.ExpressApp.Web.v12.1.resources.dll
+	DevExpress.ExpressApp.Web.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Web.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.ExpressApp.Web.v12.1.resources.dll
+	DevExpress.ExpressApp.Web.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Web.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.ExpressApp.Web.v12.1.resources.dll
+	DevExpress.ExpressApp.Xpo.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.ExpressApp.Xpo.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.ExpressApp.Xpo.v12.1.dll
+	DevExpress.Persistent.Base.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Persistent.Base.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Persistent.Base.v12.1.dll
+	DevExpress.Persistent.BaseImpl.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Persistent.BaseImpl.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Persistent.BaseImpl.v12.1.dll
+	DevExpress.Printing.v12.1.Core, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Printing.v12.1.Core\12.1.8.0__b88d1754d700e49a\DevExpress.Printing.v12.1.Core.dll
+	DevExpress.Printing.v12.1.Core.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Printing.v12.1.Core.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Printing.v12.1.Core.resources.dll
+	DevExpress.Printing.v12.1.Core.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Printing.v12.1.Core.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Printing.v12.1.Core.resources.dll
+	DevExpress.Printing.v12.1.Core.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Printing.v12.1.Core.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Printing.v12.1.Core.resources.dll
+	DevExpress.Printing.v12.1.Core.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Printing.v12.1.Core.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Printing.v12.1.Core.resources.dll
+	DevExpress.Web.ASPxEditors.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxEditors.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Web.ASPxEditors.v12.1.dll
+	DevExpress.Web.ASPxEditors.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxEditors.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Web.ASPxEditors.v12.1.resources.dll
+	DevExpress.Web.ASPxEditors.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxEditors.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Web.ASPxEditors.v12.1.resources.dll
+	DevExpress.Web.ASPxEditors.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxEditors.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Web.ASPxEditors.v12.1.resources.dll
+	DevExpress.Web.ASPxEditors.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxEditors.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Web.ASPxEditors.v12.1.resources.dll
+	DevExpress.Web.ASPxGridView.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxGridView.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Web.ASPxGridView.v12.1.dll
+	DevExpress.Web.ASPxGridView.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxGridView.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Web.ASPxGridView.v12.1.resources.dll
+	DevExpress.Web.ASPxGridView.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxGridView.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Web.ASPxGridView.v12.1.resources.dll
+	DevExpress.Web.ASPxGridView.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxGridView.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Web.ASPxGridView.v12.1.resources.dll
+	DevExpress.Web.ASPxGridView.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxGridView.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Web.ASPxGridView.v12.1.resources.dll
+	DevExpress.Web.ASPxThemes.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.ASPxThemes.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Web.ASPxThemes.v12.1.dll
+	DevExpress.Web.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Web.v12.1.dll
+	DevExpress.Web.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Web.v12.1.resources.dll
+	DevExpress.Web.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Web.v12.1.resources.dll
+	DevExpress.Web.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Web.v12.1.resources.dll
+	DevExpress.Web.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Web.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Web.v12.1.resources.dll
+	DevExpress.Xpo.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Xpo.v12.1\12.1.8.0__b88d1754d700e49a\DevExpress.Xpo.v12.1.dll
+	DevExpress.Xpo.v12.1.resources, Version=12.1.0.0, Culture=de, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Xpo.v12.1.resources\12.1.0.0_de_b88d1754d700e49a\DevExpress.Xpo.v12.1.resources.dll
+	DevExpress.Xpo.v12.1.resources, Version=12.1.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Xpo.v12.1.resources\12.1.0.0_es_b88d1754d700e49a\DevExpress.Xpo.v12.1.resources.dll
+	DevExpress.Xpo.v12.1.resources, Version=12.1.0.0, Culture=ja, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Xpo.v12.1.resources\12.1.0.0_ja_b88d1754d700e49a\DevExpress.Xpo.v12.1.resources.dll
+	DevExpress.Xpo.v12.1.resources, Version=12.1.0.0, Culture=ru, PublicKeyToken=b88d1754d700e49a, Location=C:\Windows\assembly\GAC_MSIL\DevExpress.Xpo.v12.1.resources\12.1.0.0_ru_b88d1754d700e49a\DevExpress.Xpo.v12.1.resources.dll
+	Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, Location=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\e64df2b4\eab3888e\assembly\dl3\db842f96\7a79d8db_1ed8cd01\Ionic.Zip.dll
+	Microsoft.Build.Utilities.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Build.Utilities.v4.0\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.Build.Utilities.v4.0.dll
+	Microsoft.JScript, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.JScript\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.JScript.dll
+	Microsoft.VisualStudio.Web.PageInspector.Loader, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Loader\v4.0_1.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Loader.dll
+	Microsoft.VisualStudio.Web.PageInspector.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Runtime\v4.0_1.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Runtime.dll
+	Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Web.Infrastructure\v4.0_1.0.0.0__31bf3856ad364e35\Microsoft.Web.Infrastructure.dll
+	mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll
+	SMDiagnostics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\SMDiagnostics\v4.0_4.0.0.0__b77a5c561934e089\SMDiagnostics.dll
+	System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll
+	System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll
+	System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll
+	System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_64\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll
+	System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll
+	System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_64\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll
+	System.Runtime.Caching, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Caching\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.Caching.dll
+	System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll
+	System.ServiceModel.Activation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Activation\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Activation.dll
+	System.ServiceModel.Internals, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Internals\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Internals.dll
+	System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_64\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll
+	System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Extensions\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.Extensions.dll
+	System.Web.Mobile, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Mobile\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Mobile.dll
+	System.Web.RegularExpressions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.RegularExpressions\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.RegularExpressions.dll
+	System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll
+	System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.WebPages.Deployment\v4.0_1.0.0.0__31bf3856ad364e35\System.Web.WebPages.Deployment.dll
+	System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.WebPages.Deployment\v4.0_2.0.0.0__31bf3856ad364e35\System.Web.WebPages.Deployment.dll
+	System.Xaml.Hosting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xaml.Hosting\v4.0_4.0.0.0__31bf3856ad364e35\System.Xaml.Hosting.dll
+	System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Location=C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll
+	XODB.Module, Version=1.0.4923.21221, Culture=neutral, PublicKeyToken=null, Location=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\e64df2b4\eab3888e\assembly\dl3\9a0eec6c\8d54cac5_7c70ce01\XODB.Module.dll
+	XODB.Module.Web, Version=1.0.4994.17092, Culture=neutral, PublicKeyToken=null, Location=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\e64df2b4\eab3888e\assembly\dl3\c39c2103\a672104f_34a8ce01\XODB.Module.Web.dll
+	XODB.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null, Location=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\e64df2b4\eab3888e\assembly\dl3\099d74d7\a05b3750_34a8ce01\XODB.Web.dll
+03.09.13 16:14:48.640	lqteidw3a4onik1ih1i4w3pm	SetupModules
+03.09.13 16:14:49.347	lqteidw3a4onik1ih1i4w3pm	Customize TypesInfo
+03.09.13 16:14:51.709	lqteidw3a4onik1ih1i4w3pm	--------------------------------------------------------------------------------
+03.09.13 16:14:51.709	lqteidw3a4onik1ih1i4w3pm	Start logon process
+03.09.13 16:14:51.712	lqteidw3a4onik1ih1i4w3pm	--------------------------------------------------------------------------------
+03.09.13 16:14:51.712	lqteidw3a4onik1ih1i4w3pm	Checking Compatibility
+03.09.13 16:14:51.715	lqteidw3a4onik1ih1i4w3pm		ConnectionString: Data Source=xodbdb;Initial Catalog=XODBWEB;Persist Security Info=True;User ID=xodb_user1;
+03.09.13 16:14:52.098	lqteidw3a4onik1ih1i4w3pm	Check App Name Compatibility
+03.09.13 16:14:52.102	lqteidw3a4onik1ih1i4w3pm	Check stored module versions against the versions of the loaded modules
+03.09.13 16:14:52.104	lqteidw3a4onik1ih1i4w3pm	module 'SystemModule' (DevExpress.ExpressApp.v12.1). Local version: 12.1.8.0, Version on DB: 12.1.8.0
+03.09.13 16:14:52.104	lqteidw3a4onik1ih1i4w3pm	module 'SystemAspNetModule' (DevExpress.ExpressApp.Web.v12.1). Local version: 12.1.8.0, Version on DB: 12.1.8.0
+03.09.13 16:14:52.104	lqteidw3a4onik1ih1i4w3pm	module 'XODBModule' (XODB.Module). Local version: 1.0.4923.21221, Version on DB: 1.0.4923.21221
+03.09.13 16:14:52.104	lqteidw3a4onik1ih1i4w3pm	module 'XODBAspNetModule' (XODB.Module.Web). Local version: 1.0.4994.17092, Version on DB: 1.0.4994.17092
+03.09.13 16:14:52.104	lqteidw3a4onik1ih1i4w3pm	module 'ValidationModule' (DevExpress.ExpressApp.Validation.v12.1). Local version: 12.1.8.0, Version on DB: 12.1.8.0
+03.09.13 16:14:52.126	lqteidw3a4onik1ih1i4w3pm	--------------------------------------------------------------------------------
+03.09.13 16:14:52.126	lqteidw3a4onik1ih1i4w3pm	Logon successful
+03.09.13 16:14:52.145	lqteidw3a4onik1ih1i4w3pm	The FormsAuthentication timeout is less than the ASP.NET Session timeout: '10' and '20'. The ASP.NET Session timeout is used for FormsAuthentication.
+03.09.13 16:14:52.146	lqteidw3a4onik1ih1i4w3pm		CurrentUserName: 
+03.09.13 16:14:52.147	lqteidw3a4onik1ih1i4w3pm	--------------------------------------------------------------------------------
+03.09.13 16:14:52.147	lqteidw3a4onik1ih1i4w3pm	Logon completed

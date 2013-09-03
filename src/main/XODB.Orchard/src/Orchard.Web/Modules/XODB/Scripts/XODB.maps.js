@@ -167,7 +167,7 @@ function RedrawMap() {
             if (spatial[i].geography && HasPolygon(spatial[i].geography)) {
                 var p = GetPolygonsFromGeography(spatial[i].geography);
                 for (var j = 0; j < p.length; j++) {
-                    AddPolygon(map, p[j], false, spatial[i].description);
+                    AddPolygon(map, p[j], false, spatial[i].description, spatial[i].spatialid);
                     if (boundsPassedIn == false) {
                         for (var k =0; k < p[j].length; k++)
                             bounds.extend(p[j][k]);
@@ -175,7 +175,7 @@ function RedrawMap() {
                 }
             }
             else if (spatial[i].centre) {
-                AddMarker(map, spatial[i].centre, false, spatial[i].description);
+                AddMarker(map, spatial[i].centre, false, spatial[i].description, spatial[i].spatialid);
                 // if no bounds defined (by a zoom or pan action) then manually expand the bounds to fit this marker
                 if (boundsPassedIn == false) {
                     bounds.extend(spatial[i].centre);
@@ -232,7 +232,7 @@ function CheckBounds() {
             if (CheckedBounds % 6 == 0) { //300msec = 6*50msec from poll above 'CheckBoundsTimer'
                 //alert('Bounds have changed - do an update');
                 CheckedBounds = 0;
-                MapUpdated({ eventType: 'BOUNDS' });
+                MapUpdated(map,{ eventType: 'BOUNDS_CHANGED' });
                 return;
             }
             else {
@@ -272,21 +272,27 @@ function CreateBoundsPolygon(ne, sw) {
 
 // This is called when the map has moved or zoomed.  The relevent data (the map bounds and centre point) 
 // are collated and stored in page variables, so that the data source can grab them during fresh web queries.
-function MapUpdated(event) {
-
+function MapUpdated(map, event) {
+    if (!map)
+        return;
     var bounds = map.getBounds();
-    var ne = bounds.getNorthEast();
-    var sw = bounds.getSouthWest();
-    var center = map.center;
-    $('#BoundsNE').val(ne.toString());
-    $('#BoundsSW').val(sw.toString());
-    $('#CentreString').val(center.toString());
-    var viewport = ne + "," + sw;
-    OnMapUpdate(event, center.toString(), viewport);
+    if (bounds) {
+        var ne = bounds.getNorthEast();
+        var sw = bounds.getSouthWest();
+        var center = map.center;
+        $('#BoundsNE').val(ne.toString());
+        $('#BoundsSW').val(sw.toString());
+        $('#CentreString').val(center.toString());
+        var viewport = ne + "," + sw;
+        OnMapUpdate(map, event, center.toString(), viewport);
+    }
+    else {
+        OnMapUpdate(map, event);
+    }
 }
 
 // Add a parker to the page.  Each marker will be assigned an event which will cause the popup to appear on click
-function AddMarker(map, location, editable, popupText) {
+function AddMarker(map, location, editable, popupText, id) {
     try {
         if (!editable)
             editable = false;
@@ -297,17 +303,18 @@ function AddMarker(map, location, editable, popupText) {
             title: popupText,
             type: 'marker'
         });
+        marker.uniqueid = id;
         mapOverlays.push(marker);
         SetSelection(marker);
-        AddMarkerClickEvent(marker, popupText);
+        AddMarkerClickEvent(map, marker, popupText);
         if (editable)
-            AddMarkerDragEvent(marker);
+            AddMarkerDragEvent(map, marker);
     } catch (err) {
         alert("Error with data " + err);
     }
 }
 
-function AddMarkerClickEvent(marker, popupText) {
+function AddMarkerClickEvent(map, marker, popupText) {
     google.maps.event.addListener(marker, 'click', function (event) {
         if (popupText != null && popupText != "") {
             infowindow.setContent("<html><body><br><b>" + popupText + "</b></body></html>");
@@ -315,26 +322,27 @@ function AddMarkerClickEvent(marker, popupText) {
             infowindow.open(map, marker);
         }
         SetSelection(marker);
+        MapUpdated(map, { eventType: 'MARKER_CLICKED', eventSource: marker });
     });
 }
 
-function AddMarkerDragEvent(marker) {
+function AddMarkerDragEvent(map, marker) {
     google.maps.event.addListener(marker, 'dragend', function () {
-        MapUpdated({ eventType: 'MARKER_DRAGEND', eventSource: marker });
+        MapUpdated(map, { eventType: 'MARKER_DRAGEND', eventSource: marker });
     });
 }
 
-function AddMarkerSingle(map, location, editable, popupText) {
-    AddMarker(map, location, editable, popupText);
+function AddMarkerSingle(map, location, editable, popupText, id) {
+    AddMarker(map, location, editable, popupText, id);
     StopEditingMap();
 }
 
-function AddMarkerUnique(map, location, editable, popupText) {
+function AddMarkerUnique(map, location, editable, popupText, id) {
     DeleteShapes();
-    AddMarkerSingle(map, location, editable, popupText);
+    AddMarkerSingle(map, location, editable, popupText, id);
 }
 
-function AddPolygon(map, polygonArray, editable, popupText) {
+function AddPolygon(map, polygonArray, editable, popupText, id) {
     //grep should be replaced with tha call to your backend for getting data for fk_id
     if (!editable)
         editable = false;
@@ -348,37 +356,39 @@ function AddPolygon(map, polygonArray, editable, popupText) {
         editable: editable,
         type: 'polygon'
     });
+    polygon.uniqueid = id;
     polygon.setMap(map);
     mapOverlays.push(polygon);
     SetSelection(polygon);
-    AddPolygonClickEvent(polygon, popupText);
+    AddPolygonClickEvent(map, polygon, popupText);
     if (editable) {
-        AddPolygonDragEvent(polygon);
-        AddPolygonVertexEvent(polygon);
+        AddPolygonDragEvent(map, polygon);
+        AddPolygonVertexEvent(map, polygon);
     }
 }
 
-function AddPolygonClickEvent(polygon, popuptext) {
+function AddPolygonClickEvent(map, polygon, popuptext) {
     google.maps.event.addListener(polygon, 'click', function () {
         SetSelection(polygon);
+        MapUpdated(map, { eventType: 'POLYGON_CLICKED', eventSource: polygon });
     });
 }
 
-function AddPolygonDragEvent(polygon) {
+function AddPolygonDragEvent(map, polygon) {
     google.maps.event.addListener(polygon, 'dragend', function () {
-        MapUpdated({ eventType: 'POLYGON_DRAGEND', eventSource: polygon });
+        MapUpdated(map,{ eventType: 'POLYGON_DRAGEND', eventSource: polygon });
     });
 }
 
-function AddPolygonVertexEvent(polygon) {
+function AddPolygonVertexEvent(map, polygon) {
     google.maps.event.addListener(polygon.getPath(), 'set_at', function (index) {
-        MapUpdated({ eventType: 'POLYGON_VERTEX_SET', eventSource: polygon });
+        MapUpdated(map,{ eventType: 'POLYGON_VERTEX_SET', eventSource: polygon });
     });
     google.maps.event.addListener(polygon.getPath(), 'remove_at', function (index) {
-        MapUpdated({ eventType: 'POLYGON_VERTEX_REMOVED', eventSource: polygon });
+        MapUpdated(map,{ eventType: 'POLYGON_VERTEX_REMOVED', eventSource: polygon });
     });
     google.maps.event.addListener(polygon.getPath(), 'insert_at', function (index) {
-        MapUpdated({ eventType: 'POLYGON_VERTEX_INSERTED', eventSource: polygon });
+        MapUpdated(map,{ eventType: 'POLYGON_VERTEX_INSERTED', eventSource: polygon });
     });
 }
 
@@ -390,14 +400,14 @@ if (!String.prototype.startsWith) {
     }
 }
 
-function AddGeographyUnique(map, locationInput, editable, popupText, autoExtend) {
+function AddGeographyUnique(map, locationInput, editable, popupText, autoExtend, id) {
     DeleteShapes();
     var bounds = new google.maps.LatLngBounds();
     var geoData = ParseGeographyData(locationInput);
     if (HasPolygon(geoData)) {    
         var p = GetPolygonsFromGeography(geoData);
         for (var i = 0; i < p.length; i++) {
-            AddPolygon(map, p[i], editable, popupText);
+            AddPolygon(map, p[i], editable, popupText, id);
             if (autoExtend) {
                 for (var j = 0; j < p[i].length; j++) {
                     bounds.extend(p[i][j]);
@@ -408,7 +418,7 @@ function AddGeographyUnique(map, locationInput, editable, popupText, autoExtend)
             map.fitBounds(bounds);
     }
     else {
-        AddMarkerSingle(map, GetFirstLocation(geoData), editable, popupText);
+        AddMarkerSingle(map, GetFirstLocation(geoData), editable, popupText, id);
     }
 }
 
@@ -427,6 +437,10 @@ function GetSpatialObjects() {
     $('.gvResultText').each(function (index, element) {
         if (!spatial[index]) spatial[index] = {};
         spatial[index].description = element.innerHTML;
+    });
+    $('.gvResultSpatialID').each(function (index, element) {
+        if (!spatial[index]) spatial[index] = {};
+        spatial[index].spatialid = element.innerHTML;
     });
     //TODO: do locations and provinces and lines
     return spatial;
@@ -587,7 +601,8 @@ function ClearSelection() {
         selectedShape.setEditable(false);
     }
     selectedShape = null;
-    //MapUpdated({ eventType: 'SELECT_CLEARED', eventSource: shape });
+    if (pageIsLoaded)
+        MapUpdated(map,{ eventType: 'SELECT_CLEARED', eventSource: null });
 }
 
 
@@ -606,7 +621,7 @@ function DeleteShape(shape) {
             break;
         }
     }
-    MapUpdated({ eventType: 'DELETED_SHAPE', eventSource: shape });
+    MapUpdated(map,{ eventType: 'DELETED_SHAPE', eventSource: shape });
 }
 
 function DeleteExceptedShape(shape) {
@@ -617,7 +632,7 @@ function DeleteExceptedShape(shape) {
             mapOverlays.splice(i, 1);
         }
     }
-    MapUpdated({ eventType: 'DELETED_EXCEPTED_SHAPE', eventSource: shape });
+    MapUpdated(map,{ eventType: 'DELETED_EXCEPTED_SHAPE', eventSource: shape });
 }
 
 function DeleteSelectedExceptedShapeTypes() {
@@ -632,7 +647,7 @@ function DeleteExceptedShapeTypes(shape) {
             mapOverlays.splice(i, 1);
         }
     }
-    MapUpdated({ eventType: 'DELETED_SHAPE_TYPE', eventSource: shape });
+    MapUpdated(map,{ eventType: 'DELETED_SHAPE_TYPE', eventSource: shape });
 }
 
 function HideSelectedShape() {
@@ -649,7 +664,8 @@ function HideShape(shape) {
     else if (shape instanceof google.maps.Marker) {
         //Do something custom
     }
-    //MapUpdated({ eventType: 'HIDE_SHAPE', eventSource: shape });
+    if (pageIsLoaded)
+        MapUpdated(map,{ eventType: 'HIDE_SHAPE', eventSource: shape });
 }
 
 
@@ -659,7 +675,7 @@ function DeleteShapes() {
         delete mapOverlays[i];
     }
     mapOverlays = [];
-    //MapUpdated({ eventType: 'DELETED_ALL_SHAPES', eventSource: null });
+    MapUpdated(map,{ eventType: 'DELETED_ALL_SHAPES', eventSource: null });
 }
 
 function SetSelection(shape) {
@@ -676,7 +692,8 @@ function SetSelection(shape) {
     //shape.setStrokeWeight(2);
     //selectColor(shape.get('fillColor') || shape.get('strokeColor'));
     drawingManager.changed();
-    //MapUpdated({ eventType: 'SELECT_CHANGED', eventSource: shape });
+    if (pageIsLoaded)
+        MapUpdated(map,{ eventType: 'SELECT_CHANGED', eventSource: shape });
 }
 
 
@@ -763,25 +780,27 @@ function DrawFromText(map, locationInput, editable, popupText, autoUpdate) {
 
 function OverlayDone(event) {
 
-    event.overlay.uniqueid = NewGUID();
+    if (!event.overlay.uniqueid)
+        event.overlay.uniqueid = NewGUID();
     event.overlay.title = "";
     event.overlay.content = "";
     event.overlay.type = event.type;
     mapOverlays.push(event.overlay);
     var newShape = event.overlay;
     newShape.type = event.type;
-    SetSelection(newShape);
+    if (pageIsLoaded)
+        SetSelection(newShape);
     if (newShape instanceof google.maps.Marker) {
         newShape.setDraggable(true);
-        AddMarkerClickEvent(newShape, '');
-        AddMarkerDragEvent(newShape);
+        AddMarkerClickEvent(map, newShape, '');
+        AddMarkerDragEvent(map, newShape);
     }
     else if (newShape instanceof google.maps.Polygon) {
-        AddPolygonClickEvent(newShape, '');
-        AddPolygonDragEvent(newShape);
-        AddPolygonVertexEvent(newShape);
+        AddPolygonClickEvent(map, newShape, '');
+        AddPolygonDragEvent(map, newShape);
+        AddPolygonVertexEvent(map, newShape);
     }
-    MapUpdated({ eventType: 'EDITED', eventSource: newShape });
+    MapUpdated(map,{ eventType: 'EDITED', eventSource: newShape });
     //AttachClickListener(event.overlay);
     //openInfowindow(event.overlay, getShapeCenter(event.overlay), getEditorContent(event.overlay));
 }
