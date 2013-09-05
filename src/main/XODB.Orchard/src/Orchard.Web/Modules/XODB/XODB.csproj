@@ -432,6 +432,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Contacts.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExperienceContainer.cs" />
+    <Compile Include="Models\Experience.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Experience.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Experience.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Experience.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Experience1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Experience.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SpatialContainer.cs" />
     <Compile Include="Models\Content.designer.cs">
       <DependentUpon>Content.dbml</DependentUpon>
@@ -502,6 +518,9 @@
     </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\X_VW_ExperienceBasicView.cs">
+      <DependentUpon>Experience.tt</DependentUpon>
     </Compile>
     <Compile Include="Reports\AssaysReport.cs">
       <SubType>Component</SubType>
@@ -655,6 +674,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Contacts.edmx</DependentUpon>
       <LastGenOutput>Contacts.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\Experience.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Experience.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Experience.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Experience.edmx</DependentUpon>
+      <LastGenOutput>Experience.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Experience.edmx.diagram">
+      <DependentUpon>Experience.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Experience.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Experience.edmx</DependentUpon>
+      <LastGenOutput>Experience1.cs</LastGenOutput>
     </Content>
     <None Include="Models\Projects.dbml.layout">
       <DependentUpon>Projects.dbml</DependentUpon>
