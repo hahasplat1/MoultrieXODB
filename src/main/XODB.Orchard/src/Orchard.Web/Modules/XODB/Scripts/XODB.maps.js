@@ -369,9 +369,16 @@ function AddPolygon(map, polygonArray, editable, popupText, id) {
     }
 }
 
-function AddPolygonClickEvent(map, polygon, popuptext) {
+function AddPolygonClickEvent(map, polygon, popupText) {
     google.maps.event.addListener(polygon, 'click', function () {
         SetSelection(polygon);
+        if (popupText != null && popupText != "") {
+            infowindow.setMap(null);
+            //infowindow = new google.maps.InfoWindow();
+            infowindow.setContent("<html><body><br><b>" + popupText + "</b></body></html>");
+            infowindow.setPosition(FindCentre(polygon));
+            infowindow.open(map);
+        }
         MapUpdated(map, { eventType: 'POLYGON_CLICKED', eventSource: polygon });
     });
 }
@@ -394,6 +401,28 @@ function AddPolygonVertexEvent(map, polygon) {
     });
 }
 
+function FindCentre(polygon) {
+    var maxLat = -90;
+    var maxLng = -180;
+    var minLat = 90;
+    var minLng = 180;
+    for (var i = 0; i < polygon.getPaths().getLength() ; i++) {
+        for (var j = 0; j < polygon.getPaths().getAt(i).getLength() ; j++) {
+            var lat = polygon.getPaths().getAt(i).getAt(j).lat();
+            var lng = polygon.getPaths().getAt(i).getAt(j).lng();
+            if (lat > maxLat)
+                maxLat = lat;
+            if (lat < minLat)
+                minLat = lat;
+            if (lng > maxLng)
+                maxLng = lng;
+            if (lng < minLng)
+                minLng = lng;
+
+        }
+    }
+    return new google.maps.LatLng(minLat + ((maxLat - minLat) / 2), minLng + ((maxLng - minLng) / 2));
+}
 
 
 if (!String.prototype.startsWith) {
