@@ -257,7 +257,7 @@ function RefocusMap(map) {
             markerCount++;
         }
     }    
-    if (markerCount == 1) {
+    if (markerCount == 1 && mapOverlays.length == 1) {
         map.setCenter(new google.maps.LatLng(minLat + ((maxLat - minLat) / 2), minLng + ((maxLng - minLng) / 2)));
         map.setZoom(8);
     }
@@ -992,7 +992,7 @@ function MapObjectsToString(map) {
 
 
 // When the window is loaded, casue the map to intiialise, and populate it with table data
-window.onload = function () {
-    SetupMap();
-    UpdateMap();
-};
+//window.onload = function () {
+//    SetupMap();
+//    UpdateMap();
+//};
