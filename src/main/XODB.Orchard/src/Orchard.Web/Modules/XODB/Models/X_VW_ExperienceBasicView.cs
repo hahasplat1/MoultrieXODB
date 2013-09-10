@@ -27,8 +27,6 @@ namespace XODB.Models
         public Nullable<System.DateTime> DateFinished { get; set; }
         public string Comment { get; set; }
         public System.Data.Spatial.DbGeography LocationGeography { get; set; }
-        public string StandardCountryName { get; set; }
-        public string StandardCountryStateName { get; set; }
         public string ProjectName { get; set; }
         public Nullable<System.Guid> ProvinceID { get; set; }
         public Nullable<System.Guid> WorkTypeID { get; set; }
@@ -36,5 +34,7 @@ namespace XODB.Models
         public Nullable<System.Guid> ProfessionID { get; set; }
         public Nullable<System.Guid> ContactID { get; set; }
         public Nullable<System.Guid> ProjectID { get; set; }
+        public System.Guid ExperienceID { get; set; }
+        public string StandardCountryName { get; set; }
     }
 }

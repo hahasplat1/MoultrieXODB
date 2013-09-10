@@ -4,8 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="XODBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="XODBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="XODBModelStoreContainer">
+          <EntitySet Name="X_Contact" EntityType="XODBModel.Store.X_Contact" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_VW_ExperienceBasicView" EntityType="XODBModel.Store.X_VW_ExperienceBasicView" store:Type="Views" store:Schema="dbo" store:Name="X_VW_ExperienceBasicView">
             <DefiningQuery>SELECT 
       [X_VW_ExperienceBasicView].[ContactName] AS [ContactName], 
@@ -22,23 +23,56 @@
       [X_VW_ExperienceBasicView].[Comment] AS [Comment], 
       [X_VW_ExperienceBasicView].[LocationGeography] AS [LocationGeography], 
       [X_VW_ExperienceBasicView].[StandardCountryName] AS [StandardCountryName], 
-      [X_VW_ExperienceBasicView].[StandardCountryStateName] AS [StandardCountryStateName], 
       [X_VW_ExperienceBasicView].[ProjectName] AS [ProjectName], 
       [X_VW_ExperienceBasicView].[ProvinceID] AS [ProvinceID], 
       [X_VW_ExperienceBasicView].[WorkTypeID] AS [WorkTypeID], 
       [X_VW_ExperienceBasicView].[PositionID] AS [PositionID], 
       [X_VW_ExperienceBasicView].[ProfessionID] AS [ProfessionID], 
       [X_VW_ExperienceBasicView].[ContactID] AS [ContactID], 
-      [X_VW_ExperienceBasicView].[ProjectID] AS [ProjectID]
+      [X_VW_ExperienceBasicView].[ProjectID] AS [ProjectID], 
+      [X_VW_ExperienceBasicView].[ExperienceID] AS [ExperienceID]
       FROM [dbo].[X_VW_ExperienceBasicView] AS [X_VW_ExperienceBasicView]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
+        <EntityType Name="X_Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" Nullable="false" MaxLength="120" />
+          <Property Name="Title" Type="nvarchar" MaxLength="16" />
+          <Property Name="Surname" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="Firstname" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="Username" Type="nvarchar" MaxLength="100" />
+          <Property Name="Hash" Type="nvarchar" MaxLength="255" />
+          <Property Name="DefaultEmail" Type="nvarchar" MaxLength="255" />
+          <Property Name="MiddleNames" Type="nvarchar" MaxLength="60" />
+          <Property Name="Initials" Type="nvarchar" MaxLength="16" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="BirthCountryID" Type="nvarchar" MaxLength="2" />
+          <Property Name="BirthCity" Type="nvarchar" MaxLength="60" />
+          <Property Name="AspNetUserID" Type="uniqueidentifier" />
+          <Property Name="XafUserID" Type="uniqueidentifier" />
+          <Property Name="OAuthID" Type="nvarchar" MaxLength="256" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="ShortBiography" Type="nvarchar(max)" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'XODB.dbo.X_VW_ExperienceBasicView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="X_VW_ExperienceBasicView">
           <Key>
             <PropertyRef Name="DateStart" />
+            <PropertyRef Name="ExperienceID" />
           </Key>
           <Property Name="ContactName" Type="nvarchar" MaxLength="120" />
           <Property Name="Title" Type="nvarchar" MaxLength="16" />
@@ -54,7 +88,6 @@
           <Property Name="Comment" Type="nvarchar" MaxLength="255" />
           <Property Name="LocationGeography" Type="geography" />
           <Property Name="StandardCountryName" Type="nvarchar" MaxLength="40" />
-          <Property Name="StandardCountryStateName" Type="nvarchar" MaxLength="100" />
           <Property Name="ProjectName" Type="nvarchar" MaxLength="16" />
           <Property Name="ProvinceID" Type="uniqueidentifier" />
           <Property Name="WorkTypeID" Type="uniqueidentifier" />
@@ -62,41 +95,75 @@
           <Property Name="ProfessionID" Type="uniqueidentifier" />
           <Property Name="ContactID" Type="uniqueidentifier" />
           <Property Name="ProjectID" Type="uniqueidentifier" />
+          <Property Name="ExperienceID" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="XODBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ExperienceContainer" p1:LazyLoadingEnabled="true">
           <EntitySet Name="X_VW_ExperienceBasicView" EntityType="XODBModel.X_VW_ExperienceBasicView" />
+          <EntitySet Name="X_Contact" EntityType="XODBModel.X_Contact" />
         </EntityContainer>
         <EntityType Name="X_VW_ExperienceBasicView">
           <Key>
             <PropertyRef Name="DateStart" />
+            <PropertyRef Name="ExperienceID" />
           </Key>
-          <Property Name="ContactName" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
-          <Property Name="Title" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
-          <Property Name="Surname" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
-          <Property Name="Firstname" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
-          <Property Name="ExperienceName" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+          <Property Name="ContactName" MaxLength="120" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Title" MaxLength="16" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Surname" MaxLength="60" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Firstname" MaxLength="60" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ExperienceName" MaxLength="120" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="LocationID" Type="Guid" />
-          <Property Name="LatitudeWGS84" Type="Decimal" Precision="10" Scale="7" />
-          <Property Name="LongitudeWGS84" Type="Decimal" Precision="10" Scale="7" />
-          <Property Name="DefaultLocationName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DateFinished" Type="DateTime" Precision="0" />
-          <Property Name="Comment" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="LatitudeWGS84" Precision="10" Scale="7" Type="Decimal" />
+          <Property Name="LongitudeWGS84" Precision="10" Scale="7" Type="Decimal" />
+          <Property Name="DefaultLocationName" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="DateStart" Nullable="false" Precision="0" Type="DateTime" />
+          <Property Name="DateFinished" Precision="0" Type="DateTime" />
+          <Property Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="LocationGeography" Type="Geography" />
-          <Property Name="StandardCountryName" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
-          <Property Name="StandardCountryStateName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="ProjectName" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectName" MaxLength="16" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="ProvinceID" Type="Guid" />
           <Property Name="WorkTypeID" Type="Guid" />
           <Property Name="PositionID" Type="Guid" />
           <Property Name="ProfessionID" Type="Guid" />
           <Property Name="ContactID" Type="Guid" />
           <Property Name="ProjectID" Type="Guid" />
+          <Property Name="ExperienceID" Nullable="false" Type="Guid" />
+          <Property Type="String" Name="StandardCountryName" Nullable="false" />
+        </EntityType>
+        <EntityType Name="X_Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Type="Guid" Name="ContactID" Nullable="false" />
+          <Property Type="String" Name="ContactName" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Surname" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Firstname" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Username" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Hash" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DefaultEmail" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MiddleNames" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Initials" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DOB" Precision="0" />
+          <Property Type="String" Name="BirthCountryID" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BirthCity" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="AspNetUserID" />
+          <Property Type="Guid" Name="XafUserID" />
+          <Property Type="String" Name="OAuthID" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="Photo" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="ShortBiography" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -107,6 +174,8 @@
           <EntitySetMapping Name="X_VW_ExperienceBasicView">
             <EntityTypeMapping TypeName="XODBModel.X_VW_ExperienceBasicView">
               <MappingFragment StoreEntitySet="X_VW_ExperienceBasicView">
+                <ScalarProperty Name="StandardCountryName" ColumnName="StandardCountryName" />
+                <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
                 <ScalarProperty Name="ContactName" ColumnName="ContactName" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -120,8 +189,6 @@
                 <ScalarProperty Name="DateFinished" ColumnName="DateFinished" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="LocationGeography" ColumnName="LocationGeography" />
-                <ScalarProperty Name="StandardCountryName" ColumnName="StandardCountryName" />
-                <ScalarProperty Name="StandardCountryStateName" ColumnName="StandardCountryStateName" />
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
                 <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
                 <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
@@ -129,6 +196,39 @@
                 <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
                 <ScalarProperty Name="ContactID" ColumnName="ContactID" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="X_Contact">
+            <EntityTypeMapping TypeName="XODBModel.X_Contact">
+              <MappingFragment StoreEntitySet="X_Contact">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="ShortBiography" ColumnName="ShortBiography" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="OAuthID" ColumnName="OAuthID" />
+                <ScalarProperty Name="XafUserID" ColumnName="XafUserID" />
+                <ScalarProperty Name="AspNetUserID" ColumnName="AspNetUserID" />
+                <ScalarProperty Name="BirthCity" ColumnName="BirthCity" />
+                <ScalarProperty Name="BirthCountryID" ColumnName="BirthCountryID" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Initials" ColumnName="Initials" />
+                <ScalarProperty Name="MiddleNames" ColumnName="MiddleNames" />
+                <ScalarProperty Name="DefaultEmail" ColumnName="DefaultEmail" />
+                <ScalarProperty Name="Hash" ColumnName="Hash" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

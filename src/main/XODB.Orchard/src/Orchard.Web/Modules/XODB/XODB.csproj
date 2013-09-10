@@ -432,6 +432,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Contacts.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Experience1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Experience.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ExperienceContainer.cs" />
     <Compile Include="Models\Experience.Context.cs">
       <AutoGen>True</AutoGen>
@@ -442,11 +447,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Experience.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Experience1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Experience.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SpatialContainer.cs" />
     <Compile Include="Models\Content.designer.cs">
@@ -518,6 +518,9 @@
     </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\X_Contact.cs">
+      <DependentUpon>Experience.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\X_VW_ExperienceBasicView.cs">
       <DependentUpon>Experience.tt</DependentUpon>

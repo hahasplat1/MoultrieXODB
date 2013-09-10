@@ -5,7 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4f79ec3f2ee148e28e91f57f09e4cefa" Name="Diagram1">
-        <EntityTypeShape EntityType="XODBModel.X_VW_ExperienceBasicView" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODBModel.X_VW_ExperienceBasicView" PointX="1.375" PointY="1" Width="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODBModel.X_Contact" Width="1.5" PointX="5.125" PointY="1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -26,5 +26,6 @@ namespace XODB.Models
         }
     
         public DbSet<X_VW_ExperienceBasicView> X_VW_ExperienceBasicView { get; set; }
+        public DbSet<X_Contact> X_Contact { get; set; }
     }
 }
