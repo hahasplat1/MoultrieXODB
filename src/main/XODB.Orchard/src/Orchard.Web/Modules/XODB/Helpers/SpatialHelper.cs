@@ -3,11 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.SqlServer.Types;
-
+using System.Data.Spatial;
 namespace XODB.Helpers
 {
     public static class SpatialHelper
     {
+        public static DbGeography GetCentre(this DbGeography spatial)
+        {
+            if (spatial == null)
+                return null;
+            return DbGeography.FromText(SqlGeography.Parse(spatial.AsText()).MakeValid().EnvelopeCenter().ToString());
+        }
+
+        public static DbGeography GetCentre(this SqlGeography spatial)
+        {
+            if (spatial == null)
+                return null;
+            return DbGeography.FromText(spatial.MakeValid().EnvelopeCenter().ToString());
+        }
+
 
         //LONGITUDE=item1, LATITUDE=item2
         public static SqlGeography CreatePolygon(this List<Tuple<double, double>> coordinates, int srid = 4326)

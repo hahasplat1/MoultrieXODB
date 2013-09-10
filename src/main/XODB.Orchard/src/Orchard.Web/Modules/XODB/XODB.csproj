@@ -553,6 +553,7 @@
     <Compile Include="ViewModels\AssayReportViewModel.cs" />
     <Compile Include="ViewModels\IFileData.cs" />
     <Compile Include="ViewModels\GeophysicsReportViewModel.cs" />
+    <Compile Include="ViewModels\ISecurable.cs" />
     <Compile Include="XODBModule.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\UserController.cs" />

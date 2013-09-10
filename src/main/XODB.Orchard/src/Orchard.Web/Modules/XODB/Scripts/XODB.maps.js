@@ -216,6 +216,57 @@ function RedrawMap() {
     pageIsLoaded = true;
 }
 
+function RefocusMap(map) {
+    var markerCount = 0;
+    var maxLat = -90;
+    var maxLng = -180;
+    var minLat = 90;
+    var minLng = 180;
+    var bounds = new google.maps.LatLngBounds();
+    for (var k = 0; k < mapOverlays.length; k++) {
+        if (mapOverlays[k] instanceof google.maps.Polygon) {
+            var polygon = mapOverlays[k];
+            for (var i = 0; i < polygon.getPaths().getLength() ; i++) {
+                for (var j = 0; j < polygon.getPaths().getAt(i).getLength() ; j++) {
+                    var lat = polygon.getPaths().getAt(i).getAt(j).lat();
+                    var lng = polygon.getPaths().getAt(i).getAt(j).lng();
+                    if (lat > maxLat)
+                        maxLat = lat;
+                    if (lat < minLat)
+                        minLat = lat;
+                    if (lng > maxLng)
+                        maxLng = lng;
+                    if (lng < minLng)
+                        minLng = lng;
+                    bounds.extend(polygon.getPaths().getAt(i).getAt(j));
+                }
+            }
+        }
+        else if (mapOverlays[k] instanceof google.maps.Marker) {
+            var lat = mapOverlays[k].position.lat();
+            var lng = mapOverlays[k].position.lng();
+            if (lat > maxLat)
+                maxLat = lat;
+            if (lat < minLat)
+                minLat = lat;
+            if (lng > maxLng)
+                maxLng = lng;
+            if (lng < minLng)
+                minLng = lng;
+            bounds.extend(mapOverlays[k].position);
+            markerCount++;
+        }
+    }    
+    if (markerCount == 1 && mapOverlays.length == 1) {
+        map.setCenter(new google.maps.LatLng(minLat + ((maxLat - minLat) / 2), minLng + ((maxLng - minLng) / 2)));
+        map.setZoom(8);
+    }
+    else {
+        //bounds.extend(new google.maps.LatLng(minLat, minLng));
+        //bounds.extend(new google.maps.LatLng(maxLat, maxLng));
+        map.fitBounds(bounds);
+    }
+}
 // Check the bounds of the current map, and if they have changed force the location data table to updte
 function CheckBounds() {
     if (map) {
@@ -344,16 +395,18 @@ function AddMarkerUnique(map, location, editable, popupText, id) {
     AddMarkerSingle(map, location, editable, popupText, id);
 }
 
-function AddPolygon(map, polygonArray, editable, popupText, id) {
+function AddPolygon(map, polygonArray, editable, popupText, id, colour) {
     //grep should be replaced with tha call to your backend for getting data for fk_id
+    if (!colour)
+        colour = "#FF8800";
     if (!editable)
         editable = false;
     var polygon = new google.maps.Polygon({
         paths: polygonArray,
-        strokeColor: "#FF8800",
+        strokeColor: colour,
         strokeOpacity: 0.8,
         strokeWeight: 3,
-        fillColor: "#FF8800",
+        fillColor: colour,
         fillOpacity: 0.35,
         editable: editable,
         type: 'polygon'
@@ -369,9 +422,16 @@ function AddPolygon(map, polygonArray, editable, popupText, id) {
     }
 }
 
-function AddPolygonClickEvent(map, polygon, popuptext) {
+function AddPolygonClickEvent(map, polygon, popupText) {
     google.maps.event.addListener(polygon, 'click', function () {
         SetSelection(polygon);
+        if (popupText != null && popupText != "") {
+            infowindow.setMap(null);
+            //infowindow = new google.maps.InfoWindow();
+            infowindow.setContent("<html><body><br><b>" + popupText + "</b></body></html>");
+            infowindow.setPosition(FindCentre(polygon));
+            infowindow.open(map);
+        }
         MapUpdated(map, { eventType: 'POLYGON_CLICKED', eventSource: polygon });
     });
 }
@@ -394,6 +454,28 @@ function AddPolygonVertexEvent(map, polygon) {
     });
 }
 
+function FindCentre(polygon) {
+    var maxLat = -90;
+    var maxLng = -180;
+    var minLat = 90;
+    var minLng = 180;
+    for (var i = 0; i < polygon.getPaths().getLength() ; i++) {
+        for (var j = 0; j < polygon.getPaths().getAt(i).getLength() ; j++) {
+            var lat = polygon.getPaths().getAt(i).getAt(j).lat();
+            var lng = polygon.getPaths().getAt(i).getAt(j).lng();
+            if (lat > maxLat)
+                maxLat = lat;
+            if (lat < minLat)
+                minLat = lat;
+            if (lng > maxLng)
+                maxLng = lng;
+            if (lng < minLng)
+                minLng = lng;
+
+        }
+    }
+    return new google.maps.LatLng(minLat + ((maxLat - minLat) / 2), minLng + ((maxLng - minLng) / 2));
+}
 
 
 if (!String.prototype.startsWith) {
@@ -439,6 +521,10 @@ function GetSpatialObjects() {
     $('.gvResultText').each(function (index, element) {
         if (!spatial[index]) spatial[index] = {};
         spatial[index].description = element.innerHTML;
+    });
+    $('.gvResultName').each(function (index, element) {
+        if (!spatial[index]) spatial[index] = {};
+        spatial[index].name = element.innerHTML;
     });
     $('.gvResultSpatialID').each(function (index, element) {
         if (!spatial[index]) spatial[index] = {};
@@ -808,7 +894,8 @@ function OverlayDone(event) {
 }
 
 function StopEditingMap() {
-    drawingManager.setDrawingMode(null);
+    if (drawingManager)
+        drawingManager.setDrawingMode(null);
 }
 
 
@@ -905,7 +992,7 @@ function MapObjectsToString(map) {
 
 
 // When the window is loaded, casue the map to intiialise, and populate it with table data
-window.onload = function () {
-    SetupMap();
-    UpdateMap();
-};
+//window.onload = function () {
+//    SetupMap();
+//    UpdateMap();
+//};

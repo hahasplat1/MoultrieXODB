@@ -34443,3 +34443,9 @@ Loaded assemblies
 03.09.13 16:14:52.146	lqteidw3a4onik1ih1i4w3pm		CurrentUserName: 
 03.09.13 16:14:52.147	lqteidw3a4onik1ih1i4w3pm	--------------------------------------------------------------------------------
 03.09.13 16:14:52.147	lqteidw3a4onik1ih1i4w3pm	Logon completed
+04.09.13 10:08:11.280	no context	--------------------------------------------------------------------------------
+04.09.13 10:08:11.280	no context	Logoff completed
+04.09.13 10:08:11.290	lqteidw3a4onik1ih1i4w3pm	Dispose application
+04.09.13 10:08:11.290	lqteidw3a4onik1ih1i4w3pm	====================
+04.09.13 10:08:11.326	lqteidw3a4onik1ih1i4w3pm	Application is disposed
+04.09.13 10:08:11.326	lqteidw3a4onik1ih1i4w3pm	========================
