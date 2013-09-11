@@ -13,5 +13,9 @@ namespace XODB.ViewModels
         Guid? ReferenceID { get; set; }
         IQueryable SecurityBlacklist { get; set; }
         IQueryable SecurityWhitelist { get; set; }
+
+        SelectList Contacts { get; set; }
+        SelectList Companies { get; set; }
+        SelectList Roles { get; set; }
     }
 }

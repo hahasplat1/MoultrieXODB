@@ -579,6 +579,56 @@ namespace XODB.Services {
             }
         }
 
+        public Dictionary<Guid, string> GetRoles()
+        {
+            using (new TransactionScope(TransactionScopeOption.Suppress))
+            {
+                var c = new ContactsContainer();
+                var r = (from o in c.Applications
+                         join a in c.Roles on o.ApplicationId equals a.ApplicationId
+                         select new { RoleName = o.ApplicationName + " - " + a.RoleName, a.RoleId });
+                return r.ToDictionary(f=>f.RoleId, f=>f.RoleName);
+            }
+        }
+
+        public Dictionary<Guid,string> GetCompanies()
+        {
+            var allCompanies = new Dictionary<Guid,string>();
+            using (new TransactionScope(TransactionScopeOption.Suppress))
+            {
+                var c = new ContactsContainer();
+                using (DataTable table = new DataTable())
+                {
+                    using (var con = new SqlConnection(c.Database.Connection.ConnectionString))
+                    using (var cmd = new SqlCommand("X_SP_GetCompanies", con))
+                    using (var da = new SqlDataAdapter(cmd))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        da.Fill(table);
+                    }
+
+                    foreach (DataRow row in table.Rows)
+                    {
+                        var rowRoot = (Guid)row[1];
+                        var companyName = "";
+                        Guid? lastKey = null;
+                        for (int i = 2; i < table.Columns.Count; i += 2)
+                        {
+                            companyName += (string)row[i];
+                            var checking = (Guid)row[i+1];
+                            if (lastKey.HasValue && lastKey.Value == checking)
+                                break;
+                            lastKey = checking;
+                            if (!allCompanies.ContainsKey(checking))
+                                allCompanies.Add(checking, companyName);
+                            companyName += " - ";
+                        }
+                    }
+                }
+            }
+            return (from o in allCompanies orderby o.Value select o).ToDictionary(f=>f.Key, f=>f.Value);
+        }
+
         public string[] GetUserEmails(Guid[] users)
         {
             if (users == null || users.Length == 0)

@@ -18,6 +18,12 @@ namespace XODB.Services
          IEnumerable<Contact> GetContacts();
 
          [OperationContract]
+         Dictionary<Guid, string> GetCompanies();
+
+         [OperationContract]
+         Dictionary<Guid, string> GetRoles();
+
+         [OperationContract]
          Guid? GetContactID(string username);
 
          [OperationContract]
