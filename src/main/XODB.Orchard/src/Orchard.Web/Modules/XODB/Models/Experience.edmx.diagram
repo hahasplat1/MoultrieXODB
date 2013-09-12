@@ -7,6 +7,13 @@
       <Diagram DiagramId="4f79ec3f2ee148e28e91f57f09e4cefa" Name="Diagram1">
         <EntityTypeShape EntityType="XODBModel.X_VW_ExperienceBasicView" PointX="1.375" PointY="1" Width="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="XODBModel.X_Contact" Width="1.5" PointX="5.125" PointY="1" />
+        <EntityTypeShape EntityType="XODBModel.X_LocationData" Width="1.5" PointX="8" PointY="2" />
+        <EntityTypeShape EntityType="XODBModel.X_DictionaryWorkType" Width="1.5" PointX="7.7574159613612181" PointY="20.847547660045116" />
+        <EntityTypeShape EntityType="XODBModel.X_DictionaryWorkTypeClass" Width="1.5" PointX="8.818203062200082" PointY="23.797157507295328" />
+        <EntityTypeShape EntityType="XODBModel.X_DictionaryWorkTypeRelation" Width="1.5" PointX="10.730273683895483" PointY="8.9311536145075934" />
+        <AssociationConnector Association="XODBModel.FK_X_DictionaryWorkType_X_DictionaryWorkType1" />
+        <AssociationConnector Association="XODBModel.FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType" />
+        <AssociationConnector Association="XODBModel.FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

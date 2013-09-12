@@ -36,5 +36,12 @@ namespace XODB.Models
         public Nullable<System.Guid> ProjectID { get; set; }
         public System.Guid ExperienceID { get; set; }
         public string StandardCountryName { get; set; }
+        public Nullable<System.Guid> ExperienceGroupID { get; set; }
+        public Nullable<System.Guid> CompanyID { get; set; }
+        public string WorkTypeName { get; set; }
+        public string WorkTypeDescription { get; set; }
+        public string FullDescription { get; set; }
+        public string StandardWorkTypeClassName { get; set; }
+        public string Description { get; set; }
     }
 }
