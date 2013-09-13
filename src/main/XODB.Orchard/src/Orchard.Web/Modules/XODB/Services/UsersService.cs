@@ -586,7 +586,7 @@ namespace XODB.Services {
                 var c = new ContactsContainer();
                 var r = (from o in c.Applications
                          join a in c.Roles on o.ApplicationId equals a.ApplicationId
-                         select new { RoleName = o.ApplicationName + " - " + a.RoleName, a.RoleId });
+                         select new { RoleName = a.RoleName + " (" + o.ApplicationName + ")", a.RoleId });
                 return r.ToDictionary(f=>f.RoleId, f=>f.RoleName);
             }
         }
@@ -649,7 +649,8 @@ namespace XODB.Services {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
                 var d = new ContactsContainer();
-                return d.Contacts.Where(x=>x.Username == username).Select(x=>x.ContactID).FirstOrDefault();
+                return (from c in d.Contacts join u in d.Users on c.AspNetUserID equals u.UserId where u.ApplicationId == ApplicationID select c.ContactID).Single();
+                //return d.Contacts.Where(x=>x.Username == username).Select(x=>x.ContactID).FirstOrDefault();
             }
         }
 
@@ -862,6 +863,43 @@ namespace XODB.Services {
             {
                 Logger.Debug(ex, string.Format("Failed Sending Notification - Couldn't assemble message.\n\nSubject:\n{0}\n\nBody:\n{1}\n\nRecipients:\n{2}\n\n", subject, body, emails == null ? "Unknown Recipients" : string.Join(";", emails)));
             }
+        }
+
+        public bool CheckRead(ISecured secured)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateSecurity(ISecured secured)
+        {
+            //TODO!!!: When writing security check for antecedentid = referenceid &/or version=0
+            //First check user and owner rights, black list and white list against record
+            //Then get ok
+            throw new NotImplementedException();
+            if (secured.SecurityID.HasValue)
+            {
+                //Call Edit
+            }
+            else
+            {
+                //Call New
+            }
+
+        }
+
+        public void DeleteSecurity(ISecured secured)
+        {
+            //TODO!!!: When writing security check for antecedentid = referenceid &/or version=0
+            throw new NotImplementedException();
+            if (secured.SecurityID.HasValue)
+            {
+                //Call Edit
+            }
+            else
+            {
+                //Call New
+            }
+
         }
 
     }

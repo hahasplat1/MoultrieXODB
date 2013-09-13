@@ -548,9 +548,11 @@
     <Compile Include="Services\EmailScheduledTaskHandler.cs" />
     <Compile Include="Services\ProcessModelScheduledTaskHandler.cs" />
     <Compile Include="ViewModels\AssayReportViewModel.cs" />
+    <Compile Include="Models\ISecured.cs" />
+    <Compile Include="Models\ISecuredDetailed.cs" />
     <Compile Include="ViewModels\IFileData.cs" />
     <Compile Include="ViewModels\GeophysicsReportViewModel.cs" />
-    <Compile Include="ViewModels\ISecurable.cs" />
+    <Compile Include="Models\ISecurable.cs" />
     <Compile Include="XODBModule.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\UserController.cs" />
