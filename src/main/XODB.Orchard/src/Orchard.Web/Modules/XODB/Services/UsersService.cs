@@ -865,9 +865,37 @@ namespace XODB.Services {
             }
         }
 
-        public bool CheckRead(ISecured secured)
+
+        public bool CheckPermission(ISecured secured, ActionPermission permission)
+        {            
+            using (new TransactionScope(TransactionScopeOption.Suppress))
+            {
+                var c = new ContactsContainer();
+                var verified = new System.Data.Objects.ObjectParameter("verified", typeof(byte));
+                c.GetSecuredRight(secured.AccessorContactID, secured.AccessorApplicationID , secured.OwnerTableType, secured.OwnerReferenceID, secured.OwnerField,
+                    secured.CanRead || ((~ActionPermission.Read ^ permission) == ActionPermission.Read)
+                    , secured.CanCreate || ((~ActionPermission.Create ^ permission) == ActionPermission.Create)
+                    , secured.CanUpdate || ((~ActionPermission.Update ^ permission) == ActionPermission.Update)
+                    , secured.CanDelete || ((~ActionPermission.Delete ^ permission) == ActionPermission.Delete)
+                    , verified);
+                return (bool)verified.Value;
+            }
+        }
+
+        public bool CheckOwnership(ISecured secured, ActionPermission permission)
         {
-            throw new NotImplementedException();
+            using (new TransactionScope(TransactionScopeOption.Suppress))
+            {
+                var c = new ContactsContainer();
+                var verified = new System.Data.Objects.ObjectParameter("verified", typeof(byte));
+                c.GetSecuredRight(secured.OwnerContactID, secured.OwnerApplicationID, secured.OwnerTableType, secured.OwnerReferenceID, secured.OwnerField,
+                    secured.CanRead || ((~ActionPermission.Read ^ permission) == ActionPermission.Read)
+                    , secured.CanCreate || ((~ActionPermission.Create ^ permission) == ActionPermission.Create)
+                    , secured.CanUpdate || ((~ActionPermission.Update ^ permission) == ActionPermission.Update)
+                    , secured.CanDelete || ((~ActionPermission.Delete ^ permission) == ActionPermission.Delete)
+                    , verified);
+                return (bool)verified.Value;
+            }
         }
 
         public void UpdateSecurity(ISecured secured)
@@ -875,14 +903,122 @@ namespace XODB.Services {
             //TODO!!!: When writing security check for antecedentid = referenceid &/or version=0
             //First check user and owner rights, black list and white list against record
             //Then get ok
-            throw new NotImplementedException();
             if (secured.SecurityID.HasValue)
             {
                 //Call Edit
+                if (CheckOwnership(secured, ActionPermission.Read | ActionPermission.Update))
+                {
+                    using (new TransactionScope(TransactionScopeOption.Suppress))
+                    {
+                        var c = new ContactsContainer();
+                        if (secured.IsBlack)
+                        {
+                            var s = (from o in c.SecurityBlacklists where o.SecurityBlacklistID==secured.SecurityID && o.Version==0 && o.VersionDeletedBy==null select o).Single();
+                            s.AccessorContactID = secured.AccessorContactID;
+                            s.AccessorApplicationID = secured.AccessorApplicationID;
+                            s.AccessorCompanyID = secured.AccessorCompanyID;
+                            s.AccessorProjectID = secured.AccessorProjectID;
+                            s.AccessorRoleID = secured.AccessorRoleID;
+                            s.CanCreate = secured.CanCreate;
+                            s.CanRead = secured.CanRead;
+                            s.CanDelete = secured.CanDelete;
+                            s.CanUpdate = secured.CanUpdate;
+                            s.VersionUpdated = DateTime.UtcNow;
+                            s.VersionUpdatedBy = secured.OwnerContactID;
+                        }
+                        else
+                        {
+                            var s = (from o in c.SecurityWhitelists where o.SecurityWhitelistID == secured.SecurityID && o.Version== 0 && o.VersionDeletedBy == null select o).Single();
+                            s.AccessorContactID = secured.AccessorContactID;
+                            s.AccessorApplicationID = secured.AccessorApplicationID;
+                            s.AccessorCompanyID = secured.AccessorCompanyID;
+                            s.AccessorProjectID = secured.AccessorProjectID;
+                            s.AccessorRoleID = secured.AccessorRoleID;
+                            s.CanCreate = secured.CanCreate;
+                            s.CanRead = secured.CanRead;
+                            s.CanDelete = secured.CanDelete;
+                            s.CanUpdate = secured.CanUpdate;
+                            s.VersionUpdated = DateTime.UtcNow;
+                            s.VersionUpdatedBy = secured.OwnerContactID;
+                        }
+                        c.SaveChanges();
+                    }
+                }
+                else
+                    throw new AuthorityException(string.Format("Incorrect permission for action: \"Update\" Contact: {0} Record: {1}", secured.AccessorContactID, secured.OwnerReferenceID));
+                
             }
             else
             {
                 //Call New
+                if (CheckOwnership(secured, ActionPermission.Read | ActionPermission.Create))
+                {
+                    using (new TransactionScope(TransactionScopeOption.Suppress))
+                    {
+                        var c = new ContactsContainer();
+                        if (secured.IsBlack)
+                        {
+                            var s = new SecurityBlacklist
+                            {
+                                SecurityBlacklistID = Guid.NewGuid(),
+                                AccessorContactID = secured.AccessorContactID,
+                                AccessorApplicationID = secured.AccessorApplicationID,
+                                AccessorCompanyID = secured.AccessorCompanyID,
+                                AccessorProjectID = secured.AccessorProjectID,
+                                AccessorRoleID = secured.AccessorRoleID,
+                                OwnerApplicationID = secured.OwnerApplicationID,
+                                OwnerCompanyID = secured.OwnerCompanyID,
+                                OwnerContactID = secured.OwnerContactID,
+                                OwnerEntitySystemType = secured.OwnerEntitySystemType,
+                                OwnerField = secured.OwnerField,
+                                OwnerProjectID = secured.OwnerProjectID,
+                                OwnerReferenceID = secured.OwnerReferenceID,
+                                OwnerTableType = secured.OwnerTableType,
+                                CanCreate = secured.CanCreate,
+                                CanRead = secured.CanRead,
+                                CanDelete = secured.CanDelete,
+                                CanUpdate = secured.CanUpdate,
+                                VersionOwnerContactID = secured.OwnerContactID,
+                                VersionOwnerCompanyID = secured.OwnerCompanyID,
+                                VersionUpdated = DateTime.UtcNow,
+                                VersionUpdatedBy = secured.OwnerContactID
+                            };
+                            c.SecurityBlacklists.Add(s);
+                        }
+                        else
+                        {
+                            var s = new SecurityWhitelist
+                            {
+                                SecurityWhitelistID = Guid.NewGuid(),
+                                AccessorContactID = secured.AccessorContactID,
+                                AccessorApplicationID = secured.AccessorApplicationID,
+                                AccessorCompanyID = secured.AccessorCompanyID,
+                                AccessorProjectID = secured.AccessorProjectID,
+                                AccessorRoleID = secured.AccessorRoleID,
+                                OwnerApplicationID = secured.OwnerApplicationID,
+                                OwnerCompanyID = secured.OwnerCompanyID,
+                                OwnerContactID = secured.OwnerContactID,
+                                OwnerEntitySystemType = secured.OwnerEntitySystemType,
+                                OwnerField = secured.OwnerField,
+                                OwnerProjectID = secured.OwnerProjectID,
+                                OwnerReferenceID = secured.OwnerReferenceID,
+                                OwnerTableType = secured.OwnerTableType,
+                                CanCreate = secured.CanCreate,
+                                CanRead = secured.CanRead,
+                                CanDelete = secured.CanDelete,
+                                CanUpdate = secured.CanUpdate,
+                                VersionOwnerContactID = secured.OwnerContactID,
+                                VersionOwnerCompanyID = secured.OwnerCompanyID,
+                                VersionUpdated = DateTime.UtcNow,
+                                VersionUpdatedBy = secured.OwnerContactID
+                            };
+                            c.SecurityWhitelists.Add(s);
+                        }
+                        c.SaveChanges();
+                    }
+                }
+                else
+                    throw new AuthorityException(string.Format("Incorrect permission for action: \"Create\" Contact: {0} Record: {1}", secured.AccessorContactID, secured.OwnerReferenceID));
             }
 
         }
@@ -890,15 +1026,31 @@ namespace XODB.Services {
         public void DeleteSecurity(ISecured secured)
         {
             //TODO!!!: When writing security check for antecedentid = referenceid &/or version=0
-            throw new NotImplementedException();
             if (secured.SecurityID.HasValue)
             {
-                //Call Edit
+                if (CheckOwnership(secured, ActionPermission.Read | ActionPermission.Delete))
+                {
+                    using (new TransactionScope(TransactionScopeOption.Suppress))
+                    {
+                        var c = new ContactsContainer();
+                        if (secured.IsBlack)
+                        {
+                            var s = (from o in c.SecurityBlacklists where o.SecurityBlacklistID == secured.SecurityID && o.Version == 0 && o.VersionDeletedBy == null select o).Single();                          
+                            c.SecurityBlacklists.Remove(s);
+                        }
+                        else
+                        {
+                            var s = (from o in c.SecurityWhitelists where o.SecurityWhitelistID == secured.SecurityID && o.Version == 0 && o.VersionDeletedBy == null select o).Single();                           
+                            c.SecurityWhitelists.Remove(s);
+                        }
+                        c.SaveChanges();
+                    }
+                }
+                else
+                    throw new AuthorityException(string.Format("Incorrect permission for action: \"Delete\" Contact: {0} Record: {1}", secured.AccessorContactID, secured.OwnerReferenceID));
             }
             else
-            {
-                //Call New
-            }
+                throw new NotSupportedException("Can not delete a security record without an ID.");
 
         }
 

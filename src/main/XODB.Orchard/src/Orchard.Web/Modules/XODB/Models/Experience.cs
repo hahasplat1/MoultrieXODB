@@ -51,6 +51,7 @@ namespace XODB.Models
         public Nullable<System.Guid> VersionOwnerContactID { get; set; }
         public Nullable<System.Guid> VersionOwnerCompanyID { get; set; }
         public Nullable<System.DateTime> VersionUpdated { get; set; }
+        public Nullable<System.Guid> ExperienceGroupID { get; set; }
     
         public virtual Company X_Company { get; set; }
         public virtual Contact X_Contact { get; set; }

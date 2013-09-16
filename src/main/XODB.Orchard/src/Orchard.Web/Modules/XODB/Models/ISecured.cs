@@ -32,6 +32,15 @@ namespace XODB.Models
         bool CanUpdate { get; set; }
         bool CanDelete { get; set; }
 
+    }
 
+    [Flags]
+    public enum ActionPermission : uint
+    {
+        None = 0x00,
+        Read = 0x01,
+        Update = 0x02,
+        Create = 0x04,
+        Delete = 0x08
     }
 }

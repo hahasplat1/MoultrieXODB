@@ -34945,3 +34945,9 @@ Loaded assemblies
 12.09.13 22:20:29.729	no3nxiervg4f34gbqi2x02k2		CurrentUserName: 
 12.09.13 22:20:29.730	no3nxiervg4f34gbqi2x02k2	--------------------------------------------------------------------------------
 12.09.13 22:20:29.730	no3nxiervg4f34gbqi2x02k2	Logon completed
+13.09.13 16:33:03.636	no context	--------------------------------------------------------------------------------
+13.09.13 16:33:03.636	no context	Logoff completed
+13.09.13 16:33:03.647	no3nxiervg4f34gbqi2x02k2	Dispose application
+13.09.13 16:33:03.647	no3nxiervg4f34gbqi2x02k2	====================
+13.09.13 16:33:03.680	no3nxiervg4f34gbqi2x02k2	Application is disposed
+13.09.13 16:33:03.680	no3nxiervg4f34gbqi2x02k2	========================
