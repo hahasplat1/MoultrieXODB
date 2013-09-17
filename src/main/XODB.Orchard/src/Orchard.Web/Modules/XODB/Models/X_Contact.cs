@@ -14,6 +14,11 @@ namespace XODB.Models
     
     public partial class X_Contact
     {
+        public X_Contact()
+        {
+            this.X_Experience = new HashSet<X_Experience>();
+        }
+    
         public System.Guid ContactID { get; set; }
         public string ContactName { get; set; }
         public string Title { get; set; }
@@ -41,5 +46,7 @@ namespace XODB.Models
         public Nullable<System.Guid> VersionOwnerContactID { get; set; }
         public Nullable<System.Guid> VersionOwnerCompanyID { get; set; }
         public Nullable<System.DateTime> VersionUpdated { get; set; }
+    
+        public virtual ICollection<X_Experience> X_Experience { get; set; }
     }
 }

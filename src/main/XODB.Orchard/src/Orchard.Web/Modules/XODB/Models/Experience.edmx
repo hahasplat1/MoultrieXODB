@@ -10,6 +10,7 @@
           <EntitySet Name="X_DictionaryWorkType" EntityType="XODBModel.Store.X_DictionaryWorkType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryWorkTypeClass" EntityType="XODBModel.Store.X_DictionaryWorkTypeClass" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryWorkTypeRelation" EntityType="XODBModel.Store.X_DictionaryWorkTypeRelation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="X_Experience" EntityType="XODBModel.Store.X_Experience" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_LocationData" EntityType="XODBModel.Store.X_LocationData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_VW_ExperienceBasicView" EntityType="XODBModel.Store.X_VW_ExperienceBasicView" store:Type="Views" store:Schema="dbo" store:Name="X_VW_ExperienceBasicView">
             <DefiningQuery>SELECT 
@@ -55,6 +56,14 @@
           <AssociationSet Name="FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType1" Association="XODBModel.Store.FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType1">
             <End Role="X_DictionaryWorkType" EntitySet="X_DictionaryWorkType" />
             <End Role="X_DictionaryWorkTypeRelation" EntitySet="X_DictionaryWorkTypeRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Experience_X_Contact" Association="XODBModel.Store.FK_X_Experience_X_Contact">
+            <End Role="X_Contact" EntitySet="X_Contact" />
+            <End Role="X_Experience" EntitySet="X_Experience" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Experience_X_DictionaryWorkType" Association="XODBModel.Store.FK_X_Experience_X_DictionaryWorkType">
+            <End Role="X_DictionaryWorkType" EntitySet="X_DictionaryWorkType" />
+            <End Role="X_Experience" EntitySet="X_Experience" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="X_Contact">
@@ -124,6 +133,15 @@
           <Property Name="FullDescription" Type="nvarchar(max)" />
           <Property Name="Thumbnail" Type="varbinary(max)" />
           <Property Name="OriginalFileDataID" Type="uniqueidentifier" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="X_DictionaryWorkTypeRelation">
           <Key>
@@ -132,6 +150,58 @@
           <Property Name="WorkTypeRelationID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="WorkTypeID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ParentWorkTypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="X_Experience">
+          <Key>
+            <PropertyRef Name="ExperienceID" />
+          </Key>
+          <Property Name="ExperienceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExperienceName" Type="nvarchar" MaxLength="120" />
+          <Property Name="ExperienceGroupID" Type="uniqueidentifier" />
+          <Property Name="CompanyID" Type="uniqueidentifier" />
+          <Property Name="ProjectID" Type="uniqueidentifier" />
+          <Property Name="ContactID" Type="uniqueidentifier" />
+          <Property Name="LocationID" Type="uniqueidentifier" />
+          <Property Name="ProvinceID" Type="uniqueidentifier" />
+          <Property Name="WorkTypeID" Type="uniqueidentifier" />
+          <Property Name="ProfessionID" Type="uniqueidentifier" />
+          <Property Name="PositionID" Type="uniqueidentifier" />
+          <Property Name="ClientAlias" Type="nvarchar" MaxLength="50" />
+          <Property Name="Division" Type="nvarchar" MaxLength="50" />
+          <Property Name="OfficeLocationAlias" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExternalProjectCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="EstimatedDurationDays" Type="int" />
+          <Property Name="UserExperienceLevel" Type="int" />
+          <Property Name="AssignedExperienceLevel" Type="int" />
+          <Property Name="NormalizedExperienceLevel" Type="int" />
+          <Property Name="DateStart" Type="date" Nullable="false" />
+          <Property Name="DateFinished" Type="date" />
+          <Property Name="Expiry" Type="date" />
+          <Property Name="HourlyRate" Type="money" />
+          <Property Name="DailyRate" Type="money" />
+          <Property Name="AnnualRate" Type="money" />
+          <Property Name="BlendedHourlyRate" Type="money" />
+          <Property Name="BlendedHourlyCost" Type="money" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="306" />
+          <Property Name="IsApproved" Type="bit" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="X_LocationData">
           <Key>
@@ -228,6 +298,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_X_Experience_X_Contact">
+          <End Role="X_Contact" Type="XODBModel.Store.X_Contact" Multiplicity="0..1" />
+          <End Role="X_Experience" Type="XODBModel.Store.X_Experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Contact">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="X_Experience">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Experience_X_DictionaryWorkType">
+          <End Role="X_DictionaryWorkType" Type="XODBModel.Store.X_DictionaryWorkType" Multiplicity="0..1" />
+          <End Role="X_Experience" Type="XODBModel.Store.X_Experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryWorkType">
+              <PropertyRef Name="WorkTypeID" />
+            </Principal>
+            <Dependent Role="X_Experience">
+              <PropertyRef Name="WorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="X_SP_GetExperienceView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -251,6 +346,16 @@
             <End Role="X_DictionaryWorkType" EntitySet="X_DictionaryWorkType" />
             <End Role="X_DictionaryWorkTypeRelation" EntitySet="X_DictionaryWorkTypeRelation" />
           </AssociationSet>
+          <EntitySet Name="X_Experience" EntityType="XODBModel.X_Experience" />
+          <AssociationSet Name="FK_X_Experience_X_Contact" Association="XODBModel.FK_X_Experience_X_Contact">
+            <End Role="X_Contact" EntitySet="X_Contact" />
+            <End Role="X_Experience" EntitySet="X_Experience" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Experience_X_DictionaryWorkType" Association="XODBModel.FK_X_Experience_X_DictionaryWorkType">
+            <End Role="X_DictionaryWorkType" EntitySet="X_DictionaryWorkType" />
+            <End Role="X_Experience" EntitySet="X_Experience" />
+          </AssociationSet>
+          <FunctionImport Name="X_SP_GetExperienceView" ReturnType="Collection(XODBModel.X_SP_GetExperienceView_Result)" />
         </EntityContainer>
         <EntityType Name="X_VW_ExperienceBasicView">
           <Key>
@@ -320,6 +425,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="X_Experience" Relationship="XODBModel.FK_X_Experience_X_Contact" FromRole="X_Contact" ToRole="X_Experience" />
         </EntityType>
         <EntityType Name="X_LocationData">
           <Key>
@@ -365,6 +471,7 @@
           <NavigationProperty Name="X_DictionaryWorkType2" Relationship="XODBModel.FK_X_DictionaryWorkType_X_DictionaryWorkType1" FromRole="X_DictionaryWorkType1" ToRole="X_DictionaryWorkType" />
           <NavigationProperty Name="X_DictionaryWorkTypeRelation" Relationship="XODBModel.FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType" FromRole="X_DictionaryWorkType" ToRole="X_DictionaryWorkTypeRelation" />
           <NavigationProperty Name="X_DictionaryWorkTypeRelation1" Relationship="XODBModel.FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType1" FromRole="X_DictionaryWorkType" ToRole="X_DictionaryWorkTypeRelation" />
+          <NavigationProperty Name="X_Experience" Relationship="XODBModel.FK_X_Experience_X_DictionaryWorkType" FromRole="X_DictionaryWorkType" ToRole="X_Experience" />
         </EntityType>
         <EntityType Name="X_DictionaryWorkTypeClass">
           <Key>
@@ -379,6 +486,15 @@
           <Property Type="String" Name="FullDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Binary" Name="Thumbnail" MaxLength="Max" FixedLength="false" />
           <Property Type="Guid" Name="OriginalFileDataID" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="X_DictionaryWorkTypeRelation">
           <Key>
@@ -389,6 +505,15 @@
           <Property Type="Guid" Name="ParentWorkTypeID" Nullable="false" />
           <NavigationProperty Name="X_DictionaryWorkType" Relationship="XODBModel.FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType" FromRole="X_DictionaryWorkTypeRelation" ToRole="X_DictionaryWorkType" />
           <NavigationProperty Name="X_DictionaryWorkType1" Relationship="XODBModel.FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType1" FromRole="X_DictionaryWorkTypeRelation" ToRole="X_DictionaryWorkType" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <Association Name="FK_X_DictionaryWorkType_X_DictionaryWorkType1">
           <End Type="XODBModel.X_DictionaryWorkType" Role="X_DictionaryWorkType" Multiplicity="1" />
@@ -426,6 +551,105 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="X_Experience">
+          <Key>
+            <PropertyRef Name="ExperienceID" />
+          </Key>
+          <Property Type="Guid" Name="ExperienceID" Nullable="false" />
+          <Property Type="String" Name="ExperienceName" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="ExperienceGroupID" />
+          <Property Type="Guid" Name="CompanyID" />
+          <Property Type="Guid" Name="ProjectID" />
+          <Property Type="Guid" Name="ContactID" />
+          <Property Type="Guid" Name="LocationID" />
+          <Property Type="Guid" Name="ProvinceID" />
+          <Property Type="Guid" Name="WorkTypeID" />
+          <Property Type="Guid" Name="ProfessionID" />
+          <Property Type="Guid" Name="PositionID" />
+          <Property Type="String" Name="ClientAlias" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Division" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OfficeLocationAlias" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ExternalProjectCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EstimatedDurationDays" />
+          <Property Type="Int32" Name="UserExperienceLevel" />
+          <Property Type="Int32" Name="AssignedExperienceLevel" />
+          <Property Type="Int32" Name="NormalizedExperienceLevel" />
+          <Property Type="DateTime" Name="DateStart" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="DateFinished" Precision="0" />
+          <Property Type="DateTime" Name="Expiry" Precision="0" />
+          <Property Type="Decimal" Name="HourlyRate" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="DailyRate" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="AnnualRate" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="BlendedHourlyRate" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="BlendedHourlyCost" Precision="19" Scale="4" />
+          <Property Type="String" Name="Comment" MaxLength="306" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsApproved" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="X_Contact" Relationship="XODBModel.FK_X_Experience_X_Contact" FromRole="X_Experience" ToRole="X_Contact" />
+          <NavigationProperty Name="X_DictionaryWorkType" Relationship="XODBModel.FK_X_Experience_X_DictionaryWorkType" FromRole="X_Experience" ToRole="X_DictionaryWorkType" />
+        </EntityType>
+        <Association Name="FK_X_Experience_X_Contact">
+          <End Type="XODBModel.X_Contact" Role="X_Contact" Multiplicity="0..1" />
+          <End Type="XODBModel.X_Experience" Role="X_Experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Contact">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="X_Experience">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Experience_X_DictionaryWorkType">
+          <End Type="XODBModel.X_DictionaryWorkType" Role="X_DictionaryWorkType" Multiplicity="0..1" />
+          <End Type="XODBModel.X_Experience" Role="X_Experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryWorkType">
+              <PropertyRef Name="WorkTypeID" />
+            </Principal>
+            <Dependent Role="X_Experience">
+              <PropertyRef Name="WorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="X_SP_GetExperienceView_Result">
+          <Property Type="String" Name="ContactName" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="16" />
+          <Property Type="String" Name="Surname" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="Firstname" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="ExperienceName" Nullable="true" MaxLength="120" />
+          <Property Type="Guid" Name="LocationID" Nullable="true" />
+          <Property Type="Decimal" Name="LatitudeWGS84" Nullable="true" Precision="10" Scale="7" />
+          <Property Type="Decimal" Name="LongitudeWGS84" Nullable="true" Precision="10" Scale="7" />
+          <Property Type="String" Name="DefaultLocationName" Nullable="true" MaxLength="255" />
+          <Property Type="DateTime" Name="DateStart" Nullable="false" />
+          <Property Type="DateTime" Name="DateFinished" Nullable="true" />
+          <Property Type="String" Name="Comment" Nullable="true" MaxLength="306" />
+          <Property Type="String" Name="StandardCountryName" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="ProjectName" Nullable="true" MaxLength="16" />
+          <Property Type="Guid" Name="ProvinceID" Nullable="true" />
+          <Property Type="Guid" Name="WorkTypeID" Nullable="true" />
+          <Property Type="Guid" Name="PositionID" Nullable="true" />
+          <Property Type="Guid" Name="ProfessionID" Nullable="true" />
+          <Property Type="Guid" Name="ContactID" Nullable="true" />
+          <Property Type="Guid" Name="ProjectID" Nullable="true" />
+          <Property Type="Guid" Name="ExperienceID" Nullable="false" />
+          <Property Type="Guid" Name="ExperienceGroupID" Nullable="true" />
+          <Property Type="Guid" Name="CompanyID" Nullable="true" />
+          <Property Type="String" Name="WorkTypeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="WorkTypeDescription" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="FullDescription" Nullable="true" />
+          <Property Type="String" Name="StandardWorkTypeClassName" Nullable="false" MaxLength="16" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="255" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -546,6 +770,15 @@
           <EntitySetMapping Name="X_DictionaryWorkTypeClass">
             <EntityTypeMapping TypeName="XODBModel.X_DictionaryWorkTypeClass">
               <MappingFragment StoreEntitySet="X_DictionaryWorkTypeClass">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="OriginalFileDataID" ColumnName="OriginalFileDataID" />
                 <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
                 <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
@@ -561,12 +794,99 @@
           <EntitySetMapping Name="X_DictionaryWorkTypeRelation">
             <EntityTypeMapping TypeName="XODBModel.X_DictionaryWorkTypeRelation">
               <MappingFragment StoreEntitySet="X_DictionaryWorkTypeRelation">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="ParentWorkTypeID" ColumnName="ParentWorkTypeID" />
                 <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
                 <ScalarProperty Name="WorkTypeRelationID" ColumnName="WorkTypeRelationID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="X_Experience">
+            <EntityTypeMapping TypeName="XODBModel.X_Experience">
+              <MappingFragment StoreEntitySet="X_Experience">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="BlendedHourlyCost" ColumnName="BlendedHourlyCost" />
+                <ScalarProperty Name="BlendedHourlyRate" ColumnName="BlendedHourlyRate" />
+                <ScalarProperty Name="AnnualRate" ColumnName="AnnualRate" />
+                <ScalarProperty Name="DailyRate" ColumnName="DailyRate" />
+                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+                <ScalarProperty Name="Expiry" ColumnName="Expiry" />
+                <ScalarProperty Name="DateFinished" ColumnName="DateFinished" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="NormalizedExperienceLevel" ColumnName="NormalizedExperienceLevel" />
+                <ScalarProperty Name="AssignedExperienceLevel" ColumnName="AssignedExperienceLevel" />
+                <ScalarProperty Name="UserExperienceLevel" ColumnName="UserExperienceLevel" />
+                <ScalarProperty Name="EstimatedDurationDays" ColumnName="EstimatedDurationDays" />
+                <ScalarProperty Name="ExternalProjectCode" ColumnName="ExternalProjectCode" />
+                <ScalarProperty Name="OfficeLocationAlias" ColumnName="OfficeLocationAlias" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="ClientAlias" ColumnName="ClientAlias" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+                <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ExperienceGroupID" ColumnName="ExperienceGroupID" />
+                <ScalarProperty Name="ExperienceName" ColumnName="ExperienceName" />
+                <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="X_SP_GetExperienceView" FunctionName="XODBModel.Store.X_SP_GetExperienceView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="XODBModel.X_SP_GetExperienceView_Result">
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="ExperienceName" ColumnName="ExperienceName" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="LatitudeWGS84" ColumnName="LatitudeWGS84" />
+                <ScalarProperty Name="LongitudeWGS84" ColumnName="LongitudeWGS84" />
+                <ScalarProperty Name="DefaultLocationName" ColumnName="DefaultLocationName" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateFinished" ColumnName="DateFinished" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="StandardCountryName" ColumnName="StandardCountryName" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
+                <ScalarProperty Name="ExperienceGroupID" ColumnName="ExperienceGroupID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="WorkTypeName" ColumnName="WorkTypeName" />
+                <ScalarProperty Name="WorkTypeDescription" ColumnName="WorkTypeDescription" />
+                <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+                <ScalarProperty Name="StandardWorkTypeClassName" ColumnName="StandardWorkTypeClassName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

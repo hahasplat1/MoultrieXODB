@@ -12,6 +12,9 @@ namespace XODB.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class ExperienceContainer : DbContext
     {
@@ -31,5 +34,11 @@ namespace XODB.Models
         public DbSet<X_DictionaryWorkType> X_DictionaryWorkType { get; set; }
         public DbSet<X_DictionaryWorkTypeClass> X_DictionaryWorkTypeClass { get; set; }
         public DbSet<X_DictionaryWorkTypeRelation> X_DictionaryWorkTypeRelation { get; set; }
+        public DbSet<X_Experience> X_Experience { get; set; }
+    
+        public virtual ObjectResult<X_SP_GetExperienceView_Result> X_SP_GetExperienceView()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<X_SP_GetExperienceView_Result>("X_SP_GetExperienceView");
+        }
     }
 }

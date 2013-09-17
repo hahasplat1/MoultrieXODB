@@ -17,6 +17,15 @@ namespace XODB.Models
         public System.Guid WorkTypeRelationID { get; set; }
         public System.Guid WorkTypeID { get; set; }
         public System.Guid ParentWorkTypeID { get; set; }
+        public int Version { get; set; }
+        public Nullable<System.Guid> VersionAntecedentID { get; set; }
+        public Nullable<int> VersionCertainty { get; set; }
+        public Nullable<System.Guid> VersionWorkflowInstanceID { get; set; }
+        public Nullable<System.Guid> VersionUpdatedBy { get; set; }
+        public Nullable<System.Guid> VersionDeletedBy { get; set; }
+        public Nullable<System.Guid> VersionOwnerContactID { get; set; }
+        public Nullable<System.Guid> VersionOwnerCompanyID { get; set; }
+        public Nullable<System.DateTime> VersionUpdated { get; set; }
     
         public virtual X_DictionaryWorkType X_DictionaryWorkType { get; set; }
         public virtual X_DictionaryWorkType X_DictionaryWorkType1 { get; set; }

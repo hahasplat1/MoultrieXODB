@@ -18,6 +18,7 @@ namespace XODB.Models
         {
             this.X_DictionaryWorkTypeRelation = new HashSet<X_DictionaryWorkTypeRelation>();
             this.X_DictionaryWorkTypeRelation1 = new HashSet<X_DictionaryWorkTypeRelation>();
+            this.X_Experience = new HashSet<X_Experience>();
         }
     
         public System.Guid WorkTypeID { get; set; }
@@ -42,5 +43,6 @@ namespace XODB.Models
         public virtual X_DictionaryWorkType X_DictionaryWorkType2 { get; set; }
         public virtual ICollection<X_DictionaryWorkTypeRelation> X_DictionaryWorkTypeRelation { get; set; }
         public virtual ICollection<X_DictionaryWorkTypeRelation> X_DictionaryWorkTypeRelation1 { get; set; }
+        public virtual ICollection<X_Experience> X_Experience { get; set; }
     }
 }

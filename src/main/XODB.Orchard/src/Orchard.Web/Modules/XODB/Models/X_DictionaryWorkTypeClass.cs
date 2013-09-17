@@ -23,5 +23,14 @@ namespace XODB.Models
         public string FullDescription { get; set; }
         public byte[] Thumbnail { get; set; }
         public Nullable<System.Guid> OriginalFileDataID { get; set; }
+        public int Version { get; set; }
+        public Nullable<System.Guid> VersionAntecedentID { get; set; }
+        public Nullable<int> VersionCertainty { get; set; }
+        public Nullable<System.Guid> VersionWorkflowInstanceID { get; set; }
+        public Nullable<System.Guid> VersionUpdatedBy { get; set; }
+        public Nullable<System.Guid> VersionDeletedBy { get; set; }
+        public Nullable<System.Guid> VersionOwnerContactID { get; set; }
+        public Nullable<System.Guid> VersionOwnerCompanyID { get; set; }
+        public Nullable<System.DateTime> VersionUpdated { get; set; }
     }
 }
