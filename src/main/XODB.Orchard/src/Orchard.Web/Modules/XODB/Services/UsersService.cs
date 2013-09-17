@@ -873,10 +873,10 @@ namespace XODB.Services {
                 var c = new ContactsContainer();
                 var verified = new System.Data.Objects.ObjectParameter("verified", typeof(byte));
                 c.GetSecuredRight(secured.AccessorContactID, secured.AccessorApplicationID , secured.OwnerTableType, secured.OwnerReferenceID, secured.OwnerField,
-                    secured.CanRead || ((~ActionPermission.Read ^ permission) == ActionPermission.Read)
-                    , secured.CanCreate || ((~ActionPermission.Create ^ permission) == ActionPermission.Create)
-                    , secured.CanUpdate || ((~ActionPermission.Update ^ permission) == ActionPermission.Update)
-                    , secured.CanDelete || ((~ActionPermission.Delete ^ permission) == ActionPermission.Delete)
+                    secured.CanRead || ((ActionPermission.Read & permission) == ActionPermission.Read)
+                    , secured.CanCreate || ((ActionPermission.Create & permission) == ActionPermission.Create)
+                    , secured.CanUpdate || ((ActionPermission.Update & permission) == ActionPermission.Update)
+                    , secured.CanDelete || ((ActionPermission.Delete & permission) == ActionPermission.Delete)
                     , verified);
                 return (bool)verified.Value;
             }
@@ -889,10 +889,10 @@ namespace XODB.Services {
                 var c = new ContactsContainer();
                 var verified = new System.Data.Objects.ObjectParameter("verified", typeof(byte));
                 c.GetSecuredRight(secured.OwnerContactID, secured.OwnerApplicationID, secured.OwnerTableType, secured.OwnerReferenceID, secured.OwnerField,
-                    secured.CanRead || ((~ActionPermission.Read ^ permission) == ActionPermission.Read)
-                    , secured.CanCreate || ((~ActionPermission.Create ^ permission) == ActionPermission.Create)
-                    , secured.CanUpdate || ((~ActionPermission.Update ^ permission) == ActionPermission.Update)
-                    , secured.CanDelete || ((~ActionPermission.Delete ^ permission) == ActionPermission.Delete)
+                    secured.CanRead || ((ActionPermission.Read & permission) == ActionPermission.Read)
+                    , secured.CanCreate || ((ActionPermission.Create & permission) == ActionPermission.Create)
+                    , secured.CanUpdate || ((ActionPermission.Update & permission) == ActionPermission.Update)
+                    , secured.CanDelete || ((ActionPermission.Delete & permission) == ActionPermission.Delete)
                     , verified);
                 return (bool)verified.Value;
             }

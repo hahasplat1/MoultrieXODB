@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.ComponentModel;
 
 namespace XODB.Models
 {
@@ -31,6 +32,39 @@ namespace XODB.Models
         bool CanCreate { get; set; }
         bool CanUpdate { get; set; }
         bool CanDelete { get; set; }
+
+    }
+
+    public class SecuredBasic : ISecured
+    {
+        public Guid? SecurityID { get; set; }
+        
+        [DefaultValue(true)]
+        public bool IsBlack { get; set; }
+
+        public Guid? AccessorApplicationID { get; set; }
+        public Guid? AccessorCompanyID { get; set; }
+        public Guid? AccessorRoleID { get; set; }
+        public Guid? AccessorContactID { get; set; }
+        public Guid? AccessorProjectID { get; set; }
+
+        public Guid? OwnerApplicationID { get; set; }
+        public Guid? OwnerCompanyID { get; set; }
+        public Guid? OwnerContactID { get; set; }
+        public Guid? OwnerProjectID { get; set; }
+        public string OwnerEntitySystemType { get; set; }
+        public string OwnerTableType { get; set; }
+        public string OwnerField { get; set; }
+        public Guid? OwnerReferenceID { get; set; }
+
+        [DefaultValue(false)]
+        public bool CanRead { get; set; }
+        [DefaultValue(false)]
+        public bool CanCreate { get; set; }
+        [DefaultValue(false)]
+        public bool CanUpdate { get; set; }
+        [DefaultValue(false)]
+        public bool CanDelete { get; set; }
 
     }
 

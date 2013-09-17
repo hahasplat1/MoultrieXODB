@@ -53,6 +53,10 @@ namespace XODB.Services
              get;
          }
 
+         bool CheckPermission(ISecured secured, ActionPermission permission);
+
+         bool CheckOwnership(ISecured secured, ActionPermission permission);
+
          Guid? ContactID
          {
              [OperationContract]
