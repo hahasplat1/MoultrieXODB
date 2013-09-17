@@ -522,6 +522,18 @@
     <Compile Include="Models\X_Contact.cs">
       <DependentUpon>Experience.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\X_DictionaryWorkType.cs">
+      <DependentUpon>Experience.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\X_DictionaryWorkTypeClass.cs">
+      <DependentUpon>Experience.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\X_DictionaryWorkTypeRelation.cs">
+      <DependentUpon>Experience.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\X_LocationData.cs">
+      <DependentUpon>Experience.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\X_VW_ExperienceBasicView.cs">
       <DependentUpon>Experience.tt</DependentUpon>
     </Compile>
