@@ -35,6 +35,11 @@ namespace XODB.Services
          [OperationContract]
          void EmailUsersAsync(string[] recipients, string subject, string body);
 
+         [OperationContract]
+         void UpdateSecurity(ISecured security);
+
+         [OperationContract]
+         void DeleteSecurity(ISecured security);
 
          string ApplicationConnectionString
          {
@@ -47,6 +52,10 @@ namespace XODB.Services
              [OperationContract]
              get;
          }
+
+         bool CheckPermission(ISecured secured, ActionPermission permission);
+
+         bool CheckOwnership(ISecured secured, ActionPermission permission);
 
          Guid? ContactID
          {

@@ -240,6 +240,7 @@
           </Key>
           <Property Name="ExperienceID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ExperienceName" Type="nvarchar" MaxLength="120" />
+          <Property Name="ExperienceGroupID" Type="uniqueidentifier" />
           <Property Name="CompanyID" Type="uniqueidentifier" />
           <Property Name="ProjectID" Type="uniqueidentifier" />
           <Property Name="ContactID" Type="uniqueidentifier" />
@@ -264,7 +265,7 @@
           <Property Name="AnnualRate" Type="money" />
           <Property Name="BlendedHourlyRate" Type="money" />
           <Property Name="BlendedHourlyCost" Type="money" />
-          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="306" />
           <Property Name="IsApproved" Type="bit" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
@@ -286,8 +287,8 @@
           <Property Name="OwnerContactID" Type="uniqueidentifier" />
           <Property Name="OwnerProjectID" Type="uniqueidentifier" />
           <Property Name="OwnerEntitySystemType" Type="nvarchar" MaxLength="255" />
-          <Property Name="OwnerTableType" Type="nvarchar" MaxLength="50" />
-          <Property Name="OwnerField" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerTableType" Type="nvarchar" MaxLength="255" />
+          <Property Name="OwnerField" Type="nvarchar" MaxLength="255" />
           <Property Name="OwnerReferenceID" Type="uniqueidentifier" />
           <Property Name="AccessorApplicationID" Type="uniqueidentifier" />
           <Property Name="AccessorCompanyID" Type="uniqueidentifier" />
@@ -318,8 +319,8 @@
           <Property Name="OwnerContactID" Type="uniqueidentifier" />
           <Property Name="OwnerProjectID" Type="uniqueidentifier" />
           <Property Name="OwnerEntitySystemType" Type="nvarchar" MaxLength="255" />
-          <Property Name="OwnerTableType" Type="nvarchar" MaxLength="50" />
-          <Property Name="OwnerField" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerTableType" Type="nvarchar" MaxLength="255" />
+          <Property Name="OwnerField" Type="nvarchar" MaxLength="255" />
           <Property Name="OwnerReferenceID" Type="uniqueidentifier" />
           <Property Name="AccessorApplicationID" Type="uniqueidentifier" />
           <Property Name="AccessorCompanyID" Type="uniqueidentifier" />
@@ -556,6 +557,52 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="X_SP_GetSecuredData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contactid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="applicationid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="table" Type="nvarchar" Mode="In" />
+          <Parameter Name="record" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="field" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="X_SP_GetSecuredDataWithHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contactid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="applicationid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="table" Type="nvarchar" Mode="In" />
+          <Parameter Name="record" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="field" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="X_SP_GetSecuredOwner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="table" Type="nvarchar" Mode="In" />
+          <Parameter Name="column" Type="nvarchar" Mode="In" />
+          <Parameter Name="record" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ownerContact" Type="uniqueidentifier" Mode="InOut" />
+          <Parameter Name="ownerCompany" Type="uniqueidentifier" Mode="InOut" />
+          <Parameter Name="antecedentID" Type="uniqueidentifier" Mode="InOut" />
+        </Function>
+        <Function Name="X_SP_GetSecuredRight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contactid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="applicationid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="table" Type="nvarchar" Mode="In" />
+          <Parameter Name="record" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="field" Type="nvarchar" Mode="In" />
+          <Parameter Name="read" Type="bit" Mode="In" />
+          <Parameter Name="create" Type="bit" Mode="In" />
+          <Parameter Name="update" Type="bit" Mode="In" />
+          <Parameter Name="delete" Type="bit" Mode="In" />
+          <Parameter Name="verified" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="X_SP_GetSecuredRights" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="contactid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="applicationid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="table" Type="nvarchar" Mode="In" />
+          <Parameter Name="record" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="field" Type="nvarchar" Mode="In" />
+          <Parameter Name="read" Type="bit" Mode="In" />
+          <Parameter Name="create" Type="bit" Mode="In" />
+          <Parameter Name="update" Type="bit" Mode="In" />
+          <Parameter Name="delete" Type="bit" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -640,6 +687,38 @@
             <End Role="aspnet_Roles" EntitySet="Roles" />
             <End Role="aspnet_Users" EntitySet="Users" />
           </AssociationSet>
+          <FunctionImport Name="GetSecuredOwner">
+            <Parameter Name="table" Mode="In" Type="String" />
+            <Parameter Name="column" Mode="In" Type="String" />
+            <Parameter Name="record" Mode="In" Type="Guid" />
+            <Parameter Name="ownerContact" Mode="InOut" Type="Guid" />
+            <Parameter Name="ownerCompany" Mode="InOut" Type="Guid" />
+            <Parameter Name="antecedentID" Mode="InOut" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="GetSecuredRight">
+            <Parameter Name="contactid" Mode="In" Type="Guid" />
+            <Parameter Name="applicationid" Mode="In" Type="Guid" />
+            <Parameter Name="table" Mode="In" Type="String" />
+            <Parameter Name="record" Mode="In" Type="Guid" />
+            <Parameter Name="field" Mode="In" Type="String" />
+            <Parameter Name="read" Mode="In" Type="Boolean" />
+            <Parameter Name="create" Mode="In" Type="Boolean" />
+            <Parameter Name="update" Mode="In" Type="Boolean" />
+            <Parameter Name="delete" Mode="In" Type="Boolean" />
+            <Parameter Name="verified" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="GetSecuredRights">
+            <Parameter Name="pid" Mode="In" Type="Guid" />
+            <Parameter Name="contactid" Mode="In" Type="Guid" />
+            <Parameter Name="applicationid" Mode="In" Type="Guid" />
+            <Parameter Name="table" Mode="In" Type="String" />
+            <Parameter Name="record" Mode="In" Type="Guid" />
+            <Parameter Name="field" Mode="In" Type="String" />
+            <Parameter Name="read" Mode="In" Type="Boolean" />
+            <Parameter Name="create" Mode="In" Type="Boolean" />
+            <Parameter Name="update" Mode="In" Type="Boolean" />
+            <Parameter Name="delete" Mode="In" Type="Boolean" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="Application">
           <Key>
@@ -831,7 +910,7 @@
           <Property Type="Decimal" Name="AnnualRate" Precision="19" Scale="4" />
           <Property Type="Decimal" Name="BlendedHourlyRate" Precision="19" Scale="4" />
           <Property Type="Decimal" Name="BlendedHourlyCost" Precision="19" Scale="4" />
-          <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="306" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsApproved" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
@@ -844,6 +923,7 @@
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
           <NavigationProperty Name="X_Company" Relationship="Contacts.FK_X_Experience_X_Company" FromRole="X_Experience" ToRole="X_Company" />
           <NavigationProperty Name="X_Contact" Relationship="Contacts.FK_X_Experience_X_Contact" FromRole="X_Experience" ToRole="X_Contact" />
+          <Property Type="Guid" Name="ExperienceGroupID" />
         </EntityType>
         <EntityType Name="SecurityBlacklist">
           <Key>
@@ -855,8 +935,8 @@
           <Property Type="Guid" Name="OwnerContactID" />
           <Property Type="Guid" Name="OwnerProjectID" />
           <Property Type="String" Name="OwnerEntitySystemType" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="OwnerTableType" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="OwnerField" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OwnerTableType" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OwnerField" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="OwnerReferenceID" />
           <Property Type="Guid" Name="AccessorApplicationID" />
           <Property Type="Guid" Name="AccessorCompanyID" />
@@ -890,8 +970,8 @@
           <Property Type="Guid" Name="OwnerContactID" />
           <Property Type="Guid" Name="OwnerProjectID" />
           <Property Type="String" Name="OwnerEntitySystemType" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="OwnerTableType" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="OwnerField" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OwnerTableType" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OwnerField" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="OwnerReferenceID" />
           <Property Type="Guid" Name="AccessorApplicationID" />
           <Property Type="Guid" Name="AccessorCompanyID" />
@@ -1266,6 +1346,7 @@
           <EntitySetMapping Name="Experiences">
             <EntityTypeMapping TypeName="Contacts.Experience">
               <MappingFragment StoreEntitySet="X_Experience">
+                <ScalarProperty Name="ExperienceGroupID" ColumnName="ExperienceGroupID" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -1380,6 +1461,9 @@
               <ScalarProperty Name="RoleId" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="GetSecuredOwner" FunctionName="Contacts.Store.X_SP_GetSecuredOwner" />
+          <FunctionImportMapping FunctionImportName="GetSecuredRight" FunctionName="Contacts.Store.X_SP_GetSecuredRight" />
+          <FunctionImportMapping FunctionImportName="GetSecuredRights" FunctionName="Contacts.Store.X_SP_GetSecuredRights" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

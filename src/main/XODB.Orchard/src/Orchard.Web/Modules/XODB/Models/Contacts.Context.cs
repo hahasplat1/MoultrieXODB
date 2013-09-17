@@ -12,13 +12,15 @@ namespace XODB.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class ContactsContainer : DbContext
     {
         public ContactsContainer()
             : base("name=ContactsContainer")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -37,5 +39,108 @@ namespace XODB.Models
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<SecurityBlacklist> SecurityBlacklists { get; set; }
         public DbSet<SecurityWhitelist> SecurityWhitelists { get; set; }
+    
+        public virtual int GetSecuredOwner(string table, string column, Nullable<System.Guid> record, ObjectParameter ownerContact, ObjectParameter ownerCompany, ObjectParameter antecedentID)
+        {
+            var tableParameter = table != null ?
+                new ObjectParameter("table", table) :
+                new ObjectParameter("table", typeof(string));
+    
+            var columnParameter = column != null ?
+                new ObjectParameter("column", column) :
+                new ObjectParameter("column", typeof(string));
+    
+            var recordParameter = record.HasValue ?
+                new ObjectParameter("record", record) :
+                new ObjectParameter("record", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetSecuredOwner", tableParameter, columnParameter, recordParameter, ownerContact, ownerCompany, antecedentID);
+        }
+    
+        public virtual int GetSecuredRight(Nullable<System.Guid> contactid, Nullable<System.Guid> applicationid, string table, Nullable<System.Guid> record, string field, Nullable<bool> read, Nullable<bool> create, Nullable<bool> update, Nullable<bool> delete, ObjectParameter verified)
+        {
+            var contactidParameter = contactid.HasValue ?
+                new ObjectParameter("contactid", contactid) :
+                new ObjectParameter("contactid", typeof(System.Guid));
+    
+            var applicationidParameter = applicationid.HasValue ?
+                new ObjectParameter("applicationid", applicationid) :
+                new ObjectParameter("applicationid", typeof(System.Guid));
+    
+            var tableParameter = table != null ?
+                new ObjectParameter("table", table) :
+                new ObjectParameter("table", typeof(string));
+    
+            var recordParameter = record.HasValue ?
+                new ObjectParameter("record", record) :
+                new ObjectParameter("record", typeof(System.Guid));
+    
+            var fieldParameter = field != null ?
+                new ObjectParameter("field", field) :
+                new ObjectParameter("field", typeof(string));
+    
+            var readParameter = read.HasValue ?
+                new ObjectParameter("read", read) :
+                new ObjectParameter("read", typeof(bool));
+    
+            var createParameter = create.HasValue ?
+                new ObjectParameter("create", create) :
+                new ObjectParameter("create", typeof(bool));
+    
+            var updateParameter = update.HasValue ?
+                new ObjectParameter("update", update) :
+                new ObjectParameter("update", typeof(bool));
+    
+            var deleteParameter = delete.HasValue ?
+                new ObjectParameter("delete", delete) :
+                new ObjectParameter("delete", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetSecuredRight", contactidParameter, applicationidParameter, tableParameter, recordParameter, fieldParameter, readParameter, createParameter, updateParameter, deleteParameter, verified);
+        }
+    
+        public virtual int GetSecuredRights(Nullable<System.Guid> pid, Nullable<System.Guid> contactid, Nullable<System.Guid> applicationid, string table, Nullable<System.Guid> record, string field, Nullable<bool> read, Nullable<bool> create, Nullable<bool> update, Nullable<bool> delete)
+        {
+            var pidParameter = pid.HasValue ?
+                new ObjectParameter("pid", pid) :
+                new ObjectParameter("pid", typeof(System.Guid));
+    
+            var contactidParameter = contactid.HasValue ?
+                new ObjectParameter("contactid", contactid) :
+                new ObjectParameter("contactid", typeof(System.Guid));
+    
+            var applicationidParameter = applicationid.HasValue ?
+                new ObjectParameter("applicationid", applicationid) :
+                new ObjectParameter("applicationid", typeof(System.Guid));
+    
+            var tableParameter = table != null ?
+                new ObjectParameter("table", table) :
+                new ObjectParameter("table", typeof(string));
+    
+            var recordParameter = record.HasValue ?
+                new ObjectParameter("record", record) :
+                new ObjectParameter("record", typeof(System.Guid));
+    
+            var fieldParameter = field != null ?
+                new ObjectParameter("field", field) :
+                new ObjectParameter("field", typeof(string));
+    
+            var readParameter = read.HasValue ?
+                new ObjectParameter("read", read) :
+                new ObjectParameter("read", typeof(bool));
+    
+            var createParameter = create.HasValue ?
+                new ObjectParameter("create", create) :
+                new ObjectParameter("create", typeof(bool));
+    
+            var updateParameter = update.HasValue ?
+                new ObjectParameter("update", update) :
+                new ObjectParameter("update", typeof(bool));
+    
+            var deleteParameter = delete.HasValue ?
+                new ObjectParameter("delete", delete) :
+                new ObjectParameter("delete", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetSecuredRights", pidParameter, contactidParameter, applicationidParameter, tableParameter, recordParameter, fieldParameter, readParameter, createParameter, updateParameter, deleteParameter);
+        }
     }
 }

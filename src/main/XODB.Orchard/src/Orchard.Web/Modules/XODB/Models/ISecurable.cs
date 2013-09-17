@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace XODB.ViewModels
+namespace XODB.Models
 {
     public interface ISecurable
     {
-        string ReferenceType { get; }
-        Guid? ReferenceID { get; set; }
+        string OwnerTableType { get; }
+        Guid? OwnerReferenceID { get; set; }
+        string OwnerEntitySystemType { get; set; }
+        string OwnerField { get; set; }
+
         IQueryable SecurityBlacklist { get; set; }
         IQueryable SecurityWhitelist { get; set; }
 
