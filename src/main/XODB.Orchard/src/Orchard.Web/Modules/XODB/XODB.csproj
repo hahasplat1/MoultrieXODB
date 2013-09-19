@@ -178,6 +178,7 @@
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -218,6 +219,7 @@
     <Reference Include="System.Web.DynamicData">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
@@ -274,6 +276,8 @@
       <LastGenOutput>BMMetaData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Scripts\jquery.linq.min.js" />
+    <Content Include="Scripts\XODB.utils.js" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -293,6 +297,8 @@
     <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\XODB.jquery.dynamic.js" />
+    <Content Include="Scripts\XODB.maps.js" />
     <Content Include="Styles\menu.xodb-projects-admin.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -378,10 +384,13 @@
     <Compile Include="Handlers\EmailHandler.cs" />
     <Compile Include="Handlers\FileGeneratingResult.cs" />
     <Compile Include="Helpers\CacheHelper.cs" />
+    <Compile Include="Helpers\DataReaderEnumerable.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\DocHelper.cs" />
     <Compile Include="Helpers\InterfaceHelper.cs" />
+    <Compile Include="Helpers\LinqHelper.cs" />
     <Compile Include="Helpers\NetworkHelper.cs" />
+    <Compile Include="Helpers\SpatialHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Helpers\TaskHelper.cs" />
     <Compile Include="Models\Application.cs">
@@ -422,6 +431,22 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Contacts.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExperienceContainer.cs" />
+    <Compile Include="Models\Experience.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Experience.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Experience.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Experience.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Experience1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Experience.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SpatialContainer.cs" />
     <Compile Include="Models\Content.designer.cs">
@@ -494,6 +519,9 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>Contacts.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\X_VW_ExperienceBasicView.cs">
+      <DependentUpon>Experience.tt</DependentUpon>
+    </Compile>
     <Compile Include="Reports\AssaysReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -520,8 +548,11 @@
     <Compile Include="Services\EmailScheduledTaskHandler.cs" />
     <Compile Include="Services\ProcessModelScheduledTaskHandler.cs" />
     <Compile Include="ViewModels\AssayReportViewModel.cs" />
+    <Compile Include="Models\ISecured.cs" />
+    <Compile Include="Models\ISecuredDetailed.cs" />
     <Compile Include="ViewModels\IFileData.cs" />
     <Compile Include="ViewModels\GeophysicsReportViewModel.cs" />
+    <Compile Include="Models\ISecurable.cs" />
     <Compile Include="XODBModule.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -646,6 +677,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Contacts.edmx</DependentUpon>
       <LastGenOutput>Contacts.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\Experience.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Experience.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Experience.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Experience.edmx</DependentUpon>
+      <LastGenOutput>Experience.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Experience.edmx.diagram">
+      <DependentUpon>Experience.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Experience.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Experience.edmx</DependentUpon>
+      <LastGenOutput>Experience1.cs</LastGenOutput>
     </Content>
     <None Include="Models\Projects.dbml.layout">
       <DependentUpon>Projects.dbml</DependentUpon>

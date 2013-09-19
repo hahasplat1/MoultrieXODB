@@ -13,7 +13,7 @@ using System.Data.SqlClient;
 
 namespace XODB.Helpers
 {
-    public class DBHelper
+    public static class DBHelper
     {
         public static PropertyInfo GetPrimaryKey<T>()
         {
@@ -70,6 +70,15 @@ namespace XODB.Helpers
             ecb.Provider = "System.Data.SqlClient";
             ecb.ProviderConnectionString = scsb.ConnectionString;
             return ecb.ConnectionString;
+        }
+
+        //TODO: Fix hack
+        //http://stackoverflow.com/questions/995478/sql-server-full-text-search-escape-characters
+        public static string FixSearchTerm(this string term)
+        {
+            term = string.Format("{0}", term);
+            var terms = term.Split(new string[] { "\"", "'", "\t", "\r", "\n", " " }, StringSplitOptions.RemoveEmptyEntries);
+            return string.Format("\"{0}\"", string.Join("\" AND \"", terms));
         }
     }
 }

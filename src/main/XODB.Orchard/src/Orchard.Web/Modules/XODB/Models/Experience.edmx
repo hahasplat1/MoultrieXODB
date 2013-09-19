@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="XODBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="XODBModelStoreContainer">
+          <EntitySet Name="X_VW_ExperienceBasicView" EntityType="XODBModel.Store.X_VW_ExperienceBasicView" store:Type="Views" store:Schema="dbo" store:Name="X_VW_ExperienceBasicView">
+            <DefiningQuery>SELECT 
+      [X_VW_ExperienceBasicView].[ContactName] AS [ContactName], 
+      [X_VW_ExperienceBasicView].[Title] AS [Title], 
+      [X_VW_ExperienceBasicView].[Surname] AS [Surname], 
+      [X_VW_ExperienceBasicView].[Firstname] AS [Firstname], 
+      [X_VW_ExperienceBasicView].[ExperienceName] AS [ExperienceName], 
+      [X_VW_ExperienceBasicView].[LocationID] AS [LocationID], 
+      [X_VW_ExperienceBasicView].[LatitudeWGS84] AS [LatitudeWGS84], 
+      [X_VW_ExperienceBasicView].[LongitudeWGS84] AS [LongitudeWGS84], 
+      [X_VW_ExperienceBasicView].[DefaultLocationName] AS [DefaultLocationName], 
+      [X_VW_ExperienceBasicView].[DateStart] AS [DateStart], 
+      [X_VW_ExperienceBasicView].[DateFinished] AS [DateFinished], 
+      [X_VW_ExperienceBasicView].[Comment] AS [Comment], 
+      [X_VW_ExperienceBasicView].[LocationGeography] AS [LocationGeography], 
+      [X_VW_ExperienceBasicView].[StandardCountryName] AS [StandardCountryName], 
+      [X_VW_ExperienceBasicView].[StandardCountryStateName] AS [StandardCountryStateName], 
+      [X_VW_ExperienceBasicView].[ProjectName] AS [ProjectName], 
+      [X_VW_ExperienceBasicView].[ProvinceID] AS [ProvinceID], 
+      [X_VW_ExperienceBasicView].[WorkTypeID] AS [WorkTypeID], 
+      [X_VW_ExperienceBasicView].[PositionID] AS [PositionID], 
+      [X_VW_ExperienceBasicView].[ProfessionID] AS [ProfessionID], 
+      [X_VW_ExperienceBasicView].[ContactID] AS [ContactID], 
+      [X_VW_ExperienceBasicView].[ProjectID] AS [ProjectID]
+      FROM [dbo].[X_VW_ExperienceBasicView] AS [X_VW_ExperienceBasicView]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'XODB.dbo.X_VW_ExperienceBasicView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="X_VW_ExperienceBasicView">
+          <Key>
+            <PropertyRef Name="DateStart" />
+          </Key>
+          <Property Name="ContactName" Type="nvarchar" MaxLength="120" />
+          <Property Name="Title" Type="nvarchar" MaxLength="16" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="60" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="60" />
+          <Property Name="ExperienceName" Type="nvarchar" MaxLength="120" />
+          <Property Name="LocationID" Type="uniqueidentifier" />
+          <Property Name="LatitudeWGS84" Type="numeric" Precision="10" Scale="7" />
+          <Property Name="LongitudeWGS84" Type="numeric" Precision="10" Scale="7" />
+          <Property Name="DefaultLocationName" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateStart" Type="date" Nullable="false" />
+          <Property Name="DateFinished" Type="date" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="LocationGeography" Type="geography" />
+          <Property Name="StandardCountryName" Type="nvarchar" MaxLength="40" />
+          <Property Name="StandardCountryStateName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="16" />
+          <Property Name="ProvinceID" Type="uniqueidentifier" />
+          <Property Name="WorkTypeID" Type="uniqueidentifier" />
+          <Property Name="PositionID" Type="uniqueidentifier" />
+          <Property Name="ProfessionID" Type="uniqueidentifier" />
+          <Property Name="ContactID" Type="uniqueidentifier" />
+          <Property Name="ProjectID" Type="uniqueidentifier" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="XODBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ExperienceContainer" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="X_VW_ExperienceBasicView" EntityType="XODBModel.X_VW_ExperienceBasicView" />
+        </EntityContainer>
+        <EntityType Name="X_VW_ExperienceBasicView">
+          <Key>
+            <PropertyRef Name="DateStart" />
+          </Key>
+          <Property Name="ContactName" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="Surname" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="Firstname" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="ExperienceName" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+          <Property Name="LocationID" Type="Guid" />
+          <Property Name="LatitudeWGS84" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="LongitudeWGS84" Type="Decimal" Precision="10" Scale="7" />
+          <Property Name="DefaultLocationName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateFinished" Type="DateTime" Precision="0" />
+          <Property Name="Comment" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="LocationGeography" Type="Geography" />
+          <Property Name="StandardCountryName" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="StandardCountryStateName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectName" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="ProvinceID" Type="Guid" />
+          <Property Name="WorkTypeID" Type="Guid" />
+          <Property Name="PositionID" Type="Guid" />
+          <Property Name="ProfessionID" Type="Guid" />
+          <Property Name="ContactID" Type="Guid" />
+          <Property Name="ProjectID" Type="Guid" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="XODBModelStoreContainer" CdmEntityContainer="ExperienceContainer">
+          <EntitySetMapping Name="X_VW_ExperienceBasicView">
+            <EntityTypeMapping TypeName="XODBModel.X_VW_ExperienceBasicView">
+              <MappingFragment StoreEntitySet="X_VW_ExperienceBasicView">
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="ExperienceName" ColumnName="ExperienceName" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="LatitudeWGS84" ColumnName="LatitudeWGS84" />
+                <ScalarProperty Name="LongitudeWGS84" ColumnName="LongitudeWGS84" />
+                <ScalarProperty Name="DefaultLocationName" ColumnName="DefaultLocationName" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateFinished" ColumnName="DateFinished" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="LocationGeography" ColumnName="LocationGeography" />
+                <ScalarProperty Name="StandardCountryName" ColumnName="StandardCountryName" />
+                <ScalarProperty Name="StandardCountryStateName" ColumnName="StandardCountryStateName" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

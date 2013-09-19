@@ -15,7 +15,20 @@ namespace XODB.Import.ImportUtils
 
         static bool commitToDB = true;
 
-
+        /// <summary>
+        /// Add new litho data.  If interval exists already, 
+        /// then an overwrite request is made, the data stored internally then updated.
+        /// </summary>
+        /// <param name="mos"></param>
+        /// <param name="fileStream"></param>
+        /// <param name="importMap"></param>
+        /// <param name="batchSize"></param>
+        /// <param name="UpdateStatus"></param>
+        /// <param name="approxNumLines"></param>
+        /// <param name="connectionString"></param>
+        /// <param name="XODBProjectID"></param>
+        /// <param name="overwrite"></param>
+        /// <param name="checkForDuplicates"></param>
         internal void AddLithoData(ModelImportStatus mos, Stream fileStream, FormatSpecification.ImportDataMap importMap, int batchSize, Action<string, double> UpdateStatus, int approxNumLines, string connectionString, Guid XODBProjectID, bool overwrite, bool checkForDuplicates)
         {           
             
@@ -287,6 +300,9 @@ namespace XODB.Import.ImportUtils
 
                                                     clauseParameters += "\'" + columnValue + "\',";
                                                 }
+                                                else {
+                                                    clauseParameters += "\'" + columnValue + "\',";
+                                                }
                                             }
                                             //if (columnValue.Equals("-"))
                                             //{
@@ -519,9 +535,27 @@ namespace XODB.Import.ImportUtils
                                         mos.AddWarningMessage("Description too long, truncated to 255 characters.  Line " + linesRead);
 
                                     }
+                                    columnValue = "\'" + columnValue + "\'";
 
                                 }
-                                columnValue += "\'" + columnValue + "\'";
+                                else {
+                                    if (columnValue.Equals("-") || columnValue.Equals(""))
+                                    {
+                                        if (cmap.defaultValue != null && cmap.defaultValue.Length > 0)
+                                        {
+                                            columnValue = cmap.defaultValue;
+                                        }
+
+
+                                        columnValue = "\'" + columnValue + "\'";
+                                    }
+                                    else
+                                    {
+                                        columnValue = "\'" + columnValue + "\'";
+                                    }
+                                    
+                                }
+                                
                             }
                         }
                         clauseValues += columnValue+",";
