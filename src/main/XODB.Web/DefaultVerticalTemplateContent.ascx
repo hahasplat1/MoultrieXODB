@@ -1,50 +1,36 @@
-<%@ Page Language="C#" AutoEventWireup="true" Inherits="DefaultVertical" EnableViewState="false"
-    ValidateRequest="false" CodeBehind="DefaultVertical.aspx.cs" %>
-<%@ Register Assembly="DevExpress.Web.v12.1" Namespace="DevExpress.Web.ASPxRoundPanel"
+﻿<%@ Control Language="C#" CodeBehind="DefaultVerticalTemplateContent.ascx.cs" ClassName="DefaultVerticalTemplateContent" Inherits="XODB.Web.DefaultVerticalTemplateContent" %>
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxRoundPanel"
     TagPrefix="dxrp" %>
-<%@ Register Assembly="DevExpress.Web.ASPxEditors.v12.1" Namespace="DevExpress.Web.ASPxEditors"
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxEditors"
     TagPrefix="dx" %>
-<%@ Register Assembly="DevExpress.Web.v12.1" Namespace="DevExpress.Web.ASPxPanel"
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxPanel"
     TagPrefix="dxrp" %>
-<%@ Register Assembly="DevExpress.Web.v12.1" Namespace="DevExpress.Web.ASPxSplitter"
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxSplitter"
     TagPrefix="dx" %>
-<%@ Register Assembly="DevExpress.Web.v12.1" Namespace="DevExpress.Web.ASPxGlobalEvents"
+<%@ Register Assembly="DevExpress.Web.v13.1" Namespace="DevExpress.Web.ASPxGlobalEvents"
     TagPrefix="dxge" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v12.1" Namespace="DevExpress.ExpressApp.Web.Templates.ActionContainers"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v13.1" Namespace="DevExpress.ExpressApp.Web.Templates.ActionContainers"
     TagPrefix="cc2" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v12.1" Namespace="DevExpress.ExpressApp.Web.Templates"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v13.1" Namespace="DevExpress.ExpressApp.Web.Templates"
     TagPrefix="cc3" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v12.1" Namespace="DevExpress.ExpressApp.Web.Controls"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v13.1" Namespace="DevExpress.ExpressApp.Web.Controls"
     TagPrefix="cc4" %>
-<%@ Register Assembly="DevExpress.ExpressApp.Web.v12.1" Namespace="DevExpress.ExpressApp.Web.Templates.Controls"
+<%@ Register Assembly="DevExpress.ExpressApp.Web.v13.1" Namespace="DevExpress.ExpressApp.Web.Templates.Controls"
     TagPrefix="tc" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Main Page</title>
-    <meta http-equiv="Expires" content="0" />
-</head>
-<script type="text/javascript" src="MoveFooter.js"> </script>
-<script type="text/javascript" src="TemplateScripts.js"> </script>
-<body class="VerticalTemplate BodyBackColor" onload="OnLoad()">
-    <form id="form2" runat="server">
-    <dxge:ASPxGlobalEvents ID="GE" ClientSideEvents-EndCallback="AdjustSize" runat="server" />
-    <cc4:ASPxProgressControl ID="ProgressControl" runat="server" />
-    <div runat="server">
-        <cc3:XafUpdatePanel ID="UPPopupWindowControl" runat="server">
-            <cc4:XafPopupWindowControl runat="server" ID="PopupWindowControl" />
-        </cc3:XafUpdatePanel>
-        <table id="MT" border="0" width="100%" cellpadding="0" cellspacing="0" class="dxsplControl_<%= CurrentTheme %>">
+<div class="VerticalTemplate BodyBackColor">
+    <dxge:ASPxGlobalEvents ID="GE" ClientInstanceName="GE" ClientSideEvents-EndCallback="AdjustSize"
+        runat="server" />
+   <table id="MT" border="0" width="100%" cellpadding="0" cellspacing="0" class="dxsplControl_<%= BaseXafPage.CurrentTheme %>">
             <tbody>
                 <tr>
-                    <td style="vertical-align: top; height: 10px;" class="dxsplPane_<%= CurrentTheme %>">
+                    <td style="vertical-align: top; height: 10px;" class="dxsplPane_<%= BaseXafPage.CurrentTheme %>">
                         <div id="VerticalTemplateHeader" class="VerticalTemplateHeader">
                             <table cellpadding="0" cellspacing="0" border="0" class="Top" width="100%">
                                 <tr>
                                     <td class="Logo">
-                                        <asp:HyperLink runat="server" NavigateUrl="#" ID="LogoLink">
-                                            <cc4:ThemedImageControl ID="TIC" DefaultThemeImageLocation="App_Themes/{0}/Xaf" ImageName="Logo.png"
-                                                BorderWidth="0px" runat="server" />
+                                        <asp:HyperLink runat="server" NavigateUrl="http://xodb.xstractgroup.com" ID="LogoLink">
+                                            <cc4:ThemedImageControl ID="TIC" DefaultThemeImageLocation="Images" ImageName="LogoCMYK.png" width="25px"
+                                                BorderWidth="0px" style="margin-bottom:-4px;" runat="server" /><h1 style="white-space:nowrap;display: inline-block;padding:5px;">XODB Server</h1>
                                         </asp:HyperLink>
                                     </td>
                                     <td class="Security">
@@ -59,7 +45,7 @@
                                 <tr class="Content">
                                     <td class="Content WithPaddings" align="right">
                                         <cc3:XafUpdatePanel ID="UPSHC" runat="server">
-                                            <cc2:ActionContainerHolder ID="SHC" runat="server" Categories="RootObjectsCreation;Appearance;Search;FullTextSearch"
+                                            <cc2:ActionContainerHolder ID="SHC" runat="server" Categories="RootObjectsCreation;Search;FullTextSearch"
                                             ContainerStyle="Links" CssClass="TabsContainer" SeparatorHeight="15px" />
                                         </cc3:XafUpdatePanel>
                                     </td>
@@ -80,7 +66,7 @@
                                         </cc3:XafUpdatePanel>
                                         <cc3:XafUpdatePanel ID="UPTP" runat="server">
                                             <div id="TP" runat="server" class="ToolsActionContainerPanel">
-                                            <dxrp:ASPxRoundPanel ID="TRP" runat="server" HeaderText="Tools">
+                                            <dxrp:ASPxRoundPanel ID="TRP" runat="server" HeaderText="Tools" CssClass="TRP">
                                                 <PanelCollection>
                                                     <dxrp:PanelContent ID="PanelContent1" runat="server">
                                                         <cc2:ActionContainerHolder ID="VTC" runat="server" Menu-Width="100%" Categories="Tools"
@@ -96,10 +82,10 @@
                                     </div>
                                 </td>
                                 <td id="separatorCell" style="width: 6px; border-bottom-style: none; border-top-style: none"
-                                    class="dxsplVSeparator_<%= CurrentTheme %> dxsplPane_<%= CurrentTheme %>">
-                                    <div id="separatorButton" class="dxsplVSeparatorButton_<%= CurrentTheme %>" onmouseover="OnMouseEnter('separatorButton')"
+                                    class="dxsplVSeparator_<%= BaseXafPage.CurrentTheme %> dxsplPane_<%= BaseXafPage.CurrentTheme %>">
+                                    <div id="separatorButton" class="dxsplVSeparatorButton_<%= BaseXafPage.CurrentTheme %>" onmouseover="OnMouseEnter('separatorButton')"
                                         onmouseout="OnMouseLeave('separatorButton')" onclick="OnClick('LPcell','separatorImage',true)">
-                                        <div id="separatorImage" style="width: 6px;" class="dxWeb_splVCollapseBackwardButton_<%= CurrentTheme %>">
+                                        <div id="separatorImage" style="width: 6px;" class="dxWeb_splVCollapseBackwardButton_<%= BaseXafPage.CurrentTheme %>">
                                         </div>
                                     </div>
                                 </td>
@@ -136,7 +122,7 @@
                                                                         </td>
                                                                         <td align="right">
                                                                             <cc2:ActionContainerHolder runat="server" ID="RNC" ContainerStyle="Links" Orientation="Horizontal"
-                                                                                Categories="RecordsNavigation" UseLargeImage="True" ImageTextStyle="Image" CssClass="RecordsNavigationContainer">
+                                                                                Categories="RecordsNavigation" UseLargeImage="True" PaintStyle="Image" CssClass="RecordsNavigationContainer">
                                                                                 <Menu Width="100%" ItemAutoWidth="False" HorizontalAlign="Right" />
                                                                             </cc2:ActionContainerHolder>
                                                                         </td>
@@ -183,7 +169,7 @@
 																	<span style="display: inline-block">
                                                                     <cc3:XafUpdatePanel ID="UPQC" runat="server">
                                                                     <cc2:QuickAccessNavigationActionContainer CssClass="NavigationLinks" ID="QC" runat="server"
-                                                                        ContainerId="ViewsNavigation" ImageTextStyle="Caption" ShowSeparators="True" />
+                                                                        ContainerId="ViewsNavigation" PaintStyle="Caption" ShowSeparators="True" />
                                                                     </cc3:XafUpdatePanel>
 																	</span>
                                                                 </td>
@@ -219,16 +205,5 @@
                 </tr>
             </tbody>
         </table>
-        <script type="text/javascript" language="javascript">
-     <!--
-     
-              function OnLoad() {
-                  Init("<%= CurrentTheme %>", "VerticalCS");
-                OnLoadCore("LPcell", "separatorCell", "separatorImage",true, true);
-            }
-         // -->
-        </script>
-    </div>
-    </form>
-</body>
-</html>
+
+</div>

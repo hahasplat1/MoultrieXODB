@@ -19,7 +19,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <TargetFrameworkProfile />
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -141,43 +141,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
-    <Content Include="DefaultVerticalTemplateContent.ascx" />
     <Content Include="Error.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Images\ButtonBkg.gif" />
-    <Content Include="Images\ExpressAppLogo.png" />
-    <Content Include="Images\FooterBkg.gif" />
-    <Content Include="Images\GridHeaderBkg.gif" />
-    <Content Include="Images\HeaderBkg.gif" />
-    <Content Include="Images\LayoutHeaderBkg.gif" />
-    <Content Include="Images\LogoCMYK.png" />
-    <Content Include="Images\Progress.gif" />
-    <Content Include="Images\ReadMe.txt" />
-    <Content Include="Images\SelectedCenter.gif" />
-    <Content Include="Images\SelectedCenterWhite.gif" />
-    <Content Include="Images\SelectedLeft.gif" />
-    <Content Include="Images\SelectedLeftWhite.gif" />
-    <Content Include="Images\SelectedRight.gif" />
-    <Content Include="Images\SelectedRightWhite.gif" />
-    <Content Include="Images\SideBarRDCorner.gif" />
-    <Content Include="Images\SideBarRUCorner.gif" />
-    <Content Include="Images\TabContentBkg.gif" />
-    <Content Include="Images\UnSelectedCenter.gif" />
-    <Content Include="Images\UnSelectedLeft.gif" />
-    <Content Include="Images\UnSelectedRight.gif" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DefaultVerticalTemplateContent.ascx.cs">
-      <DependentUpon>DefaultVerticalTemplateContent.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DefaultVerticalTemplateContent.ascx.designer.cs">
-      <DependentUpon>DefaultVerticalTemplateContent.ascx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -206,7 +177,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WebApplication.resx">
       <DependentUpon>WebApplication.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -219,11 +189,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XODB.Module.Web\XODB.Module.Web.csproj">
+    <ProjectReference Include="..\..\XODB.Module.Web\XODB.Module.Web.csproj">
       <Project>{0c729aad-7626-4668-a7f1-35f7d240489d}</Project>
       <Name>XODB.Module.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XODB.Module\XODB.Module.csproj">
+    <ProjectReference Include="..\..\XODB.Module\XODB.Module.csproj">
       <Project>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</Project>
       <Name>XODB.Module</Name>
     </ProjectReference>
@@ -262,7 +232,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2064</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://xodbs</IISUrl>
+          <IISUrl>http://localhost:50932/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

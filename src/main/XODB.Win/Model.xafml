@@ -7,9 +7,10 @@
       </OwnMembers>
     </Class>
   </BOModel>
+  <Options Skin="Office 2013 Light Gray" />
   <SchemaModules>
-    <SchemaModule Name="SystemModule" Version="12.1.8.0" IsNewNode="True" />
-    <SchemaModule Name="SystemWindowsFormsModule" Version="12.1.8.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.1.6.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="13.1.6.0" IsNewNode="True" />
   </SchemaModules>
   <ViewItems>
     <PropertyEditor Name="PropertyEditors">

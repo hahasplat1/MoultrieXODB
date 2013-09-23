@@ -63,7 +63,7 @@ namespace XODB.Win
             // reportsModule1
             // 
             this.reportsModule1.EnableInplaceReports = true;
-            this.reportsModule1.ReportDataType = typeof(DevExpress.Persistent.BaseImpl.ReportData);
+            this.reportsModule1.ReportDataType = typeof(DevExpress.ExpressApp.Reports.ReportData);
             // 
             // validationModule1
             // 

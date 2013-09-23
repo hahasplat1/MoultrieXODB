@@ -1,24 +1,37 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.Web;
+using System.ComponentModel;
 using DevExpress.ExpressApp.Xpo;
+using DevExpress.ExpressApp.Web;
+using System.Collections.Generic;
+//using DevExpress.ExpressApp.Security;
 
 namespace XODB.Web
 {
+    // You can override various virtual methods and handle corresponding events to manage various aspects of your XAF application UI and behavior.
     public partial class XODBAspNetApplication : WebApplication
-    {
+    { // http://documentation.devexpress.com/#Xaf/DevExpressExpressAppWebWebApplicationMembersTopicAll
         private DevExpress.ExpressApp.SystemModule.SystemModule module1;
         private DevExpress.ExpressApp.Web.SystemModule.SystemAspNetModule module2;
         private XODB.Module.XODBModule module3;
         private XODB.Module.Web.XODBAspNetModule module4;
-        private DevExpress.ExpressApp.Validation.ValidationModule validationModule1;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
 
         public XODBAspNetApplication()
         {
             InitializeComponent();
+        }
+
+        // Override to execute custom code after a logon has been performed, the SecuritySystem object is initialized, logon parameters have been saved and user model differences are loaded.
+        protected override void OnLoggedOn(LogonEventArgs args)
+        { // http://documentation.devexpress.com/#Xaf/DevExpressExpressAppXafApplication_LoggedOntopic
+            base.OnLoggedOn(args);
+        }
+
+        // Override to execute custom code after a user has logged off.
+        protected override void OnLoggedOff()
+        { // http://documentation.devexpress.com/#Xaf/DevExpressExpressAppXafApplication_LoggedOfftopic
+            base.OnLoggedOff();
         }
 
         protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args)
@@ -65,18 +78,13 @@ namespace XODB.Web
             this.module3 = new XODB.Module.XODBModule();
             this.module4 = new XODB.Module.Web.XODBAspNetModule();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
-            this.validationModule1 = new DevExpress.ExpressApp.Validation.ValidationModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // sqlConnection1
             // 
             this.sqlConnection1.ConnectionString = "Integrated Security=SSPI;Pooling=false;Data Source=.\\SQLEXPRESS;Initial Catalog=X" +
-    "ODB";
+    "ODBWEB";
             this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
-            // 
-            // validationModule1
-            // 
-            this.validationModule1.AllowValidationDetailsAccess = true;
             // 
             // XODBAspNetApplication
             // 
@@ -86,7 +94,6 @@ namespace XODB.Web
             this.Modules.Add(this.module2);
             this.Modules.Add(this.module3);
             this.Modules.Add(this.module4);
-            this.Modules.Add(this.validationModule1);
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.XODBAspNetApplication_DatabaseVersionMismatch);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
