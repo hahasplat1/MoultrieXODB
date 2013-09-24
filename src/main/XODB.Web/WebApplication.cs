@@ -54,7 +54,7 @@ namespace XODB.Web
 			e.Updater.Update();
 			e.Handled = true;
 #else
-            if (System.Diagnostics.Debugger.IsAttached)
+            if (true || System.Diagnostics.Debugger.IsAttached)
             {
                 e.Updater.Update();
                 e.Handled = true;

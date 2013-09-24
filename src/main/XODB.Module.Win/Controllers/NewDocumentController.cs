@@ -42,7 +42,7 @@ namespace XODB.Module.Win.Controllers
 
         void NewDocumentController_ObjectCreated(object sender, ObjectCreatedEventArgs e)
         {
-            if (e.CreatedObject is X_FileData)
+            if (e.CreatedObject is FileData)
             {
                 try
                 {
@@ -61,7 +61,7 @@ namespace XODB.Module.Win.Controllers
 
         void myAction_Execute(object sender, DevExpress.ExpressApp.Actions.SimpleActionExecuteEventArgs e)
         {
-            var args = new SingleChoiceActionExecuteEventArgs(e.Action, e.Action.SelectionContext, new ChoiceActionItem("NewObject", typeof(X_FileData)));
+            var args = new SingleChoiceActionExecuteEventArgs(e.Action, e.Action.SelectionContext, new ChoiceActionItem("NewObject", typeof(FileData)));
             New(args);
             e.ShowViewParameters.Assign(args.ShowViewParameters);
         }
