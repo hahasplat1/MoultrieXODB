@@ -5,29 +5,29 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="3cf498aeaaa142e3b452c3cdd48bf54f" Name="Diagram1">
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Applications" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Membership" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Paths" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Profile" Width="1.5" PointX="10.5" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Roles" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Users" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_WebEvent_Events" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Credit" Width="1.5" PointX="36.75" PointY="457.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Currency" Width="1.5" PointX="24" PointY="341.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_DictionaryTax" Width="1.5" PointX="27" PointY="341.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Invoice" Width="1.5" PointX="11.25" PointY="462.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_InvoiceLine" Width="1.5" PointX="42" PointY="404.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Journal" Width="1.5" PointX="28.5" PointY="464.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Payment" Width="1.5" PointX="28.5" PointY="458.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_PurchaseOrder" Width="1.5" PointX="3" PointY="474.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Supply" Width="1.5" PointX="22.5" PointY="469.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_SupplyItem" Width="1.5" PointX="39.75" PointY="462.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_SupplyItemTax" Width="1.5" PointX="45" PointY="405.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_Account" Width="1.5" PointX="14.25" PointY="464.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_AccountDiscount" Width="1.5" PointX="28.5" PointY="476.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Applications" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Membership" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Paths" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Profile" Width="1.5" PointX="10.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Roles" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Users" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.WebEvent_Events" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Credit" Width="1.5" PointX="36.75" PointY="457.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Currency" Width="1.5" PointX="24" PointY="341.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryTax" Width="1.5" PointX="27" PointY="341.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Invoice" Width="1.5" PointX="11.25" PointY="462.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.InvoiceLine" Width="1.5" PointX="42" PointY="404.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Journal" Width="1.5" PointX="28.5" PointY="464.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Payment" Width="1.5" PointX="28.5" PointY="458.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.PurchaseOrder" Width="1.5" PointX="3" PointY="474.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Supply" Width="1.5" PointX="22.5" PointY="469.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.SupplyItem" Width="1.5" PointX="39.75" PointY="462.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.SupplyItemTax" Width="1.5" PointX="45" PointY="405.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Account" Width="1.5" PointX="14.25" PointY="464.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AccountDiscount" Width="1.5" PointX="28.5" PointY="476.375" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_Asset" Width="1.5" PointX="25.5" PointY="468.875" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_AssetAlias" Width="1.5" PointX="27.75" PointY="471.125" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_AssetMaintenance" Width="1.5" PointX="33.75" PointY="478.25" IsExpanded="true" />
@@ -39,7 +39,7 @@
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DicitonaryAssetStatus" Width="1.5" PointX="23.25" PointY="282.375" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryDecontaminationStatus" Width="1.5" PointX="34.5" PointY="440.875" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryDeliveryAdviceReason" Width="1.5" PointX="29.25" PointY="435.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryDeviceType" Width="1.5" PointX="43.75" PointY="509.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryDeviceType" Width="1.5" PointX="43.75" PointY="509.75" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryEventType" Width="1.5" PointX="44.5" PointY="515" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryPart" Width="1.5" PointX="17.25" PointY="464.25" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryPartCategory" Width="1.5" PointX="25.5" PointY="465.25" IsExpanded="true" />
