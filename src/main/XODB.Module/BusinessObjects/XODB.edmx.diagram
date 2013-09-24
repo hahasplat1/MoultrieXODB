@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3cf498aeaaa142e3b452c3cdd48bf54f" Name="Diagram1">
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Applications" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Membership" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Paths" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Profile" Width="1.5" PointX="10.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Roles" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_Users" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.aspnet_WebEvent_Events" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Credit" Width="1.5" PointX="36.75" PointY="457.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Currency" Width="1.5" PointX="24" PointY="341.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_DictionaryTax" Width="1.5" PointX="27" PointY="341.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Invoice" Width="1.5" PointX="11.25" PointY="462.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_InvoiceLine" Width="1.5" PointX="42" PointY="404.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Journal" Width="1.5" PointX="28.5" PointY="464.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Payment" Width="1.5" PointX="28.5" PointY="458.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_PurchaseOrder" Width="1.5" PointX="3" PointY="474.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_Supply" Width="1.5" PointX="22.5" PointY="469.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_SupplyItem" Width="1.5" PointX="39.75" PointY="462.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.E_SupplyItemTax" Width="1.5" PointX="45" PointY="405.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_Account" Width="1.5" PointX="14.25" PointY="464.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_AccountDiscount" Width="1.5" PointX="28.5" PointY="476.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_Asset" Width="1.5" PointX="25.5" PointY="468.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_AssetAlias" Width="1.5" PointX="27.75" PointY="471.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_AssetMaintenance" Width="1.5" PointX="33.75" PointY="478.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_AssetWarranty" Width="1.5" PointX="36.75" PointY="470.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_CompanyAccount" Width="1.5" PointX="22.5" PointY="465.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_ContractAsset" Width="1.5" PointX="36.75" PointY="477.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DeliveryAdvice" Width="1.5" PointX="31.5" PointY="466" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DeliveryAdviceItem" Width="1.5" PointX="36.75" PointY="464.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DicitonaryAssetStatus" Width="1.5" PointX="23.25" PointY="282.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryDecontaminationStatus" Width="1.5" PointX="34.5" PointY="440.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryDeliveryAdviceReason" Width="1.5" PointX="29.25" PointY="435.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryDeviceType" Width="1.5" PointX="43.75" PointY="509.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryEventType" Width="1.5" PointX="44.5" PointY="515" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryPart" Width="1.5" PointX="17.25" PointY="464.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryPartCategory" Width="1.5" PointX="25.5" PointY="465.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryPartKit" Width="1.5" PointX="34.5" PointY="444.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryPartKitItem" Width="1.5" PointX="31.5" PointY="461.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryProcedure" Width="1.5" PointX="24.75" PointY="448.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_DictionaryWarrantyType" Width="1.5" PointX="32.25" PointY="433.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_ModelPart" Width="1.5" PointX="31.5" PointY="457.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_ModelPartKit" Width="1.5" PointX="36.75" PointY="452.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_ModelProcedure" Width="1.5" PointX="31" PointY="449.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_ModelProcedureTask" Width="1.5" PointX="36.25" PointY="495.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_ModelProcedureTaskPart" Width="1.5" PointX="41.5" PointY="480.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_ModelScheduleCycle" Width="1.5" PointX="33.25" PointY="502.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_ModelWarranty" Width="1.5" PointX="34.5" PointY="471.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_ProjectPlanTaskModel" Width="1.5" PointX="22.5" PointY="457.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_ProjectPlanTaskPart" Width="1.5" PointX="33.75" PointY="494.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_Recall" Width="1.5" PointX="6" PointY="475" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_RecallModel" Width="1.5" PointX="8.25" PointY="482" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_RecallModelAsset" Width="1.5" PointX="33.75" PointY="483.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_SupplierModel" Width="1.5" PointX="14.25" PointY="456.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_SupplierPart" Width="1.5" PointX="28.5" PointY="450.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_Warehouse" Width="1.5" PointX="17.25" PointY="457.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_WarehouseModel" Width="1.5" PointX="25.5" PointY="457.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_WarehouseModelSupplier" Width="1.5" PointX="16.5" PointY="451.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_WarehousePart" Width="1.5" PointX="22.5" PointY="450.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_WarehousePartSupplier" Width="1.5" PointX="30.75" PointY="501.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Q_WorkflowSchedule" Width="1.5" PointX="46.75" PointY="509.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.sysdiagram" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Address" Width="1.5" PointX="28.5" PointY="428.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_AssayGroup" Width="1.5" PointX="9" PointY="475.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_AssayGroupStandardTestResult" Width="1.5" PointX="31.5" PointY="484" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_AssayGroupTest" Width="1.5" PointX="20.25" PointY="481.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_AssayGroupTestResult" Width="1.5" PointX="28.5" PointY="490.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_AssayGroupTestResultComment" Width="1.5" PointX="30.75" PointY="491.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_AssayGroupTestResultDuplicate" Width="1.5" PointX="30.75" PointY="496.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_BlockModel" Width="1.5" PointX="12" PointY="472.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_BlockModelBlock" Width="1.5" PointX="14.25" PointY="475.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_BlockModelBlockData" Width="1.5" PointX="22.5" PointY="480.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_BlockModelMetadata" Width="1.5" PointX="17.25" PointY="485" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Casing" Width="1.5" PointX="42.75" PointY="473" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Cementing" Width="1.5" PointX="30.75" PointY="509.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Company" Width="1.5" PointX="9" PointY="462.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_CompanyAddress" Width="1.5" PointX="17.25" PointY="473" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_CompanyRelation" Width="1.5" PointX="11.25" PointY="511.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_CompanyServer" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Compliance" Width="1.5" PointX="17.25" PointY="478.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ComplianceTask" Width="1.5" PointX="22.5" PointY="486.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ComplianceWorkType" Width="1.5" PointX="19.5" PointY="488.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Contact" Width="1.5" PointX="0.75" PointY="470" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ContactAddress" Width="1.5" PointX="33.75" PointY="447.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Contract" Width="1.5" PointX="20.25" PointY="468.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ContractCondition" Width="1.5" PointX="28.5" PointY="483.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ContractConditionModel" Width="1.5" PointX="38.75" PointY="493.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ContractConditionPart" Width="1.5" PointX="31.5" PointY="474.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_CostEstimateModel" Width="1.5" PointX="34.5" PointY="464" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Defect" Width="1.5" PointX="36" PointY="482.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Desurvey" Width="1.5" PointX="50.5" PointY="426.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Dictionary" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryAdjective" Width="1.5" PointX="21.75" PointY="287.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryAlteration" Width="1.5" PointX="21.75" PointY="291.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryAssayMethod" Width="1.5" PointX="21.75" PointY="295.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryAssayStandard" Width="1.5" PointX="21.75" PointY="299.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryAssayTest" Width="1.5" PointX="21.75" PointY="303.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryAssayType" Width="1.5" PointX="21.75" PointY="306.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryBasalContact" Width="1.5" PointX="21.75" PointY="310.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryBedSpacing" Width="1.5" PointX="21.75" PointY="314.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryCharacteristic" Width="1.5" PointX="24" PointY="393.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryCharacteristicType" Width="1.5" PointX="21.75" PointY="323" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryColour" Width="1.5" PointX="21.75" PointY="326.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryCommodity" Width="1.5" PointX="21.75" PointY="330.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryContractConditionType" Width="1.5" PointX="21.75" PointY="334.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryCoreState" Width="1.5" PointX="21.75" PointY="338" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryCostType" Width="1.5" PointX="32.25" PointY="437" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryCountry" Width="1.5" PointX="21.75" PointY="341.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryCountryState" Width="1.5" PointX="24" PointY="402.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDataStatus" Width="1.5" PointX="21.75" PointY="348" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDefectCompleteness" Width="1.5" PointX="21.75" PointY="352" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDefectContinuity" Width="1.5" PointX="21.75" PointY="355.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDefectSpacing" Width="1.5" PointX="21.75" PointY="359.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDefectType" Width="1.5" PointX="21.75" PointY="363.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDesurveyAlgorithmType" Width="1.5" PointX="21.75" PointY="367.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDimension" Width="1.5" PointX="21.75" PointY="371.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDipOrientationMethod" Width="1.5" PointX="21.75" PointY="375.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDomain" Width="1.5" PointX="21.75" PointY="379.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDomainAlias" Width="1.5" PointX="24" PointY="422" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDrillBitType" Width="1.5" PointX="21.75" PointY="382.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDrillCasingType" Width="1.5" PointX="21.75" PointY="386.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDrillFluid" Width="1.5" PointX="21.75" PointY="390.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDrillRigType" Width="1.5" PointX="21.75" PointY="394.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryDrillSize" Width="1.5" PointX="21.75" PointY="398.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryEstimatedStrength" Width="1.5" PointX="21.75" PointY="402.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryFailureMode" Width="1.5" PointX="21.75" PointY="406.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryFileType" Width="1.5" PointX="11.25" PointY="456.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryFlowTestType" Width="1.5" PointX="21.75" PointY="410.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryGasDetected" Width="1.5" PointX="21.75" PointY="414.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryGeodeticDatum" Width="1.5" PointX="21.75" PointY="418.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryGeophysicalLogType" Width="1.5" PointX="21.75" PointY="422.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryGroup" Width="1.5" PointX="21.75" PointY="426.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryGroupMembership" Width="1.5" PointX="24" PointY="445.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryHeightDatum" Width="1.5" PointX="21.75" PointY="430.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryHolePurpose" Width="1.5" PointX="21.75" PointY="434.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryHoleStatus" Width="1.5" PointX="21.75" PointY="438.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryHoleType" Width="1.5" PointX="21.75" PointY="442.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryHorizon" Width="1.5" PointX="21.75" PointY="446.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryHue" Width="1.5" PointX="21.75" PointY="491" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryInfillMode" Width="1.5" PointX="21.75" PointY="494.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryInfillType" Width="1.5" PointX="21.75" PointY="498.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryIntervalStatus" Width="1.5" PointX="21.75" PointY="502.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryLeaseApplicationType" Width="1.5" PointX="21.75" PointY="506.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryLicenseType" Width="1.5" PointX="21.75" PointY="510.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryLithologyInterrelation" Width="1.5" PointX="21.75" PointY="515.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryLithologyQualifier" Width="1.5" PointX="21.75" PointY="519.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryLithologyType" Width="1.5" PointX="21.75" PointY="523.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryLocationType" Width="1.5" PointX="21.75" PointY="527.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryMechanicalState" Width="1.5" PointX="21.75" PointY="531.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryMineralAbundance" Width="1.5" PointX="21.75" PointY="535.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryMineralAndFossilAbundance" Width="1.5" PointX="21.75" PointY="539" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryMineralAndFossilAssociation" Width="1.5" PointX="21.75" PointY="542.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryMineralAndFossilType" Width="1.5" PointX="21.75" PointY="546.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryMineralForm" Width="1.5" PointX="21.75" PointY="550.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryMineralStyle" Width="1.5" PointX="21.75" PointY="554.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryMineralType" Width="1.5" PointX="21.75" PointY="558.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryModel" Width="1.5" PointX="46" PointY="497.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryModelCategory" Width="1.5" PointX="48.25" PointY="504.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryModelRelation" Width="1.5" PointX="24" PointY="597.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryModelStatus" Width="1.5" PointX="21.75" PointY="562.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryMoistureSensitivity" Width="1.5" PointX="21.75" PointY="565.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryPartStatus" Width="1.5" PointX="21.75" PointY="569.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryPlasticity" Width="1.5" PointX="21.75" PointY="573.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryPly" Width="1.5" PointX="21.75" PointY="577.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryPlyAlias" Width="1.5" PointX="24" PointY="509.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryPointLoadTestType" Width="1.5" PointX="21.75" PointY="580.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryPosition" Width="1.5" PointX="21.75" PointY="584.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryProfession" Width="1.5" PointX="21.75" PointY="588.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryProvinceGroup" Width="1.5" PointX="27" PointY="520" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryProvinceType" Width="1.5" PointX="21.75" PointY="593" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryRelationType" Width="1.5" PointX="21.75" PointY="597.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryRockMassUnitType" Width="1.5" PointX="21.75" PointY="601.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionarySampleCategory" Width="1.5" PointX="21.75" PointY="605.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionarySampleState" Width="1.5" PointX="21.75" PointY="609.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionarySampleType" Width="1.5" PointX="21.75" PointY="613.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionarySeam" Width="1.5" PointX="21.75" PointY="618.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionarySeamAlias" Width="1.5" PointX="24" PointY="530" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionarySedimentaryFeature" Width="1.5" PointX="21.75" PointY="622.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryShade" Width="1.5" PointX="21.75" PointY="626.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryShape" Width="1.5" PointX="21.75" PointY="630.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryStratigraphy" Width="1.5" PointX="21.75" PointY="634" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionarySurfaceRoughness" Width="1.5" PointX="21.75" PointY="637.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionarySurveyAccuracy" Width="1.5" PointX="21.75" PointY="641.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryTexture" Width="1.5" PointX="21.75" PointY="645.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryUnit" Width="1.5" PointX="24" PointY="541.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryUnitType" Width="1.5" PointX="21.75" PointY="649.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryUsageAuditType" Width="1.5" PointX="21.75" PointY="654" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryWeathering" Width="1.5" PointX="21.75" PointY="657.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryWorkType" Width="1.5" PointX="24" PointY="513.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryWorkTypeClass" Width="1.5" PointX="21.75" PointY="662" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DictionaryWorkTypeRelation" Width="1.5" PointX="26.25" PointY="514.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Drilling" Width="1.5" PointX="30.75" PointY="440.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_DrillingProjectPlanTask" Width="1.5" PointX="48.25" PointY="479.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Experience" Width="1.5" PointX="41.5" PointY="506.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_FileData" Width="1.5" PointX="19.5" PointY="441.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Geology" Width="1.5" PointX="38.75" PointY="498.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Geophysics" Width="1.5" PointX="35.75" PointY="502.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_GeophysicsData" Width="1.5" PointX="40.25" PointY="519.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_GeophysicsMetadata" Width="1.5" PointX="38" PointY="523.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Header" Width="1.5" PointX="28.5" PointY="497.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_HeaderGeophysicalLog" Width="1.5" PointX="42.75" PointY="464.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_HeaderRelation" Width="1.5" PointX="30.75" PointY="546.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Interpretation" Width="1.5" PointX="25.5" PointY="478.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_InterpretationData" Width="1.5" PointX="33.75" PointY="489.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Lease" Width="1.5" PointX="43.75" PointY="446.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_LeaseApplication" Width="1.5" PointX="43.75" PointY="457.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_License" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_LicenseAsset" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_LicenseAssetModelPart" Width="1.5" PointX="14.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_LicenseHistory" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Lithology" Width="1.5" PointX="39" PointY="474.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Location" Width="1.5" PointX="26.25" PointY="432" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_LocationAlias" Width="1.5" PointX="28.5" PointY="444.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_LocationData" Width="1.5" PointX="28.5" PointY="439.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_LocationHistory" Width="1.5" PointX="36.5" PointY="447.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_MetaData" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_MetaDataRelation" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Mineralogy" Width="1.5" PointX="30.75" PointY="526.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ModelCharacteristic" Width="1.5" PointX="26.25" PointY="393.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Opportunity" Width="1.5" PointX="45.75" PointY="478.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Parameter" Width="1.5" PointX="26.25" PointY="543.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ParameterDuplicate" Width="1.5" PointX="28.5" PointY="544.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ParameterGroup" Width="1.5" PointX="24" PointY="426" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_PartCharacteristic" Width="1.5" PointX="31.5" PointY="479.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_PointLoad" Width="1.5" PointX="33.75" PointY="511.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_PrivateData" Width="1.5" PointX="5.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Project" Width="1.5" PointX="46.75" PointY="438.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProjectDeliverable" Width="1.5" PointX="34.5" PointY="452.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProjectPlan" Width="1.5" PointX="49" PointY="460.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProjectPlanTask" Width="1.5" PointX="46" PointY="520" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProjectPlanTaskComplianceResponse" Width="1.5" PointX="24.75" PointY="491.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProjectPlanTaskData" Width="1.5" PointX="48.25" PointY="526.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProjectPlanTaskResponse" Width="1.5" PointX="49.25" PointY="508.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProjectPlanTaskResponseData" Width="1.5" PointX="51.5" PointY="510" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProjectPlanTaskWorker" Width="1.5" PointX="46.75" PointY="515" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProspectusProject" Width="1.5" PointX="26.25" PointY="410.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProspectusProjectCommodity" Width="1.5" PointX="24" PointY="330.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Province" Width="1.5" PointX="39.25" PointY="452.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProvinceAlias" Width="1.5" PointX="41.5" PointY="452.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProvinceData" Width="1.5" PointX="41.5" PointY="457.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ProvinceRelation" Width="1.5" PointX="41.5" PointY="524.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Recovery" Width="1.5" PointX="38.75" PointY="445.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Sample" Width="1.5" PointX="30.75" PointY="554.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_SecurityBlacklist" Width="1.5" PointX="52" PointY="459" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_SecurityWhitelist" Width="1.5" PointX="55" PointY="459" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Server" Width="1.5" PointX="7.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_ServerApplication" Width="1.5" PointX="9.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Survey" Width="1.5" PointX="48.25" PointY="483.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Task" Width="1.5" PointX="43.75" PointY="525.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_TaskData" Width="1.5" PointX="46" PointY="535.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_TaskRelation" Width="1.5" PointX="46" PointY="561" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Tenement" Width="1.5" PointX="41.5" PointY="411.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_TenementCommodity" Width="1.5" PointX="27" PointY="330.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_TenementProvince" Width="1.5" PointX="43.75" PointY="433.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_TenementRelation" Width="1.5" PointX="43.75" PointY="438.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_Usage" Width="1.5" PointX="11.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_UsageAudit" Width="1.5" PointX="24" PointY="653" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_UserData" Width="1.5" PointX="13.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_WaterFlow" Width="1.5" PointX="30.75" PointY="515" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DefinitionIdentityTable" Width="1.5" PointX="15.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.IdentityOwnerTable" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.InstanceMetadataChangesTable" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.InstancePromotedPropertiesTable" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.InstancesTable" Width="1.5" PointX="17.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.KeysTable" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.LockOwnersTable" Width="1.5" PointX="17.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.RunnableInstancesTable" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.ServiceDeploymentsTable" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.vw_aspnet_Applications" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.vw_aspnet_MembershipUsers" Width="1.5" PointX="0.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.vw_aspnet_Profiles" Width="1.5" PointX="2.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.vw_aspnet_Roles" Width="1.5" PointX="19.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.vw_aspnet_Users" Width="1.5" PointX="19.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.vw_aspnet_UsersInRoles" Width="1.5" PointX="19.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="19.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.vw_aspnet_WebPartState_User" Width="1.5" PointX="20.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_ALLPARAMSTEST" Width="1.5" PointX="13.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_Company" Width="1.5" PointX="19.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_DictionaryHeader" Width="1.5" PointX="4.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_ExperienceBasicView" Width="1.5" PointX="21.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_License" Width="1.5" PointX="6.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_ModelsCurrent" Width="1.5" PointX="8.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_ModelStatus" Width="1.5" PointX="10.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_ProjectModelsAwaitingAuthorisation" Width="1.5" PointX="21.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_ProjectStatus" Width="1.5" PointX="15.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_SurveyViews" Width="1.5" PointX="21.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.X_VW_WorkType" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.InstancePromotedProperty" Width="1.5" PointX="21.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Instance" Width="1.5" PointX="23.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.ServiceDeployment" Width="1.5" PointX="23.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK__aspnet_Me__Appli__03DB89B3" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK__aspnet_Pa__Appli__31A25463" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK__aspnet_Ro__Appli__2077C861" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK__aspnet_Us__Appli__758D6A5C" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK__aspnet_Me__UserI__04CFADEC" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK__aspnet_Pe__PathI__375B2DB9" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK__aspnet_Pe__PathI__3B2BBE9D" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK__aspnet_Pe__UserI__3C1FE2D6" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK__aspnet_Pr__UserI__17E28260" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Credit_E_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Credit_E_Invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Credit_E_InvoiceLine" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Credit_E_Supply" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Currency_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Invoice_E_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_InvoiceLine_E_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Journal_E_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Payment_E_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_E_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItem_E_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProspectusProject_E_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_DictionaryTax_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_DictionaryTax_X_DictionaryCountryState" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_DictionaryTax_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_DictionaryTax_X_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_InvoiceLine_E_DictionaryTax" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItemTax_E_DictionaryTax" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Invoice_Q_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Invoice_Q_Account1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Invoice_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Invoice_X_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Invoice_X_CompanyAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Invoice_X_CompanyAddress1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_InvoiceLine_E_Invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Supply_E_Invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Supply_E_Invoice1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_InvoiceLine_E_SupplyItem" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Journal_Q_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Payment_E_Payment" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Payment_Q_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Payment_Q_Account1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_Q_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_Q_Account1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_X_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_X_Contact1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Supply_E_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Supply_E_PurchaseOrder1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Asset_E_PurchaseOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Supply_E_Supply" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Supply_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Supply_X_Contact1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Supply_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Supply_X_ProjectDeliverable" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Supply_X_ProjectDeliverable1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItem_E_Supply" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItem_Q_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItem_Q_ProjectPlanTaskModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItem_Q_ProjectPlanTaskPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItem_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItem_X_DictionaryUnit1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItem_X_DictionaryUnit2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItem_X_ProjectPlanTaskResponse" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_SupplyItemTax_E_SupplyItem" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Account_Q_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Account_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Account_X_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_Q_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Asset_Q_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Asset_Q_Account1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Asset_Q_Account2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_CompanyAccount_Q_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_Q_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AccountDiscount_Q_DictionaryDeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AccountDiscount_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_X_Experience" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Asset_Q_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Asset_Q_DicitonaryAssetStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Asset_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Asset_X_Experience" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Asset_X_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AssetAlias_Q_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AssetMaintenance_Q_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AssetWarranty_Q_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ContractAsset_Q_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdviceItems_Q_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_RecallModelAssets_Q_Asset" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AssetMaintenance_Q_ModelProcedure" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AssetWarranty_Q_DictionaryWarrantyType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AssetWarranty_Q_ModelWarranty" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_AssetWarranty_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_CompanyAccount_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ContractAsset_X_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_Q_DictionaryDeliveryAdvice" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_CompanyAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_CompanyAddress1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_ProjectDeliverable" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdviceItems_Q_DeliveryAdvice" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdviceItem_Q_DictionaryDecontaminationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DeliveryAdviceItems_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryDeviceType_Q_DictionaryDeviceType1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryDeviceType_X_Experience" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryPart_Q_DictionaryDeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryPartCategory_Q_DictionaryDeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryModel_Q_DictionaryDeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryModelCategory_Q_DictionaryDeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_WorkflowSchedule_Q_DictionaryEventType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryPart_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryPart_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryPart_X_DictionaryPartStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryPart_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryPart_X_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryPartCategory_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryProcedure_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelPart_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelProcedureTaskPart_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_PartKitItems_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_PartSupplier_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_PartWarehouseStockControl_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskPart_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ContractConditionPart_X_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_PartCharacteristic_Q_DictionaryPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelPartKit_Q_DictionaryPartKit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_PartKitItems_Q_DictionaryPartKit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryPartKitItem_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryProcedure_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryProcedure_X_DictionaryCountryState" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryProcedure_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryProcedure_X_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryProcedure_X_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryProcedure_X_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_DictionaryProcedure_X_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelProcedure_Q_DictionaryProcedure" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelWarranty_Q_DictionaryWarrantyType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelPart_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelPartKit_Q_ModelPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelProcedure_Q_ModelProcedure" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelProcedure_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelProcedureTask_Q_ModelProcedure" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelScheduleCycle_Q_ModelProcedure" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelProcedureTask_Q_ModelProcedureTask" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelProcedureTask_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelProcedureTask_X_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelProcedureTask_X_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelProcedureTaskPart_Q_ModelProcedureTask" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelScheduleCycle_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelScheduleCycle_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelWarranty_X_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelWarranty_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelWarranty_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskModel_Q_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskModel_Q_SupplierModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskModel_Q_WarehouseModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskModel_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskModel_X_ProjectPlanTask" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskPart_Q_SupplierPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskPart_Q_WarehousePart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskPart_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskPart_X_ProjectPlanTask" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Recall_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Recall_X_Contact1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Recall_X_Contact2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Recall_X_Contact3" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Recall_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_RecallModel_Q_Recall" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_RecallsModel_Q_Recalls" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_RecallModel_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_RecallModelAssets_Q_RecallModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_RecallModelAssets_X_ProjectPlan" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelSupplier_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelSupplier_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelSupplier_X_DictionaryUnit1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelSupplier_X_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_SupplierModel_X_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_SupplierModel_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_WarehouseModelSupplier_Q_SupplierModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_PartSupplier_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_PartSupplier_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_PartSupplier_X_DictionaryUnit1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_PartSupplier_X_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_SupplierPart_X_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_WarehousePartSupplier_Q_SupplierPart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelWarehouseStockControl_Q_ModelWarehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_PartWarehouse_Q_" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_PartWarehouseStockControl_Q_PartWarehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Warehouse_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_Warehouse_X_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_ModelWarehouseStockControl_Q_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_WarehouseModelSupplier_Q_WarehouseModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_WarehouseModelSupplier_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_WarehousePartSupplier_Q_WarehousePart" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_WarehousePartSupplier_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_Q_WorkflowSchedule_X_Experience" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Address_X_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CompanyAddress_X_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ContactAddress_X_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Person1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Person2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_AssayGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_AssayGroupTest" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_AssayGroupTestSample" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionaryAssayStandard" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionarySample_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionarySampleState" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionarySampleType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_DictionaryAssayMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_DictionaryAssayType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_Parameter" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestResult_X_AssayGroupTest" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestResult_X_AssayGroupTestSample" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestResultComment_X_AssayGroupTestResult" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestResultDuplicate_X_AssayGroupTestResult" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModel_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModel_X_Contact2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModel_X_Contact3" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModel_X_Contact4" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModel_X_DictionaryDimension" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModel_X_DictionaryDimension1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModel_X_DictionaryDimension2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModel_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModelBlock_X_BlockModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModelBlockData_X_BlockModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModelMetadata_X_BlockModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModelBlockData_X_BlockModelBlock" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Composite_X_BlockModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModelBlockData_X_Parameter" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_BlockModelMetadata_X_Parameter" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Casing_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Casing_X_DictionaryUnit1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Casing_X_DictionaryUnit2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CasingData_X_DictionaryCasing_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CasingData_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Casing" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CementingData_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Cementing" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Company_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Company_X_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CompanyAddress_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CompanyRelation_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CompanyRelation_X_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Compliance_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_Company2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_Company3" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryFileType_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryModel_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Drilling_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderGeophysicalLog_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Lease_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LeaseApplication_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Location_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Project_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProspectusProject_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProspectusProject_X_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Province_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityBlacklist_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityBlacklist_X_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityWhitelist_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityWhitelist_X_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Survey_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Tenement_X_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Compliance_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Compliance_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Compliance_X_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ComplianceTask_X_Compliance" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ComplianceWorkType_X_Compliance" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ComplianceTask_X_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ComplianceWorkType_X_DictionaryWorkType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskComplianceResponse_X_ComplianceWorkType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ContactAddress_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact3" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingData_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_GeologistData_X_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderGeophysicalLog_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Lease_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LeaseApplication_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Location_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LocationHistory_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_Contact1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_Contact2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_Contact3" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_Contact4" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_Contact5" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Person_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_Contact1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_Contact2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlan_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskComplianceResponse_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskComplianceResponse_X_Contact1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskResponse_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskResponse_X_Contact1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProspectusProject_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Province_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityBlacklist_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityWhitelist_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityWhitelist_X_Contact1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Survey_X_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Tenement_X_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_ProjectDeliverable" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Contract_X_ProjectDeliverable1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ContractCondition_X_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Drill_Company_Contract_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ContractCondition_X_DictionaryContractConditionType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ContractCondition_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ContractConditionModel_X_ContractCondition" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ContractConditionPart_X_ContractCondition" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ContractConditionModel_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_CostEstimateModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_DictionaryCostType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_DictionaryUnit1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Defect_X_DictionaryRockMassUnitType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryAlteration" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryDip_Orient_Meth" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryEst_Strength" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryEst_Strength1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryInfill_Mode" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryInfill_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryInfill_Type1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryMoist_Sensitive" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryPlasticity" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryPlasticity1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryRoughness" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryShape" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryWeathering" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Defect" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Desurvey_X_DictionaryDesurveyAlgorithmType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Desurvey_X_Survey" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Desurvey" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryAdjective_X_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryAdjective" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective2" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective3" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAlteration_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayMethod_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayStandard_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayTest_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryBasal_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryBasalContact_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryBed_Spacing" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryBedSpacing_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryCharacteristic_X_DictionaryCharacteristicType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryCharacteristic_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ModelCharacteristic_X_DictionaryCharacteristic" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_PartCharacteristic_X_DictionaryCharacteristic" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryCharacteristic_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryCharacteristicType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryColour" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryColour_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProspectusProjectCommodityID_X_DictionaryCommodity" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_TenementCommodityID_X_Commodity" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryCommodity_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryContractCondition_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryCore_State" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryCoreState_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryCountryState_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Location_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProspectusProject_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Province_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Tenement_X_DictionaryCountry" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryCountry_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Location_X_DictionaryCountryState" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProspectusProject_X_DictionaryCountryState" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Province_X_DictionaryCountryState" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryCountryState_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryData_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDataStatus_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryDefect_Intact" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDefectCompleteness_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDefectContinuity_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryDefect_Spacing" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDefectSpacing_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryDefect_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDefectType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDesurveyAlgorithmType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDimension_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDipOrientationMethod_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryDomainRelations_X_DictionaryDomainRelations" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryDomain" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDomain_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDomainAlias_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingData_X_DictionaryDrillBitType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDrillBitType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDrillCasingType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingData_X_DictionaryDrill_Fluid" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDrillFluid_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingData_X_DictionaryRig_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDrillRigType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingData_X_DictionaryDrill_Size_Name" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_RecoveryData_X_DictionaryDrill_Size_Name" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryDrillSize_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryEst_Strength" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryEstimatedStrength_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_PointLoadData_X_DictionaryFailure_Mode" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryFailureMode_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryFileType_X_DictionaryFileType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_FileData_X_DictionaryFileType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryFileType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_WaterFlowData_X_DictionaryFlow_Test_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryFlowTestType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryGas" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryGasDetected_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryGeodetic_Datum" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryGeodeticDatum_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderGeophysicalLog_X_DictionaryGeophysicalLogType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryGeophysicalLogType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryGroupMembership_X_DictionaryGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryGroupMembership_X_DictionaryGroupMembership" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ParameterGroup_X_DictionaryGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryGroup_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryGroupMembership_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHeight_Datum" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryHeightDatum_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Purpose" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Purpose1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryHolePurpose_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryHoleStatus_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryHoleType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryHorizon" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryHorizon_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryHue" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryHue_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryInfillMode_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryInfillType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryInterval_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryIntervalStatus_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LeaseApplication_X_DictionaryLeaseApplicationType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLeaseApplicationType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLicenseType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Interrel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Qual" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Location_X_DictionaryLocationType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLocationType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryMech_State" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryMechanicalState_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Mineralogy_X_DictionaryMin_Abundance" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryMineralAbundance_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryMin_Fos_Abund" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryMineralAndFossilAbundance_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryMin_Fos_Assoc" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryMineralAndFossilAssociation_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryMin_Fos_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryMineralAndFossilType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Mineralogy_X_DictionaryMin_Form" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryMineralForm_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Mineralogy_X_DictionaryMin_Style" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryMineralStyle_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Mineralogy_X_DictionaryMin_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryMineralType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryModel_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryModel_X_DictionaryModel1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryModel_X_DictionaryModelStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryModel_X_DictionaryUnit1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryModelCategory_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ModelCharacteristic_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Survey_X_DictionaryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryModel_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryModelRelation_X_DictionaryRelationType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryModelStatus_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryMoistureSensitivity_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryPartStatus_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryPlasticity_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryPlyAlias_X_DictionaryPlyAlias" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Interpretation_X_DictionaryPly" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryPly" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryPly_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryPlyAlias_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_PointLoadData_X_DictionaryPL_Test_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryPointLoadTestType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_DictionaryPosition" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryPosition_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryProfession" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_DictionaryProfession" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryProfession_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryProvinceGroup_X_DictionaryProvinceType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Province_X_DictionaryProvinceGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryProvinceGroup_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Province_X_DictionaryProvinceType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryProvinceType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderRelation_X_DictionaryRelationType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProvinceRelation_X_DictionaryRelationType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_TaskRelation_X_DictionaryRelationType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryRelationType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryRockMassUnitType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestSample_X_DictionarySampleCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionarySampleCategory_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestSample_X_DictionarySampleState" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_PointLoadData_X_DictionarySample_State" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionarySampleState_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestSample_X_DictionarySampleType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySample_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_PointLoadData_X_DictionarySample_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_WaterFlowData_X_DictionarySample_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionarySampleType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Composite_X_DictionarySeam" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionarySeamAlias_X_DictionarySeam" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionarySeam" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionarySeam_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionarySeamAlias_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionarySedimentaryFeature_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryShade" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryShade_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryShape_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryStratigraphy" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryStratigraphy_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionarySurfaceRoughness_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_DictionarySurvey_Accuracy" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionarySurveyAccuracy_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryTexture" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryTexture_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CompositeData_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryUnit_X_DictionaryUnitType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Geophysics_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Task_X_DictionaryUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryUnit_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryUnitType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_UsageAudit_X_DictionaryUsageAuditType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryUsageAuditType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryWeathering" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryWeathering_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryWorkType_X_DictionaryWorkType1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryWorkTypeRelation_X_DictionaryWorkType1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_DictionaryWorkType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_DictionaryWorkType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_DictionaryWorkType1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_DictionaryWorkType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTask_X_DictionaryWorkType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskResponse_X_DictionaryWorkType" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryWorkType_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryWorkTypeClass_X_FileData_OriginalFile" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Drilling" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingData_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_Drilling" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_ProjectPlanTask" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_FileData_X_Experience" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_Experience" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskWorker_X_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Task_X_Experience" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_FileID_X_FileID" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Geophysics_X_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_FileData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Geology" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_GeologistData_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Geophysics_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_GeophysicsMetadata_X_Geophysics" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_GeophyicsData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_GeophyicsData_X_GeophysicsMetadata" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_GeophysicsMetadata_X_Parameter" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestSample_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Header_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderGeophysicalLog_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderRelation_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderRelation_X_Header1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Mineralogy_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_PointLoadData_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_RecoveryData_X_Header1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Survey_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_WaterFlowData_X_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_AssayGroupTestSample" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Lithology" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Mineralogy" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_PointLoad" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Recovery" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_InterpretationData_X_Interpretation" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_CompositeCustomData_X_Parameter" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Lease_X_Tenement" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LeaseApplication_X_Tenement" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LocationAlias_X_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LocationHistory_X_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LocationID_X_LocationID" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_MetaDataRelation_X_MetaData" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Opportunity_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ParameterDuplicate_X_Parameter" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ParameterDuplicate_X_Parameter1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ParameterGroup_X_ParameterGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskResponse_X_Parameter" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Task_X_Parameter" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Project_X_Project1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Project_X_Tenement" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlan_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProspectusProject_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityBlacklist_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityBlacklist_X_Project1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityWhitelist_X_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_SecurityWhitelist_X_Project1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_ProjectPlanTask" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlan_X_ProjectPlan" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTask_X_ProjectPlan" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTask_X_ProjectPlanTask" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTask_X_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskComplianceResponse_X_ProjectPlanTask" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskID_X_ProjectPlanTaskID" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskResponse_X_ProjectPlanTask" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskWorker_X_ProjectPlanTask" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskComplianceResponse_X_ProjectPlanTaskResponse" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskResponseID_X_ProjectPlanTaskResponseID" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Prospectus_X_Tenement" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProspectusProject_X_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProspectusProjectCommodity_X_ProspectusProject" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProvinceAlias_X_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProvinceID_X_ProvinceID" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProvinceRelation_X_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProvinceRelation_X_Province1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Tenement_X_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_TenementProvince_X_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_TaskID_X_TaskID" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_TaskRelation_X_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_TaskRelation_X_Task1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_TenementCommodityID_X_Tenement" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_TenementProvince_X_Tenement" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_x_TenementRelation_X_Tenement" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_x_TenementRelation_X_Tenement1" ManuallyRouted="false" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.aspnet_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -16,7 +16,7 @@ using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using DevExpress.Data.Filtering;
-using XODB.Module.BusinessObjects.XODB;
+using XODB.Module.BusinessObjects;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
@@ -40,40 +40,41 @@ namespace XODB.Module.Win.Controllers
 
             try
             {
-                XPLiteObject o = e.Action.SelectionContext.CurrentObject as XPLiteObject;
-                var value = o.This.GetType().GetProperty(o.ClassInfo.KeyProperty.Name).GetValue(o.This) as Guid?;
-                var table = o.ClassInfo.TableName;
+                //throw new NotImplementedException();
+                //object o = e.Action.SelectionContext.CurrentObject;
+                //var value = o.This.GetType().GetProperty(o.ClassInfo.KeyProperty.Name).GetValue(o.This) as Guid?;
+                //var table = o.ClassInfo.TableName;
 
-                IObjectSpace objectSpace = Application.CreateObjectSpace();
-                CollectionSource collectionSource = new CollectionSource(objectSpace, typeof(FileData));
-                CriteriaOperator c1 = new BinaryOperator(
-                    new OperandProperty("TableType"), table,
-                    BinaryOperatorType.Equal
-                );
-                CriteriaOperator c2 = new BinaryOperator(
-                    new OperandProperty("ReferenceID"), value,
-                    BinaryOperatorType.Equal
-                );
-                CriteriaOperator co = c1 & c2;
-                collectionSource.Criteria.Add("Refences", co);
-                //Do this for manual data lists
-                //if ((collectionSource.Collection as XPBaseCollection) != null)
-                //{
-                //    ((XPBaseCollection)collectionSource.Collection).LoadingEnabled = false;
-                //}
-                ListView view = Application.CreateListView(Application.GetListViewId(typeof(FileData)), collectionSource, false);
-                view.Editor.AllowEdit = true;
-                foreach (var k in view.AllowNew.GetKeys())
-                    view.AllowNew[k] = false;
-                foreach (var k in view.AllowDelete.GetKeys())
-                    view.AllowDelete[k] = false;
-                foreach (var k in view.AllowEdit.GetKeys())
-                    view.AllowEdit[k] = false;
-                foreach (var k in e.DialogController.AcceptAction.Enabled.GetKeys())
-                    e.DialogController.AcceptAction.Enabled[k] = false;
-                e.DialogController.AcceptAction.Enabled.SetItemValue("Item.Enabled", false);
-                e.View = view;
-                e.DialogController.SaveOnAccept = false;
+                //IObjectSpace objectSpace = Application.CreateObjectSpace();
+                //CollectionSource collectionSource = new CollectionSource(objectSpace, typeof(FileData));
+                //CriteriaOperator c1 = new BinaryOperator(
+                //    new OperandProperty("TableType"), table,
+                //    BinaryOperatorType.Equal
+                //);
+                //CriteriaOperator c2 = new BinaryOperator(
+                //    new OperandProperty("ReferenceID"), value,
+                //    BinaryOperatorType.Equal
+                //);
+                //CriteriaOperator co = c1 & c2;
+                //collectionSource.Criteria.Add("Refences", co);
+                ////Do this for manual data lists
+                ////if ((collectionSource.Collection as XPBaseCollection) != null)
+                ////{
+                ////    ((XPBaseCollection)collectionSource.Collection).LoadingEnabled = false;
+                ////}
+                //ListView view = Application.CreateListView(Application.GetListViewId(typeof(FileData)), collectionSource, false);
+                //view.Editor.AllowEdit = true;
+                //foreach (var k in view.AllowNew.GetKeys())
+                //    view.AllowNew[k] = false;
+                //foreach (var k in view.AllowDelete.GetKeys())
+                //    view.AllowDelete[k] = false;
+                //foreach (var k in view.AllowEdit.GetKeys())
+                //    view.AllowEdit[k] = false;
+                //foreach (var k in e.DialogController.AcceptAction.Enabled.GetKeys())
+                //    e.DialogController.AcceptAction.Enabled[k] = false;
+                //e.DialogController.AcceptAction.Enabled.SetItemValue("Item.Enabled", false);
+                //e.View = view;
+                //e.DialogController.SaveOnAccept = false;
                 
             }
             catch (Exception ex)

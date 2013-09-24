@@ -16,7 +16,7 @@ using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using DevExpress.Data.Filtering;
-using XODB.Module.BusinessObjects.XODB;
+using XODB.Module.BusinessObjects;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
@@ -42,7 +42,7 @@ namespace XODB.Module.Win.Controllers
 
         void NewDocumentController_ObjectCreated(object sender, ObjectCreatedEventArgs e)
         {
-            if (e.CreatedObject is FileData)
+            if (e.CreatedObject is X_FileData)
             {
                 try
                 {
@@ -50,9 +50,10 @@ namespace XODB.Module.Win.Controllers
                     var view = sender as DevExpress.ExpressApp.ViewController;
                     if (view == null || view.View == null || view.View.SelectedObjects == null || view.View.SelectedObjects.Count < 1)
                         return;
-                    XPLiteObject o = view.View.SelectedObjects[0] as XPLiteObject;
-                    ((FileData)e.CreatedObject).ReferenceID = (Guid)o.This.GetType().GetProperty(o.ClassInfo.KeyProperty.Name).GetValue(o.This);
-                    ((FileData)e.CreatedObject).TableType = o.ClassInfo.TableName;
+                    //TODO throw new NotImplementedException();
+                    //XPLiteObject o = view.View.SelectedObjects[0] as XPLiteObject;
+                    //((FileData)e.CreatedObject).ReferenceID = (Guid)o.This.GetType().GetProperty(o.ClassInfo.KeyProperty.Name).GetValue(o.This);
+                    //((FileData)e.CreatedObject).TableType = o.ClassInfo.TableName;
                 }
                 catch { }
             }
@@ -60,7 +61,7 @@ namespace XODB.Module.Win.Controllers
 
         void myAction_Execute(object sender, DevExpress.ExpressApp.Actions.SimpleActionExecuteEventArgs e)
         {
-            var args = new SingleChoiceActionExecuteEventArgs(e.Action, e.Action.SelectionContext, new ChoiceActionItem("NewObject", typeof(FileData)));
+            var args = new SingleChoiceActionExecuteEventArgs(e.Action, e.Action.SelectionContext, new ChoiceActionItem("NewObject", typeof(X_FileData)));
             New(args);
             e.ShowViewParameters.Assign(args.ShowViewParameters);
         }

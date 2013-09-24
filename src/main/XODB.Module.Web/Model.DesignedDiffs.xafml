@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
   <SchemaModules>
-    <SchemaModule Name="SystemModule" Version="12.1.8.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
   <ViewItems>
     <PropertyEditor Name="PropertyEditors">

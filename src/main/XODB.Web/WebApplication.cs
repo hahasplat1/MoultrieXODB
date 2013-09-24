@@ -5,6 +5,9 @@ using DevExpress.ExpressApp.Xpo;
 using DevExpress.ExpressApp.Web;
 using System.Collections.Generic;
 //using DevExpress.ExpressApp.Security;
+using DevExpress.ExpressApp.EF;
+using DevExpress.ExpressApp.DC;
+using XODB.Module.BusinessObjects;
 
 namespace XODB.Web
 {
@@ -36,7 +39,13 @@ namespace XODB.Web
 
         protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args)
         {
-            args.ObjectSpaceProvider = new XPObjectSpaceProviderThreadSafe(args.ConnectionString, args.Connection);
+            //args.ObjectSpaceProvider = new XPObjectSpaceProviderThreadSafe(args.ConnectionString, args.Connection);
+
+            args.ObjectSpaceProviders.Add(new EFObjectSpaceProvider(
+            typeof(MyObjectContext), (TypesInfo)TypesInfo, null, args.ConnectionString,
+            "res://*/BusinessObjects.XODB.csdl|res://*/BusinessObjects.XODB.ssdl|res://*/BusinessObjects.XODB.msl",
+            "System.Data.SqlClient"));
+            //args.ObjectSpaceProviders.Add(new XPObjectSpaceProvider(args.ConnectionString, null));            
         }
 
         private void XODBAspNetApplication_DatabaseVersionMismatch(object sender, DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs e)

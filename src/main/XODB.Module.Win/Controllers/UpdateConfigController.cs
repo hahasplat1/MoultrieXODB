@@ -16,7 +16,7 @@ using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using DevExpress.Data.Filtering;
-using XODB.Module.BusinessObjects.XODB;
+using XODB.Module.BusinessObjects;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;

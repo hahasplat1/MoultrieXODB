@@ -68,12 +68,10 @@
     <Reference Include="DevExpress.Web.v13.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpo.v13.1">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
       <Private>False</Private>
@@ -98,7 +96,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WebModule.resx">
       <DependentUpon>WebModule.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -111,6 +112,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Controllers\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\ReadMe.txt" />
+    <None Include="packages.config" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

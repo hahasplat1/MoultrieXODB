@@ -8,7 +8,7 @@
     </Class>
   </BOModel>
   <SchemaModules>
-    <SchemaModule Name="SystemModule" Version="12.1.8.0" IsNewNode="True" />
-    <SchemaModule Name="SystemWindowsFormsModule" Version="12.1.8.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
 </Application>

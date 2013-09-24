@@ -4,8 +4,11 @@ using System.ComponentModel;
 using DevExpress.ExpressApp.Win;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.Xpo;
 using System.Data.SqlClient;
+using XODB.Module.BusinessObjects;
+using DevExpress.ExpressApp.EF;
+using DevExpress.ExpressApp.DC;
+using DevExpress.ExpressApp.Xpo;
 namespace XODB.Win
 {
     public partial class XODBWindowsFormsApplication : WinApplication
@@ -18,7 +21,9 @@ namespace XODB.Win
 
         protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args)
         {
-            args.ObjectSpaceProvider = new XPObjectSpaceProvider(args.ConnectionString, args.Connection);
+            args.ObjectSpaceProviders.Add(new EFObjectSpaceProvider(typeof(XODBC), (TypesInfo)TypesInfo, null, args.ConnectionString, "res://*/BusinessObjects.XODB.csdl|res://*/BusinessObjects.XODB.ssdl|res://*/BusinessObjects.XODB.msl", "System.Data.SqlClient"));
+            //args.ObjectSpaceProviders.Add(new EFObjectSpaceProviderCF(typeof(XODBC), (TypesInfo)TypesInfo, null, args.ConnectionString));
+            args.ObjectSpaceProviders.Add(new XPObjectSpaceProvider(args.ConnectionString, null));            
         }
         private void XODBWindowsFormsApplication_DatabaseVersionMismatch(object sender, DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs e)
         {

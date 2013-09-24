@@ -51,9 +51,8 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.ExpressApp.Xpo.v13.1">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+    <Reference Include="DevExpress.ExpressApp.EF.45.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v13.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -87,15 +86,19 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.v13.1">
+    <Reference Include="DevExpress.Office.v13.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpo.v13.1">
+    <Reference Include="DevExpress.RichEdit.v13.1.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Web.v13.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration">
       <Private>False</Private>
     </Reference>
@@ -229,6 +232,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <None Include="ReadMe.txt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

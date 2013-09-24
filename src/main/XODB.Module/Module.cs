@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using DevExpress.ExpressApp;
 using System.Reflection;
-
+using DevExpress.ExpressApp.EF;
 
 namespace XODB.Module
 {
@@ -12,6 +12,8 @@ namespace XODB.Module
         public XODBModule()
         {
             InitializeComponent();
+            ExportedTypeHelpers.AddExportedTypeHelper(new EFExportedTypeHelper());
         }
+
     }
 }
