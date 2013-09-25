@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets47ECFB033B33461B2E5735AEFBD26C1F4DE83AFA3B4C7EB8753D5B9B035FFA8A))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets100B6208EB1B267D59FE6C593E5CBDA4C0DAA76ABD440FC972B357F075DDB2B6))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets47ECFB033B33461B2E5735AEFBD26C1F4DE83AFA3B4C7EB8753D5B9B035FFA8A : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets100B6208EB1B267D59FE6C593E5CBDA4C0DAA76ABD440FC972B357F075DDB2B6 : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets47ECFB033B33461B2E5735AEFBD26C1F4DE83AFA3B4C7EB8753D5B9B035FFA8A()
+        public ViewsForBaseEntitySets100B6208EB1B267D59FE6C593E5CBDA4C0DAA76ABD440FC972B357F075DDB2B6()
         {
             this.EdmEntityContainerName = "XODBC";
             this.StoreEntityContainerName = "XODBModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "9ed590873c39ff061e21f77073e2e769ccd07c04d6798b8d8e4664ad34295230";
-            this.HashOverAllExtentViews = "ca2d548e7bb37a87069a16cba96a9dd8584f1ee2929fee9e18564220cadb64df";
+            this.HashOverMappingClosure = "0d0409d906b11b3876a9dc9df8b7bd6b5f8a19bc7832f16969600776420cb49c";
+            this.HashOverAllExtentViews = "e47cfa028c50fc6bfd72bae5a8212c47f234c60cbd4f6f88569d0c3dcad6db33";
             this.ViewCount = 584;
         }
         
@@ -9719,46 +9719,46 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView238()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3093);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3105);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_ProspectusProject\r\n        [XODB.Module.Bus");
             viewString.Append("inessObjects.Store.X_ProspectusProject](T1.[X_ProspectusProject.ProspectusProjec");
             viewString.Append("tID], T1.[X_ProspectusProject.ProjectID], T1.[X_ProspectusProject.ProspectusProj");
-            viewString.Append("ectName], T1.[X_ProspectusProject.Company], T1.[X_ProspectusProject.CompanyID], ");
-            viewString.Append("T1.[X_ProspectusProject.Geologist], T1.[X_ProspectusProject.GeologistContactID],");
-            viewString.Append(" T1.[X_ProspectusProject.GeologyCompanyID], T1.[X_ProspectusProject.ListDate], T");
-            viewString.Append("1.[X_ProspectusProject.Cost], T1.[X_ProspectusProject.CurrencyID], T1.[X_Prospec");
-            viewString.Append("tusProject.Pages], T1.[X_ProspectusProject.CountryID], T1.[X_ProspectusProject.C");
-            viewString.Append("ountryStateID], T1.[X_ProspectusProject.Place], T1.[X_ProspectusProject.Tenement");
-            viewString.Append("ID], T1.[X_ProspectusProject.ProvinceID], T1.[X_ProspectusProject.Version], T1.[");
-            viewString.Append("X_ProspectusProject.VersionAntecedentID], T1.[X_ProspectusProject.VersionCertain");
-            viewString.Append("ty], T1.[X_ProspectusProject.VersionWorkflowInstanceID], T1.[X_ProspectusProject");
-            viewString.Append(".VersionUpdatedBy], T1.[X_ProspectusProject.VersionDeletedBy], T1.[X_ProspectusP");
-            viewString.Append("roject.VersionOwnerContactID], T1.[X_ProspectusProject.VersionOwnerCompanyID], T");
-            viewString.Append("1.[X_ProspectusProject.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n          ");
-            viewString.Append("  T.ProspectusProjectID AS [X_ProspectusProject.ProspectusProjectID], \r\n        ");
-            viewString.Append("    T.ProjectID AS [X_ProspectusProject.ProjectID], \r\n            T.ProspectusPr");
-            viewString.Append("ojectName AS [X_ProspectusProject.ProspectusProjectName], \r\n            T.Compan");
-            viewString.Append("y AS [X_ProspectusProject.Company], \r\n            T.CompanyID AS [X_ProspectusPr");
-            viewString.Append("oject.CompanyID], \r\n            T.Geologist AS [X_ProspectusProject.Geologist], ");
-            viewString.Append("\r\n            T.GeologistContactID AS [X_ProspectusProject.GeologistContactID], ");
-            viewString.Append("\r\n            T.GeologyCompanyID AS [X_ProspectusProject.GeologyCompanyID], \r\n  ");
-            viewString.Append("          T.ListDate AS [X_ProspectusProject.ListDate], \r\n            T.Cost AS ");
-            viewString.Append("[X_ProspectusProject.Cost], \r\n            T.CurrencyID AS [X_ProspectusProject.C");
-            viewString.Append("urrencyID], \r\n            T.Pages AS [X_ProspectusProject.Pages], \r\n            ");
-            viewString.Append("T.CountryID AS [X_ProspectusProject.CountryID], \r\n            T.CountryStateID A");
-            viewString.Append("S [X_ProspectusProject.CountryStateID], \r\n            T.Place AS [X_ProspectusPr");
-            viewString.Append("oject.Place], \r\n            T.TenementID AS [X_ProspectusProject.TenementID], \r\n");
-            viewString.Append("            T.ProvinceID AS [X_ProspectusProject.ProvinceID], \r\n            T.Ve");
-            viewString.Append("rsion AS [X_ProspectusProject.Version], \r\n            T.VersionAntecedentID AS [");
-            viewString.Append("X_ProspectusProject.VersionAntecedentID], \r\n            T.VersionCertainty AS [X");
-            viewString.Append("_ProspectusProject.VersionCertainty], \r\n            T.VersionWorkflowInstanceID ");
-            viewString.Append("AS [X_ProspectusProject.VersionWorkflowInstanceID], \r\n            T.VersionUpdat");
-            viewString.Append("edBy AS [X_ProspectusProject.VersionUpdatedBy], \r\n            T.VersionDeletedBy");
-            viewString.Append(" AS [X_ProspectusProject.VersionDeletedBy], \r\n            T.VersionOwnerContactI");
-            viewString.Append("D AS [X_ProspectusProject.VersionOwnerContactID], \r\n            T.VersionOwnerCo");
-            viewString.Append("mpanyID AS [X_ProspectusProject.VersionOwnerCompanyID], \r\n            T.VersionU");
-            viewString.Append("pdated AS [X_ProspectusProject.VersionUpdated], \r\n            True AS _from0\r\n  ");
-            viewString.Append("      FROM XODBC.ProspectusProjects AS T\r\n    ) AS T1");
+            viewString.Append("ectName], T1.[X_ProspectusProject.CompanyName], T1.[X_ProspectusProject.CompanyI");
+            viewString.Append("D], T1.[X_ProspectusProject.Geologist], T1.[X_ProspectusProject.GeologistContact");
+            viewString.Append("ID], T1.[X_ProspectusProject.GeologyCompanyID], T1.[X_ProspectusProject.ListDate");
+            viewString.Append("], T1.[X_ProspectusProject.Cost], T1.[X_ProspectusProject.CurrencyID], T1.[X_Pro");
+            viewString.Append("spectusProject.Pages], T1.[X_ProspectusProject.CountryID], T1.[X_ProspectusProje");
+            viewString.Append("ct.CountryStateID], T1.[X_ProspectusProject.Place], T1.[X_ProspectusProject.Tene");
+            viewString.Append("mentID], T1.[X_ProspectusProject.ProvinceID], T1.[X_ProspectusProject.Version], ");
+            viewString.Append("T1.[X_ProspectusProject.VersionAntecedentID], T1.[X_ProspectusProject.VersionCer");
+            viewString.Append("tainty], T1.[X_ProspectusProject.VersionWorkflowInstanceID], T1.[X_ProspectusPro");
+            viewString.Append("ject.VersionUpdatedBy], T1.[X_ProspectusProject.VersionDeletedBy], T1.[X_Prospec");
+            viewString.Append("tusProject.VersionOwnerContactID], T1.[X_ProspectusProject.VersionOwnerCompanyID");
+            viewString.Append("], T1.[X_ProspectusProject.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n      ");
+            viewString.Append("      T.ProspectusProjectID AS [X_ProspectusProject.ProspectusProjectID], \r\n    ");
+            viewString.Append("        T.ProjectID AS [X_ProspectusProject.ProjectID], \r\n            T.Prospect");
+            viewString.Append("usProjectName AS [X_ProspectusProject.ProspectusProjectName], \r\n            T.Co");
+            viewString.Append("mpanyName AS [X_ProspectusProject.CompanyName], \r\n            T.CompanyID AS [X_");
+            viewString.Append("ProspectusProject.CompanyID], \r\n            T.Geologist AS [X_ProspectusProject.");
+            viewString.Append("Geologist], \r\n            T.GeologistContactID AS [X_ProspectusProject.Geologist");
+            viewString.Append("ContactID], \r\n            T.GeologyCompanyID AS [X_ProspectusProject.GeologyComp");
+            viewString.Append("anyID], \r\n            T.ListDate AS [X_ProspectusProject.ListDate], \r\n          ");
+            viewString.Append("  T.Cost AS [X_ProspectusProject.Cost], \r\n            T.CurrencyID AS [X_Prospec");
+            viewString.Append("tusProject.CurrencyID], \r\n            T.Pages AS [X_ProspectusProject.Pages], \r\n");
+            viewString.Append("            T.CountryID AS [X_ProspectusProject.CountryID], \r\n            T.Coun");
+            viewString.Append("tryStateID AS [X_ProspectusProject.CountryStateID], \r\n            T.Place AS [X_");
+            viewString.Append("ProspectusProject.Place], \r\n            T.TenementID AS [X_ProspectusProject.Ten");
+            viewString.Append("ementID], \r\n            T.ProvinceID AS [X_ProspectusProject.ProvinceID], \r\n    ");
+            viewString.Append("        T.Version AS [X_ProspectusProject.Version], \r\n            T.VersionAntec");
+            viewString.Append("edentID AS [X_ProspectusProject.VersionAntecedentID], \r\n            T.VersionCer");
+            viewString.Append("tainty AS [X_ProspectusProject.VersionCertainty], \r\n            T.VersionWorkflo");
+            viewString.Append("wInstanceID AS [X_ProspectusProject.VersionWorkflowInstanceID], \r\n            T.");
+            viewString.Append("VersionUpdatedBy AS [X_ProspectusProject.VersionUpdatedBy], \r\n            T.Vers");
+            viewString.Append("ionDeletedBy AS [X_ProspectusProject.VersionDeletedBy], \r\n            T.VersionO");
+            viewString.Append("wnerContactID AS [X_ProspectusProject.VersionOwnerContactID], \r\n            T.Ve");
+            viewString.Append("rsionOwnerCompanyID AS [X_ProspectusProject.VersionOwnerCompanyID], \r\n          ");
+            viewString.Append("  T.VersionUpdated AS [X_ProspectusProject.VersionUpdated], \r\n            True A");
+            viewString.Append("S _from0\r\n        FROM XODBC.ProspectusProjects AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_ProspectusProject", viewString.ToString());
         }
         
@@ -17053,44 +17053,44 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView474()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2911);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2923);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProspectusProjects\r\n        [XODB.Module.Busi");
             viewString.Append("nessObjects.ProspectusProject](T1.ProspectusProject_ProspectusProjectID, T1.Pros");
             viewString.Append("pectusProject_ProjectID, T1.ProspectusProject_ProspectusProjectName, T1.Prospect");
-            viewString.Append("usProject_Company, T1.ProspectusProject_CompanyID, T1.ProspectusProject_Geologis");
-            viewString.Append("t, T1.ProspectusProject_GeologistContactID, T1.ProspectusProject_GeologyCompanyI");
-            viewString.Append("D, T1.ProspectusProject_ListDate, T1.ProspectusProject_Cost, T1.ProspectusProjec");
-            viewString.Append("t_CurrencyID, T1.ProspectusProject_Pages, T1.ProspectusProject_CountryID, T1.Pro");
-            viewString.Append("spectusProject_CountryStateID, T1.ProspectusProject_Place, T1.ProspectusProject_");
-            viewString.Append("TenementID, T1.ProspectusProject_ProvinceID, T1.ProspectusProject_Version, T1.Pr");
-            viewString.Append("ospectusProject_VersionAntecedentID, T1.ProspectusProject_VersionCertainty, T1.P");
-            viewString.Append("rospectusProject_VersionWorkflowInstanceID, T1.ProspectusProject_VersionUpdatedB");
-            viewString.Append("y, T1.ProspectusProject_VersionDeletedBy, T1.ProspectusProject_VersionOwnerConta");
-            viewString.Append("ctID, T1.ProspectusProject_VersionOwnerCompanyID, T1.ProspectusProject_VersionUp");
-            viewString.Append("dated)\r\n    FROM (\r\n        SELECT \r\n            T.ProspectusProjectID AS Prospe");
-            viewString.Append("ctusProject_ProspectusProjectID, \r\n            T.ProjectID AS ProspectusProject_");
-            viewString.Append("ProjectID, \r\n            T.ProspectusProjectName AS ProspectusProject_Prospectus");
-            viewString.Append("ProjectName, \r\n            T.Company AS ProspectusProject_Company, \r\n           ");
-            viewString.Append(" T.CompanyID AS ProspectusProject_CompanyID, \r\n            T.Geologist AS Prospe");
-            viewString.Append("ctusProject_Geologist, \r\n            T.GeologistContactID AS ProspectusProject_G");
-            viewString.Append("eologistContactID, \r\n            T.GeologyCompanyID AS ProspectusProject_Geology");
-            viewString.Append("CompanyID, \r\n            T.ListDate AS ProspectusProject_ListDate, \r\n           ");
-            viewString.Append(" T.Cost AS ProspectusProject_Cost, \r\n            T.CurrencyID AS ProspectusProje");
-            viewString.Append("ct_CurrencyID, \r\n            T.Pages AS ProspectusProject_Pages, \r\n            T");
-            viewString.Append(".CountryID AS ProspectusProject_CountryID, \r\n            T.CountryStateID AS Pro");
-            viewString.Append("spectusProject_CountryStateID, \r\n            T.Place AS ProspectusProject_Place,");
-            viewString.Append(" \r\n            T.TenementID AS ProspectusProject_TenementID, \r\n            T.Pro");
-            viewString.Append("vinceID AS ProspectusProject_ProvinceID, \r\n            T.Version AS ProspectusPr");
-            viewString.Append("oject_Version, \r\n            T.VersionAntecedentID AS ProspectusProject_VersionA");
-            viewString.Append("ntecedentID, \r\n            T.VersionCertainty AS ProspectusProject_VersionCertai");
-            viewString.Append("nty, \r\n            T.VersionWorkflowInstanceID AS ProspectusProject_VersionWorkf");
-            viewString.Append("lowInstanceID, \r\n            T.VersionUpdatedBy AS ProspectusProject_VersionUpda");
-            viewString.Append("tedBy, \r\n            T.VersionDeletedBy AS ProspectusProject_VersionDeletedBy, \r");
-            viewString.Append("\n            T.VersionOwnerContactID AS ProspectusProject_VersionOwnerContactID,");
-            viewString.Append(" \r\n            T.VersionOwnerCompanyID AS ProspectusProject_VersionOwnerCompanyI");
-            viewString.Append("D, \r\n            T.VersionUpdated AS ProspectusProject_VersionUpdated, \r\n       ");
-            viewString.Append("     True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_Pros");
-            viewString.Append("pectusProject AS T\r\n    ) AS T1");
+            viewString.Append("usProject_CompanyID, T1.ProspectusProject_Geologist, T1.ProspectusProject_Geolog");
+            viewString.Append("istContactID, T1.ProspectusProject_GeologyCompanyID, T1.ProspectusProject_ListDa");
+            viewString.Append("te, T1.ProspectusProject_Cost, T1.ProspectusProject_CurrencyID, T1.ProspectusPro");
+            viewString.Append("ject_Pages, T1.ProspectusProject_CountryID, T1.ProspectusProject_CountryStateID,");
+            viewString.Append(" T1.ProspectusProject_Place, T1.ProspectusProject_TenementID, T1.ProspectusProje");
+            viewString.Append("ct_ProvinceID, T1.ProspectusProject_Version, T1.ProspectusProject_VersionAnteced");
+            viewString.Append("entID, T1.ProspectusProject_VersionCertainty, T1.ProspectusProject_VersionWorkfl");
+            viewString.Append("owInstanceID, T1.ProspectusProject_VersionUpdatedBy, T1.ProspectusProject_Versio");
+            viewString.Append("nDeletedBy, T1.ProspectusProject_VersionOwnerContactID, T1.ProspectusProject_Ver");
+            viewString.Append("sionOwnerCompanyID, T1.ProspectusProject_VersionUpdated, T1.ProspectusProject_Co");
+            viewString.Append("mpanyName)\r\n    FROM (\r\n        SELECT \r\n            T.ProspectusProjectID AS Pr");
+            viewString.Append("ospectusProject_ProspectusProjectID, \r\n            T.ProjectID AS ProspectusProj");
+            viewString.Append("ect_ProjectID, \r\n            T.ProspectusProjectName AS ProspectusProject_Prospe");
+            viewString.Append("ctusProjectName, \r\n            T.CompanyID AS ProspectusProject_CompanyID, \r\n   ");
+            viewString.Append("         T.Geologist AS ProspectusProject_Geologist, \r\n            T.GeologistCo");
+            viewString.Append("ntactID AS ProspectusProject_GeologistContactID, \r\n            T.GeologyCompanyI");
+            viewString.Append("D AS ProspectusProject_GeologyCompanyID, \r\n            T.ListDate AS ProspectusP");
+            viewString.Append("roject_ListDate, \r\n            T.Cost AS ProspectusProject_Cost, \r\n            T");
+            viewString.Append(".CurrencyID AS ProspectusProject_CurrencyID, \r\n            T.Pages AS Prospectus");
+            viewString.Append("Project_Pages, \r\n            T.CountryID AS ProspectusProject_CountryID, \r\n     ");
+            viewString.Append("       T.CountryStateID AS ProspectusProject_CountryStateID, \r\n            T.Pla");
+            viewString.Append("ce AS ProspectusProject_Place, \r\n            T.TenementID AS ProspectusProject_T");
+            viewString.Append("enementID, \r\n            T.ProvinceID AS ProspectusProject_ProvinceID, \r\n       ");
+            viewString.Append("     T.Version AS ProspectusProject_Version, \r\n            T.VersionAntecedentID");
+            viewString.Append(" AS ProspectusProject_VersionAntecedentID, \r\n            T.VersionCertainty AS P");
+            viewString.Append("rospectusProject_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS ");
+            viewString.Append("ProspectusProject_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS");
+            viewString.Append(" ProspectusProject_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS Prospec");
+            viewString.Append("tusProject_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS Prospectus");
+            viewString.Append("Project_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS Prospect");
+            viewString.Append("usProject_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS ProspectusPro");
+            viewString.Append("ject_VersionUpdated, \r\n            T.CompanyName AS ProspectusProject_CompanyNam");
+            viewString.Append("e, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreCont");
+            viewString.Append("ainer.X_ProspectusProject AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProspectusProjects", viewString.ToString());
         }
         

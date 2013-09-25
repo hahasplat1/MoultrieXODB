@@ -50,6 +50,18 @@ namespace XODB.Module.Win.Controllers
                     var view = sender as DevExpress.ExpressApp.ViewController;
                     if (view == null || view.View == null || view.View.SelectedObjects == null || view.View.SelectedObjects.Count < 1)
                         return;
+                    if (view.View.SelectedObjects[0] is System.Data.Objects.DataClasses.EntityObject)
+                    {
+                        var o = (System.Data.Objects.DataClasses.EntityObject)view.View.SelectedObjects[0];
+                        var c = ((DevExpress.ExpressApp.EF.EFObjectSpace)view.View.ObjectSpace).ObjectContext;
+
+                        var x = XODB.Module.BusinessObjects.BusinessObjectHelper.GetTableName(c, view.View.SelectedObjects[0].GetType());
+                        var t = c.MetadataWorkspace.GetEntityContainer(c.DefaultContainerName, System.Data.Metadata.Edm.DataSpace.CSpace);
+
+                    }
+
+
+
                     //TODO throw new NotImplementedException();
                     //XPLiteObject o = view.View.SelectedObjects[0] as XPLiteObject;
                     //((FileData)e.CreatedObject).ReferenceID = (Guid)o.This.GetType().GetProperty(o.ClassInfo.KeyProperty.Name).GetValue(o.This);
