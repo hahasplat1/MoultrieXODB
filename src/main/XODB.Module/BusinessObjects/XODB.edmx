@@ -21723,10 +21723,10 @@
           <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
           <Property Name="ApplicationId" Type="Guid" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="aspnet_Membership" Relationship="XODB.Module.BusinessObjects.FK__aspnet_Me__Appli__03DB89B3" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
-          <NavigationProperty Name="aspnet_Paths" Relationship="XODB.Module.BusinessObjects.FK__aspnet_Pa__Appli__31A25463" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
-          <NavigationProperty Name="aspnet_Roles" Relationship="XODB.Module.BusinessObjects.FK__aspnet_Ro__Appli__2077C861" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
-          <NavigationProperty Name="aspnet_Users" Relationship="XODB.Module.BusinessObjects.FK__aspnet_Us__Appli__758D6A5C" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Membership" Relationship="XODB.Module.BusinessObjects.FK__aspnet_Me__Appli__03DB89B3" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="Paths" Relationship="XODB.Module.BusinessObjects.FK__aspnet_Pa__Appli__31A25463" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="Roles" Relationship="XODB.Module.BusinessObjects.FK__aspnet_Ro__Appli__2077C861" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="Users" Relationship="XODB.Module.BusinessObjects.FK__aspnet_Us__Appli__758D6A5C" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
         </EntityType>
         <EntityType Name="Membership">
           <Key>
@@ -22253,24 +22253,24 @@
           <Property Name="VersionOwnerContactID" Type="Guid" />
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="E_Invoice" Relationship="XODB.Module.BusinessObjects.FK_E_Invoice_Q_Account" FromRole="Q_Account" ToRole="E_Invoice" />
-          <NavigationProperty Name="E_Invoice1" Relationship="XODB.Module.BusinessObjects.FK_E_Invoice_Q_Account1" FromRole="Q_Account" ToRole="E_Invoice" />
-          <NavigationProperty Name="E_Journal" Relationship="XODB.Module.BusinessObjects.FK_E_Journal_Q_Account" FromRole="Q_Account" ToRole="E_Journal" />
-          <NavigationProperty Name="E_Payment" Relationship="XODB.Module.BusinessObjects.FK_E_Payment_Q_Account" FromRole="Q_Account" ToRole="E_Payment" />
-          <NavigationProperty Name="E_Payment1" Relationship="XODB.Module.BusinessObjects.FK_E_Payment_Q_Account1" FromRole="Q_Account" ToRole="E_Payment" />
-          <NavigationProperty Name="E_PurchaseOrder" Relationship="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_Q_Account" FromRole="Q_Account" ToRole="E_PurchaseOrder" />
-          <NavigationProperty Name="E_PurchaseOrder1" Relationship="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_Q_Account1" FromRole="Q_Account" ToRole="E_PurchaseOrder" />
-          <NavigationProperty Name="E_SupplyItem" Relationship="XODB.Module.BusinessObjects.FK_E_SupplyItem_Q_Account" FromRole="Q_Account" ToRole="E_SupplyItem" />
-          <NavigationProperty Name="Q_Account1" Relationship="XODB.Module.BusinessObjects.FK_Q_Account_Q_Account" FromRole="Q_Account" ToRole="Q_Account1" />
-          <NavigationProperty Name="Q_Account2" Relationship="XODB.Module.BusinessObjects.FK_Q_Account_Q_Account" FromRole="Q_Account1" ToRole="Q_Account" />
-          <NavigationProperty Name="X_Company" Relationship="XODB.Module.BusinessObjects.FK_Q_Account_X_Company" FromRole="Q_Account" ToRole="X_Company" />
-          <NavigationProperty Name="X_Location" Relationship="XODB.Module.BusinessObjects.FK_Q_Account_X_Location" FromRole="Q_Account" ToRole="X_Location" />
-          <NavigationProperty Name="Q_AccountDiscount" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_Q_Account" FromRole="Q_Account" ToRole="Q_AccountDiscount" />
-          <NavigationProperty Name="Q_Asset" Relationship="XODB.Module.BusinessObjects.FK_Q_Asset_Q_Account" FromRole="Q_Account" ToRole="Q_Asset" />
-          <NavigationProperty Name="Q_Asset1" Relationship="XODB.Module.BusinessObjects.FK_Q_Asset_Q_Account1" FromRole="Q_Account" ToRole="Q_Asset" />
-          <NavigationProperty Name="Q_Asset2" Relationship="XODB.Module.BusinessObjects.FK_Q_Asset_Q_Account2" FromRole="Q_Account" ToRole="Q_Asset" />
-          <NavigationProperty Name="Q_CompanyAccount" Relationship="XODB.Module.BusinessObjects.FK_Q_CompanyAccount_Q_Account" FromRole="Q_Account" ToRole="Q_CompanyAccount" />
-          <NavigationProperty Name="Q_DeliveryAdvice" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_Q_Account" FromRole="Q_Account" ToRole="Q_DeliveryAdvice" />
+          <NavigationProperty Name="Invoices" Relationship="XODB.Module.BusinessObjects.FK_E_Invoice_Q_Account" FromRole="Q_Account" ToRole="E_Invoice" />
+          <NavigationProperty Name="RelatedInvoices" Relationship="XODB.Module.BusinessObjects.FK_E_Invoice_Q_Account1" FromRole="Q_Account" ToRole="E_Invoice" />
+          <NavigationProperty Name="Journals" Relationship="XODB.Module.BusinessObjects.FK_E_Journal_Q_Account" FromRole="Q_Account" ToRole="E_Journal" />
+          <NavigationProperty Name="Payments" Relationship="XODB.Module.BusinessObjects.FK_E_Payment_Q_Account" FromRole="Q_Account" ToRole="E_Payment" />
+          <NavigationProperty Name="RelatedPayments" Relationship="XODB.Module.BusinessObjects.FK_E_Payment_Q_Account1" FromRole="Q_Account" ToRole="E_Payment" />
+          <NavigationProperty Name="PurchaseOrders" Relationship="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_Q_Account" FromRole="Q_Account" ToRole="E_PurchaseOrder" />
+          <NavigationProperty Name="RelatedPurchaseOrders" Relationship="XODB.Module.BusinessObjects.FK_E_PurchaseOrder_Q_Account1" FromRole="Q_Account" ToRole="E_PurchaseOrder" />
+          <NavigationProperty Name="SupplyItems" Relationship="XODB.Module.BusinessObjects.FK_E_SupplyItem_Q_Account" FromRole="Q_Account" ToRole="E_SupplyItem" />
+          <NavigationProperty Name="RelatedAccounts" Relationship="XODB.Module.BusinessObjects.FK_Q_Account_Q_Account" FromRole="Q_Account" ToRole="Q_Account1" />
+          <NavigationProperty Name="ParentAccount" Relationship="XODB.Module.BusinessObjects.FK_Q_Account_Q_Account" FromRole="Q_Account1" ToRole="Q_Account" />
+          <NavigationProperty Name="Company" Relationship="XODB.Module.BusinessObjects.FK_Q_Account_X_Company" FromRole="Q_Account" ToRole="X_Company" />
+          <NavigationProperty Name="Location" Relationship="XODB.Module.BusinessObjects.FK_Q_Account_X_Location" FromRole="Q_Account" ToRole="X_Location" />
+          <NavigationProperty Name="AccountDiscounts" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_Q_Account" FromRole="Q_Account" ToRole="Q_AccountDiscount" />
+          <NavigationProperty Name="Assets" Relationship="XODB.Module.BusinessObjects.FK_Q_Asset_Q_Account" FromRole="Q_Account" ToRole="Q_Asset" />
+          <NavigationProperty Name="RelatedOtherAssets" Relationship="XODB.Module.BusinessObjects.FK_Q_Asset_Q_Account1" FromRole="Q_Account" ToRole="Q_Asset" />
+          <NavigationProperty Name="RelatedAssets" Relationship="XODB.Module.BusinessObjects.FK_Q_Asset_Q_Account2" FromRole="Q_Account" ToRole="Q_Asset" />
+          <NavigationProperty Name="CompanyAccounts" Relationship="XODB.Module.BusinessObjects.FK_Q_CompanyAccount_Q_Account" FromRole="Q_Account" ToRole="Q_CompanyAccount" />
+          <NavigationProperty Name="DeliveryAdvices" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_Q_Account" FromRole="Q_Account" ToRole="Q_DeliveryAdvice" />
         </EntityType>
         <EntityType Name="AccountDiscount">
           <Key>
@@ -22295,11 +22295,11 @@
           <Property Name="VersionOwnerContactID" Type="Guid" />
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Q_Account" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_Q_Account" FromRole="Q_AccountDiscount" ToRole="Q_Account" />
-          <NavigationProperty Name="Q_DictionaryDeviceType" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountDiscount_Q_DictionaryDeviceType" FromRole="Q_AccountDiscount" ToRole="Q_DictionaryDeviceType" />
-          <NavigationProperty Name="X_DictionaryUnit" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountDiscount_X_DictionaryUnit" FromRole="Q_AccountDiscount" ToRole="X_DictionaryUnit" />
-          <NavigationProperty Name="X_Company" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_X_Company" FromRole="Q_AccountDiscount" ToRole="X_Company" />
-          <NavigationProperty Name="X_Experience" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_X_Experience" FromRole="Q_AccountDiscount" ToRole="X_Experience" />
+          <NavigationProperty Name="Account" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_Q_Account" FromRole="Q_AccountDiscount" ToRole="Q_Account" />
+          <NavigationProperty Name="DeviceType" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountDiscount_Q_DictionaryDeviceType" FromRole="Q_AccountDiscount" ToRole="Q_DictionaryDeviceType" />
+          <NavigationProperty Name="Unit" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountDiscount_X_DictionaryUnit" FromRole="Q_AccountDiscount" ToRole="X_DictionaryUnit" />
+          <NavigationProperty Name="Company" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_X_Company" FromRole="Q_AccountDiscount" ToRole="X_Company" />
+          <NavigationProperty Name="Experience" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountProductDiscount_X_Experience" FromRole="Q_AccountDiscount" ToRole="X_Experience" />
         </EntityType>
         <EntityType Name="Asset">
           <Key>
@@ -23281,9 +23281,9 @@
           <Property Name="VersionOwnerContactID" Type="Guid" />
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="X_Location" Relationship="XODB.Module.BusinessObjects.FK_X_Address_X_Location" FromRole="X_Address" ToRole="X_Location" />
-          <NavigationProperty Name="X_CompanyAddress" Relationship="XODB.Module.BusinessObjects.FK_X_CompanyAddress_X_Address" FromRole="X_Address" ToRole="X_CompanyAddress" />
-          <NavigationProperty Name="X_ContactAddress" Relationship="XODB.Module.BusinessObjects.FK_X_ContactAddress_X_Address" FromRole="X_Address" ToRole="X_ContactAddress" />
+          <NavigationProperty Name="Location" Relationship="XODB.Module.BusinessObjects.FK_X_Address_X_Location" FromRole="X_Address" ToRole="X_Location" />
+          <NavigationProperty Name="CompanyAddresses" Relationship="XODB.Module.BusinessObjects.FK_X_CompanyAddress_X_Address" FromRole="X_Address" ToRole="X_CompanyAddress" />
+          <NavigationProperty Name="ContactAddresses" Relationship="XODB.Module.BusinessObjects.FK_X_ContactAddress_X_Address" FromRole="X_Address" ToRole="X_ContactAddress" />
         </EntityType>
         <EntityType Name="AssayGroup">
           <Key>
@@ -23309,12 +23309,12 @@
           <Property Name="VersionOwnerContactID" Type="Guid" />
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="X_Company" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Company" FromRole="X_AssayGroup" ToRole="X_Company" />
-          <NavigationProperty Name="X_Contact" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Person" FromRole="X_AssayGroup" ToRole="X_Contact" />
-          <NavigationProperty Name="X_Contact1" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Person1" FromRole="X_AssayGroup" ToRole="X_Contact" />
-          <NavigationProperty Name="X_Contact2" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Person2" FromRole="X_AssayGroup" ToRole="X_Contact" />
-          <NavigationProperty Name="X_Project" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Project" FromRole="X_AssayGroup" ToRole="X_Project" />
-          <NavigationProperty Name="X_AssayGroupTest" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_AssayGroup" FromRole="X_AssayGroup" ToRole="X_AssayGroupTest" />
+          <NavigationProperty Name="LabCompany" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Company" FromRole="X_AssayGroup" ToRole="X_Company" />
+          <NavigationProperty Name="EnteredContact" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Person" FromRole="X_AssayGroup" ToRole="X_Contact" />
+          <NavigationProperty Name="ReceivedContact" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Person1" FromRole="X_AssayGroup" ToRole="X_Contact" />
+          <NavigationProperty Name="SubmittedContact" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Person2" FromRole="X_AssayGroup" ToRole="X_Contact" />
+          <NavigationProperty Name="Project" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroup_X_Project" FromRole="X_AssayGroup" ToRole="X_Project" />
+          <NavigationProperty Name="AssayGroupTests" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_AssayGroup" FromRole="X_AssayGroup" ToRole="X_AssayGroupTest" />
         </EntityType>
         <EntityType Name="AssayGroupStandardTestResult">
           <Key>
@@ -23342,12 +23342,12 @@
           <Property Name="VersionOwnerContactID" Type="Guid" />
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="X_AssayGroupTest" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_AssayGroupTest" FromRole="X_AssayGroupStandardTestResult" ToRole="X_AssayGroupTest" />
-          <NavigationProperty Name="X_Sample" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_AssayGroupTestSample" FromRole="X_AssayGroupStandardTestResult" ToRole="X_Sample" />
-          <NavigationProperty Name="X_DictionaryAssayStandard" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionaryAssayStandard" FromRole="X_AssayGroupStandardTestResult" ToRole="X_DictionaryAssayStandard" />
-          <NavigationProperty Name="X_DictionarySampleCategory" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionarySample_Category" FromRole="X_AssayGroupStandardTestResult" ToRole="X_DictionarySampleCategory" />
-          <NavigationProperty Name="X_DictionarySampleState" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionarySampleState" FromRole="X_AssayGroupStandardTestResult" ToRole="X_DictionarySampleState" />
-          <NavigationProperty Name="X_DictionarySampleType" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionarySampleType" FromRole="X_AssayGroupStandardTestResult" ToRole="X_DictionarySampleType" />
+          <NavigationProperty Name="AssayGroupTest" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_AssayGroupTest" FromRole="X_AssayGroupStandardTestResult" ToRole="X_AssayGroupTest" />
+          <NavigationProperty Name="Sample" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_AssayGroupTestSample" FromRole="X_AssayGroupStandardTestResult" ToRole="X_Sample" />
+          <NavigationProperty Name="AssayStandard" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionaryAssayStandard" FromRole="X_AssayGroupStandardTestResult" ToRole="X_DictionaryAssayStandard" />
+          <NavigationProperty Name="SampleCategory" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionarySample_Category" FromRole="X_AssayGroupStandardTestResult" ToRole="X_DictionarySampleCategory" />
+          <NavigationProperty Name="SampleState" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionarySampleState" FromRole="X_AssayGroupStandardTestResult" ToRole="X_DictionarySampleState" />
+          <NavigationProperty Name="SampleType" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionarySampleType" FromRole="X_AssayGroupStandardTestResult" ToRole="X_DictionarySampleType" />
         </EntityType>
         <EntityType Name="AssayGroupTest">
           <Key>
@@ -23370,12 +23370,12 @@
           <Property Name="VersionOwnerContactID" Type="Guid" />
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="X_AssayGroup" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_AssayGroup" FromRole="X_AssayGroupTest" ToRole="X_AssayGroup" />
-          <NavigationProperty Name="X_AssayGroupStandardTestResult" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_AssayGroupTest" FromRole="X_AssayGroupTest" ToRole="X_AssayGroupStandardTestResult" />
+          <NavigationProperty Name="AssayGroup" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_AssayGroup" FromRole="X_AssayGroupTest" ToRole="X_AssayGroup" />
+          <NavigationProperty Name="AssayGroupStandardTestResults" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_AssayGroupTest" FromRole="X_AssayGroupTest" ToRole="X_AssayGroupStandardTestResult" />
           <NavigationProperty Name="X_DictionaryAssayMethod" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_DictionaryAssayMethod" FromRole="X_AssayGroupTest" ToRole="X_DictionaryAssayMethod" />
           <NavigationProperty Name="X_DictionaryAssayType" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_DictionaryAssayType" FromRole="X_AssayGroupTest" ToRole="X_DictionaryAssayType" />
           <NavigationProperty Name="X_Parameter" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_Parameter" FromRole="X_AssayGroupTest" ToRole="X_Parameter" />
-          <NavigationProperty Name="X_AssayGroupTestResult" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTestResult_X_AssayGroupTest" FromRole="X_AssayGroupTest" ToRole="X_AssayGroupTestResult" />
+          <NavigationProperty Name="AssayGroupTestResult" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTestResult_X_AssayGroupTest" FromRole="X_AssayGroupTest" ToRole="X_AssayGroupTestResult" />
         </EntityType>
         <EntityType Name="AssayGroupTestResult">
           <Key>

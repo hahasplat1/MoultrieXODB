@@ -74,7 +74,7 @@ namespace XODB.Win
             this.Modules.Add(this.validationModule1);
             this.Modules.Add(this.validationWindowsFormsModule1);
             this.Modules.Add(this.fileAttachmentsWindowsFormsModule1);
-            this.TablePrefixes = "X";
+            this.TablePrefixes = "";
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.XODBWindowsFormsApplication_DatabaseVersionMismatch);
             this.CustomizeLanguagesList += new System.EventHandler<DevExpress.ExpressApp.CustomizeLanguagesListEventArgs>(this.XODBWindowsFormsApplication_CustomizeLanguagesList);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
