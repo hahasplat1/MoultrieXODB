@@ -54,18 +54,18 @@ namespace XODB.Module.Win.Controllers
                     {
                         var o = (System.Data.Objects.DataClasses.EntityObject)view.View.SelectedObjects[0];
                         var c = ((DevExpress.ExpressApp.EF.EFObjectSpace)view.View.ObjectSpace).ObjectContext;
-
-                        var x = XODB.Module.BusinessObjects.BusinessObjectHelper.GetTableName(c, view.View.SelectedObjects[0].GetType());
-                        var t = c.MetadataWorkspace.GetEntityContainer(c.DefaultContainerName, System.Data.Metadata.Edm.DataSpace.CSpace);
+                        //var t = c.MetadataWorkspace.GetEntityContainer(c.DefaultContainerName, System.Data.Metadata.Edm.DataSpace.CSpace);
+                        ((FileData)e.CreatedObject).TableType = XODB.Module.BusinessObjects.BusinessObjectHelper.GetTableName(c, view.View.SelectedObjects[0].GetType());
+                        ((FileData)e.CreatedObject).ReferenceID = (Guid)o.EntityKey.EntityKeyValues[0].Value;
+                        ((FileData)e.CreatedObject).FileDataID = Guid.NewGuid();
 
                     }
-
-
-
-                    //TODO throw new NotImplementedException();
-                    //XPLiteObject o = view.View.SelectedObjects[0] as XPLiteObject;
-                    //((FileData)e.CreatedObject).ReferenceID = (Guid)o.This.GetType().GetProperty(o.ClassInfo.KeyProperty.Name).GetValue(o.This);
-                    //((FileData)e.CreatedObject).TableType = o.ClassInfo.TableName;
+                    else if (view.View.SelectedObjects[0] is DevExpress.Xpo.XPLiteObject)
+                    {
+                        XPLiteObject o = view.View.SelectedObjects[0] as XPLiteObject;
+                        ((FileData)e.CreatedObject).ReferenceID = (Guid)o.This.GetType().GetProperty(o.ClassInfo.KeyProperty.Name).GetValue(o.This);
+                        ((FileData)e.CreatedObject).TableType = o.ClassInfo.TableName;
+                    }
                 }
                 catch { }
             }
