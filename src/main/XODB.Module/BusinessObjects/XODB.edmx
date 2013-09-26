@@ -5883,7 +5883,7 @@
           <Key>
             <PropertyRef Name="FileTypeID" />
           </Key>
-          <Property Name="FileTypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FileTypeID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="None" />
           <Property Name="ParentFileTypeID" Type="uniqueidentifier" />
           <Property Name="CompanyID" Type="uniqueidentifier" />
           <Property Name="StandardFileTypeName" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -24719,7 +24719,7 @@
           <Key>
             <PropertyRef Name="FileTypeID" />
           </Key>
-          <Property Name="FileTypeID" Type="Guid" Nullable="false" />
+          <Property Name="FileTypeID" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="ParentFileTypeID" Type="Guid" />
           <Property Name="CompanyID" Type="Guid" />
           <Property Name="StandardFileTypeName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />

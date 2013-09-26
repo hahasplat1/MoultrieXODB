@@ -21,7 +21,8 @@ namespace XODB.Module.Win
         {
             base.SetupRepositoryItem(item);
             RepositoryItemDecimalEdit properties = (RepositoryItemDecimalEdit)item;
-            properties.Mask.EditMask = null;
+            properties.Mask.EditMask = "n";
+            properties.Mask.UseMaskAsDisplayFormat = true;
         }
     }
 }

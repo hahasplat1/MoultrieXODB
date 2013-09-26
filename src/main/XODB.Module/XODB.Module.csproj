@@ -167,10 +167,6 @@
     <Content Include="FunctionalTests\Config.xml" />
     <Content Include="Resources\close.sql" />
     <Content Include="Resources\backup.sql" />
-    <None Include="UnusableNodes.xml">
-      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Resources\v3.sql" />
     <None Include="Resources\v2.sql" />
     <None Include="Resources\script_schema.sql" />
