@@ -201,6 +201,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Account_DetailView" FreezeLayout="False" />
     <ListView Id="Account_Invoices_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -358,6 +359,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="AccountDiscount_DetailView" FreezeLayout="False" />
     <ListView Id="AccountDiscount_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -410,6 +412,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Address_DetailView" FreezeLayout="False" />
     <ListView Id="Address_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -437,6 +440,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="AssayGroup_DetailView" FreezeLayout="False" />
     <ListView Id="AssayGroup_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -451,6 +455,7 @@
       </Columns>
     </ListView>
     <ListView Id="AssayGroup_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="AssayGroupStandardTestResult_DetailView" FreezeLayout="False" />
     <ListView Id="AssayGroupStandardTestResult_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -503,6 +508,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="AssayGroupTest_DetailView" FreezeLayout="False" />
     <ListView Id="AssayGroupTest_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -543,6 +549,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="AssayGroupTestResult_DetailView" FreezeLayout="False" />
     <ListView Id="AssayGroupTestResult_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -569,6 +576,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="AssayGroupTestResultComment_DetailView" FreezeLayout="False" />
     <ListView Id="AssayGroupTestResultComment_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -595,6 +603,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="AssayGroupTestResultDuplicate_DetailView" FreezeLayout="False" />
     <ListView Id="AssayGroupTestResultDuplicate_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -699,6 +708,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Asset_DetailView" FreezeLayout="False" />
     <ListView Id="Asset_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -726,6 +736,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="AssetAlias_DetailView" FreezeLayout="False" />
     <ListView Id="AssetAlias_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -740,6 +751,7 @@
       </Columns>
     </ListView>
     <ListView Id="AssetAlias_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="AssetMaintenance_DetailView" FreezeLayout="False" />
     <ListView Id="AssetMaintenance_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -766,6 +778,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="AssetWarranty_DetailView" FreezeLayout="False" />
     <ListView Id="AssetWarranty_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -831,6 +844,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="BlockModel_DetailView" FreezeLayout="False" />
     <ListView Id="BlockModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -870,6 +884,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="BlockModelBlock_DetailView" FreezeLayout="False" />
     <ListView Id="BlockModelBlock_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -909,6 +924,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="BlockModelBlockData_DetailView" FreezeLayout="False" />
     <ListView Id="BlockModelBlockData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -935,6 +951,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="BlockModelMetadata_DetailView" FreezeLayout="False" />
     <ListView Id="BlockModelMetadata_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -961,6 +978,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Casing_DetailView" FreezeLayout="False" />
     <ListView Id="Casing_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -1000,6 +1018,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Cementing_DetailView" FreezeLayout="False" />
     <ListView Id="Cementing_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -1208,6 +1227,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Company_DetailView" FreezeLayout="False" />
     <ListView Id="Company_Drilling_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -1587,6 +1607,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="CompanyAccount_DetailView" FreezeLayout="False" />
     <ListView Id="CompanyAccount_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -1639,6 +1660,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="CompanyAddress_DetailView" FreezeLayout="False" />
     <ListView Id="CompanyAddress_Invoice_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -1691,6 +1713,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="CompanyRelation_DetailView" FreezeLayout="False" />
     <ListView Id="CompanyRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -1717,6 +1740,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="CompanyServer_DetailView" FreezeLayout="False" />
     <ListView Id="CompanyServer_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -1743,6 +1767,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="CompanyView_DetailView" FreezeLayout="False" />
     <ListView Id="CompanyView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="CompanyView_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="Compliance_ComplianceTask_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
@@ -1771,6 +1796,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Compliance_DetailView" FreezeLayout="False" />
     <ListView Id="Compliance_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -1785,6 +1811,7 @@
       </Columns>
     </ListView>
     <ListView Id="Compliance_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="ComplianceTask_DetailView" FreezeLayout="False" />
     <ListView Id="ComplianceTask_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -1811,6 +1838,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ComplianceWorkType_DetailView" FreezeLayout="False" />
     <ListView Id="ComplianceWorkType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -2032,6 +2060,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Contact_DetailView" FreezeLayout="False" />
     <ListView Id="Contact_Drilling_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -2540,6 +2569,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ContactAddress_DetailView" FreezeLayout="False" />
     <ListView Id="ContactAddress_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -2618,6 +2648,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Contract_DetailView" FreezeLayout="False" />
     <ListView Id="Contract_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -2684,6 +2715,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ContractAsset_DetailView" FreezeLayout="False" />
     <ListView Id="ContractAsset_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -2736,6 +2768,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ContractCondition_DetailView" FreezeLayout="False" />
     <ListView Id="ContractCondition_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -2762,6 +2795,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ContractConditionModel_DetailView" FreezeLayout="False" />
     <ListView Id="ContractConditionModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -2788,6 +2822,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ContractConditionPart_DetailView" FreezeLayout="False" />
     <ListView Id="ContractConditionPart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -2827,6 +2862,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="CostEstimateModel_DetailView" FreezeLayout="False" />
     <ListView Id="CostEstimateModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -2853,6 +2889,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Credit_DetailView" FreezeLayout="False" />
     <ListView Id="Credit_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -2892,6 +2929,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Currency_DetailView" FreezeLayout="False" />
     <ListView Id="Currency_Invoice_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3009,6 +3047,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Defect_DetailView" FreezeLayout="False" />
     <ListView Id="Defect_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3061,6 +3100,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DeliveryAdvice_DetailView" FreezeLayout="False" />
     <ListView Id="DeliveryAdvice_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3075,6 +3115,7 @@
       </Columns>
     </ListView>
     <ListView Id="DeliveryAdvice_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DeliveryAdviceItem_DetailView" FreezeLayout="False" />
     <ListView Id="DeliveryAdviceItem_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3101,6 +3142,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Desurvey_DetailView" FreezeLayout="False" />
     <ListView Id="Desurvey_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3153,6 +3195,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DicitonaryAssetStatus_DetailView" FreezeLayout="False" />
     <ListView Id="DicitonaryAssetStatus_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3167,6 +3210,7 @@
       </Columns>
     </ListView>
     <ListView Id="DicitonaryAssetStatus_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="Dictionary_DetailView" FreezeLayout="False" />
     <ListView Id="Dictionary_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3193,6 +3237,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryAdjective_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryAdjective_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3276,6 +3321,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryAlteration_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryAlteration_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3307,6 +3353,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryAssayMethod_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryAssayMethod_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3338,6 +3385,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryAssayStandard_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryAssayStandard_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3356,6 +3404,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryAssayTest_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryAssayTest_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3387,6 +3436,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryAssayType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryAssayType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3405,6 +3455,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryBasalContact_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryBasalContact_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3436,6 +3487,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryBedSpacing_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryBedSpacing_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3467,6 +3519,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryCharacteristic_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryCharacteristic_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3520,6 +3573,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryCharacteristicType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryCharacteristicType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3534,6 +3588,7 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryCharacteristicType_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryColour_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryColour_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3565,6 +3620,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryCommodity_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryCommodity_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3622,6 +3678,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryContractConditionType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryContractConditionType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3636,6 +3693,7 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryContractConditionType_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryCoreState_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryCoreState_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3680,6 +3738,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryCostType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryCostType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3759,6 +3818,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryCountry_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryCountry_DictionaryTax_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3851,6 +3911,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryCountryState_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryCountryState_DictionaryTax_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3930,6 +3991,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDataStatus_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDataStatus_Header_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3974,8 +4036,10 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDecontaminationStatus_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDecontaminationStatus_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryDecontaminationStatus_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryDefectCompleteness_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDefectCompleteness_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4007,6 +4071,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDefectContinuity_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDefectContinuity_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4025,6 +4090,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDefectSpacing_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDefectSpacing_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4056,6 +4122,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDefectType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDefectType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4100,6 +4167,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDeliveryAdviceReason_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDeliveryAdviceReason_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryDeliveryAdviceReason_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryDesurveyAlgorithmType_Desurvey_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
@@ -4115,6 +4183,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDesurveyAlgorithmType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDesurveyAlgorithmType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4146,6 +4215,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDeviceType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDeviceType_DeviceType1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryDeviceType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryDeviceType_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
@@ -4216,6 +4286,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDimension_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDimension_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4243,6 +4314,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDipOrientationMethod_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDipOrientationMethod_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4261,6 +4333,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDomain_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDomain_DomainAlias_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4305,6 +4378,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDomainAlias_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDomainAlias_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4319,6 +4393,7 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryDomainAlias_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryDrillBitType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDrillBitType_Drilling_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4363,6 +4438,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDrillCasingType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDrillCasingType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4381,6 +4457,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDrillFluid_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDrillFluid_Drilling_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4412,6 +4489,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDrillRigType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDrillRigType_Drilling_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4443,6 +4521,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryDrillSize_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDrillSize_Drilling_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4513,6 +4592,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryEstimatedStrength_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryEstimatedStrength_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4544,6 +4624,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryEventType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryEventType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryEventType_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryEventType_WorkflowSchedule_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
@@ -4559,6 +4640,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryFailureMode_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryFailureMode_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4590,6 +4672,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryFileType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryFileType_FileData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4630,6 +4713,7 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryFileType_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryFlowTestType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryFlowTestType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4661,6 +4745,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryGasDetected_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryGasDetected_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4692,6 +4777,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryGeodeticDatum_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryGeodeticDatum_Header_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4723,6 +4809,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryGeophysicalLogType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryGeophysicalLogType_HeaderGeophysicalLog_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4754,6 +4841,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryGroup_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryGroup_GroupMembership_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4811,6 +4899,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryGroupMembership_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryGroupMembership_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4837,8 +4926,10 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryHeaderView_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryHeaderView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryHeaderView_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryHeightDatum_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryHeightDatum_Header_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4870,6 +4961,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryHolePurpose_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryHolePurpose_Header_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4914,6 +5006,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryHoleStatus_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryHoleStatus_Header_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4945,6 +5038,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryHoleType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryHoleType_Header_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4976,6 +5070,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryHorizon_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryHorizon_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5007,6 +5102,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryHue_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryHue_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5051,6 +5147,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryInfillMode_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryInfillMode_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5095,6 +5192,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryInfillType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryInfillType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5113,6 +5211,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryIntervalStatus_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryIntervalStatus_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5144,6 +5243,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryLeaseApplicationType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryLeaseApplicationType_LeaseApplication_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5175,6 +5275,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryLicenseType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryLicenseType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5189,6 +5290,7 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryLicenseType_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryLithologyInterrelation_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryLithologyInterrelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5220,6 +5322,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryLithologyQualifier_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryLithologyQualifier_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5251,6 +5354,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryLithologyType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryLithologyType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5282,6 +5386,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryLocationType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryLocationType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5313,6 +5418,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryMechanicalState_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryMechanicalState_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5344,6 +5450,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryMineralAbundance_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryMineralAbundance_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5375,6 +5482,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryMineralAndFossilAbundance_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryMineralAndFossilAbundance_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5406,6 +5514,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryMineralAndFossilAssociation_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryMineralAndFossilAssociation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5437,6 +5546,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryMineralAndFossilType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryMineralAndFossilType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5468,6 +5578,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryMineralForm_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryMineralForm_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5499,6 +5610,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryMineralStyle_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryMineralStyle_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5530,6 +5642,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryMineralType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryMineralType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5600,6 +5713,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryModel_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5783,6 +5897,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryModelCategory_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryModelCategory_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5809,6 +5924,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryModelRelation_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryModelRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5835,6 +5951,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryModelStatus_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryModelStatus_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5875,6 +5992,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryMoistureSensitivity_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryMoistureSensitivity_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5919,6 +6037,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryPart_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryPart_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryPart_ModelPart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
@@ -6015,8 +6134,10 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryPartCategory_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPartCategory_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryPartCategory_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryPartKit_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPartKit_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryPartKit_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryPartKit_ModelPartKit_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
@@ -6033,8 +6154,10 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryPartKit_PartKitItem_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryPartKitItem_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPartKitItem_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryPartKitItem_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryPartStatus_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPartStatus_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6076,6 +6199,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryPlasticity_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPlasticity_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6094,6 +6218,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryPly_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPly_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6151,6 +6276,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryPlyAlias_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPlyAlias_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6165,6 +6291,7 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryPlyAlias_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryPointLoadTestType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPointLoadTestType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6196,6 +6323,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryPosition_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPosition_Experience_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6223,6 +6351,7 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryPosition_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryProcedure_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryProcedure_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6250,6 +6379,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryProfession_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryProfession_Experience_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6294,6 +6424,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryProvinceGroup_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryProvinceGroup_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6325,6 +6456,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryProvinceType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryProvinceType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6369,6 +6501,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryRelationType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryRelationType_HeaderRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6452,6 +6585,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryRockMassUnitType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryRockMassUnitType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6483,6 +6617,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionarySampleCategory_DetailView" FreezeLayout="False" />
     <ListView Id="DictionarySampleCategory_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6527,6 +6662,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionarySampleState_DetailView" FreezeLayout="False" />
     <ListView Id="DictionarySampleState_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6584,6 +6720,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionarySampleType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionarySampleType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6654,6 +6791,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionarySeam_DetailView" FreezeLayout="False" />
     <ListView Id="DictionarySeam_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6711,6 +6849,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionarySeamAlias_DetailView" FreezeLayout="False" />
     <ListView Id="DictionarySeamAlias_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6725,6 +6864,7 @@
       </Columns>
     </ListView>
     <ListView Id="DictionarySeamAlias_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionarySedimentaryFeature_DetailView" FreezeLayout="False" />
     <ListView Id="DictionarySedimentaryFeature_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6769,6 +6909,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryShade_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryShade_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6813,6 +6954,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryShape_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryShape_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6831,6 +6973,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryStratigraphy_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryStratigraphy_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6875,6 +7018,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionarySurfaceRoughness_DetailView" FreezeLayout="False" />
     <ListView Id="DictionarySurfaceRoughness_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6893,6 +7037,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionarySurveyAccuracy_DetailView" FreezeLayout="False" />
     <ListView Id="DictionarySurveyAccuracy_Header_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6924,6 +7069,7 @@
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryTax_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryTax_InvoiceLine_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -6964,6 +7110,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryTexture_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryTexture_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -7112,6 +7259,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryUnit_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryUnit_DictionaryTax_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -7392,6 +7540,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryUnitType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryUnitType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -7419,6 +7568,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryUsageAuditType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryUsageAuditType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -7463,6 +7613,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryWarrantyType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryWarrantyType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryWarrantyType_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryWarrantyType_ModelWarranty_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
@@ -7491,6 +7642,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryWeathering_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryWeathering_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -7535,6 +7687,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryWorkType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryWorkType_Experience_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -7657,6 +7810,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DictionaryWorkTypeClass_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryWorkTypeClass_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -7671,6 +7825,7 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryWorkTypeClass_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="DictionaryWorkTypeRelation_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryWorkTypeRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -7697,6 +7852,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Drilling_DetailView" FreezeLayout="False" />
     <ListView Id="Drilling_DrillingProjectPlanTask_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -7749,6 +7905,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="DrillingProjectPlanTask_DetailView" FreezeLayout="False" />
     <ListView Id="DrillingProjectPlanTask_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -7801,6 +7958,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Experience_DetailView" FreezeLayout="False" />
     <ListView Id="Experience_DeviceType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="Experience_FileData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
@@ -7881,6 +8039,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ExperienceBasicView_DetailView" FreezeLayout="False" />
     <ListView Id="ExperienceBasicView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="ExperienceBasicView_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="FileData_Adjective_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
@@ -9380,6 +9539,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Geology_DetailView" FreezeLayout="False" />
     <ListView Id="Geology_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9419,6 +9579,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Geophysics_DetailView" FreezeLayout="False" />
     <ListView Id="Geophysics_GeophysicsMetadata_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9438,6 +9599,7 @@
       </Columns>
     </ListView>
     <ListView Id="Geophysics_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="GeophysicsData_DetailView" FreezeLayout="False" />
     <ListView Id="GeophysicsData_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9477,6 +9639,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="GeophysicsMetadata_DetailView" FreezeLayout="False" />
     <ListView Id="GeophysicsMetadata_GeophysicsData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9748,6 +9911,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="HeaderGeophysicalLog_DetailView" FreezeLayout="False" />
     <ListView Id="HeaderGeophysicalLog_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9774,6 +9938,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="HeaderRelation_DetailView" FreezeLayout="False" />
     <ListView Id="HeaderRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9800,6 +9965,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Interpretation_DetailView" FreezeLayout="False" />
     <ListView Id="Interpretation_InterpretationData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9839,6 +10005,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="InterpretationData_DetailView" FreezeLayout="False" />
     <ListView Id="InterpretationData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9878,6 +10045,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Invoice_DetailView" FreezeLayout="False" />
     <ListView Id="Invoice_InvoiceLine_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9956,6 +10124,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="InvoiceLine_DetailView" FreezeLayout="False" />
     <ListView Id="InvoiceLine_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9982,6 +10151,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Journal_DetailView" FreezeLayout="False" />
     <ListView Id="Journal_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10008,6 +10178,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Lease_DetailView" FreezeLayout="False" />
     <ListView Id="Lease_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10034,6 +10205,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="LeaseApplication_DetailView" FreezeLayout="False" />
     <ListView Id="LeaseApplication_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10060,6 +10232,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="License_DetailView" FreezeLayout="False" />
     <ListView Id="License_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10074,6 +10247,7 @@
       </Columns>
     </ListView>
     <ListView Id="License_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="LicenseAsset_DetailView" FreezeLayout="False" />
     <ListView Id="LicenseAsset_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10100,6 +10274,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="LicenseAssetModelPart_DetailView" FreezeLayout="False" />
     <ListView Id="LicenseAssetModelPart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10126,6 +10301,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="LicenseHistory_DetailView" FreezeLayout="False" />
     <ListView Id="LicenseHistory_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10152,8 +10328,10 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="LicenseView_DetailView" FreezeLayout="False" />
     <ListView Id="LicenseView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="LicenseView_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="Lithology_DetailView" FreezeLayout="False" />
     <ListView Id="Lithology_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10232,6 +10410,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Location_DetailView" FreezeLayout="False" />
     <ListView Id="Location_Experience_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10337,6 +10516,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="LocationAlias_DetailView" FreezeLayout="False" />
     <ListView Id="LocationAlias_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10363,6 +10543,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="LocationData_DetailView" FreezeLayout="False" />
     <ListView Id="LocationData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10389,6 +10570,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="LocationTrace_DetailView" FreezeLayout="False" />
     <ListView Id="LocationTrace_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10415,6 +10597,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="MetaData_DetailView" FreezeLayout="False" />
     <ListView Id="MetaData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10454,6 +10637,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="MetaDataRelation_DetailView" FreezeLayout="False" />
     <ListView Id="MetaDataRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10480,6 +10664,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Mineralogy_DetailView" FreezeLayout="False" />
     <ListView Id="Mineralogy_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10519,6 +10704,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ModelCharacteristic_DetailView" FreezeLayout="False" />
     <ListView Id="ModelCharacteristic_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10545,6 +10731,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ModelPart_DetailView" FreezeLayout="False" />
     <ListView Id="ModelPart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10584,6 +10771,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ModelPartKit_DetailView" FreezeLayout="False" />
     <ListView Id="ModelPartKit_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10623,6 +10811,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ModelProcedure_DetailView" FreezeLayout="False" />
     <ListView Id="ModelProcedure_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10675,6 +10864,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ModelProcedureTask_DetailView" FreezeLayout="False" />
     <ListView Id="ModelProcedureTask_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10714,6 +10904,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ModelProcedureTaskPart_DetailView" FreezeLayout="False" />
     <ListView Id="ModelProcedureTaskPart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10740,6 +10931,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ModelScheduleCycle_DetailView" FreezeLayout="False" />
     <ListView Id="ModelScheduleCycle_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10766,8 +10958,10 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ModelsCurrentView_DetailView" FreezeLayout="False" />
     <ListView Id="ModelsCurrentView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="ModelsCurrentView_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="ModelStatusView_DetailView" FreezeLayout="False" />
     <ListView Id="ModelStatusView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="ModelStatusView_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="ModelWarranty_AssetWarranty_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
@@ -10783,6 +10977,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ModelWarranty_DetailView" FreezeLayout="False" />
     <ListView Id="ModelWarranty_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10809,6 +11004,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Opportunity_DetailView" FreezeLayout="False" />
     <ListView Id="Opportunity_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10862,6 +11058,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Parameter_DetailView" FreezeLayout="False" />
     <ListView Id="Parameter_GeophysicsMetadata_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10967,6 +11164,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ParameterDuplicate_DetailView" FreezeLayout="False" />
     <ListView Id="ParameterDuplicate_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10993,6 +11191,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ParameterGroup_DetailView" FreezeLayout="False" />
     <ListView Id="ParameterGroup_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11019,6 +11218,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="PartCharacteristic_DetailView" FreezeLayout="False" />
     <ListView Id="PartCharacteristic_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11045,6 +11245,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Payment_DetailView" FreezeLayout="False" />
     <ListView Id="Payment_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11071,6 +11272,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="PointLoad_DetailView" FreezeLayout="False" />
     <ListView Id="PointLoad_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11110,6 +11312,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="PrivateData_DetailView" FreezeLayout="False" />
     <ListView Id="PrivateData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11188,6 +11391,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Project_DetailView" FreezeLayout="False" />
     <ListView Id="Project_Experience_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11423,6 +11627,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectDeliverable_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectDeliverable_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11463,12 +11668,14 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectModelsAwaitingAuthorisationView_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectModelsAwaitingAuthorisationView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="VersionUpdated" Index="-1" />
       </Columns>
     </ListView>
     <ListView Id="ProjectModelsAwaitingAuthorisationView_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="ProjectPlan_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectPlan_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11522,6 +11729,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectPlanTask_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectPlanTask_DrillingProjectPlanTask_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11653,6 +11861,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectPlanTaskComplianceResponse_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectPlanTaskComplianceResponse_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11679,6 +11888,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectPlanTaskData_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectPlanTaskData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11705,6 +11915,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectPlanTaskModel_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectPlanTaskModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11744,6 +11955,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectPlanTaskPart_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectPlanTaskPart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11783,6 +11995,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectPlanTaskResponse_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectPlanTaskResponse_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11848,6 +12061,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectPlanTaskResponseData_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectPlanTaskResponseData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11874,6 +12088,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectPlanTaskWorker_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectPlanTaskWorker_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11900,12 +12115,14 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProjectStatusView_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectStatusView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="VersionUpdated" Index="-1" />
       </Columns>
     </ListView>
     <ListView Id="ProjectStatusView_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="ProspectusProject_DetailView" FreezeLayout="False" />
     <ListView Id="ProspectusProject_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11933,6 +12150,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProspectusProjectCommodity_DetailView" FreezeLayout="False" />
     <ListView Id="ProspectusProjectCommodity_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -11972,6 +12190,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Province_DetailView" FreezeLayout="False" />
     <ListView Id="Province_DictionaryTax_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12116,6 +12335,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProvinceAlias_DetailView" FreezeLayout="False" />
     <ListView Id="ProvinceAlias_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12142,6 +12362,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProvinceData_DetailView" FreezeLayout="False" />
     <ListView Id="ProvinceData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12168,6 +12389,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ProvinceRelation_DetailView" FreezeLayout="False" />
     <ListView Id="ProvinceRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12207,6 +12429,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="PurchaseOrder_DetailView" FreezeLayout="False" />
     <ListView Id="PurchaseOrder_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12247,6 +12470,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Recall_DetailView" FreezeLayout="False" />
     <ListView Id="Recall_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12286,6 +12510,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="RecallModel_DetailView" FreezeLayout="False" />
     <ListView Id="RecallModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12325,6 +12550,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="RecallModelAsset_DetailView" FreezeLayout="False" />
     <ListView Id="RecallModelAsset_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12351,6 +12577,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Recovery_DetailView" FreezeLayout="False" />
     <ListView Id="Recovery_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12416,6 +12643,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Sample_DetailView" FreezeLayout="False" />
     <ListView Id="Sample_Interpretation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12443,6 +12671,7 @@
       </Columns>
     </ListView>
     <ListView Id="Sample_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
+    <DetailView Id="SecurityBlacklist_DetailView" FreezeLayout="False" />
     <ListView Id="SecurityBlacklist_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12469,6 +12698,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="SecurityWhitelist_DetailView" FreezeLayout="False" />
     <ListView Id="SecurityWhitelist_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12495,6 +12725,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Server_DetailView" FreezeLayout="False" />
     <ListView Id="Server_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12521,6 +12752,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="ServerApplication_DetailView" FreezeLayout="False" />
     <ListView Id="ServerApplication_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12547,6 +12779,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="SupplierModel_DetailView" FreezeLayout="False" />
     <ListView Id="SupplierModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12599,6 +12832,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="SupplierPart_DetailView" FreezeLayout="False" />
     <ListView Id="SupplierPart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12664,6 +12898,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Supply_DetailView" FreezeLayout="False" />
     <ListView Id="Supply_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12716,6 +12951,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="SupplyItem_DetailView" FreezeLayout="False" />
     <ListView Id="SupplyItem_InvoiceLine_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12768,6 +13004,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="SupplyItemTax_DetailView" FreezeLayout="False" />
     <ListView Id="SupplyItemTax_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12807,6 +13044,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Survey_DetailView" FreezeLayout="False" />
     <ListView Id="Survey_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12833,6 +13071,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="SurveyViewsView_DetailView" FreezeLayout="False" />
     <ListView Id="SurveyViewsView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="SurveyViewsView_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="Task_ComplianceTask_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
@@ -12848,6 +13087,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Task_DetailView" FreezeLayout="False" />
     <ListView Id="Task_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12940,6 +13180,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="TaskData_DetailView" FreezeLayout="False" />
     <ListView Id="TaskData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12966,6 +13207,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="TaskRelation_DetailView" FreezeLayout="False" />
     <ListView Id="TaskRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -12992,6 +13234,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Tenement_DetailView" FreezeLayout="False" />
     <ListView Id="Tenement_Lease_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13110,6 +13353,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="TenementCommodity_DetailView" FreezeLayout="False" />
     <ListView Id="TenementCommodity_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13136,6 +13380,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="TenementProvince_DetailView" FreezeLayout="False" />
     <ListView Id="TenementProvince_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13162,6 +13407,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="TenementRelation_DetailView" FreezeLayout="False" />
     <ListView Id="TenementRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13188,6 +13434,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="Usage_DetailView" FreezeLayout="False" />
     <ListView Id="Usage_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13214,6 +13461,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="UsageAuditView_DetailView" FreezeLayout="False" />
     <ListView Id="UsageAuditView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13280,6 +13528,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="WarehouseModel_DetailView" FreezeLayout="False" />
     <ListView Id="WarehouseModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13332,6 +13581,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="WarehouseModelSupplier_DetailView" FreezeLayout="False" />
     <ListView Id="WarehouseModelSupplier_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13358,6 +13608,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="WarehousePart_DetailView" FreezeLayout="False" />
     <ListView Id="WarehousePart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13410,6 +13661,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="WarehousePartSupplier_DetailView" FreezeLayout="False" />
     <ListView Id="WarehousePartSupplier_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13436,6 +13688,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="WaterFlow_DetailView" FreezeLayout="False" />
     <ListView Id="WaterFlow_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13462,6 +13715,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="WorkflowSchedule_DetailView" FreezeLayout="False" />
     <ListView Id="WorkflowSchedule_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -13488,6 +13742,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
+    <DetailView Id="WorkTypeView_DetailView" FreezeLayout="False" />
     <ListView Id="WorkTypeView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="WorkTypeView_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
   </Views>
