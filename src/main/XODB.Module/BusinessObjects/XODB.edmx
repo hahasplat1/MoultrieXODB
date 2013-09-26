@@ -4088,6 +4088,15 @@
           <Property Name="CustomDecontaminationStatusName" Type="nvarchar" MaxLength="60" />
           <Property Name="IsSafeForHandling" Type="bit" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="Q_DictionaryDeliveryAdviceReason">
           <Key>
@@ -4097,6 +4106,15 @@
           <Property Name="StandardDeliveryAdviceReasonName" Type="nvarchar" Nullable="false" MaxLength="60" />
           <Property Name="CustomDeliveryAdviceReasonName" Type="nvarchar" MaxLength="255" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="Q_DictionaryDeviceType">
           <Key>
@@ -4112,6 +4130,15 @@
           <Property Name="IsDevice" Type="bit" />
           <Property Name="IsPart" Type="bit" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="Q_DictionaryEventType">
           <Key>
@@ -4121,6 +4148,15 @@
           <Property Name="StandardEventTypeName" Type="nvarchar" MaxLength="60" />
           <Property Name="CustomEventTypeName" Type="nvarchar" MaxLength="60" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="Q_DictionaryPart">
           <Key>
@@ -4144,6 +4180,15 @@
           <Property Name="FullDescription" Type="nvarchar(max)" />
           <Property Name="Thumbnail" Type="varbinary(max)" />
           <Property Name="OriginalFileDataID" Type="uniqueidentifier" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="Q_DictionaryPartCategory">
           <Key>
@@ -4152,6 +4197,15 @@
           <Property Name="PartCategoryID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PartID" Type="uniqueidentifier" />
           <Property Name="CategoryDeviceTypeID" Type="uniqueidentifier" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="Q_DictionaryPartKit">
           <Key>
@@ -4161,6 +4215,15 @@
           <Property Name="StandardPartKitName" Type="nvarchar" MaxLength="60" />
           <Property Name="CustomPartKitName" Type="nvarchar" MaxLength="60" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="Q_DictionaryPartKitItem">
           <Key>
@@ -4171,6 +4234,15 @@
           <Property Name="PartID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UnitID" Type="uniqueidentifier" />
           <Property Name="Quantity" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="Q_DictionaryProcedure">
           <Key>
@@ -4210,6 +4282,15 @@
           <Property Name="StandardWarrantyTypeName" Type="nvarchar" Nullable="false" MaxLength="60" />
           <Property Name="CustomWarrantyTypeName" Type="nvarchar" Nullable="false" MaxLength="60" />
           <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="Q_ModelPart">
           <Key>
@@ -23311,6 +23392,15 @@
           <Property Name="IsSafeForHandling" Type="Boolean" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="DeliveryAdviceItem" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdviceItem_Q_DictionaryDecontaminationStatus" FromRole="Q_DictionaryDecontaminationStatus" ToRole="Q_DeliveryAdviceItem" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="DictionaryDeliveryAdviceReason">
           <Key>
@@ -23321,6 +23411,15 @@
           <Property Name="CustomDeliveryAdviceReasonName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="DeliveryAdvice" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_Q_DictionaryDeliveryAdvice" FromRole="Q_DictionaryDeliveryAdviceReason" ToRole="Q_DeliveryAdvice" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="DictionaryDeviceType">
           <Key>
@@ -23344,6 +23443,15 @@
           <NavigationProperty Name="PartCategory" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryPartCategory_Q_DictionaryDeviceType" FromRole="Q_DictionaryDeviceType" ToRole="Q_DictionaryPartCategory" />
           <NavigationProperty Name="Model" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryModel_Q_DictionaryDeviceType" FromRole="Q_DictionaryDeviceType" ToRole="X_DictionaryModel" />
           <NavigationProperty Name="ModelCategory" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryModelCategory_Q_DictionaryDeviceType" FromRole="Q_DictionaryDeviceType" ToRole="X_DictionaryModelCategory" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="DictionaryEventType">
           <Key>
@@ -23354,6 +23462,15 @@
           <Property Name="CustomEventTypeName" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="WorkflowSchedule" Relationship="XODB.Module.BusinessObjects.FK_Q_WorkflowSchedule_Q_DictionaryEventType" FromRole="Q_DictionaryEventType" ToRole="Q_WorkflowSchedule" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="DictionaryPart">
           <Key>
@@ -23395,6 +23512,15 @@
           <NavigationProperty Name="ProjectPlanTaskPart" Relationship="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskPart_Q_DictionaryPart" FromRole="Q_DictionaryPart" ToRole="Q_ProjectPlanTaskPart" />
           <NavigationProperty Name="ContractConditionPart" Relationship="XODB.Module.BusinessObjects.FK_X_ContractConditionPart_X_DictionaryPart" FromRole="Q_DictionaryPart" ToRole="X_ContractConditionPart" />
           <NavigationProperty Name="PartCharacteristic" Relationship="XODB.Module.BusinessObjects.FK_X_PartCharacteristic_Q_DictionaryPart" FromRole="Q_DictionaryPart" ToRole="X_PartCharacteristic" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="DictionaryPartCategory">
           <Key>
@@ -23405,6 +23531,15 @@
           <Property Name="CategoryDeviceTypeID" Type="Guid" />
           <NavigationProperty Name="DeviceType" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryPartCategory_Q_DictionaryDeviceType" FromRole="Q_DictionaryPartCategory" ToRole="Q_DictionaryDeviceType" />
           <NavigationProperty Name="Part" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryPartCategory_Q_DictionaryPart" FromRole="Q_DictionaryPartCategory" ToRole="Q_DictionaryPart" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="DictionaryPartKit">
           <Key>
@@ -23416,6 +23551,15 @@
           <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="ModelPartKit" Relationship="XODB.Module.BusinessObjects.FK_Q_ModelPartKit_Q_DictionaryPartKit" FromRole="Q_DictionaryPartKit" ToRole="Q_ModelPartKit" />
           <NavigationProperty Name="PartKitItem" Relationship="XODB.Module.BusinessObjects.FK_Q_PartKitItems_Q_DictionaryPartKit" FromRole="Q_DictionaryPartKit" ToRole="Q_DictionaryPartKitItem" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="DictionaryPartKitItem">
           <Key>
@@ -23429,6 +23573,15 @@
           <NavigationProperty Name="Part" Relationship="XODB.Module.BusinessObjects.FK_Q_PartKitItems_Q_DictionaryPart" FromRole="Q_DictionaryPartKitItem" ToRole="Q_DictionaryPart" />
           <NavigationProperty Name="PartKit" Relationship="XODB.Module.BusinessObjects.FK_Q_PartKitItems_Q_DictionaryPartKit" FromRole="Q_DictionaryPartKitItem" ToRole="Q_DictionaryPartKit" />
           <NavigationProperty Name="Unit" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryPartKitItem_X_DictionaryUnit" FromRole="Q_DictionaryPartKitItem" ToRole="X_DictionaryUnit" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="DictionaryProcedure">
           <Key>
@@ -23479,6 +23632,15 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="AssetWarranty" Relationship="XODB.Module.BusinessObjects.FK_Q_AssetWarranty_Q_DictionaryWarrantyType" FromRole="Q_DictionaryWarrantyType" ToRole="Q_AssetWarranty" />
           <NavigationProperty Name="ModelWarranty" Relationship="XODB.Module.BusinessObjects.FK_Q_ModelWarranty_Q_DictionaryWarrantyType" FromRole="Q_DictionaryWarrantyType" ToRole="Q_ModelWarranty" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="ModelPart">
           <Key>
@@ -39121,6 +39283,15 @@
           <EntitySetMapping Name="DictionaryDecontaminationStatus">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryDecontaminationStatus">
               <MappingFragment StoreEntitySet="Q_DictionaryDecontaminationStatus">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="DecontaminationStatusID" ColumnName="DecontaminationStatusID" />
                 <ScalarProperty Name="StandardDecontaminationStatusName" ColumnName="StandardDecontaminationStatusName" />
                 <ScalarProperty Name="CustomDecontaminationStatusName" ColumnName="CustomDecontaminationStatusName" />
@@ -39132,6 +39303,15 @@
           <EntitySetMapping Name="DictionaryDeliveryAdviceReasons">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryDeliveryAdviceReason">
               <MappingFragment StoreEntitySet="Q_DictionaryDeliveryAdviceReason">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="DeliveryAdviceReasonID" ColumnName="DeliveryAdviceReasonID" />
                 <ScalarProperty Name="StandardDeliveryAdviceReasonName" ColumnName="StandardDeliveryAdviceReasonName" />
                 <ScalarProperty Name="CustomDeliveryAdviceReasonName" ColumnName="CustomDeliveryAdviceReasonName" />
@@ -39142,6 +39322,15 @@
           <EntitySetMapping Name="DictionaryDeviceTypes">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryDeviceType">
               <MappingFragment StoreEntitySet="Q_DictionaryDeviceType">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="DeviceTypeID" ColumnName="DeviceTypeID" />
                 <ScalarProperty Name="ParentDeviceTypeID" ColumnName="ParentDeviceTypeID" />
                 <ScalarProperty Name="StandardDeviceTypeName" ColumnName="StandardDeviceTypeName" />
@@ -39158,6 +39347,15 @@
           <EntitySetMapping Name="DictionaryEventTypes">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryEventType">
               <MappingFragment StoreEntitySet="Q_DictionaryEventType">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="EventTypeID" ColumnName="EventTypeID" />
                 <ScalarProperty Name="StandardEventTypeName" ColumnName="StandardEventTypeName" />
                 <ScalarProperty Name="CustomEventTypeName" ColumnName="CustomEventTypeName" />
@@ -39168,6 +39366,15 @@
           <EntitySetMapping Name="DictionaryParts">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryPart">
               <MappingFragment StoreEntitySet="Q_DictionaryPart">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="PartID" ColumnName="PartID" />
                 <ScalarProperty Name="ParentPartID" ColumnName="ParentPartID" />
                 <ScalarProperty Name="StandardPartName" ColumnName="StandardPartName" />
@@ -39192,6 +39399,15 @@
           <EntitySetMapping Name="DictionaryPartCategories">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryPartCategory">
               <MappingFragment StoreEntitySet="Q_DictionaryPartCategory">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="PartCategoryID" ColumnName="PartCategoryID" />
                 <ScalarProperty Name="PartID" ColumnName="PartID" />
                 <ScalarProperty Name="CategoryDeviceTypeID" ColumnName="CategoryDeviceTypeID" />
@@ -39201,6 +39417,15 @@
           <EntitySetMapping Name="DictionaryPartKits">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryPartKit">
               <MappingFragment StoreEntitySet="Q_DictionaryPartKit">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="PartKitID" ColumnName="PartKitID" />
                 <ScalarProperty Name="StandardPartKitName" ColumnName="StandardPartKitName" />
                 <ScalarProperty Name="CustomPartKitName" ColumnName="CustomPartKitName" />
@@ -39211,6 +39436,15 @@
           <EntitySetMapping Name="DictionaryPartKitItems">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryPartKitItem">
               <MappingFragment StoreEntitySet="Q_DictionaryPartKitItem">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="PartKitItemID" ColumnName="PartKitItemID" />
                 <ScalarProperty Name="PartKitID" ColumnName="PartKitID" />
                 <ScalarProperty Name="PartID" ColumnName="PartID" />
@@ -39253,6 +39487,15 @@
           <EntitySetMapping Name="DictionaryWarrantyTypes">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryWarrantyType">
               <MappingFragment StoreEntitySet="Q_DictionaryWarrantyType">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="WarrantyTypeID" ColumnName="WarrantyTypeID" />
                 <ScalarProperty Name="StandardWarrantyTypeName" ColumnName="StandardWarrantyTypeName" />
                 <ScalarProperty Name="CustomWarrantyTypeName" ColumnName="CustomWarrantyTypeName" />

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets1895FFA2912B4B70B66E22D86F8B1CEAC82E669C9595CA7EB253CE2C6BC80FD3))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets98A55BFFB43D75F3C5F7FDF127FF93FF734DF88AC87B960729BF4A6E34B871B5))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets1895FFA2912B4B70B66E22D86F8B1CEAC82E669C9595CA7EB253CE2C6BC80FD3 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets98A55BFFB43D75F3C5F7FDF127FF93FF734DF88AC87B960729BF4A6E34B871B5 : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets1895FFA2912B4B70B66E22D86F8B1CEAC82E669C9595CA7EB253CE2C6BC80FD3()
+        public ViewsForBaseEntitySets98A55BFFB43D75F3C5F7FDF127FF93FF734DF88AC87B960729BF4A6E34B871B5()
         {
             this.EdmEntityContainerName = "XODBC";
             this.StoreEntityContainerName = "XODBModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "cbab32d6759bdab032d93519a18d5880f90a11299aad9d575d4800b0277aeaff";
-            this.HashOverAllExtentViews = "fe12b60f359de05b37f9be0282f2cae3063a6cee8f979cdb2b0b7144e3a0b43f";
+            this.HashOverMappingClosure = "206ab6af1ef8d4b62c8759de765ccf3920b2c2b8eb3be79f91721c9bb840a285";
+            this.HashOverAllExtentViews = "30b1f2693cbc46a1d7a37b51b46510e4ba64ea23c179bc8ad062f8fa9dfbafc9";
             this.ViewCount = 584;
         }
         
@@ -3676,19 +3676,39 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView44()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryDecontaminationStatus", @"
-    SELECT VALUE -- Constructing Q_DictionaryDecontaminationStatus
-        [XODB.Module.BusinessObjects.Store.Q_DictionaryDecontaminationStatus](T1.[Q_DictionaryDecontaminationStatus.DecontaminationStatusID], T1.[Q_DictionaryDecontaminationStatus.StandardDecontaminationStatusName], T1.[Q_DictionaryDecontaminationStatus.CustomDecontaminationStatusName], T1.[Q_DictionaryDecontaminationStatus.IsSafeForHandling], T1.[Q_DictionaryDecontaminationStatus.Description])
-    FROM (
-        SELECT 
-            T.DecontaminationStatusID AS [Q_DictionaryDecontaminationStatus.DecontaminationStatusID], 
-            T.StandardDecontaminationStatusName AS [Q_DictionaryDecontaminationStatus.StandardDecontaminationStatusName], 
-            T.CustomDecontaminationStatusName AS [Q_DictionaryDecontaminationStatus.CustomDecontaminationStatusName], 
-            T.IsSafeForHandling AS [Q_DictionaryDecontaminationStatus.IsSafeForHandling], 
-            T.Description AS [Q_DictionaryDecontaminationStatus.Description], 
-            True AS _from0
-        FROM XODBC.DictionaryDecontaminationStatus AS T
-    ) AS T1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2470);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing Q_DictionaryDecontaminationStatus\r\n        [X");
+            viewString.Append("ODB.Module.BusinessObjects.Store.Q_DictionaryDecontaminationStatus](T1.[Q_Dictio");
+            viewString.Append("naryDecontaminationStatus.DecontaminationStatusID], T1.[Q_DictionaryDecontaminat");
+            viewString.Append("ionStatus.StandardDecontaminationStatusName], T1.[Q_DictionaryDecontaminationSta");
+            viewString.Append("tus.CustomDecontaminationStatusName], T1.[Q_DictionaryDecontaminationStatus.IsSa");
+            viewString.Append("feForHandling], T1.[Q_DictionaryDecontaminationStatus.Description], T1.[Q_Dictio");
+            viewString.Append("naryDecontaminationStatus.Version], T1.[Q_DictionaryDecontaminationStatus.Versio");
+            viewString.Append("nAntecedentID], T1.[Q_DictionaryDecontaminationStatus.VersionCertainty], T1.[Q_D");
+            viewString.Append("ictionaryDecontaminationStatus.VersionWorkflowInstanceID], T1.[Q_DictionaryDecon");
+            viewString.Append("taminationStatus.VersionUpdatedBy], T1.[Q_DictionaryDecontaminationStatus.Versio");
+            viewString.Append("nDeletedBy], T1.[Q_DictionaryDecontaminationStatus.VersionOwnerContactID], T1.[Q");
+            viewString.Append("_DictionaryDecontaminationStatus.VersionOwnerCompanyID], T1.[Q_DictionaryDeconta");
+            viewString.Append("minationStatus.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.Deco");
+            viewString.Append("ntaminationStatusID AS [Q_DictionaryDecontaminationStatus.DecontaminationStatusI");
+            viewString.Append("D], \r\n            T.StandardDecontaminationStatusName AS [Q_DictionaryDecontamin");
+            viewString.Append("ationStatus.StandardDecontaminationStatusName], \r\n            T.CustomDecontamin");
+            viewString.Append("ationStatusName AS [Q_DictionaryDecontaminationStatus.CustomDecontaminationStatu");
+            viewString.Append("sName], \r\n            T.IsSafeForHandling AS [Q_DictionaryDecontaminationStatus.");
+            viewString.Append("IsSafeForHandling], \r\n            T.Description AS [Q_DictionaryDecontaminationS");
+            viewString.Append("tatus.Description], \r\n            T.Version AS [Q_DictionaryDecontaminationStatu");
+            viewString.Append("s.Version], \r\n            T.VersionAntecedentID AS [Q_DictionaryDecontaminationS");
+            viewString.Append("tatus.VersionAntecedentID], \r\n            T.VersionCertainty AS [Q_DictionaryDec");
+            viewString.Append("ontaminationStatus.VersionCertainty], \r\n            T.VersionWorkflowInstanceID ");
+            viewString.Append("AS [Q_DictionaryDecontaminationStatus.VersionWorkflowInstanceID], \r\n            ");
+            viewString.Append("T.VersionUpdatedBy AS [Q_DictionaryDecontaminationStatus.VersionUpdatedBy], \r\n  ");
+            viewString.Append("          T.VersionDeletedBy AS [Q_DictionaryDecontaminationStatus.VersionDelete");
+            viewString.Append("dBy], \r\n            T.VersionOwnerContactID AS [Q_DictionaryDecontaminationStatu");
+            viewString.Append("s.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [Q_Dictionary");
+            viewString.Append("DecontaminationStatus.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS ");
+            viewString.Append("[Q_DictionaryDecontaminationStatus.VersionUpdated], \r\n            True AS _from0");
+            viewString.Append("\r\n        FROM XODBC.DictionaryDecontaminationStatus AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryDecontaminationStatus", viewString.ToString());
         }
         
         /// <Summary>
@@ -3696,18 +3716,37 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView45()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryDeliveryAdviceReason", @"
-    SELECT VALUE -- Constructing Q_DictionaryDeliveryAdviceReason
-        [XODB.Module.BusinessObjects.Store.Q_DictionaryDeliveryAdviceReason](T1.[Q_DictionaryDeliveryAdviceReason.DeliveryAdviceReasonID], T1.[Q_DictionaryDeliveryAdviceReason.StandardDeliveryAdviceReasonName], T1.[Q_DictionaryDeliveryAdviceReason.CustomDeliveryAdviceReasonName], T1.[Q_DictionaryDeliveryAdviceReason.Description])
-    FROM (
-        SELECT 
-            T.DeliveryAdviceReasonID AS [Q_DictionaryDeliveryAdviceReason.DeliveryAdviceReasonID], 
-            T.StandardDeliveryAdviceReasonName AS [Q_DictionaryDeliveryAdviceReason.StandardDeliveryAdviceReasonName], 
-            T.CustomDeliveryAdviceReasonName AS [Q_DictionaryDeliveryAdviceReason.CustomDeliveryAdviceReasonName], 
-            T.Description AS [Q_DictionaryDeliveryAdviceReason.Description], 
-            True AS _from0
-        FROM XODBC.DictionaryDeliveryAdviceReasons AS T
-    ) AS T1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2283);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing Q_DictionaryDeliveryAdviceReason\r\n        [XO");
+            viewString.Append("DB.Module.BusinessObjects.Store.Q_DictionaryDeliveryAdviceReason](T1.[Q_Dictiona");
+            viewString.Append("ryDeliveryAdviceReason.DeliveryAdviceReasonID], T1.[Q_DictionaryDeliveryAdviceRe");
+            viewString.Append("ason.StandardDeliveryAdviceReasonName], T1.[Q_DictionaryDeliveryAdviceReason.Cus");
+            viewString.Append("tomDeliveryAdviceReasonName], T1.[Q_DictionaryDeliveryAdviceReason.Description],");
+            viewString.Append(" T1.[Q_DictionaryDeliveryAdviceReason.Version], T1.[Q_DictionaryDeliveryAdviceRe");
+            viewString.Append("ason.VersionAntecedentID], T1.[Q_DictionaryDeliveryAdviceReason.VersionCertainty");
+            viewString.Append("], T1.[Q_DictionaryDeliveryAdviceReason.VersionWorkflowInstanceID], T1.[Q_Dictio");
+            viewString.Append("naryDeliveryAdviceReason.VersionUpdatedBy], T1.[Q_DictionaryDeliveryAdviceReason");
+            viewString.Append(".VersionDeletedBy], T1.[Q_DictionaryDeliveryAdviceReason.VersionOwnerContactID],");
+            viewString.Append(" T1.[Q_DictionaryDeliveryAdviceReason.VersionOwnerCompanyID], T1.[Q_DictionaryDe");
+            viewString.Append("liveryAdviceReason.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.");
+            viewString.Append("DeliveryAdviceReasonID AS [Q_DictionaryDeliveryAdviceReason.DeliveryAdviceReason");
+            viewString.Append("ID], \r\n            T.StandardDeliveryAdviceReasonName AS [Q_DictionaryDeliveryAd");
+            viewString.Append("viceReason.StandardDeliveryAdviceReasonName], \r\n            T.CustomDeliveryAdvi");
+            viewString.Append("ceReasonName AS [Q_DictionaryDeliveryAdviceReason.CustomDeliveryAdviceReasonName");
+            viewString.Append("], \r\n            T.Description AS [Q_DictionaryDeliveryAdviceReason.Description]");
+            viewString.Append(", \r\n            T.Version AS [Q_DictionaryDeliveryAdviceReason.Version], \r\n     ");
+            viewString.Append("       T.VersionAntecedentID AS [Q_DictionaryDeliveryAdviceReason.VersionAnteced");
+            viewString.Append("entID], \r\n            T.VersionCertainty AS [Q_DictionaryDeliveryAdviceReason.Ve");
+            viewString.Append("rsionCertainty], \r\n            T.VersionWorkflowInstanceID AS [Q_DictionaryDeliv");
+            viewString.Append("eryAdviceReason.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS ");
+            viewString.Append("[Q_DictionaryDeliveryAdviceReason.VersionUpdatedBy], \r\n            T.VersionDele");
+            viewString.Append("tedBy AS [Q_DictionaryDeliveryAdviceReason.VersionDeletedBy], \r\n            T.Ve");
+            viewString.Append("rsionOwnerContactID AS [Q_DictionaryDeliveryAdviceReason.VersionOwnerContactID],");
+            viewString.Append(" \r\n            T.VersionOwnerCompanyID AS [Q_DictionaryDeliveryAdviceReason.Vers");
+            viewString.Append("ionOwnerCompanyID], \r\n            T.VersionUpdated AS [Q_DictionaryDeliveryAdvic");
+            viewString.Append("eReason.VersionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.Dictio");
+            viewString.Append("naryDeliveryAdviceReasons AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryDeliveryAdviceReason", viewString.ToString());
         }
         
         /// <Summary>
@@ -3715,24 +3754,41 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView46()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryDeviceType", @"
-    SELECT VALUE -- Constructing Q_DictionaryDeviceType
-        [XODB.Module.BusinessObjects.Store.Q_DictionaryDeviceType](T1.[Q_DictionaryDeviceType.DeviceTypeID], T1.[Q_DictionaryDeviceType.ParentDeviceTypeID], T1.[Q_DictionaryDeviceType.StandardDeviceTypeName], T1.[Q_DictionaryDeviceType.EcriDeviceTypeName], T1.[Q_DictionaryDeviceType.CustomDeviceTypeName], T1.[Q_DictionaryDeviceType.PrimaryWorkTypeID], T1.[Q_DictionaryDeviceType.IsAttributable], T1.[Q_DictionaryDeviceType.IsDevice], T1.[Q_DictionaryDeviceType.IsPart], T1.[Q_DictionaryDeviceType.Description])
-    FROM (
-        SELECT 
-            T.DeviceTypeID AS [Q_DictionaryDeviceType.DeviceTypeID], 
-            T.ParentDeviceTypeID AS [Q_DictionaryDeviceType.ParentDeviceTypeID], 
-            T.StandardDeviceTypeName AS [Q_DictionaryDeviceType.StandardDeviceTypeName], 
-            T.EcriDeviceTypeName AS [Q_DictionaryDeviceType.EcriDeviceTypeName], 
-            T.CustomDeviceTypeName AS [Q_DictionaryDeviceType.CustomDeviceTypeName], 
-            T.PrimaryWorkTypeID AS [Q_DictionaryDeviceType.PrimaryWorkTypeID], 
-            T.IsAttributable AS [Q_DictionaryDeviceType.IsAttributable], 
-            T.IsDevice AS [Q_DictionaryDeviceType.IsDevice], 
-            T.IsPart AS [Q_DictionaryDeviceType.IsPart], 
-            T.Description AS [Q_DictionaryDeviceType.Description], 
-            True AS _from0
-        FROM XODBC.DictionaryDeviceTypes AS T
-    ) AS T1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2608);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing Q_DictionaryDeviceType\r\n        [XODB.Module.");
+            viewString.Append("BusinessObjects.Store.Q_DictionaryDeviceType](T1.[Q_DictionaryDeviceType.DeviceT");
+            viewString.Append("ypeID], T1.[Q_DictionaryDeviceType.ParentDeviceTypeID], T1.[Q_DictionaryDeviceTy");
+            viewString.Append("pe.StandardDeviceTypeName], T1.[Q_DictionaryDeviceType.EcriDeviceTypeName], T1.[");
+            viewString.Append("Q_DictionaryDeviceType.CustomDeviceTypeName], T1.[Q_DictionaryDeviceType.Primary");
+            viewString.Append("WorkTypeID], T1.[Q_DictionaryDeviceType.IsAttributable], T1.[Q_DictionaryDeviceT");
+            viewString.Append("ype.IsDevice], T1.[Q_DictionaryDeviceType.IsPart], T1.[Q_DictionaryDeviceType.De");
+            viewString.Append("scription], T1.[Q_DictionaryDeviceType.Version], T1.[Q_DictionaryDeviceType.Vers");
+            viewString.Append("ionAntecedentID], T1.[Q_DictionaryDeviceType.VersionCertainty], T1.[Q_Dictionary");
+            viewString.Append("DeviceType.VersionWorkflowInstanceID], T1.[Q_DictionaryDeviceType.VersionUpdated");
+            viewString.Append("By], T1.[Q_DictionaryDeviceType.VersionDeletedBy], T1.[Q_DictionaryDeviceType.Ve");
+            viewString.Append("rsionOwnerContactID], T1.[Q_DictionaryDeviceType.VersionOwnerCompanyID], T1.[Q_D");
+            viewString.Append("ictionaryDeviceType.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T");
+            viewString.Append(".DeviceTypeID AS [Q_DictionaryDeviceType.DeviceTypeID], \r\n            T.ParentDe");
+            viewString.Append("viceTypeID AS [Q_DictionaryDeviceType.ParentDeviceTypeID], \r\n            T.Stand");
+            viewString.Append("ardDeviceTypeName AS [Q_DictionaryDeviceType.StandardDeviceTypeName], \r\n        ");
+            viewString.Append("    T.EcriDeviceTypeName AS [Q_DictionaryDeviceType.EcriDeviceTypeName], \r\n     ");
+            viewString.Append("       T.CustomDeviceTypeName AS [Q_DictionaryDeviceType.CustomDeviceTypeName], ");
+            viewString.Append("\r\n            T.PrimaryWorkTypeID AS [Q_DictionaryDeviceType.PrimaryWorkTypeID],");
+            viewString.Append(" \r\n            T.IsAttributable AS [Q_DictionaryDeviceType.IsAttributable], \r\n  ");
+            viewString.Append("          T.IsDevice AS [Q_DictionaryDeviceType.IsDevice], \r\n            T.IsPar");
+            viewString.Append("t AS [Q_DictionaryDeviceType.IsPart], \r\n            T.Description AS [Q_Dictiona");
+            viewString.Append("ryDeviceType.Description], \r\n            T.Version AS [Q_DictionaryDeviceType.Ve");
+            viewString.Append("rsion], \r\n            T.VersionAntecedentID AS [Q_DictionaryDeviceType.VersionAn");
+            viewString.Append("tecedentID], \r\n            T.VersionCertainty AS [Q_DictionaryDeviceType.Version");
+            viewString.Append("Certainty], \r\n            T.VersionWorkflowInstanceID AS [Q_DictionaryDeviceType");
+            viewString.Append(".VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [Q_DictionaryDe");
+            viewString.Append("viceType.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [Q_DictionaryDev");
+            viewString.Append("iceType.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [Q_Dictionar");
+            viewString.Append("yDeviceType.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [Q_");
+            viewString.Append("DictionaryDeviceType.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [");
+            viewString.Append("Q_DictionaryDeviceType.VersionUpdated], \r\n            True AS _from0\r\n        FR");
+            viewString.Append("OM XODBC.DictionaryDeviceTypes AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryDeviceType", viewString.ToString());
         }
         
         /// <Summary>
@@ -3740,18 +3796,30 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView47()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryEventType", @"
-    SELECT VALUE -- Constructing Q_DictionaryEventType
-        [XODB.Module.BusinessObjects.Store.Q_DictionaryEventType](T1.[Q_DictionaryEventType.EventTypeID], T1.[Q_DictionaryEventType.StandardEventTypeName], T1.[Q_DictionaryEventType.CustomEventTypeName], T1.[Q_DictionaryEventType.Description])
-    FROM (
-        SELECT 
-            T.EventTypeID AS [Q_DictionaryEventType.EventTypeID], 
-            T.StandardEventTypeName AS [Q_DictionaryEventType.StandardEventTypeName], 
-            T.CustomEventTypeName AS [Q_DictionaryEventType.CustomEventTypeName], 
-            T.Description AS [Q_DictionaryEventType.Description], 
-            True AS _from0
-        FROM XODBC.DictionaryEventTypes AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryEventType", "\r\n    SELECT VALUE -- Constructing Q_DictionaryEventType\r\n        [XODB.Module.Bu" +
+                    "sinessObjects.Store.Q_DictionaryEventType](T1.[Q_DictionaryEventType.EventTypeID" +
+                    "], T1.[Q_DictionaryEventType.StandardEventTypeName], T1.[Q_DictionaryEventType.C" +
+                    "ustomEventTypeName], T1.[Q_DictionaryEventType.Description], T1.[Q_DictionaryEve" +
+                    "ntType.Version], T1.[Q_DictionaryEventType.VersionAntecedentID], T1.[Q_Dictionar" +
+                    "yEventType.VersionCertainty], T1.[Q_DictionaryEventType.VersionWorkflowInstanceI" +
+                    "D], T1.[Q_DictionaryEventType.VersionUpdatedBy], T1.[Q_DictionaryEventType.Versi" +
+                    "onDeletedBy], T1.[Q_DictionaryEventType.VersionOwnerContactID], T1.[Q_Dictionary" +
+                    "EventType.VersionOwnerCompanyID], T1.[Q_DictionaryEventType.VersionUpdated])\r\n  " +
+                    "  FROM (\r\n        SELECT \r\n            T.EventTypeID AS [Q_DictionaryEventType.E" +
+                    "ventTypeID], \r\n            T.StandardEventTypeName AS [Q_DictionaryEventType.Sta" +
+                    "ndardEventTypeName], \r\n            T.CustomEventTypeName AS [Q_DictionaryEventTy" +
+                    "pe.CustomEventTypeName], \r\n            T.Description AS [Q_DictionaryEventType.D" +
+                    "escription], \r\n            T.Version AS [Q_DictionaryEventType.Version], \r\n     " +
+                    "       T.VersionAntecedentID AS [Q_DictionaryEventType.VersionAntecedentID], \r\n " +
+                    "           T.VersionCertainty AS [Q_DictionaryEventType.VersionCertainty], \r\n   " +
+                    "         T.VersionWorkflowInstanceID AS [Q_DictionaryEventType.VersionWorkflowIn" +
+                    "stanceID], \r\n            T.VersionUpdatedBy AS [Q_DictionaryEventType.VersionUpd" +
+                    "atedBy], \r\n            T.VersionDeletedBy AS [Q_DictionaryEventType.VersionDelet" +
+                    "edBy], \r\n            T.VersionOwnerContactID AS [Q_DictionaryEventType.VersionOw" +
+                    "nerContactID], \r\n            T.VersionOwnerCompanyID AS [Q_DictionaryEventType.V" +
+                    "ersionOwnerCompanyID], \r\n            T.VersionUpdated AS [Q_DictionaryEventType." +
+                    "VersionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.DictionaryEven" +
+                    "tTypes AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -3759,7 +3827,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView48()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2165);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3215);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Q_DictionaryPart\r\n        [XODB.Module.Busine");
             viewString.Append("ssObjects.Store.Q_DictionaryPart](T1.[Q_DictionaryPart.PartID], T1.[Q_Dictionary");
             viewString.Append("Part.ParentPartID], T1.[Q_DictionaryPart.StandardPartName], T1.[Q_DictionaryPart");
@@ -3770,24 +3838,37 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("til], T1.[Q_DictionaryPart.EstimatedLifetimeUnitID], T1.[Q_DictionaryPart.Estima");
             viewString.Append("tedLifetime], T1.[Q_DictionaryPart.Description], T1.[Q_DictionaryPart.FullDescri");
             viewString.Append("ption], T1.[Q_DictionaryPart.Thumbnail], T1.[Q_DictionaryPart.OriginalFileDataID");
-            viewString.Append("])\r\n    FROM (\r\n        SELECT \r\n            T.PartID AS [Q_DictionaryPart.PartI");
-            viewString.Append("D], \r\n            T.ParentPartID AS [Q_DictionaryPart.ParentPartID], \r\n         ");
-            viewString.Append("   T.StandardPartName AS [Q_DictionaryPart.StandardPartName], \r\n            T.Ec");
-            viewString.Append("riPartName AS [Q_DictionaryPart.EcriPartName], \r\n            T.CustomPartName AS");
-            viewString.Append(" [Q_DictionaryPart.CustomPartName], \r\n            T.CompanyID AS [Q_DictionaryPa");
-            viewString.Append("rt.CompanyID], \r\n            T.OriginalManufacturerName AS [Q_DictionaryPart.Ori");
-            viewString.Append("ginalManufacturerName], \r\n            T.PartStatusID AS [Q_DictionaryPart.PartSt");
-            viewString.Append("atusID], \r\n            T.DeviceTypeID AS [Q_DictionaryPart.DeviceTypeID], \r\n    ");
-            viewString.Append("        T.ManufacturedFrom AS [Q_DictionaryPart.ManufacturedFrom], \r\n           ");
-            viewString.Append(" T.ManufacturedUntil AS [Q_DictionaryPart.ManufacturedUntil], \r\n            T.Su");
-            viewString.Append("pportedUntil AS [Q_DictionaryPart.SupportedUntil], \r\n            T.EstimatedLife");
-            viewString.Append("timeUnitID AS [Q_DictionaryPart.EstimatedLifetimeUnitID], \r\n            T.Estima");
-            viewString.Append("tedLifetime AS [Q_DictionaryPart.EstimatedLifetime], \r\n            T.Description");
-            viewString.Append(" AS [Q_DictionaryPart.Description], \r\n            T.FullDescription AS [Q_Dictio");
-            viewString.Append("naryPart.FullDescription], \r\n            T.Thumbnail AS [Q_DictionaryPart.Thumbn");
-            viewString.Append("ail], \r\n            T.OriginalFileDataID AS [Q_DictionaryPart.OriginalFileDataID");
-            viewString.Append("], \r\n            True AS _from0\r\n        FROM XODBC.DictionaryParts AS T\r\n    ) ");
-            viewString.Append("AS T1");
+            viewString.Append("], T1.[Q_DictionaryPart.Version], T1.[Q_DictionaryPart.VersionAntecedentID], T1.");
+            viewString.Append("[Q_DictionaryPart.VersionCertainty], T1.[Q_DictionaryPart.VersionWorkflowInstanc");
+            viewString.Append("eID], T1.[Q_DictionaryPart.VersionUpdatedBy], T1.[Q_DictionaryPart.VersionDelete");
+            viewString.Append("dBy], T1.[Q_DictionaryPart.VersionOwnerContactID], T1.[Q_DictionaryPart.VersionO");
+            viewString.Append("wnerCompanyID], T1.[Q_DictionaryPart.VersionUpdated])\r\n    FROM (\r\n        SELEC");
+            viewString.Append("T \r\n            T.PartID AS [Q_DictionaryPart.PartID], \r\n            T.ParentPar");
+            viewString.Append("tID AS [Q_DictionaryPart.ParentPartID], \r\n            T.StandardPartName AS [Q_D");
+            viewString.Append("ictionaryPart.StandardPartName], \r\n            T.EcriPartName AS [Q_DictionaryPa");
+            viewString.Append("rt.EcriPartName], \r\n            T.CustomPartName AS [Q_DictionaryPart.CustomPart");
+            viewString.Append("Name], \r\n            T.CompanyID AS [Q_DictionaryPart.CompanyID], \r\n            ");
+            viewString.Append("T.OriginalManufacturerName AS [Q_DictionaryPart.OriginalManufacturerName], \r\n   ");
+            viewString.Append("         T.PartStatusID AS [Q_DictionaryPart.PartStatusID], \r\n            T.Devi");
+            viewString.Append("ceTypeID AS [Q_DictionaryPart.DeviceTypeID], \r\n            T.ManufacturedFrom AS");
+            viewString.Append(" [Q_DictionaryPart.ManufacturedFrom], \r\n            T.ManufacturedUntil AS [Q_Di");
+            viewString.Append("ctionaryPart.ManufacturedUntil], \r\n            T.SupportedUntil AS [Q_Dictionary");
+            viewString.Append("Part.SupportedUntil], \r\n            T.EstimatedLifetimeUnitID AS [Q_DictionaryPa");
+            viewString.Append("rt.EstimatedLifetimeUnitID], \r\n            T.EstimatedLifetime AS [Q_DictionaryP");
+            viewString.Append("art.EstimatedLifetime], \r\n            T.Description AS [Q_DictionaryPart.Descrip");
+            viewString.Append("tion], \r\n            T.FullDescription AS [Q_DictionaryPart.FullDescription], \r\n");
+            viewString.Append("            T.Thumbnail AS [Q_DictionaryPart.Thumbnail], \r\n            T.Origina");
+            viewString.Append("lFileDataID AS [Q_DictionaryPart.OriginalFileDataID], \r\n            T.Version AS");
+            viewString.Append(" [Q_DictionaryPart.Version], \r\n            T.VersionAntecedentID AS [Q_Dictionar");
+            viewString.Append("yPart.VersionAntecedentID], \r\n            T.VersionCertainty AS [Q_DictionaryPar");
+            viewString.Append("t.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [Q_DictionaryP");
+            viewString.Append("art.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [Q_Dictionar");
+            viewString.Append("yPart.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [Q_DictionaryPart.V");
+            viewString.Append("ersionDeletedBy], \r\n            T.VersionOwnerContactID AS [Q_DictionaryPart.Ver");
+            viewString.Append("sionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [Q_DictionaryPart.");
+            viewString.Append("VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [Q_DictionaryPart.Vers");
+            viewString.Append("ionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.DictionaryParts AS");
+            viewString.Append(" T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPart", viewString.ToString());
         }
         
@@ -3796,17 +3877,29 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView49()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPartCategory", @"
-    SELECT VALUE -- Constructing Q_DictionaryPartCategory
-        [XODB.Module.BusinessObjects.Store.Q_DictionaryPartCategory](T1.[Q_DictionaryPartCategory.PartCategoryID], T1.[Q_DictionaryPartCategory.PartID], T1.[Q_DictionaryPartCategory.CategoryDeviceTypeID])
-    FROM (
-        SELECT 
-            T.PartCategoryID AS [Q_DictionaryPartCategory.PartCategoryID], 
-            T.PartID AS [Q_DictionaryPartCategory.PartID], 
-            T.CategoryDeviceTypeID AS [Q_DictionaryPartCategory.CategoryDeviceTypeID], 
-            True AS _from0
-        FROM XODBC.DictionaryPartCategories AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPartCategory", "\r\n    SELECT VALUE -- Constructing Q_DictionaryPartCategory\r\n        [XODB.Module" +
+                    ".BusinessObjects.Store.Q_DictionaryPartCategory](T1.[Q_DictionaryPartCategory.Pa" +
+                    "rtCategoryID], T1.[Q_DictionaryPartCategory.PartID], T1.[Q_DictionaryPartCategor" +
+                    "y.CategoryDeviceTypeID], T1.[Q_DictionaryPartCategory.Version], T1.[Q_Dictionary" +
+                    "PartCategory.VersionAntecedentID], T1.[Q_DictionaryPartCategory.VersionCertainty" +
+                    "], T1.[Q_DictionaryPartCategory.VersionWorkflowInstanceID], T1.[Q_DictionaryPart" +
+                    "Category.VersionUpdatedBy], T1.[Q_DictionaryPartCategory.VersionDeletedBy], T1.[" +
+                    "Q_DictionaryPartCategory.VersionOwnerContactID], T1.[Q_DictionaryPartCategory.Ve" +
+                    "rsionOwnerCompanyID], T1.[Q_DictionaryPartCategory.VersionUpdated])\r\n    FROM (\r" +
+                    "\n        SELECT \r\n            T.PartCategoryID AS [Q_DictionaryPartCategory.Part" +
+                    "CategoryID], \r\n            T.PartID AS [Q_DictionaryPartCategory.PartID], \r\n    " +
+                    "        T.CategoryDeviceTypeID AS [Q_DictionaryPartCategory.CategoryDeviceTypeID" +
+                    "], \r\n            T.Version AS [Q_DictionaryPartCategory.Version], \r\n            " +
+                    "T.VersionAntecedentID AS [Q_DictionaryPartCategory.VersionAntecedentID], \r\n     " +
+                    "       T.VersionCertainty AS [Q_DictionaryPartCategory.VersionCertainty], \r\n    " +
+                    "        T.VersionWorkflowInstanceID AS [Q_DictionaryPartCategory.VersionWorkflow" +
+                    "InstanceID], \r\n            T.VersionUpdatedBy AS [Q_DictionaryPartCategory.Versi" +
+                    "onUpdatedBy], \r\n            T.VersionDeletedBy AS [Q_DictionaryPartCategory.Vers" +
+                    "ionDeletedBy], \r\n            T.VersionOwnerContactID AS [Q_DictionaryPartCategor" +
+                    "y.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [Q_Dictionary" +
+                    "PartCategory.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [Q_Dictio" +
+                    "naryPartCategory.VersionUpdated], \r\n            True AS _from0\r\n        FROM XOD" +
+                    "BC.DictionaryPartCategories AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -3814,18 +3907,29 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView50()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPartKit", @"
-    SELECT VALUE -- Constructing Q_DictionaryPartKit
-        [XODB.Module.BusinessObjects.Store.Q_DictionaryPartKit](T1.[Q_DictionaryPartKit.PartKitID], T1.[Q_DictionaryPartKit.StandardPartKitName], T1.[Q_DictionaryPartKit.CustomPartKitName], T1.[Q_DictionaryPartKit.Description])
-    FROM (
-        SELECT 
-            T.PartKitID AS [Q_DictionaryPartKit.PartKitID], 
-            T.StandardPartKitName AS [Q_DictionaryPartKit.StandardPartKitName], 
-            T.CustomPartKitName AS [Q_DictionaryPartKit.CustomPartKitName], 
-            T.Description AS [Q_DictionaryPartKit.Description], 
-            True AS _from0
-        FROM XODBC.DictionaryPartKits AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPartKit", "\r\n    SELECT VALUE -- Constructing Q_DictionaryPartKit\r\n        [XODB.Module.Busi" +
+                    "nessObjects.Store.Q_DictionaryPartKit](T1.[Q_DictionaryPartKit.PartKitID], T1.[Q" +
+                    "_DictionaryPartKit.StandardPartKitName], T1.[Q_DictionaryPartKit.CustomPartKitNa" +
+                    "me], T1.[Q_DictionaryPartKit.Description], T1.[Q_DictionaryPartKit.Version], T1." +
+                    "[Q_DictionaryPartKit.VersionAntecedentID], T1.[Q_DictionaryPartKit.VersionCertai" +
+                    "nty], T1.[Q_DictionaryPartKit.VersionWorkflowInstanceID], T1.[Q_DictionaryPartKi" +
+                    "t.VersionUpdatedBy], T1.[Q_DictionaryPartKit.VersionDeletedBy], T1.[Q_Dictionary" +
+                    "PartKit.VersionOwnerContactID], T1.[Q_DictionaryPartKit.VersionOwnerCompanyID], " +
+                    "T1.[Q_DictionaryPartKit.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n         " +
+                    "   T.PartKitID AS [Q_DictionaryPartKit.PartKitID], \r\n            T.StandardPartK" +
+                    "itName AS [Q_DictionaryPartKit.StandardPartKitName], \r\n            T.CustomPartK" +
+                    "itName AS [Q_DictionaryPartKit.CustomPartKitName], \r\n            T.Description A" +
+                    "S [Q_DictionaryPartKit.Description], \r\n            T.Version AS [Q_DictionaryPar" +
+                    "tKit.Version], \r\n            T.VersionAntecedentID AS [Q_DictionaryPartKit.Versi" +
+                    "onAntecedentID], \r\n            T.VersionCertainty AS [Q_DictionaryPartKit.Versio" +
+                    "nCertainty], \r\n            T.VersionWorkflowInstanceID AS [Q_DictionaryPartKit.V" +
+                    "ersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [Q_DictionaryPart" +
+                    "Kit.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [Q_DictionaryPartKit." +
+                    "VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [Q_DictionaryPartKit" +
+                    ".VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [Q_DictionaryP" +
+                    "artKit.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [Q_DictionaryPa" +
+                    "rtKit.VersionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.Dictiona" +
+                    "ryPartKits AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -3833,19 +3937,31 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView51()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPartKitItem", @"
-    SELECT VALUE -- Constructing Q_DictionaryPartKitItem
-        [XODB.Module.BusinessObjects.Store.Q_DictionaryPartKitItem](T1.[Q_DictionaryPartKitItem.PartKitItemID], T1.[Q_DictionaryPartKitItem.PartKitID], T1.[Q_DictionaryPartKitItem.PartID], T1.[Q_DictionaryPartKitItem.UnitID], T1.[Q_DictionaryPartKitItem.Quantity])
-    FROM (
-        SELECT 
-            T.PartKitItemID AS [Q_DictionaryPartKitItem.PartKitItemID], 
-            T.PartKitID AS [Q_DictionaryPartKitItem.PartKitID], 
-            T.PartID AS [Q_DictionaryPartKitItem.PartID], 
-            T.UnitID AS [Q_DictionaryPartKitItem.UnitID], 
-            T.Quantity AS [Q_DictionaryPartKitItem.Quantity], 
-            True AS _from0
-        FROM XODBC.DictionaryPartKitItems AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPartKitItem", "\r\n    SELECT VALUE -- Constructing Q_DictionaryPartKitItem\r\n        [XODB.Module." +
+                    "BusinessObjects.Store.Q_DictionaryPartKitItem](T1.[Q_DictionaryPartKitItem.PartK" +
+                    "itItemID], T1.[Q_DictionaryPartKitItem.PartKitID], T1.[Q_DictionaryPartKitItem.P" +
+                    "artID], T1.[Q_DictionaryPartKitItem.UnitID], T1.[Q_DictionaryPartKitItem.Quantit" +
+                    "y], T1.[Q_DictionaryPartKitItem.Version], T1.[Q_DictionaryPartKitItem.VersionAnt" +
+                    "ecedentID], T1.[Q_DictionaryPartKitItem.VersionCertainty], T1.[Q_DictionaryPartK" +
+                    "itItem.VersionWorkflowInstanceID], T1.[Q_DictionaryPartKitItem.VersionUpdatedBy]" +
+                    ", T1.[Q_DictionaryPartKitItem.VersionDeletedBy], T1.[Q_DictionaryPartKitItem.Ver" +
+                    "sionOwnerContactID], T1.[Q_DictionaryPartKitItem.VersionOwnerCompanyID], T1.[Q_D" +
+                    "ictionaryPartKitItem.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            " +
+                    "T.PartKitItemID AS [Q_DictionaryPartKitItem.PartKitItemID], \r\n            T.Part" +
+                    "KitID AS [Q_DictionaryPartKitItem.PartKitID], \r\n            T.PartID AS [Q_Dicti" +
+                    "onaryPartKitItem.PartID], \r\n            T.UnitID AS [Q_DictionaryPartKitItem.Uni" +
+                    "tID], \r\n            T.Quantity AS [Q_DictionaryPartKitItem.Quantity], \r\n        " +
+                    "    T.Version AS [Q_DictionaryPartKitItem.Version], \r\n            T.VersionAntec" +
+                    "edentID AS [Q_DictionaryPartKitItem.VersionAntecedentID], \r\n            T.Versio" +
+                    "nCertainty AS [Q_DictionaryPartKitItem.VersionCertainty], \r\n            T.Versio" +
+                    "nWorkflowInstanceID AS [Q_DictionaryPartKitItem.VersionWorkflowInstanceID], \r\n  " +
+                    "          T.VersionUpdatedBy AS [Q_DictionaryPartKitItem.VersionUpdatedBy], \r\n  " +
+                    "          T.VersionDeletedBy AS [Q_DictionaryPartKitItem.VersionDeletedBy], \r\n  " +
+                    "          T.VersionOwnerContactID AS [Q_DictionaryPartKitItem.VersionOwnerContac" +
+                    "tID], \r\n            T.VersionOwnerCompanyID AS [Q_DictionaryPartKitItem.VersionO" +
+                    "wnerCompanyID], \r\n            T.VersionUpdated AS [Q_DictionaryPartKitItem.Versi" +
+                    "onUpdated], \r\n            True AS _from0\r\n        FROM XODBC.DictionaryPartKitIt" +
+                    "ems AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -3901,18 +4017,31 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView53()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryWarrantyType", @"
-    SELECT VALUE -- Constructing Q_DictionaryWarrantyType
-        [XODB.Module.BusinessObjects.Store.Q_DictionaryWarrantyType](T1.[Q_DictionaryWarrantyType.WarrantyTypeID], T1.[Q_DictionaryWarrantyType.StandardWarrantyTypeName], T1.[Q_DictionaryWarrantyType.CustomWarrantyTypeName], T1.[Q_DictionaryWarrantyType.Description])
-    FROM (
-        SELECT 
-            T.WarrantyTypeID AS [Q_DictionaryWarrantyType.WarrantyTypeID], 
-            T.StandardWarrantyTypeName AS [Q_DictionaryWarrantyType.StandardWarrantyTypeName], 
-            T.CustomWarrantyTypeName AS [Q_DictionaryWarrantyType.CustomWarrantyTypeName], 
-            T.Description AS [Q_DictionaryWarrantyType.Description], 
-            True AS _from0
-        FROM XODBC.DictionaryWarrantyTypes AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.Q_DictionaryWarrantyType", "\r\n    SELECT VALUE -- Constructing Q_DictionaryWarrantyType\r\n        [XODB.Module" +
+                    ".BusinessObjects.Store.Q_DictionaryWarrantyType](T1.[Q_DictionaryWarrantyType.Wa" +
+                    "rrantyTypeID], T1.[Q_DictionaryWarrantyType.StandardWarrantyTypeName], T1.[Q_Dic" +
+                    "tionaryWarrantyType.CustomWarrantyTypeName], T1.[Q_DictionaryWarrantyType.Descri" +
+                    "ption], T1.[Q_DictionaryWarrantyType.Version], T1.[Q_DictionaryWarrantyType.Vers" +
+                    "ionAntecedentID], T1.[Q_DictionaryWarrantyType.VersionCertainty], T1.[Q_Dictiona" +
+                    "ryWarrantyType.VersionWorkflowInstanceID], T1.[Q_DictionaryWarrantyType.VersionU" +
+                    "pdatedBy], T1.[Q_DictionaryWarrantyType.VersionDeletedBy], T1.[Q_DictionaryWarra" +
+                    "ntyType.VersionOwnerContactID], T1.[Q_DictionaryWarrantyType.VersionOwnerCompany" +
+                    "ID], T1.[Q_DictionaryWarrantyType.VersionUpdated])\r\n    FROM (\r\n        SELECT \r" +
+                    "\n            T.WarrantyTypeID AS [Q_DictionaryWarrantyType.WarrantyTypeID], \r\n  " +
+                    "          T.StandardWarrantyTypeName AS [Q_DictionaryWarrantyType.StandardWarran" +
+                    "tyTypeName], \r\n            T.CustomWarrantyTypeName AS [Q_DictionaryWarrantyType" +
+                    ".CustomWarrantyTypeName], \r\n            T.Description AS [Q_DictionaryWarrantyTy" +
+                    "pe.Description], \r\n            T.Version AS [Q_DictionaryWarrantyType.Version], " +
+                    "\r\n            T.VersionAntecedentID AS [Q_DictionaryWarrantyType.VersionAntecede" +
+                    "ntID], \r\n            T.VersionCertainty AS [Q_DictionaryWarrantyType.VersionCert" +
+                    "ainty], \r\n            T.VersionWorkflowInstanceID AS [Q_DictionaryWarrantyType.V" +
+                    "ersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [Q_DictionaryWarr" +
+                    "antyType.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [Q_DictionaryWar" +
+                    "rantyType.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [Q_Diction" +
+                    "aryWarrantyType.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS" +
+                    " [Q_DictionaryWarrantyType.VersionOwnerCompanyID], \r\n            T.VersionUpdate" +
+                    "d AS [Q_DictionaryWarrantyType.VersionUpdated], \r\n            True AS _from0\r\n  " +
+                    "      FROM XODBC.DictionaryWarrantyTypes AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -12765,19 +12894,38 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView280()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryDecontaminationStatus", @"
-    SELECT VALUE -- Constructing DictionaryDecontaminationStatus
-        [XODB.Module.BusinessObjects.DictionaryDecontaminationStatus](T1.DictionaryDecontaminationStatus_DecontaminationStatusID, T1.DictionaryDecontaminationStatus_StandardDecontaminationStatusName, T1.DictionaryDecontaminationStatus_CustomDecontaminationStatusName, T1.DictionaryDecontaminationStatus_IsSafeForHandling, T1.DictionaryDecontaminationStatus_Description)
-    FROM (
-        SELECT 
-            T.DecontaminationStatusID AS DictionaryDecontaminationStatus_DecontaminationStatusID, 
-            T.StandardDecontaminationStatusName AS DictionaryDecontaminationStatus_StandardDecontaminationStatusName, 
-            T.CustomDecontaminationStatusName AS DictionaryDecontaminationStatus_CustomDecontaminationStatusName, 
-            T.IsSafeForHandling AS DictionaryDecontaminationStatus_IsSafeForHandling, 
-            T.Description AS DictionaryDecontaminationStatus_Description, 
-            True AS _from0
-        FROM XODBModuleBusinessObjectsStoreContainer.Q_DictionaryDecontaminationStatus AS T
-    ) AS T1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2384);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDecontaminationStatus\r\n        [XOD");
+            viewString.Append("B.Module.BusinessObjects.DictionaryDecontaminationStatus](T1.DictionaryDecontami");
+            viewString.Append("nationStatus_DecontaminationStatusID, T1.DictionaryDecontaminationStatus_Standar");
+            viewString.Append("dDecontaminationStatusName, T1.DictionaryDecontaminationStatus_CustomDecontamina");
+            viewString.Append("tionStatusName, T1.DictionaryDecontaminationStatus_IsSafeForHandling, T1.Diction");
+            viewString.Append("aryDecontaminationStatus_Description, T1.DictionaryDecontaminationStatus_Version");
+            viewString.Append(", T1.DictionaryDecontaminationStatus_VersionAntecedentID, T1.DictionaryDecontami");
+            viewString.Append("nationStatus_VersionCertainty, T1.DictionaryDecontaminationStatus_VersionWorkflo");
+            viewString.Append("wInstanceID, T1.DictionaryDecontaminationStatus_VersionUpdatedBy, T1.DictionaryD");
+            viewString.Append("econtaminationStatus_VersionDeletedBy, T1.DictionaryDecontaminationStatus_Versio");
+            viewString.Append("nOwnerContactID, T1.DictionaryDecontaminationStatus_VersionOwnerCompanyID, T1.Di");
+            viewString.Append("ctionaryDecontaminationStatus_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n    ");
+            viewString.Append("        T.DecontaminationStatusID AS DictionaryDecontaminationStatus_Decontamina");
+            viewString.Append("tionStatusID, \r\n            T.StandardDecontaminationStatusName AS DictionaryDec");
+            viewString.Append("ontaminationStatus_StandardDecontaminationStatusName, \r\n            T.CustomDeco");
+            viewString.Append("ntaminationStatusName AS DictionaryDecontaminationStatus_CustomDecontaminationSt");
+            viewString.Append("atusName, \r\n            T.IsSafeForHandling AS DictionaryDecontaminationStatus_I");
+            viewString.Append("sSafeForHandling, \r\n            T.Description AS DictionaryDecontaminationStatus");
+            viewString.Append("_Description, \r\n            T.Version AS DictionaryDecontaminationStatus_Version");
+            viewString.Append(", \r\n            T.VersionAntecedentID AS DictionaryDecontaminationStatus_Version");
+            viewString.Append("AntecedentID, \r\n            T.VersionCertainty AS DictionaryDecontaminationStatu");
+            viewString.Append("s_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS DictionaryDecon");
+            viewString.Append("taminationStatus_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS ");
+            viewString.Append("DictionaryDecontaminationStatus_VersionUpdatedBy, \r\n            T.VersionDeleted");
+            viewString.Append("By AS DictionaryDecontaminationStatus_VersionDeletedBy, \r\n            T.VersionO");
+            viewString.Append("wnerContactID AS DictionaryDecontaminationStatus_VersionOwnerContactID, \r\n      ");
+            viewString.Append("      T.VersionOwnerCompanyID AS DictionaryDecontaminationStatus_VersionOwnerCom");
+            viewString.Append("panyID, \r\n            T.VersionUpdated AS DictionaryDecontaminationStatus_Versio");
+            viewString.Append("nUpdated, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObjectsSt");
+            viewString.Append("oreContainer.Q_DictionaryDecontaminationStatus AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryDecontaminationStatus", viewString.ToString());
         }
         
         /// <Summary>
@@ -12785,18 +12933,36 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView281()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryDeliveryAdviceReasons", @"
-    SELECT VALUE -- Constructing DictionaryDeliveryAdviceReasons
-        [XODB.Module.BusinessObjects.DictionaryDeliveryAdviceReason](T1.DictionaryDeliveryAdviceReason_DeliveryAdviceReasonID, T1.DictionaryDeliveryAdviceReason_StandardDeliveryAdviceReasonName, T1.DictionaryDeliveryAdviceReason_CustomDeliveryAdviceReasonName, T1.DictionaryDeliveryAdviceReason_Description)
-    FROM (
-        SELECT 
-            T.DeliveryAdviceReasonID AS DictionaryDeliveryAdviceReason_DeliveryAdviceReasonID, 
-            T.StandardDeliveryAdviceReasonName AS DictionaryDeliveryAdviceReason_StandardDeliveryAdviceReasonName, 
-            T.CustomDeliveryAdviceReasonName AS DictionaryDeliveryAdviceReason_CustomDeliveryAdviceReasonName, 
-            T.Description AS DictionaryDeliveryAdviceReason_Description, 
-            True AS _from0
-        FROM XODBModuleBusinessObjectsStoreContainer.Q_DictionaryDeliveryAdviceReason AS T
-    ) AS T1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2205);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDeliveryAdviceReasons\r\n        [XOD");
+            viewString.Append("B.Module.BusinessObjects.DictionaryDeliveryAdviceReason](T1.DictionaryDeliveryAd");
+            viewString.Append("viceReason_DeliveryAdviceReasonID, T1.DictionaryDeliveryAdviceReason_StandardDel");
+            viewString.Append("iveryAdviceReasonName, T1.DictionaryDeliveryAdviceReason_CustomDeliveryAdviceRea");
+            viewString.Append("sonName, T1.DictionaryDeliveryAdviceReason_Description, T1.DictionaryDeliveryAdv");
+            viewString.Append("iceReason_Version, T1.DictionaryDeliveryAdviceReason_VersionAntecedentID, T1.Dic");
+            viewString.Append("tionaryDeliveryAdviceReason_VersionCertainty, T1.DictionaryDeliveryAdviceReason_");
+            viewString.Append("VersionWorkflowInstanceID, T1.DictionaryDeliveryAdviceReason_VersionUpdatedBy, T");
+            viewString.Append("1.DictionaryDeliveryAdviceReason_VersionDeletedBy, T1.DictionaryDeliveryAdviceRe");
+            viewString.Append("ason_VersionOwnerContactID, T1.DictionaryDeliveryAdviceReason_VersionOwnerCompan");
+            viewString.Append("yID, T1.DictionaryDeliveryAdviceReason_VersionUpdated)\r\n    FROM (\r\n        SELE");
+            viewString.Append("CT \r\n            T.DeliveryAdviceReasonID AS DictionaryDeliveryAdviceReason_Deli");
+            viewString.Append("veryAdviceReasonID, \r\n            T.StandardDeliveryAdviceReasonName AS Dictiona");
+            viewString.Append("ryDeliveryAdviceReason_StandardDeliveryAdviceReasonName, \r\n            T.CustomD");
+            viewString.Append("eliveryAdviceReasonName AS DictionaryDeliveryAdviceReason_CustomDeliveryAdviceRe");
+            viewString.Append("asonName, \r\n            T.Description AS DictionaryDeliveryAdviceReason_Descript");
+            viewString.Append("ion, \r\n            T.Version AS DictionaryDeliveryAdviceReason_Version, \r\n      ");
+            viewString.Append("      T.VersionAntecedentID AS DictionaryDeliveryAdviceReason_VersionAntecedentI");
+            viewString.Append("D, \r\n            T.VersionCertainty AS DictionaryDeliveryAdviceReason_VersionCer");
+            viewString.Append("tainty, \r\n            T.VersionWorkflowInstanceID AS DictionaryDeliveryAdviceRea");
+            viewString.Append("son_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS DictionaryDel");
+            viewString.Append("iveryAdviceReason_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS Dictiona");
+            viewString.Append("ryDeliveryAdviceReason_VersionDeletedBy, \r\n            T.VersionOwnerContactID A");
+            viewString.Append("S DictionaryDeliveryAdviceReason_VersionOwnerContactID, \r\n            T.VersionO");
+            viewString.Append("wnerCompanyID AS DictionaryDeliveryAdviceReason_VersionOwnerCompanyID, \r\n       ");
+            viewString.Append("     T.VersionUpdated AS DictionaryDeliveryAdviceReason_VersionUpdated, \r\n      ");
+            viewString.Append("      True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.Q_Dic");
+            viewString.Append("tionaryDeliveryAdviceReason AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryDeliveryAdviceReasons", viewString.ToString());
         }
         
         /// <Summary>
@@ -12804,24 +12970,40 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView282()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryDeviceTypes", @"
-    SELECT VALUE -- Constructing DictionaryDeviceTypes
-        [XODB.Module.BusinessObjects.DictionaryDeviceType](T1.DictionaryDeviceType_DeviceTypeID, T1.DictionaryDeviceType_ParentDeviceTypeID, T1.DictionaryDeviceType_StandardDeviceTypeName, T1.DictionaryDeviceType_EcriDeviceTypeName, T1.DictionaryDeviceType_CustomDeviceTypeName, T1.DictionaryDeviceType_PrimaryWorkTypeID, T1.DictionaryDeviceType_IsAttributable, T1.DictionaryDeviceType_IsDevice, T1.DictionaryDeviceType_IsPart, T1.DictionaryDeviceType_Description)
-    FROM (
-        SELECT 
-            T.DeviceTypeID AS DictionaryDeviceType_DeviceTypeID, 
-            T.ParentDeviceTypeID AS DictionaryDeviceType_ParentDeviceTypeID, 
-            T.StandardDeviceTypeName AS DictionaryDeviceType_StandardDeviceTypeName, 
-            T.EcriDeviceTypeName AS DictionaryDeviceType_EcriDeviceTypeName, 
-            T.CustomDeviceTypeName AS DictionaryDeviceType_CustomDeviceTypeName, 
-            T.PrimaryWorkTypeID AS DictionaryDeviceType_PrimaryWorkTypeID, 
-            T.IsAttributable AS DictionaryDeviceType_IsAttributable, 
-            T.IsDevice AS DictionaryDeviceType_IsDevice, 
-            T.IsPart AS DictionaryDeviceType_IsPart, 
-            T.Description AS DictionaryDeviceType_Description, 
-            True AS _from0
-        FROM XODBModuleBusinessObjectsStoreContainer.Q_DictionaryDeviceType AS T
-    ) AS T1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2482);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDeviceTypes\r\n        [XODB.Module.B");
+            viewString.Append("usinessObjects.DictionaryDeviceType](T1.DictionaryDeviceType_DeviceTypeID, T1.Di");
+            viewString.Append("ctionaryDeviceType_ParentDeviceTypeID, T1.DictionaryDeviceType_StandardDeviceTyp");
+            viewString.Append("eName, T1.DictionaryDeviceType_EcriDeviceTypeName, T1.DictionaryDeviceType_Custo");
+            viewString.Append("mDeviceTypeName, T1.DictionaryDeviceType_PrimaryWorkTypeID, T1.DictionaryDeviceT");
+            viewString.Append("ype_IsAttributable, T1.DictionaryDeviceType_IsDevice, T1.DictionaryDeviceType_Is");
+            viewString.Append("Part, T1.DictionaryDeviceType_Description, T1.DictionaryDeviceType_Version, T1.D");
+            viewString.Append("ictionaryDeviceType_VersionAntecedentID, T1.DictionaryDeviceType_VersionCertaint");
+            viewString.Append("y, T1.DictionaryDeviceType_VersionWorkflowInstanceID, T1.DictionaryDeviceType_Ve");
+            viewString.Append("rsionUpdatedBy, T1.DictionaryDeviceType_VersionDeletedBy, T1.DictionaryDeviceTyp");
+            viewString.Append("e_VersionOwnerContactID, T1.DictionaryDeviceType_VersionOwnerCompanyID, T1.Dicti");
+            viewString.Append("onaryDeviceType_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.Devi");
+            viewString.Append("ceTypeID AS DictionaryDeviceType_DeviceTypeID, \r\n            T.ParentDeviceTypeI");
+            viewString.Append("D AS DictionaryDeviceType_ParentDeviceTypeID, \r\n            T.StandardDeviceType");
+            viewString.Append("Name AS DictionaryDeviceType_StandardDeviceTypeName, \r\n            T.EcriDeviceT");
+            viewString.Append("ypeName AS DictionaryDeviceType_EcriDeviceTypeName, \r\n            T.CustomDevice");
+            viewString.Append("TypeName AS DictionaryDeviceType_CustomDeviceTypeName, \r\n            T.PrimaryWo");
+            viewString.Append("rkTypeID AS DictionaryDeviceType_PrimaryWorkTypeID, \r\n            T.IsAttributab");
+            viewString.Append("le AS DictionaryDeviceType_IsAttributable, \r\n            T.IsDevice AS Dictionar");
+            viewString.Append("yDeviceType_IsDevice, \r\n            T.IsPart AS DictionaryDeviceType_IsPart, \r\n ");
+            viewString.Append("           T.Description AS DictionaryDeviceType_Description, \r\n            T.Ve");
+            viewString.Append("rsion AS DictionaryDeviceType_Version, \r\n            T.VersionAntecedentID AS Di");
+            viewString.Append("ctionaryDeviceType_VersionAntecedentID, \r\n            T.VersionCertainty AS Dict");
+            viewString.Append("ionaryDeviceType_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS ");
+            viewString.Append("DictionaryDeviceType_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy");
+            viewString.Append(" AS DictionaryDeviceType_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS D");
+            viewString.Append("ictionaryDeviceType_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS D");
+            viewString.Append("ictionaryDeviceType_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID");
+            viewString.Append(" AS DictionaryDeviceType_VersionOwnerCompanyID, \r\n            T.VersionUpdated A");
+            viewString.Append("S DictionaryDeviceType_VersionUpdated, \r\n            True AS _from0\r\n        FRO");
+            viewString.Append("M XODBModuleBusinessObjectsStoreContainer.Q_DictionaryDeviceType AS T\r\n    ) AS ");
+            viewString.Append("T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryDeviceTypes", viewString.ToString());
         }
         
         /// <Summary>
@@ -12829,18 +13011,29 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView283()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryEventTypes", @"
-    SELECT VALUE -- Constructing DictionaryEventTypes
-        [XODB.Module.BusinessObjects.DictionaryEventType](T1.DictionaryEventType_EventTypeID, T1.DictionaryEventType_StandardEventTypeName, T1.DictionaryEventType_CustomEventTypeName, T1.DictionaryEventType_Description)
-    FROM (
-        SELECT 
-            T.EventTypeID AS DictionaryEventType_EventTypeID, 
-            T.StandardEventTypeName AS DictionaryEventType_StandardEventTypeName, 
-            T.CustomEventTypeName AS DictionaryEventType_CustomEventTypeName, 
-            T.Description AS DictionaryEventType_Description, 
-            True AS _from0
-        FROM XODBModuleBusinessObjectsStoreContainer.Q_DictionaryEventType AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryEventTypes", "\r\n    SELECT VALUE -- Constructing DictionaryEventTypes\r\n        [XODB.Module.Bus" +
+                    "inessObjects.DictionaryEventType](T1.DictionaryEventType_EventTypeID, T1.Diction" +
+                    "aryEventType_StandardEventTypeName, T1.DictionaryEventType_CustomEventTypeName, " +
+                    "T1.DictionaryEventType_Description, T1.DictionaryEventType_Version, T1.Dictionar" +
+                    "yEventType_VersionAntecedentID, T1.DictionaryEventType_VersionCertainty, T1.Dict" +
+                    "ionaryEventType_VersionWorkflowInstanceID, T1.DictionaryEventType_VersionUpdated" +
+                    "By, T1.DictionaryEventType_VersionDeletedBy, T1.DictionaryEventType_VersionOwner" +
+                    "ContactID, T1.DictionaryEventType_VersionOwnerCompanyID, T1.DictionaryEventType_" +
+                    "VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.EventTypeID AS Dicti" +
+                    "onaryEventType_EventTypeID, \r\n            T.StandardEventTypeName AS DictionaryE" +
+                    "ventType_StandardEventTypeName, \r\n            T.CustomEventTypeName AS Dictionar" +
+                    "yEventType_CustomEventTypeName, \r\n            T.Description AS DictionaryEventTy" +
+                    "pe_Description, \r\n            T.Version AS DictionaryEventType_Version, \r\n      " +
+                    "      T.VersionAntecedentID AS DictionaryEventType_VersionAntecedentID, \r\n      " +
+                    "      T.VersionCertainty AS DictionaryEventType_VersionCertainty, \r\n            " +
+                    "T.VersionWorkflowInstanceID AS DictionaryEventType_VersionWorkflowInstanceID, \r\n" +
+                    "            T.VersionUpdatedBy AS DictionaryEventType_VersionUpdatedBy, \r\n      " +
+                    "      T.VersionDeletedBy AS DictionaryEventType_VersionDeletedBy, \r\n            " +
+                    "T.VersionOwnerContactID AS DictionaryEventType_VersionOwnerContactID, \r\n        " +
+                    "    T.VersionOwnerCompanyID AS DictionaryEventType_VersionOwnerCompanyID, \r\n    " +
+                    "        T.VersionUpdated AS DictionaryEventType_VersionUpdated, \r\n            Tr" +
+                    "ue AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.Q_DictionaryE" +
+                    "ventType AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -12848,7 +13041,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView284()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2047);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3025);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryParts\r\n        [XODB.Module.Busines");
             viewString.Append("sObjects.DictionaryPart](T1.DictionaryPart_PartID, T1.DictionaryPart_ParentPartI");
             viewString.Append("D, T1.DictionaryPart_StandardPartName, T1.DictionaryPart_EcriPartName, T1.Dictio");
@@ -12858,23 +13051,35 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("ctionaryPart_SupportedUntil, T1.DictionaryPart_EstimatedLifetimeUnitID, T1.Dicti");
             viewString.Append("onaryPart_EstimatedLifetime, T1.DictionaryPart_Description, T1.DictionaryPart_Fu");
             viewString.Append("llDescription, T1.DictionaryPart_Thumbnail, T1.DictionaryPart_OriginalFileDataID");
-            viewString.Append(")\r\n    FROM (\r\n        SELECT \r\n            T.PartID AS DictionaryPart_PartID, \r");
-            viewString.Append("\n            T.ParentPartID AS DictionaryPart_ParentPartID, \r\n            T.Stan");
-            viewString.Append("dardPartName AS DictionaryPart_StandardPartName, \r\n            T.EcriPartName AS");
-            viewString.Append(" DictionaryPart_EcriPartName, \r\n            T.CustomPartName AS DictionaryPart_C");
-            viewString.Append("ustomPartName, \r\n            T.CompanyID AS DictionaryPart_CompanyID, \r\n        ");
-            viewString.Append("    T.OriginalManufacturerName AS DictionaryPart_OriginalManufacturerName, \r\n   ");
-            viewString.Append("         T.PartStatusID AS DictionaryPart_PartStatusID, \r\n            T.DeviceTy");
-            viewString.Append("peID AS DictionaryPart_DeviceTypeID, \r\n            T.ManufacturedFrom AS Diction");
-            viewString.Append("aryPart_ManufacturedFrom, \r\n            T.ManufacturedUntil AS DictionaryPart_Ma");
-            viewString.Append("nufacturedUntil, \r\n            T.SupportedUntil AS DictionaryPart_SupportedUntil");
-            viewString.Append(", \r\n            T.EstimatedLifetimeUnitID AS DictionaryPart_EstimatedLifetimeUni");
-            viewString.Append("tID, \r\n            T.EstimatedLifetime AS DictionaryPart_EstimatedLifetime, \r\n  ");
-            viewString.Append("          T.Description AS DictionaryPart_Description, \r\n            T.FullDescr");
-            viewString.Append("iption AS DictionaryPart_FullDescription, \r\n            T.Thumbnail AS Dictionar");
-            viewString.Append("yPart_Thumbnail, \r\n            T.OriginalFileDataID AS DictionaryPart_OriginalFi");
-            viewString.Append("leDataID, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObjectsSt");
-            viewString.Append("oreContainer.Q_DictionaryPart AS T\r\n    ) AS T1");
+            viewString.Append(", T1.DictionaryPart_Version, T1.DictionaryPart_VersionAntecedentID, T1.Dictionar");
+            viewString.Append("yPart_VersionCertainty, T1.DictionaryPart_VersionWorkflowInstanceID, T1.Dictiona");
+            viewString.Append("ryPart_VersionUpdatedBy, T1.DictionaryPart_VersionDeletedBy, T1.DictionaryPart_V");
+            viewString.Append("ersionOwnerContactID, T1.DictionaryPart_VersionOwnerCompanyID, T1.DictionaryPart");
+            viewString.Append("_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.PartID AS Dictionar");
+            viewString.Append("yPart_PartID, \r\n            T.ParentPartID AS DictionaryPart_ParentPartID, \r\n   ");
+            viewString.Append("         T.StandardPartName AS DictionaryPart_StandardPartName, \r\n            T.");
+            viewString.Append("EcriPartName AS DictionaryPart_EcriPartName, \r\n            T.CustomPartName AS D");
+            viewString.Append("ictionaryPart_CustomPartName, \r\n            T.CompanyID AS DictionaryPart_Compan");
+            viewString.Append("yID, \r\n            T.OriginalManufacturerName AS DictionaryPart_OriginalManufact");
+            viewString.Append("urerName, \r\n            T.PartStatusID AS DictionaryPart_PartStatusID, \r\n       ");
+            viewString.Append("     T.DeviceTypeID AS DictionaryPart_DeviceTypeID, \r\n            T.Manufactured");
+            viewString.Append("From AS DictionaryPart_ManufacturedFrom, \r\n            T.ManufacturedUntil AS Di");
+            viewString.Append("ctionaryPart_ManufacturedUntil, \r\n            T.SupportedUntil AS DictionaryPart");
+            viewString.Append("_SupportedUntil, \r\n            T.EstimatedLifetimeUnitID AS DictionaryPart_Estim");
+            viewString.Append("atedLifetimeUnitID, \r\n            T.EstimatedLifetime AS DictionaryPart_Estimate");
+            viewString.Append("dLifetime, \r\n            T.Description AS DictionaryPart_Description, \r\n        ");
+            viewString.Append("    T.FullDescription AS DictionaryPart_FullDescription, \r\n            T.Thumbna");
+            viewString.Append("il AS DictionaryPart_Thumbnail, \r\n            T.OriginalFileDataID AS Dictionary");
+            viewString.Append("Part_OriginalFileDataID, \r\n            T.Version AS DictionaryPart_Version, \r\n  ");
+            viewString.Append("          T.VersionAntecedentID AS DictionaryPart_VersionAntecedentID, \r\n       ");
+            viewString.Append("     T.VersionCertainty AS DictionaryPart_VersionCertainty, \r\n            T.Vers");
+            viewString.Append("ionWorkflowInstanceID AS DictionaryPart_VersionWorkflowInstanceID, \r\n           ");
+            viewString.Append(" T.VersionUpdatedBy AS DictionaryPart_VersionUpdatedBy, \r\n            T.VersionD");
+            viewString.Append("eletedBy AS DictionaryPart_VersionDeletedBy, \r\n            T.VersionOwnerContact");
+            viewString.Append("ID AS DictionaryPart_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyI");
+            viewString.Append("D AS DictionaryPart_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS Dic");
+            viewString.Append("tionaryPart_VersionUpdated, \r\n            True AS _from0\r\n        FROM XODBModul");
+            viewString.Append("eBusinessObjectsStoreContainer.Q_DictionaryPart AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryParts", viewString.ToString());
         }
         
@@ -12883,17 +13088,28 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView285()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPartCategories", @"
-    SELECT VALUE -- Constructing DictionaryPartCategories
-        [XODB.Module.BusinessObjects.DictionaryPartCategory](T1.DictionaryPartCategory_PartCategoryID, T1.DictionaryPartCategory_PartID, T1.DictionaryPartCategory_CategoryDeviceTypeID)
-    FROM (
-        SELECT 
-            T.PartCategoryID AS DictionaryPartCategory_PartCategoryID, 
-            T.PartID AS DictionaryPartCategory_PartID, 
-            T.CategoryDeviceTypeID AS DictionaryPartCategory_CategoryDeviceTypeID, 
-            True AS _from0
-        FROM XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPartCategory AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPartCategories", "\r\n    SELECT VALUE -- Constructing DictionaryPartCategories\r\n        [XODB.Module" +
+                    ".BusinessObjects.DictionaryPartCategory](T1.DictionaryPartCategory_PartCategoryI" +
+                    "D, T1.DictionaryPartCategory_PartID, T1.DictionaryPartCategory_CategoryDeviceTyp" +
+                    "eID, T1.DictionaryPartCategory_Version, T1.DictionaryPartCategory_VersionAnteced" +
+                    "entID, T1.DictionaryPartCategory_VersionCertainty, T1.DictionaryPartCategory_Ver" +
+                    "sionWorkflowInstanceID, T1.DictionaryPartCategory_VersionUpdatedBy, T1.Dictionar" +
+                    "yPartCategory_VersionDeletedBy, T1.DictionaryPartCategory_VersionOwnerContactID," +
+                    " T1.DictionaryPartCategory_VersionOwnerCompanyID, T1.DictionaryPartCategory_Vers" +
+                    "ionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.PartCategoryID AS Dictio" +
+                    "naryPartCategory_PartCategoryID, \r\n            T.PartID AS DictionaryPartCategor" +
+                    "y_PartID, \r\n            T.CategoryDeviceTypeID AS DictionaryPartCategory_Categor" +
+                    "yDeviceTypeID, \r\n            T.Version AS DictionaryPartCategory_Version, \r\n    " +
+                    "        T.VersionAntecedentID AS DictionaryPartCategory_VersionAntecedentID, \r\n " +
+                    "           T.VersionCertainty AS DictionaryPartCategory_VersionCertainty, \r\n    " +
+                    "        T.VersionWorkflowInstanceID AS DictionaryPartCategory_VersionWorkflowIns" +
+                    "tanceID, \r\n            T.VersionUpdatedBy AS DictionaryPartCategory_VersionUpdat" +
+                    "edBy, \r\n            T.VersionDeletedBy AS DictionaryPartCategory_VersionDeletedB" +
+                    "y, \r\n            T.VersionOwnerContactID AS DictionaryPartCategory_VersionOwnerC" +
+                    "ontactID, \r\n            T.VersionOwnerCompanyID AS DictionaryPartCategory_Versio" +
+                    "nOwnerCompanyID, \r\n            T.VersionUpdated AS DictionaryPartCategory_Versio" +
+                    "nUpdated, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObjectsSt" +
+                    "oreContainer.Q_DictionaryPartCategory AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -12901,18 +13117,28 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView286()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPartKits", @"
-    SELECT VALUE -- Constructing DictionaryPartKits
-        [XODB.Module.BusinessObjects.DictionaryPartKit](T1.DictionaryPartKit_PartKitID, T1.DictionaryPartKit_StandardPartKitName, T1.DictionaryPartKit_CustomPartKitName, T1.DictionaryPartKit_Description)
-    FROM (
-        SELECT 
-            T.PartKitID AS DictionaryPartKit_PartKitID, 
-            T.StandardPartKitName AS DictionaryPartKit_StandardPartKitName, 
-            T.CustomPartKitName AS DictionaryPartKit_CustomPartKitName, 
-            T.Description AS DictionaryPartKit_Description, 
-            True AS _from0
-        FROM XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPartKit AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPartKits", "\r\n    SELECT VALUE -- Constructing DictionaryPartKits\r\n        [XODB.Module.Busin" +
+                    "essObjects.DictionaryPartKit](T1.DictionaryPartKit_PartKitID, T1.DictionaryPartK" +
+                    "it_StandardPartKitName, T1.DictionaryPartKit_CustomPartKitName, T1.DictionaryPar" +
+                    "tKit_Description, T1.DictionaryPartKit_Version, T1.DictionaryPartKit_VersionAnte" +
+                    "cedentID, T1.DictionaryPartKit_VersionCertainty, T1.DictionaryPartKit_VersionWor" +
+                    "kflowInstanceID, T1.DictionaryPartKit_VersionUpdatedBy, T1.DictionaryPartKit_Ver" +
+                    "sionDeletedBy, T1.DictionaryPartKit_VersionOwnerContactID, T1.DictionaryPartKit_" +
+                    "VersionOwnerCompanyID, T1.DictionaryPartKit_VersionUpdated)\r\n    FROM (\r\n       " +
+                    " SELECT \r\n            T.PartKitID AS DictionaryPartKit_PartKitID, \r\n            " +
+                    "T.StandardPartKitName AS DictionaryPartKit_StandardPartKitName, \r\n            T." +
+                    "CustomPartKitName AS DictionaryPartKit_CustomPartKitName, \r\n            T.Descri" +
+                    "ption AS DictionaryPartKit_Description, \r\n            T.Version AS DictionaryPar" +
+                    "tKit_Version, \r\n            T.VersionAntecedentID AS DictionaryPartKit_VersionAn" +
+                    "tecedentID, \r\n            T.VersionCertainty AS DictionaryPartKit_VersionCertain" +
+                    "ty, \r\n            T.VersionWorkflowInstanceID AS DictionaryPartKit_VersionWorkfl" +
+                    "owInstanceID, \r\n            T.VersionUpdatedBy AS DictionaryPartKit_VersionUpdat" +
+                    "edBy, \r\n            T.VersionDeletedBy AS DictionaryPartKit_VersionDeletedBy, \r\n" +
+                    "            T.VersionOwnerContactID AS DictionaryPartKit_VersionOwnerContactID, " +
+                    "\r\n            T.VersionOwnerCompanyID AS DictionaryPartKit_VersionOwnerCompanyID" +
+                    ", \r\n            T.VersionUpdated AS DictionaryPartKit_VersionUpdated, \r\n        " +
+                    "    True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.Q_Dicti" +
+                    "onaryPartKit AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -12920,19 +13146,30 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView287()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPartKitItems", @"
-    SELECT VALUE -- Constructing DictionaryPartKitItems
-        [XODB.Module.BusinessObjects.DictionaryPartKitItem](T1.DictionaryPartKitItem_PartKitItemID, T1.DictionaryPartKitItem_PartKitID, T1.DictionaryPartKitItem_PartID, T1.DictionaryPartKitItem_UnitID, T1.DictionaryPartKitItem_Quantity)
-    FROM (
-        SELECT 
-            T.PartKitItemID AS DictionaryPartKitItem_PartKitItemID, 
-            T.PartKitID AS DictionaryPartKitItem_PartKitID, 
-            T.PartID AS DictionaryPartKitItem_PartID, 
-            T.UnitID AS DictionaryPartKitItem_UnitID, 
-            T.Quantity AS DictionaryPartKitItem_Quantity, 
-            True AS _from0
-        FROM XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPartKitItem AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPartKitItems", "\r\n    SELECT VALUE -- Constructing DictionaryPartKitItems\r\n        [XODB.Module.B" +
+                    "usinessObjects.DictionaryPartKitItem](T1.DictionaryPartKitItem_PartKitItemID, T1" +
+                    ".DictionaryPartKitItem_PartKitID, T1.DictionaryPartKitItem_PartID, T1.Dictionary" +
+                    "PartKitItem_UnitID, T1.DictionaryPartKitItem_Quantity, T1.DictionaryPartKitItem_" +
+                    "Version, T1.DictionaryPartKitItem_VersionAntecedentID, T1.DictionaryPartKitItem_" +
+                    "VersionCertainty, T1.DictionaryPartKitItem_VersionWorkflowInstanceID, T1.Diction" +
+                    "aryPartKitItem_VersionUpdatedBy, T1.DictionaryPartKitItem_VersionDeletedBy, T1.D" +
+                    "ictionaryPartKitItem_VersionOwnerContactID, T1.DictionaryPartKitItem_VersionOwne" +
+                    "rCompanyID, T1.DictionaryPartKitItem_VersionUpdated)\r\n    FROM (\r\n        SELECT" +
+                    " \r\n            T.PartKitItemID AS DictionaryPartKitItem_PartKitItemID, \r\n       " +
+                    "     T.PartKitID AS DictionaryPartKitItem_PartKitID, \r\n            T.PartID AS D" +
+                    "ictionaryPartKitItem_PartID, \r\n            T.UnitID AS DictionaryPartKitItem_Uni" +
+                    "tID, \r\n            T.Quantity AS DictionaryPartKitItem_Quantity, \r\n            T" +
+                    ".Version AS DictionaryPartKitItem_Version, \r\n            T.VersionAntecedentID A" +
+                    "S DictionaryPartKitItem_VersionAntecedentID, \r\n            T.VersionCertainty AS" +
+                    " DictionaryPartKitItem_VersionCertainty, \r\n            T.VersionWorkflowInstance" +
+                    "ID AS DictionaryPartKitItem_VersionWorkflowInstanceID, \r\n            T.VersionUp" +
+                    "datedBy AS DictionaryPartKitItem_VersionUpdatedBy, \r\n            T.VersionDelete" +
+                    "dBy AS DictionaryPartKitItem_VersionDeletedBy, \r\n            T.VersionOwnerConta" +
+                    "ctID AS DictionaryPartKitItem_VersionOwnerContactID, \r\n            T.VersionOwne" +
+                    "rCompanyID AS DictionaryPartKitItem_VersionOwnerCompanyID, \r\n            T.Versi" +
+                    "onUpdated AS DictionaryPartKitItem_VersionUpdated, \r\n            True AS _from0\r" +
+                    "\n        FROM XODBModuleBusinessObjectsStoreContainer.Q_DictionaryPartKitItem AS" +
+                    " T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -12986,18 +13223,30 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView289()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryWarrantyTypes", @"
-    SELECT VALUE -- Constructing DictionaryWarrantyTypes
-        [XODB.Module.BusinessObjects.DictionaryWarrantyType](T1.DictionaryWarrantyType_WarrantyTypeID, T1.DictionaryWarrantyType_StandardWarrantyTypeName, T1.DictionaryWarrantyType_CustomWarrantyTypeName, T1.DictionaryWarrantyType_Description)
-    FROM (
-        SELECT 
-            T.WarrantyTypeID AS DictionaryWarrantyType_WarrantyTypeID, 
-            T.StandardWarrantyTypeName AS DictionaryWarrantyType_StandardWarrantyTypeName, 
-            T.CustomWarrantyTypeName AS DictionaryWarrantyType_CustomWarrantyTypeName, 
-            T.Description AS DictionaryWarrantyType_Description, 
-            True AS _from0
-        FROM XODBModuleBusinessObjectsStoreContainer.Q_DictionaryWarrantyType AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryWarrantyTypes", "\r\n    SELECT VALUE -- Constructing DictionaryWarrantyTypes\r\n        [XODB.Module." +
+                    "BusinessObjects.DictionaryWarrantyType](T1.DictionaryWarrantyType_WarrantyTypeID" +
+                    ", T1.DictionaryWarrantyType_StandardWarrantyTypeName, T1.DictionaryWarrantyType_" +
+                    "CustomWarrantyTypeName, T1.DictionaryWarrantyType_Description, T1.DictionaryWarr" +
+                    "antyType_Version, T1.DictionaryWarrantyType_VersionAntecedentID, T1.DictionaryWa" +
+                    "rrantyType_VersionCertainty, T1.DictionaryWarrantyType_VersionWorkflowInstanceID" +
+                    ", T1.DictionaryWarrantyType_VersionUpdatedBy, T1.DictionaryWarrantyType_VersionD" +
+                    "eletedBy, T1.DictionaryWarrantyType_VersionOwnerContactID, T1.DictionaryWarranty" +
+                    "Type_VersionOwnerCompanyID, T1.DictionaryWarrantyType_VersionUpdated)\r\n    FROM " +
+                    "(\r\n        SELECT \r\n            T.WarrantyTypeID AS DictionaryWarrantyType_Warra" +
+                    "ntyTypeID, \r\n            T.StandardWarrantyTypeName AS DictionaryWarrantyType_St" +
+                    "andardWarrantyTypeName, \r\n            T.CustomWarrantyTypeName AS DictionaryWarr" +
+                    "antyType_CustomWarrantyTypeName, \r\n            T.Description AS DictionaryWarran" +
+                    "tyType_Description, \r\n            T.Version AS DictionaryWarrantyType_Version, \r" +
+                    "\n            T.VersionAntecedentID AS DictionaryWarrantyType_VersionAntecedentID" +
+                    ", \r\n            T.VersionCertainty AS DictionaryWarrantyType_VersionCertainty, \r" +
+                    "\n            T.VersionWorkflowInstanceID AS DictionaryWarrantyType_VersionWorkfl" +
+                    "owInstanceID, \r\n            T.VersionUpdatedBy AS DictionaryWarrantyType_Version" +
+                    "UpdatedBy, \r\n            T.VersionDeletedBy AS DictionaryWarrantyType_VersionDel" +
+                    "etedBy, \r\n            T.VersionOwnerContactID AS DictionaryWarrantyType_VersionO" +
+                    "wnerContactID, \r\n            T.VersionOwnerCompanyID AS DictionaryWarrantyType_V" +
+                    "ersionOwnerCompanyID, \r\n            T.VersionUpdated AS DictionaryWarrantyType_V" +
+                    "ersionUpdated, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObje" +
+                    "ctsStoreContainer.Q_DictionaryWarrantyType AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
