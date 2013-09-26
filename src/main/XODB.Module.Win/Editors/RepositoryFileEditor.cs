@@ -202,9 +202,7 @@ namespace XODB.Module.Win.Editors
 
         private Boolean HasConstructorWithSession(Type type)
         {
-            return false;
-            //throw new NotImplementedException();
-            //return type.GetConstructor(new Type[] { typeof(Session) }) != null;
+            return type.GetConstructor(new Type[] { typeof(DevExpress.Xpo.Session) }) != null;
         }
 
         private EventHandler<CustomFileOperationEventArgs> customOpenFileWithDefaultProgram;

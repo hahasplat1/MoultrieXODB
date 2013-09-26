@@ -99,6 +99,7 @@
       <DependentUpon>XODB.edmx</DependentUpon>
     </Compile>
     <Compile Include="BusinessObjects\XODB.Views.cs" />
+    <Compile Include="BusinessObjects\XODBC.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
