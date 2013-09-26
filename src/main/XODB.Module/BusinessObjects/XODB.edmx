@@ -23353,8 +23353,8 @@
           <NavigationProperty Name="Account" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_Q_Account" FromRole="Q_DeliveryAdvice" ToRole="Q_Account" />
           <NavigationProperty Name="DeliveryAdviceReason" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_Q_DictionaryDeliveryAdvice" FromRole="Q_DeliveryAdvice" ToRole="Q_DictionaryDeliveryAdviceReason" />
           <NavigationProperty Name="Company" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_Company" FromRole="Q_DeliveryAdvice" ToRole="X_Company" />
-          <NavigationProperty Name="CompanyAddress" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_CompanyAddress" FromRole="Q_DeliveryAdvice" ToRole="X_CompanyAddress" />
-          <NavigationProperty Name="CompanyAddress1" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_CompanyAddress1" FromRole="Q_DeliveryAdvice" ToRole="X_CompanyAddress" />
+          <NavigationProperty Name="CompanyAddressDelivery" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_CompanyAddress" FromRole="Q_DeliveryAdvice" ToRole="X_CompanyAddress" />
+          <NavigationProperty Name="CompanyAddressSource" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_CompanyAddress1" FromRole="Q_DeliveryAdvice" ToRole="X_CompanyAddress" />
           <NavigationProperty Name="Project" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_Project" FromRole="Q_DeliveryAdvice" ToRole="X_Project" />
           <NavigationProperty Name="ProjectDeliverable" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdvice_X_ProjectDeliverable" FromRole="Q_DeliveryAdvice" ToRole="X_ProjectDeliverable" />
           <NavigationProperty Name="DeliveryAdviceItem" Relationship="XODB.Module.BusinessObjects.FK_Q_DeliveryAdviceItems_Q_DeliveryAdvice" FromRole="Q_DeliveryAdvice" ToRole="Q_DeliveryAdviceItem" />
@@ -24976,23 +24976,22 @@
           <NavigationProperty Name="ModelWarranty" Relationship="XODB.Module.BusinessObjects.FK_Q_ModelWarranty_X_Contract" FromRole="X_Contract" ToRole="Q_ModelWarranty" />
           <NavigationProperty Name="SupplierModel" Relationship="XODB.Module.BusinessObjects.FK_Q_SupplierModel_X_Contract" FromRole="X_Contract" ToRole="Q_SupplierModel" />
           <NavigationProperty Name="SupplierPart" Relationship="XODB.Module.BusinessObjects.FK_Q_SupplierPart_X_Contract" FromRole="X_Contract" ToRole="Q_SupplierPart" />
-          <NavigationProperty Name="Company" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Company" FromRole="X_Contract" ToRole="X_Company" />
-          <NavigationProperty Name="Company1" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Company1" FromRole="X_Contract" ToRole="X_Company" />
-          <NavigationProperty Name="Company2" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Company2" FromRole="X_Contract" ToRole="X_Company" />
-          <NavigationProperty Name="Company3" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Company3" FromRole="X_Contract" ToRole="X_Company" />
-          <NavigationProperty Name="Contact" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact" FromRole="X_Contract" ToRole="X_Contact" />
-          <NavigationProperty Name="Contact1" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact1" FromRole="X_Contract" ToRole="X_Contact" />
-          <NavigationProperty Name="Contact2" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact2" FromRole="X_Contract" ToRole="X_Contact" />
-          <NavigationProperty Name="Contact3" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact3" FromRole="X_Contract" ToRole="X_Contact" />
-          <NavigationProperty Name="Contract1" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contract" FromRole="X_Contract" ToRole="X_Contract1" />
-          <NavigationProperty Name="Contract2" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contract" FromRole="X_Contract1" ToRole="X_Contract" />
+          <NavigationProperty Name="CompanyObligee" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Company" FromRole="X_Contract" ToRole="X_Company" />
+          <NavigationProperty Name="CompanyObligor" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Company1" FromRole="X_Contract" ToRole="X_Company" />
+          <NavigationProperty Name="CompanyAssignee" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Company2" FromRole="X_Contract" ToRole="X_Company" />
+          <NavigationProperty Name="CompanySolicitor" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Company3" FromRole="X_Contract" ToRole="X_Company" />
+          <NavigationProperty Name="ContactObligee" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact" FromRole="X_Contract" ToRole="X_Contact" />
+          <NavigationProperty Name="ContactObligor" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact1" FromRole="X_Contract" ToRole="X_Contact" />
+          <NavigationProperty Name="ContactAssignee" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact2" FromRole="X_Contract" ToRole="X_Contact" />
+          <NavigationProperty Name="ContactSolicitor" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contact3" FromRole="X_Contract" ToRole="X_Contact" />
+          <NavigationProperty Name="RelatedContracts" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contract" FromRole="X_Contract" ToRole="X_Contract1" />
+          <NavigationProperty Name="ParentContract" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_Contract" FromRole="X_Contract1" ToRole="X_Contract" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_FileData" FromRole="X_Contract" ToRole="X_FileData" />
-          <NavigationProperty Name="ProjectDeliverable" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_ProjectDeliverable" FromRole="X_Contract" ToRole="X_ProjectDeliverable" />
-          <NavigationProperty Name="ProjectDeliverable1" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_ProjectDeliverable1" FromRole="X_Contract" ToRole="X_ProjectDeliverable" />
+          <NavigationProperty Name="ProjectDeliverableFinal" Relationship="XODB.Module.BusinessObjects.FK_X_Contract_X_ProjectDeliverable" FromRole="X_Contract" ToRole="X_ProjectDeliverable" />
           <NavigationProperty Name="ContractCondition" Relationship="XODB.Module.BusinessObjects.FK_X_ContractCondition_X_Contract" FromRole="X_Contract" ToRole="X_ContractCondition" />
           <NavigationProperty Name="CostEstimateModel" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_Contract" FromRole="X_Contract" ToRole="X_CostEstimateModel" />
           <NavigationProperty Name="Project" Relationship="XODB.Module.BusinessObjects.FK_X_Drill_Company_Contract_X_Project" FromRole="X_Contract" ToRole="X_Project" />
-          <NavigationProperty Name="ProjectDeliverable2" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_Contract" FromRole="X_Contract" ToRole="X_ProjectDeliverable" />
+          <NavigationProperty Name="ProjectDeliverables" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_Contract" FromRole="X_Contract" ToRole="X_ProjectDeliverable" />
         </EntityType>
         <EntityType Name="ContractCondition">
           <Key>
@@ -25089,12 +25088,12 @@
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Contract" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_Contract" FromRole="X_CostEstimateModel" ToRole="X_Contract" />
-          <NavigationProperty Name="CostEstimateModel1" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_CostEstimateModel" FromRole="X_CostEstimateModel" ToRole="X_CostEstimateModel1" />
-          <NavigationProperty Name="CostEstimateModel2" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_CostEstimateModel" FromRole="X_CostEstimateModel1" ToRole="X_CostEstimateModel" />
+          <NavigationProperty Name="CostEstimateModels" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_CostEstimateModel" FromRole="X_CostEstimateModel" ToRole="X_CostEstimateModel1" />
+          <NavigationProperty Name="CostEstimateModelParent" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_CostEstimateModel" FromRole="X_CostEstimateModel1" ToRole="X_CostEstimateModel" />
           <NavigationProperty Name="CostType" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_DictionaryCostType" FromRole="X_CostEstimateModel" ToRole="X_DictionaryCostType" />
           <NavigationProperty Name="Model" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_DictionaryModel" FromRole="X_CostEstimateModel" ToRole="X_DictionaryModel" />
-          <NavigationProperty Name="Unit" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_DictionaryUnit" FromRole="X_CostEstimateModel" ToRole="X_DictionaryUnit" />
-          <NavigationProperty Name="Unit1" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_DictionaryUnit1" FromRole="X_CostEstimateModel" ToRole="X_DictionaryUnit" />
+          <NavigationProperty Name="UnitQuantumSI" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_DictionaryUnit" FromRole="X_CostEstimateModel" ToRole="X_DictionaryUnit" />
+          <NavigationProperty Name="UnitProRata" Relationship="XODB.Module.BusinessObjects.FK_X_CostEstimateModel_X_DictionaryUnit1" FromRole="X_CostEstimateModel" ToRole="X_DictionaryUnit" />
         </EntityType>
         <EntityType Name="Defect">
           <Key>
@@ -25149,11 +25148,11 @@
           <NavigationProperty Name="EstimatedStrength" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryEst_Strength" FromRole="X_Defect" ToRole="X_DictionaryEstimatedStrength" />
           <NavigationProperty Name="EstimatedStrength1" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryEst_Strength1" FromRole="X_Defect" ToRole="X_DictionaryEstimatedStrength" />
           <NavigationProperty Name="InfillMode" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryInfill_Mode" FromRole="X_Defect" ToRole="X_DictionaryInfillMode" />
-          <NavigationProperty Name="InfillType" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryInfill_Type" FromRole="X_Defect" ToRole="X_DictionaryInfillType" />
-          <NavigationProperty Name="InfillType1" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryInfill_Type1" FromRole="X_Defect" ToRole="X_DictionaryInfillType" />
+          <NavigationProperty Name="InfillTypePrimary" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryInfill_Type" FromRole="X_Defect" ToRole="X_DictionaryInfillType" />
+          <NavigationProperty Name="InfillTypeSecondary" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryInfill_Type1" FromRole="X_Defect" ToRole="X_DictionaryInfillType" />
           <NavigationProperty Name="MoistureSensitivity" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryMoist_Sensitive" FromRole="X_Defect" ToRole="X_DictionaryMoistureSensitivity" />
-          <NavigationProperty Name="Plasticity" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryPlasticity" FromRole="X_Defect" ToRole="X_DictionaryPlasticity" />
-          <NavigationProperty Name="Plasticity1" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryPlasticity1" FromRole="X_Defect" ToRole="X_DictionaryPlasticity" />
+          <NavigationProperty Name="PlasticityInfill" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryPlasticity" FromRole="X_Defect" ToRole="X_DictionaryPlasticity" />
+          <NavigationProperty Name="Plasticity" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryPlasticity1" FromRole="X_Defect" ToRole="X_DictionaryPlasticity" />
           <NavigationProperty Name="SurfaceRoughness" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryRoughness" FromRole="X_Defect" ToRole="X_DictionarySurfaceRoughness" />
           <NavigationProperty Name="Shape" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryShape" FromRole="X_Defect" ToRole="X_DictionaryShape" />
           <NavigationProperty Name="Weathering" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryWeathering" FromRole="X_Defect" ToRole="X_DictionaryWeathering" />
@@ -25212,9 +25211,6 @@
           <Property Name="OriginalFileDataID" Type="Guid" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryAdjective_X_FileData" FromRole="X_DictionaryAdjective" ToRole="X_FileData" />
           <NavigationProperty Name="Lithology" Relationship="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryAdjective" FromRole="X_DictionaryAdjective" ToRole="X_Lithology" />
-          <NavigationProperty Name="Lithology1" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective1" FromRole="X_DictionaryAdjective" ToRole="X_Lithology" />
-          <NavigationProperty Name="Lithology2" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective2" FromRole="X_DictionaryAdjective" ToRole="X_Lithology" />
-          <NavigationProperty Name="Lithology3" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective3" FromRole="X_DictionaryAdjective" ToRole="X_Lithology" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
           <Property Type="Int32" Name="VersionCertainty" />
