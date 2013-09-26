@@ -219,6 +219,8 @@
           <EntitySet Name="X_LicenseAssetModelPart" EntityType="XODB.Module.BusinessObjects.Store.X_LicenseAssetModelPart" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_LicenseHistory" EntityType="XODB.Module.BusinessObjects.Store.X_LicenseHistory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Lithology" EntityType="XODB.Module.BusinessObjects.Store.X_Lithology" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="X_LithologyAdjective" EntityType="XODB.Module.BusinessObjects.Store.X_LithologyAdjective" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="X_LithologySedimentaryFeature" EntityType="XODB.Module.BusinessObjects.Store.X_LithologySedimentaryFeature" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Location" EntityType="XODB.Module.BusinessObjects.Store.X_Location" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_LocationAlias" EntityType="XODB.Module.BusinessObjects.Store.X_LocationAlias" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_LocationData" EntityType="XODB.Module.BusinessObjects.Store.X_LocationData" store:Type="Tables" Schema="dbo" />
@@ -1852,10 +1854,6 @@
             <End Role="X_ProjectDeliverable" EntitySet="X_ProjectDeliverable" />
             <End Role="X_Contract" EntitySet="X_Contract" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_Contract_X_ProjectDeliverable1" Association="XODB.Module.BusinessObjects.Store.FK_X_Contract_X_ProjectDeliverable1">
-            <End Role="X_ProjectDeliverable" EntitySet="X_ProjectDeliverable" />
-            <End Role="X_Contract" EntitySet="X_Contract" />
-          </AssociationSet>
           <AssociationSet Name="FK_X_ContractCondition_X_Contract" Association="XODB.Module.BusinessObjects.Store.FK_X_ContractCondition_X_Contract">
             <End Role="X_Contract" EntitySet="X_Contract" />
             <End Role="X_ContractCondition" EntitySet="X_ContractCondition" />
@@ -2268,10 +2266,6 @@
             <End Role="X_DictionaryHolePurpose" EntitySet="X_DictionaryHolePurpose" />
             <End Role="X_Header" EntitySet="X_Header" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_Header_X_DictionaryHole_Purpose1" Association="XODB.Module.BusinessObjects.Store.FK_X_Header_X_DictionaryHole_Purpose1">
-            <End Role="X_DictionaryHolePurpose" EntitySet="X_DictionaryHolePurpose" />
-            <End Role="X_Header" EntitySet="X_Header" />
-          </AssociationSet>
           <AssociationSet Name="FK_X_Header_X_DictionaryHole_Status" Association="XODB.Module.BusinessObjects.Store.FK_X_Header_X_DictionaryHole_Status">
             <End Role="X_DictionaryHoleStatus" EntitySet="X_DictionaryHoleStatus" />
             <End Role="X_Header" EntitySet="X_Header" />
@@ -2384,17 +2378,13 @@
             <End Role="X_DictionaryStratigraphy" EntitySet="X_DictionaryStratigraphy" />
             <End Role="X_Lithology" EntitySet="X_Lithology" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionaryAdjective1" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyData_X_DictionaryAdjective1">
+          <AssociationSet Name="FK_X_LithologyAdjective_X_DictionaryAdjective" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyAdjective_X_DictionaryAdjective">
             <End Role="X_DictionaryAdjective" EntitySet="X_DictionaryAdjective" />
-            <End Role="X_Lithology" EntitySet="X_Lithology" />
+            <End Role="X_LithologyAdjective" EntitySet="X_LithologyAdjective" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionaryAdjective2" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyData_X_DictionaryAdjective2">
-            <End Role="X_DictionaryAdjective" EntitySet="X_DictionaryAdjective" />
+          <AssociationSet Name="FK_X_LithologyAdjective_X_Lithology" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyAdjective_X_Lithology">
             <End Role="X_Lithology" EntitySet="X_Lithology" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionaryAdjective3" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyData_X_DictionaryAdjective3">
-            <End Role="X_DictionaryAdjective" EntitySet="X_DictionaryAdjective" />
-            <End Role="X_Lithology" EntitySet="X_Lithology" />
+            <End Role="X_LithologyAdjective" EntitySet="X_LithologyAdjective" />
           </AssociationSet>
           <AssociationSet Name="FK_X_LithologyData_X_DictionaryBasal_Contact" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyData_X_DictionaryBasal_Contact">
             <End Role="X_DictionaryBasalContact" EntitySet="X_DictionaryBasalContact" />
@@ -2476,10 +2466,6 @@
             <End Role="X_DictionarySedimentaryFeature" EntitySet="X_DictionarySedimentaryFeature" />
             <End Role="X_Lithology" EntitySet="X_Lithology" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionarySed_Feature1" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyData_X_DictionarySed_Feature1">
-            <End Role="X_DictionarySedimentaryFeature" EntitySet="X_DictionarySedimentaryFeature" />
-            <End Role="X_Lithology" EntitySet="X_Lithology" />
-          </AssociationSet>
           <AssociationSet Name="FK_X_LithologyData_X_DictionaryShade" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyData_X_DictionaryShade">
             <End Role="X_DictionaryShade" EntitySet="X_DictionaryShade" />
             <End Role="X_Lithology" EntitySet="X_Lithology" />
@@ -2495,6 +2481,14 @@
           <AssociationSet Name="FK_X_LithologyData_X_Header" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyData_X_Header">
             <End Role="X_Header" EntitySet="X_Header" />
             <End Role="X_Lithology" EntitySet="X_Lithology" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature">
+            <End Role="X_DictionarySedimentaryFeature" EntitySet="X_DictionarySedimentaryFeature" />
+            <End Role="X_LithologySedimentaryFeature" EntitySet="X_LithologySedimentaryFeature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologySedimentaryFeature_X_Lithology" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologySedimentaryFeature_X_Lithology">
+            <End Role="X_Lithology" EntitySet="X_Lithology" />
+            <End Role="X_LithologySedimentaryFeature" EntitySet="X_LithologySedimentaryFeature" />
           </AssociationSet>
           <AssociationSet Name="FK_X_Location_X_Company" Association="XODB.Module.BusinessObjects.Store.FK_X_Location_X_Company">
             <End Role="X_Company" EntitySet="X_Company" />
@@ -7963,7 +7957,6 @@
           <Property Name="HoleTypeID" Type="uniqueidentifier" />
           <Property Name="DataStatusID" Type="uniqueidentifier" />
           <Property Name="PrimaryHolePurposeID" Type="uniqueidentifier" />
-          <Property Name="SecondaryHolePurposeID" Type="uniqueidentifier" />
           <Property Name="SurveyAccuracyID" Type="uniqueidentifier" />
           <Property Name="GeodeticDatumID" Type="uniqueidentifier" />
           <Property Name="UtmZoneNumber" Type="int" />
@@ -8293,10 +8286,7 @@
           <Property Name="ShadeID" Type="uniqueidentifier" />
           <Property Name="HueID" Type="uniqueidentifier" />
           <Property Name="ColourID" Type="uniqueidentifier" />
-          <Property Name="AdjectiveID1" Type="uniqueidentifier" />
-          <Property Name="AdjectiveID2" Type="uniqueidentifier" />
-          <Property Name="AdjectiveID3" Type="uniqueidentifier" />
-          <Property Name="AdjectiveID4" Type="uniqueidentifier" />
+          <Property Name="PrimaryAdjectiveID" Type="uniqueidentifier" />
           <Property Name="LithologyInterrelationID" Type="uniqueidentifier" />
           <Property Name="WeatheringID" Type="uniqueidentifier" />
           <Property Name="EstimatedStrengthID" Type="uniqueidentifier" />
@@ -8309,14 +8299,49 @@
           <Property Name="MechanicalStateID" Type="uniqueidentifier" />
           <Property Name="TextureID" Type="uniqueidentifier" />
           <Property Name="BasalContactID" Type="uniqueidentifier" />
-          <Property Name="SedimentaryFeature1ID" Type="uniqueidentifier" />
-          <Property Name="SedimentaryFeature2ID" Type="uniqueidentifier" />
+          <Property Name="PrimarySedimentaryFeatureID" Type="uniqueidentifier" />
           <Property Name="BeddingDip" Type="int" />
           <Property Name="MineralAndFossilAbundanceID" Type="uniqueidentifier" />
           <Property Name="MineralAndFossilTypeID" Type="uniqueidentifier" />
           <Property Name="MineralAndFossilAssociationID" Type="uniqueidentifier" />
           <Property Name="GasDetectedID" Type="uniqueidentifier" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="X_LithologyAdjective">
+          <Key>
+            <PropertyRef Name="LithologyAdjectiveID" />
+          </Key>
+          <Property Name="LithologyAdjectiveID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LithologyID" Type="uniqueidentifier" />
+          <Property Name="AdjectiveID" Type="uniqueidentifier" />
+          <Property Name="Sequence" Type="int" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="X_LithologySedimentaryFeature">
+          <Key>
+            <PropertyRef Name="LithologySedimentaryFeatureID" />
+          </Key>
+          <Property Name="LithologySedimentaryFeatureID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LithologyID" Type="uniqueidentifier" />
+          <Property Name="SedimentaryFeatureID" Type="uniqueidentifier" />
+          <Property Name="Sequence" Type="int" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
           <Property Name="VersionCertainty" Type="int" />
@@ -13426,18 +13451,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_Contract_X_ProjectDeliverable1">
-          <End Role="X_ProjectDeliverable" Type="XODB.Module.BusinessObjects.Store.X_ProjectDeliverable" Multiplicity="0..1" />
-          <End Role="X_Contract" Type="XODB.Module.BusinessObjects.Store.X_Contract" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_ProjectDeliverable">
-              <PropertyRef Name="ProjectDeliverableID" />
-            </Principal>
-            <Dependent Role="X_Contract">
-              <PropertyRef Name="LastDeliverableID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_X_ContractCondition_X_Contract">
           <End Role="X_Contract" Type="XODB.Module.BusinessObjects.Store.X_Contract" Multiplicity="0..1" />
           <End Role="X_ContractCondition" Type="XODB.Module.BusinessObjects.Store.X_ContractCondition" Multiplicity="*" />
@@ -14674,18 +14687,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_Header_X_DictionaryHole_Purpose1">
-          <End Role="X_DictionaryHolePurpose" Type="XODB.Module.BusinessObjects.Store.X_DictionaryHolePurpose" Multiplicity="0..1" />
-          <End Role="X_Header" Type="XODB.Module.BusinessObjects.Store.X_Header" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryHolePurpose">
-              <PropertyRef Name="HolePurposeID" />
-            </Principal>
-            <Dependent Role="X_Header">
-              <PropertyRef Name="SecondaryHolePurposeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_X_Header_X_DictionaryHole_Status">
           <End Role="X_DictionaryHoleStatus" Type="XODB.Module.BusinessObjects.Store.X_DictionaryHoleStatus" Multiplicity="0..1" />
           <End Role="X_Header" Type="XODB.Module.BusinessObjects.Store.X_Header" Multiplicity="*" />
@@ -14958,7 +14959,7 @@
               <PropertyRef Name="AdjectiveID" />
             </Principal>
             <Dependent Role="X_Lithology">
-              <PropertyRef Name="AdjectiveID1" />
+              <PropertyRef Name="PrimaryAdjectiveID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -15022,39 +15023,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_LithologyData_X_DictionaryAdjective1">
+        <Association Name="FK_X_LithologyAdjective_X_DictionaryAdjective">
           <End Role="X_DictionaryAdjective" Type="XODB.Module.BusinessObjects.Store.X_DictionaryAdjective" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Store.X_Lithology" Multiplicity="*" />
+          <End Role="X_LithologyAdjective" Type="XODB.Module.BusinessObjects.Store.X_LithologyAdjective" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="X_DictionaryAdjective">
               <PropertyRef Name="AdjectiveID" />
             </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="AdjectiveID2" />
+            <Dependent Role="X_LithologyAdjective">
+              <PropertyRef Name="AdjectiveID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_LithologyData_X_DictionaryAdjective2">
-          <End Role="X_DictionaryAdjective" Type="XODB.Module.BusinessObjects.Store.X_DictionaryAdjective" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Store.X_Lithology" Multiplicity="*" />
+        <Association Name="FK_X_LithologyAdjective_X_Lithology">
+          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Store.X_Lithology" Multiplicity="0..1" />
+          <End Role="X_LithologyAdjective" Type="XODB.Module.BusinessObjects.Store.X_LithologyAdjective" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="X_DictionaryAdjective">
-              <PropertyRef Name="AdjectiveID" />
+            <Principal Role="X_Lithology">
+              <PropertyRef Name="LithologyID" />
             </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="AdjectiveID3" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_LithologyData_X_DictionaryAdjective3">
-          <End Role="X_DictionaryAdjective" Type="XODB.Module.BusinessObjects.Store.X_DictionaryAdjective" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Store.X_Lithology" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryAdjective">
-              <PropertyRef Name="AdjectiveID" />
-            </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="AdjectiveID4" />
+            <Dependent Role="X_LithologyAdjective">
+              <PropertyRef Name="LithologyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -15294,19 +15283,7 @@
               <PropertyRef Name="SedimentaryFeatureID" />
             </Principal>
             <Dependent Role="X_Lithology">
-              <PropertyRef Name="SedimentaryFeature1ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_LithologyData_X_DictionarySed_Feature1">
-          <End Role="X_DictionarySedimentaryFeature" Type="XODB.Module.BusinessObjects.Store.X_DictionarySedimentaryFeature" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Store.X_Lithology" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionarySedimentaryFeature">
-              <PropertyRef Name="SedimentaryFeatureID" />
-            </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="SedimentaryFeature2ID" />
+              <PropertyRef Name="PrimarySedimentaryFeatureID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -15355,6 +15332,30 @@
             </Principal>
             <Dependent Role="X_Lithology">
               <PropertyRef Name="HeaderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature">
+          <End Role="X_DictionarySedimentaryFeature" Type="XODB.Module.BusinessObjects.Store.X_DictionarySedimentaryFeature" Multiplicity="0..1" />
+          <End Role="X_LithologySedimentaryFeature" Type="XODB.Module.BusinessObjects.Store.X_LithologySedimentaryFeature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionarySedimentaryFeature">
+              <PropertyRef Name="SedimentaryFeatureID" />
+            </Principal>
+            <Dependent Role="X_LithologySedimentaryFeature">
+              <PropertyRef Name="SedimentaryFeatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologySedimentaryFeature_X_Lithology">
+          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Store.X_Lithology" Multiplicity="0..1" />
+          <End Role="X_LithologySedimentaryFeature" Type="XODB.Module.BusinessObjects.Store.X_LithologySedimentaryFeature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Lithology">
+              <PropertyRef Name="LithologyID" />
+            </Principal>
+            <Dependent Role="X_LithologySedimentaryFeature">
+              <PropertyRef Name="LithologyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -20601,22 +20602,6 @@
             <End Role="X_FileData" EntitySet="FileDatas" />
             <End Role="X_DictionaryAdjective" EntitySet="DictionaryAdjectives" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_Lithology_X_DictionaryAdjective" Association="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryAdjective">
-            <End Role="X_DictionaryAdjective" EntitySet="DictionaryAdjectives" />
-            <End Role="X_Lithology" EntitySet="Lithologies" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionaryAdjective1" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective1">
-            <End Role="X_DictionaryAdjective" EntitySet="DictionaryAdjectives" />
-            <End Role="X_Lithology" EntitySet="Lithologies" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionaryAdjective2" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective2">
-            <End Role="X_DictionaryAdjective" EntitySet="DictionaryAdjectives" />
-            <End Role="X_Lithology" EntitySet="Lithologies" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionaryAdjective3" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective3">
-            <End Role="X_DictionaryAdjective" EntitySet="DictionaryAdjectives" />
-            <End Role="X_Lithology" EntitySet="Lithologies" />
-          </AssociationSet>
           <AssociationSet Name="FK_X_X_DictionaryAlteration_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAlteration_X_FileData_OriginalFile">
             <End Role="X_FileData" EntitySet="FileDatas" />
             <End Role="X_DictionaryAlteration" EntitySet="DictionaryAlterations" />
@@ -20942,10 +20927,6 @@
             <End Role="X_DictionaryHeightDatum" EntitySet="DictionaryHeightDatums" />
           </AssociationSet>
           <AssociationSet Name="FK_X_Header_X_DictionaryHole_Purpose" Association="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Purpose">
-            <End Role="X_DictionaryHolePurpose" EntitySet="DictionaryHolePurposes" />
-            <End Role="X_Header" EntitySet="Headers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_Header_X_DictionaryHole_Purpose1" Association="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Purpose1">
             <End Role="X_DictionaryHolePurpose" EntitySet="DictionaryHolePurposes" />
             <End Role="X_Header" EntitySet="Headers" />
           </AssociationSet>
@@ -21308,14 +21289,6 @@
           <AssociationSet Name="FK_X_X_DictionarySeamAlias_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.FK_X_X_DictionarySeamAlias_X_FileData_OriginalFile">
             <End Role="X_FileData" EntitySet="FileDatas" />
             <End Role="X_DictionarySeamAlias" EntitySet="DictionarySeamAlias" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionarySed_Feature" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature">
-            <End Role="X_DictionarySedimentaryFeature" EntitySet="DictionarySedimentaryFeatures" />
-            <End Role="X_Lithology" EntitySet="Lithologies" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionarySed_Feature1" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature1">
-            <End Role="X_DictionarySedimentaryFeature" EntitySet="DictionarySedimentaryFeatures" />
-            <End Role="X_Lithology" EntitySet="Lithologies" />
           </AssociationSet>
           <AssociationSet Name="FK_X_X_DictionarySedimentaryFeature_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.FK_X_X_DictionarySedimentaryFeature_X_FileData_OriginalFile">
             <End Role="X_FileData" EntitySet="FileDatas" />
@@ -22577,6 +22550,32 @@
             <End Role="Contact" EntitySet="Contacts" />
             <End Role="SecurityWhitelist" EntitySet="SecurityWhitelists" />
           </AssociationSet>
+          <AssociationSet Name="FK_X_Lithology_X_DictionaryAdjective1" Association="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryAdjective1">
+            <End Role="DictionaryAdjective" EntitySet="DictionaryAdjectives" />
+            <End Role="Lithology" EntitySet="Lithologies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologyData_X_DictionarySed_Feature2" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature2">
+            <End Role="DictionarySedimentaryFeature" EntitySet="DictionarySedimentaryFeatures" />
+            <End Role="Lithology" EntitySet="Lithologies" />
+          </AssociationSet>
+          <EntitySet Name="LithologyAdjectives" EntityType="XODB.Module.BusinessObjects.LithologyAdjective" />
+          <EntitySet Name="LithologySedimentaryFeatures" EntityType="XODB.Module.BusinessObjects.LithologySedimentaryFeature" />
+          <AssociationSet Name="FK_X_LithologyAdjective_X_DictionaryAdjective" Association="XODB.Module.BusinessObjects.FK_X_LithologyAdjective_X_DictionaryAdjective">
+            <End Role="DictionaryAdjective" EntitySet="DictionaryAdjectives" />
+            <End Role="X_LithologyAdjective" EntitySet="LithologyAdjectives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature" Association="XODB.Module.BusinessObjects.FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature">
+            <End Role="DictionarySedimentaryFeature" EntitySet="DictionarySedimentaryFeatures" />
+            <End Role="X_LithologySedimentaryFeature" EntitySet="LithologySedimentaryFeatures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologyAdjective_X_Lithology" Association="XODB.Module.BusinessObjects.FK_X_LithologyAdjective_X_Lithology">
+            <End Role="Lithology" EntitySet="Lithologies" />
+            <End Role="X_LithologyAdjective" EntitySet="LithologyAdjectives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologySedimentaryFeature_X_Lithology" Association="XODB.Module.BusinessObjects.FK_X_LithologySedimentaryFeature_X_Lithology">
+            <End Role="Lithology" EntitySet="Lithologies" />
+            <End Role="X_LithologySedimentaryFeature" EntitySet="LithologySedimentaryFeatures" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -23460,8 +23459,8 @@
           <Property Name="IsPart" Type="Boolean" />
           <Property Name="Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="AccountDiscount" Relationship="XODB.Module.BusinessObjects.FK_Q_AccountDiscount_Q_DictionaryDeviceType" FromRole="Q_DictionaryDeviceType" ToRole="Q_AccountDiscount" />
-          <NavigationProperty Name="DeviceType1" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryDeviceType_Q_DictionaryDeviceType1" FromRole="Q_DictionaryDeviceType" ToRole="Q_DictionaryDeviceType1" />
-          <NavigationProperty Name="DeviceType2" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryDeviceType_Q_DictionaryDeviceType1" FromRole="Q_DictionaryDeviceType1" ToRole="Q_DictionaryDeviceType" />
+          <NavigationProperty Name="RelatedDeviceTypes" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryDeviceType_Q_DictionaryDeviceType1" FromRole="Q_DictionaryDeviceType" ToRole="Q_DictionaryDeviceType1" />
+          <NavigationProperty Name="ParentDeviceType" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryDeviceType_Q_DictionaryDeviceType1" FromRole="Q_DictionaryDeviceType1" ToRole="Q_DictionaryDeviceType" />
           <NavigationProperty Name="Experience" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryDeviceType_X_Experience" FromRole="Q_DictionaryDeviceType" ToRole="X_Experience" />
           <NavigationProperty Name="Part" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryPart_Q_DictionaryDeviceType" FromRole="Q_DictionaryDeviceType" ToRole="Q_DictionaryPart" />
           <NavigationProperty Name="PartCategory" Relationship="XODB.Module.BusinessObjects.FK_Q_DictionaryPartCategory_Q_DictionaryDeviceType" FromRole="Q_DictionaryDeviceType" ToRole="Q_DictionaryPartCategory" />
@@ -25210,7 +25209,6 @@
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalFileDataID" Type="Guid" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryAdjective_X_FileData" FromRole="X_DictionaryAdjective" ToRole="X_FileData" />
-          <NavigationProperty Name="Lithology" Relationship="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryAdjective" FromRole="X_DictionaryAdjective" ToRole="X_Lithology" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
           <Property Type="Int32" Name="VersionCertainty" />
@@ -25220,6 +25218,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="LithologiesAsOtherAdjective" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyAdjective_X_DictionaryAdjective" FromRole="DictionaryAdjective" ToRole="X_LithologyAdjective" />
         </EntityType>
         <EntityType Name="DictionaryAlteration">
           <Key>
@@ -25797,9 +25796,9 @@
           <Property Name="FullDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalFileDataID" Type="Guid" />
-          <NavigationProperty Name="BlockModel" Relationship="XODB.Module.BusinessObjects.FK_X_BlockModel_X_DictionaryDimension" FromRole="X_DictionaryDimension" ToRole="X_BlockModel" />
-          <NavigationProperty Name="BlockModel1" Relationship="XODB.Module.BusinessObjects.FK_X_BlockModel_X_DictionaryDimension1" FromRole="X_DictionaryDimension" ToRole="X_BlockModel" />
-          <NavigationProperty Name="BlockModel2" Relationship="XODB.Module.BusinessObjects.FK_X_BlockModel_X_DictionaryDimension2" FromRole="X_DictionaryDimension" ToRole="X_BlockModel" />
+          <NavigationProperty Name="BlockModelEasting" Relationship="XODB.Module.BusinessObjects.FK_X_BlockModel_X_DictionaryDimension" FromRole="X_DictionaryDimension" ToRole="X_BlockModel" />
+          <NavigationProperty Name="BlockModelNorthing" Relationship="XODB.Module.BusinessObjects.FK_X_BlockModel_X_DictionaryDimension1" FromRole="X_DictionaryDimension" ToRole="X_BlockModel" />
+          <NavigationProperty Name="BlockModelElevation" Relationship="XODB.Module.BusinessObjects.FK_X_BlockModel_X_DictionaryDimension2" FromRole="X_DictionaryDimension" ToRole="X_BlockModel" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryDimension_X_FileData_OriginalFile" FromRole="X_DictionaryDimension" ToRole="X_FileData" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
@@ -26020,8 +26019,8 @@
           <Property Name="FullDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalFileDataID" Type="Guid" />
-          <NavigationProperty Name="Defect" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryEst_Strength" FromRole="X_DictionaryEstimatedStrength" ToRole="X_Defect" />
-          <NavigationProperty Name="Defect1" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryEst_Strength1" FromRole="X_DictionaryEstimatedStrength" ToRole="X_Defect" />
+          <NavigationProperty Name="Defects" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryEst_Strength" FromRole="X_DictionaryEstimatedStrength" ToRole="X_Defect" />
+          <NavigationProperty Name="DefectInfills" Relationship="XODB.Module.BusinessObjects.FK_X_DefectData_X_DictionaryEst_Strength1" FromRole="X_DictionaryEstimatedStrength" ToRole="X_Defect" />
           <NavigationProperty Name="Lithology" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryEst_Strength" FromRole="X_DictionaryEstimatedStrength" ToRole="X_Lithology" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryEstimatedStrength_X_FileData_OriginalFile" FromRole="X_DictionaryEstimatedStrength" ToRole="X_FileData" />
           <Property Type="Int32" Name="Version" Nullable="false" />
@@ -26082,10 +26081,10 @@
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Company" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryFileType_X_Company" FromRole="X_DictionaryFileType" ToRole="X_Company" />
-          <NavigationProperty Name="FileType1" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryFileType_X_DictionaryFileType" FromRole="X_DictionaryFileType" ToRole="X_DictionaryFileType1" />
-          <NavigationProperty Name="FileType2" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryFileType_X_DictionaryFileType" FromRole="X_DictionaryFileType1" ToRole="X_DictionaryFileType" />
+          <NavigationProperty Name="RelatedFileTypes" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryFileType_X_DictionaryFileType" FromRole="X_DictionaryFileType" ToRole="X_DictionaryFileType1" />
+          <NavigationProperty Name="ParentFileType" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryFileType_X_DictionaryFileType" FromRole="X_DictionaryFileType1" ToRole="X_DictionaryFileType" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_FileData_X_DictionaryFileType" FromRole="X_DictionaryFileType" ToRole="X_FileData" />
-          <NavigationProperty Name="FileData1" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryFileType_X_FileData_OriginalFile" FromRole="X_DictionaryFileType" ToRole="X_FileData" />
+          <NavigationProperty Name="OriginalFileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryFileType_X_FileData_OriginalFile" FromRole="X_DictionaryFileType" ToRole="X_FileData" />
         </EntityType>
         <EntityType Name="DictionaryFlowTestType">
           <Key>
@@ -26200,8 +26199,8 @@
           <Property Name="FullDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalFileDataID" Type="Guid" />
-          <NavigationProperty Name="GroupMembership" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryGroupMembership_X_DictionaryGroup" FromRole="X_DictionaryGroup" ToRole="X_DictionaryGroupMembership" />
-          <NavigationProperty Name="GroupMembership1" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryGroupMembership_X_DictionaryGroupMembership" FromRole="X_DictionaryGroup" ToRole="X_DictionaryGroupMembership" />
+          <NavigationProperty Name="GroupMembershipChildren" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryGroupMembership_X_DictionaryGroup" FromRole="X_DictionaryGroup" ToRole="X_DictionaryGroupMembership" />
+          <NavigationProperty Name="GroupMembershipParents" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryGroupMembership_X_DictionaryGroupMembership" FromRole="X_DictionaryGroup" ToRole="X_DictionaryGroupMembership" />
           <NavigationProperty Name="ParameterGroup" Relationship="XODB.Module.BusinessObjects.FK_X_ParameterGroup_X_DictionaryGroup" FromRole="X_DictionaryGroup" ToRole="X_ParameterGroup" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryGroup_X_FileData_OriginalFile" FromRole="X_DictionaryGroup" ToRole="X_FileData" />
           <Property Type="Int32" Name="Version" Nullable="false" />
@@ -26224,8 +26223,8 @@
           <Property Name="FullDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalFileDataID" Type="Guid" />
-          <NavigationProperty Name="Group" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryGroupMembership_X_DictionaryGroup" FromRole="X_DictionaryGroupMembership" ToRole="X_DictionaryGroup" />
-          <NavigationProperty Name="Group1" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryGroupMembership_X_DictionaryGroupMembership" FromRole="X_DictionaryGroupMembership" ToRole="X_DictionaryGroup" />
+          <NavigationProperty Name="GroupChild" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryGroupMembership_X_DictionaryGroup" FromRole="X_DictionaryGroupMembership" ToRole="X_DictionaryGroup" />
+          <NavigationProperty Name="GroupParent" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryGroupMembership_X_DictionaryGroupMembership" FromRole="X_DictionaryGroupMembership" ToRole="X_DictionaryGroup" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryGroupMembership_X_FileData_OriginalFile" FromRole="X_DictionaryGroupMembership" ToRole="X_FileData" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
@@ -26276,7 +26275,6 @@
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalFileDataID" Type="Guid" />
           <NavigationProperty Name="Header" Relationship="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Purpose" FromRole="X_DictionaryHolePurpose" ToRole="X_Header" />
-          <NavigationProperty Name="Header1" Relationship="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Purpose1" FromRole="X_DictionaryHolePurpose" ToRole="X_Header" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryHolePurpose_X_FileData_OriginalFile" FromRole="X_DictionaryHolePurpose" ToRole="X_FileData" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
@@ -27373,8 +27371,6 @@
           <Property Name="FullDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalFileDataID" Type="Guid" />
-          <NavigationProperty Name="Lithology" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature" FromRole="X_DictionarySedimentaryFeature" ToRole="X_Lithology" />
-          <NavigationProperty Name="Lithology1" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature1" FromRole="X_DictionarySedimentaryFeature" ToRole="X_Lithology" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionarySedimentaryFeature_X_FileData_OriginalFile" FromRole="X_DictionarySedimentaryFeature" ToRole="X_FileData" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
@@ -27385,6 +27381,8 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="X_Lithology" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature2" FromRole="DictionarySedimentaryFeature" ToRole="Lithology" />
+          <NavigationProperty Name="X_LithologySedimentaryFeature" Relationship="XODB.Module.BusinessObjects.FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature" FromRole="DictionarySedimentaryFeature" ToRole="X_LithologySedimentaryFeature" />
         </EntityType>
         <EntityType Name="DictionaryShade">
           <Key>
@@ -28109,7 +28107,6 @@
           <Property Name="HoleTypeID" Type="Guid" />
           <Property Name="DataStatusID" Type="Guid" />
           <Property Name="PrimaryHolePurposeID" Type="Guid" />
-          <Property Name="SecondaryHolePurposeID" Type="Guid" />
           <Property Name="SurveyAccuracyID" Type="Guid" />
           <Property Name="GeodeticDatumID" Type="Guid" />
           <Property Name="UtmZoneNumber" Type="Int32" />
@@ -28153,7 +28150,6 @@
           <NavigationProperty Name="GeodeticDatum" Relationship="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryGeodetic_Datum" FromRole="X_Header" ToRole="X_DictionaryGeodeticDatum" />
           <NavigationProperty Name="HeightDatum" Relationship="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHeight_Datum" FromRole="X_Header" ToRole="X_DictionaryHeightDatum" />
           <NavigationProperty Name="HolePurpose" Relationship="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Purpose" FromRole="X_Header" ToRole="X_DictionaryHolePurpose" />
-          <NavigationProperty Name="HolePurpose1" Relationship="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Purpose1" FromRole="X_Header" ToRole="X_DictionaryHolePurpose" />
           <NavigationProperty Name="HoleStatus" Relationship="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Status" FromRole="X_Header" ToRole="X_DictionaryHoleStatus" />
           <NavigationProperty Name="HoleType" Relationship="XODB.Module.BusinessObjects.FK_X_Header_X_DictionaryHole_Type" FromRole="X_Header" ToRole="X_DictionaryHoleType" />
           <NavigationProperty Name="SurveyAccuracy" Relationship="XODB.Module.BusinessObjects.FK_X_Header_X_DictionarySurvey_Accuracy" FromRole="X_Header" ToRole="X_DictionarySurveyAccuracy" />
@@ -28501,10 +28497,6 @@
           <Property Name="ShadeID" Type="Guid" />
           <Property Name="HueID" Type="Guid" />
           <Property Name="ColourID" Type="Guid" />
-          <Property Name="AdjectiveID1" Type="Guid" />
-          <Property Name="AdjectiveID2" Type="Guid" />
-          <Property Name="AdjectiveID3" Type="Guid" />
-          <Property Name="AdjectiveID4" Type="Guid" />
           <Property Name="LithologyInterrelationID" Type="Guid" />
           <Property Name="WeatheringID" Type="Guid" />
           <Property Name="EstimatedStrengthID" Type="Guid" />
@@ -28517,8 +28509,6 @@
           <Property Name="MechanicalStateID" Type="Guid" />
           <Property Name="TextureID" Type="Guid" />
           <Property Name="BasalContactID" Type="Guid" />
-          <Property Name="SedimentaryFeature1ID" Type="Guid" />
-          <Property Name="SedimentaryFeature2ID" Type="Guid" />
           <Property Name="BeddingDip" Type="Int32" />
           <Property Name="MineralAndFossilAbundanceID" Type="Guid" />
           <Property Name="MineralAndFossilTypeID" Type="Guid" />
@@ -28534,10 +28524,6 @@
           <Property Name="VersionOwnerContactID" Type="Guid" />
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Adjective" Relationship="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryAdjective" FromRole="X_Lithology" ToRole="X_DictionaryAdjective" />
-          <NavigationProperty Name="Adjective1" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective1" FromRole="X_Lithology" ToRole="X_DictionaryAdjective" />
-          <NavigationProperty Name="Adjective2" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective2" FromRole="X_Lithology" ToRole="X_DictionaryAdjective" />
-          <NavigationProperty Name="Adjective3" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryAdjective3" FromRole="X_Lithology" ToRole="X_DictionaryAdjective" />
           <NavigationProperty Name="BasalContact" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryBasal_Contact" FromRole="X_Lithology" ToRole="X_DictionaryBasalContact" />
           <NavigationProperty Name="BedSpacing" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryBed_Spacing" FromRole="X_Lithology" ToRole="X_DictionaryBedSpacing" />
           <NavigationProperty Name="Colour" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryColour" FromRole="X_Lithology" ToRole="X_DictionaryColour" />
@@ -28561,14 +28547,18 @@
           <NavigationProperty Name="Ply" Relationship="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryPly" FromRole="X_Lithology" ToRole="X_DictionaryPly" />
           <NavigationProperty Name="SampleType" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySample_Type" FromRole="X_Lithology" ToRole="X_DictionarySampleType" />
           <NavigationProperty Name="Seam" Relationship="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionarySeam" FromRole="X_Lithology" ToRole="X_DictionarySeam" />
-          <NavigationProperty Name="SedimentaryFeature" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature" FromRole="X_Lithology" ToRole="X_DictionarySedimentaryFeature" />
-          <NavigationProperty Name="SedimentaryFeature1" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature1" FromRole="X_Lithology" ToRole="X_DictionarySedimentaryFeature" />
           <NavigationProperty Name="Shade" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryShade" FromRole="X_Lithology" ToRole="X_DictionaryShade" />
           <NavigationProperty Name="Stratigraphy" Relationship="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryStratigraphy" FromRole="X_Lithology" ToRole="X_DictionaryStratigraphy" />
           <NavigationProperty Name="Texture" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryTexture" FromRole="X_Lithology" ToRole="X_DictionaryTexture" />
           <NavigationProperty Name="Weathering" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryWeathering" FromRole="X_Lithology" ToRole="X_DictionaryWeathering" />
           <NavigationProperty Name="Header" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_Header" FromRole="X_Lithology" ToRole="X_Header" />
           <NavigationProperty Name="Interpretation" Relationship="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Lithology" FromRole="X_Lithology" ToRole="X_Interpretation" />
+          <Property Type="Guid" Name="PrimaryAdjectiveID" />
+          <Property Type="Guid" Name="PrimarySedimentaryFeatureID" />
+          <NavigationProperty Name="PrimaryAdjective" Relationship="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryAdjective1" FromRole="Lithology" ToRole="DictionaryAdjective" />
+          <NavigationProperty Name="PrimarySedimentaryFeature" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature2" FromRole="Lithology" ToRole="DictionarySedimentaryFeature" />
+          <NavigationProperty Name="X_LithologyAdjective" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyAdjective_X_Lithology" FromRole="Lithology" ToRole="X_LithologyAdjective" />
+          <NavigationProperty Name="X_LithologySedimentaryFeature" Relationship="XODB.Module.BusinessObjects.FK_X_LithologySedimentaryFeature_X_Lithology" FromRole="Lithology" ToRole="X_LithologySedimentaryFeature" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -29516,7 +29506,7 @@
           <NavigationProperty Name="Contact" Relationship="XODB.Module.BusinessObjects.FK_X_SecurityBlacklist_X_Contact" FromRole="X_SecurityBlacklist" ToRole="X_Contact" />
           <NavigationProperty Name="Project" Relationship="XODB.Module.BusinessObjects.FK_X_SecurityBlacklist_X_Project" FromRole="X_SecurityBlacklist" ToRole="X_Project" />
           <NavigationProperty Name="Project1" Relationship="XODB.Module.BusinessObjects.FK_X_SecurityBlacklist_X_Project1" FromRole="X_SecurityBlacklist" ToRole="X_Project" />
-          <NavigationProperty Name="X_Contact" Relationship="XODB.Module.BusinessObjects.FK_X_SecurityBlacklist_X_Contact1" FromRole="SecurityBlacklist" ToRole="Contact" />
+          <NavigationProperty Name="Contact1" Relationship="XODB.Module.BusinessObjects.FK_X_SecurityBlacklist_X_Contact1" FromRole="SecurityBlacklist" ToRole="Contact" />
         </EntityType>
         <EntityType Name="SecurityWhitelist">
           <Key>
@@ -34764,54 +34754,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_Lithology_X_DictionaryAdjective">
-          <End Role="X_DictionaryAdjective" Type="XODB.Module.BusinessObjects.DictionaryAdjective" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Lithology" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryAdjective">
-              <PropertyRef Name="AdjectiveID" />
-            </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="AdjectiveID1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_LithologyData_X_DictionaryAdjective1">
-          <End Role="X_DictionaryAdjective" Type="XODB.Module.BusinessObjects.DictionaryAdjective" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Lithology" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryAdjective">
-              <PropertyRef Name="AdjectiveID" />
-            </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="AdjectiveID2" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_LithologyData_X_DictionaryAdjective2">
-          <End Role="X_DictionaryAdjective" Type="XODB.Module.BusinessObjects.DictionaryAdjective" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Lithology" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryAdjective">
-              <PropertyRef Name="AdjectiveID" />
-            </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="AdjectiveID3" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_LithologyData_X_DictionaryAdjective3">
-          <End Role="X_DictionaryAdjective" Type="XODB.Module.BusinessObjects.DictionaryAdjective" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Lithology" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryAdjective">
-              <PropertyRef Name="AdjectiveID" />
-            </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="AdjectiveID4" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_X_X_DictionaryAlteration_X_FileData_OriginalFile">
           <End Role="X_FileData" Type="XODB.Module.BusinessObjects.FileData" Multiplicity="0..1" />
           <End Role="X_DictionaryAlteration" Type="XODB.Module.BusinessObjects.DictionaryAlteration" Multiplicity="*" />
@@ -35793,18 +35735,6 @@
             </Principal>
             <Dependent Role="X_Header">
               <PropertyRef Name="PrimaryHolePurposeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_Header_X_DictionaryHole_Purpose1">
-          <End Role="X_DictionaryHolePurpose" Type="XODB.Module.BusinessObjects.DictionaryHolePurpose" Multiplicity="0..1" />
-          <End Role="X_Header" Type="XODB.Module.BusinessObjects.Header" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryHolePurpose">
-              <PropertyRef Name="HolePurposeID" />
-            </Principal>
-            <Dependent Role="X_Header">
-              <PropertyRef Name="SecondaryHolePurposeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -36885,30 +36815,6 @@
             </Principal>
             <Dependent Role="X_DictionarySeamAlias">
               <PropertyRef Name="OriginalFileDataID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_LithologyData_X_DictionarySed_Feature">
-          <End Role="X_DictionarySedimentaryFeature" Type="XODB.Module.BusinessObjects.DictionarySedimentaryFeature" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Lithology" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionarySedimentaryFeature">
-              <PropertyRef Name="SedimentaryFeatureID" />
-            </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="SedimentaryFeature1ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_LithologyData_X_DictionarySed_Feature1">
-          <End Role="X_DictionarySedimentaryFeature" Type="XODB.Module.BusinessObjects.DictionarySedimentaryFeature" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Lithology" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionarySedimentaryFeature">
-              <PropertyRef Name="SedimentaryFeatureID" />
-            </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="SedimentaryFeature2ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -38624,6 +38530,118 @@
             </Principal>
             <Dependent Role="SecurityWhitelist">
               <PropertyRef Name="OwnerContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_Lithology_X_DictionaryAdjective1">
+          <End Type="XODB.Module.BusinessObjects.DictionaryAdjective" Role="DictionaryAdjective" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.Lithology" Role="Lithology" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryAdjective">
+              <PropertyRef Name="AdjectiveID" />
+            </Principal>
+            <Dependent Role="Lithology">
+              <PropertyRef Name="PrimaryAdjectiveID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologyData_X_DictionarySed_Feature2">
+          <End Type="XODB.Module.BusinessObjects.DictionarySedimentaryFeature" Role="DictionarySedimentaryFeature" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.Lithology" Role="Lithology" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionarySedimentaryFeature">
+              <PropertyRef Name="SedimentaryFeatureID" />
+            </Principal>
+            <Dependent Role="Lithology">
+              <PropertyRef Name="PrimarySedimentaryFeatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LithologyAdjective">
+          <Key>
+            <PropertyRef Name="LithologyAdjectiveID" />
+          </Key>
+          <Property Type="Guid" Name="LithologyAdjectiveID" Nullable="false" />
+          <Property Type="Guid" Name="LithologyID" />
+          <Property Type="Guid" Name="AdjectiveID" />
+          <Property Type="Int32" Name="Sequence" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="Adjective" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyAdjective_X_DictionaryAdjective" FromRole="X_LithologyAdjective" ToRole="DictionaryAdjective" />
+          <NavigationProperty Name="Lithology" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyAdjective_X_Lithology" FromRole="X_LithologyAdjective" ToRole="Lithology" />
+        </EntityType>
+        <EntityType Name="LithologySedimentaryFeature">
+          <Key>
+            <PropertyRef Name="LithologySedimentaryFeatureID" />
+          </Key>
+          <Property Type="Guid" Name="LithologySedimentaryFeatureID" Nullable="false" />
+          <Property Type="Guid" Name="LithologyID" />
+          <Property Type="Guid" Name="SedimentaryFeatureID" />
+          <Property Type="Int32" Name="Sequence" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="SedimentaryFeature" Relationship="XODB.Module.BusinessObjects.FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature" FromRole="X_LithologySedimentaryFeature" ToRole="DictionarySedimentaryFeature" />
+          <NavigationProperty Name="Lithology" Relationship="XODB.Module.BusinessObjects.FK_X_LithologySedimentaryFeature_X_Lithology" FromRole="X_LithologySedimentaryFeature" ToRole="Lithology" />
+        </EntityType>
+        <Association Name="FK_X_LithologyAdjective_X_DictionaryAdjective">
+          <End Type="XODB.Module.BusinessObjects.DictionaryAdjective" Role="DictionaryAdjective" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.LithologyAdjective" Role="X_LithologyAdjective" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryAdjective">
+              <PropertyRef Name="AdjectiveID" />
+            </Principal>
+            <Dependent Role="X_LithologyAdjective">
+              <PropertyRef Name="AdjectiveID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature">
+          <End Type="XODB.Module.BusinessObjects.DictionarySedimentaryFeature" Role="DictionarySedimentaryFeature" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.LithologySedimentaryFeature" Role="X_LithologySedimentaryFeature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionarySedimentaryFeature">
+              <PropertyRef Name="SedimentaryFeatureID" />
+            </Principal>
+            <Dependent Role="X_LithologySedimentaryFeature">
+              <PropertyRef Name="SedimentaryFeatureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologyAdjective_X_Lithology">
+          <End Type="XODB.Module.BusinessObjects.Lithology" Role="Lithology" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.LithologyAdjective" Role="X_LithologyAdjective" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lithology">
+              <PropertyRef Name="LithologyID" />
+            </Principal>
+            <Dependent Role="X_LithologyAdjective">
+              <PropertyRef Name="LithologyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologySedimentaryFeature_X_Lithology">
+          <End Type="XODB.Module.BusinessObjects.Lithology" Role="Lithology" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.LithologySedimentaryFeature" Role="X_LithologySedimentaryFeature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lithology">
+              <PropertyRef Name="LithologyID" />
+            </Principal>
+            <Dependent Role="X_LithologySedimentaryFeature">
+              <PropertyRef Name="LithologyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -43372,7 +43390,6 @@
                 <ScalarProperty Name="HoleTypeID" ColumnName="HoleTypeID" />
                 <ScalarProperty Name="DataStatusID" ColumnName="DataStatusID" />
                 <ScalarProperty Name="PrimaryHolePurposeID" ColumnName="PrimaryHolePurposeID" />
-                <ScalarProperty Name="SecondaryHolePurposeID" ColumnName="SecondaryHolePurposeID" />
                 <ScalarProperty Name="SurveyAccuracyID" ColumnName="SurveyAccuracyID" />
                 <ScalarProperty Name="GeodeticDatumID" ColumnName="GeodeticDatumID" />
                 <ScalarProperty Name="UtmZoneNumber" ColumnName="UtmZoneNumber" />
@@ -43693,6 +43710,8 @@
           <EntitySetMapping Name="Lithologies">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.Lithology">
               <MappingFragment StoreEntitySet="X_Lithology">
+                <ScalarProperty Name="PrimarySedimentaryFeatureID" ColumnName="PrimarySedimentaryFeatureID" />
+                <ScalarProperty Name="PrimaryAdjectiveID" ColumnName="PrimaryAdjectiveID" />
                 <ScalarProperty Name="LithologyID" ColumnName="LithologyID" />
                 <ScalarProperty Name="HeaderID" ColumnName="HeaderID" />
                 <ScalarProperty Name="FromDepth" ColumnName="FromDepth" />
@@ -43713,10 +43732,6 @@
                 <ScalarProperty Name="ShadeID" ColumnName="ShadeID" />
                 <ScalarProperty Name="HueID" ColumnName="HueID" />
                 <ScalarProperty Name="ColourID" ColumnName="ColourID" />
-                <ScalarProperty Name="AdjectiveID1" ColumnName="AdjectiveID1" />
-                <ScalarProperty Name="AdjectiveID2" ColumnName="AdjectiveID2" />
-                <ScalarProperty Name="AdjectiveID3" ColumnName="AdjectiveID3" />
-                <ScalarProperty Name="AdjectiveID4" ColumnName="AdjectiveID4" />
                 <ScalarProperty Name="LithologyInterrelationID" ColumnName="LithologyInterrelationID" />
                 <ScalarProperty Name="WeatheringID" ColumnName="WeatheringID" />
                 <ScalarProperty Name="EstimatedStrengthID" ColumnName="EstimatedStrengthID" />
@@ -43729,8 +43744,6 @@
                 <ScalarProperty Name="MechanicalStateID" ColumnName="MechanicalStateID" />
                 <ScalarProperty Name="TextureID" ColumnName="TextureID" />
                 <ScalarProperty Name="BasalContactID" ColumnName="BasalContactID" />
-                <ScalarProperty Name="SedimentaryFeature1ID" ColumnName="SedimentaryFeature1ID" />
-                <ScalarProperty Name="SedimentaryFeature2ID" ColumnName="SedimentaryFeature2ID" />
                 <ScalarProperty Name="BeddingDip" ColumnName="BeddingDip" />
                 <ScalarProperty Name="MineralAndFossilAbundanceID" ColumnName="MineralAndFossilAbundanceID" />
                 <ScalarProperty Name="MineralAndFossilTypeID" ColumnName="MineralAndFossilTypeID" />
@@ -45888,6 +45901,44 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="UnlockInstance" FunctionName="XODB.Module.BusinessObjects.Store.UnlockInstance" />
+          <EntitySetMapping Name="LithologyAdjectives">
+            <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.LithologyAdjective">
+              <MappingFragment StoreEntitySet="X_LithologyAdjective">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="AdjectiveID" ColumnName="AdjectiveID" />
+                <ScalarProperty Name="LithologyID" ColumnName="LithologyID" />
+                <ScalarProperty Name="LithologyAdjectiveID" ColumnName="LithologyAdjectiveID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LithologySedimentaryFeatures">
+            <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.LithologySedimentaryFeature">
+              <MappingFragment StoreEntitySet="X_LithologySedimentaryFeature">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="SedimentaryFeatureID" ColumnName="SedimentaryFeatureID" />
+                <ScalarProperty Name="LithologyID" ColumnName="LithologyID" />
+                <ScalarProperty Name="LithologySedimentaryFeatureID" ColumnName="LithologySedimentaryFeatureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -45901,7 +45952,7 @@
     </Connection>
     <Options>
       <DesignerInfoPropertySet>
-        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="ValidateOnBuild" Value="True" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
