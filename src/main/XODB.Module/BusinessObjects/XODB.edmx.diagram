@@ -957,6 +957,9 @@
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyAdjective_X_Lithology" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologySedimentaryFeature_X_Lithology" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.HeaderHolePurpose" Width="1.5" PointX="4.8301341388514887" PointY="31.404552191218617" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderHolePurpose_X_DictionaryHolePurpose" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderHolePurpose_X_Header" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -38,6 +38,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.ExpressApp.ConditionalAppearance.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.EF.45.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.Xpo.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v13.1.Core">
@@ -65,6 +66,7 @@
     <Reference Include="Ionic.Zip">
       <HintPath>..\XODB.Orchard\src\Orchard.Web\Modules\XODB\bin\Ionic.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System">
       <Name>System</Name>
       <Private>False</Private>
@@ -87,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\BusinessObjectHelper.cs" />
+    <Compile Include="BusinessObjects\Location.cs" />
     <Compile Include="BusinessObjects\FileData.cs" />
     <Compile Include="BusinessObjects\XODB.Context.cs">
       <AutoGen>True</AutoGen>
