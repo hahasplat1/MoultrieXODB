@@ -45,6 +45,44 @@ namespace XODB.Module.DatabaseUpdate
                 foreach (var s in Properties.Resources.XODBSchema2.Split(new string[] { "GO" }, StringSplitOptions.RemoveEmptyEntries)) ExecuteNonQueryCommand(s, true);
             if (xodbSchemaVersion < 3)
                 foreach (var s in Properties.Resources.XODBSchema3.Split(new string[] { "GO" }, StringSplitOptions.RemoveEmptyEntries)) ExecuteNonQueryCommand(s, true); //This may have errors
+            if (xodbSchemaVersion < 4)
+            {
+                using (FileStream fs = new FileStream(string.Format(@"{0}\Resources\{1}", AppDomain.CurrentDomain.BaseDirectory, "v4.sql.zip"), FileMode.Open, FileAccess.Read))
+                {
+                    // extract file to a temp location
+                    using (var fileInflater = ZipFile.Read(fs))
+                    {
+                        foreach (ZipEntry entry in fileInflater)
+                        {
+                            if (entry == null) { continue; }
+
+                            if (!entry.IsDirectory && !string.IsNullOrEmpty(entry.FileName))
+                            {
+                                var paragraph = "";
+                                using (Stream stream = entry.OpenReader())
+                                using (StreamReader sr = new StreamReader(stream))
+                                {
+                                    while (sr.Peek() >= 0)
+                                    {
+                                        var line = sr.ReadLine();
+                                        if (line.Trim().ToUpper() == "GO")
+                                        {
+                                            ExecuteNonQueryCommand(paragraph, true);
+                                            paragraph = "";
+                                        }
+                                        paragraph += string.Format("{0}\r\n", line);
+                                    }
+                                }
+                                if (paragraph.Length > 0)
+                                    ExecuteNonQueryCommand(paragraph, true);
+                            }
+                            break; // Only handle 1 file
+                        }
+                    }
+                }
+            }
+             
+
             //Reboot
             try
             {
