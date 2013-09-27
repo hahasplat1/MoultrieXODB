@@ -116,6 +116,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ShowProvincesController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ShowLocationsController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\NewProvinceController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\NewLocationController.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controllers\SendConfigController.cs">
       <SubType>Component</SubType>
     </Compile>

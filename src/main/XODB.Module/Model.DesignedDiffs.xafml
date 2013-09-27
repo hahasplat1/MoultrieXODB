@@ -2183,6 +2183,7 @@
     </Class>
     <Class Name="XODB.Module.BusinessObjects.Location" DefaultListViewAllowEdit="False">
       <OwnMembers>
+        <Member Name="Coordinates" RowCount="2" />
         <Member Name="Version" AllowEdit="False" />
         <Member Name="VersionAntecedentID" AllowEdit="False" />
         <Member Name="VersionCertainty" AllowEdit="False" />
@@ -2653,6 +2654,7 @@
     </Class>
     <Class Name="XODB.Module.BusinessObjects.Province" DefaultListViewAllowEdit="False">
       <OwnMembers>
+        <Member Name="Coordinates" RowCount="7" />
         <Member Name="Version" AllowEdit="False" />
         <Member Name="VersionAntecedentID" AllowEdit="False" />
         <Member Name="VersionCertainty" AllowEdit="False" />
@@ -3269,32 +3271,6 @@
     <SchemaModule Name="SystemWindowsFormsModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
-    <ListView Id="Account_AccountDiscounts_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Account_Assets_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Account_CompanyAccounts_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3322,19 +3298,6 @@
       </Columns>
     </ListView>
     <DetailView Id="Account_DetailView" FreezeLayout="False" />
-    <ListView Id="Account_Invoices_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Account_Journals_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -3362,98 +3325,7 @@
       </Columns>
     </ListView>
     <ListView Id="Account_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
-    <ListView Id="Account_Payments_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Account_PurchaseOrders_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Account_RelatedAccounts_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Account_RelatedAssets_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Account_RelatedInvoices_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Account_RelatedOtherAssets_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Account_RelatedPayments_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Account_RelatedPurchaseOrders_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -3643,32 +3515,6 @@
       </Columns>
     </ListView>
     <ListView Id="AssayGroupTest_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
-    <ListView Id="AssayGroupTestResult_AssayGroupTestResultComment_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="AssayGroupTestResult_AssayGroupTestResultDuplicate_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <DetailView Id="AssayGroupTestResult_DetailView" FreezeLayout="False" />
     <ListView Id="AssayGroupTestResult_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
@@ -3738,19 +3584,6 @@
       </Columns>
     </ListView>
     <ListView Id="AssayGroupTestResultDuplicate_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Asset_Asset1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -4243,85 +4076,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="Company_CompanyRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_CompanyRelation1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Company_Compliance_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_Contract_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_Contract1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_Contract2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_Contract3_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -4387,59 +4142,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="Company_Header_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_Header1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Company_HeaderGeophysicalLog_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_Invoice_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_Invoice1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -4545,111 +4248,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="Company_ProspectusProject_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_ProspectusProject1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Company_Province_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_PurchaseOrder_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_PurchaseOrder1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_SecurityBlacklist_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_SecurityBlacklist1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_SecurityWhitelist_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Company_SecurityWhitelist1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -4754,59 +4353,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="CompanyAddress_DeliveryAdvice_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="CompanyAddress_DeliveryAdvice1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <DetailView Id="CompanyAddress_DetailView" FreezeLayout="False" />
-    <ListView Id="CompanyAddress_Invoice_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="CompanyAddress_Invoice1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="CompanyAddress_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -4998,97 +4545,6 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="Contact_AssayGroup_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_AssayGroup1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_AssayGroup2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_BlockModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_BlockModel1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_BlockModel2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_BlockModel3_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Contact_Company_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -5116,58 +4572,6 @@
       </Columns>
     </ListView>
     <ListView Id="Contact_ContactAddress_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Contract_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Contract1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Contract2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Contract3_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -5325,163 +4729,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="Contact_Opportunity1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Opportunity2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Opportunity3_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Opportunity4_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Opportunity5_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_ProjectDeliverable_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_ProjectDeliverable1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_ProjectDeliverable2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Contact_ProjectPlan_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_ProjectPlanTaskComplianceResponse_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_ProjectPlanTaskComplianceResponse1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_ProjectPlanTaskResponse_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_ProjectPlanTaskResponse1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -5508,149 +4756,6 @@
       </Columns>
     </ListView>
     <ListView Id="Contact_Province_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_PurchaseOrder_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_PurchaseOrder1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Recall_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Recall1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Recall2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Recall3_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_SecurityBlacklist_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_SecurityWhitelist_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_SecurityWhitelist1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Supply_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contact_Supply1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -5704,19 +4809,6 @@
       </Columns>
     </ListView>
     <ListView Id="ContactAddress_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contract_Contract1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -5784,19 +4876,6 @@
     </ListView>
     <ListView Id="Contract_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="Contract_ModelWarranty_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Contract_ProjectDeliverable2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -5957,19 +5036,6 @@
       </Columns>
     </ListView>
     <ListView Id="ContractConditionPart_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="CostEstimateModel_CostEstimateModel1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -6359,58 +5425,6 @@
     </ListView>
     <DetailView Id="DictionaryAdjective_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryAdjective_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryAdjective_Lithology_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryAdjective_Lithology1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryAdjective_Lithology2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryAdjective_Lithology3_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -7336,7 +6350,6 @@
       </Columns>
     </ListView>
     <DetailView Id="DictionaryDeviceType_DetailView" FreezeLayout="False" />
-    <ListView Id="DictionaryDeviceType_DeviceType1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryDeviceType_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryDeviceType_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryDeviceType_Model_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
@@ -7367,45 +6380,6 @@
     </ListView>
     <ListView Id="DictionaryDeviceType_Part_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryDeviceType_PartCategory_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
-    <ListView Id="DictionaryDimension_BlockModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryDimension_BlockModel1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryDimension_BlockModel2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <DetailView Id="DictionaryDimension_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryDimension_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
@@ -7686,32 +6660,6 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="DictionaryEstimatedStrength_Defect_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryEstimatedStrength_Defect1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <DetailView Id="DictionaryEstimatedStrength_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryEstimatedStrength_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
@@ -7794,19 +6742,6 @@
     </ListView>
     <DetailView Id="DictionaryFileType_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryFileType_FileData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryFileType_FileType1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -7962,32 +6897,6 @@
       </Columns>
     </ListView>
     <DetailView Id="DictionaryGroup_DetailView" FreezeLayout="False" />
-    <ListView Id="DictionaryGroup_GroupMembership_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryGroup_GroupMembership1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="DictionaryGroup_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -8082,32 +6991,6 @@
       </Columns>
     </ListView>
     <DetailView Id="DictionaryHolePurpose_DetailView" FreezeLayout="False" />
-    <ListView Id="DictionaryHolePurpose_Header_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryHolePurpose_Header1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="DictionaryHolePurpose_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -8284,32 +7167,6 @@
     <ListView Id="DictionaryInfillMode_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryInfillType_Defect_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryInfillType_Defect1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
     <DetailView Id="DictionaryInfillType_DetailView" FreezeLayout="False" />
@@ -8848,19 +7705,6 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryModel_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
-    <ListView Id="DictionaryModel_Model11_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="DictionaryModel_ModelCategory_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -9186,7 +8030,6 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="DictionaryPart_Part1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryPart_PartCategory_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryPart_PartCharacteristic_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
@@ -9293,32 +8136,6 @@
     </ListView>
     <ListView Id="DictionaryPartStatus_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="DictionaryPartStatus_Part_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
-    <ListView Id="DictionaryPlasticity_Defect_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryPlasticity_Defect1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <DetailView Id="DictionaryPlasticity_DetailView" FreezeLayout="False" />
     <ListView Id="DictionaryPlasticity_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
@@ -9998,32 +8815,6 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="DictionarySedimentaryFeature_Lithology_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionarySedimentaryFeature_Lithology1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="DictionarySedimentaryFeature_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Description" PropertyName="Description" IsNewNode="True" />
@@ -10288,45 +9079,6 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="DictionaryUnit_Casing_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryUnit_Casing1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryUnit_Casing2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="DictionaryUnit_Characteristic_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10518,97 +9270,6 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryUnit_ProjectPlanTaskPart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryUnit_SupplierModel_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryUnit_SupplierModel1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryUnit_SupplierPart_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryUnit_SupplierPart1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryUnit_SupplyItem_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryUnit_SupplyItem1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryUnit_SupplyItem2_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -10839,32 +9500,6 @@
         <ColumnInfo Id="Description" PropertyName="WorkTypeDescription" Caption="Description" IsNewNode="True" />
       </Columns>
     </ListView>
-    <ListView Id="DictionaryWorkType_Opportunity_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryWorkType_Opportunity1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="DictionaryWorkType_ProjectDeliverable_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -10905,19 +9540,6 @@
       </Columns>
     </ListView>
     <ListView Id="DictionaryWorkType_WorkTypeRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="DictionaryWorkType_WorkTypeRelation1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -11714,32 +10336,6 @@
       </Columns>
     </ListView>
     <ListView Id="FileData_FailureMode_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="FileData_FileData1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="FileData_FileType1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -12830,7 +11426,6 @@
         <LayoutGroup Id="Main">
           <TabbedGroup Id="Tabs">
             <LayoutGroup Id="HeaderRelation" Caption="Header Relation (Children)" />
-            <LayoutGroup Id="HeaderRelation1" Caption="Header Relation (Parents)" />
           </TabbedGroup>
         </LayoutGroup>
       </Layout>
@@ -12888,19 +11483,6 @@
       </Columns>
     </ListView>
     <ListView Id="Header_HeaderRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Header_HeaderRelation1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -13193,32 +11775,6 @@
       </Columns>
     </ListView>
     <ListView Id="Invoice_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Invoice_Supply_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Invoice_Supply1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -14219,19 +12775,6 @@
       </Columns>
     </ListView>
     <ListView Id="Parameter_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
-    <ListView Id="Parameter_ParameterDuplicate_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Parameter_ParameterDuplicate1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -14565,19 +13108,6 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="Project_Project1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Project_ProjectDeliverable_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -14643,85 +13173,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="Project_SecurityBlacklist_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Project_SecurityBlacklist1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Project_SecurityWhitelist_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Project_SecurityWhitelist1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Project_Supply_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="ProjectDeliverable_Contract_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="ProjectDeliverable_Contract1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -14762,32 +13214,6 @@
       </Columns>
     </ListView>
     <ListView Id="ProjectDeliverable_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
-    <ListView Id="ProjectDeliverable_Supply_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="ProjectDeliverable_Supply1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <DetailView Id="ProjectModelsAwaitingAuthorisationView_DetailView" FreezeLayout="False" />
     <ListView Id="ProjectModelsAwaitingAuthorisationView_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
@@ -14810,19 +13236,6 @@
       </Columns>
     </ListView>
     <ListView Id="ProjectPlan_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
-    <ListView Id="ProjectPlan_ProjectPlan1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="ProjectPlan_ProjectPlanTask_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -14878,19 +13291,6 @@
     </ListView>
     <ListView Id="ProjectPlanTask_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
     <ListView Id="ProjectPlanTask_ProjectDeliverable_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="ProjectPlanTask_ProjectPlanTask1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />
@@ -15564,32 +13964,6 @@
       </Columns>
     </ListView>
     <ListView Id="PurchaseOrder_LookupListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL" />
-    <ListView Id="PurchaseOrder_Supply_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="PurchaseOrder_Supply1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <DetailView Id="Recall_DetailView" FreezeLayout="False" />
     <ListView Id="Recall_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
@@ -16045,19 +14419,6 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="Supply_Supply1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <ListView Id="Supply_SupplyItem_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
@@ -16287,19 +14648,6 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="Task_TaskRelation1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
     <DetailView Id="TaskData_DetailView" FreezeLayout="False" />
     <ListView Id="TaskData_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
@@ -16448,19 +14796,6 @@
       </Columns>
     </ListView>
     <ListView Id="Tenement_TenementRelation_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
-      <Columns>
-        <ColumnInfo Id="Version" Index="-1" />
-        <ColumnInfo Id="VersionAntecedentID" Index="-1" />
-        <ColumnInfo Id="VersionCertainty" Index="-1" />
-        <ColumnInfo Id="VersionDeletedBy" Index="-1" />
-        <ColumnInfo Id="VersionOwnerCompanyID" Index="-1" />
-        <ColumnInfo Id="VersionOwnerContactID" Index="-1" />
-        <ColumnInfo Id="VersionUpdated" Index="-1" />
-        <ColumnInfo Id="VersionUpdatedBy" Index="-1" />
-        <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
-      </Columns>
-    </ListView>
-    <ListView Id="Tenement_TenementRelation1_ListView" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />

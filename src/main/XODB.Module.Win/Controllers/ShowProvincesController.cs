@@ -25,18 +25,18 @@ using DevExpress.ExpressApp.SystemModule;
 namespace XODB.Module.Win.Controllers
 {
 
-    public partial class ShowDocumentsController : ViewController {
+    public partial class ShowProvincesController : ViewController {
 
-        public ShowDocumentsController() {
-            PopupWindowShowAction showDocumentsAction = new PopupWindowShowAction(this, "Show Documents", "View");
-            showDocumentsAction.ImageName = "BO_Folder";
-            showDocumentsAction.CustomizePopupWindowParams += new CustomizePopupWindowParamsEventHandler(showDocumentsAction_CustomizePopupWindowParams);
+        public ShowProvincesController() {
+            PopupWindowShowAction showProvincesAction = new PopupWindowShowAction(this, "Show Provinces", "View");
+            showProvincesAction.ImageName = "Action_Debug_Breakpoint_Toggle";
+            showProvincesAction.CustomizePopupWindowParams += new CustomizePopupWindowParamsEventHandler(showProvincesAction_CustomizePopupWindowParams);
             TargetViewType = ViewType.ListView;
             TargetObjectType = typeof(object);
         }
 
 
-        void showDocumentsAction_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e) {
+        void showProvincesAction_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e) {
 
             try
             {
@@ -48,7 +48,7 @@ namespace XODB.Module.Win.Controllers
                 var value = (Guid)o.EntityKey.EntityKeyValues[0].Value;
 
                 
-                CollectionSource collectionSource = new CollectionSource(objectSpace, typeof(FileData));
+                CollectionSource collectionSource = new CollectionSource(objectSpace, typeof(ProvinceData));
                 CriteriaOperator c1 = new BinaryOperator(
                     new OperandProperty("TableType"), table,
                     BinaryOperatorType.Equal
@@ -64,7 +64,7 @@ namespace XODB.Module.Win.Controllers
                 //{
                 //    ((XPBaseCollection)collectionSource.Collection).LoadingEnabled = false;
                 //}
-                ListView view = Application.CreateListView(Application.GetListViewId(typeof(FileData)), collectionSource, false);
+                ListView view = Application.CreateListView(Application.GetListViewId(typeof(ProvinceData)), collectionSource, false);
                 view.Editor.AllowEdit = true;
                 foreach (var k in view.AllowNew.GetKeys())
                     view.AllowNew[k] = false;

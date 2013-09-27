@@ -16,7 +16,21 @@ using DevExpress.ExpressApp.Editors;
 namespace XODB.Module.BusinessObjects
 {
 
-    public partial class Location 
+    public class GeospatialValueConverter : ValueConverter
+    {
+
+        public override Type StorageType { get { return typeof(byte[]); } }
+        public override object ConvertToStorageType(object value)
+        {
+            throw new NotImplementedException();
+        }
+        public override object ConvertFromStorageType(object value)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public partial class Province 
     {        
         string _coordinates;
         [NotMapped]
@@ -26,8 +40,8 @@ namespace XODB.Module.BusinessObjects
         //[Appearance()]
         public string Coordinates
         {
-            get { return (_LocationGeography != null) ? _LocationGeography.AsText() : null; }
-            set { if (!string.IsNullOrWhiteSpace(value)) LocationGeography = DbGeography.FromText(value); else LocationGeography = null; }
+            get { return (_ProvinceGeography != null) ?  _ProvinceGeography.AsText() : null; }
+            set { if (!string.IsNullOrWhiteSpace(value)) ProvinceGeography = DbGeography.FromText(value); else ProvinceGeography = null; }
         }
          
     }
