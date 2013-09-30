@@ -90,6 +90,17 @@ namespace XODB.Module.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to USE [master]
+        ///RESTORE DATABASE [XODB] FROM  DISK = N&apos;{0}&apos; WITH  FILE = 1,  NOUNLOAD,  STATS = 5
+        ///GO.
+        /// </summary>
+        internal static string XODBRestore {
+            get {
+                return ResourceManager.GetString("XODBRestore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to --This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
         ///-- =============================================
         ///-- Author:		Andrew Grosser

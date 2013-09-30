@@ -147,7 +147,14 @@
       <DependentUpon>XODB.edmx</DependentUpon>
     </None>
     <None Include="DatabaseUpdate\ReadMe.txt" />
-    <Content Include="Resources\v4.sql.zip">
+    <Content Include="Resources\restore.sql" />
+    <Content Include="Resources\v4.bak.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\v4.data.sql.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\v4.schema.sql.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
