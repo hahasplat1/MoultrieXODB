@@ -9,6 +9,7 @@ using XODB.Module.BusinessObjects;
 using DevExpress.ExpressApp.EF;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Xpo;
+using System.Configuration;
 namespace XODB.Win
 {
     public partial class XODBWindowsFormsApplication : WinApplication
@@ -33,6 +34,10 @@ namespace XODB.Win
 #else
             if (true || System.Diagnostics.Debugger.IsAttached)
             {
+                var ud = ConfigurationManager.AppSettings.Get("XODBUpdateData");
+                bool bud;
+                if (bool.TryParse(ud, out bud))
+                    XODB.Module.DatabaseUpdate.Updater.UpdateData = bud;
                 var ex = e.Updater.CheckCompatibility();
                 if (ex is CompatibilityUnableToOpenDatabaseError && ex.Exception is SqlException)
                 {

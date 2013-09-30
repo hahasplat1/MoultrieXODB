@@ -116,6 +116,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\UpdateConnectionStringController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\UpdateConnectionString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\UpdateConnectionString.Designer.cs">
+      <DependentUpon>UpdateConnectionString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ShowProvincesController.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -182,6 +191,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controllers\UpdateConnectionString.resx">
+      <DependentUpon>UpdateConnectionString.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\SendConfig.resx">
       <DependentUpon>SendConfig.cs</DependentUpon>
     </EmbeddedResource>

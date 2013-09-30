@@ -13,7 +13,8 @@ namespace XODB.Module.DatabaseUpdate
 {
     public class Updater : ModuleUpdater
     {
-        public static int CurrentVersion { get { return 4; } }
+        public static int CurrentVersion { get { return 4; } }        
+        public static bool UpdateData { get; set; }
         public Updater(IObjectSpace objectSpace, Version currentDBVersion) : base(objectSpace, currentDBVersion) { }
         public override void UpdateDatabaseAfterUpdateSchema()
         {
@@ -53,7 +54,8 @@ namespace XODB.Module.DatabaseUpdate
             if (xodbSchemaVersion < 4)
             {
                 ExecuteSQLFromZip("v4.schema.sql.zip");
-                //ExecuteSQLFromZip("v4.data.sql.zip"); //Query too large to execute - users can do it themselves
+                if (UpdateData)
+                    ExecuteSQLFromZip("v4.data.sql.zip"); //Query too large to execute - users can do it themselves
             }
 
             if (xodbSchemaVersion != CurrentVersion)
@@ -137,6 +139,7 @@ namespace XODB.Module.DatabaseUpdate
                             using (Stream stream = entry.OpenReader())
                             using (StreamReader sr = new StreamReader(stream))
                             {
+                                int lines = 0;
                                 while (sr.Peek() >= 0)
                                 {
                                     var line = sr.ReadLine();
@@ -144,8 +147,19 @@ namespace XODB.Module.DatabaseUpdate
                                     {
                                         ExecuteNonQueryCommand(paragraph, true);
                                         paragraph = "";
+                                        lines = 0;
                                     }
-                                    paragraph += string.Format("{0}\r\n", line);
+                                    else if (lines > 1000 && line.ToLowerInvariant().IndexOf("insert") == 0)
+                                    {
+                                        ExecuteNonQueryCommand(paragraph, true);
+                                        paragraph = line;
+                                        lines = 0;
+                                    }
+                                    else
+                                    {
+                                        paragraph += string.Format("{0}\r\n", line);
+                                        lines++;
+                                    }
                                 }
                             }
                             if (paragraph.Length > 0)
