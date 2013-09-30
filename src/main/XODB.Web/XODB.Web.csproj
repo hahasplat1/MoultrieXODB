@@ -108,6 +108,7 @@
     <Reference Include="System.Data.DataSetExtensions">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing">
       <Private>False</Private>
     </Reference>

@@ -30,7 +30,7 @@
                                     <td class="Logo">
                                         <asp:HyperLink runat="server" NavigateUrl="http://xodb.xstractgroup.com" ID="LogoLink">
                                             <cc4:ThemedImageControl ID="TIC" DefaultThemeImageLocation="Images" ImageName="LogoCMYK.png" width="25px"
-                                                BorderWidth="0px" style="margin-bottom:-4px;" runat="server" /><h1 style="white-space:nowrap;display: inline-block;padding:5px;">XODB Server</h1>
+                                                BorderWidth="0px" style="margin-bottom:-4px;" runat="server" /><h1 style="white-space:nowrap;display: inline;padding:5px;">XODB Server</h1>
                                         </asp:HyperLink>
                                     </td>
                                     <td class="Security">
