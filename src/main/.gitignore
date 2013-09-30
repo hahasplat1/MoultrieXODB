@@ -4,4 +4,4 @@ bin/
 build/
 buildtasks/
 artifacts/
-eXpressAppFramework.*
+*eXpressAppFramework.*
