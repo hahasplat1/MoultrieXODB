@@ -28,13 +28,13 @@ namespace XODB.Import.DataModels
         public DbSet<X_DictionaryDataStatus> X_DictionaryDataStatus { get; set; }
         public DbSet<X_DictionaryHoleStatus> X_DictionaryHoleStatus { get; set; }
         public DbSet<X_DictionaryHoleType> X_DictionaryHoleType { get; set; }
-        public DbSet<X_Header> X_Header { get; set; }
         public DbSet<X_HeaderRelation> X_HeaderRelation { get; set; }
         public DbSet<X_Survey> X_Survey { get; set; }
-        public DbSet<X_Lithology> X_Lithology { get; set; }
         public DbSet<X_Geophysics> X_Geophysics { get; set; }
         public DbSet<X_GeophysicsData> X_GeophysicsData { get; set; }
         public DbSet<X_GeophysicsMetadata> X_GeophysicsMetadata { get; set; }
         public DbSet<X_Geophysics_Parameter> X_Geophysics_Parameter { get; set; }
+        public DbSet<X_Header> X_Header { get; set; }
+        public DbSet<X_Lithology> X_Lithology { get; set; }
     }
 }

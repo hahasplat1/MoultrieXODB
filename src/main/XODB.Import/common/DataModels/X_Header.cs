@@ -16,11 +16,11 @@ namespace XODB.Import.DataModels
     {
         public X_Header()
         {
+            this.X_Geophysics = new HashSet<X_Geophysics>();
             this.X_HeaderRelation = new HashSet<X_HeaderRelation>();
             this.X_HeaderRelation1 = new HashSet<X_HeaderRelation>();
             this.X_Survey = new HashSet<X_Survey>();
             this.X_Lithology = new HashSet<X_Lithology>();
-            this.X_Geophysics = new HashSet<X_Geophysics>();
         }
     
         public System.Guid HeaderID { get; set; }
@@ -30,17 +30,17 @@ namespace XODB.Import.DataModels
         public Nullable<System.Guid> HoleTypeID { get; set; }
         public Nullable<System.Guid> DataStatusID { get; set; }
         public Nullable<System.Guid> PrimaryHolePurposeID { get; set; }
-        public Nullable<System.Guid> SecondaryHolePurposeID { get; set; }
         public Nullable<System.Guid> SurveyAccuracyID { get; set; }
         public Nullable<System.Guid> GeodeticDatumID { get; set; }
         public Nullable<int> UtmZoneNumber { get; set; }
         public string UtmZoneHemisphere { get; set; }
         public Nullable<System.Guid> HeightDatumID { get; set; }
-        public Nullable<decimal> Easting { get; set; }
-        public Nullable<decimal> Northing { get; set; }
+        public Nullable<decimal> EastingUtm { get; set; }
+        public Nullable<decimal> NorthingUtm { get; set; }
         public Nullable<decimal> Elevation { get; set; }
         public Nullable<int> Inclination { get; set; }
         public Nullable<int> Azimuth { get; set; }
+        public Nullable<System.Guid> LocationID { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> CompleteDate { get; set; }
         public Nullable<decimal> TotalDepth { get; set; }
@@ -48,20 +48,8 @@ namespace XODB.Import.DataModels
         public Nullable<System.Guid> GeologyCompanyID { get; set; }
         public Nullable<bool> HasHadGeotechLogs { get; set; }
         public Nullable<bool> HasHadCorePhotos { get; set; }
-        public Nullable<System.Guid> GeophysicalLoggingCompanyID { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID1 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID2 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID3 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID4 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID5 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID6 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID7 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID8 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID9 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID10 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID11 { get; set; }
-        public Nullable<System.Guid> GeophysicalLogTypeID12 { get; set; }
-        public Nullable<System.Guid> GeophysicalLoggerID { get; set; }
+        public Nullable<System.Guid> DefaultGeophysicalLoggingCompanyID { get; set; }
+        public Nullable<System.Guid> DefaultGeophysicalLoggerID { get; set; }
         public Nullable<decimal> StandingWaterLevel { get; set; }
         public Nullable<System.DateTime> StandingWaterLevelDate { get; set; }
         public Nullable<System.DateTime> DateRehabilitated { get; set; }
@@ -76,15 +64,14 @@ namespace XODB.Import.DataModels
         public Nullable<System.Guid> VersionOwnerContactID { get; set; }
         public Nullable<System.Guid> VersionOwnerCompanyID { get; set; }
         public Nullable<System.DateTime> VersionUpdated { get; set; }
-        public Nullable<System.Guid> LocationID { get; set; }
     
         public virtual X_DictionaryDataStatus X_DictionaryDataStatus { get; set; }
         public virtual X_DictionaryHoleStatus X_DictionaryHoleStatus { get; set; }
         public virtual X_DictionaryHoleType X_DictionaryHoleType { get; set; }
+        public virtual ICollection<X_Geophysics> X_Geophysics { get; set; }
         public virtual ICollection<X_HeaderRelation> X_HeaderRelation { get; set; }
         public virtual ICollection<X_HeaderRelation> X_HeaderRelation1 { get; set; }
         public virtual ICollection<X_Survey> X_Survey { get; set; }
         public virtual ICollection<X_Lithology> X_Lithology { get; set; }
-        public virtual ICollection<X_Geophysics> X_Geophysics { get; set; }
     }
 }

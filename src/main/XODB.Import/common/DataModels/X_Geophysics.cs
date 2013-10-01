@@ -39,7 +39,7 @@ namespace XODB.Import.DataModels
         public Nullable<System.Guid> VersionOwnerCompanyID { get; set; }
         public Nullable<System.DateTime> VersionUpdated { get; set; }
     
-        public virtual X_Header X_Header { get; set; }
         public virtual ICollection<X_GeophysicsMetadata> X_GeophysicsMetadata { get; set; }
+        public virtual X_Header X_Header { get; set; }
     }
 }

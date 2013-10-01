@@ -34,10 +34,7 @@ namespace XODB.Import.DataModels
         public Nullable<System.Guid> ShadeID { get; set; }
         public Nullable<System.Guid> HueID { get; set; }
         public Nullable<System.Guid> ColourID { get; set; }
-        public Nullable<System.Guid> AdjectiveID1 { get; set; }
-        public Nullable<System.Guid> AdjectiveID2 { get; set; }
-        public Nullable<System.Guid> AdjectiveID3 { get; set; }
-        public Nullable<System.Guid> AdjectiveID4 { get; set; }
+        public Nullable<System.Guid> PrimaryAdjectiveID { get; set; }
         public Nullable<System.Guid> LithologyInterrelationID { get; set; }
         public Nullable<System.Guid> WeatheringID { get; set; }
         public Nullable<System.Guid> EstimatedStrengthID { get; set; }
@@ -50,13 +47,13 @@ namespace XODB.Import.DataModels
         public Nullable<System.Guid> MechanicalStateID { get; set; }
         public Nullable<System.Guid> TextureID { get; set; }
         public Nullable<System.Guid> BasalContactID { get; set; }
-        public Nullable<System.Guid> SedimentaryFeature1ID { get; set; }
-        public Nullable<System.Guid> SedimentaryFeature2ID { get; set; }
+        public Nullable<System.Guid> PrimarySedimentaryFeatureID { get; set; }
         public Nullable<int> BeddingDip { get; set; }
         public Nullable<System.Guid> MineralAndFossilAbundanceID { get; set; }
         public Nullable<System.Guid> MineralAndFossilTypeID { get; set; }
         public Nullable<System.Guid> MineralAndFossilAssociationID { get; set; }
         public Nullable<System.Guid> GasDetectedID { get; set; }
+        public string Description { get; set; }
         public int Version { get; set; }
         public Nullable<System.Guid> VersionAntecedentID { get; set; }
         public Nullable<int> VersionCertainty { get; set; }
@@ -66,7 +63,6 @@ namespace XODB.Import.DataModels
         public Nullable<System.Guid> VersionOwnerContactID { get; set; }
         public Nullable<System.Guid> VersionOwnerCompanyID { get; set; }
         public Nullable<System.DateTime> VersionUpdated { get; set; }
-        public string Description { get; set; }
     
         public virtual X_Header X_Header { get; set; }
     }
