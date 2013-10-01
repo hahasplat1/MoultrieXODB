@@ -22,7 +22,7 @@ namespace XODB.Win
 
         protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args)
         {
-            args.ObjectSpaceProviders.Add(new EFObjectSpaceProvider(typeof(XODBC), (TypesInfo)TypesInfo, null, args.ConnectionString, "res://*/BusinessObjects.XODB.csdl|res://*/BusinessObjects.XODB.ssdl|res://*/BusinessObjects.XODB.msl", "System.Data.SqlClient"));
+            args.ObjectSpaceProviders.Add(new EFObjectSpaceProvider(typeof(XODBC), (TypesInfo)TypesInfo, null, args.ConnectionString, "res://XODB.Module.BusinessObjects/XODB.csdl|res://XODB.Module.BusinessObjects/XODB.ssdl|res://XODB.Module.BusinessObjects/XODB.msl", "System.Data.SqlClient"));
             //args.ObjectSpaceProviders.Add(new EFObjectSpaceProviderCF(typeof(XODBC), (TypesInfo)TypesInfo, null, args.ConnectionString));
             args.ObjectSpaceProviders.Add(new XPObjectSpaceProvider(args.ConnectionString, null));            
         }

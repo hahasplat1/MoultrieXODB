@@ -7,11 +7,8 @@ using DevExpress.Persistent.Base;
 using System.IO;
 using DevExpress.Xpo;
 using DevExpress.Xpo.Metadata;
-using Microsoft.SqlServer.Types;
 using System.Data.Spatial;
 using System.ComponentModel.DataAnnotations.Schema;
-using DevExpress.ExpressApp.ConditionalAppearance;
-using DevExpress.ExpressApp.Editors;
 
 namespace XODB.Module.BusinessObjects
 {

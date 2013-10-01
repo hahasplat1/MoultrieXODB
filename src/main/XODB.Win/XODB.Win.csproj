@@ -310,6 +310,10 @@
     <None Include="Notes.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XODB.Module.BusinessObjects\XODB.Module.BusinessObjects.csproj">
+      <Project>{380151d5-c92f-404a-8b89-b788f574d228}</Project>
+      <Name>XODB.Module.BusinessObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XODB.Module.Win\XODB.Module.Win.csproj">
       <Project>{7964f87d-bc5d-4c4e-8b2f-71e89739aa97}</Project>
       <Name>XODB.Module.Win</Name>

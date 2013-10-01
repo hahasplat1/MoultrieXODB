@@ -43,7 +43,7 @@ namespace XODB.Web
 
             args.ObjectSpaceProviders.Add(new EFObjectSpaceProvider(
             typeof(XODBC), (TypesInfo)TypesInfo, null, args.ConnectionString,
-            "res://*/BusinessObjects.XODB.csdl|res://*/BusinessObjects.XODB.ssdl|res://*/BusinessObjects.XODB.msl",
+            "res://XODB.Module.BusinessObjects/XODB.csdl|res://XODB.Module.BusinessObjects/XODB.ssdl|res://XODB.Module.BusinessObjects/XODB.msl",
             "System.Data.SqlClient"));
             //args.ObjectSpaceProviders.Add(new XPObjectSpaceProvider(args.ConnectionString, null));            
         }

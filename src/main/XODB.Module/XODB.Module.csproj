@@ -88,22 +88,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObjects\BusinessObjectHelper.cs" />
-    <Compile Include="BusinessObjects\Province.cs" />
-    <Compile Include="BusinessObjects\Location.cs" />
-    <Compile Include="BusinessObjects\FileData.cs" />
-    <Compile Include="BusinessObjects\XODB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>XODB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BusinessObjects\XODB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>XODB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="BusinessObjects\XODB.Views.cs" />
-    <Compile Include="BusinessObjects\XODBC.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
@@ -134,18 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="BusinessObjects\XODB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>XODB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="BusinessObjects\XODB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>XODB.Context.cs</LastGenOutput>
-      <DependentUpon>XODB.edmx</DependentUpon>
-    </None>
-    <None Include="BusinessObjects\XODB.edmx.diagram">
-      <DependentUpon>XODB.edmx</DependentUpon>
-    </None>
     <None Include="DatabaseUpdate\ReadMe.txt" />
     <Content Include="Resources\restore.sql" />
     <Content Include="Resources\v4.bak.zip">
@@ -157,9 +129,6 @@
     <Content Include="Resources\v4.schema.sql.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="BusinessObjects\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Controllers\ReadMe.txt" />
@@ -189,6 +158,15 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XODB.Module.BusinessObjects\XODB.Module.BusinessObjects.csproj">
+      <Project>{380151d5-c92f-404a-8b89-b788f574d228}</Project>
+      <Name>XODB.Module.BusinessObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessObjects\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

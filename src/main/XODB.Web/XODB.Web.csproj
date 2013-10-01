@@ -241,6 +241,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XODB.Module.BusinessObjects\XODB.Module.BusinessObjects.csproj">
+      <Project>{380151d5-c92f-404a-8b89-b788f574d228}</Project>
+      <Name>XODB.Module.BusinessObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XODB.Module.Web\XODB.Module.Web.csproj">
       <Project>{0c729aad-7626-4668-a7f1-35f7d240489d}</Project>
       <Name>XODB.Module.Web</Name>
