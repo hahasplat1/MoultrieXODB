@@ -62,11 +62,11 @@ namespace XODB.Helpers
             }
         }
 
-        public static string GetEnityConnectionString(string providerConnectionString, string entityType)
+        public static string GetEnityConnectionString(string providerConnectionString, string entityType, string assembly = "*", string nameSpace = "Models")
         {
             System.Data.SqlClient.SqlConnectionStringBuilder scsb = new System.Data.SqlClient.SqlConnectionStringBuilder(providerConnectionString);
             EntityConnectionStringBuilder ecb = new EntityConnectionStringBuilder();
-            ecb.Metadata = string.Format(@"res://*/Models.{0}.csdl|res://*/Models.{0}.ssdl|res://*/Models.{0}.msl", entityType);
+            ecb.Metadata = string.Format(@"res://{0}/{1}.{2}.csdl|res://{0}/{1}.{2}.ssdl|res://{0}/{1}.{2}.msl", assembly, nameSpace, entityType);
             ecb.Provider = "System.Data.SqlClient";
             ecb.ProviderConnectionString = scsb.ConnectionString;
             return ecb.ConnectionString;
