@@ -72,6 +72,17 @@ namespace XODB.Helpers
             return ecb.ConnectionString;
         }
 
+        public static string GetEnityConnectionStringFromFile(string providerConnectionString, string entityType, string directory)
+        {
+            System.Data.SqlClient.SqlConnectionStringBuilder scsb = new System.Data.SqlClient.SqlConnectionStringBuilder(providerConnectionString);
+            EntityConnectionStringBuilder ecb = new EntityConnectionStringBuilder();
+            ecb.Metadata = string.Format(@"metadata={0}\{1}.csdl|{0}\{1}.ssdl|{0}\{1}.msl", directory, entityType);
+            ecb.Provider = "System.Data.SqlClient";
+            ecb.ProviderConnectionString = scsb.ConnectionString;
+            return ecb.ConnectionString;
+        }
+
+
         //TODO: Fix hack
         //http://stackoverflow.com/questions/995478/sql-server-full-text-search-escape-characters
         public static string FixSearchTerm(this string term)
