@@ -12,6 +12,48 @@ namespace XODB.Module.BusinessObjects
 {
     public partial class XODBC : ObjectContext
     {
+        public const string EF_METADATA = "res://XODB.Module.BusinessObjects/XODB.csdl|res://XODB.Module.BusinessObjects/XODB.ssdl|res://XODB.Module.BusinessObjects/XODB.msl";
+        
+        public XODBC(string providerConnectionString, string metadata) 
+            : base((string.IsNullOrWhiteSpace(metadata)) ? GetEnityConnectionString(providerConnectionString, EF_METADATA) : GetEnityConnectionString(providerConnectionString, metadata), "XODBC" ) 
+        {
+            this.ContextOptions.LazyLoadingEnabled = true;
+            OnContextCreated();
+        }
+
+        public static string GetEnityConnectionString(string providerConnectionString, string entityType, string assembly, string nameSpace)
+        {
+            if (string.IsNullOrWhiteSpace(assembly))
+                assembly = "*";
+            if (string.IsNullOrWhiteSpace(nameSpace))
+                nameSpace = "Models";
+            System.Data.SqlClient.SqlConnectionStringBuilder scsb = new System.Data.SqlClient.SqlConnectionStringBuilder(providerConnectionString);
+            EntityConnectionStringBuilder ecb = new EntityConnectionStringBuilder();
+            ecb.Metadata = string.Format(@"res://{0}/{1}.{2}.csdl|res://{0}/{1}.{2}.ssdl|res://{0}/{1}.{2}.msl", assembly, nameSpace, entityType);
+            ecb.Provider = "System.Data.SqlClient";
+            ecb.ProviderConnectionString = scsb.ConnectionString;
+            return ecb.ConnectionString;
+        }
+
+        public static string GetEnityConnectionString(string providerConnectionString, string entityType, string directory)
+        {
+            System.Data.SqlClient.SqlConnectionStringBuilder scsb = new System.Data.SqlClient.SqlConnectionStringBuilder(providerConnectionString);
+            EntityConnectionStringBuilder ecb = new EntityConnectionStringBuilder();
+            ecb.Metadata = string.Format(@"metadata={0}\{1}.csdl|{0}\{1}.ssdl|{0}\{1}.msl", directory, entityType);
+            ecb.Provider = "System.Data.SqlClient";
+            ecb.ProviderConnectionString = scsb.ConnectionString;
+            return ecb.ConnectionString;
+        }
+
+        public static string GetEnityConnectionString(string providerConnectionString, string metadata)
+        {
+            System.Data.SqlClient.SqlConnectionStringBuilder scsb = new System.Data.SqlClient.SqlConnectionStringBuilder(providerConnectionString);
+            EntityConnectionStringBuilder ecb = new EntityConnectionStringBuilder();
+            ecb.Metadata = metadata;
+            ecb.Provider = "System.Data.SqlClient";
+            ecb.ProviderConnectionString = scsb.ConnectionString;
+            return ecb.ConnectionString;
+        }
         partial void OnContextCreated()
         {
             this.SavingChanges += XODBC_SavingChanges;
