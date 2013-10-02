@@ -73,7 +73,7 @@ namespace XODB.Module.BusinessObjects
                 if (((System.Data.Metadata.Edm.PrimitiveType)key.TypeUsage.EdmType).ClrEquivalentType == typeof(Guid))
                 {
                     PropertyInfo prop = o.GetType().GetProperty(key.Name, BindingFlags.Public | BindingFlags.Instance);
-                    if (null != prop && prop.CanWrite)
+                    if (null != prop && prop.CanWrite && (Guid)prop.GetValue(o) == Guid.Empty)
                     {
                         prop.SetValue(o, Guid.NewGuid(), null);
                     }
