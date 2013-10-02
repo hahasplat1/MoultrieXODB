@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-using XODB.Import.DataModels;
+using XODB.Module.BusinessObjects;
 using XODB.Import.FormatSpecification;
 using XODB.Import.ColumnSpecs;
 using XODB.Import.ImportUtils;
@@ -369,47 +369,47 @@ namespace XODB.Import.ImportUtils
 
         }
 
-        internal List<X_BlockModelMetadata> SetBlockModelMetaData(Guid blockModelGUID, ImportDataMap testMap, string connString)
+        internal List<BlockModelMetadata> SetBlockModelMetaData(Guid blockModelGUID, ImportDataMap testMap, string connString)
         {
-            XODBImportEntities resourceModels = new XODBImportEntities();
-            resourceModels.Database.Connection.ConnectionString = connString;
-            List<X_BlockModelMetadata> metaDataItems = new List<X_BlockModelMetadata>();
-
-            foreach (ColumnMap cmap in testMap.columnMap)
+            using (var entityObj = new XODBC(connString, null))
             {
-                X_BlockModelMetadata metaData = new X_BlockModelMetadata();
-                metaData.BlockModelID = blockModelGUID;
-                metaData.BlockModelMetadataID = Guid.NewGuid();
-                metaData.IsColumnData = true;
-                string colName = cmap.sourceColumnName;
-                string columnValue = cmap.defaultValue;
-                X_Parameter param1 = new X_Parameter();
-                param1.ParameterName = cmap.targetColumnName;                   // source column
-                param1.ParameterType = "FieldName";
-                if (resourceModels.X_BlockModelMetadata.Where(f => f.BlockModelID == blockModelGUID && f.X_Parameter.Description == cmap.sourceColumnName).Any())
-                    param1.Description = cmap.sourceColumnName = string.Format("{0}_{1}", cmap.sourceColumnName, Guid.NewGuid());
-                else
-                    param1.Description = cmap.sourceColumnName;                                   // target column
-                param1.ParameterID = Guid.NewGuid();
-              
-                if (cmap.sourceColumnName != null && cmap.sourceColumnName.ToLower().Contains("ppm"))
-                {
-                    param1.UnitID = new Guid("E91773A4-2762-4EDE-8510-38F78FAF981D");// TODO: HACK - get the proper guid for the current unit type by querying database
-                }
-                else if (cmap.sourceColumnName != null && cmap.sourceColumnName.ToLower().Contains("pct"))
-                {
-                    param1.UnitID = new Guid("AEDBBE0A-6A94-419F-8B43-A98CE942669A");// TODO: HACK - get the proper guid for the current unit type by querying database
-                }
+                List<BlockModelMetadata> metaDataItems = new List<BlockModelMetadata>();
 
-                metaData.BlockModelMetadataText = cmap.targetColumnName;
-                metaData.ParameterID = param1.ParameterID;
-                resourceModels.X_Parameter.Add(param1);
-                resourceModels.X_BlockModelMetadata.Add(metaData);
-                metaDataItems.Add(metaData);
-                resourceModels.SaveChanges();
+                foreach (ColumnMap cmap in testMap.columnMap)
+                {
+                    BlockModelMetadata metaData = new BlockModelMetadata();
+                    metaData.BlockModelID = blockModelGUID;
+                    metaData.BlockModelMetadataID = Guid.NewGuid();
+                    metaData.IsColumnData = true;
+                    string colName = cmap.sourceColumnName;
+                    string columnValue = cmap.defaultValue;
+                    Parameter param1 = new Parameter();
+                    param1.ParameterName = cmap.targetColumnName;                   // source column
+                    param1.ParameterType = "FieldName";
+                    if (entityObj.BlockModelMetadatas.Where(f => f.BlockModelID == blockModelGUID && f.Parameter.Description == cmap.sourceColumnName).Any())
+                        param1.Description = cmap.sourceColumnName = string.Format("{0}_{1}", cmap.sourceColumnName, Guid.NewGuid());
+                    else
+                        param1.Description = cmap.sourceColumnName;                                   // target column
+                    param1.ParameterID = Guid.NewGuid();
+
+                    if (cmap.sourceColumnName != null && cmap.sourceColumnName.ToLower().Contains("ppm"))
+                    {
+                        param1.UnitID = new Guid("E91773A4-2762-4EDE-8510-38F78FAF981D");// TODO: HACK - get the proper guid for the current unit type by querying database
+                    }
+                    else if (cmap.sourceColumnName != null && cmap.sourceColumnName.ToLower().Contains("pct"))
+                    {
+                        param1.UnitID = new Guid("AEDBBE0A-6A94-419F-8B43-A98CE942669A");// TODO: HACK - get the proper guid for the current unit type by querying database
+                    }
+
+                    metaData.BlockModelMetadataText = cmap.targetColumnName;
+                    metaData.ParameterID = param1.ParameterID;
+                    entityObj.Parameters.AddObject(param1);
+                    entityObj.BlockModelMetadatas.AddObject(metaData);
+                    metaDataItems.Add(metaData);
+                    entityObj.SaveChanges();
+                }
+                return metaDataItems;
             }
-            return metaDataItems;
-
         }
 
 
@@ -531,7 +531,7 @@ namespace XODB.Import.ImportUtils
             if (domains != null)
             {
                 string metaDataType = "Domains";
-                string tableType = "X_BlockModel";
+                string tableType = "BlockModel";
                 string cont = GenUtils.ToJson(domains);
                 SetMetaDataItem(blockModelID, metaDataType, tableType, cont);
             }
@@ -548,22 +548,24 @@ namespace XODB.Import.ImportUtils
         {
             try
             {
-                XODBImportEntities e = new XODBImportEntities();
-                X_MetaData dt = new X_MetaData();
-                dt.MetaDataID = Guid.NewGuid();
-                dt.MetaDataType = metaDataType;
-                dt.ContentToIndex = cont;
+                using (var entityObj = new XODBC(BaseImportTools.XSTRING, null))
+                {
+                    MetaData dt = new MetaData();
+                    dt.MetaDataID = Guid.NewGuid();
+                    dt.MetaDataType = metaDataType;
+                    dt.ContentToIndex = cont;
 
-                X_MetaDataRelation rel = new X_MetaDataRelation();
-                rel.MetaDataRelationID = Guid.NewGuid();
-                rel.MetaDataID = dt.MetaDataID;
-                rel.TableType = tableType;
-                rel.ReferenceID = blockModelID;
+                    MetaDataRelation rel = new MetaDataRelation();
+                    rel.MetaDataRelationID = Guid.NewGuid();
+                    rel.MetaDataID = dt.MetaDataID;
+                    rel.TableType = tableType;
+                    rel.ReferenceID = blockModelID;
 
-                e.X_MetaData.Add(dt);
-                e.SaveChanges();
-                e.X_MetaDataRelation.Add(rel);
-                e.SaveChanges();
+                    entityObj.MetaDatas.AddObject(dt);
+                    entityObj.SaveChanges();
+                    entityObj.MetaDataRelations.AddObject(rel);
+                    entityObj.SaveChanges();
+                }
 
             }
             catch (Exception ex) { 

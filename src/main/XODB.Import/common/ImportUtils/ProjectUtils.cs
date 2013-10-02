@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using XODB.Import.DataModels;
+using XODB.Module.BusinessObjects;
 
 namespace XODB.Import.ImportUtils
 {
@@ -15,8 +15,7 @@ namespace XODB.Import.ImportUtils
         internal static Dictionary<Guid, string> GetProjectList()
         {
             Dictionary<Guid, string> projectList = new Dictionary<Guid,string>();
-            XODBImportEntities resourceModels = new XODBImportEntities();
-            var result = from p in resourceModels.X_Project select new { p.ProjectName, p.ProjectID };
+            var result = from p in new XODBC(BaseImportTools.XSTRING, null).Projects select new { p.ProjectName, p.ProjectID };
             foreach (var res in result) { 
                 projectList.Add(res.ProjectID, res.ProjectName);                
                 

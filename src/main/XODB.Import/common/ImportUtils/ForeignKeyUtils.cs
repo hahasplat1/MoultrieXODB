@@ -28,9 +28,9 @@ namespace XODB.Import.ImportUtils
             List<string> results = new List<string>();
             // if the FK table is not a standard dictionary, have a go at finding enties in the FK table
             // using typical predicatable naming
-            if (fkTable == null || !fkTable.StartsWith("X_Dictionary"))
+            if (fkTable == null || !fkTable.StartsWith("Dictionary"))
             {
-                string lookupColName = fkTable.Substring("X_".Length) + "Name";
+                string lookupColName = fkTable.Substring("".Length) + "Name";
                 string guid = FindFKValueInOther(columnValue, cmap, connection, genNewFK, lookupColName);
                 results.Add(guid);
 
@@ -38,7 +38,7 @@ namespace XODB.Import.ImportUtils
             else
             {
 
-                string partA = fkTable.Substring("X_Dictionary".Length);
+                string partA = fkTable.Substring("Dictionary".Length);
                 nameLookupColumnPrediction = "Custom" + partA + "Name";
                 stdLookupColumnPrediction = "Standard" + partA + "Name";
 

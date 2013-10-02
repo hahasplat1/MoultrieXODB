@@ -16,15 +16,15 @@ namespace Xstract.Import.LAS
         public static int ERROR_PARSING_LAS_HEADERS         = -2;
         public static int NO_DATA_ROWS_LOADED               = -3;
         public static int ERROR_READING_LAS_DATA_SECTION    = -4;
-        public static int PARSE_INDEX_ERROR                 = -5;
-        public static int CSV_PARSE_INDEX_ERROR             = -6;
+        public static int PARSE_INDEERROR                 = -5;
+        public static int CSV_PARSE_INDEERROR             = -6;
         public static int CSV_PARSE_ERROR                   = -7;
         public static int CSV_DEPTH_FIELD_PARSE_ERROR       = -8;
         public static int CSV_STREAM_ERROR                  = -9;
         public static int CSV_FILE_NOT_FOUND                = -10;
         public static int CSV_HEADER_PARSE_FAILED           = -11;
         public static int INSUFFICIENT_DATA_COLUMNS         = -12;
-        public static int MAX_ERRORS_ENCOUNTERED            = -13;
+        public static int MAERRORS_ENCOUNTERED            = -13;
 
         public static Dictionary<int, string> descriptions = new Dictionary<int, string>();
 
@@ -34,8 +34,8 @@ namespace Xstract.Import.LAS
             descriptions.Add(ERROR_PARSING_LAS_HEADERS, "Error parsing headers");
             descriptions.Add(NO_DATA_ROWS_LOADED, "No data lines were loaded");
             descriptions.Add(ERROR_READING_LAS_DATA_SECTION, "Error reading the ASCII data section of the LAS file");
-            descriptions.Add(PARSE_INDEX_ERROR, "Error decoding data line");
-            descriptions.Add(CSV_PARSE_INDEX_ERROR, "Error decoding data line - not enough data items");
+            descriptions.Add(PARSE_INDEERROR, "Error decoding data line");
+            descriptions.Add(CSV_PARSE_INDEERROR, "Error decoding data line - not enough data items");
 
             descriptions.Add(CSV_PARSE_ERROR, "Error decoding data line");
             descriptions.Add(CSV_DEPTH_FIELD_PARSE_ERROR, "Unable to find depth field");
@@ -44,7 +44,7 @@ namespace Xstract.Import.LAS
             descriptions.Add(CSV_HEADER_PARSE_FAILED, "Failed to decode CSV header line");
             descriptions.Add(INSUFFICIENT_DATA_COLUMNS, "Not enough data columns");
 
-            descriptions.Add(MAX_ERRORS_ENCOUNTERED, "Maximum number of errors encountered.\nThe file you are loading has many errors.\nPlease check the file and try again.\n\nFor help and guidance on acceptable file types, pease click the '?' button above"); 
+            descriptions.Add(MAERRORS_ENCOUNTERED, "Maximum number of errors encountered.\nThe file you are loading has many errors.\nPlease check the file and try again.\n\nFor help and guidance on acceptable file types, pease click the '?' button above"); 
 
             
         }

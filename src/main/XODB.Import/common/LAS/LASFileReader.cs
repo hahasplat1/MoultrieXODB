@@ -346,7 +346,7 @@ namespace Xstract.Import.LAS
                             
                             errorInfo.Add("Line: " + lineNumber + " : " + LASErrorCodes.LookupCode(lineErr));
                             if (errorInfo.Count == maxErrors) {
-                                errCode = LASErrorCodes.MAX_ERRORS_ENCOUNTERED;
+                                errCode = LASErrorCodes.MAERRORS_ENCOUNTERED;
                                 errorInfo.Add(LASErrorCodes.LookupCode(errCode));
                                 break;
                             }
@@ -450,7 +450,7 @@ namespace Xstract.Import.LAS
                 }
             }
             catch (IndexOutOfRangeException) {
-                errorCode = LASErrorCodes.CSV_PARSE_INDEX_ERROR;
+                errorCode = LASErrorCodes.CSV_PARSE_INDEERROR;
             }
             catch (Exception ex)
             {
