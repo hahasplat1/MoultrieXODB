@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using XODB.Models;
+using XODB.Module.BusinessObjects;
 
 namespace XODB.Services
 {

@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace XODB
 {
-    public class XODBModule : Module
+    public class XODBModule : Autofac.Module
     {
         protected override void Load(ContainerBuilder builder)
         {

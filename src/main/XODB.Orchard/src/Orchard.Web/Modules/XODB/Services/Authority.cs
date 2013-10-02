@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using XODB.Models;
+using XODB.Module.BusinessObjects;
 
 namespace XODB.Services
 {

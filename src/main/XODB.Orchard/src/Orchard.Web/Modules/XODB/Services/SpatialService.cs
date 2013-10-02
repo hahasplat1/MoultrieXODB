@@ -21,6 +21,7 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using XODB.Models;
+using XODB.Module.BusinessObjects;
 
 namespace XODB.Services {
     
@@ -66,7 +67,7 @@ namespace XODB.Services {
            
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                using (var context = new SpatialContainer(_users.ApplicationConnectionString))
+                using (var context = new XODBC(_users.ApplicationConnectionString,null))
                 {
                     var s = (from o in context.Locations select o).FirstOrDefault();
                     

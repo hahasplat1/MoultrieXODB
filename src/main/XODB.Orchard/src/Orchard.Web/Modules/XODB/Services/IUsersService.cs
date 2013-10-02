@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using Orchard;
+using XODB.Module.BusinessObjects;
 using XODB.Models;
 using System.ServiceModel;
 
