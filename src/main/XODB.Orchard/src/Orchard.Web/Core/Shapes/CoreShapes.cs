@@ -100,7 +100,7 @@ namespace Orchard.Core.Shapes {
                     var menu = menuItem.Menu;
                     menuItem.Metadata.Alternates.Add("MenuItemLink__" + EncodeAlternateElement(menu.MenuName));
 
-                    string contentType = menuItem.Content.ContentItem.ContentType;
+                    var contentType = ((Orchard.ContentManagement.IContent)menuItem.Content).ContentItem.ContentType;
                     if(contentType != null) {
                         menuItem.Metadata.Alternates.Add("MenuItemLink__" + contentType);
                     }
