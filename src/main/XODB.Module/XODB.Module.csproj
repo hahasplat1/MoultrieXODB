@@ -72,6 +72,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
       <Private>False</Private>
@@ -88,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extenders\ModelExtenders.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
@@ -160,13 +162,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BusinessObjects\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\XODB.Module.BusinessObjects\XODB.Module.BusinessObjects.csproj">
       <Project>{380151d5-c92f-404a-8b89-b788f574d228}</Project>
       <Name>XODB.Module.BusinessObjects</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BusinessObjects\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

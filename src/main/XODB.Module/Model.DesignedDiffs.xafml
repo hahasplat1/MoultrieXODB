@@ -12021,7 +12021,7 @@
         <ColumnInfo Id="VersionWorkflowInstanceID" Index="-1" />
       </Columns>
     </ListView>
-    <ListView Id="Lithology_ListView" AllowEdit="True" NewItemRowPosition="Top" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
+    <ListView Id="Lithology_ListView" AllowEdit="False" NewItemRowPosition="None" Criteria="[Version]=0 AND  [VersionDeletedBy] IS NULL">
       <Columns>
         <ColumnInfo Id="Version" Index="-1" />
         <ColumnInfo Id="VersionAntecedentID" Index="-1" />

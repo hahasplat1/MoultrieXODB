@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets67D7718FE732DCAB3E0F1B3D029BD2263626A55C4131831DD873125991DF0BA7))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets63CC16CBBDA9A255D6CCE528D96E086A03E994FCD951D6314F774819A470C90F))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,19 +17,19 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets67D7718FE732DCAB3E0F1B3D029BD2263626A55C4131831DD873125991DF0BA7 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets63CC16CBBDA9A255D6CCE528D96E086A03E994FCD951D6314F774819A470C90F : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets67D7718FE732DCAB3E0F1B3D029BD2263626A55C4131831DD873125991DF0BA7()
+        public ViewsForBaseEntitySets63CC16CBBDA9A255D6CCE528D96E086A03E994FCD951D6314F774819A470C90F()
         {
             this.EdmEntityContainerName = "XODBC";
             this.StoreEntityContainerName = "XODBModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "9ec65825ca810cf0fc56ab5c5e9978d90050b167f650146d120fea0fd1fe9800";
-            this.HashOverAllExtentViews = "e94065544537d808013b52400b1000404568d01bd55ffad1ef6be905696d418c";
-            this.ViewCount = 590;
+            this.HashOverMappingClosure = "a696b6aa601d2876ed93fa6cc1a317ecf0006730002d740cd00973e13d119e1a";
+            this.HashOverAllExtentViews = "dddbf012b5c01d97061b24b77866592b03ec8bdaeacb5986c409b745e04f7c78";
+            this.ViewCount = 594;
         }
         
         /// <Summary>
@@ -2396,6 +2396,22 @@ namespace Edm_EntityMappingGeneratedViews
             if ((index == 589))
             {
                 return GetView589();
+            }
+            if ((index == 590))
+            {
+                return GetView590();
+            }
+            if ((index == 591))
+            {
+                return GetView591();
+            }
+            if ((index == 592))
+            {
+                return GetView592();
+            }
+            if ((index == 593))
+            {
+                return GetView593();
             }
             throw new System.IndexOutOfRangeException();
         }
@@ -6501,40 +6517,41 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView117()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2581);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2685);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_DictionaryCountry\r\n        [XODB.Module.Bus");
             viewString.Append("inessObjects.Store.X_DictionaryCountry](T1.[X_DictionaryCountry.CountryID], T1.[");
-            viewString.Append("X_DictionaryCountry.StandardCountryName], T1.[X_DictionaryCountry.CoalCountryNam");
-            viewString.Append("e], T1.[X_DictionaryCountry.GoldCountryName], T1.[X_DictionaryCountry.CustomCoun");
-            viewString.Append("tryName], T1.[X_DictionaryCountry.CurrencyCode], T1.[X_DictionaryCountry.Currenc");
-            viewString.Append("yFormat], T1.[X_DictionaryCountry.Description], T1.[X_DictionaryCountry.FullDesc");
-            viewString.Append("ription], T1.[X_DictionaryCountry.Thumbnail], T1.[X_DictionaryCountry.OriginalFi");
-            viewString.Append("leDataID], T1.[X_DictionaryCountry.Version], T1.[X_DictionaryCountry.VersionAnte");
-            viewString.Append("cedentID], T1.[X_DictionaryCountry.VersionCertainty], T1.[X_DictionaryCountry.Ve");
-            viewString.Append("rsionWorkflowInstanceID], T1.[X_DictionaryCountry.VersionUpdatedBy], T1.[X_Dicti");
-            viewString.Append("onaryCountry.VersionDeletedBy], T1.[X_DictionaryCountry.VersionOwnerContactID], ");
-            viewString.Append("T1.[X_DictionaryCountry.VersionOwnerCompanyID], T1.[X_DictionaryCountry.VersionU");
-            viewString.Append("pdated])\r\n    FROM (\r\n        SELECT \r\n            T.CountryID AS [X_DictionaryC");
-            viewString.Append("ountry.CountryID], \r\n            T.StandardCountryName AS [X_DictionaryCountry.S");
-            viewString.Append("tandardCountryName], \r\n            T.CoalCountryName AS [X_DictionaryCountry.Coa");
-            viewString.Append("lCountryName], \r\n            T.GoldCountryName AS [X_DictionaryCountry.GoldCount");
-            viewString.Append("ryName], \r\n            T.CustomCountryName AS [X_DictionaryCountry.CustomCountry");
-            viewString.Append("Name], \r\n            T.CurrencyCode AS [X_DictionaryCountry.CurrencyCode], \r\n   ");
-            viewString.Append("         T.CurrencyFormat AS [X_DictionaryCountry.CurrencyFormat], \r\n           ");
-            viewString.Append(" T.Description AS [X_DictionaryCountry.Description], \r\n            T.FullDescrip");
-            viewString.Append("tion AS [X_DictionaryCountry.FullDescription], \r\n            T.Thumbnail AS [X_D");
-            viewString.Append("ictionaryCountry.Thumbnail], \r\n            T.OriginalFileDataID AS [X_Dictionary");
-            viewString.Append("Country.OriginalFileDataID], \r\n            T.Version AS [X_DictionaryCountry.Ver");
-            viewString.Append("sion], \r\n            T.VersionAntecedentID AS [X_DictionaryCountry.VersionAntece");
-            viewString.Append("dentID], \r\n            T.VersionCertainty AS [X_DictionaryCountry.VersionCertain");
-            viewString.Append("ty], \r\n            T.VersionWorkflowInstanceID AS [X_DictionaryCountry.VersionWo");
-            viewString.Append("rkflowInstanceID], \r\n            T.VersionUpdatedBy AS [X_DictionaryCountry.Vers");
-            viewString.Append("ionUpdatedBy], \r\n            T.VersionDeletedBy AS [X_DictionaryCountry.VersionD");
-            viewString.Append("eletedBy], \r\n            T.VersionOwnerContactID AS [X_DictionaryCountry.Version");
-            viewString.Append("OwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_DictionaryCountry.V");
-            viewString.Append("ersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_DictionaryCountry.Ve");
-            viewString.Append("rsionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.DictionaryCountr");
-            viewString.Append("ies AS T\r\n    ) AS T1");
+            viewString.Append("X_DictionaryCountry.CountryGUID], T1.[X_DictionaryCountry.StandardCountryName], ");
+            viewString.Append("T1.[X_DictionaryCountry.CoalCountryName], T1.[X_DictionaryCountry.GoldCountryNam");
+            viewString.Append("e], T1.[X_DictionaryCountry.CustomCountryName], T1.[X_DictionaryCountry.Currency");
+            viewString.Append("Code], T1.[X_DictionaryCountry.CurrencyFormat], T1.[X_DictionaryCountry.Descript");
+            viewString.Append("ion], T1.[X_DictionaryCountry.FullDescription], T1.[X_DictionaryCountry.Thumbnai");
+            viewString.Append("l], T1.[X_DictionaryCountry.OriginalFileDataID], T1.[X_DictionaryCountry.Version");
+            viewString.Append("], T1.[X_DictionaryCountry.VersionAntecedentID], T1.[X_DictionaryCountry.Version");
+            viewString.Append("Certainty], T1.[X_DictionaryCountry.VersionWorkflowInstanceID], T1.[X_Dictionary");
+            viewString.Append("Country.VersionUpdatedBy], T1.[X_DictionaryCountry.VersionDeletedBy], T1.[X_Dict");
+            viewString.Append("ionaryCountry.VersionOwnerContactID], T1.[X_DictionaryCountry.VersionOwnerCompan");
+            viewString.Append("yID], T1.[X_DictionaryCountry.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n   ");
+            viewString.Append("         T.CountryID AS [X_DictionaryCountry.CountryID], \r\n            T.Country");
+            viewString.Append("GUID AS [X_DictionaryCountry.CountryGUID], \r\n            T.StandardCountryName A");
+            viewString.Append("S [X_DictionaryCountry.StandardCountryName], \r\n            T.CoalCountryName AS ");
+            viewString.Append("[X_DictionaryCountry.CoalCountryName], \r\n            T.GoldCountryName AS [X_Dic");
+            viewString.Append("tionaryCountry.GoldCountryName], \r\n            T.CustomCountryName AS [X_Diction");
+            viewString.Append("aryCountry.CustomCountryName], \r\n            T.CurrencyCode AS [X_DictionaryCoun");
+            viewString.Append("try.CurrencyCode], \r\n            T.CurrencyFormat AS [X_DictionaryCountry.Curren");
+            viewString.Append("cyFormat], \r\n            T.Description AS [X_DictionaryCountry.Description], \r\n ");
+            viewString.Append("           T.FullDescription AS [X_DictionaryCountry.FullDescription], \r\n       ");
+            viewString.Append("     T.Thumbnail AS [X_DictionaryCountry.Thumbnail], \r\n            T.OriginalFil");
+            viewString.Append("eDataID AS [X_DictionaryCountry.OriginalFileDataID], \r\n            T.Version AS ");
+            viewString.Append("[X_DictionaryCountry.Version], \r\n            T.VersionAntecedentID AS [X_Diction");
+            viewString.Append("aryCountry.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Dictiona");
+            viewString.Append("ryCountry.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [X_Dic");
+            viewString.Append("tionaryCountry.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [");
+            viewString.Append("X_DictionaryCountry.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [X_Di");
+            viewString.Append("ctionaryCountry.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [X_D");
+            viewString.Append("ictionaryCountry.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID A");
+            viewString.Append("S [X_DictionaryCountry.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS");
+            viewString.Append(" [X_DictionaryCountry.VersionUpdated], \r\n            True AS _from0\r\n        FRO");
+            viewString.Append("M XODBC.DictionaryCountries AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_DictionaryCountry", viewString.ToString());
         }
         
@@ -6851,38 +6868,40 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView125()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2468);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2582);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_DictionaryDimension\r\n        [XODB.Module.B");
             viewString.Append("usinessObjects.Store.X_DictionaryDimension](T1.[X_DictionaryDimension.DimensionI");
-            viewString.Append("D], T1.[X_DictionaryDimension.StandardDimensionName], T1.[X_DictionaryDimension.");
-            viewString.Append("CoalDimensionName], T1.[X_DictionaryDimension.GoldDimensionName], T1.[X_Dictiona");
-            viewString.Append("ryDimension.CustomDimensionName], T1.[X_DictionaryDimension.Description], T1.[X_");
-            viewString.Append("DictionaryDimension.FullDescription], T1.[X_DictionaryDimension.Thumbnail], T1.[");
-            viewString.Append("X_DictionaryDimension.OriginalFileDataID], T1.[X_DictionaryDimension.Version], T");
-            viewString.Append("1.[X_DictionaryDimension.VersionAntecedentID], T1.[X_DictionaryDimension.Version");
-            viewString.Append("Certainty], T1.[X_DictionaryDimension.VersionWorkflowInstanceID], T1.[X_Dictiona");
-            viewString.Append("ryDimension.VersionUpdatedBy], T1.[X_DictionaryDimension.VersionDeletedBy], T1.[");
-            viewString.Append("X_DictionaryDimension.VersionOwnerContactID], T1.[X_DictionaryDimension.VersionO");
-            viewString.Append("wnerCompanyID], T1.[X_DictionaryDimension.VersionUpdated])\r\n    FROM (\r\n        ");
-            viewString.Append("SELECT \r\n            T.DimensionID AS [X_DictionaryDimension.DimensionID], \r\n   ");
-            viewString.Append("         T.StandardDimensionName AS [X_DictionaryDimension.StandardDimensionName");
-            viewString.Append("], \r\n            T.CoalDimensionName AS [X_DictionaryDimension.CoalDimensionName");
-            viewString.Append("], \r\n            T.GoldDimensionName AS [X_DictionaryDimension.GoldDimensionName");
-            viewString.Append("], \r\n            T.CustomDimensionName AS [X_DictionaryDimension.CustomDimension");
-            viewString.Append("Name], \r\n            T.Description AS [X_DictionaryDimension.Description], \r\n   ");
-            viewString.Append("         T.FullDescription AS [X_DictionaryDimension.FullDescription], \r\n       ");
-            viewString.Append("     T.Thumbnail AS [X_DictionaryDimension.Thumbnail], \r\n            T.OriginalF");
-            viewString.Append("ileDataID AS [X_DictionaryDimension.OriginalFileDataID], \r\n            T.Version");
-            viewString.Append(" AS [X_DictionaryDimension.Version], \r\n            T.VersionAntecedentID AS [X_D");
-            viewString.Append("ictionaryDimension.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_");
-            viewString.Append("DictionaryDimension.VersionCertainty], \r\n            T.VersionWorkflowInstanceID");
-            viewString.Append(" AS [X_DictionaryDimension.VersionWorkflowInstanceID], \r\n            T.VersionUp");
-            viewString.Append("datedBy AS [X_DictionaryDimension.VersionUpdatedBy], \r\n            T.VersionDele");
-            viewString.Append("tedBy AS [X_DictionaryDimension.VersionDeletedBy], \r\n            T.VersionOwnerC");
-            viewString.Append("ontactID AS [X_DictionaryDimension.VersionOwnerContactID], \r\n            T.Versi");
-            viewString.Append("onOwnerCompanyID AS [X_DictionaryDimension.VersionOwnerCompanyID], \r\n           ");
-            viewString.Append(" T.VersionUpdated AS [X_DictionaryDimension.VersionUpdated], \r\n            True ");
-            viewString.Append("AS _from0\r\n        FROM XODBC.DictionaryDimensions AS T\r\n    ) AS T1");
+            viewString.Append("D], T1.[X_DictionaryDimension.DimensionGUID], T1.[X_DictionaryDimension.Standard");
+            viewString.Append("DimensionName], T1.[X_DictionaryDimension.CoalDimensionName], T1.[X_DictionaryDi");
+            viewString.Append("mension.GoldDimensionName], T1.[X_DictionaryDimension.CustomDimensionName], T1.[");
+            viewString.Append("X_DictionaryDimension.Description], T1.[X_DictionaryDimension.FullDescription], ");
+            viewString.Append("T1.[X_DictionaryDimension.Thumbnail], T1.[X_DictionaryDimension.OriginalFileData");
+            viewString.Append("ID], T1.[X_DictionaryDimension.Version], T1.[X_DictionaryDimension.VersionAntece");
+            viewString.Append("dentID], T1.[X_DictionaryDimension.VersionCertainty], T1.[X_DictionaryDimension.");
+            viewString.Append("VersionWorkflowInstanceID], T1.[X_DictionaryDimension.VersionUpdatedBy], T1.[X_D");
+            viewString.Append("ictionaryDimension.VersionDeletedBy], T1.[X_DictionaryDimension.VersionOwnerCont");
+            viewString.Append("actID], T1.[X_DictionaryDimension.VersionOwnerCompanyID], T1.[X_DictionaryDimens");
+            viewString.Append("ion.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.DimensionID AS ");
+            viewString.Append("[X_DictionaryDimension.DimensionID], \r\n            T.DimensionGUID AS [X_Diction");
+            viewString.Append("aryDimension.DimensionGUID], \r\n            T.StandardDimensionName AS [X_Diction");
+            viewString.Append("aryDimension.StandardDimensionName], \r\n            T.CoalDimensionName AS [X_Dic");
+            viewString.Append("tionaryDimension.CoalDimensionName], \r\n            T.GoldDimensionName AS [X_Dic");
+            viewString.Append("tionaryDimension.GoldDimensionName], \r\n            T.CustomDimensionName AS [X_D");
+            viewString.Append("ictionaryDimension.CustomDimensionName], \r\n            T.Description AS [X_Dicti");
+            viewString.Append("onaryDimension.Description], \r\n            T.FullDescription AS [X_DictionaryDim");
+            viewString.Append("ension.FullDescription], \r\n            T.Thumbnail AS [X_DictionaryDimension.Thu");
+            viewString.Append("mbnail], \r\n            T.OriginalFileDataID AS [X_DictionaryDimension.OriginalFi");
+            viewString.Append("leDataID], \r\n            T.Version AS [X_DictionaryDimension.Version], \r\n       ");
+            viewString.Append("     T.VersionAntecedentID AS [X_DictionaryDimension.VersionAntecedentID], \r\n   ");
+            viewString.Append("         T.VersionCertainty AS [X_DictionaryDimension.VersionCertainty], \r\n     ");
+            viewString.Append("       T.VersionWorkflowInstanceID AS [X_DictionaryDimension.VersionWorkflowInst");
+            viewString.Append("anceID], \r\n            T.VersionUpdatedBy AS [X_DictionaryDimension.VersionUpdat");
+            viewString.Append("edBy], \r\n            T.VersionDeletedBy AS [X_DictionaryDimension.VersionDeleted");
+            viewString.Append("By], \r\n            T.VersionOwnerContactID AS [X_DictionaryDimension.VersionOwne");
+            viewString.Append("rContactID], \r\n            T.VersionOwnerCompanyID AS [X_DictionaryDimension.Ver");
+            viewString.Append("sionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_DictionaryDimension.Ve");
+            viewString.Append("rsionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.DictionaryDimens");
+            viewString.Append("ions AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_DictionaryDimension", viewString.ToString());
         }
         
@@ -8874,28 +8893,29 @@ namespace Edm_EntityMappingGeneratedViews
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_DictionaryPly", "\r\n    SELECT VALUE -- Constructing X_DictionaryPly\r\n        [XODB.Module.Business" +
                     "Objects.Store.X_DictionaryPly](T1.[X_DictionaryPly.PlyID], T1.[X_DictionaryPly.S" +
-                    "tandardPlyName], T1.[X_DictionaryPly.Description], T1.[X_DictionaryPly.FullDescr" +
-                    "iption], T1.[X_DictionaryPly.Thumbnail], T1.[X_DictionaryPly.OriginalFileDataID]" +
-                    ", T1.[X_DictionaryPly.Version], T1.[X_DictionaryPly.VersionAntecedentID], T1.[X_" +
-                    "DictionaryPly.VersionCertainty], T1.[X_DictionaryPly.VersionWorkflowInstanceID]," +
-                    " T1.[X_DictionaryPly.VersionUpdatedBy], T1.[X_DictionaryPly.VersionDeletedBy], T" +
-                    "1.[X_DictionaryPly.VersionOwnerContactID], T1.[X_DictionaryPly.VersionOwnerCompa" +
-                    "nyID], T1.[X_DictionaryPly.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n      " +
-                    "      T.PlyID AS [X_DictionaryPly.PlyID], \r\n            T.StandardPlyName AS [X_" +
-                    "DictionaryPly.StandardPlyName], \r\n            T.Description AS [X_DictionaryPly." +
-                    "Description], \r\n            T.FullDescription AS [X_DictionaryPly.FullDescriptio" +
-                    "n], \r\n            T.Thumbnail AS [X_DictionaryPly.Thumbnail], \r\n            T.Or" +
-                    "iginalFileDataID AS [X_DictionaryPly.OriginalFileDataID], \r\n            T.Versio" +
-                    "n AS [X_DictionaryPly.Version], \r\n            T.VersionAntecedentID AS [X_Dictio" +
-                    "naryPly.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_DictionaryP" +
-                    "ly.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [X_Dictionary" +
-                    "Ply.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [X_Dictionar" +
-                    "yPly.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS [X_DictionaryPly.Ver" +
-                    "sionDeletedBy], \r\n            T.VersionOwnerContactID AS [X_DictionaryPly.Versio" +
-                    "nOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_DictionaryPly.Vers" +
-                    "ionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_DictionaryPly.VersionUp" +
-                    "dated], \r\n            True AS _from0\r\n        FROM XODBC.DictionaryPlies AS T\r\n " +
-                    "   ) AS T1");
+                    "tandardPlyName], T1.[X_DictionaryPly.CustomPlyName], T1.[X_DictionaryPly.Descrip" +
+                    "tion], T1.[X_DictionaryPly.FullDescription], T1.[X_DictionaryPly.Thumbnail], T1." +
+                    "[X_DictionaryPly.OriginalFileDataID], T1.[X_DictionaryPly.Version], T1.[X_Dictio" +
+                    "naryPly.VersionAntecedentID], T1.[X_DictionaryPly.VersionCertainty], T1.[X_Dicti" +
+                    "onaryPly.VersionWorkflowInstanceID], T1.[X_DictionaryPly.VersionUpdatedBy], T1.[" +
+                    "X_DictionaryPly.VersionDeletedBy], T1.[X_DictionaryPly.VersionOwnerContactID], T" +
+                    "1.[X_DictionaryPly.VersionOwnerCompanyID], T1.[X_DictionaryPly.VersionUpdated])\r" +
+                    "\n    FROM (\r\n        SELECT \r\n            T.PlyID AS [X_DictionaryPly.PlyID], \r\n" +
+                    "            T.StandardPlyName AS [X_DictionaryPly.StandardPlyName], \r\n          " +
+                    "  T.CustomPlyName AS [X_DictionaryPly.CustomPlyName], \r\n            T.Descriptio" +
+                    "n AS [X_DictionaryPly.Description], \r\n            T.FullDescription AS [X_Dictio" +
+                    "naryPly.FullDescription], \r\n            T.Thumbnail AS [X_DictionaryPly.Thumbnai" +
+                    "l], \r\n            T.OriginalFileDataID AS [X_DictionaryPly.OriginalFileDataID], " +
+                    "\r\n            T.Version AS [X_DictionaryPly.Version], \r\n            T.VersionAnt" +
+                    "ecedentID AS [X_DictionaryPly.VersionAntecedentID], \r\n            T.VersionCerta" +
+                    "inty AS [X_DictionaryPly.VersionCertainty], \r\n            T.VersionWorkflowInsta" +
+                    "nceID AS [X_DictionaryPly.VersionWorkflowInstanceID], \r\n            T.VersionUpd" +
+                    "atedBy AS [X_DictionaryPly.VersionUpdatedBy], \r\n            T.VersionDeletedBy A" +
+                    "S [X_DictionaryPly.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [" +
+                    "X_DictionaryPly.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS" +
+                    " [X_DictionaryPly.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_D" +
+                    "ictionaryPly.VersionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.D" +
+                    "ictionaryPlies AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -9366,28 +9386,29 @@ namespace Edm_EntityMappingGeneratedViews
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_DictionarySeam", "\r\n    SELECT VALUE -- Constructing X_DictionarySeam\r\n        [XODB.Module.Busines" +
                     "sObjects.Store.X_DictionarySeam](T1.[X_DictionarySeam.SeamID], T1.[X_DictionaryS" +
-                    "eam.StandardSeamName], T1.[X_DictionarySeam.Description], T1.[X_DictionarySeam.F" +
-                    "ullDescription], T1.[X_DictionarySeam.Thumbnail], T1.[X_DictionarySeam.OriginalF" +
-                    "ileDataID], T1.[X_DictionarySeam.Version], T1.[X_DictionarySeam.VersionAnteceden" +
-                    "tID], T1.[X_DictionarySeam.VersionCertainty], T1.[X_DictionarySeam.VersionWorkfl" +
-                    "owInstanceID], T1.[X_DictionarySeam.VersionUpdatedBy], T1.[X_DictionarySeam.Vers" +
-                    "ionDeletedBy], T1.[X_DictionarySeam.VersionOwnerContactID], T1.[X_DictionarySeam" +
-                    ".VersionOwnerCompanyID], T1.[X_DictionarySeam.VersionUpdated])\r\n    FROM (\r\n    " +
-                    "    SELECT \r\n            T.SeamID AS [X_DictionarySeam.SeamID], \r\n            T." +
-                    "StandardSeamName AS [X_DictionarySeam.StandardSeamName], \r\n            T.Descrip" +
-                    "tion AS [X_DictionarySeam.Description], \r\n            T.FullDescription AS [X_Di" +
-                    "ctionarySeam.FullDescription], \r\n            T.Thumbnail AS [X_DictionarySeam.Th" +
-                    "umbnail], \r\n            T.OriginalFileDataID AS [X_DictionarySeam.OriginalFileDa" +
-                    "taID], \r\n            T.Version AS [X_DictionarySeam.Version], \r\n            T.Ve" +
-                    "rsionAntecedentID AS [X_DictionarySeam.VersionAntecedentID], \r\n            T.Ver" +
-                    "sionCertainty AS [X_DictionarySeam.VersionCertainty], \r\n            T.VersionWor" +
-                    "kflowInstanceID AS [X_DictionarySeam.VersionWorkflowInstanceID], \r\n            T" +
-                    ".VersionUpdatedBy AS [X_DictionarySeam.VersionUpdatedBy], \r\n            T.Versio" +
-                    "nDeletedBy AS [X_DictionarySeam.VersionDeletedBy], \r\n            T.VersionOwnerC" +
-                    "ontactID AS [X_DictionarySeam.VersionOwnerContactID], \r\n            T.VersionOwn" +
-                    "erCompanyID AS [X_DictionarySeam.VersionOwnerCompanyID], \r\n            T.Version" +
-                    "Updated AS [X_DictionarySeam.VersionUpdated], \r\n            True AS _from0\r\n    " +
-                    "    FROM XODBC.DictionarySeams AS T\r\n    ) AS T1");
+                    "eam.StandardSeamName], T1.[X_DictionarySeam.CustomSeamName], T1.[X_DictionarySea" +
+                    "m.Description], T1.[X_DictionarySeam.FullDescription], T1.[X_DictionarySeam.Thum" +
+                    "bnail], T1.[X_DictionarySeam.OriginalFileDataID], T1.[X_DictionarySeam.Version]," +
+                    " T1.[X_DictionarySeam.VersionAntecedentID], T1.[X_DictionarySeam.VersionCertaint" +
+                    "y], T1.[X_DictionarySeam.VersionWorkflowInstanceID], T1.[X_DictionarySeam.Versio" +
+                    "nUpdatedBy], T1.[X_DictionarySeam.VersionDeletedBy], T1.[X_DictionarySeam.Versio" +
+                    "nOwnerContactID], T1.[X_DictionarySeam.VersionOwnerCompanyID], T1.[X_DictionaryS" +
+                    "eam.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.SeamID AS [X_Di" +
+                    "ctionarySeam.SeamID], \r\n            T.StandardSeamName AS [X_DictionarySeam.Stan" +
+                    "dardSeamName], \r\n            T.CustomSeamName AS [X_DictionarySeam.CustomSeamNam" +
+                    "e], \r\n            T.Description AS [X_DictionarySeam.Description], \r\n           " +
+                    " T.FullDescription AS [X_DictionarySeam.FullDescription], \r\n            T.Thumbn" +
+                    "ail AS [X_DictionarySeam.Thumbnail], \r\n            T.OriginalFileDataID AS [X_Di" +
+                    "ctionarySeam.OriginalFileDataID], \r\n            T.Version AS [X_DictionarySeam.V" +
+                    "ersion], \r\n            T.VersionAntecedentID AS [X_DictionarySeam.VersionAnteced" +
+                    "entID], \r\n            T.VersionCertainty AS [X_DictionarySeam.VersionCertainty]," +
+                    " \r\n            T.VersionWorkflowInstanceID AS [X_DictionarySeam.VersionWorkflowI" +
+                    "nstanceID], \r\n            T.VersionUpdatedBy AS [X_DictionarySeam.VersionUpdated" +
+                    "By], \r\n            T.VersionDeletedBy AS [X_DictionarySeam.VersionDeletedBy], \r\n" +
+                    "            T.VersionOwnerContactID AS [X_DictionarySeam.VersionOwnerContactID]," +
+                    " \r\n            T.VersionOwnerCompanyID AS [X_DictionarySeam.VersionOwnerCompanyI" +
+                    "D], \r\n            T.VersionUpdated AS [X_DictionarySeam.VersionUpdated], \r\n     " +
+                    "       True AS _from0\r\n        FROM XODBC.DictionarySeams AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -15699,7 +15720,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView356()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2447);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2543);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCountries\r\n        [XODB.Module.Bus");
             viewString.Append("inessObjects.DictionaryCountry](T1.DictionaryCountry_CountryID, T1.DictionaryCou");
             viewString.Append("ntry_StandardCountryName, T1.DictionaryCountry_CoalCountryName, T1.DictionaryCou");
@@ -15710,27 +15731,28 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("ryCountry_VersionAntecedentID, T1.DictionaryCountry_VersionCertainty, T1.Diction");
             viewString.Append("aryCountry_VersionWorkflowInstanceID, T1.DictionaryCountry_VersionUpdatedBy, T1.");
             viewString.Append("DictionaryCountry_VersionDeletedBy, T1.DictionaryCountry_VersionOwnerContactID, ");
-            viewString.Append("T1.DictionaryCountry_VersionOwnerCompanyID, T1.DictionaryCountry_VersionUpdated)");
-            viewString.Append("\r\n    FROM (\r\n        SELECT \r\n            T.CountryID AS DictionaryCountry_Coun");
-            viewString.Append("tryID, \r\n            T.StandardCountryName AS DictionaryCountry_StandardCountryN");
-            viewString.Append("ame, \r\n            T.CoalCountryName AS DictionaryCountry_CoalCountryName, \r\n   ");
-            viewString.Append("         T.GoldCountryName AS DictionaryCountry_GoldCountryName, \r\n            T");
-            viewString.Append(".CustomCountryName AS DictionaryCountry_CustomCountryName, \r\n            T.Curre");
-            viewString.Append("ncyCode AS DictionaryCountry_CurrencyCode, \r\n            T.CurrencyFormat AS Dic");
-            viewString.Append("tionaryCountry_CurrencyFormat, \r\n            T.Description AS DictionaryCountry_");
-            viewString.Append("Description, \r\n            T.FullDescription AS DictionaryCountry_FullDescriptio");
-            viewString.Append("n, \r\n            T.Thumbnail AS DictionaryCountry_Thumbnail, \r\n            T.Ori");
-            viewString.Append("ginalFileDataID AS DictionaryCountry_OriginalFileDataID, \r\n            T.Version");
-            viewString.Append(" AS DictionaryCountry_Version, \r\n            T.VersionAntecedentID AS Dictionary");
-            viewString.Append("Country_VersionAntecedentID, \r\n            T.VersionCertainty AS DictionaryCount");
-            viewString.Append("ry_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS DictionaryCoun");
-            viewString.Append("try_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS DictionaryCou");
-            viewString.Append("ntry_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS DictionaryCountry_Ver");
-            viewString.Append("sionDeletedBy, \r\n            T.VersionOwnerContactID AS DictionaryCountry_Versio");
-            viewString.Append("nOwnerContactID, \r\n            T.VersionOwnerCompanyID AS DictionaryCountry_Vers");
-            viewString.Append("ionOwnerCompanyID, \r\n            T.VersionUpdated AS DictionaryCountry_VersionUp");
-            viewString.Append("dated, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObjectsStore");
-            viewString.Append("Container.X_DictionaryCountry AS T\r\n    ) AS T1");
+            viewString.Append("T1.DictionaryCountry_VersionOwnerCompanyID, T1.DictionaryCountry_VersionUpdated,");
+            viewString.Append(" T1.DictionaryCountry_CountryGUID)\r\n    FROM (\r\n        SELECT \r\n            T.C");
+            viewString.Append("ountryID AS DictionaryCountry_CountryID, \r\n            T.StandardCountryName AS ");
+            viewString.Append("DictionaryCountry_StandardCountryName, \r\n            T.CoalCountryName AS Dictio");
+            viewString.Append("naryCountry_CoalCountryName, \r\n            T.GoldCountryName AS DictionaryCountr");
+            viewString.Append("y_GoldCountryName, \r\n            T.CustomCountryName AS DictionaryCountry_Custom");
+            viewString.Append("CountryName, \r\n            T.CurrencyCode AS DictionaryCountry_CurrencyCode, \r\n ");
+            viewString.Append("           T.CurrencyFormat AS DictionaryCountry_CurrencyFormat, \r\n            T");
+            viewString.Append(".Description AS DictionaryCountry_Description, \r\n            T.FullDescription A");
+            viewString.Append("S DictionaryCountry_FullDescription, \r\n            T.Thumbnail AS DictionaryCoun");
+            viewString.Append("try_Thumbnail, \r\n            T.OriginalFileDataID AS DictionaryCountry_OriginalF");
+            viewString.Append("ileDataID, \r\n            T.Version AS DictionaryCountry_Version, \r\n            T");
+            viewString.Append(".VersionAntecedentID AS DictionaryCountry_VersionAntecedentID, \r\n            T.V");
+            viewString.Append("ersionCertainty AS DictionaryCountry_VersionCertainty, \r\n            T.VersionWo");
+            viewString.Append("rkflowInstanceID AS DictionaryCountry_VersionWorkflowInstanceID, \r\n            T");
+            viewString.Append(".VersionUpdatedBy AS DictionaryCountry_VersionUpdatedBy, \r\n            T.Version");
+            viewString.Append("DeletedBy AS DictionaryCountry_VersionDeletedBy, \r\n            T.VersionOwnerCon");
+            viewString.Append("tactID AS DictionaryCountry_VersionOwnerContactID, \r\n            T.VersionOwnerC");
+            viewString.Append("ompanyID AS DictionaryCountry_VersionOwnerCompanyID, \r\n            T.VersionUpda");
+            viewString.Append("ted AS DictionaryCountry_VersionUpdated, \r\n            T.CountryGUID AS Dictiona");
+            viewString.Append("ryCountry_CountryGUID, \r\n            True AS _from0\r\n        FROM XODBModuleBusi");
+            viewString.Append("nessObjectsStoreContainer.X_DictionaryCountry AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryCountries", viewString.ToString());
         }
         
@@ -16039,7 +16061,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView364()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2350);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2456);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDimensions\r\n        [XODB.Module.Bu");
             viewString.Append("sinessObjects.DictionaryDimension](T1.DictionaryDimension_DimensionID, T1.Dictio");
             viewString.Append("naryDimension_StandardDimensionName, T1.DictionaryDimension_CoalDimensionName, T");
@@ -16050,26 +16072,27 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("tionaryDimension_VersionCertainty, T1.DictionaryDimension_VersionWorkflowInstanc");
             viewString.Append("eID, T1.DictionaryDimension_VersionUpdatedBy, T1.DictionaryDimension_VersionDele");
             viewString.Append("tedBy, T1.DictionaryDimension_VersionOwnerContactID, T1.DictionaryDimension_Vers");
-            viewString.Append("ionOwnerCompanyID, T1.DictionaryDimension_VersionUpdated)\r\n    FROM (\r\n        S");
-            viewString.Append("ELECT \r\n            T.DimensionID AS DictionaryDimension_DimensionID, \r\n        ");
-            viewString.Append("    T.StandardDimensionName AS DictionaryDimension_StandardDimensionName, \r\n    ");
-            viewString.Append("        T.CoalDimensionName AS DictionaryDimension_CoalDimensionName, \r\n        ");
-            viewString.Append("    T.GoldDimensionName AS DictionaryDimension_GoldDimensionName, \r\n            ");
-            viewString.Append("T.CustomDimensionName AS DictionaryDimension_CustomDimensionName, \r\n            ");
-            viewString.Append("T.Description AS DictionaryDimension_Description, \r\n            T.FullDescriptio");
-            viewString.Append("n AS DictionaryDimension_FullDescription, \r\n            T.Thumbnail AS Dictionar");
-            viewString.Append("yDimension_Thumbnail, \r\n            T.OriginalFileDataID AS DictionaryDimension_");
-            viewString.Append("OriginalFileDataID, \r\n            T.Version AS DictionaryDimension_Version, \r\n  ");
-            viewString.Append("          T.VersionAntecedentID AS DictionaryDimension_VersionAntecedentID, \r\n  ");
-            viewString.Append("          T.VersionCertainty AS DictionaryDimension_VersionCertainty, \r\n        ");
-            viewString.Append("    T.VersionWorkflowInstanceID AS DictionaryDimension_VersionWorkflowInstanceID");
-            viewString.Append(", \r\n            T.VersionUpdatedBy AS DictionaryDimension_VersionUpdatedBy, \r\n  ");
-            viewString.Append("          T.VersionDeletedBy AS DictionaryDimension_VersionDeletedBy, \r\n        ");
-            viewString.Append("    T.VersionOwnerContactID AS DictionaryDimension_VersionOwnerContactID, \r\n    ");
-            viewString.Append("        T.VersionOwnerCompanyID AS DictionaryDimension_VersionOwnerCompanyID, \r\n");
-            viewString.Append("            T.VersionUpdated AS DictionaryDimension_VersionUpdated, \r\n          ");
-            viewString.Append("  True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_Diction");
-            viewString.Append("aryDimension AS T\r\n    ) AS T1");
+            viewString.Append("ionOwnerCompanyID, T1.DictionaryDimension_VersionUpdated, T1.DictionaryDimension");
+            viewString.Append("_DimensionGUID)\r\n    FROM (\r\n        SELECT \r\n            T.DimensionID AS Dicti");
+            viewString.Append("onaryDimension_DimensionID, \r\n            T.StandardDimensionName AS DictionaryD");
+            viewString.Append("imension_StandardDimensionName, \r\n            T.CoalDimensionName AS DictionaryD");
+            viewString.Append("imension_CoalDimensionName, \r\n            T.GoldDimensionName AS DictionaryDimen");
+            viewString.Append("sion_GoldDimensionName, \r\n            T.CustomDimensionName AS DictionaryDimensi");
+            viewString.Append("on_CustomDimensionName, \r\n            T.Description AS DictionaryDimension_Descr");
+            viewString.Append("iption, \r\n            T.FullDescription AS DictionaryDimension_FullDescription, ");
+            viewString.Append("\r\n            T.Thumbnail AS DictionaryDimension_Thumbnail, \r\n            T.Orig");
+            viewString.Append("inalFileDataID AS DictionaryDimension_OriginalFileDataID, \r\n            T.Versio");
+            viewString.Append("n AS DictionaryDimension_Version, \r\n            T.VersionAntecedentID AS Diction");
+            viewString.Append("aryDimension_VersionAntecedentID, \r\n            T.VersionCertainty AS Dictionary");
+            viewString.Append("Dimension_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS Diction");
+            viewString.Append("aryDimension_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Dict");
+            viewString.Append("ionaryDimension_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS Dictionary");
+            viewString.Append("Dimension_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS DictionaryD");
+            viewString.Append("imension_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS Diction");
+            viewString.Append("aryDimension_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS Dictionary");
+            viewString.Append("Dimension_VersionUpdated, \r\n            T.DimensionGUID AS DictionaryDimension_D");
+            viewString.Append("imensionGUID, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObjec");
+            viewString.Append("tsStoreContainer.X_DictionaryDimension AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryDimensions", viewString.ToString());
         }
         
@@ -17997,21 +18020,23 @@ namespace Edm_EntityMappingGeneratedViews
                     "ictionaryPly_VersionAntecedentID, T1.DictionaryPly_VersionCertainty, T1.Dictiona" +
                     "ryPly_VersionWorkflowInstanceID, T1.DictionaryPly_VersionUpdatedBy, T1.Dictionar" +
                     "yPly_VersionDeletedBy, T1.DictionaryPly_VersionOwnerContactID, T1.DictionaryPly_" +
-                    "VersionOwnerCompanyID, T1.DictionaryPly_VersionUpdated)\r\n    FROM (\r\n        SEL" +
-                    "ECT \r\n            T.PlyID AS DictionaryPly_PlyID, \r\n            T.StandardPlyNam" +
-                    "e AS DictionaryPly_StandardPlyName, \r\n            T.Description AS DictionaryPly" +
-                    "_Description, \r\n            T.FullDescription AS DictionaryPly_FullDescription, " +
-                    "\r\n            T.Thumbnail AS DictionaryPly_Thumbnail, \r\n            T.OriginalFi" +
-                    "leDataID AS DictionaryPly_OriginalFileDataID, \r\n            T.Version AS Diction" +
-                    "aryPly_Version, \r\n            T.VersionAntecedentID AS DictionaryPly_VersionAnte" +
-                    "cedentID, \r\n            T.VersionCertainty AS DictionaryPly_VersionCertainty, \r\n" +
-                    "            T.VersionWorkflowInstanceID AS DictionaryPly_VersionWorkflowInstance" +
-                    "ID, \r\n            T.VersionUpdatedBy AS DictionaryPly_VersionUpdatedBy, \r\n      " +
-                    "      T.VersionDeletedBy AS DictionaryPly_VersionDeletedBy, \r\n            T.Vers" +
-                    "ionOwnerContactID AS DictionaryPly_VersionOwnerContactID, \r\n            T.Versio" +
-                    "nOwnerCompanyID AS DictionaryPly_VersionOwnerCompanyID, \r\n            T.VersionU" +
-                    "pdated AS DictionaryPly_VersionUpdated, \r\n            True AS _from0\r\n        FR" +
-                    "OM XODBModuleBusinessObjectsStoreContainer.X_DictionaryPly AS T\r\n    ) AS T1");
+                    "VersionOwnerCompanyID, T1.DictionaryPly_VersionUpdated, T1.DictionaryPly_CustomP" +
+                    "lyName)\r\n    FROM (\r\n        SELECT \r\n            T.PlyID AS DictionaryPly_PlyID" +
+                    ", \r\n            T.StandardPlyName AS DictionaryPly_StandardPlyName, \r\n          " +
+                    "  T.Description AS DictionaryPly_Description, \r\n            T.FullDescription AS" +
+                    " DictionaryPly_FullDescription, \r\n            T.Thumbnail AS DictionaryPly_Thumb" +
+                    "nail, \r\n            T.OriginalFileDataID AS DictionaryPly_OriginalFileDataID, \r\n" +
+                    "            T.Version AS DictionaryPly_Version, \r\n            T.VersionAnteceden" +
+                    "tID AS DictionaryPly_VersionAntecedentID, \r\n            T.VersionCertainty AS Di" +
+                    "ctionaryPly_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS Dicti" +
+                    "onaryPly_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Dictiona" +
+                    "ryPly_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS DictionaryPly_Versio" +
+                    "nDeletedBy, \r\n            T.VersionOwnerContactID AS DictionaryPly_VersionOwnerC" +
+                    "ontactID, \r\n            T.VersionOwnerCompanyID AS DictionaryPly_VersionOwnerCom" +
+                    "panyID, \r\n            T.VersionUpdated AS DictionaryPly_VersionUpdated, \r\n      " +
+                    "      T.CustomPlyName AS DictionaryPly_CustomPlyName, \r\n            True AS _fro" +
+                    "m0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_DictionaryPly AS T\r\n " +
+                    "   ) AS T1");
         }
         
         /// <Summary>
@@ -18470,22 +18495,23 @@ namespace Edm_EntityMappingGeneratedViews
                     "sion, T1.DictionarySeam_VersionAntecedentID, T1.DictionarySeam_VersionCertainty," +
                     " T1.DictionarySeam_VersionWorkflowInstanceID, T1.DictionarySeam_VersionUpdatedBy" +
                     ", T1.DictionarySeam_VersionDeletedBy, T1.DictionarySeam_VersionOwnerContactID, T" +
-                    "1.DictionarySeam_VersionOwnerCompanyID, T1.DictionarySeam_VersionUpdated)\r\n    F" +
-                    "ROM (\r\n        SELECT \r\n            T.SeamID AS DictionarySeam_SeamID, \r\n       " +
-                    "     T.StandardSeamName AS DictionarySeam_StandardSeamName, \r\n            T.Desc" +
-                    "ription AS DictionarySeam_Description, \r\n            T.FullDescription AS Dictio" +
-                    "narySeam_FullDescription, \r\n            T.Thumbnail AS DictionarySeam_Thumbnail," +
-                    " \r\n            T.OriginalFileDataID AS DictionarySeam_OriginalFileDataID, \r\n    " +
-                    "        T.Version AS DictionarySeam_Version, \r\n            T.VersionAntecedentID" +
-                    " AS DictionarySeam_VersionAntecedentID, \r\n            T.VersionCertainty AS Dict" +
-                    "ionarySeam_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS Dictio" +
-                    "narySeam_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Dictiona" +
-                    "rySeam_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS DictionarySeam_Vers" +
-                    "ionDeletedBy, \r\n            T.VersionOwnerContactID AS DictionarySeam_VersionOwn" +
-                    "erContactID, \r\n            T.VersionOwnerCompanyID AS DictionarySeam_VersionOwne" +
-                    "rCompanyID, \r\n            T.VersionUpdated AS DictionarySeam_VersionUpdated, \r\n " +
-                    "           True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer." +
-                    "X_DictionarySeam AS T\r\n    ) AS T1");
+                    "1.DictionarySeam_VersionOwnerCompanyID, T1.DictionarySeam_VersionUpdated, T1.Dic" +
+                    "tionarySeam_CustomSeamName)\r\n    FROM (\r\n        SELECT \r\n            T.SeamID A" +
+                    "S DictionarySeam_SeamID, \r\n            T.StandardSeamName AS DictionarySeam_Stan" +
+                    "dardSeamName, \r\n            T.Description AS DictionarySeam_Description, \r\n     " +
+                    "       T.FullDescription AS DictionarySeam_FullDescription, \r\n            T.Thum" +
+                    "bnail AS DictionarySeam_Thumbnail, \r\n            T.OriginalFileDataID AS Diction" +
+                    "arySeam_OriginalFileDataID, \r\n            T.Version AS DictionarySeam_Version, \r" +
+                    "\n            T.VersionAntecedentID AS DictionarySeam_VersionAntecedentID, \r\n    " +
+                    "        T.VersionCertainty AS DictionarySeam_VersionCertainty, \r\n            T.V" +
+                    "ersionWorkflowInstanceID AS DictionarySeam_VersionWorkflowInstanceID, \r\n        " +
+                    "    T.VersionUpdatedBy AS DictionarySeam_VersionUpdatedBy, \r\n            T.Versi" +
+                    "onDeletedBy AS DictionarySeam_VersionDeletedBy, \r\n            T.VersionOwnerCont" +
+                    "actID AS DictionarySeam_VersionOwnerContactID, \r\n            T.VersionOwnerCompa" +
+                    "nyID AS DictionarySeam_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS " +
+                    "DictionarySeam_VersionUpdated, \r\n            T.CustomSeamName AS DictionarySeam_" +
+                    "CustomSeamName, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObj" +
+                    "ectsStoreContainer.X_DictionarySeam AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -23893,6 +23919,82 @@ namespace Edm_EntityMappingGeneratedViews
             T.ServiceNamespace AS ServiceDeployment_ServiceNamespace, 
             True AS _from0
         FROM XODBModuleBusinessObjectsStoreContainer.ServiceDeployments AS T
+    ) AS T1");
+        }
+        
+        /// <Summary>
+        /// return view for XODBModuleBusinessObjectsStoreContainer.M_VW_DictionaryCompositeCoal
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView590()
+        {
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.M_VW_DictionaryCompositeCoal", @"
+    SELECT VALUE -- Constructing M_VW_DictionaryCompositeCoal
+        [XODB.Module.BusinessObjects.Store.M_VW_DictionaryCompositeCoal](T1.[M_VW_DictionaryCompositeCoal.DictionaryName], T1.[M_VW_DictionaryCompositeCoal.Description], T1.[M_VW_DictionaryCompositeCoal.DictionaryCode], T1.[M_VW_DictionaryCompositeCoal.DictionaryID])
+    FROM (
+        SELECT 
+            T.DictionaryName AS [M_VW_DictionaryCompositeCoal.DictionaryName], 
+            T.Description AS [M_VW_DictionaryCompositeCoal.Description], 
+            T.DictionaryCode AS [M_VW_DictionaryCompositeCoal.DictionaryCode], 
+            T.DictionaryID AS [M_VW_DictionaryCompositeCoal.DictionaryID], 
+            True AS _from0
+        FROM XODBC.DictionaryCompositeCoalViews AS T
+    ) AS T1");
+        }
+        
+        /// <Summary>
+        /// return view for XODBC.DictionaryCompositeCoalViews
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView591()
+        {
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryCompositeCoalViews", @"
+    SELECT VALUE -- Constructing DictionaryCompositeCoalViews
+        [XODB.Module.BusinessObjects.DictionaryCompositeCoalView](T1.DictionaryCompositeCoalView_DictionaryName, T1.DictionaryCompositeCoalView_Description, T1.DictionaryCompositeCoalView_DictionaryCode, T1.DictionaryCompositeCoalView_DictionaryID)
+    FROM (
+        SELECT 
+            T.DictionaryName AS DictionaryCompositeCoalView_DictionaryName, 
+            T.Description AS DictionaryCompositeCoalView_Description, 
+            T.DictionaryCode AS DictionaryCompositeCoalView_DictionaryCode, 
+            T.DictionaryID AS DictionaryCompositeCoalView_DictionaryID, 
+            True AS _from0
+        FROM XODBModuleBusinessObjectsStoreContainer.M_VW_DictionaryCompositeCoal AS T
+    ) AS T1");
+        }
+        
+        /// <Summary>
+        /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_DictionaryCompositeStandard
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView592()
+        {
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_VW_DictionaryCompositeStandard", @"
+    SELECT VALUE -- Constructing X_VW_DictionaryCompositeStandard
+        [XODB.Module.BusinessObjects.Store.X_VW_DictionaryCompositeStandard](T1.[X_VW_DictionaryCompositeStandard.DictionaryName], T1.[X_VW_DictionaryCompositeStandard.Description], T1.[X_VW_DictionaryCompositeStandard.DictionaryCode], T1.[X_VW_DictionaryCompositeStandard.DictionaryID])
+    FROM (
+        SELECT 
+            T.DictionaryName AS [X_VW_DictionaryCompositeStandard.DictionaryName], 
+            T.Description AS [X_VW_DictionaryCompositeStandard.Description], 
+            T.DictionaryCode AS [X_VW_DictionaryCompositeStandard.DictionaryCode], 
+            T.DictionaryID AS [X_VW_DictionaryCompositeStandard.DictionaryID], 
+            True AS _from0
+        FROM XODBC.DictionaryCompositeStandardViews AS T
+    ) AS T1");
+        }
+        
+        /// <Summary>
+        /// return view for XODBC.DictionaryCompositeStandardViews
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView593()
+        {
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryCompositeStandardViews", @"
+    SELECT VALUE -- Constructing DictionaryCompositeStandardViews
+        [XODB.Module.BusinessObjects.DictionaryCompositeStandardView](T1.DictionaryCompositeStandardView_DictionaryName, T1.DictionaryCompositeStandardView_Description, T1.DictionaryCompositeStandardView_DictionaryCode, T1.DictionaryCompositeStandardView_DictionaryID)
+    FROM (
+        SELECT 
+            T.DictionaryName AS DictionaryCompositeStandardView_DictionaryName, 
+            T.Description AS DictionaryCompositeStandardView_Description, 
+            T.DictionaryCode AS DictionaryCompositeStandardView_DictionaryCode, 
+            T.DictionaryID AS DictionaryCompositeStandardView_DictionaryID, 
+            True AS _from0
+        FROM XODBModuleBusinessObjectsStoreContainer.X_VW_DictionaryCompositeStandard AS T
     ) AS T1");
         }
     }

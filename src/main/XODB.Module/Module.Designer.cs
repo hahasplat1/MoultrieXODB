@@ -325,6 +325,8 @@ namespace XODB.Module
             this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.WebPartState_UserView));
             this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.WorkflowSchedule));
             this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.WorkTypeView));
+            this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.DictionaryCompositeStandardView));
+            this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.DictionaryCompositeCoalView));
             this.RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.SystemModule.SystemModule));
 
         }

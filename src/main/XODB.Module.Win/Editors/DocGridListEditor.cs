@@ -16,8 +16,9 @@ namespace XODB.Module.Win.Editors
         public DocGridListEditor(IModelListView model)
             : base(model)
         {          
-            
-        }
-
+        
+    
+        }     
+       
     }
 }

@@ -85,6 +85,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\deps\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System">
       <Name>System</Name>
       <Private>False</Private>
@@ -159,6 +160,9 @@
       <DependentUpon>UpdateConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\UpdateConfigController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinGroupFooterViewController.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Editors\CustomFileOperationEventArgs.cs" />

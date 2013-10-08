@@ -412,6 +412,14 @@
       [ServiceDeploymentsTable].[ServiceNamespace] AS [ServiceNamespace]
       FROM [System.Activities.DurableInstancing].[ServiceDeploymentsTable] AS [ServiceDeploymentsTable]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="M_VW_DictionaryCompositeCoal" EntityType="XODB.Module.BusinessObjects.Store.M_VW_DictionaryCompositeCoal" store:Type="Views" store:Schema="dbo" store:Name="M_VW_DictionaryCompositeCoal">
+            <DefiningQuery>SELECT 
+      [M_VW_DictionaryCompositeCoal].[DictionaryName] AS [DictionaryName], 
+      [M_VW_DictionaryCompositeCoal].[Description] AS [Description], 
+      [M_VW_DictionaryCompositeCoal].[DictionaryCode] AS [DictionaryCode], 
+      [M_VW_DictionaryCompositeCoal].[DictionaryID] AS [DictionaryID]
+      FROM [dbo].[M_VW_DictionaryCompositeCoal] AS [M_VW_DictionaryCompositeCoal]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_aspnet_Applications" EntityType="XODB.Module.BusinessObjects.Store.vw_aspnet_Applications" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Applications">
             <DefiningQuery>SELECT 
       [vw_aspnet_Applications].[ApplicationName] AS [ApplicationName], 
@@ -509,6 +517,14 @@
       [X_VW_Company].[CompanyName] AS [CompanyName], 
       [X_VW_Company].[ParentCompanyID] AS [ParentCompanyID]
       FROM [dbo].[X_VW_Company] AS [X_VW_Company]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="X_VW_DictionaryCompositeStandard" EntityType="XODB.Module.BusinessObjects.Store.X_VW_DictionaryCompositeStandard" store:Type="Views" store:Schema="dbo" store:Name="X_VW_DictionaryCompositeStandard">
+            <DefiningQuery>SELECT 
+      [X_VW_DictionaryCompositeStandard].[DictionaryName] AS [DictionaryName], 
+      [X_VW_DictionaryCompositeStandard].[Description] AS [Description], 
+      [X_VW_DictionaryCompositeStandard].[DictionaryCode] AS [DictionaryCode], 
+      [X_VW_DictionaryCompositeStandard].[DictionaryID] AS [DictionaryID]
+      FROM [dbo].[X_VW_DictionaryCompositeStandard] AS [X_VW_DictionaryCompositeStandard]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="X_VW_DictionaryHeader" EntityType="XODB.Module.BusinessObjects.Store.X_VW_DictionaryHeader" store:Type="Views" store:Schema="dbo" store:Name="X_VW_DictionaryHeader">
             <DefiningQuery>SELECT 
@@ -5825,6 +5841,7 @@
             <PropertyRef Name="CountryID" />
           </Key>
           <Property Name="CountryID" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="CountryGUID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="StandardCountryName" Type="nvarchar" Nullable="false" MaxLength="40" />
           <Property Name="CoalCountryName" Type="nvarchar" MaxLength="40" />
           <Property Name="GoldCountryName" Type="nvarchar" MaxLength="40" />
@@ -6012,6 +6029,7 @@
             <PropertyRef Name="DimensionID" />
           </Key>
           <Property Name="DimensionID" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="DimensionGUID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="StandardDimensionName" Type="nvarchar" MaxLength="16" />
           <Property Name="CoalDimensionName" Type="nvarchar" MaxLength="16" />
           <Property Name="GoldDimensionName" Type="nvarchar" MaxLength="16" />
@@ -7102,6 +7120,7 @@
           </Key>
           <Property Name="PlyID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="StandardPlyName" Type="nvarchar" Nullable="false" MaxLength="16" />
+          <Property Name="CustomPlyName" Type="nvarchar" MaxLength="16" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
           <Property Name="FullDescription" Type="nvarchar(max)" />
           <Property Name="Thumbnail" Type="varbinary(max)" />
@@ -7373,6 +7392,7 @@
           </Key>
           <Property Name="SeamID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="StandardSeamName" Type="nvarchar" Nullable="false" MaxLength="16" />
+          <Property Name="CustomSeamName" Type="nvarchar" MaxLength="16" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
           <Property Name="FullDescription" Type="nvarchar(max)" />
           <Property Name="Thumbnail" Type="varbinary(max)" />
@@ -9683,6 +9703,18 @@
           <Property Name="ServiceNamespace" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'XODB.dbo.M_VW_DictionaryCompositeCoal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="M_VW_DictionaryCompositeCoal">
+          <Key>
+            <PropertyRef Name="DictionaryID" />
+          </Key>
+          <Property Name="DictionaryName" Type="varchar" Nullable="false" MaxLength="43" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="DictionaryCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DictionaryID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'XODB.dbo.vw_aspnet_Applications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_Applications">
@@ -9850,6 +9882,18 @@
           <Property Name="CompanyID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CompanyName" Type="nvarchar" MaxLength="255" />
           <Property Name="ParentCompanyID" Type="uniqueidentifier" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'XODB.dbo.X_VW_DictionaryCompositeStandard' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="X_VW_DictionaryCompositeStandard">
+          <Key>
+            <PropertyRef Name="DictionaryID" />
+          </Key>
+          <Property Name="DictionaryName" Type="varchar" Nullable="false" MaxLength="43" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="DictionaryCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DictionaryID" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'XODB.dbo.X_VW_DictionaryHeader' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -22524,6 +22568,8 @@
             <End Role="Header" EntitySet="Headers" />
             <End Role="X_HeaderHolePurpose" EntitySet="HeaderHolePurposes" />
           </AssociationSet>
+          <EntitySet Name="DictionaryCompositeCoalViews" EntityType="XODB.Module.BusinessObjects.DictionaryCompositeCoalView" />
+          <EntitySet Name="DictionaryCompositeStandardViews" EntityType="XODB.Module.BusinessObjects.DictionaryCompositeStandardView" />
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -25540,6 +25586,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <Property Type="Guid" Name="CountryGUID" Nullable="false" />
         </EntityType>
         <EntityType Name="DictionaryCountryState">
           <Key>
@@ -25747,6 +25794,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <Property Type="Guid" Name="DimensionGUID" Nullable="false" />
         </EntityType>
         <EntityType Name="DictionaryDipOrientationMethod">
           <Key>
@@ -26962,6 +27010,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <Property Type="String" Name="CustomPlyName" MaxLength="16" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DictionaryPlyAlias">
           <Key>
@@ -27272,6 +27321,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <Property Type="String" Name="CustomSeamName" MaxLength="16" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DictionarySeamAlias">
           <Key>
@@ -38625,6 +38675,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="DictionaryCompositeCoalView">
+          <Key>
+            <PropertyRef Name="DictionaryID" />
+          </Key>
+          <Property Type="String" Name="DictionaryName" Nullable="false" MaxLength="43" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DictionaryCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="DictionaryID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DictionaryCompositeStandardView">
+          <Key>
+            <PropertyRef Name="DictionaryID" />
+          </Key>
+          <Property Type="String" Name="DictionaryName" Nullable="false" MaxLength="43" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DictionaryCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="DictionaryID" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -41164,6 +41232,7 @@
           <EntitySetMapping Name="DictionaryCountries">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryCountry">
               <MappingFragment StoreEntitySet="X_DictionaryCountry">
+                <ScalarProperty Name="CountryGUID" ColumnName="CountryGUID" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -41359,6 +41428,7 @@
           <EntitySetMapping Name="DictionaryDimensions">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryDimension">
               <MappingFragment StoreEntitySet="X_DictionaryDimension">
+                <ScalarProperty Name="DimensionGUID" ColumnName="DimensionGUID" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -42496,6 +42566,7 @@
           <EntitySetMapping Name="DictionaryPlies">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryPly">
               <MappingFragment StoreEntitySet="X_DictionaryPly">
+                <ScalarProperty Name="CustomPlyName" ColumnName="CustomPlyName" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -42779,6 +42850,7 @@
           <EntitySetMapping Name="DictionarySeams">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionarySeam">
               <MappingFragment StoreEntitySet="X_DictionarySeam">
+                <ScalarProperty Name="CustomSeamName" ColumnName="CustomSeamName" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -45935,6 +46007,26 @@
                 <ScalarProperty Name="HolePurposeID" ColumnName="HolePurposeID" />
                 <ScalarProperty Name="HeaderID" ColumnName="HeaderID" />
                 <ScalarProperty Name="HeaderHolePurposeID" ColumnName="HeaderHolePurposeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictionaryCompositeCoalViews">
+            <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryCompositeCoalView">
+              <MappingFragment StoreEntitySet="M_VW_DictionaryCompositeCoal">
+                <ScalarProperty Name="DictionaryID" ColumnName="DictionaryID" />
+                <ScalarProperty Name="DictionaryCode" ColumnName="DictionaryCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DictionaryName" ColumnName="DictionaryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictionaryCompositeStandardViews">
+            <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryCompositeStandardView">
+              <MappingFragment StoreEntitySet="X_VW_DictionaryCompositeStandard">
+                <ScalarProperty Name="DictionaryID" ColumnName="DictionaryID" />
+                <ScalarProperty Name="DictionaryCode" ColumnName="DictionaryCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DictionaryName" ColumnName="DictionaryName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -8,14 +8,19 @@ using DevExpress.Data.Filtering;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.ExpressApp.Security;
 using Ionic.Zip;
+using System.Data.SqlClient;
 
 namespace XODB.Module.DatabaseUpdate
 {
     public class Updater : ModuleUpdater
     {
-        public static int CurrentVersion { get { return 4; } }        
+        public static int CurrentVersion { get { return 4; } }      
+        public static string DefaultConnectionString { get; set; }
         public static bool UpdateData { get; set; }
-        public Updater(IObjectSpace objectSpace, Version currentDBVersion) : base(objectSpace, currentDBVersion) { }
+        public Updater(IObjectSpace objectSpace, Version currentDBVersion) : base(objectSpace, currentDBVersion) 
+        { 
+            DefaultConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;        
+        }
         public override void UpdateDatabaseAfterUpdateSchema()
         {
             base.UpdateDatabaseAfterUpdateSchema();
@@ -33,7 +38,7 @@ namespace XODB.Module.DatabaseUpdate
                 //ExecuteNonQueryCommand(Properties.Resources.XODBSchema1, false);
                 //ExecuteNonQueryCommand(Properties.Resources.XODBSchema1Data, false);
                 //Do backup
-                RestoreSQLFromZip("v4.bak.zip");
+                RestoreSQLFromZip(DefaultConnectionString);
                 TryReboot();
                 return;
             }
@@ -83,8 +88,10 @@ namespace XODB.Module.DatabaseUpdate
             catch { }
         }
 
-        private void RestoreSQLFromZip(string file)
+
+        public static void RestoreSQLFromZip(string xstring)
         {
+            string file = string.Format("v{0}.bak.zip", CurrentVersion);
             using (FileStream fs = new FileStream(string.Format(@"{0}\Resources\{1}", AppDomain.CurrentDomain.BaseDirectory, file ), FileMode.Open, FileAccess.Read))
             {
                 // extract file to a temp location
@@ -97,7 +104,7 @@ namespace XODB.Module.DatabaseUpdate
                         if (!entry.IsDirectory && !string.IsNullOrEmpty(entry.FileName))
                         {
                             var guid = Guid.NewGuid();
-                            var f = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), string.Format("{0}xodb_install.bak", guid));
+                            var f = Path.Combine(System.IO.Path.GetTempPath(), string.Format("{0}xodb_install.bak", guid));
                             var db = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), string.Format("{0}xodb.mdf", guid));
                             var log = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), string.Format("{0}xodb.ldf", guid));
                             
@@ -113,8 +120,21 @@ namespace XODB.Module.DatabaseUpdate
                                     bakf.Write(buffer, 0, len);
                                 }    
                             }
-                            //Restore
-                            foreach (var s in string.Format(Properties.Resources.XODBRestore, f, db, log).Split(new string[] { "GO" }, StringSplitOptions.RemoveEmptyEntries)) ExecuteNonQueryCommand(s, false);
+                            using (SqlConnection sql = new SqlConnection())
+                            {
+                                sql.ConnectionString = xstring;
+                                sql.ConnectionString = sql.ConnectionString.Replace("Initial Catalog=XODB", "Initial Catalog=master"); //TODO: Fix: hack atm
+                                sql.Open();
+                                //Restore
+                                foreach (var s in string.Format(Properties.Resources.XODBRestore, f, db, log).Split(new string[] { "GO" }, StringSplitOptions.RemoveEmptyEntries))
+                                {
+                                    var cmd = new SqlCommand(s, sql);
+                                    cmd.CommandTimeout = 60000;
+                                    cmd.ExecuteNonQuery();
+                                }
+                                sql.Close();
+                            }
+
                         }
                         break; // Only handle 1 file
                     }

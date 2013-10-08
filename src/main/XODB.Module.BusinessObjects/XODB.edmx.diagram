@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3cf498aeaaa142e3b452c3cdd48bf54f" Name="Diagram1" ZoomLevel="10">
+      <Diagram DiagramId="3cf498aeaaa142e3b452c3cdd48bf54f" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Applications" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Membership" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Paths" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
@@ -960,6 +960,8 @@
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.HeaderHolePurpose" Width="1.5" PointX="4.8301341388514887" PointY="31.404552191218617" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderHolePurpose_X_DictionaryHolePurpose" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderHolePurpose_X_Header" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryCompositeCoalView" Width="1.5" PointX="2.0431549931146" PointY="29.27367928497199" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryCompositeStandardView" Width="1.5" PointX="2.7310236947289779" PointY="16.420589916603916" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

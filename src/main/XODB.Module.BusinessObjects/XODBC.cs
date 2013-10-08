@@ -14,11 +14,30 @@ namespace XODB.Module.BusinessObjects
     {
         public const string EF_METADATA = "res://XODB.Module.BusinessObjects/XODB.csdl|res://XODB.Module.BusinessObjects/XODB.ssdl|res://XODB.Module.BusinessObjects/XODB.msl";
         
-        public XODBC(string providerConnectionString, string metadata) 
+        public XODBC(string providerConnectionString, string metadata, bool checkPrimaryKey = true) 
             : base((string.IsNullOrWhiteSpace(metadata)) ? GetEnityConnectionString(providerConnectionString, EF_METADATA) : GetEnityConnectionString(providerConnectionString, metadata), "XODBC" ) 
         {
             this.ContextOptions.LazyLoadingEnabled = true;
-            OnContextCreated();
+            _checkPrimaryKey = checkPrimaryKey;
+            if (_checkPrimaryKey)
+                OnContextCreated();
+        }
+
+        private bool _checkPrimaryKey = true;
+        public bool CheckPrimaryKey
+        {
+            get { return _checkPrimaryKey; }
+            set
+            {
+                if (value != _checkPrimaryKey)
+                {
+                    if (value)
+                        this.SavingChanges += XODBC_SavingChanges;
+                    else
+                        this.SavingChanges -= XODBC_SavingChanges;
+                }
+                _checkPrimaryKey = value;
+            }
         }
 
         public static string GetEnityConnectionString(string providerConnectionString, string entityType, string assembly, string nameSpace)
