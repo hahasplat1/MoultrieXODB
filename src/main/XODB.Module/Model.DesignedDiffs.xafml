@@ -3266,6 +3266,7 @@
       </Item>
     </Items>
   </NavigationItems>
+  <Options UseServerMode="False" />
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
     <SchemaModule Name="SystemWindowsFormsModule" Version="13.1.7.0" IsNewNode="True" />

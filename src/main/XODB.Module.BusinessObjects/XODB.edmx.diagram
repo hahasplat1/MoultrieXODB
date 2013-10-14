@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3cf498aeaaa142e3b452c3cdd48bf54f" Name="Diagram1" ZoomLevel="72">
+      <Diagram DiagramId="3cf498aeaaa142e3b452c3cdd48bf54f" Name="Diagram1" ZoomLevel="11">
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Applications" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Membership" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Paths" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
@@ -150,7 +150,7 @@
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryIntervalStatus" Width="1.5" PointX="21.75" PointY="502.875" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryLeaseApplicationType" Width="1.5" PointX="21.75" PointY="506.75" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryLicenseType" Width="1.5" PointX="21.75" PointY="510.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryLithologyInterrelation" Width="1.5" PointX="21.75" PointY="515.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryLithologyInterrelation" Width="1.5" PointX="19.125" PointY="515.375" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryLithologyQualifier" Width="1.5" PointX="21.75" PointY="519.5" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryLithologyType" Width="1.5" PointX="21.75" PointY="523.375" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryLocationType" Width="1.5" PointX="21.75" PointY="527.25" IsExpanded="true" />
@@ -198,7 +198,6 @@
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryWorkTypeClass" Width="1.5" PointX="21.75" PointY="662" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryWorkTypeRelation" Width="1.5" PointX="26.25" PointY="514.625" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Drilling" Width="1.5" PointX="30.75" PointY="440.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DrillingProjectPlanTask" Width="1.5" PointX="48.25" PointY="479.125" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Experience" Width="1.5" PointX="41.5" PointY="506.25" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.FileData" Width="1.5" PointX="19.5" PointY="441.125" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Geology" Width="1.5" PointX="38.75" PointY="498.625" IsExpanded="true" />
@@ -749,11 +748,7 @@
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LeaseApplication_X_DictionaryLeaseApplicationType" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLeaseApplicationType_X_FileData_OriginalFile" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLicenseType_X_FileData_OriginalFile" ManuallyRouted="false" />
-        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Interrel" ManuallyRouted="false" />
-        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Qual" ManuallyRouted="false" />
-        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" ManuallyRouted="false" />
-        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Type" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyType_X_FileData_OriginalFile" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Location_X_DictionaryLocationType" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLocationType_X_FileData_OriginalFile" ManuallyRouted="false" />
@@ -858,8 +853,6 @@
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryWorkTypeClass_X_FileData_OriginalFile" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Drilling" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingData_X_Header" ManuallyRouted="false" />
-        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_Drilling" ManuallyRouted="false" />
-        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_ProjectPlanTask" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_Location" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_Project" ManuallyRouted="false" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Experience_X_Province" ManuallyRouted="false" />
@@ -962,6 +955,15 @@
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_HeaderHolePurpose_X_Header" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryCompositeCoalView" Width="1.5" PointX="2.0431549931146" PointY="29.27367928497199" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryCompositeStandardView" Width="1.5" PointX="2.7310236947289779" PointY="16.420589916603916" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.LithologyRelation" Width="1.5" PointX="10.609847606443729" PointY="26.063437041856087" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Interrel1" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_DictionaryRelationType" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_Lithology" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_Lithology1" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskData_X_ProjectPlanTaskData" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Type" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

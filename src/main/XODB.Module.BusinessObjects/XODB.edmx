@@ -200,7 +200,6 @@
           <EntitySet Name="X_DictionaryWorkTypeClass" EntityType="XODB.Module.BusinessObjects.Store.X_DictionaryWorkTypeClass" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryWorkTypeRelation" EntityType="XODB.Module.BusinessObjects.Store.X_DictionaryWorkTypeRelation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Drilling" EntityType="XODB.Module.BusinessObjects.Store.X_Drilling" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="X_DrillingProjectPlanTask" EntityType="XODB.Module.BusinessObjects.Store.X_DrillingProjectPlanTask" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Experience" EntityType="XODB.Module.BusinessObjects.Store.X_Experience" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_FileData" EntityType="XODB.Module.BusinessObjects.Store.X_FileData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Geology" EntityType="XODB.Module.BusinessObjects.Store.X_Geology" store:Type="Tables" Schema="dbo" />
@@ -221,6 +220,7 @@
           <EntitySet Name="X_LicenseHistory" EntityType="XODB.Module.BusinessObjects.Store.X_LicenseHistory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Lithology" EntityType="XODB.Module.BusinessObjects.Store.X_Lithology" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_LithologyAdjective" EntityType="XODB.Module.BusinessObjects.Store.X_LithologyAdjective" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="X_LithologyRelation" EntityType="XODB.Module.BusinessObjects.Store.X_LithologyRelation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_LithologySedimentaryFeature" EntityType="XODB.Module.BusinessObjects.Store.X_LithologySedimentaryFeature" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Location" EntityType="XODB.Module.BusinessObjects.Store.X_Location" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_LocationAlias" EntityType="XODB.Module.BusinessObjects.Store.X_LocationAlias" store:Type="Tables" Schema="dbo" />
@@ -2147,14 +2147,6 @@
             <End Role="X_Header" EntitySet="X_Header" />
             <End Role="X_Drilling" EntitySet="X_Drilling" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_DrillingProjectPlanTask_X_Drilling" Association="XODB.Module.BusinessObjects.Store.FK_X_DrillingProjectPlanTask_X_Drilling">
-            <End Role="X_Drilling" EntitySet="X_Drilling" />
-            <End Role="X_DrillingProjectPlanTask" EntitySet="X_DrillingProjectPlanTask" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_DrillingProjectPlanTask_X_ProjectPlanTask" Association="XODB.Module.BusinessObjects.Store.FK_X_DrillingProjectPlanTask_X_ProjectPlanTask">
-            <End Role="X_ProjectPlanTask" EntitySet="X_ProjectPlanTask" />
-            <End Role="X_DrillingProjectPlanTask" EntitySet="X_DrillingProjectPlanTask" />
-          </AssociationSet>
           <AssociationSet Name="FK_X_Experience_X_Company" Association="XODB.Module.BusinessObjects.Store.FK_X_Experience_X_Company">
             <End Role="X_Company" EntitySet="X_Company" />
             <End Role="X_Experience" EntitySet="X_Experience" />
@@ -2479,6 +2471,18 @@
             <End Role="X_Header" EntitySet="X_Header" />
             <End Role="X_Lithology" EntitySet="X_Lithology" />
           </AssociationSet>
+          <AssociationSet Name="FK_X_LithologyRelation_X_DictionaryRelationType" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyRelation_X_DictionaryRelationType">
+            <End Role="X_DictionaryRelationType" EntitySet="X_DictionaryRelationType" />
+            <End Role="X_LithologyRelation" EntitySet="X_LithologyRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologyRelation_X_Lithology" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyRelation_X_Lithology">
+            <End Role="X_Lithology" EntitySet="X_Lithology" />
+            <End Role="X_LithologyRelation" EntitySet="X_LithologyRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologyRelation_X_Lithology1" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologyRelation_X_Lithology1">
+            <End Role="X_Lithology" EntitySet="X_Lithology" />
+            <End Role="X_LithologyRelation" EntitySet="X_LithologyRelation" />
+          </AssociationSet>
           <AssociationSet Name="FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature" Association="XODB.Module.BusinessObjects.Store.FK_X_LithologySedimentaryFeature_X_DictionarySedimentaryFeature">
             <End Role="X_DictionarySedimentaryFeature" EntitySet="X_DictionarySedimentaryFeature" />
             <End Role="X_LithologySedimentaryFeature" EntitySet="X_LithologySedimentaryFeature" />
@@ -2746,6 +2750,10 @@
           <AssociationSet Name="FK_X_ProjectPlanTaskComplianceResponse_X_ProjectPlanTaskResponse" Association="XODB.Module.BusinessObjects.Store.FK_X_ProjectPlanTaskComplianceResponse_X_ProjectPlanTaskResponse">
             <End Role="X_ProjectPlanTaskResponse" EntitySet="X_ProjectPlanTaskResponse" />
             <End Role="X_ProjectPlanTaskComplianceResponse" EntitySet="X_ProjectPlanTaskComplianceResponse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_ProjectPlanTaskData_X_ProjectPlanTaskData" Association="XODB.Module.BusinessObjects.Store.FK_X_ProjectPlanTaskData_X_ProjectPlanTaskData">
+            <End Role="X_ProjectPlanTaskData" EntitySet="X_ProjectPlanTaskData" />
+            <End Role="X_ProjectPlanTaskData1" EntitySet="X_ProjectPlanTaskData" />
           </AssociationSet>
           <AssociationSet Name="FK_X_ProjectPlanTaskID_X_ProjectPlanTaskID" Association="XODB.Module.BusinessObjects.Store.FK_X_ProjectPlanTaskID_X_ProjectPlanTaskID">
             <End Role="X_ProjectPlanTask" EntitySet="X_ProjectPlanTask" />
@@ -5211,6 +5219,7 @@
           <Property Name="ComplianceID" Type="uniqueidentifier" />
           <Property Name="TaskID" Type="uniqueidentifier" />
           <Property Name="ExecutePrior" Type="bit" Nullable="false" />
+          <Property Name="Sequence" Type="int" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
           <Property Name="VersionCertainty" Type="int" />
@@ -6683,9 +6692,9 @@
         </EntityType>
         <EntityType Name="X_DictionaryLithologyInterrelation">
           <Key>
-            <PropertyRef Name="LithologyInterralationID" />
+            <PropertyRef Name="LithologyInterrelationID" />
           </Key>
-          <Property Name="LithologyInterralationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LithologyInterrelationID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="StandardLithologyInterrelationName" Type="nvarchar" Nullable="false" MaxLength="16" />
           <Property Name="CoalLithologyInterrelationName" Type="nvarchar" MaxLength="16" />
           <Property Name="GoldLithologyInterrelationName" Type="nvarchar" MaxLength="16" />
@@ -7773,23 +7782,6 @@
           <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
           <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
-        <EntityType Name="X_DrillingProjectPlanTask">
-          <Key>
-            <PropertyRef Name="DrillingProjectPlanTaskID" />
-          </Key>
-          <Property Name="DrillingProjectPlanTaskID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="DrillingID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ProjectPlanTaskID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Version" Type="int" Nullable="false" />
-          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
-          <Property Name="VersionCertainty" Type="int" />
-          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
-          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
-          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
-          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
-          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
-          <Property Name="VersionUpdated" Type="datetime" />
-        </EntityType>
         <EntityType Name="X_Experience">
           <Key>
             <PropertyRef Name="ExperienceID" />
@@ -8342,6 +8334,26 @@
           <Property Name="LithologyAdjectiveID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="LithologyID" Type="uniqueidentifier" />
           <Property Name="AdjectiveID" Type="uniqueidentifier" />
+          <Property Name="Sequence" Type="int" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="X_LithologyRelation">
+          <Key>
+            <PropertyRef Name="LithologyRelationID" />
+          </Key>
+          <Property Name="LithologyRelationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OriginalLithologyID" Type="uniqueidentifier" />
+          <Property Name="RelatedLithologyID" Type="uniqueidentifier" />
+          <Property Name="RelationTypeID" Type="uniqueidentifier" />
+          <Property Name="Related" Type="date" />
           <Property Name="Sequence" Type="int" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
@@ -9288,6 +9300,7 @@
           <Property Name="RelatedTaskID" Type="uniqueidentifier" />
           <Property Name="RelationTypeID" Type="uniqueidentifier" />
           <Property Name="Related" Type="date" />
+          <Property Name="Sequence" Type="int" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
           <Property Name="VersionCertainty" Type="int" />
@@ -9707,6 +9720,7 @@
       -->
         <EntityType Name="M_VW_DictionaryCompositeCoal">
           <Key>
+            
             <PropertyRef Name="DictionaryID" />
           </Key>
           <Property Name="DictionaryName" Type="varchar" Nullable="false" MaxLength="43" />
@@ -9888,6 +9902,7 @@
       -->
         <EntityType Name="X_VW_DictionaryCompositeStandard">
           <Key>
+            
             <PropertyRef Name="DictionaryID" />
           </Key>
           <Property Name="DictionaryName" Type="varchar" Nullable="false" MaxLength="43" />
@@ -14322,30 +14337,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_DrillingProjectPlanTask_X_Drilling">
-          <End Role="X_Drilling" Type="XODB.Module.BusinessObjects.Store.X_Drilling" Multiplicity="1" />
-          <End Role="X_DrillingProjectPlanTask" Type="XODB.Module.BusinessObjects.Store.X_DrillingProjectPlanTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_Drilling">
-              <PropertyRef Name="DrillingID" />
-            </Principal>
-            <Dependent Role="X_DrillingProjectPlanTask">
-              <PropertyRef Name="DrillingID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_DrillingProjectPlanTask_X_ProjectPlanTask">
-          <End Role="X_ProjectPlanTask" Type="XODB.Module.BusinessObjects.Store.X_ProjectPlanTask" Multiplicity="1" />
-          <End Role="X_DrillingProjectPlanTask" Type="XODB.Module.BusinessObjects.Store.X_DrillingProjectPlanTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_ProjectPlanTask">
-              <PropertyRef Name="ProjectPlanTaskID" />
-            </Principal>
-            <Dependent Role="X_DrillingProjectPlanTask">
-              <PropertyRef Name="ProjectPlanTaskID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_X_Experience_X_Company">
           <End Role="X_Company" Type="XODB.Module.BusinessObjects.Store.X_Company" Multiplicity="0..1" />
           <End Role="X_Experience" Type="XODB.Module.BusinessObjects.Store.X_Experience" Multiplicity="*" />
@@ -15167,7 +15158,7 @@
           <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Store.X_Lithology" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="X_DictionaryLithologyInterrelation">
-              <PropertyRef Name="LithologyInterralationID" />
+              <PropertyRef Name="LithologyInterrelationID" />
             </Principal>
             <Dependent Role="X_Lithology">
               <PropertyRef Name="LithologyInterrelationID" />
@@ -15315,6 +15306,42 @@
             </Principal>
             <Dependent Role="X_Lithology">
               <PropertyRef Name="HeaderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologyRelation_X_DictionaryRelationType">
+          <End Role="X_DictionaryRelationType" Type="XODB.Module.BusinessObjects.Store.X_DictionaryRelationType" Multiplicity="0..1" />
+          <End Role="X_LithologyRelation" Type="XODB.Module.BusinessObjects.Store.X_LithologyRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryRelationType">
+              <PropertyRef Name="RelationTypeID" />
+            </Principal>
+            <Dependent Role="X_LithologyRelation">
+              <PropertyRef Name="RelationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologyRelation_X_Lithology">
+          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Store.X_Lithology" Multiplicity="0..1" />
+          <End Role="X_LithologyRelation" Type="XODB.Module.BusinessObjects.Store.X_LithologyRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Lithology">
+              <PropertyRef Name="LithologyID" />
+            </Principal>
+            <Dependent Role="X_LithologyRelation">
+              <PropertyRef Name="OriginalLithologyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologyRelation_X_Lithology1">
+          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Store.X_Lithology" Multiplicity="0..1" />
+          <End Role="X_LithologyRelation" Type="XODB.Module.BusinessObjects.Store.X_LithologyRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Lithology">
+              <PropertyRef Name="LithologyID" />
+            </Principal>
+            <Dependent Role="X_LithologyRelation">
+              <PropertyRef Name="RelatedLithologyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -16119,6 +16146,18 @@
             </Principal>
             <Dependent Role="X_ProjectPlanTaskComplianceResponse">
               <PropertyRef Name="ProjectPlanTaskResponseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_ProjectPlanTaskData_X_ProjectPlanTaskData">
+          <End Role="X_ProjectPlanTaskData" Type="XODB.Module.BusinessObjects.Store.X_ProjectPlanTaskData" Multiplicity="0..1" />
+          <End Role="X_ProjectPlanTaskData1" Type="XODB.Module.BusinessObjects.Store.X_ProjectPlanTaskData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_ProjectPlanTaskData">
+              <PropertyRef Name="ProjectPlanTaskDataID" />
+            </Principal>
+            <Dependent Role="X_ProjectPlanTaskData1">
+              <PropertyRef Name="ParentProjectPlanTaskDataID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -19067,7 +19106,6 @@
           <EntitySet Name="DictionaryWorkTypeClasses" EntityType="XODB.Module.BusinessObjects.DictionaryWorkTypeClass" />
           <EntitySet Name="DictionaryWorkTypeRelations" EntityType="XODB.Module.BusinessObjects.DictionaryWorkTypeRelation" />
           <EntitySet Name="Drillings" EntityType="XODB.Module.BusinessObjects.Drilling" />
-          <EntitySet Name="DrillingProjectPlanTasks" EntityType="XODB.Module.BusinessObjects.DrillingProjectPlanTask" />
           <EntitySet Name="Experiences" EntityType="XODB.Module.BusinessObjects.Experience" />
           <EntitySet Name="FileDatas" EntityType="XODB.Module.BusinessObjects.FileData" />
           <EntitySet Name="Geologies" EntityType="XODB.Module.BusinessObjects.Geology" />
@@ -20977,24 +21015,8 @@
             <End Role="X_FileData" EntitySet="FileDatas" />
             <End Role="X_DictionaryLicenseType" EntitySet="DictionaryLicenseTypes" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionaryLitho_Interrel" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Interrel">
-            <End Role="X_DictionaryLithologyInterrelation" EntitySet="DictionaryLithologyInterrelations" />
-            <End Role="X_Lithology" EntitySet="Lithologies" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile">
-            <End Role="X_FileData" EntitySet="FileDatas" />
-            <End Role="X_DictionaryLithologyInterrelation" EntitySet="DictionaryLithologyInterrelations" />
-          </AssociationSet>
           <AssociationSet Name="FK_X_LithologyData_X_DictionaryLitho_Qual" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Qual">
             <End Role="X_DictionaryLithologyQualifier" EntitySet="DictionaryLithologyQualifiers" />
-            <End Role="X_Lithology" EntitySet="Lithologies" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile">
-            <End Role="X_FileData" EntitySet="FileDatas" />
-            <End Role="X_DictionaryLithologyQualifier" EntitySet="DictionaryLithologyQualifiers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_LithologyData_X_DictionaryLitho_Type" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Type">
-            <End Role="X_DictionaryLithologyType" EntitySet="DictionaryLithologyTypes" />
             <End Role="X_Lithology" EntitySet="Lithologies" />
           </AssociationSet>
           <AssociationSet Name="FK_X_X_DictionaryLithologyType_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyType_X_FileData_OriginalFile">
@@ -21412,14 +21434,6 @@
           <AssociationSet Name="FK_X_DrillingData_X_Header" Association="XODB.Module.BusinessObjects.FK_X_DrillingData_X_Header">
             <End Role="X_Header" EntitySet="Headers" />
             <End Role="X_Drilling" EntitySet="Drillings" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_DrillingProjectPlanTask_X_Drilling" Association="XODB.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_Drilling">
-            <End Role="X_Drilling" EntitySet="Drillings" />
-            <End Role="X_DrillingProjectPlanTask" EntitySet="DrillingProjectPlanTasks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_DrillingProjectPlanTask_X_ProjectPlanTask" Association="XODB.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_ProjectPlanTask">
-            <End Role="X_ProjectPlanTask" EntitySet="ProjectPlanTasks" />
-            <End Role="X_DrillingProjectPlanTask" EntitySet="DrillingProjectPlanTasks" />
           </AssociationSet>
           <AssociationSet Name="FK_X_Experience_X_Location" Association="XODB.Module.BusinessObjects.FK_X_Experience_X_Location">
             <End Role="X_Location" EntitySet="Locations" />
@@ -22570,6 +22584,39 @@
           </AssociationSet>
           <EntitySet Name="DictionaryCompositeCoalViews" EntityType="XODB.Module.BusinessObjects.DictionaryCompositeCoalView" />
           <EntitySet Name="DictionaryCompositeStandardViews" EntityType="XODB.Module.BusinessObjects.DictionaryCompositeStandardView" />
+          <EntitySet Name="LithologyRelations" EntityType="XODB.Module.BusinessObjects.LithologyRelation" />
+          <AssociationSet Name="FK_X_LithologyData_X_DictionaryLitho_Interrel1" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Interrel1">
+            <End Role="DictionaryLithologyInterrelation" EntitySet="DictionaryLithologyInterrelations" />
+            <End Role="Lithology" EntitySet="Lithologies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologyRelation_X_DictionaryRelationType" Association="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_DictionaryRelationType">
+            <End Role="DictionaryRelationType" EntitySet="DictionaryRelationTypes" />
+            <End Role="X_LithologyRelation" EntitySet="LithologyRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologyRelation_X_Lithology" Association="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_Lithology">
+            <End Role="Lithology" EntitySet="Lithologies" />
+            <End Role="X_LithologyRelation" EntitySet="LithologyRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologyRelation_X_Lithology1" Association="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_Lithology1">
+            <End Role="Lithology" EntitySet="Lithologies" />
+            <End Role="X_LithologyRelation" EntitySet="LithologyRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_ProjectPlanTaskData_X_ProjectPlanTaskData" Association="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskData_X_ProjectPlanTaskData">
+            <End Role="ProjectPlanTaskData" EntitySet="ProjectPlanTaskDatas" />
+            <End Role="ProjectPlanTaskData1" EntitySet="ProjectPlanTaskDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile">
+            <End Role="FileData" EntitySet="FileDatas" />
+            <End Role="DictionaryLithologyInterrelation" EntitySet="DictionaryLithologyInterrelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile">
+            <End Role="FileData" EntitySet="FileDatas" />
+            <End Role="DictionaryLithologyQualifier" EntitySet="DictionaryLithologyQualifiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_LithologyData_X_DictionaryLitho_Type" Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Type">
+            <End Role="DictionaryLithologyType" EntitySet="DictionaryLithologyTypes" />
+            <End Role="Lithology" EntitySet="Lithologies" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -24789,6 +24836,7 @@
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Compliance" Relationship="XODB.Module.BusinessObjects.FK_X_ComplianceTask_X_Compliance" FromRole="X_ComplianceTask" ToRole="X_Compliance" />
           <NavigationProperty Name="Task" Relationship="XODB.Module.BusinessObjects.FK_X_ComplianceTask_X_Task" FromRole="X_ComplianceTask" ToRole="X_Task" />
+          <Property Type="Int32" Name="Sequence" />
         </EntityType>
         <EntityType Name="ComplianceWorkType">
           <Key>
@@ -26498,9 +26546,8 @@
         </EntityType>
         <EntityType Name="DictionaryLithologyInterrelation">
           <Key>
-            <PropertyRef Name="LithologyInterralationID" />
+            <PropertyRef Name="LithologyInterrelationID" />
           </Key>
-          <Property Name="LithologyInterralationID" Type="Guid" Nullable="false" />
           <Property Name="StandardLithologyInterrelationName" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
           <Property Name="CoalLithologyInterrelationName" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
           <Property Name="GoldLithologyInterrelationName" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
@@ -26509,8 +26556,6 @@
           <Property Name="FullDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalFileDataID" Type="Guid" />
-          <NavigationProperty Name="Lithology" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Interrel" FromRole="X_DictionaryLithologyInterrelation" ToRole="X_Lithology" />
-          <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" FromRole="X_DictionaryLithologyInterrelation" ToRole="X_FileData" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
           <Property Type="Int32" Name="VersionCertainty" />
@@ -26520,6 +26565,9 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <Property Type="Guid" Name="LithologyInterrelationID" Nullable="false" />
+          <NavigationProperty Name="Lithologies" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Interrel1" FromRole="DictionaryLithologyInterrelation" ToRole="Lithology" />
+          <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" FromRole="DictionaryLithologyInterrelation" ToRole="FileData" />
         </EntityType>
         <EntityType Name="DictionaryLithologyQualifier">
           <Key>
@@ -26535,7 +26583,6 @@
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalFileDataID" Type="Guid" />
           <NavigationProperty Name="Lithology" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Qual" FromRole="X_DictionaryLithologyQualifier" ToRole="X_Lithology" />
-          <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" FromRole="X_DictionaryLithologyQualifier" ToRole="X_FileData" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
           <Property Type="Int32" Name="VersionCertainty" />
@@ -26545,6 +26592,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" FromRole="DictionaryLithologyQualifier" ToRole="FileData" />
         </EntityType>
         <EntityType Name="DictionaryLithologyType">
           <Key>
@@ -26559,7 +26607,6 @@
           <Property Name="FullDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Thumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalFileDataID" Type="Guid" />
-          <NavigationProperty Name="Lithology" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Type" FromRole="X_DictionaryLithologyType" ToRole="X_Lithology" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyType_X_FileData_OriginalFile" FromRole="X_DictionaryLithologyType" ToRole="X_FileData" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
@@ -26570,6 +26617,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="Lithologies" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Type" FromRole="DictionaryLithologyType" ToRole="Lithology" />
         </EntityType>
         <EntityType Name="DictionaryLocationType">
           <Key>
@@ -27190,6 +27238,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="X_LithologyRelation" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_DictionaryRelationType" FromRole="DictionaryRelationType" ToRole="X_LithologyRelation" />
         </EntityType>
         <EntityType Name="DictionaryRockMassUnitType">
           <Key>
@@ -27767,26 +27816,6 @@
           <NavigationProperty Name="DrillSize" Relationship="XODB.Module.BusinessObjects.FK_X_DrillingData_X_DictionaryDrill_Size_Name" FromRole="X_Drilling" ToRole="X_DictionaryDrillSize" />
           <NavigationProperty Name="Interpretation" Relationship="XODB.Module.BusinessObjects.FK_X_DesurveyResult_X_Drilling" FromRole="X_Drilling" ToRole="X_Interpretation" />
           <NavigationProperty Name="Header" Relationship="XODB.Module.BusinessObjects.FK_X_DrillingData_X_Header" FromRole="X_Drilling" ToRole="X_Header" />
-          <NavigationProperty Name="DrillingProjectPlanTask" Relationship="XODB.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_Drilling" FromRole="X_Drilling" ToRole="X_DrillingProjectPlanTask" />
-        </EntityType>
-        <EntityType Name="DrillingProjectPlanTask">
-          <Key>
-            <PropertyRef Name="DrillingProjectPlanTaskID" />
-          </Key>
-          <Property Name="DrillingProjectPlanTaskID" Type="Guid" Nullable="false" />
-          <Property Name="DrillingID" Type="Guid" Nullable="false" />
-          <Property Name="ProjectPlanTaskID" Type="Guid" Nullable="false" />
-          <Property Name="Version" Type="Int32" Nullable="false" />
-          <Property Name="VersionAntecedentID" Type="Guid" />
-          <Property Name="VersionCertainty" Type="Int32" />
-          <Property Name="VersionWorkflowInstanceID" Type="Guid" />
-          <Property Name="VersionUpdatedBy" Type="Guid" />
-          <Property Name="VersionDeletedBy" Type="Guid" />
-          <Property Name="VersionOwnerContactID" Type="Guid" />
-          <Property Name="VersionOwnerCompanyID" Type="Guid" />
-          <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Drilling" Relationship="XODB.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_Drilling" FromRole="X_DrillingProjectPlanTask" ToRole="X_Drilling" />
-          <NavigationProperty Name="ProjectPlanTask" Relationship="XODB.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_ProjectPlanTask" FromRole="X_DrillingProjectPlanTask" ToRole="X_ProjectPlanTask" />
         </EntityType>
         <EntityType Name="Experience">
           <Key>
@@ -27932,8 +27961,6 @@
           <NavigationProperty Name="IntervalStatus" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryIntervalStatus_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryIntervalStatus" />
           <NavigationProperty Name="LeaseApplicationType" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLeaseApplicationType_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryLeaseApplicationType" />
           <NavigationProperty Name="LicenseType" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLicenseType_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryLicenseType" />
-          <NavigationProperty Name="LithologyInterrelation" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryLithologyInterrelation" />
-          <NavigationProperty Name="LithologyQualifier" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryLithologyQualifier" />
           <NavigationProperty Name="LithologyType" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyType_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryLithologyType" />
           <NavigationProperty Name="LocationType" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLocationType_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryLocationType" />
           <NavigationProperty Name="MechanicalState" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryMechanicalState_X_FileData_OriginalFile" FromRole="X_FileData" ToRole="X_DictionaryMechanicalState" />
@@ -27982,6 +28009,8 @@
           <NavigationProperty Name="Geophysics" Relationship="XODB.Module.BusinessObjects.FK_X_Geophysics_X_FileData" FromRole="X_FileData" ToRole="X_Geophysics" />
           <NavigationProperty Name="Opportunity" Relationship="XODB.Module.BusinessObjects.FK_X_Opportunity_X_FileData" FromRole="X_FileData" ToRole="X_Opportunity" />
           <NavigationProperty Name="ProjectDeliverable" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_FileData" FromRole="X_FileData" ToRole="X_ProjectDeliverable" />
+          <NavigationProperty Name="LithologyInterrelations" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" FromRole="FileData" ToRole="DictionaryLithologyInterrelation" />
+          <NavigationProperty Name="LithologyQualifiers" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" FromRole="FileData" ToRole="DictionaryLithologyQualifier" />
         </EntityType>
         <EntityType Name="Geology">
           <Key>
@@ -28523,9 +28552,7 @@
           <NavigationProperty Name="Horizon" Relationship="XODB.Module.BusinessObjects.FK_X_Lithology_X_DictionaryHorizon" FromRole="X_Lithology" ToRole="X_DictionaryHorizon" />
           <NavigationProperty Name="Hue" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryHue" FromRole="X_Lithology" ToRole="X_DictionaryHue" />
           <NavigationProperty Name="IntervalStatus" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryInterval_Status" FromRole="X_Lithology" ToRole="X_DictionaryIntervalStatus" />
-          <NavigationProperty Name="LithologyInterrelation" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Interrel" FromRole="X_Lithology" ToRole="X_DictionaryLithologyInterrelation" />
           <NavigationProperty Name="LithologyQualifier" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Qual" FromRole="X_Lithology" ToRole="X_DictionaryLithologyQualifier" />
-          <NavigationProperty Name="LithologyType" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Type" FromRole="X_Lithology" ToRole="X_DictionaryLithologyType" />
           <NavigationProperty Name="MechanicalState" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryMech_State" FromRole="X_Lithology" ToRole="X_DictionaryMechanicalState" />
           <NavigationProperty Name="MineralAndFossilAbundance" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryMin_Fos_Abund" FromRole="X_Lithology" ToRole="X_DictionaryMineralAndFossilAbundance" />
           <NavigationProperty Name="MineralAndFossilAssociation" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryMin_Fos_Assoc" FromRole="X_Lithology" ToRole="X_DictionaryMineralAndFossilAssociation" />
@@ -28545,6 +28572,10 @@
           <NavigationProperty Name="PrimarySedimentaryFeature" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionarySed_Feature2" FromRole="Lithology" ToRole="DictionarySedimentaryFeature" />
           <NavigationProperty Name="LithologyAdjectives" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyAdjective_X_Lithology" FromRole="Lithology" ToRole="X_LithologyAdjective" />
           <NavigationProperty Name="LithologySedimentaryFeatures" Relationship="XODB.Module.BusinessObjects.FK_X_LithologySedimentaryFeature_X_Lithology" FromRole="Lithology" ToRole="X_LithologySedimentaryFeature" />
+          <NavigationProperty Name="LithologyInterrelation" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Interrel1" FromRole="Lithology" ToRole="DictionaryLithologyInterrelation" />
+          <NavigationProperty Name="ParentLithologies" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_Lithology" FromRole="Lithology" ToRole="X_LithologyRelation" />
+          <NavigationProperty Name="ChildLithologies" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_Lithology1" FromRole="Lithology" ToRole="X_LithologyRelation" />
+          <NavigationProperty Name="LithologyType" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Type" FromRole="Lithology" ToRole="DictionaryLithologyType" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -29085,7 +29116,6 @@
           <NavigationProperty Name="ProjectPlanTaskModel" Relationship="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskModel_X_ProjectPlanTask" FromRole="X_ProjectPlanTask" ToRole="Q_ProjectPlanTaskModel" />
           <NavigationProperty Name="ProjectPlanTaskPart" Relationship="XODB.Module.BusinessObjects.FK_Q_ProjectPlanTaskPart_X_ProjectPlanTask" FromRole="X_ProjectPlanTask" ToRole="Q_ProjectPlanTaskPart" />
           <NavigationProperty Name="WorkType" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTask_X_DictionaryWorkType" FromRole="X_ProjectPlanTask" ToRole="X_DictionaryWorkType" />
-          <NavigationProperty Name="DrillingProjectPlanTask" Relationship="XODB.Module.BusinessObjects.FK_X_DrillingProjectPlanTask_X_ProjectPlanTask" FromRole="X_ProjectPlanTask" ToRole="X_DrillingProjectPlanTask" />
           <NavigationProperty Name="ProjectDeliverable" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_ProjectPlanTask" FromRole="X_ProjectPlanTask" ToRole="X_ProjectDeliverable" />
           <NavigationProperty Name="ProjectPlan" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTask_X_ProjectPlan" FromRole="X_ProjectPlanTask" ToRole="X_ProjectPlan" />
           <NavigationProperty Name="ProjectPlanTasks" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTask_X_ProjectPlanTask" FromRole="X_ProjectPlanTask" ToRole="X_ProjectPlanTask1" />
@@ -29143,6 +29173,8 @@
           <Property Name="VersionOwnerCompanyID" Type="Guid" />
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
           <NavigationProperty Name="ProjectPlanTask" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskID_X_ProjectPlanTaskID" FromRole="X_ProjectPlanTaskData" ToRole="X_ProjectPlanTask" />
+          <NavigationProperty Name="X_ProjectPlanTaskData1" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskData_X_ProjectPlanTaskData" FromRole="ProjectPlanTaskData" ToRole="ProjectPlanTaskData1" />
+          <NavigationProperty Name="X_ProjectPlanTaskData2" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskData_X_ProjectPlanTaskData" FromRole="ProjectPlanTaskData1" ToRole="ProjectPlanTaskData" />
         </EntityType>
         <EntityType Name="ProjectPlanTaskResponse">
           <Key>
@@ -29682,6 +29714,7 @@
           <NavigationProperty Name="RelationType" Relationship="XODB.Module.BusinessObjects.FK_X_TaskRelation_X_DictionaryRelationType" FromRole="X_TaskRelation" ToRole="X_DictionaryRelationType" />
           <NavigationProperty Name="Task" Relationship="XODB.Module.BusinessObjects.FK_X_TaskRelation_X_Task" FromRole="X_TaskRelation" ToRole="X_Task" />
           <NavigationProperty Name="TaskParent" Relationship="XODB.Module.BusinessObjects.FK_X_TaskRelation_X_Task1" FromRole="X_TaskRelation" ToRole="X_Task" />
+          <Property Type="Int32" Name="Sequence" />
         </EntityType>
         <EntityType Name="Tenement">
           <Key>
@@ -35916,30 +35949,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_LithologyData_X_DictionaryLitho_Interrel">
-          <End Role="X_DictionaryLithologyInterrelation" Type="XODB.Module.BusinessObjects.DictionaryLithologyInterrelation" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Lithology" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryLithologyInterrelation">
-              <PropertyRef Name="LithologyInterralationID" />
-            </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="LithologyInterrelationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile">
-          <End Role="X_FileData" Type="XODB.Module.BusinessObjects.FileData" Multiplicity="0..1" />
-          <End Role="X_DictionaryLithologyInterrelation" Type="XODB.Module.BusinessObjects.DictionaryLithologyInterrelation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_FileData">
-              <PropertyRef Name="FileDataID" />
-            </Principal>
-            <Dependent Role="X_DictionaryLithologyInterrelation">
-              <PropertyRef Name="OriginalFileDataID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_X_LithologyData_X_DictionaryLitho_Qual">
           <End Role="X_DictionaryLithologyQualifier" Type="XODB.Module.BusinessObjects.DictionaryLithologyQualifier" Multiplicity="0..1" />
           <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Lithology" Multiplicity="*" />
@@ -35949,30 +35958,6 @@
             </Principal>
             <Dependent Role="X_Lithology">
               <PropertyRef Name="LithologyQualifierID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile">
-          <End Role="X_FileData" Type="XODB.Module.BusinessObjects.FileData" Multiplicity="0..1" />
-          <End Role="X_DictionaryLithologyQualifier" Type="XODB.Module.BusinessObjects.DictionaryLithologyQualifier" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_FileData">
-              <PropertyRef Name="FileDataID" />
-            </Principal>
-            <Dependent Role="X_DictionaryLithologyQualifier">
-              <PropertyRef Name="OriginalFileDataID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_LithologyData_X_DictionaryLitho_Type">
-          <End Role="X_DictionaryLithologyType" Type="XODB.Module.BusinessObjects.DictionaryLithologyType" Multiplicity="0..1" />
-          <End Role="X_Lithology" Type="XODB.Module.BusinessObjects.Lithology" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryLithologyType">
-              <PropertyRef Name="LithologyTypeID" />
-            </Principal>
-            <Dependent Role="X_Lithology">
-              <PropertyRef Name="LithologyTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -37221,30 +37206,6 @@
             </Principal>
             <Dependent Role="X_Drilling">
               <PropertyRef Name="HeaderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_DrillingProjectPlanTask_X_Drilling">
-          <End Role="X_Drilling" Type="XODB.Module.BusinessObjects.Drilling" Multiplicity="1" />
-          <End Role="X_DrillingProjectPlanTask" Type="XODB.Module.BusinessObjects.DrillingProjectPlanTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_Drilling">
-              <PropertyRef Name="DrillingID" />
-            </Principal>
-            <Dependent Role="X_DrillingProjectPlanTask">
-              <PropertyRef Name="DrillingID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_DrillingProjectPlanTask_X_ProjectPlanTask">
-          <End Role="X_ProjectPlanTask" Type="XODB.Module.BusinessObjects.ProjectPlanTask" Multiplicity="1" />
-          <End Role="X_DrillingProjectPlanTask" Type="XODB.Module.BusinessObjects.DrillingProjectPlanTask" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_ProjectPlanTask">
-              <PropertyRef Name="ProjectPlanTaskID" />
-            </Principal>
-            <Dependent Role="X_DrillingProjectPlanTask">
-              <PropertyRef Name="ProjectPlanTaskID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -38693,6 +38654,125 @@
           <Property Type="String" Name="DictionaryCode" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="DictionaryID" Nullable="false" />
         </EntityType>
+        <EntityType Name="LithologyRelation">
+          <Key>
+            <PropertyRef Name="LithologyRelationID" />
+          </Key>
+          <Property Type="Guid" Name="LithologyRelationID" Nullable="false" />
+          <Property Type="Guid" Name="OriginalLithologyID" />
+          <Property Type="Guid" Name="RelatedLithologyID" />
+          <Property Type="Guid" Name="RelationTypeID" />
+          <Property Type="DateTime" Name="Related" Precision="0" />
+          <Property Type="Int32" Name="Sequence" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="RelationType" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_DictionaryRelationType" FromRole="X_LithologyRelation" ToRole="DictionaryRelationType" />
+          <NavigationProperty Name="RelatedLithology" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_Lithology" FromRole="X_LithologyRelation" ToRole="Lithology" />
+          <NavigationProperty Name="OriginalLithology" Relationship="XODB.Module.BusinessObjects.FK_X_LithologyRelation_X_Lithology1" FromRole="X_LithologyRelation" ToRole="Lithology" />
+        </EntityType>
+        <Association Name="FK_X_LithologyData_X_DictionaryLitho_Interrel1">
+          <End Type="XODB.Module.BusinessObjects.DictionaryLithologyInterrelation" Role="DictionaryLithologyInterrelation" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.Lithology" Role="Lithology" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryLithologyInterrelation">
+              <PropertyRef Name="LithologyInterrelationID" />
+            </Principal>
+            <Dependent Role="Lithology">
+              <PropertyRef Name="LithologyInterrelationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologyRelation_X_DictionaryRelationType">
+          <End Type="XODB.Module.BusinessObjects.DictionaryRelationType" Role="DictionaryRelationType" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.LithologyRelation" Role="X_LithologyRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryRelationType">
+              <PropertyRef Name="RelationTypeID" />
+            </Principal>
+            <Dependent Role="X_LithologyRelation">
+              <PropertyRef Name="RelationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologyRelation_X_Lithology">
+          <End Type="XODB.Module.BusinessObjects.Lithology" Role="Lithology" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.LithologyRelation" Role="X_LithologyRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lithology">
+              <PropertyRef Name="LithologyID" />
+            </Principal>
+            <Dependent Role="X_LithologyRelation">
+              <PropertyRef Name="OriginalLithologyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologyRelation_X_Lithology1">
+          <End Type="XODB.Module.BusinessObjects.Lithology" Role="Lithology" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.LithologyRelation" Role="X_LithologyRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lithology">
+              <PropertyRef Name="LithologyID" />
+            </Principal>
+            <Dependent Role="X_LithologyRelation">
+              <PropertyRef Name="RelatedLithologyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_ProjectPlanTaskData_X_ProjectPlanTaskData">
+          <End Type="XODB.Module.BusinessObjects.ProjectPlanTaskData" Role="ProjectPlanTaskData" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.ProjectPlanTaskData" Role="ProjectPlanTaskData1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectPlanTaskData">
+              <PropertyRef Name="ProjectPlanTaskDataID" />
+            </Principal>
+            <Dependent Role="ProjectPlanTaskData1">
+              <PropertyRef Name="ParentProjectPlanTaskDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile">
+          <End Type="XODB.Module.BusinessObjects.FileData" Role="FileData" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.DictionaryLithologyInterrelation" Role="DictionaryLithologyInterrelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileData">
+              <PropertyRef Name="FileDataID" />
+            </Principal>
+            <Dependent Role="DictionaryLithologyInterrelation">
+              <PropertyRef Name="OriginalFileDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile">
+          <End Type="XODB.Module.BusinessObjects.FileData" Role="FileData" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.DictionaryLithologyQualifier" Role="DictionaryLithologyQualifier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileData">
+              <PropertyRef Name="FileDataID" />
+            </Principal>
+            <Dependent Role="DictionaryLithologyQualifier">
+              <PropertyRef Name="OriginalFileDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_LithologyData_X_DictionaryLitho_Type">
+          <End Type="XODB.Module.BusinessObjects.DictionaryLithologyType" Role="DictionaryLithologyType" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.Lithology" Role="Lithology" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryLithologyType">
+              <PropertyRef Name="LithologyTypeID" />
+            </Principal>
+            <Dependent Role="Lithology">
+              <PropertyRef Name="LithologyTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -40573,6 +40653,7 @@
           <EntitySetMapping Name="ComplianceTasks">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.ComplianceTask">
               <MappingFragment StoreEntitySet="X_ComplianceTask">
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
                 <ScalarProperty Name="ComplianceTaskID" ColumnName="ComplianceTaskID" />
                 <ScalarProperty Name="ComplianceID" ColumnName="ComplianceID" />
                 <ScalarProperty Name="TaskID" ColumnName="TaskID" />
@@ -42114,6 +42195,7 @@
           <EntitySetMapping Name="DictionaryLithologyInterrelations">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryLithologyInterrelation">
               <MappingFragment StoreEntitySet="X_DictionaryLithologyInterrelation">
+                <ScalarProperty Name="LithologyInterrelationID" ColumnName="LithologyInterrelationID" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -42123,7 +42205,6 @@
                 <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
                 <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="LithologyInterralationID" ColumnName="LithologyInterralationID" />
                 <ScalarProperty Name="StandardLithologyInterrelationName" ColumnName="StandardLithologyInterrelationName" />
                 <ScalarProperty Name="CoalLithologyInterrelationName" ColumnName="CoalLithologyInterrelationName" />
                 <ScalarProperty Name="GoldLithologyInterrelationName" ColumnName="GoldLithologyInterrelationName" />
@@ -43239,24 +43320,6 @@
                 <ScalarProperty Name="HoleSize" ColumnName="HoleSize" />
                 <ScalarProperty Name="Reamed" ColumnName="Reamed" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
-                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
-                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
-                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
-                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
-                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
-                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
-                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DrillingProjectPlanTasks">
-            <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DrillingProjectPlanTask">
-              <MappingFragment StoreEntitySet="X_DrillingProjectPlanTask">
-                <ScalarProperty Name="DrillingProjectPlanTaskID" ColumnName="DrillingProjectPlanTaskID" />
-                <ScalarProperty Name="DrillingID" ColumnName="DrillingID" />
-                <ScalarProperty Name="ProjectPlanTaskID" ColumnName="ProjectPlanTaskID" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
                 <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
@@ -44764,6 +44827,7 @@
           <EntitySetMapping Name="TaskRelations">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.TaskRelation">
               <MappingFragment StoreEntitySet="X_TaskRelation">
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
                 <ScalarProperty Name="TaskRelationID" ColumnName="TaskRelationID" />
                 <ScalarProperty Name="OriginalTaskID" ColumnName="OriginalTaskID" />
                 <ScalarProperty Name="RelatedTaskID" ColumnName="RelatedTaskID" />
@@ -46027,6 +46091,27 @@
                 <ScalarProperty Name="DictionaryCode" ColumnName="DictionaryCode" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="DictionaryName" ColumnName="DictionaryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LithologyRelations">
+            <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.LithologyRelation">
+              <MappingFragment StoreEntitySet="X_LithologyRelation">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="Related" ColumnName="Related" />
+                <ScalarProperty Name="RelationTypeID" ColumnName="RelationTypeID" />
+                <ScalarProperty Name="RelatedLithologyID" ColumnName="RelatedLithologyID" />
+                <ScalarProperty Name="OriginalLithologyID" ColumnName="OriginalLithologyID" />
+                <ScalarProperty Name="LithologyRelationID" ColumnName="LithologyRelationID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

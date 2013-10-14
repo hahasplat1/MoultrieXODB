@@ -193,7 +193,6 @@ namespace XODB.Module
             this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.DictionaryWorkTypeClass));
             this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.DictionaryWorkTypeRelation));
             this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.Drilling));
-            this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.DrillingProjectPlanTask));
             this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.Experience));
             this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.ExperienceBasicView));
             this.AdditionalExportedTypes.Add(typeof(XODB.Module.BusinessObjects.Geology));
