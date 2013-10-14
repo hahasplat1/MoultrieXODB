@@ -964,6 +964,9 @@
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_LithologyData_X_DictionaryLitho_Type" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.FileDataWorkType" Width="1.5" PointX="10.195848588922921" PointY="7.64067696390705" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_FileDataWorkType_X_DictionaryWorkType" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_FileDataWorkType_X_FileData" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

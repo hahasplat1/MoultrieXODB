@@ -202,6 +202,7 @@
           <EntitySet Name="X_Drilling" EntityType="XODB.Module.BusinessObjects.Store.X_Drilling" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Experience" EntityType="XODB.Module.BusinessObjects.Store.X_Experience" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_FileData" EntityType="XODB.Module.BusinessObjects.Store.X_FileData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="X_FileDataWorkType" EntityType="XODB.Module.BusinessObjects.Store.X_FileDataWorkType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Geology" EntityType="XODB.Module.BusinessObjects.Store.X_Geology" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Geophysics" EntityType="XODB.Module.BusinessObjects.Store.X_Geophysics" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_GeophysicsData" EntityType="XODB.Module.BusinessObjects.Store.X_GeophysicsData" store:Type="Tables" Schema="dbo" />
@@ -2186,6 +2187,14 @@
           <AssociationSet Name="FK_X_FileData_X_Experience" Association="XODB.Module.BusinessObjects.Store.FK_X_FileData_X_Experience">
             <End Role="X_Experience" EntitySet="X_Experience" />
             <End Role="X_FileData" EntitySet="X_FileData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_FileDataWorkType_X_DictionaryWorkType" Association="XODB.Module.BusinessObjects.Store.FK_X_FileDataWorkType_X_DictionaryWorkType">
+            <End Role="X_DictionaryWorkType" EntitySet="X_DictionaryWorkType" />
+            <End Role="X_FileDataWorkType" EntitySet="X_FileDataWorkType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_FileDataWorkType_X_FileData" Association="XODB.Module.BusinessObjects.Store.FK_X_FileDataWorkType_X_FileData">
+            <End Role="X_FileData" EntitySet="X_FileData" />
+            <End Role="X_FileDataWorkType" EntitySet="X_FileDataWorkType" />
           </AssociationSet>
           <AssociationSet Name="FK_X_FileID_X_FileID" Association="XODB.Module.BusinessObjects.Store.FK_X_FileID_X_FileID">
             <End Role="X_FileData" EntitySet="X_FileData" />
@@ -7838,11 +7847,31 @@
           <Property Name="FileName" Type="nvarchar" MaxLength="255" />
           <Property Name="DocumentType" Type="nvarchar" MaxLength="50" />
           <Property Name="MimeType" Type="nvarchar" MaxLength="255" />
-          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="Author" Type="nvarchar" MaxLength="255" />
           <Property Name="FileBytes" Type="varbinary(max)" />
           <Property Name="FileContent" Type="nvarchar(max)" />
           <Property Name="FileChecksum" Type="nvarchar" MaxLength="50" />
           <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="X_FileDataWorkType">
+          <Key>
+            <PropertyRef Name="FileDataWorkTypeID" />
+          </Key>
+          <Property Name="FileDataWorkTypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FileDataID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WorkTypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProcessName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Sequence" Type="int" />
+          <Property Name="Context" Type="nvarchar" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
           <Property Name="VersionCertainty" Type="int" />
@@ -14454,6 +14483,30 @@
             </Principal>
             <Dependent Role="X_FileData">
               <PropertyRef Name="WorkerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_FileDataWorkType_X_DictionaryWorkType">
+          <End Role="X_DictionaryWorkType" Type="XODB.Module.BusinessObjects.Store.X_DictionaryWorkType" Multiplicity="1" />
+          <End Role="X_FileDataWorkType" Type="XODB.Module.BusinessObjects.Store.X_FileDataWorkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryWorkType">
+              <PropertyRef Name="WorkTypeID" />
+            </Principal>
+            <Dependent Role="X_FileDataWorkType">
+              <PropertyRef Name="WorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_FileDataWorkType_X_FileData">
+          <End Role="X_FileData" Type="XODB.Module.BusinessObjects.Store.X_FileData" Multiplicity="1" />
+          <End Role="X_FileDataWorkType" Type="XODB.Module.BusinessObjects.Store.X_FileDataWorkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_FileData">
+              <PropertyRef Name="FileDataID" />
+            </Principal>
+            <Dependent Role="X_FileDataWorkType">
+              <PropertyRef Name="FileDataID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -22617,6 +22670,15 @@
             <End Role="DictionaryLithologyType" EntitySet="DictionaryLithologyTypes" />
             <End Role="Lithology" EntitySet="Lithologies" />
           </AssociationSet>
+          <EntitySet Name="FileDataWorkTypes" EntityType="XODB.Module.BusinessObjects.FileDataWorkType" />
+          <AssociationSet Name="FK_X_FileDataWorkType_X_DictionaryWorkType" Association="XODB.Module.BusinessObjects.FK_X_FileDataWorkType_X_DictionaryWorkType">
+            <End Role="DictionaryWorkType" EntitySet="DictionaryWorkTypes" />
+            <End Role="X_FileDataWorkType" EntitySet="FileDataWorkTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_FileDataWorkType_X_FileData" Association="XODB.Module.BusinessObjects.FK_X_FileDataWorkType_X_FileData">
+            <End Role="FileData" EntitySet="FileDatas" />
+            <End Role="X_FileDataWorkType" EntitySet="FileDataWorkTypes" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -27733,6 +27795,7 @@
           <NavigationProperty Name="ProjectPlanTask" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTask_X_DictionaryWorkType" FromRole="X_DictionaryWorkType" ToRole="X_ProjectPlanTask" />
           <NavigationProperty Name="ProjectPlanTaskResponse" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskResponse_X_DictionaryWorkType" FromRole="X_DictionaryWorkType" ToRole="X_ProjectPlanTaskResponse" />
           <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryWorkType_X_FileData_OriginalFile" FromRole="X_DictionaryWorkType" ToRole="X_FileData" />
+          <NavigationProperty Name="FileDataWorkTypes" Relationship="XODB.Module.BusinessObjects.FK_X_FileDataWorkType_X_DictionaryWorkType" FromRole="DictionaryWorkType" ToRole="X_FileDataWorkType" />
         </EntityType>
         <EntityType Name="DictionaryWorkTypeClass">
           <Key>
@@ -27889,7 +27952,7 @@
           <Property Name="FileName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="DocumentType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="MimeType" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Author" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Author" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="FileBytes" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="FileContent" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="FileChecksum" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -28011,6 +28074,7 @@
           <NavigationProperty Name="ProjectDeliverable" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectDeliverable_X_FileData" FromRole="X_FileData" ToRole="X_ProjectDeliverable" />
           <NavigationProperty Name="LithologyInterrelations" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyInterrelation_X_FileData_OriginalFile" FromRole="FileData" ToRole="DictionaryLithologyInterrelation" />
           <NavigationProperty Name="LithologyQualifiers" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryLithologyQualifier_X_FileData_OriginalFile" FromRole="FileData" ToRole="DictionaryLithologyQualifier" />
+          <NavigationProperty Name="FileDataWorkTypes" Relationship="XODB.Module.BusinessObjects.FK_X_FileDataWorkType_X_FileData" FromRole="FileData" ToRole="X_FileDataWorkType" />
         </EntityType>
         <EntityType Name="Geology">
           <Key>
@@ -38773,6 +38837,52 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="FileDataWorkType">
+          <Key>
+            <PropertyRef Name="FileDataWorkTypeID" />
+          </Key>
+          <Property Type="Guid" Name="FileDataWorkTypeID" Nullable="false" />
+          <Property Type="Guid" Name="FileDataID" Nullable="false" />
+          <Property Type="Guid" Name="WorkTypeID" Nullable="false" />
+          <Property Type="String" Name="ProcessName" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Sequence" />
+          <Property Type="String" Name="Context" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="WorkType" Relationship="XODB.Module.BusinessObjects.FK_X_FileDataWorkType_X_DictionaryWorkType" FromRole="X_FileDataWorkType" ToRole="DictionaryWorkType" />
+          <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_FileDataWorkType_X_FileData" FromRole="X_FileDataWorkType" ToRole="FileData" />
+        </EntityType>
+        <Association Name="FK_X_FileDataWorkType_X_DictionaryWorkType">
+          <End Type="XODB.Module.BusinessObjects.DictionaryWorkType" Role="DictionaryWorkType" Multiplicity="1" />
+          <End Type="XODB.Module.BusinessObjects.FileDataWorkType" Role="X_FileDataWorkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryWorkType">
+              <PropertyRef Name="WorkTypeID" />
+            </Principal>
+            <Dependent Role="X_FileDataWorkType">
+              <PropertyRef Name="WorkTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_FileDataWorkType_X_FileData">
+          <End Type="XODB.Module.BusinessObjects.FileData" Role="FileData" Multiplicity="1" />
+          <End Type="XODB.Module.BusinessObjects.FileDataWorkType" Role="X_FileDataWorkType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileData">
+              <PropertyRef Name="FileDataID" />
+            </Principal>
+            <Dependent Role="X_FileDataWorkType">
+              <PropertyRef Name="FileDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -46112,6 +46222,27 @@
                 <ScalarProperty Name="RelatedLithologyID" ColumnName="RelatedLithologyID" />
                 <ScalarProperty Name="OriginalLithologyID" ColumnName="OriginalLithologyID" />
                 <ScalarProperty Name="LithologyRelationID" ColumnName="LithologyRelationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileDataWorkTypes">
+            <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.FileDataWorkType">
+              <MappingFragment StoreEntitySet="X_FileDataWorkType">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Context" ColumnName="Context" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="WorkTypeID" ColumnName="WorkTypeID" />
+                <ScalarProperty Name="FileDataID" ColumnName="FileDataID" />
+                <ScalarProperty Name="FileDataWorkTypeID" ColumnName="FileDataWorkTypeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
