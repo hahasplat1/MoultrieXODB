@@ -12,26 +12,18 @@ namespace XODB.Import.DataModels
     using System;
     using System.Collections.Generic;
     
-    public partial class X_DictionaryUnit
+    public partial class X_PrivateData
     {
-        public X_DictionaryUnit()
-        {
-            this.X_Parameter = new HashSet<X_Parameter>();
-        }
-    
-        public System.Guid UnitID { get; set; }
-        public string StandardUnitName { get; set; }
-        public string CoalUnitName { get; set; }
-        public string GoldUnitName { get; set; }
-        public string CustomUnitName { get; set; }
-        public string Description { get; set; }
-        public Nullable<bool> StrictlySI { get; set; }
-        public Nullable<System.Guid> EquivalentUnit { get; set; }
-        public Nullable<decimal> EquivalentMultiplier { get; set; }
-        public Nullable<System.Guid> UnitTypeID { get; set; }
-        public string FullDescription { get; set; }
-        public byte[] Thumbnail { get; set; }
-        public Nullable<System.Guid> OriginalFileDataID { get; set; }
+        public System.Guid PrivateDataID { get; set; }
+        public string UniqueID { get; set; }
+        public string UniqueIDSystemDataType { get; set; }
+        public string TableType { get; set; }
+        public Nullable<System.Guid> ReferenceID { get; set; }
+        public string UserDataType { get; set; }
+        public string Value { get; set; }
+        public string SystemDataType { get; set; }
+        public Nullable<bool> IsReadOnly { get; set; }
+        public Nullable<bool> IsVisible { get; set; }
         public int Version { get; set; }
         public Nullable<System.Guid> VersionAntecedentID { get; set; }
         public Nullable<int> VersionCertainty { get; set; }
@@ -41,7 +33,5 @@ namespace XODB.Import.DataModels
         public Nullable<System.Guid> VersionOwnerContactID { get; set; }
         public Nullable<System.Guid> VersionOwnerCompanyID { get; set; }
         public Nullable<System.DateTime> VersionUpdated { get; set; }
-    
-        public virtual ICollection<X_Parameter> X_Parameter { get; set; }
     }
 }

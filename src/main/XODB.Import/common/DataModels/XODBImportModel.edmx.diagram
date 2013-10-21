@@ -23,6 +23,8 @@
         <EntityTypeShape EntityType="XODBImportModel.X_Project" Width="1.5" PointX="1.875" PointY="11.25" />
         <AssociationConnector Association="XODBImportModel.FK_X_BlockModel_X_Project" />
         <AssociationConnector Association="XODBImportModel.FK_X_BlockModelBlockData_X_BlockModel" />
+        <AssociationConnector Association="XODBImportModel.FK_X_Project_X_Project1" />
+        <EntityTypeShape EntityType="XODBImportModel.X_PrivateData" Width="1.5" PointX="4.125" PointY="15" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -14,6 +14,7 @@
           <EntitySet Name="X_MetaData" EntityType="XODBImportModel.Store.X_MetaData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_MetaDataRelation" EntityType="XODBImportModel.Store.X_MetaDataRelation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Parameter" EntityType="XODBImportModel.Store.X_Parameter" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="X_PrivateData" EntityType="XODBImportModel.Store.X_PrivateData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_Project" EntityType="XODBImportModel.Store.X_Project" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_X_BlockModel_X_Project" Association="XODBImportModel.Store.FK_X_BlockModel_X_Project">
             <End Role="X_Project" EntitySet="X_Project" />
@@ -50,6 +51,10 @@
           <AssociationSet Name="FK_X_MetaDataRelation_X_MetaData" Association="XODBImportModel.Store.FK_X_MetaDataRelation_X_MetaData">
             <End Role="X_MetaData" EntitySet="X_MetaData" />
             <End Role="X_MetaDataRelation" EntitySet="X_MetaDataRelation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_Project_X_Project1" Association="XODBImportModel.Store.FK_X_Project_X_Project1">
+            <End Role="X_Project" EntitySet="X_Project" />
+            <End Role="X_Project1" EntitySet="X_Project" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="X_BlockModel">
@@ -221,6 +226,7 @@
             <PropertyRef Name="UnitID" />
           </Key>
           <Property Name="UnitID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UnitTypeID" Type="uniqueidentifier" />
           <Property Name="StrictlySI" Type="bit" />
           <Property Name="EquivalentUnit" Type="uniqueidentifier" />
           <Property Name="EquivalentMultiplier" Type="numeric" Precision="38" Scale="20" />
@@ -229,6 +235,18 @@
           <Property Name="GoldUnitName" Type="nvarchar" MaxLength="16" />
           <Property Name="CustomUnitName" Type="nvarchar" MaxLength="16" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="FullDescription" Type="nvarchar(max)" />
+          <Property Name="Thumbnail" Type="varbinary(max)" />
+          <Property Name="OriginalFileDataID" Type="uniqueidentifier" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
         <EntityType Name="X_MetaData">
           <Key>
@@ -288,11 +306,36 @@
           <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
           <Property Name="VersionUpdated" Type="datetime" />
         </EntityType>
+        <EntityType Name="X_PrivateData">
+          <Key>
+            <PropertyRef Name="PrivateDataID" />
+          </Key>
+          <Property Name="PrivateDataID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UniqueID" Type="nvarchar" MaxLength="255" />
+          <Property Name="UniqueIDSystemDataType" Type="nvarchar" MaxLength="255" />
+          <Property Name="TableType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReferenceID" Type="uniqueidentifier" />
+          <Property Name="UserDataType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Value" Type="nvarchar" MaxLength="255" />
+          <Property Name="SystemDataType" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsReadOnly" Type="bit" />
+          <Property Name="IsVisible" Type="bit" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
         <EntityType Name="X_Project">
           <Key>
             <PropertyRef Name="ProjectID" />
           </Key>
           <Property Name="ProjectID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentProjectID" Type="uniqueidentifier" />
           <Property Name="TenementID" Type="uniqueidentifier" />
           <Property Name="ProjectName" Type="nvarchar" MaxLength="16" />
           <Property Name="ProjectCode" Type="nvarchar" MaxLength="16" />
@@ -416,6 +459,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_X_Project_X_Project1">
+          <End Role="X_Project" Type="XODBImportModel.Store.X_Project" Multiplicity="0..1" />
+          <End Role="X_Project1" Type="XODBImportModel.Store.X_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="X_Project1">
+              <PropertyRef Name="ParentProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -466,6 +521,11 @@
             <End Role="X_BlockModel" EntitySet="X_BlockModel" />
             <End Role="X_BlockModelBlockData" EntitySet="X_BlockModelBlockData" />
           </AssociationSet>
+          <AssociationSet Name="FK_X_Project_X_Project1" Association="XODBImportModel.FK_X_Project_X_Project1">
+            <End Role="X_Project" EntitySet="X_Project" />
+            <End Role="X_Project1" EntitySet="X_Project" />
+          </AssociationSet>
+          <EntitySet Name="X_PrivateData" EntityType="XODBImportModel.X_PrivateData" />
         </EntityContainer>
         <EntityType Name="X_BlockModel">
           <Key>
@@ -577,6 +637,19 @@
           <Property Type="Boolean" Name="StrictlySI" />
           <Property Type="Guid" Name="EquivalentUnit" />
           <Property Type="Decimal" Name="EquivalentMultiplier" Precision="38" Scale="20" />
+          <Property Type="Guid" Name="UnitTypeID" />
+          <Property Type="String" Name="FullDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="Thumbnail" MaxLength="Max" FixedLength="false" />
+          <Property Type="Guid" Name="OriginalFileDataID" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
         </EntityType>
         <EntityType Name="X_Parameter">
           <Key>
@@ -824,6 +897,9 @@
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
           <NavigationProperty Name="X_BlockModel" Relationship="XODBImportModel.FK_X_BlockModel_X_Project" FromRole="X_Project" ToRole="X_BlockModel" />
+          <Property Type="Guid" Name="ParentProjectID" />
+          <NavigationProperty Name="X_Project1" Relationship="XODBImportModel.FK_X_Project_X_Project1" FromRole="X_Project" ToRole="X_Project1" />
+          <NavigationProperty Name="X_Project2" Relationship="XODBImportModel.FK_X_Project_X_Project1" FromRole="X_Project1" ToRole="X_Project" />
         </EntityType>
         <Association Name="FK_X_BlockModel_X_Project">
           <End Type="XODBImportModel.X_Project" Role="X_Project" Multiplicity="1" />
@@ -849,6 +925,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_X_Project_X_Project1">
+          <End Type="XODBImportModel.X_Project" Role="X_Project" Multiplicity="0..1" />
+          <End Type="XODBImportModel.X_Project" Role="X_Project1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="X_Project1">
+              <PropertyRef Name="ParentProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="X_PrivateData">
+          <Key>
+            <PropertyRef Name="PrivateDataID" />
+          </Key>
+          <Property Type="Guid" Name="PrivateDataID" Nullable="false" />
+          <Property Type="String" Name="UniqueID" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UniqueIDSystemDataType" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TableType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="ReferenceID" />
+          <Property Type="String" Name="UserDataType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Value" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SystemDataType" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsReadOnly" />
+          <Property Type="Boolean" Name="IsVisible" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -948,6 +1060,19 @@
           <EntitySetMapping Name="X_DictionaryUnit">
             <EntityTypeMapping TypeName="XODBImportModel.X_DictionaryUnit">
               <MappingFragment StoreEntitySet="X_DictionaryUnit">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="OriginalFileDataID" ColumnName="OriginalFileDataID" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+                <ScalarProperty Name="UnitTypeID" ColumnName="UnitTypeID" />
                 <ScalarProperty Name="EquivalentMultiplier" ColumnName="EquivalentMultiplier" />
                 <ScalarProperty Name="EquivalentUnit" ColumnName="EquivalentUnit" />
                 <ScalarProperty Name="StrictlySI" ColumnName="StrictlySI" />
@@ -1102,6 +1227,7 @@
           <EntitySetMapping Name="X_Project">
             <EntityTypeMapping TypeName="XODBImportModel.X_Project">
               <MappingFragment StoreEntitySet="X_Project">
+                <ScalarProperty Name="ParentProjectID" ColumnName="ParentProjectID" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -1117,6 +1243,31 @@
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
                 <ScalarProperty Name="TenementID" ColumnName="TenementID" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="X_PrivateData">
+            <EntityTypeMapping TypeName="XODBImportModel.X_PrivateData">
+              <MappingFragment StoreEntitySet="X_PrivateData">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="IsReadOnly" ColumnName="IsReadOnly" />
+                <ScalarProperty Name="SystemDataType" ColumnName="SystemDataType" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="UserDataType" ColumnName="UserDataType" />
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+                <ScalarProperty Name="TableType" ColumnName="TableType" />
+                <ScalarProperty Name="UniqueIDSystemDataType" ColumnName="UniqueIDSystemDataType" />
+                <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+                <ScalarProperty Name="PrivateDataID" ColumnName="PrivateDataID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

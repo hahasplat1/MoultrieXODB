@@ -43,6 +43,22 @@ namespace XODB.Import
             return "In XODB.Import";
         }
 
+
+        public int GetXODBVersion(string connString) {
+            int res = 0;
+            XODBImportEntities c = new XODBImportEntities();
+            c.Database.Connection.ConnectionString = connString;
+            DbSet<X_PrivateData> models = c.X_PrivateData;
+            
+            var query = from o in c.X_PrivateData where o.UniqueID.Equals("XODBSchemaVersion") select new { versionNumber = o.Version };
+
+            foreach (var x in query)
+            {
+                res = x.versionNumber;
+            }
+            return res;
+        }
+
         public List<string> GetBMColumns()
         {
             List<string> cols = new List<string>();

@@ -34,5 +34,6 @@ namespace XODB.Import.DataModels
         public DbSet<X_MetaData> X_MetaData { get; set; }
         public DbSet<X_MetaDataRelation> X_MetaDataRelation { get; set; }
         public DbSet<X_Project> X_Project { get; set; }
+        public DbSet<X_PrivateData> X_PrivateData { get; set; }
     }
 }

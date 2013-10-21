@@ -262,5 +262,11 @@ namespace XODB.Import.Client
             return finalStatus;
 
         }
+
+        internal int GetXODBVersion()
+        {
+            BaseImportTools bit = new BaseImportTools();
+            return bit.GetXODBVersion(connectionString);
+        }
     }
 }

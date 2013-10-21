@@ -17,6 +17,7 @@ namespace XODB.Import.DataModels
         public X_Project()
         {
             this.X_BlockModel = new HashSet<X_BlockModel>();
+            this.X_Project1 = new HashSet<X_Project>();
         }
     
         public System.Guid ProjectID { get; set; }
@@ -34,7 +35,10 @@ namespace XODB.Import.DataModels
         public Nullable<System.Guid> VersionOwnerContactID { get; set; }
         public Nullable<System.Guid> VersionOwnerCompanyID { get; set; }
         public Nullable<System.DateTime> VersionUpdated { get; set; }
+        public Nullable<System.Guid> ParentProjectID { get; set; }
     
         public virtual ICollection<X_BlockModel> X_BlockModel { get; set; }
+        public virtual ICollection<X_Project> X_Project1 { get; set; }
+        public virtual X_Project X_Project2 { get; set; }
     }
 }

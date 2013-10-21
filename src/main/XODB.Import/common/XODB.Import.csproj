@@ -63,6 +63,9 @@
     <Compile Include="DataModels\X_Geophysics_Parameter.cs">
       <DependentUpon>XODBImportCollarsEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModels\X_PrivateData.cs">
+      <DependentUpon>XODBImportModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ImportUtils\BlockImport.cs" />
     <Compile Include="ColumnSpecs\ColumnMetaInfo.cs" />
     <Compile Include="ColumnSpecs\FKSpecification.cs" />

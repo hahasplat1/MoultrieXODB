@@ -597,9 +597,13 @@ namespace XODB.Import.Client
         {
               // set up initial data 
             try {
+
+                int version = commandDirector.GetXODBVersion(); ;
                 Dictionary<Guid, string> projects = commandDirector.GetProjectList();
 
                 ComboBoxProjectList.ItemsSource = projects;
+
+                
             }
             catch (Exception ex) { }
         }
