@@ -4,28 +4,22 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using XODB.Import.DataModels;
+using XODB.Module.BusinessObjects;
 
 namespace XODB.Import.ImportUtils
 {
     public class SurveyQueries
     {
-        public XODBImportCollarEntities entityObj { get; set; }
+      
 
 
-        internal void SetEntityObject(XODBImportCollarEntities _entityObj)
-        {
-            entityObj = _entityObj;
-        }
-
-
-        internal List<Guid> CheckForDuplicate(Guid holeID, decimal depth, XODBImportCollarEntities eo)
+        internal List<Guid> CheckForDuplicate(Guid holeID, decimal depth, XODBC eo)
         {
 
             List<Guid> results = new List<Guid>();
             
-            IQueryable<X_Survey> res = eo.X_Survey.Where(c => c.HeaderID == holeID && c.Depth == depth);
-            foreach (X_Survey xs in res) {
+            IQueryable<Survey> res = eo.Surveys.Where(c => c.HeaderID == holeID && c.Depth == depth);
+            foreach (Survey xs in res) {
 
                 
                 results.Add(xs.SurveyID);

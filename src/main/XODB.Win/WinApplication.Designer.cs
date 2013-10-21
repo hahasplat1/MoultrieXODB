@@ -32,8 +32,6 @@ namespace XODB.Win
             this.module2 = new DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule();
             this.sqlConnection1 = new System.Data.SqlClient.SqlConnection();
             this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();
-            this.authenticationActiveDirectory1 = new DevExpress.ExpressApp.Security.AuthenticationActiveDirectory();
-            this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();
             this.reportsWindowsFormsModule1 = new DevExpress.ExpressApp.Reports.Win.ReportsWindowsFormsModule();
             this.reportsModule1 = new DevExpress.ExpressApp.Reports.ReportsModule();
             this.validationWindowsFormsModule1 = new DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule();
@@ -49,21 +47,14 @@ namespace XODB.Win
     "=False";
             this.sqlConnection1.FireInfoMessageEventOnUserErrors = false;
             // 
-            // authenticationActiveDirectory1
+            // securityModule1
             // 
-            this.authenticationActiveDirectory1.CreateUserAutomatically = true;
-            this.authenticationActiveDirectory1.LogonParametersType = null;
-            // 
-            // securityStrategyComplex1
-            // 
-            this.securityStrategyComplex1.Authentication = this.authenticationActiveDirectory1;
-            this.securityStrategyComplex1.RoleType = typeof(DevExpress.ExpressApp.Security.Strategy.SecuritySystemRole);
-            this.securityStrategyComplex1.UserType = typeof(DevExpress.ExpressApp.Security.Strategy.SecuritySystemUser);
+            this.securityModule1.UserType = typeof(DevExpress.ExpressApp.Security.Strategy.SecuritySystemUser);
             // 
             // reportsModule1
             // 
             this.reportsModule1.EnableInplaceReports = true;
-            this.reportsModule1.ReportDataType = typeof(DevExpress.ExpressApp.Reports.ReportData);
+            this.reportsModule1.ReportDataType = typeof(DevExpress.Persistent.BaseImpl.ReportData);
             // 
             // validationModule1
             // 
@@ -83,7 +74,6 @@ namespace XODB.Win
             this.Modules.Add(this.validationModule1);
             this.Modules.Add(this.validationWindowsFormsModule1);
             this.Modules.Add(this.fileAttachmentsWindowsFormsModule1);
-            this.Security = this.securityStrategyComplex1;
             this.TablePrefixes = "";
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.XODBWindowsFormsApplication_DatabaseVersionMismatch);
             this.CustomizeLanguagesList += new System.EventHandler<DevExpress.ExpressApp.CustomizeLanguagesListEventArgs>(this.XODBWindowsFormsApplication_CustomizeLanguagesList);
@@ -99,8 +89,6 @@ namespace XODB.Win
         private XODB.Module.Win.XODBWindowsFormsModule module4;
         private System.Data.SqlClient.SqlConnection sqlConnection1;
         private DevExpress.ExpressApp.Security.SecurityModule securityModule1;
-        private DevExpress.ExpressApp.Security.AuthenticationActiveDirectory authenticationActiveDirectory1;
-        private DevExpress.ExpressApp.Security.SecurityStrategyComplex securityStrategyComplex1;
         private DevExpress.ExpressApp.Reports.Win.ReportsWindowsFormsModule reportsWindowsFormsModule1;
         private DevExpress.ExpressApp.Reports.ReportsModule reportsModule1;
         private DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule validationWindowsFormsModule1;

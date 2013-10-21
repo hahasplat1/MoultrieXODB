@@ -1,0 +1,1139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XODB.Module</RootNamespace>
+    <AssemblyName>XODB.Module</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'EasyTest|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\EasyTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;EASYTEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.ExpressApp.EF.45.v13.1">
+      <HintPath>..\..\..\..\Users\agrosser\Downloads\DevExpress.ExpressApp.EF.45.v13.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.1.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.v13.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.Base.v13.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.BaseImpl.v13.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\XODB.Orchard\src\Orchard.Web\Modules\XODB\bin\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessObjects\aspnet_Applications.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_Membership.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_Membership_GetPasswordWithFormat_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_Membership_GetPassword_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_Membership_GetUserByName_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_Membership_GetUserByUserId_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_Paths.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_Profile.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_Profile_GetProperties_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_Roles.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_SchemaVersions.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_Users.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\aspnet_WebEvent_Events.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\AssociateKeys_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\CompleteKeys_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\CreateServiceDeployment_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\DefinitionIdentityTable.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\DetectRunnableInstances_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_Credit.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_Currency.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_DictionaryTax.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_Invoice.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_InvoiceLine.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_Journal.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_Payment.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_PurchaseOrder.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_Supply.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_SupplyItem.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\E_SupplyItemTax.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\FreeKeys_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\GetWorkflowInstanceStoreVersion_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\IdentityOwnerTable.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Instance.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\InstanceMetadataChangesTable.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\InstancePromotedPropertiesTable.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\InstancePromotedProperty.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\InstancesTable.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\KeysTable.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\LockOwnersTable.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_Account.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_AccountDiscount.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_Asset.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_AssetAlias.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_AssetMaintenance.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_AssetWarranty.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_CompanyAccount.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_ContractAsset.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DeliveryAdvice.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DeliveryAdviceItem.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DicitonaryAssetStatus.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DictionaryDecontaminationStatus.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DictionaryDeliveryAdviceReason.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DictionaryDeviceType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DictionaryEventType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DictionaryPart.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DictionaryPartCategory.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DictionaryPartKit.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DictionaryPartKitItem.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DictionaryProcedure.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_DictionaryWarrantyType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_ModelPart.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_ModelPartKit.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_ModelProcedure.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_ModelProcedureTask.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_ModelProcedureTaskPart.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_ModelScheduleCycle.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_ModelWarranty.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_ProjectPlanTaskModel.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_ProjectPlanTaskPart.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_Recall.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_RecallModel.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_RecallModelAsset.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_SupplierModel.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_SupplierPart.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_Warehouse.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_WarehouseModel.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_WarehouseModelSupplier.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_WarehousePart.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_WarehousePartSupplier.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Q_WorkflowSchedule.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\RunnableInstancesTable.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ServiceDeployment.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ServiceDeploymentsTable.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Split_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\sp_helpdiagrams_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\sysdiagram.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\TryLoadRunnableInstance_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\vw_aspnet_Applications.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\vw_aspnet_MembershipUsers.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\vw_aspnet_Profiles.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\vw_aspnet_Roles.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\vw_aspnet_Users.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\vw_aspnet_UsersInRoles.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\vw_aspnet_WebPartState_Paths.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\vw_aspnet_WebPartState_Shared.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\vw_aspnet_WebPartState_User.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\XODB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XODB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\XODB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\XODB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XODB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Address.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_AssayGroup.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_AssayGroupStandardTestResult.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_AssayGroupTest.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_AssayGroupTestResult.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_AssayGroupTestResultComment.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_AssayGroupTestResultDuplicate.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_BlockModel.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_BlockModelBlock.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_BlockModelBlockData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_BlockModelMetadata.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Casing.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Cementing.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Company.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_CompanyAddress.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_CompanyRelation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_CompanyServer.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Compliance.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ComplianceTask.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ComplianceWorkType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Contact.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ContactAddress.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Contract.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ContractCondition.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ContractConditionModel.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ContractConditionPart.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_CostEstimateModel.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Defect.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Desurvey.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Dictionary.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryAdjective.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryAlteration.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryAssayMethod.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryAssayStandard.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryAssayTest.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryAssayType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryBasalContact.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryBedSpacing.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryCharacteristic.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryCharacteristicType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryColour.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryCommodity.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryContractConditionType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryCoreState.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryCostType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryCountry.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryCountryState.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDataStatus.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDefectCompleteness.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDefectContinuity.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDefectSpacing.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDefectType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDesurveyAlgorithmType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDimension.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDipOrientationMethod.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDomain.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDomainAlias.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDrillBitType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDrillCasingType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDrillFluid.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDrillRigType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryDrillSize.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryEstimatedStrength.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryFailureMode.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryFileType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryFlowTestType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryGasDetected.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryGeodeticDatum.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryGeophysicalLogType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryGroup.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryGroupMembership.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryHeightDatum.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryHolePurpose.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryHoleStatus.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryHoleType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryHorizon.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryHue.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryInfillMode.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryInfillType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryIntervalStatus.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryLeaseApplicationType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryLicenseType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryLithologyInterrelation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryLithologyQualifier.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryLithologyType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryLocationType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryMechanicalState.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryMineralAbundance.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryMineralAndFossilAbundance.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryMineralAndFossilAssociation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryMineralAndFossilType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryMineralForm.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryMineralStyle.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryMineralType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryModel.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryModelCategory.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryModelRelation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryModelStatus.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryMoistureSensitivity.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryPartStatus.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryPlasticity.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryPly.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryPlyAlias.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryPointLoadTestType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryPosition.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryProfession.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryProvinceGroup.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryProvinceType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryRelationType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryRockMassUnitType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionarySampleCategory.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionarySampleState.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionarySampleType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionarySeam.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionarySeamAlias.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionarySedimentaryFeature.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryShade.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryShape.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryStratigraphy.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionarySurfaceRoughness.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionarySurveyAccuracy.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryTexture.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryUnit.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryUnitType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryUsageAuditType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryWeathering.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryWorkType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryWorkTypeClass.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DictionaryWorkTypeRelation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Drilling.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_DrillingProjectPlanTask.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Experience.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_FileData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Geology.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Geophysics.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_GeophysicsData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_GeophysicsMetadata.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Header.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_HeaderGeophysicalLog.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_HeaderRelation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Interpretation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_InterpretationData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Lease.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_LeaseApplication.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_License.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_LicenseAsset.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_LicenseAssetModelPart.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_LicenseHistory.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Lithology.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Location.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_LocationAlias.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_LocationData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_LocationHistory.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_MetaData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_MetaDataRelation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Mineralogy.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ModelCharacteristic.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Opportunity.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Parameter.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ParameterDuplicate.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ParameterGroup.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_PartCharacteristic.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_PointLoad.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_PrivateData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Project.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProjectDeliverable.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProjectPlan.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProjectPlanTask.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProjectPlanTaskComplianceResponse.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProjectPlanTaskData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProjectPlanTaskResponse.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProjectPlanTaskResponseData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProjectPlanTaskWorker.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProspectusProject.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProspectusProjectCommodity.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Province.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProvinceAlias.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProvinceData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ProvinceRelation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Recovery.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Sample.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_SecurityBlacklist.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_SecurityWhitelist.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Server.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_ServerApplication.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_SP_GetAllGeophysics_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_SP_GetExperienceView_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_SP_GetLocationDocs_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_SP_GetProvinceDocs_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_SP_GetSecuredAccessors_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_SP_GetSpatialDocs_Result.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Survey.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Task.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_TaskData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_TaskRelation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Tenement.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_TenementCommodity.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_TenementProvince.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_TenementRelation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_Usage.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_UsageAudit.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_UserData.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_ALLPARAMSTEST.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_Company.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_DictionaryHeader.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_ExperienceBasicView.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_License.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_ModelsCurrent.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_ModelStatus.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_ProjectModelsAwaitingAuthorisation.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_ProjectStatus.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_SurveyViews.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_VW_WorkType.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\X_WaterFlow.cs">
+      <DependentUpon>XODB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Package.cs" />
+    <Compile Include="Module.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Module.Designer.cs">
+      <DependentUpon>Module.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DatabaseUpdate\Updater.cs" />
+    <Compile Include="MAPI.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Module.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="BusinessObjects\XODB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>XODB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BusinessObjects\XODB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>XODB.edmx</DependentUpon>
+      <LastGenOutput>XODB.Context.cs</LastGenOutput>
+    </None>
+    <None Include="BusinessObjects\XODB.edmx.diagram">
+      <DependentUpon>XODB.edmx</DependentUpon>
+    </None>
+    <None Include="BusinessObjects\XODB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>XODB.edmx</DependentUpon>
+      <LastGenOutput>XODB.cs</LastGenOutput>
+    </None>
+    <None Include="DatabaseUpdate\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BusinessObjects\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controllers\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FunctionalTests\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FunctionalTests\Sample.ets" />
+    <None Include="FunctionalTests\WebSample.ets" />
+    <None Include="Images\ReadMe.txt" />
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+    <None Include="packages.config" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FunctionalTests\Config.xml" />
+    <Content Include="Resources\close.sql" />
+    <Content Include="Resources\backup.sql" />
+    <None Include="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\v3.sql" />
+    <None Include="Resources\v2.sql" />
+    <None Include="Resources\script_schema.sql" />
+    <None Include="Resources\script.sql" />
+    <EmbeddedResource Include="Images\LogoCMYK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

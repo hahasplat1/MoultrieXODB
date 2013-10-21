@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using XODB.Import.DataModels;
+using XODB.Module.BusinessObjects;
 
 namespace XODB.Import.ImportUtils
 {
@@ -11,11 +11,11 @@ namespace XODB.Import.ImportUtils
     {
 
 
-        internal X_DictionaryUnit FindUnits(string theUnit)
+        internal DictionaryUnit FindUnits(string theUnit)
         {
-            XODBImportEntities xm = new XODBImportEntities();
+            var entityObj = new XODBC(BaseImportTools.XSTRING, null);
             
-            X_DictionaryUnit xd = (from c in xm.X_DictionaryUnit where c.StandardUnitName.Trim().Equals(theUnit) select c).FirstOrDefault();
+            DictionaryUnit xd = (from c in entityObj.DictionaryUnits where c.StandardUnitName.Trim().Equals(theUnit) select c).FirstOrDefault();
             return xd;
 
         }

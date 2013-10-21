@@ -1,0 +1,796 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1B5A2A6B-28E0-4A54-9CA4-147C925F3BBB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XODB</RootNamespace>
+    <AssemblyName>XODB</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=2.6.3.862, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\..\..\..\lib\autofac\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v13.1.Core, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v13.1.Core, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v13.1.Core, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v13.1.Core, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.SpellChecker.v13.1.Core, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    
+    <Reference Include="DevExpress.Web.ASPxGauges.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    
+    
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    
+    <Reference Include="DevExpress.Web.ASPxScheduler.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxScheduler.v13.1.Design, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxSpellChecker.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxThemes.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxTreeList.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    
+    <Reference Include="DevExpress.Web.Mvc.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.1.Extensions, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.1.UI, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.1.Web, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v13.1.Core, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.1.Extensions, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.1.Web, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v13.1.Reporting.Extensions, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v13.1, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v13.1.Core, Version=13.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ImpromptuInterface">
+      <HintPath>..\..\..\..\lib\impromptu-interface-bin\ImpromptuInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Placement.info">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Models\Models.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Models.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="Models\BMMetaData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BMMetaData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery.linq.min.js" />
+    <Content Include="Scripts\XODB.utils.js" />
+    <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\XODB.jquery.dynamic.js" />
+    <Content Include="Scripts\XODB.maps.js" />
+    <Content Include="Styles\menu.xodb-projects-admin.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Styles\xodb-projects-admin.css" />
+    <Content Include="Web.config" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Scripts\Web.config" />
+    <Content Include="Styles\Web.config" />
+    <Content Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Module.txt" />
+    <Content Include="Views\Admin\Add.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Widget-ProjectInfoWidget.cshtml" />
+    <Content Include="Views\ProjectInfo.cshtml" />
+    <Content Include="Views\User\EditModel.cshtml" />
+    <Content Include="Views\User\Header.cshtml" />
+    <Content Include="Views\XODB.Projects.DeleteButton.cshtml" />
+    <Content Include="Views\Parts.XODB.Projects.cshtml" />
+    <Content Include="Views\User\ProjectListPartial.cshtml" />
+    <Content Include="Views\User\ProjectList.cshtml" />
+    <Content Include="Views\EditorTemplates\UserSync.Settings.cshtml" />
+    <Content Include="Views\User\AppendToModel.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts\XODB.Settings.cshtml" />
+    <Content Include="Views\User\ModelParameters.cshtml" />
+    <Content Include="Views\User\ModelParametersPartial.cshtml" />
+    <Content Include="Views\User\ModelParametersEdit.cshtml" />
+    <Content Include="Views\User\AuthoriseModel.cshtml" />
+    <Content Include="Views\User\AuthoriseModelParametersPartial.cshtml" />
+    <Content Include="Views\User\AuthoriseModelUpdatesPartial.cshtml" />
+    <Content Include="Views\User\EditProject.cshtml" />
+    <Content Include="Views\User\CompareModel.cshtml" />
+    <Content Include="Views\User\CompareModelResult.cshtml" />
+    <Content Include="Views\User\ModelList.cshtml" />
+    <Content Include="Views\User\ModelListPartial.cshtml" />
+    <Content Include="Views\User\ModelsToAuthoriseListPartial.cshtml" />
+    <Content Include="Views\User\ModelsToAuthoriseList.cshtml" />
+    <Content Include="Views\User\UploadModel.cshtml" />
+    <Content Include="Views\User\UploadModelResult.cshtml" />
+    <Content Include="Views\User\ImportModelProcessStart.cshtml" />
+    <Content Include="Views\User\CompareModelResultPartial.cshtml" />
+    <Content Include="Views\User\CompareModelParametersPartial.cshtml" />
+    <Content Include="Views\User\ImportModel.cshtml" />
+    <Content Include="Views\User\AppendToModelProcessStart.cshtml" />
+    <Content Include="Views\User\AppendToModelProcessGo.cshtml" />
+    <Content Include="Views\User\Unauthorized.cshtml" />
+    <Content Include="Views\User\ModelPivot.cshtml" />
+    <Content Include="Views\User\ModelPivotPartial.cshtml" />
+    <Content Include="Views\User\ModelPivotChartPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\XODB.Import\common\XODB.Import.csproj">
+      <Project>{4814c95d-0008-495a-b627-e3feda2fb1a4}</Project>
+      <Name>XODB.Import</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
+      <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
+      <Name>Orchard.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
+      <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
+      <Name>Orchard.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Email\Orchard.Email.csproj">
+      <Project>{05660f47-d649-48bd-9ded-df4e01e7cff9}</Project>
+      <Name>Orchard.Email</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Media\Orchard.Media.csproj">
+      <Project>{d9a7b330-cd22-4da1-a95a-8de1982ad8eb}</Project>
+      <Name>Orchard.Media</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Roles\Orchard.Roles.csproj">
+      <Project>{d10ad48f-407d-4db5-a328-173ec7cb010f}</Project>
+      <Name>Orchard.Roles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Users\Orchard.Users.csproj">
+      <Project>{79aed36e-abd0-4747-93d3-8722b042454b}</Project>
+      <Name>Orchard.Users</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminMenu.cs" />
+    <Compile Include="Handlers\BlockModelHandler.cs" />
+    <Compile Include="Handlers\EmailHandler.cs" />
+    <Compile Include="Handlers\FileGeneratingResult.cs" />
+    <Compile Include="Helpers\CacheHelper.cs" />
+    <Compile Include="Helpers\DataReaderEnumerable.cs" />
+    <Compile Include="Helpers\DateHelper.cs" />
+    <Compile Include="Helpers\DocHelper.cs" />
+    <Compile Include="Helpers\InterfaceHelper.cs" />
+    <Compile Include="Helpers\LinqHelper.cs" />
+    <Compile Include="Helpers\NetworkHelper.cs" />
+    <Compile Include="Helpers\SpatialHelper.cs" />
+    <Compile Include="Helpers\StringHelper.cs" />
+    <Compile Include="Helpers\TaskHelper.cs" />
+    <Compile Include="Models\Application.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Assays.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assays.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlockModelPart.cs" />
+    <Compile Include="Models\Company.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyAddress.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompanyRelation.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactAddress.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contacts.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contacts.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contacts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contacts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contacts.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExperienceContainer.cs" />
+    <Compile Include="Models\Experience.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Experience.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Experience.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Experience.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Experience1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Experience.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpatialContainer.cs" />
+    <Compile Include="Models\Content.designer.cs">
+      <DependentUpon>Content.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\Copy of ContactsContainer.cs" />
+    <Compile Include="Models\Experience.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Location.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LocationAlias.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LocationData.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LocationHistories.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Province.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProvinceData.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProvinceRelation.cs">
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecurityBlacklist.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecurityWhitelist.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Software.designer.cs">
+      <DependentUpon>Software.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\Geophysics.designer.cs">
+      <DependentUpon>Geophysics.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\EmailPart.cs" />
+    <Compile Include="Models\IMessage.cs" />
+    <Compile Include="Models\ShellTask.cs" />
+    <Compile Include="Models\Spatial.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Spatial.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Spatial.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Spatial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Spatial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Spatial.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Contacts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\X_VW_ExperienceBasicView.cs">
+      <DependentUpon>Experience.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AssaysReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\AssaysReport.Designer.cs">
+      <DependentUpon>AssaysReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\GeophysicsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GeophysicsReport.Designer.cs">
+      <DependentUpon>GeophysicsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AppendModelScheduledTaskHandler.cs" />
+    <Compile Include="Services\Authority.cs" />
+    <Compile Include="Services\ConcurrentTaskService.cs" />
+    <Compile Include="Services\AssayService.cs" />
+    <Compile Include="Services\ISpatialService.cs" />
+    <Compile Include="Services\SpatialService.cs" />
+    <Compile Include="Services\IAuthority.cs" />
+    <Compile Include="Services\IGeophysicsService.cs" />
+    <Compile Include="Services\GeophysicsService.cs" />
+    <Compile Include="Services\IAssayService.cs" />
+    <Compile Include="Services\IConcurrentTaskService.cs" />
+    <Compile Include="Services\EmailScheduledTaskHandler.cs" />
+    <Compile Include="Services\ProcessModelScheduledTaskHandler.cs" />
+    <Compile Include="ViewModels\AssayReportViewModel.cs" />
+    <Compile Include="Models\ISecured.cs" />
+    <Compile Include="Models\ISecuredDetailed.cs" />
+    <Compile Include="ViewModels\IFileData.cs" />
+    <Compile Include="ViewModels\GeophysicsReportViewModel.cs" />
+    <Compile Include="Models\ISecurable.cs" />
+    <Compile Include="XODBModule.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Drivers\ProjectPartDriver.cs" />
+    <Compile Include="Drivers\UserSyncSettingsPartDriver.cs" />
+    <Compile Include="Events\EmailMessageHandler.cs" />
+    <Compile Include="Fields\UserGuidField.cs" />
+    <Compile Include="Fields\GuidField.cs" />
+    <Compile Include="Handlers\UserSyncSettingsPartHandler.cs" />
+    <Compile Include="Handlers\XODBSettingsPartHandler.cs" />
+    <Compile Include="Handlers\XODBInfoWidgetHandler.cs" />
+    <Compile Include="Helpers\BMImportHelper.cs" />
+    <Compile Include="Helpers\BusinessHelper.cs" />
+    <Compile Include="Helpers\DBHelper.cs" />
+    <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Models\BMMetaData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BMMetaData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CompareModelReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CompareModelReport.Designer.cs">
+      <DependentUpon>CompareModelReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IPrivateDataService.cs" />
+    <Compile Include="Services\PrivateDataService.cs" />
+    <Compile Include="Helpers\ObjectHelper.cs" />
+    <Compile Include="Helpers\ReportHelper.cs" />
+    <Compile Include="Helpers\UIHelper.cs" />
+    <Compile Include="Migrations.cs" />
+    <Compile Include="Models\Models.designer.cs">
+      <DependentUpon>Models.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Models\Occurrence.cs" />
+    <Compile Include="Models\OwnerGuidPart.cs" />
+    <Compile Include="Models\UserSyncSettingsPart.cs" />
+    <Compile Include="Models\ProjectPart.cs" />
+    <Compile Include="Models\XODBSettingsPart.cs" />
+    <Compile Include="Models\Projects.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Projects.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Permissions.cs" />
+    <Compile Include="Reports\AllReports.cs" />
+    <Compile Include="ResourceManifest.cs" />
+    <Compile Include="Route.cs" />
+    <Compile Include="Routing\BlogPathConstraint.cs" />
+    <Compile Include="Routing\IBlogPathConstraint.cs" />
+    <Compile Include="Security\ProjectAuthorizationEventHandler.cs" />
+    <Compile Include="Services\BlockModelService.cs" />
+    <Compile Include="Services\ModelCheckerBackgroundTask.cs" />
+    <Compile Include="Services\IParametersService.cs" />
+    <Compile Include="Services\ParametersService.cs" />
+    <Compile Include="Services\IBlockModelService.cs" />
+    <Compile Include="Services\UsersService.cs" />
+    <Compile Include="Services\IUsersService.cs" />
+    <Compile Include="Services\UsersSyncBackgroundTask.cs" />
+    <Compile Include="Services\IProjectsService.cs" />
+    <Compile Include="Services\ProjectsService.cs" />
+    <Compile Include="Services\XmlRpcHandler.cs" />
+    <Compile Include="ViewModels\BlockModelUploadViewModel.cs" />
+    <Compile Include="ViewModels\BlockModelViewModel.cs" />
+    <Compile Include="ViewModels\BlockModelAppendViewModel.cs" />
+    <Compile Include="ViewModels\BlockModelParameterViewModel.cs" />
+    <Compile Include="ViewModels\BlockModelApproveViewModel.cs" />
+    <Compile Include="ViewModels\BlockModelCompareViewModel.cs" />
+    <Compile Include="ViewModels\IReport.cs" />
+    <Compile Include="ViewModels\ProjectViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Media\" />
+    <Folder Include="Styles\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Projects.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Projects.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Geophysics.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Geophysics.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Models\Software.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Software.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Models\Content.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Content.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <EntityDeploy Include="Models\Contacts.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Contacts.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Contacts.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Contacts.edmx</DependentUpon>
+      <LastGenOutput>Contacts.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Contacts.edmx.diagram">
+      <DependentUpon>Contacts.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Contacts.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Contacts.edmx</DependentUpon>
+      <LastGenOutput>Contacts.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\Experience.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Experience.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Experience.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Experience.edmx</DependentUpon>
+      <LastGenOutput>Experience.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Experience.edmx.diagram">
+      <DependentUpon>Experience.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Experience.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Experience.edmx</DependentUpon>
+      <LastGenOutput>Experience1.cs</LastGenOutput>
+    </Content>
+    <None Include="Models\Projects.dbml.layout">
+      <DependentUpon>Projects.dbml</DependentUpon>
+    </None>
+    <Content Include="Views\User\ReportGeophysics.cshtml" />
+    <EntityDeploy Include="Models\Spatial.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Spatial.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Spatial.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Spatial.edmx</DependentUpon>
+      <LastGenOutput>Spatial.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Spatial.edmx.diagram">
+      <DependentUpon>Spatial.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Spatial.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Spatial.edmx</DependentUpon>
+      <LastGenOutput>Spatial.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Models.dbml.layout">
+      <DependentUpon>Models.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Geophysics.dbml.layout">
+      <DependentUpon>Geophysics.dbml</DependentUpon>
+    </None>
+    <None Include="Models\Software.dbml.layout">
+      <DependentUpon>Software.dbml</DependentUpon>
+    </None>
+    <None Include="Models\Content.dbml.layout">
+      <DependentUpon>Content.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Reports\GeophysicsReport.resx">
+      <DependentUpon>GeophysicsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Models\Assays.dbml.layout">
+      <DependentUpon>Assays.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Reports\CompareModelReport.resx">
+      <DependentUpon>CompareModelReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Models\BMMetaData.dbml.layout">
+      <DependentUpon>BMMetaData.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\AssaysReport.resx">
+      <DependentUpon>AssaysReport.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\ReportAssays.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Assays.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Assays.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" DependsOnTargets="AfterBuildCompiler">
+    <PropertyGroup>
+      <AreasManifestDir>$(ProjectDir)\..\Manifests</AreasManifestDir>
+    </PropertyGroup>
+    <!-- If this is an area child project, uncomment the following line:
+    <CreateAreaManifest AreaName="$(AssemblyName)" AreaType="Child" AreaPath="$(ProjectDir)" ManifestPath="$(AreasManifestDir)" ContentFiles="@(Content)" />
+    -->
+    <!-- If this is an area parent project, uncomment the following lines:
+    <CreateAreaManifest AreaName="$(AssemblyName)" AreaType="Parent" AreaPath="$(ProjectDir)" ManifestPath="$(AreasManifestDir)" ContentFiles="@(Content)" />
+    <CopyAreaManifests ManifestPath="$(AreasManifestDir)" CrossCopy="false" RenameViews="true" />
+    -->
+  </Target>
+  <Target Name="AfterBuildCompiler" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

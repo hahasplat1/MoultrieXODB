@@ -37,8 +37,8 @@ namespace XODB.Module.Win.Editors
         }
     }
 
-    [PropertyEditor(typeof(XODB.Module.BusinessObjects.XODB.File), true)]
-    public class FileEditor : DXPropertyEditor, IComplexPropertyEditor
+    [PropertyEditor(typeof(XODB.Module.BusinessObjects.FileData), true)]
+    public class FileEditor : DXPropertyEditor, IComplexViewItem
     {
         public FileEditor(Type objectType, DevExpress.ExpressApp.Model.IModelMemberViewItem model)
             : base(objectType, model)

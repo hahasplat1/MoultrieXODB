@@ -16,7 +16,7 @@ using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using DevExpress.Data.Filtering;
-using XODB.Module.BusinessObjects.XODB;
+using XODB.Module.BusinessObjects;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.Persistent.Base;
@@ -40,11 +40,14 @@ namespace XODB.Module.Win.Controllers
 
             try
             {
-                XPLiteObject o = e.Action.SelectionContext.CurrentObject as XPLiteObject;
-                var value = o.This.GetType().GetProperty(o.ClassInfo.KeyProperty.Name).GetValue(o.This) as Guid?;
-                var table = o.ClassInfo.TableName;
-
                 IObjectSpace objectSpace = Application.CreateObjectSpace();
+
+                var o = (System.Data.Objects.DataClasses.EntityObject)e.Action.SelectionContext.CurrentObject;
+                var c = ((DevExpress.ExpressApp.EF.EFObjectSpace)objectSpace).ObjectContext;
+                var table = XODB.Module.BusinessObjects.BusinessObjectHelper.GetTableName(c, e.Action.SelectionContext.CurrentObject.GetType());
+                var value = (Guid)o.EntityKey.EntityKeyValues[0].Value;
+
+                
                 CollectionSource collectionSource = new CollectionSource(objectSpace, typeof(FileData));
                 CriteriaOperator c1 = new BinaryOperator(
                     new OperandProperty("TableType"), table,

@@ -1,19 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
-  <BOModel>
-    <Class Name="XODB.Module.BusinessObjects.XODB.FileData">
-      <OwnMembers>
-        <Member Name="FileBytes" PropertyEditorType="XODB.Module.Win.Editors.FileEditor" />
-      </OwnMembers>
-    </Class>
-  </BOModel>
+  <Options Skin="Office 2013 Light Gray" UIType="TabbedMDI" UseServerMode="True" />
   <SchemaModules>
-    <SchemaModule Name="SystemModule" Version="12.1.8.0" IsNewNode="True" />
-    <SchemaModule Name="SystemWindowsFormsModule" Version="12.1.8.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="13.1.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="13.1.7.0" IsNewNode="True" />
   </SchemaModules>
   <ViewItems>
     <PropertyEditor Name="PropertyEditors">
-      <RegisteredPropertyEditor PropertyType="System.Decimal" EditorType="XODB.Module.Win.GeoDecimalEditor" />
+      <RegisteredPropertyEditor PropertyType="System.Decimal" EditorType="XODB.Module.Win.GeoDecimalEditor" DefaultDisplayFormat="{0:n}" DefaultEditMask="n" />
     </PropertyEditor>
   </ViewItems>
 </Application>

@@ -4,8 +4,12 @@ using System.ComponentModel;
 using DevExpress.ExpressApp.Win;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.Xpo;
 using System.Data.SqlClient;
+using XODB.Module.BusinessObjects;
+using DevExpress.ExpressApp.EF;
+using DevExpress.ExpressApp.DC;
+using DevExpress.ExpressApp.Xpo;
+using System.Configuration;
 namespace XODB.Win
 {
     public partial class XODBWindowsFormsApplication : WinApplication
@@ -18,7 +22,9 @@ namespace XODB.Win
 
         protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args)
         {
-            args.ObjectSpaceProvider = new XPObjectSpaceProvider(args.ConnectionString, args.Connection);
+            args.ObjectSpaceProviders.Add(new EFObjectSpaceProvider(typeof(XODBC), (TypesInfo)TypesInfo, null, args.ConnectionString, "res://XODB.Module.BusinessObjects/XODB.csdl|res://XODB.Module.BusinessObjects/XODB.ssdl|res://XODB.Module.BusinessObjects/XODB.msl", "System.Data.SqlClient"));
+            //args.ObjectSpaceProviders.Add(new EFObjectSpaceProviderCF(typeof(XODBC), (TypesInfo)TypesInfo, null, args.ConnectionString));
+            args.ObjectSpaceProviders.Add(new XPObjectSpaceProvider(args.ConnectionString, null));            
         }
         private void XODBWindowsFormsApplication_DatabaseVersionMismatch(object sender, DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs e)
         {
@@ -28,18 +34,14 @@ namespace XODB.Win
 #else
             if (true || System.Diagnostics.Debugger.IsAttached)
             {
+                var ud = ConfigurationManager.AppSettings.Get("XODBUpdateData");
+                bool bud;
+                if (bool.TryParse(ud, out bud))
+                    XODB.Module.DatabaseUpdate.Updater.UpdateData = bud;
                 var ex = e.Updater.CheckCompatibility();
                 if (ex is CompatibilityUnableToOpenDatabaseError && ex.Exception is SqlException)
                 {
-                    using (SqlConnection sql = new SqlConnection())
-                    {
-                        sql.ConnectionString = this.ConnectionString;
-                        sql.ConnectionString = sql.ConnectionString.Replace("Initial Catalog=XODB", "Initial Catalog=master");
-                        sql.Open();
-                        var cmd = new SqlCommand("CREATE DATABASE XODB", sql);
-                        cmd.ExecuteNonQuery();
-                        cmd.Connection.Close();
-                    }
+                    XODB.Module.DatabaseUpdate.Updater.RestoreSQLFromZip(this.ConnectionString);
                 }
                 SqlConnection.ClearAllPools();
                 e.Updater.ForceUpdateDatabase = true;

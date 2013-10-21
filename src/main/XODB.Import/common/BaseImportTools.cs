@@ -10,37 +10,37 @@ using System.Text;
 using System.Threading.Tasks;
 using XODB.Import;
 using XODB.Import.ColumnSpecs;
-using XODB.Import.DataModels;
 using XODB.Import.DataWrappers;
 using XODB.Import.FormatSpecification;
 using XODB.Import.ImportUtils;
 using Xstract.Import.LAS;
+using XODB.Module.BusinessObjects;
 
 namespace XODB.Import
 {
     public class BaseImportTools
     {
         System.ComponentModel.BackgroundWorker currentWorker = null;
-
+        public static string XSTRING = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
         public BaseImportTools() { }
 
         public string TestConnection(string connString) {
 
-            XODBImportEntities resourceModels = new XODBImportEntities();
-            resourceModels.Database.Connection.ConnectionString = connString;
-            // talk to the import lib to do the import
-            DbSet<X_BlockModel> models = resourceModels.X_BlockModel;
-            var query = from X_BlockModel in models select new { X_BlockModel.BlockModelID, X_BlockModel.OriginX, X_BlockModel.OriginY, X_BlockModel.OriginZ, X_BlockModel.ProjectID };
-
-            foreach (X_BlockModel bm in models)
+            using (var entityObj = new XODBC(connString, null))
             {
-                Guid gu = bm.BlockModelID;
-                string alias = bm.Alias;
-                int proj = bm.Version;
-            }
+                // talk to the import lib to do the import
+                var query = from BlockModel in entityObj.BlockModels select new { BlockModel.BlockModelID, BlockModel.OriginX, BlockModel.OriginY, BlockModel.OriginZ, BlockModel.ProjectID };
 
-            return "In XODB.Import";
+                foreach (BlockModel bm in entityObj.BlockModels)
+                {
+                    Guid gu = bm.BlockModelID;
+                    string alias = bm.Alias;
+                    int proj = bm.Version;
+                }
+
+                return "In XODB.Import";
+            }
         }
 
 
@@ -63,7 +63,7 @@ namespace XODB.Import
         {
             List<string> cols = new List<string>();
             //For each field in the database (or property in Linq object)
-            X_BlockModelBlock ob = new X_BlockModelBlock();
+            BlockModelBlock ob = new BlockModelBlock();
             foreach (PropertyInfo pi in ob.GetType().GetProperties())
             {
 
@@ -96,142 +96,145 @@ namespace XODB.Import
         {
             this.currentWorker = worker;
             UpdateStatus("Connecting to XODB", 10.0);
-            XODBImportEntities resourceModels = new XODBImportEntities();
-            resourceModels.Database.Connection.ConnectionString = connString;
-            // talk to the import lib to do the import
-            DbSet<X_BlockModel> models = resourceModels.X_BlockModel;
-            var query = from X_BlockModel in models select new { X_BlockModel.BlockModelID, X_BlockModel.OriginX, X_BlockModel.OriginY, X_BlockModel.OriginZ, X_BlockModel.ProjectID };
-          
-            List<string> cn = new List<string>();
-            //For each field in the database (or property in Linq object)
-            X_BlockModel ob = new X_BlockModel();
-            foreach (PropertyInfo pi in ob.GetType().GetProperties())
+            using (var entityObj = new XODBC(connString, null))
             {
-                Type ty = pi.GetType();
-                String name = pi.Name;
-                cn.Add(name);
+                // talk to the import lib to do the import                
+                var query = from BlockModel in entityObj.BlockModels select new { BlockModel.BlockModelID, BlockModel.OriginX, BlockModel.OriginY, BlockModel.OriginZ, BlockModel.ProjectID };
+
+                List<string> cn = new List<string>();
+                //For each field in the database (or property in Linq object)
+                BlockModel ob = new BlockModel();
+                foreach (PropertyInfo pi in ob.GetType().GetProperties())
+                {
+                    Type ty = pi.GetType();
+                    String name = pi.Name;
+                    cn.Add(name);
+                }
+
+
+
+                DateTime startTime = DateTime.Now;
+                int batchSize = 100;
+                UpdateStatus("Creating new XODB block model", 20.0);
+                ImportUtils.BlockImport dbIm = new ImportUtils.BlockImport();
+
+                Guid blockModelGUID = Guid.NewGuid();
+
+                BlockModel xAdd = new BlockModel();
+                xAdd.OriginX = (Decimal)xOrigin;                                   // TO-DO
+                xAdd.OriginY = (Decimal)yOrigin;                                   // TO-DO
+                xAdd.OriginZ = (Decimal)zOrigin;                                   // TO-DO
+
+
+                xAdd.BlockModelID = blockModelGUID;
+                xAdd.ProjectID = new Guid(XODBProjectID);       // TODO - allow user to pick size
+                entityObj.BlockModels.AddObject(xAdd);
+                entityObj.SaveChanges();
+                UpdateStatus("Setting model meta data", 25.0);
+                // add the meta data to identify all of the oclumns etc.
+                List<BlockModelMetadata> blockColumnMetaData = dbIm.SetBlockModelMetaData(blockModelGUID, importMap, connString);
+
+                // add the new BM guid to the column map as a default so that it is always entered
+                importMap.columnMap.Add(new ColumnMap("", -1, "BlockModelBlock", "BlockModelID", ImportDataMap.TEXTDATATYPE, blockModelGUID.ToString(), null, units));
+
+                // add the individual blocks
+                dbIm.AddBlockData(bmDataFile, importMap, blockModelGUID, batchSize, UpdateStatus, approxNumLines, connString);
+                //dbIm.AddBlockDataNorm(bmDataFile, importMap, blockModelGUID, batchSize, UpdateStatus, approxNumLines, blockColumnMetaData);
+
+                DateTime endTime = DateTime.Now;
+                long compVal = (endTime.Ticks - startTime.Ticks) / 1000;
+                string message = "" + startTime.ToShortTimeString() + " Ended: " + endTime.ToShortTimeString();
+
+                long xval = compVal;
+
+                return "";
             }
-
-
-          
-           DateTime startTime = DateTime.Now;
-           int batchSize = 100;
-           UpdateStatus( "Creating new XODB block model", 20.0);
-           ImportUtils.BlockImport dbIm = new ImportUtils.BlockImport();
-           
-           Guid blockModelGUID = Guid.NewGuid();
-
-           X_BlockModel xAdd = new X_BlockModel();
-           xAdd.OriginX = (Decimal)xOrigin;                                   // TO-DO
-           xAdd.OriginY = (Decimal)yOrigin;                                   // TO-DO
-           xAdd.OriginZ = (Decimal)zOrigin;                                   // TO-DO
-
-
-           xAdd.BlockModelID = blockModelGUID;
-           xAdd.ProjectID = new Guid(XODBProjectID);       // TODO - allow user to pick size
-           resourceModels.X_BlockModel.Add(xAdd);
-           resourceModels.SaveChanges();
-           UpdateStatus( "Setting model meta data", 25.0);
-           // add the meta data to identify all of the oclumns etc.
-           List<X_BlockModelMetadata> blockColumnMetaData = dbIm.SetBlockModelMetaData(blockModelGUID, importMap, connString);
-
-           // add the new BM guid to the column map as a default so that it is always entered
-           importMap.columnMap.Add(new ColumnMap("", -1, "X_BlockModelBlock", "BlockModelID", ImportDataMap.TEXTDATATYPE, blockModelGUID.ToString(), null, units));
-            
-           // add the individual blocks
-           dbIm.AddBlockData(bmDataFile, importMap, blockModelGUID, batchSize, UpdateStatus, approxNumLines, connString);
-           //dbIm.AddBlockDataNorm(bmDataFile, importMap, blockModelGUID, batchSize, UpdateStatus, approxNumLines, blockColumnMetaData);
-
-           DateTime endTime = DateTime.Now;
-           long compVal = (endTime.Ticks - startTime.Ticks) / 1000;
-           string message = "" + startTime.ToShortTimeString() + " Ended: " + endTime.ToShortTimeString();
-
-           long xval = compVal;
-
-            return "";
         }
 
 
         public List<string> PerformBMImport(ModelImportStatus mos, Guid blockModelGUID, System.IO.Stream bmFileStream, System.IO.Stream ffFileStream, ImportDataMap importMap, double xOrigin, double yOrigin, double zOrigin, System.ComponentModel.BackgroundWorker worker, int approxNumLines, string XODBProjectID, string alias, Guid authorGuid, string connString)
         {
             this.currentWorker = worker;
-            XODBImportEntities resourceModels = new XODBImportEntities();
-            resourceModels.Database.Connection.ConnectionString = connString;
-            // talk to the import lib to do the import
-            
-            DateTime startTime = DateTime.Now;
-            int batchSize = 1000;
-            //UpdateStatus("Creating new XODB block model", 20.0);
-            ImportUtils.BlockImport dbIm = null;
-            try
+            using (var entityObj = new XODBC(connString, null))
             {
-                dbIm = new ImportUtils.BlockImport();
-                //ImportDataMap importMapLoaded = FormatSpecificationIO.ImportMapIO.LoadImportMap(ffFileStream);
-                X_BlockModel xAdd = new X_BlockModel();
-                xAdd.OriginX = (Decimal)xOrigin;                                   // TO-DO
-                xAdd.OriginY = (Decimal)yOrigin;                                   // TO-DO
-                xAdd.OriginZ = (Decimal)zOrigin;                                   // TO-DO
-                xAdd.Alias = alias;
-				// when on server, automatically pick up the author GUID and apply it to the model.
-				if(currentWorker == null){                                
-			    	xAdd.AuthorContactID = authorGuid;
-                	xAdd.ResponsibleContactID = authorGuid;
-				}
-                xAdd.VersionUpdated = DateTime.UtcNow;
+                // talk to the import lib to do the import
 
-                xAdd.BlockModelID = blockModelGUID;
-                xAdd.ProjectID = new Guid(XODBProjectID);       // TODO - allow user to pick size
-                resourceModels.X_BlockModel.Add(xAdd);
-                resourceModels.SaveChanges();
-                UpdateStatus("Setting model meta data", 25.0);
-                // add the meta data to identify all of the oclumns etc.
-            }
-            catch (Exception ex) {
-                mos.AddErrorMessage("Error setting block model defintion data. "+ex.ToString());
-            }
-            List<string> domains = new List<string>();
-            if (dbIm != null)
-            {
+                DateTime startTime = DateTime.Now;
+                int batchSize = 1000;
+                //UpdateStatus("Creating new XODB block model", 20.0);
+                ImportUtils.BlockImport dbIm = null;
                 try
                 {
-                    List<X_BlockModelMetadata> blockColumnMetaData = dbIm.SetBlockModelMetaData(blockModelGUID, importMap, connString);
+                    dbIm = new ImportUtils.BlockImport();
+                    //ImportDataMap importMapLoaded = FormatSpecificationIO.ImportMapIO.LoadImportMap(ffFileStream);
+                    BlockModel xAdd = new BlockModel();
+                    xAdd.OriginX = (Decimal)xOrigin;                                   // TO-DO
+                    xAdd.OriginY = (Decimal)yOrigin;                                   // TO-DO
+                    xAdd.OriginZ = (Decimal)zOrigin;                                   // TO-DO
+                    xAdd.Alias = alias;
+                    // when on server, automatically pick up the author GUID and apply it to the model.
+                    if (currentWorker == null)
+                    {
+                        xAdd.AuthorContactID = authorGuid;
+                        xAdd.ResponsibleContactID = authorGuid;
+                    }
+                    xAdd.VersionUpdated = DateTime.UtcNow;
+
+                    xAdd.BlockModelID = blockModelGUID;
+                    xAdd.ProjectID = new Guid(XODBProjectID);       // TODO - allow user to pick size
+                    entityObj.BlockModels.AddObject(xAdd);
+                    entityObj.SaveChanges();
+                    UpdateStatus("Setting model meta data", 25.0);
+                    // add the meta data to identify all of the oclumns etc.
                 }
-                catch (Exception ex) {
-                    mos.AddErrorMessage("Error setting block model meta data:\n" + ex.ToString());
-                }
-                try
+                catch (Exception ex)
                 {
-                    // add the new BM guid to the column map as a default so that it is always entered
-                    importMap.columnMap.Add(new ColumnMap("", -1, "X_BlockModelBlock", "BlockModelID", ImportDataMap.TEXTDATATYPE, blockModelGUID.ToString(), blockModelGUID.ToString(), ImportDataMap.UNIT_NONE ));
-                    // add the individual blocks
-                    domains = dbIm.AddBlockData(mos, bmFileStream, importMap, blockModelGUID, batchSize, UpdateStatus, approxNumLines, connString);
-					// run this only if in wonows client (determined by the status of the worker thread at this stage)
-					if(currentWorker != null){                   
-					    List<Tuple<string, string>> doms = new List<Tuple<string, string>>();
-	                    string domainColumnName = "Domain";
-	                    foreach (string ss in domains)
-	                    {
-	                        doms.Add(new Tuple<string, string>(domainColumnName, ss));
-	                    }
-	                    dbIm.UpdateDomains(doms, blockModelGUID);
-					}
+                    mos.AddErrorMessage("Error setting block model defintion data. " + ex.ToString());
                 }
-                catch (Exception ex) {
-                    mos.AddErrorMessage("Error adding block data:\n" + ex.ToString());
+                List<string> domains = new List<string>();
+                if (dbIm != null)
+                {
+                    try
+                    {
+                        List<BlockModelMetadata> blockColumnMetaData = dbIm.SetBlockModelMetaData(blockModelGUID, importMap, connString);
+                    }
+                    catch (Exception ex)
+                    {
+                        mos.AddErrorMessage("Error setting block model meta data:\n" + ex.ToString());
+                    }
+                    try
+                    {
+                        // add the new BM guid to the column map as a default so that it is always entered
+                        importMap.columnMap.Add(new ColumnMap("", -1, "BlockModelBlock", "BlockModelID", ImportDataMap.TEXTDATATYPE, blockModelGUID.ToString(), blockModelGUID.ToString(), ImportDataMap.UNIT_NONE));
+                        // add the individual blocks
+                        domains = dbIm.AddBlockData(mos, bmFileStream, importMap, blockModelGUID, batchSize, UpdateStatus, approxNumLines, connString);
+                        // run this only if in wonows client (determined by the status of the worker thread at this stage)
+                        if (currentWorker != null)
+                        {
+                            List<Tuple<string, string>> doms = new List<Tuple<string, string>>();
+                            string domainColumnName = "Domain";
+                            foreach (string ss in domains)
+                            {
+                                doms.Add(new Tuple<string, string>(domainColumnName, ss));
+                            }
+                            dbIm.UpdateDomains(doms, blockModelGUID);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        mos.AddErrorMessage("Error adding block data:\n" + ex.ToString());
+                    }
+
                 }
-                
+                return domains;
             }
-            return domains;
         }
-		
-		
-        public void PerformCollarImport(ModelImportStatus mos, System.IO.Stream bmFileStream, System.IO.Stream ffFileStream, ImportDataMap importMap, System.ComponentModel.BackgroundWorker backgroundWorker, Guid XODBProjectID, string connectionString, List<string> existingHoleNames, bool overwrite)
-        {
 
-            
+
+        public void PerformCollarImport(ModelImportStatus mos, System.IO.Stream bmFileStream, System.IO.Stream ffFileStream, ImportDataMap importMap, System.ComponentModel.BackgroundWorker backgroundWorker, Guid XODBProjectID, string connString, List<string> existingHoleNames, bool overwrite)
+        {
             this.currentWorker = null;
-            XODBImportEntities resourceModels = new XODBImportEntities();
-            resourceModels.Database.Connection.ConnectionString = connectionString;
+
             // talk to the import lib to do the import
 
             DateTime startTime = DateTime.Now;
@@ -242,10 +245,8 @@ namespace XODB.Import
             collImp = new ImportUtils.CollarImport();
             int approxNumLines = 100;
 
-            importMap.columnMap.Add(new ColumnMap("", -1, "X_Header", "ProjectID", ImportDataMap.TEXTDATATYPE, XODBProjectID.ToString(), XODBProjectID.ToString(), ImportDataMap.UNIT_NONE));
-            collImp.AddCollarData(mos, bmFileStream, importMap, batchSize, UpdateStatus, approxNumLines, connectionString, existingHoleNames, XODBProjectID, overwrite);
-            
-
+            importMap.columnMap.Add(new ColumnMap("", -1, "Header", "ProjectID", ImportDataMap.TEXTDATATYPE, XODBProjectID.ToString(), XODBProjectID.ToString(), ImportDataMap.UNIT_NONE));
+            collImp.AddCollarData(mos, bmFileStream, importMap, batchSize, UpdateStatus, approxNumLines, connString, existingHoleNames, XODBProjectID, overwrite);
 
         }
 
@@ -253,27 +254,23 @@ namespace XODB.Import
 
         public void PerformAssayImport(ModelImportStatus mos, System.IO.Stream bmFileStream, System.IO.Stream ffFileStream, 
                                         ImportDataMap importMap, System.ComponentModel.BackgroundWorker backgroundWorker, Guid XODBProjectID, 
-                                        string connectionString, int numLines,bool checkForDuplicates, bool doImportOverwrite)
+                                        string connString, int numLines,bool checkForDuplicates, bool doImportOverwrite)
         {
             this.currentWorker = backgroundWorker;
-            XODBImportEntities resourceModels = new XODBImportEntities();
-            resourceModels.Database.Connection.ConnectionString = connectionString;
             // talk to the import lib to do the import
             DateTime startTime = DateTime.Now;
             int batchSize = 100;
             //UpdateStatus("Creating new XODB block model", 20.0);
             ImportUtils.AssayImport assImp = null;
             assImp = new ImportUtils.AssayImport();
-            assImp.AddAssayData(mos, bmFileStream, importMap, batchSize, UpdateStatus, numLines, connectionString, XODBProjectID, checkForDuplicates, doImportOverwrite);
+            assImp.AddAssayData(mos, bmFileStream, importMap, batchSize, UpdateStatus, numLines, connString, XODBProjectID, checkForDuplicates, doImportOverwrite);
 
 
         }
 
-        public void PerformSurveyImport(ModelImportStatus mos, System.IO.Stream bmFileStream, System.IO.Stream ffFileStream, ImportDataMap importMap, System.ComponentModel.BackgroundWorker backgroundWorker, Guid XODBProjectID, string connectionString, int numLines, bool doOverwrite, bool checkForDuplicates)
+        public void PerformSurveyImport(ModelImportStatus mos, System.IO.Stream bmFileStream, System.IO.Stream ffFileStream, ImportDataMap importMap, System.ComponentModel.BackgroundWorker backgroundWorker, Guid XODBProjectID, string connString, int numLines, bool doOverwrite, bool checkForDuplicates)
         {
             this.currentWorker = backgroundWorker;
-            XODBImportEntities resourceModels = new XODBImportEntities();
-            resourceModels.Database.Connection.ConnectionString = connectionString;
             // talk to the import lib to do the import
             DateTime startTime = DateTime.Now;
             int batchSize = 100;
@@ -281,7 +278,7 @@ namespace XODB.Import
             ImportUtils.SurveyImport surImp = null;
             surImp = new ImportUtils.SurveyImport();
             
-            surImp.AddSurveyData(mos, bmFileStream, importMap, batchSize, UpdateStatus, numLines, connectionString, XODBProjectID, doOverwrite, checkForDuplicates);
+            surImp.AddSurveyData(mos, bmFileStream, importMap, batchSize, UpdateStatus, numLines, connString, XODBProjectID, doOverwrite, checkForDuplicates);
 
 
         }
@@ -290,8 +287,6 @@ namespace XODB.Import
         public void PerformLithoImport(ModelImportStatus mos, System.IO.Stream bmFileStream, System.IO.Stream ffFileStream, ImportDataMap importMap, System.ComponentModel.BackgroundWorker backgroundWorker, Guid XODBProjectID, string connectionString, int numLines, bool doOverwrite, bool checkForDuplicates)
         {
             this.currentWorker = backgroundWorker;
-            XODBImportEntities resourceModels = new XODBImportEntities();
-            resourceModels.Database.Connection.ConnectionString = connectionString;
             // talk to the import lib to do the import
             DateTime startTime = DateTime.Now;
             int batchSize = 100;
@@ -391,7 +386,7 @@ namespace XODB.Import
             ImportDataMap idm = new ImportDataMap();
             idm.columnMap = new List<ColumnMap>();
             idm.inputDelimiter = ',';
-            idm.mapTargetPrimaryTable = "X_BlockModelBlock";
+            idm.mapTargetPrimaryTable = "BlockModelBlock";
             idm.dataStartLine = 2;
 
             List<string> dmFields = new List<string>();
@@ -441,35 +436,38 @@ namespace XODB.Import
             // TODO: read stream and write updates to database
 
             // get the next column to write to - search meta data to get the list of occupied columns
-            XODBImportEntities resourceModels = new XODBImportEntities();
-            resourceModels.Database.Connection.ConnectionString = connString;
-            List<X_BlockModelMetadata> d = new List<X_BlockModelMetadata>();
-            var o = resourceModels.X_BlockModelMetadata.Where(f => f.BlockModelID == bmGuid && f.IsColumnData == true).Select(f => (string)f.BlockModelMetadataText).ToArray();
-            // yuk, ugly hack to get the next column to update into.  In the long run, use normalised data as it will be much easier
-            int lastIndex = 0;
-            foreach (string s in o) {
-                if (s.StartsWith("Numeric")) {
-                    string endBit = s.Substring(7);
-                    int ival = -1;
-                    bool parsed = int.TryParse(endBit, out ival);
-                    if (parsed) {
-                       lastIndex = Math.Max(ival, lastIndex);
+            using (var entityObj = new XODBC(connString, null))
+            {
+                List<BlockModelMetadata> d = new List<BlockModelMetadata>();
+                var o = entityObj.BlockModelMetadatas.Where(f => f.BlockModelID == bmGuid && f.IsColumnData == true).Select(f => (string)f.BlockModelMetadataText).ToArray();
+                // yuk, ugly hack to get the next column to update into.  In the long run, use normalised data as it will be much easier
+                int lastIndex = 0;
+                foreach (string s in o)
+                {
+                    if (s.StartsWith("Numeric"))
+                    {
+                        string endBit = s.Substring(7);
+                        int ival = -1;
+                        bool parsed = int.TryParse(endBit, out ival);
+                        if (parsed)
+                        {
+                            lastIndex = Math.Max(ival, lastIndex);
+                        }
+
                     }
-
                 }
+                string colToInsertTo = "Numeric" + (lastIndex + 1);
+                //TODO: add this new meta data item into the database
+
+                //TODO: update the data within the database itself
+                ImportUtils.BlockImport dbIm = new ImportUtils.BlockImport();
+                ImportDataMap idm = new ImportDataMap();
+                idm.columnMap = new List<ColumnMap>();
+                idm.columnMap.Add(new ColumnMap(columnNameToImport, columnIndexToImport, "BlockModelBlock", colToInsertTo, ImportDataMap.NUMERICDATATYPE, null, null, null));
+                dbIm.SetBlockModelMetaData(bmGuid, idm, connString);
+
+                return dbIm.UpdateBlockData(bmStream, bmGuid, colToInsertTo, connString);
             }
-            string colToInsertTo = "Numeric"+(lastIndex+1);
-            //TODO: add this new meta data item into the database
-
-            //TODO: update the data within the database itself
-            ImportUtils.BlockImport dbIm = new ImportUtils.BlockImport();
-            ImportDataMap idm = new ImportDataMap();
-            idm.columnMap = new List<ColumnMap>();
-            idm.columnMap.Add(new ColumnMap(columnNameToImport, columnIndexToImport, "X_BlockModelBlock", colToInsertTo,ImportDataMap.NUMERICDATATYPE, null, null, null));
-            dbIm.SetBlockModelMetaData(bmGuid, idm, connString);
-
-            return dbIm.UpdateBlockData(bmStream, bmGuid, colToInsertTo, connString);
-            
 
         }
 
@@ -492,19 +490,19 @@ namespace XODB.Import
         {
             List<ColumnMetaInfo> colList = new List<ColumnMetaInfo>();
 
-            List<FKSpecification> fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "X_Sample");
+            List<FKSpecification> fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "Sample");
 
-            X_Sample xag = new X_Sample();
+            Sample xag = new Sample();
             QueryColumnData(colList, fkList, xag);
-            X_AssayGroupTestResult xtr = new X_AssayGroupTestResult();
-            fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "X_AssayGroupTestResult");
+            AssayGroupTestResult xtr = new AssayGroupTestResult();
+            fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "AssayGroupTestResult");
             QueryColumnData(colList, fkList, xtr);
 
             List<string> removeStubs = new List<string>();
-            removeStubs.Add("X_Sample");
-            removeStubs.Add("X_Assay");
+            removeStubs.Add("Sample");
+            removeStubs.Add("Assay");
             removeStubs.Add("Version");
-            removeStubs.Add("X_Dict");
+            removeStubs.Add("Dict");
             List<ColumnMetaInfo> colListP = new List<ColumnMetaInfo>();
             colListP = PruneColumnList(removeStubs, colList);
             ColumnMetaInfo ci = new ColumnMetaInfo();
@@ -591,17 +589,16 @@ namespace XODB.Import
 
         public List<ColumnMetaInfo> GetCollarColumns(string connString)
         {
-            X_Header ob = new X_Header();
-            XODBImportCollarEntities e = new XODBImportCollarEntities();
-            string tableName = "X_Header";
+            Header ob = new Header();            
+            string tableName = "Header";
             List<ColumnMetaInfo> colList = this.QueryColumns(connString, ob, tableName);
 
             List<string> removeStubs = new List<string>();
             removeStubs.Add("HeaderID");
             removeStubs.Add("ProjectID");
-            removeStubs.Add("X_Header");
+            removeStubs.Add("Header");
             removeStubs.Add("Version");
-            removeStubs.Add("X_Dict");
+            removeStubs.Add("Dict");
             List<ColumnMetaInfo> colListP = new List<ColumnMetaInfo>();
             colListP = PruneColumnList(removeStubs, colList);
 
@@ -633,17 +630,16 @@ namespace XODB.Import
 
         public List<ColumnMetaInfo> GetSurveyColumns(string connString)
         {
-            X_Survey ob = new X_Survey();
-            XODBImportCollarEntities e = new XODBImportCollarEntities();
+            Survey ob = new Survey();
 
-            string tableName = "X_Survey";
+            string tableName = "Survey";
 
             List<ColumnMetaInfo> colList = QueryColumns(connString, ob, tableName);
 
             List<string> removeStubs = new List<string>();
-            removeStubs.Add("X_Survey");
+            removeStubs.Add("Survey");
             removeStubs.Add("Version");
-            removeStubs.Add("X_Dict");
+            removeStubs.Add("Dict");
             List<ColumnMetaInfo> colListP = new List<ColumnMetaInfo>();
             colListP = PruneColumnList(removeStubs, colList);
 
@@ -679,18 +675,16 @@ namespace XODB.Import
 
         public List<ColumnMetaInfo> GetLithoColumns(string connString)
         {
-            X_Lithology ob = new X_Lithology();
-            string tableName = "X_Lithology";
-
-            XODBImportCollarEntities e = new XODBImportCollarEntities();
+            Lithology ob = new Lithology();
+            string tableName = "Lithology";
 
             List<ColumnMetaInfo> colList = QueryColumns(connString, ob, tableName);
 
 
             List<string> removeStubs = new List<string>();
-            removeStubs.Add("X_Litho");
+            removeStubs.Add("Litho");
             removeStubs.Add("Version");
-            removeStubs.Add("X_Dict");
+            removeStubs.Add("Dict");
             List<ColumnMetaInfo> colListP = new List<ColumnMetaInfo>();
             colListP = PruneColumnList(removeStubs, colList);
 
@@ -767,10 +761,7 @@ namespace XODB.Import
 
         public void ImportLasFile(Xstract.Import.LAS.LASFile lasFile, string origFilename, ModelImportStatus mos, Guid currentProjectID, System.ComponentModel.BackgroundWorker backgroundWorker)
         {
-
-            string res = null;
             this.currentWorker = backgroundWorker;
-            
             // get the pre holeID from the filename
             LasImportUtils liu = new LasImportUtils();
             liu.ImportLASFile(lasFile, origFilename, mos, currentProjectID, UpdateStatus);

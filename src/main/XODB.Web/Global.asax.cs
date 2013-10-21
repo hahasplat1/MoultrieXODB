@@ -29,7 +29,9 @@ namespace XODB.Web
         }
         protected void Session_Start(Object sender, EventArgs e)
         {
+
             WebApplication.SetInstance(Session, new XODBAspNetApplication());
+            WebApplication.Instance.Settings.DefaultVerticalTemplateContentPath = "DefaultVerticalTemplateContent.ascx";
 #if EASYTEST
 			if(ConfigurationManager.ConnectionStrings["EasyTestConnectionString"] != null) {
 				WebApplication.Instance.ConnectionString = ConfigurationManager.ConnectionStrings["EasyTestConnectionString"].ConnectionString;

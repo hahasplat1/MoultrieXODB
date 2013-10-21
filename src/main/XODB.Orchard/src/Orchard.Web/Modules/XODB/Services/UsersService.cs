@@ -8,7 +8,7 @@ using JetBrains.Annotations;
 using Orchard.ContentManagement;
 using Orchard.FileSystems.Media;
 using Orchard.Localization;
-using XODB.Models;
+using XODB.Module.BusinessObjects;
 using Orchard.Security;
 using Orchard.Settings;
 using Orchard.Validation;
@@ -40,7 +40,7 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
-
+using XODB.Models;
 
 namespace XODB.Services {
     
@@ -142,7 +142,7 @@ namespace XODB.Services {
                 {
                     using (new TransactionScope(TransactionScopeOption.Suppress))
                     {
-                        var d = new SoftwareDataContext();
+                        var d = new XODBC(ApplicationConnectionString, null);
                         var c = (from o in d.Licenses orderby o.Expiry descending where o.ApplicationID == ApplicationID && o.CompanyID != null select o.CompanyID).FirstOrDefault();
                         if (c.HasValue)
                             companyID = c.Value;
@@ -165,17 +165,17 @@ namespace XODB.Services {
                 {
                     using (new TransactionScope(TransactionScopeOption.Suppress))
                     {
-                        var c = new ContactsContainer();
+                        var c = new XODBC(ApplicationConnectionString,null);
                         applicationID = (from o in c.Applications where o.ApplicationName == _shellSettings.Name select o.ApplicationId).FirstOrDefault();
                         if (applicationID == default(Guid))
                         {
                             applicationID = Guid.NewGuid();
-                            var application = new Application();
+                            var application = new Applications();
                             application.ApplicationId = applicationID.Value;
                             application.ApplicationName = _shellSettings.Name;
                             application.LoweredApplicationName = _shellSettings.Name.ToLower();
                             application.Description = "Orchard";
-                            c.Applications.Add(application);
+                            c.Applications.AddObject(application);
                             c.SaveChanges();
                         }
                     }
@@ -295,7 +295,7 @@ namespace XODB.Services {
 
                         using (new TransactionScope(TransactionScopeOption.Suppress))
                         {
-                            var sw = new SoftwareDataContext();
+                            var sw = new XODBC(ApplicationConnectionString,null);
                             //Update all server info
                             //Existing
                             var sos = (from o in sw.Servers
@@ -328,9 +328,9 @@ namespace XODB.Services {
                                 xs.ServerUniqueMachineCode1 = s.sid1;
                                 xs.ServerUniqueMachineCode2 = s.sid2;
                                 xs.ServerUniqueMachineCode3 = s.sid3;
-                                sw.Servers.InsertOnSubmit(xs);
+                                sw.Servers.AddObject(xs);
                             }
-                            sw.SubmitChanges();
+                            sw.SaveChanges();
 
                             //Update ServerApplication
                             //Merge new and existing
@@ -355,9 +355,9 @@ namespace XODB.Services {
                                 xs.ServerApplicationID = s.newid;
                                 xs.ServerID = s.ServerID;
                                 xs.ApplicationID = s.ApplicationID;
-                                sw.ServerApplications.InsertOnSubmit(xs);
+                                sw.ServerApplications.AddObject(xs);
                             }
-                            sw.SubmitChanges();
+                            sw.SaveChanges();
 
                             //Choose 1
                             var xsid = (from o in sw.ServerApplications
@@ -405,7 +405,7 @@ namespace XODB.Services {
             {
                 using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
-                    var c = new ContactsContainer(ApplicationConnectionString);
+                    var c = new XODBC(ApplicationConnectionString,null);
                     var r = from o in c.Roles.Include("aspnet_Users") where o.ApplicationId == ApplicationID select o;
                     var u = from o in c.Users.Include("aspnet_Roles") where o.ApplicationId == ApplicationID select o;
                     var updated = DateTime.UtcNow;
@@ -413,13 +413,13 @@ namespace XODB.Services {
                     var nu = (from o in orchardUsers where !(from ou in u select ou.UserName).Contains(o.UserName) select o);
                     foreach (var n in nu)
                     {
-                        var user = new User();
+                        var user = new Users();
                         user.UserId = Guid.NewGuid();
                         user.UserName = n.UserName;
                         user.ApplicationId = ApplicationID;
                         user.LoweredUserName = n.UserName.ToLower();
                         user.LastActivityDate = updated;                       
-                        c.Users.Add(user);
+                        c.Users.AddObject(user);
                         var contacts = (from o in c.Contacts where o.Username == user.UserName select o);
                         foreach (var nc in contacts)
                         {
@@ -436,19 +436,19 @@ namespace XODB.Services {
                             contact.VersionUpdated = updated;
                             contact.Surname = "";
                             contact.Firstname = "";
-                            c.Contacts.Add(contact);
+                            c.Contacts.AddObject(contact);
                         }
                     }
                     //New Role
                     var nr = (from o in orchardRoles where !(from or in r select or.RoleName).Contains(o.Name) select o);
                     foreach (var n in nr)
                     {
-                        var role = new Role();
+                        var role = new Roles();
                         role.RoleName = n.Name;
                         role.ApplicationId = ApplicationID;
                         role.RoleId = Guid.NewGuid();
                         role.LoweredRoleName = n.Name.ToLower();
-                        c.Roles.Add(role);
+                        c.Roles.AddObject(role);
                     }
                     c.SaveChanges();
                     foreach (var role in r)
@@ -470,7 +470,7 @@ namespace XODB.Services {
                     var ru = (from o in u.ToArray() where !(from ou in orchardUsers select ou.UserName).Contains(o.UserName) select o); //can just delete from users table
                     foreach (var rem in ru)
                     {
-                        c.Users.Remove(rem);
+                        c.Users.DeleteObject(rem);
                     }
                     c.SaveChanges();
                 }
@@ -522,7 +522,7 @@ namespace XODB.Services {
                 Contact[] xodbusers;
                 using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
-                    var d = new ContactsContainer();
+                    var d = new XODBC(ApplicationConnectionString,null);
                     xodbusers = (from o in d.Contacts select o).ToArray();
 
                     //Sync AD, Orchard, XODB
@@ -539,7 +539,7 @@ namespace XODB.Services {
                         c.ContactName = string.Join(string.Empty, string.Format("{0} [{1}]", o.name, o.username).Take(120));
                         c.Surname = o.sn;
                         c.DefaultEmail = o.email;
-                        d.Contacts.Add(c);
+                        d.Contacts.AddObject(c);
                     }
 
                     //Updates into XODB
@@ -574,7 +574,7 @@ namespace XODB.Services {
         {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var dataContext = new ContactsContainer();
+                var dataContext = new XODBC(ApplicationConnectionString,null);
                 return dataContext.Contacts.OrderBy(x=>x.ContactName).ToArray();
             }
         }
@@ -583,7 +583,7 @@ namespace XODB.Services {
         {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var c = new ContactsContainer();
+                var c = new XODBC(ApplicationConnectionString,null);
                 var r = (from o in c.Applications
                          join a in c.Roles on o.ApplicationId equals a.ApplicationId
                          select new { RoleName = a.RoleName + " (" + o.ApplicationName + ")", a.RoleId });
@@ -596,10 +596,10 @@ namespace XODB.Services {
             var allCompanies = new Dictionary<Guid,string>();
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var c = new ContactsContainer();
+                var c = new XODBC(ApplicationConnectionString,null);
                 using (DataTable table = new DataTable())
                 {
-                    using (var con = new SqlConnection(c.Database.Connection.ConnectionString))
+                    using (var con = new SqlConnection(ApplicationConnectionString))
                     using (var cmd = new SqlCommand("X_SP_GetCompanies", con))
                     using (var da = new SqlDataAdapter(cmd))
                     {
@@ -635,7 +635,7 @@ namespace XODB.Services {
                 return new string[] { };
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var d = new ContactsContainer();
+                var d = new XODBC(ApplicationConnectionString,null);
                 var o = from c in d.Contacts where users.Contains(c.ContactID) && c.DefaultEmail != null
                         select c.DefaultEmail;
                 return o.ToArray();
@@ -648,7 +648,7 @@ namespace XODB.Services {
                 return null;
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var d = new ContactsContainer();
+                var d = new XODBC(ApplicationConnectionString,null);
                 return (from c in d.Contacts join u in d.Users on c.AspNetUserID equals u.UserId where u.ApplicationId == ApplicationID select c.ContactID).Single();
                 //return d.Contacts.Where(x=>x.Username == username).Select(x=>x.ContactID).FirstOrDefault();
             }
@@ -660,7 +660,7 @@ namespace XODB.Services {
                 return false;
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var c = new ContactsContainer();
+                var c = new XODBC(ApplicationConnectionString,null);
                 if (default(Guid) == (from u in c.Users join contacts in c.Contacts on u.UserId equals contacts.AspNetUserID where u.UserName == username && contacts.Username == username && contacts.Version == 0 && contacts.VersionDeletedBy == null select contacts.ContactID).SingleOrDefault())
                     return false;
                 else
@@ -745,8 +745,7 @@ namespace XODB.Services {
 
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var c = new ContactsContainer();
-                var s = new SoftwareDataContext();
+                var c = new XODBC(ApplicationConnectionString,null);
 
                 var username = (from o in c.Contacts where o.ContactID == contactID && o.Version==0 && o.VersionDeletedBy==null select o.Username).Single();
                 var userID = (from o in c.Users where o.ApplicationId == ApplicationID && o.UserName == username select o.UserId).Single();
@@ -757,7 +756,7 @@ namespace XODB.Services {
                 var rootCompanies = new List<Guid>();
                 using (DataTable table = new DataTable()) 
                 {
-                    using(var con = new SqlConnection(c.Database.Connection.ConnectionString))
+                    using (var con = new SqlConnection(ApplicationConnectionString))
                     using(var cmd = new SqlCommand("X_SP_GetCompanies", con))
                     using(var da = new SqlDataAdapter(cmd))
                     {
@@ -787,9 +786,9 @@ namespace XODB.Services {
                 }
 
                 //Get my licenses & applications, assets, models, parts
-                var licenses = (from o in s.Licenses where o.ContactID==contactID && o.LicenseID!=null select o);
-                var assets = (from o in s.LicenseAssets where !(from x in s.Licenses where x.ContactID==contactID select x.LicenseID).Contains(o.LicenseID.Value) select o);
-                var parts = (from o in s.LicenseAssetModelParts where !(from x in assets select x.LicenseAssetID).Contains(o.LicenseAssetID.Value) select o);
+                var licenses = (from o in c.Licenses where o.ContactID==contactID && o.LicenseID!=null select o);
+                var assets = (from o in c.LicenseAssets where !(from x in c.Licenses where x.ContactID==contactID select x.LicenseID).Contains(o.LicenseID.Value) select o);
+                var parts = (from o in c.LicenseAssetModelParts where !(from x in assets select x.LicenseAssetID).Contains(o.LicenseAssetID.Value) select o);
                 var users = (from o in c.Users where o.UserName==username select o.UserId);
                 var applications = (from o in c.Applications join x in c.Users on o.ApplicationId equals x.ApplicationId where x.UserName == username select o.ApplicationId);
                 var experiences = (from o in c.Experiences where o.ContactID == contactID select o);
@@ -870,9 +869,9 @@ namespace XODB.Services {
         {            
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var c = new ContactsContainer();
+                var c = new XODBC(ApplicationConnectionString,null);
                 var verified = new System.Data.Objects.ObjectParameter("verified", typeof(byte));
-                c.GetSecuredRight(secured.AccessorContactID, secured.AccessorApplicationID , secured.OwnerTableType, secured.OwnerReferenceID, secured.OwnerField,
+                c.X_SP_GetSecuredRight(secured.AccessorContactID, secured.AccessorApplicationID , secured.OwnerTableType, secured.OwnerReferenceID, secured.OwnerField,
                     secured.CanRead || ((ActionPermission.Read & permission) == ActionPermission.Read)
                     , secured.CanCreate || ((ActionPermission.Create & permission) == ActionPermission.Create)
                     , secured.CanUpdate || ((ActionPermission.Update & permission) == ActionPermission.Update)
@@ -886,9 +885,9 @@ namespace XODB.Services {
         {
             using (new TransactionScope(TransactionScopeOption.Suppress))
             {
-                var c = new ContactsContainer();
+                var c = new XODBC(ApplicationConnectionString,null);
                 var verified = new System.Data.Objects.ObjectParameter("verified", typeof(byte));
-                c.GetSecuredRight(secured.OwnerContactID, secured.OwnerApplicationID, secured.OwnerTableType, secured.OwnerReferenceID, secured.OwnerField,
+                c.X_SP_GetSecuredRight(secured.OwnerContactID, secured.OwnerApplicationID, secured.OwnerTableType, secured.OwnerReferenceID, secured.OwnerField,
                     secured.CanRead || ((ActionPermission.Read & permission) == ActionPermission.Read)
                     , secured.CanCreate || ((ActionPermission.Create & permission) == ActionPermission.Create)
                     , secured.CanUpdate || ((ActionPermission.Update & permission) == ActionPermission.Update)
@@ -910,7 +909,7 @@ namespace XODB.Services {
                 {
                     using (new TransactionScope(TransactionScopeOption.Suppress))
                     {
-                        var c = new ContactsContainer();
+                        var c = new XODBC(ApplicationConnectionString,null);
                         if (secured.IsBlack)
                         {
                             var s = (from o in c.SecurityBlacklists where o.SecurityBlacklistID==secured.SecurityID && o.Version==0 && o.VersionDeletedBy==null select o).Single();
@@ -955,7 +954,7 @@ namespace XODB.Services {
                 {
                     using (new TransactionScope(TransactionScopeOption.Suppress))
                     {
-                        var c = new ContactsContainer();
+                        var c = new XODBC(ApplicationConnectionString,null);
                         if (secured.IsBlack)
                         {
                             var s = new SecurityBlacklist
@@ -983,7 +982,7 @@ namespace XODB.Services {
                                 VersionUpdated = DateTime.UtcNow,
                                 VersionUpdatedBy = secured.OwnerContactID
                             };
-                            c.SecurityBlacklists.Add(s);
+                            c.SecurityBlacklists.AddObject(s);
                         }
                         else
                         {
@@ -1012,7 +1011,7 @@ namespace XODB.Services {
                                 VersionUpdated = DateTime.UtcNow,
                                 VersionUpdatedBy = secured.OwnerContactID
                             };
-                            c.SecurityWhitelists.Add(s);
+                            c.SecurityWhitelists.AddObject(s);
                         }
                         c.SaveChanges();
                     }
@@ -1032,16 +1031,16 @@ namespace XODB.Services {
                 {
                     using (new TransactionScope(TransactionScopeOption.Suppress))
                     {
-                        var c = new ContactsContainer();
+                        var c = new XODBC(ApplicationConnectionString,null);
                         if (secured.IsBlack)
                         {
                             var s = (from o in c.SecurityBlacklists where o.SecurityBlacklistID == secured.SecurityID && o.Version == 0 && o.VersionDeletedBy == null select o).Single();                          
-                            c.SecurityBlacklists.Remove(s);
+                            c.SecurityBlacklists.DeleteObject(s);
                         }
                         else
                         {
                             var s = (from o in c.SecurityWhitelists where o.SecurityWhitelistID == secured.SecurityID && o.Version == 0 && o.VersionDeletedBy == null select o).Single();                           
-                            c.SecurityWhitelists.Remove(s);
+                            c.SecurityWhitelists.DeleteObject(s);
                         }
                         c.SaveChanges();
                     }

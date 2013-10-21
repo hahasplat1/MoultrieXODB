@@ -26,16 +26,11 @@ using System.Runtime.Serialization;
 using DevExpress.Data.Filtering;
 using DevExpress.Data.Filtering.Helpers;
 using DevExpress.ExpressApp.DC;
-using DevExpress.ExpressApp.DC.Xpo;
+//using DevExpress.ExpressApp.DC.Xpo;
 using DevExpress.ExpressApp.Localization;
 using DevExpress.ExpressApp.Utils;
-using DevExpress.ExpressApp.Xpo;
+//using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
-using DevExpress.Xpo.DB;
-using DevExpress.Xpo.Helpers;
-using DevExpress.Xpo.Metadata;
-using DevExpress.Xpo.Metadata.Helpers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -46,16 +41,13 @@ using System.Runtime.Serialization;
 using DevExpress.Data.Filtering;
 using DevExpress.Data.Filtering.Helpers;
 using DevExpress.ExpressApp.DC;
-using DevExpress.ExpressApp.DC.Xpo;
+//using DevExpress.ExpressApp.DC.Xpo;
 using DevExpress.ExpressApp.Localization;
 using DevExpress.ExpressApp.Utils;
-using DevExpress.ExpressApp.Xpo;
+//using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo;
-using DevExpress.Xpo.DB;
-using DevExpress.Xpo.Helpers;
-using DevExpress.Xpo.Metadata;
-using DevExpress.Xpo.Metadata.Helpers;
+
+
 namespace XODB.Module.Win.Editors
 {
     public class RepositoryFileEditor : RepositoryItemButtonEdit
@@ -210,7 +202,7 @@ namespace XODB.Module.Win.Editors
 
         private Boolean HasConstructorWithSession(Type type)
         {
-            return type.GetConstructor(new Type[] { typeof(Session) }) != null;
+            return type.GetConstructor(new Type[] { typeof(DevExpress.Xpo.Session) }) != null;
         }
 
         private EventHandler<CustomFileOperationEventArgs> customOpenFileWithDefaultProgram;

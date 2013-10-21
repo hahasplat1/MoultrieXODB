@@ -62,15 +62,40 @@ namespace XODB.Helpers
             }
         }
 
-        public static string GetEnityConnectionString(string providerConnectionString, string entityType)
+        public static string GetEnityConnectionString(string providerConnectionString, string entityType, string assembly, string nameSpace)
         {
+            if (string.IsNullOrWhiteSpace(assembly))
+                assembly = "*";
+            if (string.IsNullOrWhiteSpace(nameSpace))
+                nameSpace = "Models";
             System.Data.SqlClient.SqlConnectionStringBuilder scsb = new System.Data.SqlClient.SqlConnectionStringBuilder(providerConnectionString);
             EntityConnectionStringBuilder ecb = new EntityConnectionStringBuilder();
-            ecb.Metadata = string.Format(@"res://*/Models.{0}.csdl|res://*/Models.{0}.ssdl|res://*/Models.{0}.msl", entityType);
+            ecb.Metadata = string.Format(@"res://{0}/{1}.{2}.csdl|res://{0}/{1}.{2}.ssdl|res://{0}/{1}.{2}.msl", assembly, nameSpace, entityType);
             ecb.Provider = "System.Data.SqlClient";
             ecb.ProviderConnectionString = scsb.ConnectionString;
             return ecb.ConnectionString;
         }
+
+        public static string GetEnityConnectionString(string providerConnectionString, string entityType, string directory)
+        {
+            System.Data.SqlClient.SqlConnectionStringBuilder scsb = new System.Data.SqlClient.SqlConnectionStringBuilder(providerConnectionString);
+            EntityConnectionStringBuilder ecb = new EntityConnectionStringBuilder();
+            ecb.Metadata = string.Format(@"metadata={0}\{1}.csdl|{0}\{1}.ssdl|{0}\{1}.msl", directory, entityType);
+            ecb.Provider = "System.Data.SqlClient";
+            ecb.ProviderConnectionString = scsb.ConnectionString;
+            return ecb.ConnectionString;
+        }
+
+        public static string GetEnityConnectionString(string providerConnectionString, string metadata)
+        {
+            System.Data.SqlClient.SqlConnectionStringBuilder scsb = new System.Data.SqlClient.SqlConnectionStringBuilder(providerConnectionString);
+            EntityConnectionStringBuilder ecb = new EntityConnectionStringBuilder();
+            ecb.Metadata = metadata;
+            ecb.Provider = "System.Data.SqlClient";
+            ecb.ProviderConnectionString = scsb.ConnectionString;
+            return ecb.ConnectionString;
+        }
+
 
         //TODO: Fix hack
         //http://stackoverflow.com/questions/995478/sql-server-full-text-search-escape-characters

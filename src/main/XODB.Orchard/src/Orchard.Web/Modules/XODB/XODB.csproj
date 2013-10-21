@@ -54,112 +54,103 @@
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\..\..\..\lib\autofac\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Charts.v12.1.Core, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Charts.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.CodeParser.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.CodeParser.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Data.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Office.v12.1.Core, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Office.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.PivotGrid.v12.1.Core, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.PivotGrid.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.RichEdit.v12.1.Core, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.RichEdit.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.SpellChecker.v12.1.Core, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.SpellChecker.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxEditors.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Web.ASPxGauges.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxGauges.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxGridView.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxGridView.v12.1.Export, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Web.ASPxScheduler.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Web.ASPxSpellChecker.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxPivotGrid.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Web.ASPxThemes.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxPivotGrid.v12.1.Export, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Web.ASPxTreeList.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxScheduler.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Web.Mvc.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxScheduler.v12.1.Design, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Web.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxSpellChecker.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraCharts.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxThemes.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraCharts.v13.1.Extensions, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxTreeList.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraCharts.v13.1.UI, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.ASPxTreeList.v12.1.Export, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraCharts.v13.1.Web, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.Mvc.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v12.1.Extensions, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraPivotGrid.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v12.1.UI, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Sparkline.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v12.1.Web, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraReports.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraReports.v13.1.Extensions, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraReports.v13.1.Web, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraPivotGrid.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraScheduler.v13.1.Reporting.Extensions, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraScheduler.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v12.1.Extensions, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DevExpress.XtraReports.v12.1.Web, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DevExpress.XtraScheduler.v12.1, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DevExpress.XtraScheduler.v12.1.Core, Version=12.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraScheduler.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework">
@@ -353,6 +344,10 @@
       <Project>{4814c95d-0008-495a-b627-e3feda2fb1a4}</Project>
       <Name>XODB.Import</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\XODB.Module.BusinessObjects\XODB.Module.BusinessObjects.csproj">
+      <Project>{380151d5-c92f-404a-8b89-b788f574d228}</Project>
+      <Name>XODB.Module.BusinessObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
       <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
       <Name>Orchard.Framework</Name>
@@ -393,103 +388,14 @@
     <Compile Include="Helpers\SpatialHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Helpers\TaskHelper.cs" />
-    <Compile Include="Models\Application.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Assays.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Assays.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\BlockModelPart.cs" />
-    <Compile Include="Models\Company.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CompanyAddress.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CompanyRelation.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Contact.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ContactAddress.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Contacts.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Contacts.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Contacts.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Contacts.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Contacts.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Experience1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Experience.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ExperienceContainer.cs" />
-    <Compile Include="Models\Experience.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Experience.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Experience.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Experience.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SpatialContainer.cs" />
     <Compile Include="Models\Content.designer.cs">
       <DependentUpon>Content.dbml</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Models\Copy of ContactsContainer.cs" />
-    <Compile Include="Models\Experience.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Location.cs">
-      <DependentUpon>Spatial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LocationAlias.cs">
-      <DependentUpon>Spatial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LocationData.cs">
-      <DependentUpon>Spatial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LocationHistories.cs">
-      <DependentUpon>Spatial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Province.cs">
-      <DependentUpon>Spatial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProvinceData.cs">
-      <DependentUpon>Spatial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ProvinceRelation.cs">
-      <DependentUpon>Spatial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Role.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SecurityBlacklist.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SecurityWhitelist.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Software.designer.cs">
-      <DependentUpon>Software.dbml</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
@@ -501,48 +407,6 @@
     <Compile Include="Models\EmailPart.cs" />
     <Compile Include="Models\IMessage.cs" />
     <Compile Include="Models\ShellTask.cs" />
-    <Compile Include="Models\Spatial.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Spatial.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Spatial.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Spatial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Spatial.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Spatial.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>Contacts.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\X_Contact.cs">
-      <DependentUpon>Experience.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\X_DictionaryWorkType.cs">
-      <DependentUpon>Experience.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\X_DictionaryWorkTypeClass.cs">
-      <DependentUpon>Experience.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\X_DictionaryWorkTypeRelation.cs">
-      <DependentUpon>Experience.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\X_Experience.cs">
-      <DependentUpon>Experience.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\X_LocationData.cs">
-      <DependentUpon>Experience.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\X_SP_GetExperienceView_Result.cs">
-      <DependentUpon>Experience.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\X_VW_ExperienceBasicView.cs">
-      <DependentUpon>Experience.tt</DependentUpon>
-    </Compile>
     <Compile Include="Reports\AssaysReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -672,71 +536,15 @@
       <LastGenOutput>Geophysics.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Models\Software.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Software.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Models\Content.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Content.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <EntityDeploy Include="Models\Contacts.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Contacts.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Contacts.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Contacts.edmx</DependentUpon>
-      <LastGenOutput>Contacts.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Contacts.edmx.diagram">
-      <DependentUpon>Contacts.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Contacts.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Contacts.edmx</DependentUpon>
-      <LastGenOutput>Contacts.cs</LastGenOutput>
-    </Content>
-    <EntityDeploy Include="Models\Experience.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Experience.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Experience.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Experience.edmx</DependentUpon>
-      <LastGenOutput>Experience.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Experience.edmx.diagram">
-      <DependentUpon>Experience.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Experience.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Experience.edmx</DependentUpon>
-      <LastGenOutput>Experience1.cs</LastGenOutput>
-    </Content>
     <None Include="Models\Projects.dbml.layout">
       <DependentUpon>Projects.dbml</DependentUpon>
     </None>
     <Content Include="Views\User\ReportGeophysics.cshtml" />
-    <EntityDeploy Include="Models\Spatial.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Spatial.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Spatial.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Spatial.edmx</DependentUpon>
-      <LastGenOutput>Spatial.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Spatial.edmx.diagram">
-      <DependentUpon>Spatial.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Spatial.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Spatial.edmx</DependentUpon>
-      <LastGenOutput>Spatial.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Models\Models.dbml.layout">
@@ -746,9 +554,6 @@
   <ItemGroup>
     <None Include="Models\Geophysics.dbml.layout">
       <DependentUpon>Geophysics.dbml</DependentUpon>
-    </None>
-    <None Include="Models\Software.dbml.layout">
-      <DependentUpon>Software.dbml</DependentUpon>
     </None>
     <None Include="Models\Content.dbml.layout">
       <DependentUpon>Content.dbml</DependentUpon>
