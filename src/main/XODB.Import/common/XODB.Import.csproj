@@ -51,24 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseImportTools.cs" />
-<<<<<<< HEAD
-    <Compile Include="DataModels\X_Geophysics.cs">
-      <DependentUpon>XODBImportCollarsEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModels\X_GeophysicsData.cs">
-      <DependentUpon>XODBImportCollarsEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModels\X_GeophysicsMetadata.cs">
-      <DependentUpon>XODBImportCollarsEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModels\X_Geophysics_Parameter.cs">
-      <DependentUpon>XODBImportCollarsEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModels\X_PrivateData.cs">
-      <DependentUpon>XODBImportModel.tt</DependentUpon>
-    </Compile>
-=======
->>>>>>> ecb8a1f2caa82a4a8431ebc7e876c2354e6a658d
     <Compile Include="ImportUtils\BlockImport.cs" />
     <Compile Include="ColumnSpecs\ColumnMetaInfo.cs" />
     <Compile Include="ColumnSpecs\FKSpecification.cs" />
