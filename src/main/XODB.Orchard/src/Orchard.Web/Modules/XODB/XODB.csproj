@@ -55,103 +55,136 @@
       <HintPath>..\..\..\..\lib\autofac\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Charts.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+	  <HintPath>..\..\..\..\lib\devexpress\DevExpress.Charts.v13.1.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.CodeParser.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.CodeParser.v13.1.dll</HintPath>
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Data.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+          <HintPath>..\..\..\..\lib\devexpress\DevExpress.Data.v13.1.dll</HintPath>
+		  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Office.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+	  <HintPath>..\..\..\..\lib\devexpress\DevExpress.Office.v13.1.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.PivotGrid.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+	 <HintPath>..\..\..\..\lib\devexpress\DevExpress.PivotGrid.v13.1.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      	 <HintPath>..\..\..\..\lib\devexpress\DevExpress.Printing.v13.1.Core.dll</HintPath>
+		 <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.RichEdit.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+		<HintPath>..\..\..\..\lib\devexpress\DevExpress.RichEdit.v13.1.Core.dll</HintPath>    
+		<Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.SpellChecker.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.SpellChecker.v13.1.Core.dll</HintPath>    
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Utils.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+	 <HintPath>..\..\..\..\lib\devexpress\DevExpress.Utils.v13.1.dll</HintPath> 
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxGauges.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+	<HintPath>..\..\..\..\lib\devexpress\DevExpress.Web.ASPxGauges.v13.1.dll</HintPath> 
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxHtmlEditor.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+	<HintPath>..\..\..\..\lib\devexpress\DevExpress.Web.ASPxHtmlEditor.v13.1.dll</HintPath> 
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxPivotGrid.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.Web.ASPxPivotGrid.v13.1.dll</HintPath> 
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxScheduler.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+	  <HintPath>..\..\..\..\lib\devexpress\DevExpress.Web.ASPxScheduler.v13.1.dll</HintPath> 
     </Reference>
     <Reference Include="DevExpress.Web.ASPxSpellChecker.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.Web.ASPxSpellChecker.v13.1.dll</HintPath> 
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxThemes.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+	<HintPath>..\..\..\..\lib\devexpress\DevExpress.Web.ASPxThemes.v13.1.dll</HintPath> 
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxTreeList.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.Web.ASPxTreeList.v13.1.dll</HintPath> 
+	  <Private>True</Private>	  
     </Reference>
     <Reference Include="DevExpress.Web.Mvc.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.Web.Mvc.v13.1.dll</HintPath> 
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+       <HintPath>..\..\..\..\lib\devexpress\DevExpress.Web.v13.1.dll</HintPath> 
+	   <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+       <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraCharts.v13.1.dll</HintPath> 
+	   <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v13.1.Extensions, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraCharts.v13.1.Extensions.dll</HintPath> 
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v13.1.UI, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraCharts.v13.1.UI.dll</HintPath> 
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v13.1.Web, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraCharts.v13.1.Web.dll</HintPath> 
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraEditors.v13.1.dll</HintPath> 
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+       <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraPrinting.v13.1.dll</HintPath> 
+	   <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+       <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraGrid.v13.1.dll</HintPath> 
+	   <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraPivotGrid.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraPivotGrid.v13.1.dll</HintPath> 
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Sparkline.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+        <HintPath>..\..\..\..\lib\devexpress\DevExpress.Sparkline.v13.1.Core.dll</HintPath> 
+		<Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraReports.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraReports.v13.1.dll</HintPath>
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraReports.v13.1.Extensions, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraReports.v13.1.Extensions.dll</HintPath>
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraReports.v13.1.Web, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraReports.v13.1.Web.dll</HintPath>
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraScheduler.v13.1.Reporting.Extensions, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraScheduler.v13.1.Reporting.Extensions.dll</HintPath>
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraScheduler.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraScheduler.v13.1.dll</HintPath>
+	  <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraScheduler.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <HintPath>..\..\..\..\lib\devexpress\DevExpress.XtraScheduler.v13.1.Core.dll</HintPath>
+	  <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\..\..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -185,6 +218,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.Entity">
+	  <HintPath>..\..\..\..\lib\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.Linq">
