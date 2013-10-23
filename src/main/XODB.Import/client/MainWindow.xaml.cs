@@ -592,7 +592,11 @@ namespace XODB.Import.Client
         }
 
       
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void myWin_Loaded(object sender, RoutedEventArgs e)
         {
               // set up initial data 

@@ -34,7 +34,7 @@ namespace XODB.Import.Client.Processing
                     // Display error mesasges if required
                     if (lf.errorDetails != null && lf.errorDetails.Count > 0)
                     {
-                        string messageBoxText = "The file selected was loaded, but issues were noted as follows:";
+                        string messageBoxText = "The file (" + inputFilename + ") was loaded, but issues were noted as follows:";
                         mis.AddWarningMessage(messageBoxText);
                         foreach (string ed in lf.errorDetails)
                         {
@@ -51,7 +51,7 @@ namespace XODB.Import.Client.Processing
                 else
                 {
 
-                    string messageBoxText = "The file selected could not be loaded.  Please check that the selected file is " +
+                    string messageBoxText = "The file (" + inputFilename + ") could not be loaded.  Please check that the file is " +
                                             "accessible, is not open in another application and is in the correct format.";
                     mis.AddErrorMessage(messageBoxText);
                     string errorCodeDetails = LASErrorCodes.LookupCode(errorCode);
@@ -65,7 +65,7 @@ namespace XODB.Import.Client.Processing
                     }
                     
                     mis.finalErrorCode = ModelImportStatus.ERROR_LOADING_FILE;
-                    string caption = "Error loading file";
+                    string caption = "Error loading file " + inputFilename;
                     
                 }
 

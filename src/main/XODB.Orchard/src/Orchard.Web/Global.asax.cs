@@ -4,7 +4,6 @@ using System.Web.Routing;
 using Autofac;
 using Orchard.Environment;
 using Orchard.WarmupStarter;
-using DevExpress.Web.Mvc;
 using System;
 
 namespace Orchard.Web {

@@ -20,6 +20,7 @@ namespace XODB.Import.ImportUtils
             li = tempHoleIDa.LastIndexOf(".");
             string tempHoleID = tempHoleIDa.Substring(1, li - 1);
             int rowCounter = 0;
+            
             try
             {
                 // here we need to create the Geophyiscs data row item
@@ -101,6 +102,7 @@ namespace XODB.Import.ImportUtils
                     entityObj.SaveChanges();
                     rowCounter++;
                 }
+              
             }
             catch (Exception ex) {
                 mos.errorMessages.Add("Failed to complete import of LAS file: " + origFilename);

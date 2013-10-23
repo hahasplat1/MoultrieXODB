@@ -59,10 +59,18 @@
       <HintPath>..\..\lib\autofac\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Web.Mvc.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Office.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v13.1.Core, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Web.v13.1, Version=13.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Persistent.Base.v13.1">
+      <HintPath>..\..\lib\devexpress\DevExpress.Persistent.Base.v13.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v13.1">
+      <HintPath>..\..\lib\devexpress\DevExpress.Web.ASPxPivotGrid.v13.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxThemes.v13.1">
+      <HintPath>..\..\lib\devexpress\DevExpress.Web.ASPxThemes.v13.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.v13.1">
+      <HintPath>..\..\lib\devexpress\DevExpress.Web.v13.1.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\EntityFramework\EntityFramework.dll</HintPath>
