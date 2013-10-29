@@ -1,0 +1,20 @@
+C:\Home\Clients\ATS\QBOX\Industry Practice Definition\Implementation\Development\Third Party\ADX4\ADX4\bin\Debug\ADX.dll
+C:\Home\Clients\ATS\QBOX\Industry Practice Definition\Implementation\Development\Third Party\ADX4\ADX4\bin\Debug\ADX.pdb
+C:\Home\Clients\ATS\QBOX\Industry Practice Definition\Implementation\Development\Third Party\ADX4\ADX4\obj\Debug\ResolveAssemblyReference.cache
+C:\Home\Clients\ATS\QBOX\Industry Practice Definition\Implementation\Development\Third Party\ADX4\ADX4\obj\Debug\ADX.dll
+C:\Home\Clients\ATS\QBOX\Industry Practice Definition\Implementation\Development\Third Party\ADX4\ADX4\obj\Debug\ADX.pdb
+C:\QBOX\Industry Practice Definition\Implementation\Development\Third Party\ADX4\ADX4\bin\Debug\ADX.dll
+C:\QBOX\Industry Practice Definition\Implementation\Development\Third Party\ADX4\ADX4\bin\Debug\ADX.pdb
+C:\QBOX\Industry Practice Definition\Implementation\Development\Third Party\ADX4\ADX4\obj\Debug\ResolveAssemblyReference.cache
+C:\QBOX\Industry Practice Definition\Implementation\Development\Third Party\ADX4\ADX4\obj\Debug\ADX.dll
+C:\QBOX\Industry Practice Definition\Implementation\Development\Third Party\ADX4\ADX4\obj\Debug\ADX.pdb
+C:\Home\Clients\migc001\development\ADX\ADX4\bin\Debug\ADX.dll
+C:\Home\Clients\migc001\development\ADX\ADX4\bin\Debug\ADX.pdb
+C:\Home\Clients\migc001\development\ADX\ADX4\obj\Debug\ResolveAssemblyReference.cache
+C:\Home\Clients\migc001\development\ADX\ADX4\obj\Debug\ADX.dll
+C:\Home\Clients\migc001\development\ADX\ADX4\obj\Debug\ADX.pdb
+C:\Home\Clients\migc001\development\ADX\ADX4\bin\Release\ADX.dll
+C:\Home\Clients\migc001\development\ADX\ADX4\bin\Release\ADX.pdb
+C:\Home\Clients\migc001\development\ADX\ADX4\obj\Release\ResolveAssemblyReference.cache
+C:\Home\Clients\migc001\development\ADX\ADX4\obj\Release\ADX.dll
+C:\Home\Clients\migc001\development\ADX\ADX4\obj\Release\ADX.pdb
