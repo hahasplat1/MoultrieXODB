@@ -56,9 +56,11 @@ namespace XODB.Services {
             Logger = NullLogger.Instance;
             SqlWorkflowInstanceStore store = new SqlWorkflowInstanceStore(_users.ApplicationConnectionString);            
             _wfApp = new WorkflowApplication(new XODB.Workflow.AssignResponsibility());
-            _wfApp.InstanceStore = store;       
-            InstanceHandle handle = store.CreateInstanceHandle(null); 
+            _wfApp.InstanceStore = store;
             XName wfHostTypeName = XName.Get("XODB", _users.ApplicationID.ToString());
+            Dictionary<XName, object> wfScope = new Dictionary<XName, object> { { workflowHostTypePropertyName, wfHostTypeName } };
+            _wfApp.AddInitialInstanceValues(wfScope);
+            InstanceHandle handle = store.CreateInstanceHandle(null); 
             var cmd = new CreateWorkflowOwnerCommand 
             {
                  InstanceOwnerMetadata =
@@ -91,13 +93,15 @@ namespace XODB.Services {
 
         public Guid AssignResponsibility(Guid companyID, Guid contactID, Guid? tryWorkflowID = null, Guid referenceID = default(Guid), string referenceClass = null, string referenceTable = null)
         {
-            if (tryWorkflowID.HasValue && tryWorkflowID.Value != default(Guid))
-                _wfApp.Load(tryWorkflowID.Value);
-            else
-                _wfApp.LoadRunnableInstance();
-            _wfApp.Run();
-           //WorkflowInvoker.Invoke(
-            
+            using (new TransactionScope(TransactionScopeOption.Suppress))
+            {
+                if (tryWorkflowID.HasValue && tryWorkflowID.Value != default(Guid))
+                    _wfApp.Load(tryWorkflowID.Value);
+                //else
+                //    _wfApp.LoadRunnableInstance(); // if any in SQL store
+                _wfApp.Run();
+                //WorkflowInvoker.Invoke(
+            }
             return default(Guid); //Real Workflow ID
         }
 
