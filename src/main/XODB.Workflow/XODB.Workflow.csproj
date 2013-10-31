@@ -41,6 +41,7 @@
     <Reference Include="System.Activities.Presentation" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.DurableInstancing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activities" />
@@ -56,7 +57,10 @@
     </XamlAppDef>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssignResponsibility.cs" />
+    <Compile Include="SubmitResponsibility.cs" />
+    <Compile Include="Helpers\TrackingHelper.cs" />
+    <Compile Include="Helpers\WorkflowInstanceExtensionHelper.cs" />
+    <Compile Include="Helpers\XAMLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

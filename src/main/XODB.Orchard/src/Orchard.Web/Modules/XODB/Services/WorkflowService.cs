@@ -33,8 +33,10 @@ using System.ServiceModel.Activities.Description;
 using System.Activities.DurableInstancing;
 using System.Activities;
 using XODB.Workflow;
+using XODB.Workflow.Helpers;
 using System.Xml.Linq;
 using System.Activities.XamlIntegration;
+using System.Activities.Tracking;
 
 namespace XODB.Services {
 
@@ -48,35 +50,62 @@ namespace XODB.Services {
 
         public WorkflowService(
             IUsersService users
-          
+
           )
-        {            
+        {
             _users = users;
             T = NullLocalizer.Instance;
             Logger = NullLogger.Instance;
-            SqlWorkflowInstanceStore store = new SqlWorkflowInstanceStore(_users.ApplicationConnectionString);            
+            SqlWorkflowInstanceStore store = new SqlWorkflowInstanceStore(_users.ApplicationConnectionString);
             _wfApp = new WorkflowApplication(new XODB.Workflow.AssignResponsibility());
             _wfApp.InstanceStore = store;
+            
             XName wfHostTypeName = XName.Get("XODB", _users.ApplicationID.ToString());
             Dictionary<XName, object> wfScope = new Dictionary<XName, object> { { workflowHostTypePropertyName, wfHostTypeName } };
             _wfApp.AddInitialInstanceValues(wfScope);
-            InstanceHandle handle = store.CreateInstanceHandle(null); 
-            var cmd = new CreateWorkflowOwnerCommand 
+            
+            _wfApp.Extensions.Add(new ResponsibilityExtension());
+            List<XName> variantProperties = new List<XName>() 
+            { 
+                ResponsibilityExtension.xNS.GetName("CompanyID"), 
+                ResponsibilityExtension.xNS.GetName("ContactID") 
+            };
+            store.Promote("Responsibility", variantProperties, null);
+
+            InstanceHandle handle = store.CreateInstanceHandle(null);
+            var cmd = new CreateWorkflowOwnerCommand
             {
-                 InstanceOwnerMetadata =
+                InstanceOwnerMetadata =
                     {
                         {workflowHostTypePropertyName, new InstanceValue(wfHostTypeName)}
                     }
             };
-            InstanceOwner owner = store.Execute(handle, cmd , TimeSpan.MaxValue).InstanceOwner; 
+            InstanceOwner owner = store.Execute(handle, cmd, TimeSpan.MaxValue).InstanceOwner;
             store.DefaultInstanceOwner = owner;
+            
             handle.Free();
-
+   
             _wfApp.PersistableIdle = delegate(WorkflowApplicationIdleEventArgs e)
             {
                 return PersistableIdleAction.Persist;
             };
 
+            _wfApp.Completed = delegate(WorkflowApplicationCompletedEventArgs e)
+            {
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    foreach (var item in e.Outputs)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Variable:{0} has value: {1}", item.Key, item.Value);
+                    }
+                }
+            };
+
+            var trackingParticipant = new TrackingHelper.DebugTrackingParticipant
+            {
+                TrackingProfile = TrackingHelper.SimpleProfile
+            };
+            _wfApp.Extensions.Add(trackingParticipant);
         }
 
         public Localizer T { get; set; }
@@ -100,9 +129,15 @@ namespace XODB.Services {
                 //else
                 //    _wfApp.LoadRunnableInstance(); // if any in SQL store
                 _wfApp.Run();
+                var b = _wfApp.GetBookmarks();
+                var r = _wfApp.ResumeBookmark("SubmitResponsibility", new Dictionary<string, object>() { 
+                    { "CompanyID", Guid.NewGuid() }, 
+                    { "ContactID", Guid.NewGuid() }
+                });
                 //WorkflowInvoker.Invoke(
+                
             }
-            return default(Guid); //Real Workflow ID
+            return _wfApp.Id; //Real Workflow ID
         }
 
         public string CurrentState
