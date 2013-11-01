@@ -35,6 +35,7 @@ namespace XODB.Controllers {
         public ILogger Logger { get; set; }
         public Localizer T { get; set; }
         public IPrivateDataService PrivateService { get; set; }
+        public IWorkflowService WorkflowService { get; set; }
 
         public static readonly string OLAP_XSTRING = global::System.Configuration.ConfigurationManager.ConnectionStrings["XODBOLAP_RM"].ConnectionString;
 
@@ -46,7 +47,8 @@ namespace XODB.Controllers {
             IProjectsService projectService, 
             IParametersService parameterService,
             IUsersService userService,
-            IPrivateDataService privateService
+            IPrivateDataService privateService,
+            IWorkflowService workflowService
             ) {
             
             Services = services;
@@ -57,6 +59,7 @@ namespace XODB.Controllers {
             ParameterService = parameterService;
             ProjectService = projectService;
             PrivateService = privateService;
+            WorkflowService = workflowService;
             T = NullLocalizer.Instance;
             Logger = NullLogger.Instance;
             
@@ -717,6 +720,12 @@ namespace XODB.Controllers {
             pivotGridSettings.ClientSideEvents.EndCallback = "UpdateChart";
 
             return pivotGridSettings;
+        }
+
+        public ActionResult Workflow()
+        {
+            WorkflowService.AssignResponsibility(Guid.NewGuid(), Guid.NewGuid());
+            return View("Workflow");
         }
     }
 }
