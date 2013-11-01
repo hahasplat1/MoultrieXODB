@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XODB.Module.BusinessObjects;
 using Xstract.Import.LAS;
+using Microsoft.Samples.EntityDataReader;
 
 namespace XODB.Import.ImportUtils
 {
@@ -20,13 +23,20 @@ namespace XODB.Import.ImportUtils
             li = tempHoleIDa.LastIndexOf(".");
             string tempHoleID = tempHoleIDa.Substring(1, li - 1);
             int rowCounter = 0;
-            
+            // now try and get teh hole name from a header item.  Typically the header name might be in
+            // WELL in the Well information header section
+            string res = lasFile.LookupWellHeaderSection("WELL");
+            if (res != null && res.Trim().Length > 0) {
+
+                tempHoleID = res;
+            }
+
             try
             {
                 // here we need to create the Geophyiscs data row item
-                var entityObj = new XODBC(BaseImportTools.XSTRING, null);
+                var entityObj = new XODBC(BaseImportTools.XSTRING, null, false);
                 //entityObj.AutoDetectChangesEnabled = false; //TODO: Exhaust this, should be faster now
-
+                
                 Geophysics xG = new Geophysics();
                 xG.FileName = origFilename;
                 Guid gg = Guid.NewGuid();
@@ -50,6 +60,7 @@ namespace XODB.Import.ImportUtils
                 entityObj.Geophysics.AddObject(xG);
 
 
+
                 Dictionary<string, Guid> metaDataIDLookup = new Dictionary<string, Guid>();
                 // here we need to add a GeophysicsMetadata item for each column
 
@@ -67,6 +78,7 @@ namespace XODB.Import.ImportUtils
 
                         // TODO, add the unit as per the las file if present
                         entityObj.Parameters.AddObject(xp);
+                        entityObj.SaveChanges();
                     }
                     GeophysicsMetadata xgm = new GeophysicsMetadata();
                     xgm.GeophysicsID = gg;
@@ -78,12 +90,19 @@ namespace XODB.Import.ImportUtils
                     metaDataIDLookup.Add(s, gmid);
                 }
                 entityObj.SaveChanges();
-                
+                int insertCounter = 0;
                 /// here we add the row data, one entry per depth & value into the GeophysicsData
+                /// 
+
+                // this is exceptionally slow with EF
+
+                var bulkCopy = new SqlBulkCopy(BaseImportTools.XSTRING);
+                bulkCopy.DestinationTableName = "X_GeophysicsData";
+                var geoDataList = new List<GeophysicsData>();
                 foreach (LASDataRow ldr in lasFile.dataRows)
                 {
                     double depth = ldr.depth;
-
+                    
                     for (int i = 0; i < ldr.rowData.Count(); i++)
                     {
                         GeophysicsData xd1 = new GeophysicsData();
@@ -97,20 +116,38 @@ namespace XODB.Import.ImportUtils
                         }
                         xd1.Dimension = (decimal)depth;
                         xd1.MeasurementValue = (decimal)ldr.rowData[i];
-                        entityObj.GeophysicsDatas.AddObject(xd1);
+
+                        geoDataList.Add(xd1);
+
+                        //entityObj.GeophysicsDatas.AddObject(xd1);
                     }
-                    entityObj.SaveChanges();
+                    //if (insertCounter == 500) {
+                    //    entityObj.SaveChanges();
+                    //    insertCounter = 0;
+                    //    entityObj = new XODBC(BaseImportTools.XSTRING, null, false);
+                    //}
+                    insertCounter++;
                     rowCounter++;
                 }
+
+                
+                bulkCopy.WriteToServer(geoDataList.AsDataReader());
+
+                //entityObj.SaveChanges();
+             
               
             }
             catch (Exception ex) {
                 mos.errorMessages.Add("Failed to complete import of LAS file: " + origFilename);
+                mos.errorMessages.Add("Details: " + ex.Message.ToString());
             }
             mos.recordsAdded = rowCounter;
             
         }
 
+
+      
+     
         private Parameter GetParameterIDFor(XODBC entityObj, string paramType, string paramName)
         {
             Parameter res = null; ;

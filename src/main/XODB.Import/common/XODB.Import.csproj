@@ -69,6 +69,7 @@
     <Compile Include="LAS\LASErrorCodes.cs" />
     <Compile Include="LAS\LASFile.cs" />
     <Compile Include="LAS\LASFileReader.cs" />
+    <Compile Include="LAS\LASHeaderSection.cs" />
     <Compile Include="ModelImportStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ImportUtils\AssayImport.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="ImportUtils\ForeignKeyUtils.cs" />
     <Compile Include="ImportUtils\ProjectUtils.cs" />
     <Compile Include="ImportUtils\SurveyQueries.cs" />
+    <Compile Include="Utilities\EntityDataReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

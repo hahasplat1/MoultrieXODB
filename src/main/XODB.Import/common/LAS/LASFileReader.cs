@@ -24,7 +24,48 @@ namespace Xstract.Import.LAS
 
                 lf1 = ReadCSVLines(inputFile, columnOffset, out errorCode);
             }
+
+            // make sure column header names are not duplicated
+            List<string> headers = DeDuplicate(lf1.columnHeaders);
+            lf1.columnHeaders = headers;
             return lf1;
+        }
+
+        private List<string> DeDuplicate(List<string> list)
+        {
+
+            Dictionary<string, string> colDic = new Dictionary<string, string>();
+            List<string> newColNames = new List<string>();
+            foreach (string h in list) {
+                string keyName = h;
+                bool hasEntry = colDic.ContainsKey(keyName);
+                if (!hasEntry)
+                {
+                    colDic.Add(h, h);
+                }
+                else {
+                    int counter = 1;
+                    while (true) {
+
+                        string newKey = keyName + " (" + counter + ")";
+                        
+                        bool hasNewEntry = colDic.ContainsKey(newKey);
+                        if (!hasNewEntry) {
+                            keyName = newKey;
+                            colDic.Add(keyName, keyName);
+                            break;
+                        }
+                        counter++;
+                    }
+                }
+                newColNames.Add(keyName);
+
+            }
+
+
+
+            return newColNames;
+
         }
 
 
@@ -61,6 +102,7 @@ namespace Xstract.Import.LAS
                 bool inCurveSection = false;
                 bool inWellInfoSection = false;
                 bool inVersionSection = false;
+                bool inParameterSection = false;
                 int lineCount = 0;
                 List<string> curveHeaders = new List<string>();
                 try
@@ -81,11 +123,17 @@ namespace Xstract.Import.LAS
                                 inCurveSection = false;
                                 inWellInfoSection = false;
                                 inVersionSection = false;
+                                inParameterSection = false;
                             }
 
                             if (line.ToUpper().StartsWith("~C"))
                             {
                                 inCurveSection = true;
+
+                            }
+                            if (line.ToUpper().StartsWith("~P"))
+                            {
+                                inParameterSection = true;
 
                             }
                             if (line.ToUpper().StartsWith("~W"))
@@ -152,6 +200,7 @@ namespace Xstract.Import.LAS
 
                             if (inWellInfoSection)
                             {
+                                res.AddWellSectionHeaderLine(line);
                                 // attempt to find the NULL value
                                 if (line.Trim().StartsWith("NULL"))
                                 {
@@ -172,9 +221,12 @@ namespace Xstract.Import.LAS
                                     }
                                 }
                             }
+                            if (inParameterSection) {
+                                res.AddParameterSectionHeaderLine(line);
+                            }
                             if (inVersionSection)
                             {
-
+                                res.AddVersionSectionHeaderLine(line);
 
                                 if (line.Trim().StartsWith("VERS"))
                                 {
@@ -208,7 +260,7 @@ namespace Xstract.Import.LAS
                                         string wrap = leftOver.Trim();
                                         if (wrap.ToUpper().Equals("YES"))
                                         {
-                                            errorInfo.Add("The selected LAS file has WRAP set to 'YES'.  This feature is not supported by Trace Viewer, and LAS files must have on depth step per line.");
+                                            errorInfo.Add("The selected LAS file has WRAP set to 'YES'.  This feature is not supported by this software, LAS files must have one depth step per line.");
                                         }
                                     }
                                     catch (Exception ex)
@@ -220,6 +272,7 @@ namespace Xstract.Import.LAS
                             }
                             if (inCurveSection)
                             {
+                                res.AddCurveSectionHeaderLine(line);
                                 // decode a line and give it to the headers section
                                 int endIdx = line.IndexOf(':');
                                 if (endIdx > 0)
