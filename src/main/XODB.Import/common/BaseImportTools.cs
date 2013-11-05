@@ -768,13 +768,13 @@ namespace XODB.Import
         public List<ColumnMetaInfo> GetLithoColumns(string connString)
         {
             Lithology ob = new Lithology();
-            string tableName = "Lithology";
+            string tableName = "X_Lithology";
 
             List<ColumnMetaInfo> colList = QueryColumns(connString, ob, tableName);
 
 
             List<string> removeStubs = new List<string>();
-            removeStubs.Add("Litho");
+            //removeStubs.Add("Litho"); //Removed due to this segment stripping out LithQual/Percentage etc
             removeStubs.Add("Version");
             removeStubs.Add("Dict");
             List<ColumnMetaInfo> colListP = new List<ColumnMetaInfo>();

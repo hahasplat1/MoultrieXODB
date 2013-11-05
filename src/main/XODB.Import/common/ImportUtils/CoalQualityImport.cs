@@ -324,7 +324,7 @@ namespace XODB.Import.ImportUtils
                                         testResult.SampleID = xs.SampleID;
                                         testResult.VersionUpdated = currentUpdateTimestamp;
                                         testResult.LabBatchNumber = labBatchNumber;
-                                        testResult.LabSampleNumber = labsampleNumber;
+                                        //testResult.LabSampleNumber = labsampleNumber;
                                         Decimal result = new Decimal();
                                         if (items.Count >= cm.sourceColumnNumber)
                                         {
