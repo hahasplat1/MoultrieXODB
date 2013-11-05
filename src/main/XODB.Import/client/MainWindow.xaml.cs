@@ -48,6 +48,7 @@ namespace XODB.Import.Client
         BackgroundWorker workerLoadData;
         BackgroundWorker workerBMDataImport;
         BackgroundWorker workerAssayDataImport;
+        BackgroundWorker workerCoalQualityDataImport;
         BackgroundWorker workerSurveyDataImport;
         BackgroundWorker workerLithoDataImport;
         BackgroundWorker workerLASBatchDataImport;
@@ -61,6 +62,7 @@ namespace XODB.Import.Client
         public List<ColumnMetaInfo> bmDBFields { get; set; }
         public List<ColumnMetaInfo> collarDBFields { get; set; }
         public List<ColumnMetaInfo> assayDBFields { get; set; }
+        public List<ColumnMetaInfo> coalQualityDBFields { get; set; }
         public List<ColumnMetaInfo> lasDBFields { get; set; }
         public List<ColumnMetaInfo> surveyDBFields { get; set; }
         public List<ColumnMetaInfo> lithoDBFields { get; set; }
@@ -85,6 +87,11 @@ namespace XODB.Import.Client
         public static RoutedCommand OpenAssayFormat = new RoutedCommand();
         public static RoutedCommand SaveAssayFormat = new RoutedCommand();
         public static RoutedCommand AssayImport = new RoutedCommand();
+
+        public static RoutedCommand OpenCoalQuality = new RoutedCommand();
+        public static RoutedCommand OpenCoalQualityFormat = new RoutedCommand();
+        public static RoutedCommand SaveCoalQualityFormat = new RoutedCommand();
+        public static RoutedCommand CoalQualityImport = new RoutedCommand();
 
         public static RoutedCommand OpenSurvey = new RoutedCommand();
         public static RoutedCommand OpenSurveyFormat = new RoutedCommand();
@@ -154,7 +161,11 @@ namespace XODB.Import.Client
 
             CommandBinding cb26 = new CommandBinding(BatchImportLAS, BatchImportLASExecuted, BatchImportLASCanExecute);
 
-            
+            CommandBinding cb27 = new CommandBinding(OpenCoalQuality, OpenCoalQualityExecuted, OpenCoalQualityCanExecute);
+            CommandBinding cb28 = new CommandBinding(OpenCoalQualityFormat, OpenCoalQualityFormatExecuted, OpenCoalQualityFormatCanExecute);
+            CommandBinding cb29 = new CommandBinding(SaveCoalQualityFormat, SaveCoalQualityFormatExecuted, SaveCoalQualityFormatCanExecute);
+            CommandBinding cb30 = new CommandBinding(CoalQualityImport, CoalQualityImportExecuted, CoalQualityImportCanExecute);
+
             
             this.CommandBindings.Add(cb1);
             this.CommandBindings.Add(cb2);
@@ -187,6 +198,12 @@ namespace XODB.Import.Client
             this.CommandBindings.Add(cb25);
             
             this.CommandBindings.Add(cb26);
+
+            this.CommandBindings.Add(cb27);
+            this.CommandBindings.Add(cb28);
+            this.CommandBindings.Add(cb29);
+            this.CommandBindings.Add(cb30);
+
             InitializeComponent();
 
             Dictionary<RibbonButton, RoutedCommand> commandMapping = new Dictionary<RibbonButton, RoutedCommand>();
@@ -219,6 +236,12 @@ namespace XODB.Import.Client
             commandMapping.Add(ButtonSaveLithoFormat, SaveLithoFormat);
             commandMapping.Add(ButtonImportLitho, LithoImport);
             commandMapping.Add(ButtonImportBatchLAS, BatchImportLAS);
+
+
+            commandMapping.Add(ButtonOpenCoalQuality, OpenCoalQuality);
+            commandMapping.Add(ButtonOpenCoalQualityFormat, OpenCoalQualityFormat);
+            commandMapping.Add(ButtonSaveCoalQualityFormat, SaveCoalQualityFormat);
+            commandMapping.Add(ButtonImportCoalQuality, CoalQualityImport);
 
             AssignEventsToButtons(commandMapping);            
 
@@ -787,10 +810,7 @@ namespace XODB.Import.Client
         }
 
         private void OpenAssayExecuted(object sender, ExecutedRoutedEventArgs e)
-        {
-
-            
-            
+        {           
             string fileName = UIFileUtils.ShowOpenFileChoose(FileExtension, FileDescription, SelectedFile);
             if (fileName == null)
             {
@@ -817,7 +837,163 @@ namespace XODB.Import.Client
         }
 
        
+        //-------------------------
+        private void SaveCoalQualityFormatCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (this.SelectedImportType == GeneralParameters.COAL_QUALITY)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+            e.Handled = true;
+        }
 
+        private void SaveCoalQualityFormatExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveFormatFile();
+            e.Handled = true;
+        }
+
+        private void OpenCoalQualityFormatCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+            if (this.SelectedImportType == GeneralParameters.ASSAY)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+            e.Handled = true;
+        }
+
+        private void OpenCoalQualityFormatExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            SelectedImportType = GeneralParameters.COAL_QUALITY;
+            OpenFormatDataFile();
+            e.Handled = true;
+        }
+
+        private void OpenCoalQualityCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+            e.CanExecute = true;
+            e.Handled = true;
+        }
+
+        private void OpenCoalQualityExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            string fileName = UIFileUtils.ShowOpenFileChoose(FileExtension, FileDescription, SelectedFile);
+            if (fileName == null)
+            {
+                LabelLoadedFile.Content = "no file loaded";
+            }
+            else
+            {
+                ResetUI();
+                SelectedImportType = GeneralParameters.COAL_QUALITY;
+                SelectedFile = fileName;
+                if (fileName != null && fileName.Trim().Length > 0)
+                {
+                    LoadTextDataForPreview(fileName);
+
+                }
+                LabelLoadedFile.Content = fileName;
+                this.Title = titleText + " - " + fileName;
+
+                SetRibbonEnabledStatus(GeneralParameters.COAL_QUALITY);
+
+            }
+
+            e.Handled = true;
+        }
+
+
+
+
+        private void CoalQualityImportCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (this.SelectedImportType == GeneralParameters.COAL_QUALITY)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
+            e.Handled = true;
+        }
+
+        private void CoalQualityImportExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (ComboBoxProjectList.SelectedValue == null)
+            {
+                ComboBoxProjectList.BorderBrush = Brushes.Red;
+                MessageBox.Show("You must select a project before importing");
+                return;
+            }
+            doDuplicateCheck = (bool)checkBoxDupeCheck.IsChecked;
+            doImportOverwrite = (bool)checkBoxOverwrite.IsChecked;
+            Guid gg = (Guid)ComboBoxProjectList.SelectedValue;
+            XODBProjectID = gg;
+            ImportDataMap importMap = MapConfigTable.GetImportDataMap(MapConfigTable.assayPrimaryTableName);
+            // add into map details of which columns are foreign keys
+
+            if (coalQualityDBFields != null)
+            {
+                importMap.UpdateWithFKInof(coalQualityDBFields);
+            }
+
+            // get the selected project ID
+            XODBProjectID = gg;
+
+            workerCoalQualityDataImport = new BackgroundWorker();
+
+            workerCoalQualityDataImport.WorkerReportsProgress = true;
+            workerCoalQualityDataImport.WorkerSupportsCancellation = false;
+            workerCoalQualityDataImport.DoWork += bw_DoCoalQualityImportWork;
+            // Method to call when Progress has changed
+            workerCoalQualityDataImport.ProgressChanged += bw_ProgressChanged;
+            // Method to run after BackgroundWorker has completed?
+            workerCoalQualityDataImport.RunWorkerCompleted += bw_CoalQualityImportRunWorkerCompleted;
+
+
+            workerAssayDataImport.RunWorkerAsync(importMap);
+
+            e.Handled = true;
+        }
+
+
+        private void bw_DoCoalQualityImportWork(object sender, DoWorkEventArgs e)
+        {
+            ImportDataMap importMap = (ImportDataMap)e.Argument;
+            commandDirector.SetCurrentWorkerThread(workerCoalQualityDataImport);
+            ModelImportStatus status = commandDirector.DoCoalQualityImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader,
+                XODBProjectID, doDuplicateCheck, doImportOverwrite);
+            lastestImportUpdateStatus = status;
+        }
+
+        /// <summary>
+        /// The import of assays is complete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bw_CoalQualityImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (lastestImportUpdateStatus != null)
+            {
+                ImportStatusWindow ii = new ImportStatusWindow();
+                ii.SetData(lastestImportUpdateStatus);
+                ii.ShowDialog();
+            }
+
+        }
+
+        //-------------------------
        
 
          
@@ -860,6 +1036,14 @@ namespace XODB.Import.Client
             return ls;
         }
 
+        private List<ColumnMetaInfo> GetCoalQualityDBFieldsFromXODB()
+        {
+            BaseImportTools bit = new BaseImportTools();
+            List<ColumnMetaInfo> ls = bit.GetCoalQualityColumns(CommandDirector.ConnectionString);
+
+            return ls;
+        }
+
         private void LoadTextDataForPreview(string inputFilename)
         {
             IOResults ares = new IOResults();
@@ -876,6 +1060,10 @@ namespace XODB.Import.Client
             else if (SelectedImportType == GeneralParameters.ASSAY)
             {
                 dbFields = assayDBFields;
+            }
+            else if (SelectedImportType == GeneralParameters.COAL_QUALITY)
+            {
+                dbFields = coalQualityDBFields;
             }
             else if (SelectedImportType == GeneralParameters.SURVEY)
             {
@@ -936,6 +1124,7 @@ namespace XODB.Import.Client
                 bmDBFields = GetBMFieldsFromXODB();
                 collarDBFields = GetCollarFieldsFromXODB();
                 assayDBFields = GetAssayFieldsFromXODB();
+                coalQualityDBFields = GetCoalQualityDBFieldsFromXODB();
                 lasDBFields = GetGeophysicsFieldsFromXODB();
                 surveyDBFields = GetSurveyFieldsFromXODB();
                 lithoDBFields = GetLithoFieldsFromXODB();
