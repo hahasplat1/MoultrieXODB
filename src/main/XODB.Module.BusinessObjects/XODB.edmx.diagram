@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3cf498aeaaa142e3b452c3cdd48bf54f" Name="Diagram1" ZoomLevel="11">
+      <Diagram DiagramId="3cf498aeaaa142e3b452c3cdd48bf54f" Name="Diagram1" ZoomLevel="63">
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Applications" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Membership" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Paths" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
@@ -967,6 +967,64 @@
         <EntityTypeShape EntityType="XODB.Module.BusinessObjects.FileDataWorkType" Width="1.5" PointX="10.195848588922921" PointY="7.64067696390705" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_FileDataWorkType_X_DictionaryWorkType" />
         <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_FileDataWorkType_X_FileData" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryWorkflowType" Width="1.5" PointX="11.771305203331311" PointY="20.67408847281434" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.Workflow" Width="1.5" PointX="2.7038520736172105" PointY="1.671995640579609" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayGroupSubsample" Width="1.5" PointX="3.9964906629158605" PointY="7.2256083224087995" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayGroupSubsampleChemical" Width="1.5" PointX="7.49165690852872" PointY="24.044999893775675" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayGroupSubsampleEquipment" Width="1.5" PointX="4.0372056625956692" PointY="5.696962999970169" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayGroupSubsamplePrecondition" Width="1.5" PointX="9.5409390505128258" PointY="6.2553774594587166" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayGroupSubsampleRelation" Width="1.5" PointX="8.989758128761201" PointY="23.833976637494739" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayGroupTestEquipment" Width="1.5" PointX="8.31156434505785" PointY="10.81728990879715" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayGroupWorkflow" Width="1.5" PointX="2.2996508359441772" PointY="13.332929319391459" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayGroupWorkflowProcedure" Width="1.5" PointX="4.1792318374753146" PointY="4.528838800512645" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayProcedure" Width="1.5" PointX="2.388091542938767" PointY="16.053235910857673" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayProcedureProtocol" Width="1.5" PointX="5.3621611322100087" PointY="18.173160606144538" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.AssayProcedureProtocolEquipment" Width="1.5" PointX="5.3886223590879805" PointY="21.642994175498838" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryAgitationMethod" Width="1.5" PointX="9.00663833739545" PointY="23.732979666317338" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryAssayProcedureMethod" Width="1.5" PointX="7.3763579294906734" PointY="10.777897541773458" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryAssayProcedureTechnique" Width="1.5" PointX="5.9187667434656834" PointY="17.91627780437296" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryAssayProcedureType" Width="1.5" PointX="11.262024873523984" PointY="11.656291490260648" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryAssayTechnique" Width="1.5" PointX="0.47782550588148903" PointY="20.344052264627095" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.DictionaryChemical" Width="1.5" PointX="0.16573963508277184" PointY="18.877347031085449" />
+        <EntityTypeShape EntityType="XODB.Module.BusinessObjects.ModelPartInfoView" Width="1.5" PointX="11.615803962394505" PointY="23.733584564055121" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_E_Workflow_E_DictionaryWorkflowType" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupWorkflow_E_Workflow" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleEquipment_Q_Asset" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestEquipment_Q_Asset" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_AssayGroup" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupWorkflow_X_AssayGroup" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_AssayGroupWorkflowProcedure" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_DictionaryAgitationMethod" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_DictionaryUnit" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_Sample" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleChemical_X_AssayGroupSubsample" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleEquipment_X_AssayGroupSubsample" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleRelation_X_AssayGroupSubsample_Destination" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleRelation_X_AssayGroupSubsample_Source" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestResult_X_AssayGroupSubsample" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleChemical_X_DictionaryChemicalType" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_DictionaryUnit" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_Compliance" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_DictionaryAssayTechnique" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTestEquipment_X_AssayGroupTest" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupWorkflowProcedure_X_AssayGroupWorkflow" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayGroupWorkflowProcedure_X_AssayProcedureProtocol" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayProcedure_X_DictionaryAssayProcedureType" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocol_X_AssayProcedure" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocol_X_Compliance" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocol_X_DictionaryAssayProcedureMethodType" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocol_X_DictionaryAssayProcedureTechniqueType" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolEquipment_X_AssayProcedureProtocol" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolEquipment_X_DictionaryModel" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_DictionaryAgitationMethodType_X_DictionaryUnit" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAgitationMethodType_X_FileData_OriginalFile" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayProcedureMethodType_X_FileData_OriginalFile" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayProcedureTechniqueType_X_FileData_OriginalFile" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayProcedureType_X_FileData_OriginalFile" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayTechnique_X_FileData_OriginalFile" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryChemicalType_X_FileData_OriginalFile" />
+        <AssociationConnector Association="XODB.Module.BusinessObjects.FK_X_Sample_X_Location" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
