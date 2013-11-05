@@ -123,6 +123,20 @@ namespace XODB.Import.Client
             return mos;
         }
 
+        internal ModelImportStatus DoCoalQualityImport(string SelectedFile, string SelectedFormatFile, ImportDataMap importMap, RawFileReader blockRawFileReader, Guid XODBProjectID, bool checkForDuplicates, bool doImportOverwrite)
+        {
+            BaseImportTools bit = new BaseImportTools();
+            ModelImportStatus mos = new ModelImportStatus();
+
+            GeneralFileInfo gfi = new GeneralFileInfo();
+            gfi.GeneralFileStats(SelectedFile);
+            int numLines = gfi.numLines;
+
+            Stream fileStream = new FileStream(SelectedFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            //Stream fileStream = new FileStream(SelectedFile, FileMode.Open);
+            bit.PerformCoalQualityImport(mos, fileStream, null, importMap, this.backgroundWorker, XODBProjectID, ConnectionString, numLines, checkForDuplicates, doImportOverwrite);
+            return mos;
+        }
 
         internal ModelImportStatus DoSurveyImport(string SelectedFile, string SelectedFormatFile, ImportDataMap importMap, RawFileReader blockRawFileReader, Guid XODBProjectID, bool doOverwrite, bool checkForDuplicates)
         {

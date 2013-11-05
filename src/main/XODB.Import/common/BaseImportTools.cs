@@ -268,6 +268,22 @@ namespace XODB.Import
 
         }
 
+        public void PerformCoalQualityImport(ModelImportStatus mos, System.IO.Stream bmFileStream, System.IO.Stream ffFileStream,
+                                      ImportDataMap importMap, System.ComponentModel.BackgroundWorker backgroundWorker, Guid XODBProjectID,
+                                      string connString, int numLines, bool checkForDuplicates, bool doImportOverwrite)
+        {
+            this.currentWorker = backgroundWorker;
+            // talk to the import lib to do the import
+            DateTime startTime = DateTime.Now;
+            int batchSize = 100;
+            //UpdateStatus("Creating new XODB block model", 20.0);
+            ImportUtils.CoalQualityImport cqImp = null;
+            cqImp = new ImportUtils.CoalQualityImport();
+            cqImp.AddCoalQualityData(mos, bmFileStream, importMap, batchSize, UpdateStatus, numLines, connString, XODBProjectID, checkForDuplicates, doImportOverwrite);
+
+
+        }
+
         public void PerformSurveyImport(ModelImportStatus mos, System.IO.Stream bmFileStream, System.IO.Stream ffFileStream, ImportDataMap importMap, System.ComponentModel.BackgroundWorker backgroundWorker, Guid XODBProjectID, string connString, int numLines, bool doOverwrite, bool checkForDuplicates)
         {
             this.currentWorker = backgroundWorker;
@@ -526,6 +542,82 @@ namespace XODB.Import
 
             return colListP;
         }
+
+        public List<ColumnMetaInfo> GetCoalQualityColumns(string connectionString)
+        {
+            List<ColumnMetaInfo> colList = new List<ColumnMetaInfo>();
+
+            List<FKSpecification> fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "Sample");
+
+            Sample xag = new Sample();
+            QueryColumnData(colList, fkList, xag);
+            AssayGroupTestResult xtr = new AssayGroupTestResult();
+            fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "AssayGroupTestResult");
+            QueryColumnData(colList, fkList, xtr);
+
+            List<string> removeStubs = new List<string>();
+            removeStubs.Add("Sample");
+            removeStubs.Add("Assay");
+            removeStubs.Add("Version");
+            removeStubs.Add("Dict");
+            List<ColumnMetaInfo> colListP = new List<ColumnMetaInfo>();
+            colListP = PruneColumnList(removeStubs, colList);
+
+            ColumnMetaInfo ci0 = new ColumnMetaInfo();
+            ci0.columnName = "[PROCESS]";
+            ci0.fkSpec = null;
+            colListP.Insert(0, ci0);
+            
+            ColumnMetaInfo ci2 = new ColumnMetaInfo();
+            ci2.columnName = "[SCREEN]";
+            ci2.fkSpec = null;
+            colListP.Insert(2, ci2);
+            
+            ColumnMetaInfo ci3 = new ColumnMetaInfo();
+            ci3.columnName = "[FLOAT]";
+            ci3.fkSpec = null;
+            colListP.Insert(3, ci3);
+
+            ColumnMetaInfo ci4 = new ColumnMetaInfo();
+            ci4.columnName = "[QUALITY]";
+            ci4.fkSpec = null;
+            colListP.Insert(4, ci4);
+
+
+            // now mark only the mandatory fields - for assay this will be header id, from, to and result
+            foreach (ColumnMetaInfo c in colListP) {
+                
+                if (c.columnName.Equals("HeaderID")) {
+                    c.isMandatory = true;
+                }
+                else if (c.columnName.Equals("FromDepth")) {
+                    c.isMandatory = true;
+                }
+                else if (c.columnName.Equals("ToDepth")) {
+                    c.isMandatory = true;
+                }
+                else if (c.columnName.Equals("[PROCESS]"))
+                {
+                    c.isMandatory = false;
+                }
+                else if (c.columnName.Equals("[SCREEN]"))
+                {
+                    c.isMandatory = false;
+                }
+                else if (c.columnName.Equals("[FLOAT]"))
+                {
+                    c.isMandatory = false;
+                }
+                else if (c.columnName.Equals("[QUALITY]"))
+                {
+                    c.isMandatory = false;
+                }
+            }
+
+            return colListP;
+        }
+
+        
 
         private List<ColumnMetaInfo> PruneColumnList(List<string> removeStubs, List<ColumnMetaInfo> colList)
         {

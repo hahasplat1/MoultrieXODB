@@ -178,7 +178,24 @@
                 </RibbonGroup>
             </RibbonTab>
 
-           
+            <RibbonTab Header="Coal quality" Name="RibbonTabCoalQualityFile" Visibility="Visible">
+                <RibbonGroup Header="Data file">
+                    <RibbonButton x:Name="ButtonOpenCoalQuality" Label="Open" LargeImageSource="/XODB Importer;component/images/open_32.png"/>
+                </RibbonGroup>
+
+                <RibbonGroup Header="Format map">
+                    <RibbonButton x:Name="ButtonOpenCoalQualityFormat" Label="Open" LargeImageSource="/XODB Importer;component/images/open_32.png"/>
+                    <RibbonButton x:Name="ButtonSaveCoalQualityFormat"  Label="Save" LargeImageSource="/XODB Importer;component/images/save_32.png"/>
+                    <RibbonButton/>
+                </RibbonGroup>
+
+                <RibbonGroup Header="Tools">
+
+                    <RibbonButton x:Name="ButtonImportCoalQuality" Label="Import" LargeImageSource="/XODB Importer;component/images/refresh_32.png"/>
+
+                </RibbonGroup>
+
+            </RibbonTab>
 
 
             

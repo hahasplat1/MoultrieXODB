@@ -15,6 +15,7 @@ namespace XODB.Import.Client.UIUtils
         public static int ASSAY = 3;
         public static int SURVEY = 4;
         public static int LITHO = 5;
+        public static int COAL_QUALITY = 6;
 
     }
 }
