@@ -90,6 +90,8 @@
           <EntitySet Name="X_AssayProcedure" EntityType="XODB.Module.BusinessObjects.Store.X_AssayProcedure" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_AssayProcedureProtocol" EntityType="XODB.Module.BusinessObjects.Store.X_AssayProcedureProtocol" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_AssayProcedureProtocolEquipment" EntityType="XODB.Module.BusinessObjects.Store.X_AssayProcedureProtocolEquipment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="X_AssayProcedureProtocolPrecondition" EntityType="XODB.Module.BusinessObjects.Store.X_AssayProcedureProtocolPrecondition" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="X_AssayWorkflowProcedureProtocol" EntityType="XODB.Module.BusinessObjects.Store.X_AssayWorkflowProcedureProtocol" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_BlockModel" EntityType="XODB.Module.BusinessObjects.Store.X_BlockModel" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_BlockModelBlock" EntityType="XODB.Module.BusinessObjects.Store.X_BlockModelBlock" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_BlockModelBlockData" EntityType="XODB.Module.BusinessObjects.Store.X_BlockModelBlockData" store:Type="Tables" Schema="dbo" />
@@ -117,6 +119,7 @@
           <EntitySet Name="X_DictionaryAgitationMethod" EntityType="XODB.Module.BusinessObjects.Store.X_DictionaryAgitationMethod" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryAlteration" EntityType="XODB.Module.BusinessObjects.Store.X_DictionaryAlteration" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryAssayMethod" EntityType="XODB.Module.BusinessObjects.Store.X_DictionaryAssayMethod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="X_DictionaryAssayPreconditionType" EntityType="XODB.Module.BusinessObjects.Store.X_DictionaryAssayPreconditionType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryAssayProcedureMethod" EntityType="XODB.Module.BusinessObjects.Store.X_DictionaryAssayProcedureMethod" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryAssayProcedureTechnique" EntityType="XODB.Module.BusinessObjects.Store.X_DictionaryAssayProcedureTechnique" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="X_DictionaryAssayProcedureType" EntityType="XODB.Module.BusinessObjects.Store.X_DictionaryAssayProcedureType" store:Type="Tables" Schema="dbo" />
@@ -1668,10 +1671,6 @@
             <End Role="X_DictionaryAgitationMethod" EntitySet="X_DictionaryAgitationMethod" />
             <End Role="X_AssayGroupSubsample" EntitySet="X_AssayGroupSubsample" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_AssayGroupSubsample_X_DictionaryUnit" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayGroupSubsample_X_DictionaryUnit">
-            <End Role="X_DictionaryUnit" EntitySet="X_DictionaryUnit" />
-            <End Role="X_AssayGroupSubsample" EntitySet="X_AssayGroupSubsample" />
-          </AssociationSet>
           <AssociationSet Name="FK_X_AssayGroupSubsample_X_Sample" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayGroupSubsample_X_Sample">
             <End Role="X_Sample" EntitySet="X_Sample" />
             <End Role="X_AssayGroupSubsample" EntitySet="X_AssayGroupSubsample" />
@@ -1696,8 +1695,12 @@
             <End Role="X_AssayGroupSubsample" EntitySet="X_AssayGroupSubsample" />
             <End Role="X_AssayGroupSubsamplePrecondition" EntitySet="X_AssayGroupSubsamplePrecondition" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_AssayGroupSubsamplePrecondition_X_DictionaryUnit" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayGroupSubsamplePrecondition_X_DictionaryUnit">
-            <End Role="X_DictionaryUnit" EntitySet="X_DictionaryUnit" />
+          <AssociationSet Name="FK_X_AssayGroupSubsamplePrecondition_X_DictionaryAssayPreconditionType" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayGroupSubsamplePrecondition_X_DictionaryAssayPreconditionType">
+            <End Role="X_DictionaryAssayPreconditionType" EntitySet="X_DictionaryAssayPreconditionType" />
+            <End Role="X_AssayGroupSubsamplePrecondition" EntitySet="X_AssayGroupSubsamplePrecondition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayGroupSubsamplePrecondition_X_Parameter" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayGroupSubsamplePrecondition_X_Parameter">
+            <End Role="X_Parameter" EntitySet="X_Parameter" />
             <End Role="X_AssayGroupSubsamplePrecondition" EntitySet="X_AssayGroupSubsamplePrecondition" />
           </AssociationSet>
           <AssociationSet Name="FK_X_AssayGroupSubsampleRelation_X_AssayGroupSubsample_Destination" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayGroupSubsampleRelation_X_AssayGroupSubsample_Destination">
@@ -1819,6 +1822,26 @@
           <AssociationSet Name="FK_X_AssayProcedureProtocolEquipment_X_DictionaryModel" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayProcedureProtocolEquipment_X_DictionaryModel">
             <End Role="X_DictionaryModel" EntitySet="X_DictionaryModel" />
             <End Role="X_AssayProcedureProtocolEquipment" EntitySet="X_AssayProcedureProtocolEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayProcedureProtocolPrecondition_X_AssayProcedureProtocol" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayProcedureProtocolPrecondition_X_AssayProcedureProtocol">
+            <End Role="X_AssayProcedureProtocol" EntitySet="X_AssayProcedureProtocol" />
+            <End Role="X_AssayProcedureProtocolPrecondition" EntitySet="X_AssayProcedureProtocolPrecondition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayProcedureProtocolPrecondition_X_DictionaryAssayPreconditionType" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayProcedureProtocolPrecondition_X_DictionaryAssayPreconditionType">
+            <End Role="X_DictionaryAssayPreconditionType" EntitySet="X_DictionaryAssayPreconditionType" />
+            <End Role="X_AssayProcedureProtocolPrecondition" EntitySet="X_AssayProcedureProtocolPrecondition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayProcedureProtocolPrecondition_X_DictionaryUnit" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayProcedureProtocolPrecondition_X_DictionaryUnit">
+            <End Role="X_DictionaryUnit" EntitySet="X_DictionaryUnit" />
+            <End Role="X_AssayProcedureProtocolPrecondition" EntitySet="X_AssayProcedureProtocolPrecondition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayWorkflowProcedureProtocol_E_Workflow" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayWorkflowProcedureProtocol_E_Workflow">
+            <End Role="E_Workflow" EntitySet="E_Workflow" />
+            <End Role="X_AssayWorkflowProcedureProtocol" EntitySet="X_AssayWorkflowProcedureProtocol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayWorkflowProcedureProtocol_X_AssayProcedureProtocol" Association="XODB.Module.BusinessObjects.Store.FK_X_AssayWorkflowProcedureProtocol_X_AssayProcedureProtocol">
+            <End Role="X_AssayProcedureProtocol" EntitySet="X_AssayProcedureProtocol" />
+            <End Role="X_AssayWorkflowProcedureProtocol" EntitySet="X_AssayWorkflowProcedureProtocol" />
           </AssociationSet>
           <AssociationSet Name="FK_X_BlockModel_X_Contact" Association="XODB.Module.BusinessObjects.Store.FK_X_BlockModel_X_Contact">
             <End Role="X_Contact" EntitySet="X_Contact" />
@@ -3235,6 +3258,10 @@
           <AssociationSet Name="FK_X_X_DictionaryAssayMethod_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.Store.FK_X_X_DictionaryAssayMethod_X_FileData_OriginalFile">
             <End Role="X_FileData" EntitySet="X_FileData" />
             <End Role="X_DictionaryAssayMethod" EntitySet="X_DictionaryAssayMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_X_DictionaryAssayPreconditionTypeType_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.Store.FK_X_X_DictionaryAssayPreconditionTypeType_X_FileData_OriginalFile">
+            <End Role="X_FileData" EntitySet="X_FileData" />
+            <End Role="X_DictionaryAssayPreconditionType" EntitySet="X_DictionaryAssayPreconditionType" />
           </AssociationSet>
           <AssociationSet Name="FK_X_X_DictionaryAssayProcedureMethodType_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.Store.FK_X_X_DictionaryAssayProcedureMethodType_X_FileData_OriginalFile">
             <End Role="X_FileData" EntitySet="X_FileData" />
@@ -5082,17 +5109,11 @@
           <Property Name="SampleAntecedentID" Type="uniqueidentifier" />
           <Property Name="FromDepth" Type="numeric" Precision="7" Scale="3" />
           <Property Name="ToDepth" Type="numeric" Precision="7" Scale="3" />
-          <Property Name="VolumeUnitID" Type="uniqueidentifier" />
-          <Property Name="VolumeMinimum" Type="numeric" Precision="38" Scale="20" />
-          <Property Name="VolumeMaximum" Type="numeric" Precision="38" Scale="20" />
           <Property Name="AgitationMethodID" Type="uniqueidentifier" />
           <Property Name="DurationProcedureSeconds" Type="int" />
           <Property Name="DurationTotalSeconds" Type="int" />
           <Property Name="RackBlock" Type="nvarchar" MaxLength="16" />
           <Property Name="RackPosition" Type="nvarchar" MaxLength="16" />
-          <Property Name="ResultingPercentage" Type="numeric" Precision="38" Scale="20" />
-          <Property Name="ResultingKilograms" Type="numeric" Precision="38" Scale="20" />
-          <Property Name="ResultingVolume" Type="numeric" Precision="38" Scale="20" />
           <Property Name="SubsampledBy" Type="nvarchar" MaxLength="50" />
           <Property Name="Subsampled" Type="datetime" />
           <Property Name="Comment" Type="nvarchar" MaxLength="255" />
@@ -5147,9 +5168,11 @@
           </Key>
           <Property Name="AssayGroupSubsamplePreconditionID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AssayGroupSubsampleID" Type="uniqueidentifier" />
+          <Property Name="AssayPreconditionTypeID" Type="uniqueidentifier" />
           <Property Name="PreconditionName" Type="nvarchar" MaxLength="50" />
-          <Property Name="PreconditionUnitID" Type="uniqueidentifier" />
-          <Property Name="PreconditionValue" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="PreconditionParameterID" Type="uniqueidentifier" />
+          <Property Name="PreconditionMinimum" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="PreconditionMaximum" Type="numeric" Precision="38" Scale="20" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
           <Property Name="VersionCertainty" Type="int" />
@@ -5167,6 +5190,7 @@
           <Property Name="AssayGroupSubsampleRelationID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="SourceSubsampleID" Type="uniqueidentifier" />
           <Property Name="DestinationSubsampleID" Type="uniqueidentifier" />
+          <Property Name="Sequence" Type="int" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
           <Property Name="VersionCertainty" Type="int" />
@@ -5308,8 +5332,8 @@
           </Key>
           <Property Name="AssayGroupWorkflowProcedureID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AssayGroupWorkflowID" Type="uniqueidentifier" />
-          <Property Name="AssayProcedureProtocolID" Type="uniqueidentifier" />
           <Property Name="WorkflowStateName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AssayProcedureProtocolID" Type="uniqueidentifier" />
           <Property Name="Sequence" Type="int" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
@@ -5365,6 +5389,48 @@
           <Property Name="AssayProcedureProtocolEquipmentID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AssayProcedureProtocolID" Type="uniqueidentifier" />
           <Property Name="ModelID" Type="uniqueidentifier" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="X_AssayProcedureProtocolPrecondition">
+          <Key>
+            <PropertyRef Name="AssayProcedureProtocolPreconditionID" />
+          </Key>
+          <Property Name="AssayProcedureProtocolPreconditionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssayProcedureProtocolID" Type="uniqueidentifier" />
+          <Property Name="AssayPreconditionTypeID" Type="uniqueidentifier" />
+          <Property Name="PreconditionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UnitID" Type="uniqueidentifier" />
+          <Property Name="Sequence" Type="int" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6005: The data type 'hierarchyid' is currently not supported for the target .NET Framework version; the column 'Hierarchy' in table 'XODB.dbo.X_AssayWorkflowProcedureProtocol' was excluded.
+      -->
+        <EntityType Name="X_AssayWorkflowProcedureProtocol">
+          <Key>
+            <PropertyRef Name="AssayWorkflowProcedureProtocolID" />
+          </Key>
+          <Property Name="AssayWorkflowProcedureProtocolID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WorkflowID" Type="uniqueidentifier" />
+          <Property Name="WorkflowStateName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AssayProcedureProtocolID" Type="uniqueidentifier" />
+          <Property Name="Sequence" Type="int" />
           <Property Name="Version" Type="int" Nullable="false" />
           <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
           <Property Name="VersionCertainty" Type="int" />
@@ -6059,6 +6125,29 @@
           <Property Name="CoalAssayMethodName" Type="nvarchar" MaxLength="16" />
           <Property Name="GoldAssayMethodName" Type="nvarchar" MaxLength="16" />
           <Property Name="CustomAssayMethodName" Type="nvarchar" MaxLength="16" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="FullDescription" Type="nvarchar(max)" />
+          <Property Name="Thumbnail" Type="varbinary(max)" />
+          <Property Name="OriginalFileDataID" Type="uniqueidentifier" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="VersionAntecedentID" Type="uniqueidentifier" />
+          <Property Name="VersionCertainty" Type="int" />
+          <Property Name="VersionWorkflowInstanceID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdatedBy" Type="uniqueidentifier" />
+          <Property Name="VersionDeletedBy" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerContactID" Type="uniqueidentifier" />
+          <Property Name="VersionOwnerCompanyID" Type="uniqueidentifier" />
+          <Property Name="VersionUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="X_DictionaryAssayPreconditionType">
+          <Key>
+            <PropertyRef Name="AssayPreconditionTypeID" />
+          </Key>
+          <Property Name="AssayPreconditionTypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StandardAssayPreconditionTypeName" Type="nvarchar" Nullable="false" MaxLength="16" />
+          <Property Name="CoalAssayPreconditionTypeName" Type="nvarchar" MaxLength="16" />
+          <Property Name="GoldAssayPreconditionTypeName" Type="nvarchar" MaxLength="16" />
+          <Property Name="CustomAssayPreconditionTypeName" Type="nvarchar" MaxLength="16" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
           <Property Name="FullDescription" Type="nvarchar(max)" />
           <Property Name="Thumbnail" Type="varbinary(max)" />
@@ -13412,18 +13501,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_AssayGroupSubsample_X_DictionaryUnit">
-          <End Role="X_DictionaryUnit" Type="XODB.Module.BusinessObjects.Store.X_DictionaryUnit" Multiplicity="0..1" />
-          <End Role="X_AssayGroupSubsample" Type="XODB.Module.BusinessObjects.Store.X_AssayGroupSubsample" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_DictionaryUnit">
-              <PropertyRef Name="UnitID" />
-            </Principal>
-            <Dependent Role="X_AssayGroupSubsample">
-              <PropertyRef Name="VolumeUnitID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_X_AssayGroupSubsample_X_Sample">
           <End Role="X_Sample" Type="XODB.Module.BusinessObjects.Store.X_Sample" Multiplicity="0..1" />
           <End Role="X_AssayGroupSubsample" Type="XODB.Module.BusinessObjects.Store.X_AssayGroupSubsample" Multiplicity="*" />
@@ -13496,15 +13573,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_AssayGroupSubsamplePrecondition_X_DictionaryUnit">
-          <End Role="X_DictionaryUnit" Type="XODB.Module.BusinessObjects.Store.X_DictionaryUnit" Multiplicity="0..1" />
+        <Association Name="FK_X_AssayGroupSubsamplePrecondition_X_DictionaryAssayPreconditionType">
+          <End Role="X_DictionaryAssayPreconditionType" Type="XODB.Module.BusinessObjects.Store.X_DictionaryAssayPreconditionType" Multiplicity="0..1" />
           <End Role="X_AssayGroupSubsamplePrecondition" Type="XODB.Module.BusinessObjects.Store.X_AssayGroupSubsamplePrecondition" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="X_DictionaryUnit">
-              <PropertyRef Name="UnitID" />
+            <Principal Role="X_DictionaryAssayPreconditionType">
+              <PropertyRef Name="AssayPreconditionTypeID" />
             </Principal>
             <Dependent Role="X_AssayGroupSubsamplePrecondition">
-              <PropertyRef Name="PreconditionUnitID" />
+              <PropertyRef Name="AssayPreconditionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayGroupSubsamplePrecondition_X_Parameter">
+          <End Role="X_Parameter" Type="XODB.Module.BusinessObjects.Store.X_Parameter" Multiplicity="0..1" />
+          <End Role="X_AssayGroupSubsamplePrecondition" Type="XODB.Module.BusinessObjects.Store.X_AssayGroupSubsamplePrecondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_Parameter">
+              <PropertyRef Name="ParameterID" />
+            </Principal>
+            <Dependent Role="X_AssayGroupSubsamplePrecondition">
+              <PropertyRef Name="PreconditionParameterID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -13865,6 +13954,66 @@
             </Principal>
             <Dependent Role="X_AssayProcedureProtocolEquipment">
               <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayProcedureProtocolPrecondition_X_AssayProcedureProtocol">
+          <End Role="X_AssayProcedureProtocol" Type="XODB.Module.BusinessObjects.Store.X_AssayProcedureProtocol" Multiplicity="0..1" />
+          <End Role="X_AssayProcedureProtocolPrecondition" Type="XODB.Module.BusinessObjects.Store.X_AssayProcedureProtocolPrecondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_AssayProcedureProtocol">
+              <PropertyRef Name="AssayProcedureProtocolID" />
+            </Principal>
+            <Dependent Role="X_AssayProcedureProtocolPrecondition">
+              <PropertyRef Name="AssayProcedureProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayProcedureProtocolPrecondition_X_DictionaryAssayPreconditionType">
+          <End Role="X_DictionaryAssayPreconditionType" Type="XODB.Module.BusinessObjects.Store.X_DictionaryAssayPreconditionType" Multiplicity="0..1" />
+          <End Role="X_AssayProcedureProtocolPrecondition" Type="XODB.Module.BusinessObjects.Store.X_AssayProcedureProtocolPrecondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryAssayPreconditionType">
+              <PropertyRef Name="AssayPreconditionTypeID" />
+            </Principal>
+            <Dependent Role="X_AssayProcedureProtocolPrecondition">
+              <PropertyRef Name="AssayPreconditionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayProcedureProtocolPrecondition_X_DictionaryUnit">
+          <End Role="X_DictionaryUnit" Type="XODB.Module.BusinessObjects.Store.X_DictionaryUnit" Multiplicity="0..1" />
+          <End Role="X_AssayProcedureProtocolPrecondition" Type="XODB.Module.BusinessObjects.Store.X_AssayProcedureProtocolPrecondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryUnit">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="X_AssayProcedureProtocolPrecondition">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayWorkflowProcedureProtocol_E_Workflow">
+          <End Role="E_Workflow" Type="XODB.Module.BusinessObjects.Store.E_Workflow" Multiplicity="0..1" />
+          <End Role="X_AssayWorkflowProcedureProtocol" Type="XODB.Module.BusinessObjects.Store.X_AssayWorkflowProcedureProtocol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="E_Workflow">
+              <PropertyRef Name="WorkflowID" />
+            </Principal>
+            <Dependent Role="X_AssayWorkflowProcedureProtocol">
+              <PropertyRef Name="WorkflowID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayWorkflowProcedureProtocol_X_AssayProcedureProtocol">
+          <End Role="X_AssayProcedureProtocol" Type="XODB.Module.BusinessObjects.Store.X_AssayProcedureProtocol" Multiplicity="0..1" />
+          <End Role="X_AssayWorkflowProcedureProtocol" Type="XODB.Module.BusinessObjects.Store.X_AssayWorkflowProcedureProtocol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_AssayProcedureProtocol">
+              <PropertyRef Name="AssayProcedureProtocolID" />
+            </Principal>
+            <Dependent Role="X_AssayWorkflowProcedureProtocol">
+              <PropertyRef Name="AssayProcedureProtocolID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -18116,6 +18265,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_X_X_DictionaryAssayPreconditionTypeType_X_FileData_OriginalFile">
+          <End Role="X_FileData" Type="XODB.Module.BusinessObjects.Store.X_FileData" Multiplicity="0..1" />
+          <End Role="X_DictionaryAssayPreconditionType" Type="XODB.Module.BusinessObjects.Store.X_DictionaryAssayPreconditionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_FileData">
+              <PropertyRef Name="FileDataID" />
+            </Principal>
+            <Dependent Role="X_DictionaryAssayPreconditionType">
+              <PropertyRef Name="OriginalFileDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_X_X_DictionaryAssayProcedureMethodType_X_FileData_OriginalFile">
           <End Role="X_FileData" Type="XODB.Module.BusinessObjects.Store.X_FileData" Multiplicity="0..1" />
           <End Role="X_DictionaryAssayProcedureMethod" Type="XODB.Module.BusinessObjects.Store.X_DictionaryAssayProcedureMethod" Multiplicity="*" />
@@ -20060,10 +20221,14 @@
           <Parameter Name="handleInstanceVersion" Type="bigint" Mode="In" />
         </Function>
         <!--Errors Found During Generation:
-      warning 6013: The table/view 'XODB.dbo.X_VW_AssayGroupSample' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      warning 6013: The table/view 'XODB.System.Activities.DurableInstancing.SqlWorkflowInstanceStoreVersionTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
       
-      <EntityType Name="X_VW_AssayGroupSample">
-        <Property Name="SampleID" Type="uniqueidentifier" />
+      <EntityType Name="SqlWorkflowInstanceStoreVersionTable">
+        <Property Name="Major" Type="bigint" />
+        <Property Name="Minor" Type="bigint" />
+        <Property Name="Build" Type="bigint" />
+        <Property Name="Revision" Type="bigint" />
+        <Property Name="LastUpdated" Type="datetime" />
       </EntityType>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -23803,10 +23968,6 @@
           <EntitySet Name="DictionaryAssayTechniques" EntityType="XODB.Module.BusinessObjects.DictionaryAssayTechnique" />
           <EntitySet Name="DictionaryChemicals" EntityType="XODB.Module.BusinessObjects.DictionaryChemical" />
           <EntitySet Name="ModelPartInfoViews" EntityType="XODB.Module.BusinessObjects.ModelPartInfoView" />
-          <AssociationSet Name="FK_E_Workflow_E_DictionaryWorkflowType" Association="XODB.Module.BusinessObjects.FK_E_Workflow_E_DictionaryWorkflowType">
-            <End Role="E_DictionaryWorkflowType" EntitySet="DictionaryWorkflowTypes" />
-            <End Role="E_Workflow" EntitySet="Workflows" />
-          </AssociationSet>
           <AssociationSet Name="FK_X_AssayGroupWorkflow_E_Workflow" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupWorkflow_E_Workflow">
             <End Role="E_Workflow" EntitySet="Workflows" />
             <End Role="X_AssayGroupWorkflow" EntitySet="AssayGroupWorkflows" />
@@ -23835,10 +23996,6 @@
             <End Role="X_DictionaryAgitationMethod" EntitySet="DictionaryAgitationMethods" />
             <End Role="X_AssayGroupSubsample" EntitySet="AssayGroupSubsamples" />
           </AssociationSet>
-          <AssociationSet Name="FK_X_AssayGroupSubsample_X_DictionaryUnit" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_DictionaryUnit">
-            <End Role="DictionaryUnit" EntitySet="DictionaryUnits" />
-            <End Role="X_AssayGroupSubsample" EntitySet="AssayGroupSubsamples" />
-          </AssociationSet>
           <AssociationSet Name="FK_X_AssayGroupSubsample_X_Sample" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_Sample">
             <End Role="Sample" EntitySet="Samples" />
             <End Role="X_AssayGroupSubsample" EntitySet="AssayGroupSubsamples" />
@@ -23850,10 +24007,6 @@
           <AssociationSet Name="FK_X_AssayGroupSubsampleEquipment_X_AssayGroupSubsample" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleEquipment_X_AssayGroupSubsample">
             <End Role="X_AssayGroupSubsample" EntitySet="AssayGroupSubsamples" />
             <End Role="X_AssayGroupSubsampleEquipment" EntitySet="AssayGroupSubsampleEquipments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample">
-            <End Role="X_AssayGroupSubsample" EntitySet="AssayGroupSubsamples" />
-            <End Role="X_AssayGroupSubsamplePrecondition" EntitySet="AssayGroupSubsamplePreconditions" />
           </AssociationSet>
           <AssociationSet Name="FK_X_AssayGroupSubsampleRelation_X_AssayGroupSubsample_Destination" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleRelation_X_AssayGroupSubsample_Destination">
             <End Role="X_AssayGroupSubsample" EntitySet="AssayGroupSubsamples" />
@@ -23870,10 +24023,6 @@
           <AssociationSet Name="FK_X_AssayGroupSubsampleChemical_X_DictionaryChemicalType" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleChemical_X_DictionaryChemicalType">
             <End Role="X_DictionaryChemical" EntitySet="DictionaryChemicals" />
             <End Role="X_AssayGroupSubsampleChemical" EntitySet="AssayGroupSubsampleChemicals" />
-          </AssociationSet>
-          <AssociationSet Name="FK_X_AssayGroupSubsamplePrecondition_X_DictionaryUnit" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_DictionaryUnit">
-            <End Role="DictionaryUnit" EntitySet="DictionaryUnits" />
-            <End Role="X_AssayGroupSubsamplePrecondition" EntitySet="AssayGroupSubsamplePreconditions" />
           </AssociationSet>
           <AssociationSet Name="FK_X_AssayGroupTest_X_Compliance" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupTest_X_Compliance">
             <End Role="Compliance" EntitySet="Compliances" />
@@ -23954,6 +24103,49 @@
           <AssociationSet Name="FK_X_Sample_X_Location" Association="XODB.Module.BusinessObjects.FK_X_Sample_X_Location">
             <End Role="Location" EntitySet="Locations" />
             <End Role="Sample" EntitySet="Samples" />
+          </AssociationSet>
+          <EntitySet Name="AssayProcedureProtocolPreconditions" EntityType="XODB.Module.BusinessObjects.AssayProcedureProtocolPrecondition" />
+          <EntitySet Name="AssayWorkflowProcedureProtocols" EntityType="XODB.Module.BusinessObjects.AssayWorkflowProcedureProtocol" />
+          <EntitySet Name="DictionaryAssayPreconditionTypes" EntityType="XODB.Module.BusinessObjects.DictionaryAssayPreconditionType" />
+          <AssociationSet Name="FK_X_AssayWorkflowProcedureProtocol_E_Workflow" Association="XODB.Module.BusinessObjects.FK_X_AssayWorkflowProcedureProtocol_E_Workflow">
+            <End Role="Workflow" EntitySet="Workflows" />
+            <End Role="X_AssayWorkflowProcedureProtocol" EntitySet="AssayWorkflowProcedureProtocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayGroupSubsamplePrecondition_X_DictionaryAssayPreconditionType" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_DictionaryAssayPreconditionType">
+            <End Role="X_DictionaryAssayPreconditionType" EntitySet="DictionaryAssayPreconditionTypes" />
+            <End Role="AssayGroupSubsamplePrecondition" EntitySet="AssayGroupSubsamplePreconditions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayGroupSubsamplePrecondition_X_Parameter" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_Parameter">
+            <End Role="Parameter" EntitySet="Parameters" />
+            <End Role="AssayGroupSubsamplePrecondition" EntitySet="AssayGroupSubsamplePreconditions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayProcedureProtocolPrecondition_X_AssayProcedureProtocol" Association="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolPrecondition_X_AssayProcedureProtocol">
+            <End Role="AssayProcedureProtocol" EntitySet="AssayProcedureProtocols" />
+            <End Role="X_AssayProcedureProtocolPrecondition" EntitySet="AssayProcedureProtocolPreconditions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayWorkflowProcedureProtocol_X_AssayProcedureProtocol" Association="XODB.Module.BusinessObjects.FK_X_AssayWorkflowProcedureProtocol_X_AssayProcedureProtocol">
+            <End Role="AssayProcedureProtocol" EntitySet="AssayProcedureProtocols" />
+            <End Role="X_AssayWorkflowProcedureProtocol" EntitySet="AssayWorkflowProcedureProtocols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayProcedureProtocolPrecondition_X_DictionaryAssayPreconditionType" Association="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolPrecondition_X_DictionaryAssayPreconditionType">
+            <End Role="X_DictionaryAssayPreconditionType" EntitySet="DictionaryAssayPreconditionTypes" />
+            <End Role="X_AssayProcedureProtocolPrecondition" EntitySet="AssayProcedureProtocolPreconditions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayProcedureProtocolPrecondition_X_DictionaryUnit" Association="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolPrecondition_X_DictionaryUnit">
+            <End Role="DictionaryUnit" EntitySet="DictionaryUnits" />
+            <End Role="X_AssayProcedureProtocolPrecondition" EntitySet="AssayProcedureProtocolPreconditions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_X_DictionaryAssayPreconditionTypeType_X_FileData_OriginalFile" Association="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayPreconditionTypeType_X_FileData_OriginalFile">
+            <End Role="FileData" EntitySet="FileDatas" />
+            <End Role="X_DictionaryAssayPreconditionType" EntitySet="DictionaryAssayPreconditionTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E_Workflow_E_DictionaryWorkflowType" Association="XODB.Module.BusinessObjects.FK_E_Workflow_E_DictionaryWorkflowType">
+            <End Role="DictionaryWorkflowType" EntitySet="DictionaryWorkflowTypes" />
+            <End Role="Workflow" EntitySet="Workflows" />
+          </AssociationSet>
+          <AssociationSet Name="FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample" Association="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample">
+            <End Role="AssayGroupSubsample" EntitySet="AssayGroupSubsamples" />
+            <End Role="AssayGroupSubsamplePrecondition" EntitySet="AssayGroupSubsamplePreconditions" />
           </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Split_Result">
@@ -28982,9 +29174,8 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
-          <NavigationProperty Name="X_AssayGroupSubsample" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_DictionaryUnit" FromRole="DictionaryUnit" ToRole="X_AssayGroupSubsample" />
-          <NavigationProperty Name="X_AssayGroupSubsamplePrecondition" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_DictionaryUnit" FromRole="DictionaryUnit" ToRole="X_AssayGroupSubsamplePrecondition" />
-          <NavigationProperty Name="X_DictionaryAgitationMethod" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryAgitationMethodType_X_DictionaryUnit" FromRole="DictionaryUnit" ToRole="X_DictionaryAgitationMethod" />
+          <NavigationProperty Name="DictionaryAgitationMethod" Relationship="XODB.Module.BusinessObjects.FK_X_DictionaryAgitationMethodType_X_DictionaryUnit" FromRole="DictionaryUnit" ToRole="X_DictionaryAgitationMethod" />
+          <NavigationProperty Name="AssayProcedureProtocolPrecondition" Relationship="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolPrecondition_X_DictionaryUnit" FromRole="DictionaryUnit" ToRole="X_AssayProcedureProtocolPrecondition" />
         </EntityType>
         <EntityType Name="DictionaryUnitType">
           <Key>
@@ -29375,6 +29566,7 @@
           <NavigationProperty Name="X_DictionaryAssayProcedureType" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayProcedureType_X_FileData_OriginalFile" FromRole="FileData" ToRole="X_DictionaryAssayProcedureType" />
           <NavigationProperty Name="X_DictionaryAssayTechnique" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayTechnique_X_FileData_OriginalFile" FromRole="FileData" ToRole="X_DictionaryAssayTechnique" />
           <NavigationProperty Name="X_DictionaryChemical" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryChemicalType_X_FileData_OriginalFile" FromRole="FileData" ToRole="X_DictionaryChemical" />
+          <NavigationProperty Name="X_DictionaryAssayPreconditionType" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayPreconditionTypeType_X_FileData_OriginalFile" FromRole="FileData" ToRole="X_DictionaryAssayPreconditionType" />
         </EntityType>
         <EntityType Name="Geology">
           <Key>
@@ -30212,6 +30404,7 @@
           <NavigationProperty Name="ParameterGroup" Relationship="XODB.Module.BusinessObjects.FK_X_ParameterGroup_X_ParameterGroup" FromRole="X_Parameter" ToRole="X_ParameterGroup" />
           <NavigationProperty Name="ProjectPlanTaskResponse" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskResponse_X_Parameter" FromRole="X_Parameter" ToRole="X_ProjectPlanTaskResponse" />
           <NavigationProperty Name="Task" Relationship="XODB.Module.BusinessObjects.FK_X_Task_X_Parameter" FromRole="X_Parameter" ToRole="X_Task" />
+          <NavigationProperty Name="AssayGroupSubsamplePrecondition" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_Parameter" FromRole="Parameter" ToRole="AssayGroupSubsamplePrecondition" />
         </EntityType>
         <EntityType Name="ParameterDuplicate">
           <Key>
@@ -40203,7 +40396,7 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
-          <NavigationProperty Name="Workflows" Relationship="XODB.Module.BusinessObjects.FK_E_Workflow_E_DictionaryWorkflowType" FromRole="E_DictionaryWorkflowType" ToRole="E_Workflow" />
+          <NavigationProperty Name="E_Workflow" Relationship="XODB.Module.BusinessObjects.FK_E_Workflow_E_DictionaryWorkflowType" FromRole="DictionaryWorkflowType" ToRole="Workflow" />
         </EntityType>
         <EntityType Name="Workflow">
           <Key>
@@ -40224,8 +40417,9 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
-          <NavigationProperty Name="WorkflowType" Relationship="XODB.Module.BusinessObjects.FK_E_Workflow_E_DictionaryWorkflowType" FromRole="E_Workflow" ToRole="E_DictionaryWorkflowType" />
           <NavigationProperty Name="AssayGroupWorkflows" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupWorkflow_E_Workflow" FromRole="E_Workflow" ToRole="X_AssayGroupWorkflow" />
+          <NavigationProperty Name="X_AssayWorkflowProcedureProtocol" Relationship="XODB.Module.BusinessObjects.FK_X_AssayWorkflowProcedureProtocol_E_Workflow" FromRole="Workflow" ToRole="X_AssayWorkflowProcedureProtocol" />
+          <NavigationProperty Name="E_DictionaryWorkflowType" Relationship="XODB.Module.BusinessObjects.FK_E_Workflow_E_DictionaryWorkflowType" FromRole="Workflow" ToRole="DictionaryWorkflowType" />
         </EntityType>
         <EntityType Name="AssayGroupSubsample">
           <Key>
@@ -40239,17 +40433,11 @@
           <Property Type="Guid" Name="SampleAntecedentID" />
           <Property Type="Decimal" Name="FromDepth" Precision="7" Scale="3" />
           <Property Type="Decimal" Name="ToDepth" Precision="7" Scale="3" />
-          <Property Type="Guid" Name="VolumeUnitID" />
-          <Property Type="Decimal" Name="VolumeMinimum" Precision="38" Scale="20" />
-          <Property Type="Decimal" Name="VolumeMaximum" Precision="38" Scale="20" />
           <Property Type="Guid" Name="AgitationMethodID" />
           <Property Type="Int32" Name="DurationProcedureSeconds" />
           <Property Type="Int32" Name="DurationTotalSeconds" />
           <Property Type="String" Name="RackBlock" MaxLength="16" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="RackPosition" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Type="Decimal" Name="ResultingPercentage" Precision="38" Scale="20" />
-          <Property Type="Decimal" Name="ResultingKilograms" Precision="38" Scale="20" />
-          <Property Type="Decimal" Name="ResultingVolume" Precision="38" Scale="20" />
           <Property Type="String" Name="SubsampledBy" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="Subsampled" Precision="3" />
           <Property Type="String" Name="Comment" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -40265,14 +40453,13 @@
           <NavigationProperty Name="AssayGroup" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_AssayGroup" FromRole="X_AssayGroupSubsample" ToRole="AssayGroup" />
           <NavigationProperty Name="AssayGroupWorkflowProcedure" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_AssayGroupWorkflowProcedure" FromRole="X_AssayGroupSubsample" ToRole="X_AssayGroupWorkflowProcedure" />
           <NavigationProperty Name="AgitationMethod" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_DictionaryAgitationMethod" FromRole="X_AssayGroupSubsample" ToRole="X_DictionaryAgitationMethod" />
-          <NavigationProperty Name="VolumeUnit" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_DictionaryUnit" FromRole="X_AssayGroupSubsample" ToRole="DictionaryUnit" />
           <NavigationProperty Name="OriginalSample" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsample_X_Sample" FromRole="X_AssayGroupSubsample" ToRole="Sample" />
           <NavigationProperty Name="AssayGroupSubsampleChemicals" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleChemical_X_AssayGroupSubsample" FromRole="X_AssayGroupSubsample" ToRole="X_AssayGroupSubsampleChemical" />
           <NavigationProperty Name="AssayGroupSubsampleEquipment" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleEquipment_X_AssayGroupSubsample" FromRole="X_AssayGroupSubsample" ToRole="X_AssayGroupSubsampleEquipment" />
-          <NavigationProperty Name="AssayGroupSubsamplePreconditions" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample" FromRole="X_AssayGroupSubsample" ToRole="X_AssayGroupSubsamplePrecondition" />
           <NavigationProperty Name="SubsampleDestinations" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleRelation_X_AssayGroupSubsample_Destination" FromRole="X_AssayGroupSubsample" ToRole="X_AssayGroupSubsampleRelation" />
           <NavigationProperty Name="SubsampleSources" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleRelation_X_AssayGroupSubsample_Source" FromRole="X_AssayGroupSubsample" ToRole="X_AssayGroupSubsampleRelation" />
           <NavigationProperty Name="AssayGroupTestResults" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTestResult_X_AssayGroupSubsample" FromRole="X_AssayGroupSubsample" ToRole="AssayGroupTestResult" />
+          <NavigationProperty Name="X_AssayGroupSubsamplePrecondition" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample" FromRole="AssayGroupSubsample" ToRole="AssayGroupSubsamplePrecondition" />
         </EntityType>
         <EntityType Name="AssayGroupSubsampleChemical">
           <Key>
@@ -40320,8 +40507,6 @@
           <Property Type="Guid" Name="AssayGroupSubsamplePreconditionID" Nullable="false" />
           <Property Type="Guid" Name="AssayGroupSubsampleID" />
           <Property Type="String" Name="PreconditionName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Guid" Name="PreconditionUnitID" />
-          <Property Type="Decimal" Name="PreconditionValue" Precision="38" Scale="20" />
           <Property Type="Int32" Name="Version" Nullable="false" />
           <Property Type="Guid" Name="VersionAntecedentID" />
           <Property Type="Int32" Name="VersionCertainty" />
@@ -40331,8 +40516,13 @@
           <Property Type="Guid" Name="VersionOwnerContactID" />
           <Property Type="Guid" Name="VersionOwnerCompanyID" />
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
-          <NavigationProperty Name="AssayGroupSubsample" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample" FromRole="X_AssayGroupSubsamplePrecondition" ToRole="X_AssayGroupSubsample" />
-          <NavigationProperty Name="PreconditionUnit" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_DictionaryUnit" FromRole="X_AssayGroupSubsamplePrecondition" ToRole="DictionaryUnit" />
+          <Property Type="Guid" Name="AssayPreconditionTypeID" />
+          <Property Type="Guid" Name="PreconditionParameterID" />
+          <Property Type="Decimal" Name="PreconditionMinimum" Precision="38" Scale="20" />
+          <Property Type="Decimal" Name="PreconditionMaximum" Precision="38" Scale="20" />
+          <NavigationProperty Name="AssayPreconditionType" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_DictionaryAssayPreconditionType" FromRole="AssayGroupSubsamplePrecondition" ToRole="X_DictionaryAssayPreconditionType" />
+          <NavigationProperty Name="Parameter" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_Parameter" FromRole="AssayGroupSubsamplePrecondition" ToRole="Parameter" />
+          <NavigationProperty Name="X_AssayGroupSubsample" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample" FromRole="AssayGroupSubsamplePrecondition" ToRole="AssayGroupSubsample" />
         </EntityType>
         <EntityType Name="AssayGroupSubsampleRelation">
           <Key>
@@ -40352,6 +40542,7 @@
           <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
           <NavigationProperty Name="SubsampleDestination" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleRelation_X_AssayGroupSubsample_Destination" FromRole="X_AssayGroupSubsampleRelation" ToRole="X_AssayGroupSubsample" />
           <NavigationProperty Name="SubsampleSource" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsampleRelation_X_AssayGroupSubsample_Source" FromRole="X_AssayGroupSubsampleRelation" ToRole="X_AssayGroupSubsample" />
+          <Property Type="Int32" Name="Sequence" />
         </EntityType>
         <EntityType Name="AssayGroupTestEquipment">
           <Key>
@@ -40459,6 +40650,8 @@
           <NavigationProperty Name="AssayProcedureMethod" Relationship="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocol_X_DictionaryAssayProcedureMethodType" FromRole="X_AssayProcedureProtocol" ToRole="X_DictionaryAssayProcedureMethod" />
           <NavigationProperty Name="AssayProcedureTechnique" Relationship="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocol_X_DictionaryAssayProcedureTechniqueType" FromRole="X_AssayProcedureProtocol" ToRole="X_DictionaryAssayProcedureTechnique" />
           <NavigationProperty Name="AssayProcedureProtocolEquipment" Relationship="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolEquipment_X_AssayProcedureProtocol" FromRole="X_AssayProcedureProtocol" ToRole="X_AssayProcedureProtocolEquipment" />
+          <NavigationProperty Name="AssayProcedureProtocolPrecondition" Relationship="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolPrecondition_X_AssayProcedureProtocol" FromRole="AssayProcedureProtocol" ToRole="X_AssayProcedureProtocolPrecondition" />
+          <NavigationProperty Name="AssayWorkflowProcedureProtocol" Relationship="XODB.Module.BusinessObjects.FK_X_AssayWorkflowProcedureProtocol_X_AssayProcedureProtocol" FromRole="AssayProcedureProtocol" ToRole="X_AssayWorkflowProcedureProtocol" />
         </EntityType>
         <EntityType Name="AssayProcedureProtocolEquipment">
           <Key>
@@ -40667,18 +40860,6 @@
           <Property Type="Decimal" Name="PartValue" Precision="38" Scale="20" />
           <Property Type="String" Name="PartValueUnit" MaxLength="16" FixedLength="false" Unicode="true" />
         </EntityType>
-        <Association Name="FK_E_Workflow_E_DictionaryWorkflowType">
-          <End Type="XODB.Module.BusinessObjects.DictionaryWorkflowType" Role="E_DictionaryWorkflowType" Multiplicity="0..1" />
-          <End Type="XODB.Module.BusinessObjects.Workflow" Role="E_Workflow" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="E_DictionaryWorkflowType">
-              <PropertyRef Name="WorkflowTypeID" />
-            </Principal>
-            <Dependent Role="E_Workflow">
-              <PropertyRef Name="WorkflowTypeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_X_AssayGroupWorkflow_E_Workflow">
           <End Type="XODB.Module.BusinessObjects.Workflow" Role="E_Workflow" Multiplicity="0..1" />
           <End Type="XODB.Module.BusinessObjects.AssayGroupWorkflow" Role="X_AssayGroupWorkflow" Multiplicity="*" />
@@ -40763,18 +40944,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_X_AssayGroupSubsample_X_DictionaryUnit">
-          <End Type="XODB.Module.BusinessObjects.DictionaryUnit" Role="DictionaryUnit" Multiplicity="0..1" />
-          <End Type="XODB.Module.BusinessObjects.AssayGroupSubsample" Role="X_AssayGroupSubsample" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DictionaryUnit">
-              <PropertyRef Name="UnitID" />
-            </Principal>
-            <Dependent Role="X_AssayGroupSubsample">
-              <PropertyRef Name="VolumeUnitID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_X_AssayGroupSubsample_X_Sample">
           <End Type="XODB.Module.BusinessObjects.Sample" Role="Sample" Multiplicity="0..1" />
           <End Type="XODB.Module.BusinessObjects.AssayGroupSubsample" Role="X_AssayGroupSubsample" Multiplicity="*" />
@@ -40807,18 +40976,6 @@
               <PropertyRef Name="AssayGroupSubsampleID" />
             </Principal>
             <Dependent Role="X_AssayGroupSubsampleEquipment">
-              <PropertyRef Name="AssayGroupSubsampleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample">
-          <End Type="XODB.Module.BusinessObjects.AssayGroupSubsample" Role="X_AssayGroupSubsample" Multiplicity="0..1" />
-          <End Type="XODB.Module.BusinessObjects.AssayGroupSubsamplePrecondition" Role="X_AssayGroupSubsamplePrecondition" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="X_AssayGroupSubsample">
-              <PropertyRef Name="AssayGroupSubsampleID" />
-            </Principal>
-            <Dependent Role="X_AssayGroupSubsamplePrecondition">
               <PropertyRef Name="AssayGroupSubsampleID" />
             </Dependent>
           </ReferentialConstraint>
@@ -40868,18 +41025,6 @@
             </Principal>
             <Dependent Role="X_AssayGroupSubsampleChemical">
               <PropertyRef Name="ChemicalID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_X_AssayGroupSubsamplePrecondition_X_DictionaryUnit">
-          <End Type="XODB.Module.BusinessObjects.DictionaryUnit" Role="DictionaryUnit" Multiplicity="0..1" />
-          <End Type="XODB.Module.BusinessObjects.AssayGroupSubsamplePrecondition" Role="X_AssayGroupSubsamplePrecondition" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DictionaryUnit">
-              <PropertyRef Name="UnitID" />
-            </Principal>
-            <Dependent Role="X_AssayGroupSubsamplePrecondition">
-              <PropertyRef Name="PreconditionUnitID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -41120,6 +41265,196 @@
             </Principal>
             <Dependent Role="Sample">
               <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AssayProcedureProtocolPrecondition">
+          <Key>
+            <PropertyRef Name="AssayProcedureProtocolPreconditionID" />
+          </Key>
+          <Property Type="Guid" Name="AssayProcedureProtocolPreconditionID" Nullable="false" />
+          <Property Type="Guid" Name="AssayProcedureProtocolID" />
+          <Property Type="Guid" Name="AssayPreconditionTypeID" />
+          <Property Type="String" Name="PreconditionName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="UnitID" />
+          <Property Type="Int32" Name="Sequence" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="AssayProcedureProtocol" Relationship="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolPrecondition_X_AssayProcedureProtocol" FromRole="X_AssayProcedureProtocolPrecondition" ToRole="AssayProcedureProtocol" />
+          <NavigationProperty Name="DictionaryAssayPreconditionType" Relationship="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolPrecondition_X_DictionaryAssayPreconditionType" FromRole="X_AssayProcedureProtocolPrecondition" ToRole="X_DictionaryAssayPreconditionType" />
+          <NavigationProperty Name="DictionaryUnit" Relationship="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolPrecondition_X_DictionaryUnit" FromRole="X_AssayProcedureProtocolPrecondition" ToRole="DictionaryUnit" />
+        </EntityType>
+        <EntityType Name="AssayWorkflowProcedureProtocol">
+          <Key>
+            <PropertyRef Name="AssayWorkflowProcedureProtocolID" />
+          </Key>
+          <Property Type="Guid" Name="AssayWorkflowProcedureProtocolID" Nullable="false" />
+          <Property Type="Guid" Name="WorkflowID" />
+          <Property Type="String" Name="WorkflowStateName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="AssayProcedureProtocolID" />
+          <Property Type="Int32" Name="Sequence" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="Workflow" Relationship="XODB.Module.BusinessObjects.FK_X_AssayWorkflowProcedureProtocol_E_Workflow" FromRole="X_AssayWorkflowProcedureProtocol" ToRole="Workflow" />
+          <NavigationProperty Name="AssayProcedureProtocol" Relationship="XODB.Module.BusinessObjects.FK_X_AssayWorkflowProcedureProtocol_X_AssayProcedureProtocol" FromRole="X_AssayWorkflowProcedureProtocol" ToRole="AssayProcedureProtocol" />
+        </EntityType>
+        <EntityType Name="DictionaryAssayPreconditionType">
+          <Key>
+            <PropertyRef Name="AssayPreconditionTypeID" />
+          </Key>
+          <Property Type="Guid" Name="AssayPreconditionTypeID" Nullable="false" />
+          <Property Type="String" Name="StandardAssayPreconditionTypeName" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CoalAssayPreconditionTypeName" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="GoldAssayPreconditionTypeName" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomAssayPreconditionTypeName" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FullDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="Thumbnail" MaxLength="Max" FixedLength="false" />
+          <Property Type="Guid" Name="OriginalFileDataID" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Guid" Name="VersionAntecedentID" />
+          <Property Type="Int32" Name="VersionCertainty" />
+          <Property Type="Guid" Name="VersionWorkflowInstanceID" />
+          <Property Type="Guid" Name="VersionUpdatedBy" />
+          <Property Type="Guid" Name="VersionDeletedBy" />
+          <Property Type="Guid" Name="VersionOwnerContactID" />
+          <Property Type="Guid" Name="VersionOwnerCompanyID" />
+          <Property Type="DateTime" Name="VersionUpdated" Precision="3" />
+          <NavigationProperty Name="AssayGroupSubsamplePrecondition" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_DictionaryAssayPreconditionType" FromRole="X_DictionaryAssayPreconditionType" ToRole="AssayGroupSubsamplePrecondition" />
+          <NavigationProperty Name="AssayProcedureProtocolPrecondition" Relationship="XODB.Module.BusinessObjects.FK_X_AssayProcedureProtocolPrecondition_X_DictionaryAssayPreconditionType" FromRole="X_DictionaryAssayPreconditionType" ToRole="X_AssayProcedureProtocolPrecondition" />
+          <NavigationProperty Name="FileData" Relationship="XODB.Module.BusinessObjects.FK_X_X_DictionaryAssayPreconditionTypeType_X_FileData_OriginalFile" FromRole="X_DictionaryAssayPreconditionType" ToRole="FileData" />
+        </EntityType>
+        <Association Name="FK_X_AssayWorkflowProcedureProtocol_E_Workflow">
+          <End Type="XODB.Module.BusinessObjects.Workflow" Role="Workflow" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.AssayWorkflowProcedureProtocol" Role="X_AssayWorkflowProcedureProtocol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workflow">
+              <PropertyRef Name="WorkflowID" />
+            </Principal>
+            <Dependent Role="X_AssayWorkflowProcedureProtocol">
+              <PropertyRef Name="WorkflowID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayGroupSubsamplePrecondition_X_DictionaryAssayPreconditionType">
+          <End Type="XODB.Module.BusinessObjects.DictionaryAssayPreconditionType" Role="X_DictionaryAssayPreconditionType" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.AssayGroupSubsamplePrecondition" Role="AssayGroupSubsamplePrecondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryAssayPreconditionType">
+              <PropertyRef Name="AssayPreconditionTypeID" />
+            </Principal>
+            <Dependent Role="AssayGroupSubsamplePrecondition">
+              <PropertyRef Name="AssayPreconditionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayGroupSubsamplePrecondition_X_Parameter">
+          <End Type="XODB.Module.BusinessObjects.Parameter" Role="Parameter" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.AssayGroupSubsamplePrecondition" Role="AssayGroupSubsamplePrecondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parameter">
+              <PropertyRef Name="ParameterID" />
+            </Principal>
+            <Dependent Role="AssayGroupSubsamplePrecondition">
+              <PropertyRef Name="PreconditionParameterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayProcedureProtocolPrecondition_X_AssayProcedureProtocol">
+          <End Type="XODB.Module.BusinessObjects.AssayProcedureProtocol" Role="AssayProcedureProtocol" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.AssayProcedureProtocolPrecondition" Role="X_AssayProcedureProtocolPrecondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssayProcedureProtocol">
+              <PropertyRef Name="AssayProcedureProtocolID" />
+            </Principal>
+            <Dependent Role="X_AssayProcedureProtocolPrecondition">
+              <PropertyRef Name="AssayProcedureProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayWorkflowProcedureProtocol_X_AssayProcedureProtocol">
+          <End Type="XODB.Module.BusinessObjects.AssayProcedureProtocol" Role="AssayProcedureProtocol" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.AssayWorkflowProcedureProtocol" Role="X_AssayWorkflowProcedureProtocol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssayProcedureProtocol">
+              <PropertyRef Name="AssayProcedureProtocolID" />
+            </Principal>
+            <Dependent Role="X_AssayWorkflowProcedureProtocol">
+              <PropertyRef Name="AssayProcedureProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayProcedureProtocolPrecondition_X_DictionaryAssayPreconditionType">
+          <End Type="XODB.Module.BusinessObjects.DictionaryAssayPreconditionType" Role="X_DictionaryAssayPreconditionType" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.AssayProcedureProtocolPrecondition" Role="X_AssayProcedureProtocolPrecondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X_DictionaryAssayPreconditionType">
+              <PropertyRef Name="AssayPreconditionTypeID" />
+            </Principal>
+            <Dependent Role="X_AssayProcedureProtocolPrecondition">
+              <PropertyRef Name="AssayPreconditionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayProcedureProtocolPrecondition_X_DictionaryUnit">
+          <End Type="XODB.Module.BusinessObjects.DictionaryUnit" Role="DictionaryUnit" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.AssayProcedureProtocolPrecondition" Role="X_AssayProcedureProtocolPrecondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryUnit">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="X_AssayProcedureProtocolPrecondition">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_X_DictionaryAssayPreconditionTypeType_X_FileData_OriginalFile">
+          <End Type="XODB.Module.BusinessObjects.FileData" Role="FileData" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.DictionaryAssayPreconditionType" Role="X_DictionaryAssayPreconditionType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileData">
+              <PropertyRef Name="FileDataID" />
+            </Principal>
+            <Dependent Role="X_DictionaryAssayPreconditionType">
+              <PropertyRef Name="OriginalFileDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E_Workflow_E_DictionaryWorkflowType">
+          <End Type="XODB.Module.BusinessObjects.DictionaryWorkflowType" Role="DictionaryWorkflowType" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.Workflow" Role="Workflow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DictionaryWorkflowType">
+              <PropertyRef Name="WorkflowTypeID" />
+            </Principal>
+            <Dependent Role="Workflow">
+              <PropertyRef Name="WorkflowTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample">
+          <End Type="XODB.Module.BusinessObjects.AssayGroupSubsample" Role="AssayGroupSubsample" Multiplicity="0..1" />
+          <End Type="XODB.Module.BusinessObjects.AssayGroupSubsamplePrecondition" Role="AssayGroupSubsamplePrecondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssayGroupSubsample">
+              <PropertyRef Name="AssayGroupSubsampleID" />
+            </Principal>
+            <Dependent Role="AssayGroupSubsamplePrecondition">
+              <PropertyRef Name="AssayGroupSubsampleID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -48545,17 +48880,11 @@
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Subsampled" ColumnName="Subsampled" />
                 <ScalarProperty Name="SubsampledBy" ColumnName="SubsampledBy" />
-                <ScalarProperty Name="ResultingVolume" ColumnName="ResultingVolume" />
-                <ScalarProperty Name="ResultingKilograms" ColumnName="ResultingKilograms" />
-                <ScalarProperty Name="ResultingPercentage" ColumnName="ResultingPercentage" />
                 <ScalarProperty Name="RackPosition" ColumnName="RackPosition" />
                 <ScalarProperty Name="RackBlock" ColumnName="RackBlock" />
                 <ScalarProperty Name="DurationTotalSeconds" ColumnName="DurationTotalSeconds" />
                 <ScalarProperty Name="DurationProcedureSeconds" ColumnName="DurationProcedureSeconds" />
                 <ScalarProperty Name="AgitationMethodID" ColumnName="AgitationMethodID" />
-                <ScalarProperty Name="VolumeMaximum" ColumnName="VolumeMaximum" />
-                <ScalarProperty Name="VolumeMinimum" ColumnName="VolumeMinimum" />
-                <ScalarProperty Name="VolumeUnitID" ColumnName="VolumeUnitID" />
                 <ScalarProperty Name="ToDepth" ColumnName="ToDepth" />
                 <ScalarProperty Name="FromDepth" ColumnName="FromDepth" />
                 <ScalarProperty Name="SampleAntecedentID" ColumnName="SampleAntecedentID" />
@@ -48607,6 +48936,10 @@
           <EntitySetMapping Name="AssayGroupSubsamplePreconditions">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.AssayGroupSubsamplePrecondition">
               <MappingFragment StoreEntitySet="X_AssayGroupSubsamplePrecondition">
+                <ScalarProperty Name="PreconditionMaximum" ColumnName="PreconditionMaximum" />
+                <ScalarProperty Name="PreconditionMinimum" ColumnName="PreconditionMinimum" />
+                <ScalarProperty Name="PreconditionParameterID" ColumnName="PreconditionParameterID" />
+                <ScalarProperty Name="AssayPreconditionTypeID" ColumnName="AssayPreconditionTypeID" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -48616,8 +48949,6 @@
                 <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
                 <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="PreconditionValue" ColumnName="PreconditionValue" />
-                <ScalarProperty Name="PreconditionUnitID" ColumnName="PreconditionUnitID" />
                 <ScalarProperty Name="PreconditionName" ColumnName="PreconditionName" />
                 <ScalarProperty Name="AssayGroupSubsampleID" ColumnName="AssayGroupSubsampleID" />
                 <ScalarProperty Name="AssayGroupSubsamplePreconditionID" ColumnName="AssayGroupSubsamplePreconditionID" />
@@ -48627,6 +48958,7 @@
           <EntitySetMapping Name="AssayGroupSubsampleRelations">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.AssayGroupSubsampleRelation">
               <MappingFragment StoreEntitySet="X_AssayGroupSubsampleRelation">
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
                 <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
                 <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
                 <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
@@ -48934,6 +49266,71 @@
                 <ScalarProperty Name="ModelLifetime" ColumnName="ModelLifetime" />
                 <ScalarProperty Name="ModelName" ColumnName="ModelName" />
                 <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssayProcedureProtocolPreconditions">
+            <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.AssayProcedureProtocolPrecondition">
+              <MappingFragment StoreEntitySet="X_AssayProcedureProtocolPrecondition">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="PreconditionName" ColumnName="PreconditionName" />
+                <ScalarProperty Name="AssayPreconditionTypeID" ColumnName="AssayPreconditionTypeID" />
+                <ScalarProperty Name="AssayProcedureProtocolID" ColumnName="AssayProcedureProtocolID" />
+                <ScalarProperty Name="AssayProcedureProtocolPreconditionID" ColumnName="AssayProcedureProtocolPreconditionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssayWorkflowProcedureProtocols">
+            <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.AssayWorkflowProcedureProtocol">
+              <MappingFragment StoreEntitySet="X_AssayWorkflowProcedureProtocol">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="AssayProcedureProtocolID" ColumnName="AssayProcedureProtocolID" />
+                <ScalarProperty Name="WorkflowStateName" ColumnName="WorkflowStateName" />
+                <ScalarProperty Name="WorkflowID" ColumnName="WorkflowID" />
+                <ScalarProperty Name="AssayWorkflowProcedureProtocolID" ColumnName="AssayWorkflowProcedureProtocolID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DictionaryAssayPreconditionTypes">
+            <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.DictionaryAssayPreconditionType">
+              <MappingFragment StoreEntitySet="X_DictionaryAssayPreconditionType">
+                <ScalarProperty Name="VersionUpdated" ColumnName="VersionUpdated" />
+                <ScalarProperty Name="VersionOwnerCompanyID" ColumnName="VersionOwnerCompanyID" />
+                <ScalarProperty Name="VersionOwnerContactID" ColumnName="VersionOwnerContactID" />
+                <ScalarProperty Name="VersionDeletedBy" ColumnName="VersionDeletedBy" />
+                <ScalarProperty Name="VersionUpdatedBy" ColumnName="VersionUpdatedBy" />
+                <ScalarProperty Name="VersionWorkflowInstanceID" ColumnName="VersionWorkflowInstanceID" />
+                <ScalarProperty Name="VersionCertainty" ColumnName="VersionCertainty" />
+                <ScalarProperty Name="VersionAntecedentID" ColumnName="VersionAntecedentID" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="OriginalFileDataID" ColumnName="OriginalFileDataID" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CustomAssayPreconditionTypeName" ColumnName="CustomAssayPreconditionTypeName" />
+                <ScalarProperty Name="GoldAssayPreconditionTypeName" ColumnName="GoldAssayPreconditionTypeName" />
+                <ScalarProperty Name="CoalAssayPreconditionTypeName" ColumnName="CoalAssayPreconditionTypeName" />
+                <ScalarProperty Name="StandardAssayPreconditionTypeName" ColumnName="StandardAssayPreconditionTypeName" />
+                <ScalarProperty Name="AssayPreconditionTypeID" ColumnName="AssayPreconditionTypeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

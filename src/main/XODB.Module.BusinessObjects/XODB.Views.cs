@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsE94A607860FADA44FD0576ACFAA034C8949F631C5B59B134D77E920D4334A9BC))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsF5471E6CEE7DFA8970503A2A6692CF0D9000BC12BDA261604759BA9ADFD9F869))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,19 +17,19 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySetsE94A607860FADA44FD0576ACFAA034C8949F631C5B59B134D77E920D4334A9BC : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySetsF5471E6CEE7DFA8970503A2A6692CF0D9000BC12BDA261604759BA9ADFD9F869 : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySetsE94A607860FADA44FD0576ACFAA034C8949F631C5B59B134D77E920D4334A9BC()
+        public ViewsForBaseEntitySetsF5471E6CEE7DFA8970503A2A6692CF0D9000BC12BDA261604759BA9ADFD9F869()
         {
             this.EdmEntityContainerName = "XODBC";
             this.StoreEntityContainerName = "XODBModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "eb7e21357cd0cd18b815fbdd987abe6f7df059774758e083eb4f7230607d932b";
-            this.HashOverAllExtentViews = "976c70474f388defdb9fccd3e397e2b086e86b80d1040f90430819a5abf5773a";
-            this.ViewCount = 636;
+            this.HashOverMappingClosure = "616471f501cd5594a7626919a2c32aa759979c86aa9cac6e8f8288c1ed143a5f";
+            this.HashOverAllExtentViews = "3837c35a6bb8794f215a3b70bd6d19dc9dff174a77225e39526053d7705206eb";
+            this.ViewCount = 642;
         }
         
         /// <Summary>
@@ -2580,6 +2580,30 @@ namespace Edm_EntityMappingGeneratedViews
             if ((index == 635))
             {
                 return GetView635();
+            }
+            if ((index == 636))
+            {
+                return GetView636();
+            }
+            if ((index == 637))
+            {
+                return GetView637();
+            }
+            if ((index == 638))
+            {
+                return GetView638();
+            }
+            if ((index == 639))
+            {
+                return GetView639();
+            }
+            if ((index == 640))
+            {
+                return GetView640();
+            }
+            if ((index == 641))
+            {
+                return GetView641();
             }
             throw new System.IndexOutOfRangeException();
         }
@@ -12534,45 +12558,36 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView264()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3992);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3272);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_AssayGroupSubsample\r\n        [XODB.Module.B");
             viewString.Append("usinessObjects.Store.X_AssayGroupSubsample](T1.[X_AssayGroupSubsample.AssayGroup");
             viewString.Append("SubsampleID], T1.[X_AssayGroupSubsample.AssayGroupID], T1.[X_AssayGroupSubsample");
             viewString.Append(".AssayGroupWorkflowProcedureID], T1.[X_AssayGroupSubsample.Sequence], T1.[X_Assa");
             viewString.Append("yGroupSubsample.LabSubsampleName], T1.[X_AssayGroupSubsample.SampleAntecedentID]");
             viewString.Append(", T1.[X_AssayGroupSubsample.FromDepth], T1.[X_AssayGroupSubsample.ToDepth], T1.[");
-            viewString.Append("X_AssayGroupSubsample.VolumeUnitID], T1.[X_AssayGroupSubsample.VolumeMinimum], T");
-            viewString.Append("1.[X_AssayGroupSubsample.VolumeMaximum], T1.[X_AssayGroupSubsample.AgitationMeth");
-            viewString.Append("odID], T1.[X_AssayGroupSubsample.DurationProcedureSeconds], T1.[X_AssayGroupSubs");
-            viewString.Append("ample.DurationTotalSeconds], T1.[X_AssayGroupSubsample.RackBlock], T1.[X_AssayGr");
-            viewString.Append("oupSubsample.RackPosition], T1.[X_AssayGroupSubsample.ResultingPercentage], T1.[");
-            viewString.Append("X_AssayGroupSubsample.ResultingKilograms], T1.[X_AssayGroupSubsample.ResultingVo");
-            viewString.Append("lume], T1.[X_AssayGroupSubsample.SubsampledBy], T1.[X_AssayGroupSubsample.Subsam");
-            viewString.Append("pled], T1.[X_AssayGroupSubsample.Comment], T1.[X_AssayGroupSubsample.Version], T");
-            viewString.Append("1.[X_AssayGroupSubsample.VersionAntecedentID], T1.[X_AssayGroupSubsample.Version");
-            viewString.Append("Certainty], T1.[X_AssayGroupSubsample.VersionWorkflowInstanceID], T1.[X_AssayGro");
-            viewString.Append("upSubsample.VersionUpdatedBy], T1.[X_AssayGroupSubsample.VersionDeletedBy], T1.[");
-            viewString.Append("X_AssayGroupSubsample.VersionOwnerContactID], T1.[X_AssayGroupSubsample.VersionO");
-            viewString.Append("wnerCompanyID], T1.[X_AssayGroupSubsample.VersionUpdated])\r\n    FROM (\r\n        ");
-            viewString.Append("SELECT \r\n            T.AssayGroupSubsampleID AS [X_AssayGroupSubsample.AssayGrou");
-            viewString.Append("pSubsampleID], \r\n            T.AssayGroupID AS [X_AssayGroupSubsample.AssayGroup");
-            viewString.Append("ID], \r\n            T.AssayGroupWorkflowProcedureID AS [X_AssayGroupSubsample.Ass");
-            viewString.Append("ayGroupWorkflowProcedureID], \r\n            T.Sequence AS [X_AssayGroupSubsample.");
-            viewString.Append("Sequence], \r\n            T.LabSubsampleName AS [X_AssayGroupSubsample.LabSubsamp");
-            viewString.Append("leName], \r\n            T.SampleAntecedentID AS [X_AssayGroupSubsample.SampleAnte");
-            viewString.Append("cedentID], \r\n            T.FromDepth AS [X_AssayGroupSubsample.FromDepth], \r\n   ");
-            viewString.Append("         T.ToDepth AS [X_AssayGroupSubsample.ToDepth], \r\n            T.VolumeUni");
-            viewString.Append("tID AS [X_AssayGroupSubsample.VolumeUnitID], \r\n            T.VolumeMinimum AS [X");
-            viewString.Append("_AssayGroupSubsample.VolumeMinimum], \r\n            T.VolumeMaximum AS [X_AssayGr");
-            viewString.Append("oupSubsample.VolumeMaximum], \r\n            T.AgitationMethodID AS [X_AssayGroupS");
-            viewString.Append("ubsample.AgitationMethodID], \r\n            T.DurationProcedureSeconds AS [X_Assa");
-            viewString.Append("yGroupSubsample.DurationProcedureSeconds], \r\n            T.DurationTotalSeconds ");
-            viewString.Append("AS [X_AssayGroupSubsample.DurationTotalSeconds], \r\n            T.RackBlock AS [X");
-            viewString.Append("_AssayGroupSubsample.RackBlock], \r\n            T.RackPosition AS [X_AssayGroupSu");
-            viewString.Append("bsample.RackPosition], \r\n            T.ResultingPercentage AS [X_AssayGroupSubsa");
-            viewString.Append("mple.ResultingPercentage], \r\n            T.ResultingKilograms AS [X_AssayGroupSu");
-            viewString.Append("bsample.ResultingKilograms], \r\n            T.ResultingVolume AS [X_AssayGroupSub");
-            viewString.Append("sample.ResultingVolume], \r\n            T.SubsampledBy AS [X_AssayGroupSubsample.");
+            viewString.Append("X_AssayGroupSubsample.AgitationMethodID], T1.[X_AssayGroupSubsample.DurationProc");
+            viewString.Append("edureSeconds], T1.[X_AssayGroupSubsample.DurationTotalSeconds], T1.[X_AssayGroup");
+            viewString.Append("Subsample.RackBlock], T1.[X_AssayGroupSubsample.RackPosition], T1.[X_AssayGroupS");
+            viewString.Append("ubsample.SubsampledBy], T1.[X_AssayGroupSubsample.Subsampled], T1.[X_AssayGroupS");
+            viewString.Append("ubsample.Comment], T1.[X_AssayGroupSubsample.Version], T1.[X_AssayGroupSubsample");
+            viewString.Append(".VersionAntecedentID], T1.[X_AssayGroupSubsample.VersionCertainty], T1.[X_AssayG");
+            viewString.Append("roupSubsample.VersionWorkflowInstanceID], T1.[X_AssayGroupSubsample.VersionUpdat");
+            viewString.Append("edBy], T1.[X_AssayGroupSubsample.VersionDeletedBy], T1.[X_AssayGroupSubsample.Ve");
+            viewString.Append("rsionOwnerContactID], T1.[X_AssayGroupSubsample.VersionOwnerCompanyID], T1.[X_As");
+            viewString.Append("sayGroupSubsample.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.A");
+            viewString.Append("ssayGroupSubsampleID AS [X_AssayGroupSubsample.AssayGroupSubsampleID], \r\n       ");
+            viewString.Append("     T.AssayGroupID AS [X_AssayGroupSubsample.AssayGroupID], \r\n            T.Ass");
+            viewString.Append("ayGroupWorkflowProcedureID AS [X_AssayGroupSubsample.AssayGroupWorkflowProcedure");
+            viewString.Append("ID], \r\n            T.Sequence AS [X_AssayGroupSubsample.Sequence], \r\n           ");
+            viewString.Append(" T.LabSubsampleName AS [X_AssayGroupSubsample.LabSubsampleName], \r\n            T");
+            viewString.Append(".SampleAntecedentID AS [X_AssayGroupSubsample.SampleAntecedentID], \r\n           ");
+            viewString.Append(" T.FromDepth AS [X_AssayGroupSubsample.FromDepth], \r\n            T.ToDepth AS [X");
+            viewString.Append("_AssayGroupSubsample.ToDepth], \r\n            T.AgitationMethodID AS [X_AssayGrou");
+            viewString.Append("pSubsample.AgitationMethodID], \r\n            T.DurationProcedureSeconds AS [X_As");
+            viewString.Append("sayGroupSubsample.DurationProcedureSeconds], \r\n            T.DurationTotalSecond");
+            viewString.Append("s AS [X_AssayGroupSubsample.DurationTotalSeconds], \r\n            T.RackBlock AS ");
+            viewString.Append("[X_AssayGroupSubsample.RackBlock], \r\n            T.RackPosition AS [X_AssayGroup");
+            viewString.Append("Subsample.RackPosition], \r\n            T.SubsampledBy AS [X_AssayGroupSubsample.");
             viewString.Append("SubsampledBy], \r\n            T.Subsampled AS [X_AssayGroupSubsample.Subsampled],");
             viewString.Append(" \r\n            T.Comment AS [X_AssayGroupSubsample.Comment], \r\n            T.Ver");
             viewString.Append("sion AS [X_AssayGroupSubsample.Version], \r\n            T.VersionAntecedentID AS ");
@@ -12662,38 +12677,42 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView267()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2441);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2786);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_AssayGroupSubsamplePrecondition\r\n        [X");
             viewString.Append("ODB.Module.BusinessObjects.Store.X_AssayGroupSubsamplePrecondition](T1.[X_AssayG");
             viewString.Append("roupSubsamplePrecondition.AssayGroupSubsamplePreconditionID], T1.[X_AssayGroupSu");
             viewString.Append("bsamplePrecondition.AssayGroupSubsampleID], T1.[X_AssayGroupSubsamplePreconditio");
-            viewString.Append("n.PreconditionName], T1.[X_AssayGroupSubsamplePrecondition.PreconditionUnitID], ");
-            viewString.Append("T1.[X_AssayGroupSubsamplePrecondition.PreconditionValue], T1.[X_AssayGroupSubsam");
-            viewString.Append("plePrecondition.Version], T1.[X_AssayGroupSubsamplePrecondition.VersionAnteceden");
-            viewString.Append("tID], T1.[X_AssayGroupSubsamplePrecondition.VersionCertainty], T1.[X_AssayGroupS");
-            viewString.Append("ubsamplePrecondition.VersionWorkflowInstanceID], T1.[X_AssayGroupSubsamplePrecon");
-            viewString.Append("dition.VersionUpdatedBy], T1.[X_AssayGroupSubsamplePrecondition.VersionDeletedBy");
-            viewString.Append("], T1.[X_AssayGroupSubsamplePrecondition.VersionOwnerContactID], T1.[X_AssayGrou");
-            viewString.Append("pSubsamplePrecondition.VersionOwnerCompanyID], T1.[X_AssayGroupSubsamplePrecondi");
-            viewString.Append("tion.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.AssayGroupSubs");
-            viewString.Append("amplePreconditionID AS [X_AssayGroupSubsamplePrecondition.AssayGroupSubsamplePre");
-            viewString.Append("conditionID], \r\n            T.AssayGroupSubsampleID AS [X_AssayGroupSubsamplePre");
-            viewString.Append("condition.AssayGroupSubsampleID], \r\n            T.PreconditionName AS [X_AssayGr");
-            viewString.Append("oupSubsamplePrecondition.PreconditionName], \r\n            T.PreconditionUnitID A");
-            viewString.Append("S [X_AssayGroupSubsamplePrecondition.PreconditionUnitID], \r\n            T.Precon");
-            viewString.Append("ditionValue AS [X_AssayGroupSubsamplePrecondition.PreconditionValue], \r\n        ");
-            viewString.Append("    T.Version AS [X_AssayGroupSubsamplePrecondition.Version], \r\n            T.Ve");
-            viewString.Append("rsionAntecedentID AS [X_AssayGroupSubsamplePrecondition.VersionAntecedentID], \r\n");
-            viewString.Append("            T.VersionCertainty AS [X_AssayGroupSubsamplePrecondition.VersionCert");
-            viewString.Append("ainty], \r\n            T.VersionWorkflowInstanceID AS [X_AssayGroupSubsamplePreco");
-            viewString.Append("ndition.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [X_Assay");
-            viewString.Append("GroupSubsamplePrecondition.VersionUpdatedBy], \r\n            T.VersionDeletedBy A");
-            viewString.Append("S [X_AssayGroupSubsamplePrecondition.VersionDeletedBy], \r\n            T.VersionO");
-            viewString.Append("wnerContactID AS [X_AssayGroupSubsamplePrecondition.VersionOwnerContactID], \r\n  ");
-            viewString.Append("          T.VersionOwnerCompanyID AS [X_AssayGroupSubsamplePrecondition.VersionO");
-            viewString.Append("wnerCompanyID], \r\n            T.VersionUpdated AS [X_AssayGroupSubsamplePrecondi");
-            viewString.Append("tion.VersionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.AssayGrou");
-            viewString.Append("pSubsamplePreconditions AS T\r\n    ) AS T1");
+            viewString.Append("n.AssayPreconditionTypeID], T1.[X_AssayGroupSubsamplePrecondition.PreconditionNa");
+            viewString.Append("me], T1.[X_AssayGroupSubsamplePrecondition.PreconditionParameterID], T1.[X_Assay");
+            viewString.Append("GroupSubsamplePrecondition.PreconditionMinimum], T1.[X_AssayGroupSubsamplePrecon");
+            viewString.Append("dition.PreconditionMaximum], T1.[X_AssayGroupSubsamplePrecondition.Version], T1.");
+            viewString.Append("[X_AssayGroupSubsamplePrecondition.VersionAntecedentID], T1.[X_AssayGroupSubsamp");
+            viewString.Append("lePrecondition.VersionCertainty], T1.[X_AssayGroupSubsamplePrecondition.VersionW");
+            viewString.Append("orkflowInstanceID], T1.[X_AssayGroupSubsamplePrecondition.VersionUpdatedBy], T1.");
+            viewString.Append("[X_AssayGroupSubsamplePrecondition.VersionDeletedBy], T1.[X_AssayGroupSubsampleP");
+            viewString.Append("recondition.VersionOwnerContactID], T1.[X_AssayGroupSubsamplePrecondition.Versio");
+            viewString.Append("nOwnerCompanyID], T1.[X_AssayGroupSubsamplePrecondition.VersionUpdated])\r\n    FR");
+            viewString.Append("OM (\r\n        SELECT \r\n            T.AssayGroupSubsamplePreconditionID AS [X_Ass");
+            viewString.Append("ayGroupSubsamplePrecondition.AssayGroupSubsamplePreconditionID], \r\n            T");
+            viewString.Append(".AssayGroupSubsampleID AS [X_AssayGroupSubsamplePrecondition.AssayGroupSubsample");
+            viewString.Append("ID], \r\n            T.AssayPreconditionTypeID AS [X_AssayGroupSubsamplePreconditi");
+            viewString.Append("on.AssayPreconditionTypeID], \r\n            T.PreconditionName AS [X_AssayGroupSu");
+            viewString.Append("bsamplePrecondition.PreconditionName], \r\n            T.PreconditionParameterID A");
+            viewString.Append("S [X_AssayGroupSubsamplePrecondition.PreconditionParameterID], \r\n            T.P");
+            viewString.Append("reconditionMinimum AS [X_AssayGroupSubsamplePrecondition.PreconditionMinimum], \r");
+            viewString.Append("\n            T.PreconditionMaximum AS [X_AssayGroupSubsamplePrecondition.Precond");
+            viewString.Append("itionMaximum], \r\n            T.Version AS [X_AssayGroupSubsamplePrecondition.Ver");
+            viewString.Append("sion], \r\n            T.VersionAntecedentID AS [X_AssayGroupSubsamplePrecondition");
+            viewString.Append(".VersionAntecedentID], \r\n            T.VersionCertainty AS [X_AssayGroupSubsampl");
+            viewString.Append("ePrecondition.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [X");
+            viewString.Append("_AssayGroupSubsamplePrecondition.VersionWorkflowInstanceID], \r\n            T.Ver");
+            viewString.Append("sionUpdatedBy AS [X_AssayGroupSubsamplePrecondition.VersionUpdatedBy], \r\n       ");
+            viewString.Append("     T.VersionDeletedBy AS [X_AssayGroupSubsamplePrecondition.VersionDeletedBy],");
+            viewString.Append(" \r\n            T.VersionOwnerContactID AS [X_AssayGroupSubsamplePrecondition.Ver");
+            viewString.Append("sionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_AssayGroupSubsa");
+            viewString.Append("mplePrecondition.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_As");
+            viewString.Append("sayGroupSubsamplePrecondition.VersionUpdated], \r\n            True AS _from0\r\n   ");
+            viewString.Append("     FROM XODBC.AssayGroupSubsamplePreconditions AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_AssayGroupSubsamplePrecondition", viewString.ToString());
         }
         
@@ -12702,32 +12721,35 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView268()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_AssayGroupSubsampleRelation", "\r\n    SELECT VALUE -- Constructing X_AssayGroupSubsampleRelation\r\n        [XODB.M" +
-                    "odule.BusinessObjects.Store.X_AssayGroupSubsampleRelation](T1.[X_AssayGroupSubsa" +
-                    "mpleRelation.AssayGroupSubsampleRelationID], T1.[X_AssayGroupSubsampleRelation.S" +
-                    "ourceSubsampleID], T1.[X_AssayGroupSubsampleRelation.DestinationSubsampleID], T1" +
-                    ".[X_AssayGroupSubsampleRelation.Version], T1.[X_AssayGroupSubsampleRelation.Vers" +
-                    "ionAntecedentID], T1.[X_AssayGroupSubsampleRelation.VersionCertainty], T1.[X_Ass" +
-                    "ayGroupSubsampleRelation.VersionWorkflowInstanceID], T1.[X_AssayGroupSubsampleRe" +
-                    "lation.VersionUpdatedBy], T1.[X_AssayGroupSubsampleRelation.VersionDeletedBy], T" +
-                    "1.[X_AssayGroupSubsampleRelation.VersionOwnerContactID], T1.[X_AssayGroupSubsamp" +
-                    "leRelation.VersionOwnerCompanyID], T1.[X_AssayGroupSubsampleRelation.VersionUpda" +
-                    "ted])\r\n    FROM (\r\n        SELECT \r\n            T.AssayGroupSubsampleRelationID " +
-                    "AS [X_AssayGroupSubsampleRelation.AssayGroupSubsampleRelationID], \r\n            " +
-                    "T.SourceSubsampleID AS [X_AssayGroupSubsampleRelation.SourceSubsampleID], \r\n    " +
-                    "        T.DestinationSubsampleID AS [X_AssayGroupSubsampleRelation.DestinationSu" +
-                    "bsampleID], \r\n            T.Version AS [X_AssayGroupSubsampleRelation.Version], " +
-                    "\r\n            T.VersionAntecedentID AS [X_AssayGroupSubsampleRelation.VersionAnt" +
-                    "ecedentID], \r\n            T.VersionCertainty AS [X_AssayGroupSubsampleRelation.V" +
-                    "ersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [X_AssayGroupSubs" +
-                    "ampleRelation.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [X" +
-                    "_AssayGroupSubsampleRelation.VersionUpdatedBy], \r\n            T.VersionDeletedBy" +
-                    " AS [X_AssayGroupSubsampleRelation.VersionDeletedBy], \r\n            T.VersionOwn" +
-                    "erContactID AS [X_AssayGroupSubsampleRelation.VersionOwnerContactID], \r\n        " +
-                    "    T.VersionOwnerCompanyID AS [X_AssayGroupSubsampleRelation.VersionOwnerCompan" +
-                    "yID], \r\n            T.VersionUpdated AS [X_AssayGroupSubsampleRelation.VersionUp" +
-                    "dated], \r\n            True AS _from0\r\n        FROM XODBC.AssayGroupSubsampleRela" +
-                    "tions AS T\r\n    ) AS T1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2139);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing X_AssayGroupSubsampleRelation\r\n        [XODB.");
+            viewString.Append("Module.BusinessObjects.Store.X_AssayGroupSubsampleRelation](T1.[X_AssayGroupSubs");
+            viewString.Append("ampleRelation.AssayGroupSubsampleRelationID], T1.[X_AssayGroupSubsampleRelation.");
+            viewString.Append("SourceSubsampleID], T1.[X_AssayGroupSubsampleRelation.DestinationSubsampleID], T");
+            viewString.Append("1.[X_AssayGroupSubsampleRelation.Sequence], T1.[X_AssayGroupSubsampleRelation.Ve");
+            viewString.Append("rsion], T1.[X_AssayGroupSubsampleRelation.VersionAntecedentID], T1.[X_AssayGroup");
+            viewString.Append("SubsampleRelation.VersionCertainty], T1.[X_AssayGroupSubsampleRelation.VersionWo");
+            viewString.Append("rkflowInstanceID], T1.[X_AssayGroupSubsampleRelation.VersionUpdatedBy], T1.[X_As");
+            viewString.Append("sayGroupSubsampleRelation.VersionDeletedBy], T1.[X_AssayGroupSubsampleRelation.V");
+            viewString.Append("ersionOwnerContactID], T1.[X_AssayGroupSubsampleRelation.VersionOwnerCompanyID],");
+            viewString.Append(" T1.[X_AssayGroupSubsampleRelation.VersionUpdated])\r\n    FROM (\r\n        SELECT ");
+            viewString.Append("\r\n            T.AssayGroupSubsampleRelationID AS [X_AssayGroupSubsampleRelation.");
+            viewString.Append("AssayGroupSubsampleRelationID], \r\n            T.SourceSubsampleID AS [X_AssayGro");
+            viewString.Append("upSubsampleRelation.SourceSubsampleID], \r\n            T.DestinationSubsampleID A");
+            viewString.Append("S [X_AssayGroupSubsampleRelation.DestinationSubsampleID], \r\n            T.Sequen");
+            viewString.Append("ce AS [X_AssayGroupSubsampleRelation.Sequence], \r\n            T.Version AS [X_As");
+            viewString.Append("sayGroupSubsampleRelation.Version], \r\n            T.VersionAntecedentID AS [X_As");
+            viewString.Append("sayGroupSubsampleRelation.VersionAntecedentID], \r\n            T.VersionCertainty");
+            viewString.Append(" AS [X_AssayGroupSubsampleRelation.VersionCertainty], \r\n            T.VersionWor");
+            viewString.Append("kflowInstanceID AS [X_AssayGroupSubsampleRelation.VersionWorkflowInstanceID], \r\n");
+            viewString.Append("            T.VersionUpdatedBy AS [X_AssayGroupSubsampleRelation.VersionUpdatedB");
+            viewString.Append("y], \r\n            T.VersionDeletedBy AS [X_AssayGroupSubsampleRelation.VersionDe");
+            viewString.Append("letedBy], \r\n            T.VersionOwnerContactID AS [X_AssayGroupSubsampleRelatio");
+            viewString.Append("n.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_AssayGroup");
+            viewString.Append("SubsampleRelation.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_A");
+            viewString.Append("ssayGroupSubsampleRelation.VersionUpdated], \r\n            True AS _from0\r\n      ");
+            viewString.Append("  FROM XODBC.AssayGroupSubsampleRelations AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_AssayGroupSubsampleRelation", viewString.ToString());
         }
         
         /// <Summary>
@@ -12800,8 +12822,8 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_AssayGroupWorkflowProcedure\r\n        [XODB.");
             viewString.Append("Module.BusinessObjects.Store.X_AssayGroupWorkflowProcedure](T1.[X_AssayGroupWork");
             viewString.Append("flowProcedure.AssayGroupWorkflowProcedureID], T1.[X_AssayGroupWorkflowProcedure.");
-            viewString.Append("AssayGroupWorkflowID], T1.[X_AssayGroupWorkflowProcedure.AssayProcedureProtocolI");
-            viewString.Append("D], T1.[X_AssayGroupWorkflowProcedure.WorkflowStateName], T1.[X_AssayGroupWorkfl");
+            viewString.Append("AssayGroupWorkflowID], T1.[X_AssayGroupWorkflowProcedure.WorkflowStateName], T1.");
+            viewString.Append("[X_AssayGroupWorkflowProcedure.AssayProcedureProtocolID], T1.[X_AssayGroupWorkfl");
             viewString.Append("owProcedure.Sequence], T1.[X_AssayGroupWorkflowProcedure.Version], T1.[X_AssayGr");
             viewString.Append("oupWorkflowProcedure.VersionAntecedentID], T1.[X_AssayGroupWorkflowProcedure.Ver");
             viewString.Append("sionCertainty], T1.[X_AssayGroupWorkflowProcedure.VersionWorkflowInstanceID], T1");
@@ -12811,9 +12833,9 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("flowProcedure.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.Assay");
             viewString.Append("GroupWorkflowProcedureID AS [X_AssayGroupWorkflowProcedure.AssayGroupWorkflowPro");
             viewString.Append("cedureID], \r\n            T.AssayGroupWorkflowID AS [X_AssayGroupWorkflowProcedur");
-            viewString.Append("e.AssayGroupWorkflowID], \r\n            T.AssayProcedureProtocolID AS [X_AssayGro");
-            viewString.Append("upWorkflowProcedure.AssayProcedureProtocolID], \r\n            T.WorkflowStateName");
-            viewString.Append(" AS [X_AssayGroupWorkflowProcedure.WorkflowStateName], \r\n            T.Sequence ");
+            viewString.Append("e.AssayGroupWorkflowID], \r\n            T.WorkflowStateName AS [X_AssayGroupWorkf");
+            viewString.Append("lowProcedure.WorkflowStateName], \r\n            T.AssayProcedureProtocolID AS [X_");
+            viewString.Append("AssayGroupWorkflowProcedure.AssayProcedureProtocolID], \r\n            T.Sequence ");
             viewString.Append("AS [X_AssayGroupWorkflowProcedure.Sequence], \r\n            T.Version AS [X_Assay");
             viewString.Append("GroupWorkflowProcedure.Version], \r\n            T.VersionAntecedentID AS [X_Assay");
             viewString.Append("GroupWorkflowProcedure.VersionAntecedentID], \r\n            T.VersionCertainty AS");
@@ -13208,9 +13230,139 @@ namespace Edm_EntityMappingGeneratedViews
         }
         
         /// <Summary>
-        /// return view for XODBC.Credits
+        /// return view for XODBModuleBusinessObjectsStoreContainer.X_AssayProcedureProtocolPrecondition
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView281()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2663);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing X_AssayProcedureProtocolPrecondition\r\n       ");
+            viewString.Append(" [XODB.Module.BusinessObjects.Store.X_AssayProcedureProtocolPrecondition](T1.[X_");
+            viewString.Append("AssayProcedureProtocolPrecondition.AssayProcedureProtocolPreconditionID], T1.[X_");
+            viewString.Append("AssayProcedureProtocolPrecondition.AssayProcedureProtocolID], T1.[X_AssayProcedu");
+            viewString.Append("reProtocolPrecondition.AssayPreconditionTypeID], T1.[X_AssayProcedureProtocolPre");
+            viewString.Append("condition.PreconditionName], T1.[X_AssayProcedureProtocolPrecondition.UnitID], T");
+            viewString.Append("1.[X_AssayProcedureProtocolPrecondition.Sequence], T1.[X_AssayProcedureProtocolP");
+            viewString.Append("recondition.Version], T1.[X_AssayProcedureProtocolPrecondition.VersionAntecedent");
+            viewString.Append("ID], T1.[X_AssayProcedureProtocolPrecondition.VersionCertainty], T1.[X_AssayProc");
+            viewString.Append("edureProtocolPrecondition.VersionWorkflowInstanceID], T1.[X_AssayProcedureProtoc");
+            viewString.Append("olPrecondition.VersionUpdatedBy], T1.[X_AssayProcedureProtocolPrecondition.Versi");
+            viewString.Append("onDeletedBy], T1.[X_AssayProcedureProtocolPrecondition.VersionOwnerContactID], T");
+            viewString.Append("1.[X_AssayProcedureProtocolPrecondition.VersionOwnerCompanyID], T1.[X_AssayProce");
+            viewString.Append("dureProtocolPrecondition.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n        ");
+            viewString.Append("    T.AssayProcedureProtocolPreconditionID AS [X_AssayProcedureProtocolPrecondit");
+            viewString.Append("ion.AssayProcedureProtocolPreconditionID], \r\n            T.AssayProcedureProtoco");
+            viewString.Append("lID AS [X_AssayProcedureProtocolPrecondition.AssayProcedureProtocolID], \r\n      ");
+            viewString.Append("      T.AssayPreconditionTypeID AS [X_AssayProcedureProtocolPrecondition.AssayPr");
+            viewString.Append("econditionTypeID], \r\n            T.PreconditionName AS [X_AssayProcedureProtocol");
+            viewString.Append("Precondition.PreconditionName], \r\n            T.UnitID AS [X_AssayProcedureProto");
+            viewString.Append("colPrecondition.UnitID], \r\n            T.Sequence AS [X_AssayProcedureProtocolPr");
+            viewString.Append("econdition.Sequence], \r\n            T.Version AS [X_AssayProcedureProtocolPrecon");
+            viewString.Append("dition.Version], \r\n            T.VersionAntecedentID AS [X_AssayProcedureProtoco");
+            viewString.Append("lPrecondition.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Assay");
+            viewString.Append("ProcedureProtocolPrecondition.VersionCertainty], \r\n            T.VersionWorkflow");
+            viewString.Append("InstanceID AS [X_AssayProcedureProtocolPrecondition.VersionWorkflowInstanceID], ");
+            viewString.Append("\r\n            T.VersionUpdatedBy AS [X_AssayProcedureProtocolPrecondition.Versio");
+            viewString.Append("nUpdatedBy], \r\n            T.VersionDeletedBy AS [X_AssayProcedureProtocolPrecon");
+            viewString.Append("dition.VersionDeletedBy], \r\n            T.VersionOwnerContactID AS [X_AssayProce");
+            viewString.Append("dureProtocolPrecondition.VersionOwnerContactID], \r\n            T.VersionOwnerCom");
+            viewString.Append("panyID AS [X_AssayProcedureProtocolPrecondition.VersionOwnerCompanyID], \r\n      ");
+            viewString.Append("      T.VersionUpdated AS [X_AssayProcedureProtocolPrecondition.VersionUpdated],");
+            viewString.Append(" \r\n            True AS _from0\r\n        FROM XODBC.AssayProcedureProtocolPrecondi");
+            viewString.Append("tions AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_AssayProcedureProtocolPrecondition", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for XODBModuleBusinessObjectsStoreContainer.X_AssayWorkflowProcedureProtocol
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView282()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2368);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing X_AssayWorkflowProcedureProtocol\r\n        [XO");
+            viewString.Append("DB.Module.BusinessObjects.Store.X_AssayWorkflowProcedureProtocol](T1.[X_AssayWor");
+            viewString.Append("kflowProcedureProtocol.AssayWorkflowProcedureProtocolID], T1.[X_AssayWorkflowPro");
+            viewString.Append("cedureProtocol.WorkflowID], T1.[X_AssayWorkflowProcedureProtocol.WorkflowStateNa");
+            viewString.Append("me], T1.[X_AssayWorkflowProcedureProtocol.AssayProcedureProtocolID], T1.[X_Assay");
+            viewString.Append("WorkflowProcedureProtocol.Sequence], T1.[X_AssayWorkflowProcedureProtocol.Versio");
+            viewString.Append("n], T1.[X_AssayWorkflowProcedureProtocol.VersionAntecedentID], T1.[X_AssayWorkfl");
+            viewString.Append("owProcedureProtocol.VersionCertainty], T1.[X_AssayWorkflowProcedureProtocol.Vers");
+            viewString.Append("ionWorkflowInstanceID], T1.[X_AssayWorkflowProcedureProtocol.VersionUpdatedBy], ");
+            viewString.Append("T1.[X_AssayWorkflowProcedureProtocol.VersionDeletedBy], T1.[X_AssayWorkflowProce");
+            viewString.Append("dureProtocol.VersionOwnerContactID], T1.[X_AssayWorkflowProcedureProtocol.Versio");
+            viewString.Append("nOwnerCompanyID], T1.[X_AssayWorkflowProcedureProtocol.VersionUpdated])\r\n    FRO");
+            viewString.Append("M (\r\n        SELECT \r\n            T.AssayWorkflowProcedureProtocolID AS [X_Assay");
+            viewString.Append("WorkflowProcedureProtocol.AssayWorkflowProcedureProtocolID], \r\n            T.Wor");
+            viewString.Append("kflowID AS [X_AssayWorkflowProcedureProtocol.WorkflowID], \r\n            T.Workfl");
+            viewString.Append("owStateName AS [X_AssayWorkflowProcedureProtocol.WorkflowStateName], \r\n         ");
+            viewString.Append("   T.AssayProcedureProtocolID AS [X_AssayWorkflowProcedureProtocol.AssayProcedur");
+            viewString.Append("eProtocolID], \r\n            T.Sequence AS [X_AssayWorkflowProcedureProtocol.Sequ");
+            viewString.Append("ence], \r\n            T.Version AS [X_AssayWorkflowProcedureProtocol.Version], \r\n");
+            viewString.Append("            T.VersionAntecedentID AS [X_AssayWorkflowProcedureProtocol.VersionAn");
+            viewString.Append("tecedentID], \r\n            T.VersionCertainty AS [X_AssayWorkflowProcedureProtoc");
+            viewString.Append("ol.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [X_AssayWorkf");
+            viewString.Append("lowProcedureProtocol.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedB");
+            viewString.Append("y AS [X_AssayWorkflowProcedureProtocol.VersionUpdatedBy], \r\n            T.Versio");
+            viewString.Append("nDeletedBy AS [X_AssayWorkflowProcedureProtocol.VersionDeletedBy], \r\n           ");
+            viewString.Append(" T.VersionOwnerContactID AS [X_AssayWorkflowProcedureProtocol.VersionOwnerContac");
+            viewString.Append("tID], \r\n            T.VersionOwnerCompanyID AS [X_AssayWorkflowProcedureProtocol");
+            viewString.Append(".VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_AssayWorkflowProce");
+            viewString.Append("dureProtocol.VersionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.A");
+            viewString.Append("ssayWorkflowProcedureProtocols AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_AssayWorkflowProcedureProtocol", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for XODBModuleBusinessObjectsStoreContainer.X_DictionaryAssayPreconditionType
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView283()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3116);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing X_DictionaryAssayPreconditionType\r\n        [X");
+            viewString.Append("ODB.Module.BusinessObjects.Store.X_DictionaryAssayPreconditionType](T1.[X_Dictio");
+            viewString.Append("naryAssayPreconditionType.AssayPreconditionTypeID], T1.[X_DictionaryAssayPrecond");
+            viewString.Append("itionType.StandardAssayPreconditionTypeName], T1.[X_DictionaryAssayPreconditionT");
+            viewString.Append("ype.CoalAssayPreconditionTypeName], T1.[X_DictionaryAssayPreconditionType.GoldAs");
+            viewString.Append("sayPreconditionTypeName], T1.[X_DictionaryAssayPreconditionType.CustomAssayPreco");
+            viewString.Append("nditionTypeName], T1.[X_DictionaryAssayPreconditionType.Description], T1.[X_Dict");
+            viewString.Append("ionaryAssayPreconditionType.FullDescription], T1.[X_DictionaryAssayPreconditionT");
+            viewString.Append("ype.Thumbnail], T1.[X_DictionaryAssayPreconditionType.OriginalFileDataID], T1.[X");
+            viewString.Append("_DictionaryAssayPreconditionType.Version], T1.[X_DictionaryAssayPreconditionType");
+            viewString.Append(".VersionAntecedentID], T1.[X_DictionaryAssayPreconditionType.VersionCertainty], ");
+            viewString.Append("T1.[X_DictionaryAssayPreconditionType.VersionWorkflowInstanceID], T1.[X_Dictiona");
+            viewString.Append("ryAssayPreconditionType.VersionUpdatedBy], T1.[X_DictionaryAssayPreconditionType");
+            viewString.Append(".VersionDeletedBy], T1.[X_DictionaryAssayPreconditionType.VersionOwnerContactID]");
+            viewString.Append(", T1.[X_DictionaryAssayPreconditionType.VersionOwnerCompanyID], T1.[X_Dictionary");
+            viewString.Append("AssayPreconditionType.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n           ");
+            viewString.Append(" T.AssayPreconditionTypeID AS [X_DictionaryAssayPreconditionType.AssayPreconditi");
+            viewString.Append("onTypeID], \r\n            T.StandardAssayPreconditionTypeName AS [X_DictionaryAss");
+            viewString.Append("ayPreconditionType.StandardAssayPreconditionTypeName], \r\n            T.CoalAssay");
+            viewString.Append("PreconditionTypeName AS [X_DictionaryAssayPreconditionType.CoalAssayPrecondition");
+            viewString.Append("TypeName], \r\n            T.GoldAssayPreconditionTypeName AS [X_DictionaryAssayPr");
+            viewString.Append("econditionType.GoldAssayPreconditionTypeName], \r\n            T.CustomAssayPrecon");
+            viewString.Append("ditionTypeName AS [X_DictionaryAssayPreconditionType.CustomAssayPreconditionType");
+            viewString.Append("Name], \r\n            T.Description AS [X_DictionaryAssayPreconditionType.Descrip");
+            viewString.Append("tion], \r\n            T.FullDescription AS [X_DictionaryAssayPreconditionType.Ful");
+            viewString.Append("lDescription], \r\n            T.Thumbnail AS [X_DictionaryAssayPreconditionType.T");
+            viewString.Append("humbnail], \r\n            T.OriginalFileDataID AS [X_DictionaryAssayPreconditionT");
+            viewString.Append("ype.OriginalFileDataID], \r\n            T.Version AS [X_DictionaryAssayPreconditi");
+            viewString.Append("onType.Version], \r\n            T.VersionAntecedentID AS [X_DictionaryAssayPrecon");
+            viewString.Append("ditionType.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Dictiona");
+            viewString.Append("ryAssayPreconditionType.VersionCertainty], \r\n            T.VersionWorkflowInstan");
+            viewString.Append("ceID AS [X_DictionaryAssayPreconditionType.VersionWorkflowInstanceID], \r\n       ");
+            viewString.Append("     T.VersionUpdatedBy AS [X_DictionaryAssayPreconditionType.VersionUpdatedBy],");
+            viewString.Append(" \r\n            T.VersionDeletedBy AS [X_DictionaryAssayPreconditionType.VersionD");
+            viewString.Append("eletedBy], \r\n            T.VersionOwnerContactID AS [X_DictionaryAssayPreconditi");
+            viewString.Append("onType.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_Dicti");
+            viewString.Append("onaryAssayPreconditionType.VersionOwnerCompanyID], \r\n            T.VersionUpdate");
+            viewString.Append("d AS [X_DictionaryAssayPreconditionType.VersionUpdated], \r\n            True AS _");
+            viewString.Append("from0\r\n        FROM XODBC.DictionaryAssayPreconditionTypes AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_DictionaryAssayPreconditionType", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for XODBC.Credits
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView284()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Credits", "\r\n    SELECT VALUE -- Constructing Credits\r\n        [XODB.Module.BusinessObjects." +
                     "Credit](T1.Credit_CreditID, T1.Credit_SupplyID, T1.Credit_InvoiceID, T1.Credit_I" +
@@ -13239,7 +13391,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Currencies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView282()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView285()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Currencies", "\r\n    SELECT VALUE -- Constructing Currencies\r\n        [XODB.Module.BusinessObjec" +
                     "ts.Currency](T1.Currency_CurrencyID, T1.Currency_CountryID, T1.Currency_Equivale" +
@@ -13266,7 +13418,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryTaxes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView283()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView286()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2179);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryTaxes\r\n        [XODB.Module.Busines");
@@ -13303,7 +13455,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Invoices
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView284()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView287()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2917);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Invoices\r\n        [XODB.Module.BusinessObject");
@@ -13349,7 +13501,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.InvoiceLines
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView285()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView288()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2134);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InvoiceLines\r\n        [XODB.Module.BusinessOb");
@@ -13385,7 +13537,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Journals
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView286()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView289()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Journals", "\r\n    SELECT VALUE -- Constructing Journals\r\n        [XODB.Module.BusinessObjects" +
                     ".Journal](T1.Journal_JournalID, T1.Journal_ReferenceType, T1.Journal_ReferenceID" +
@@ -13413,7 +13565,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Payments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView287()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView290()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Payments", "\r\n    SELECT VALUE -- Constructing Payments\r\n        [XODB.Module.BusinessObjects" +
                     ".Payment](T1.Payment_PaymentID, T1.Payment_SupplierAccountID, T1.Payment_Custome" +
@@ -13441,7 +13593,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.PurchaseOrders
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView288()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView291()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2653);
             viewString.Append("\r\n    SELECT VALUE -- Constructing PurchaseOrders\r\n        [XODB.Module.Business");
@@ -13484,7 +13636,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Supplies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView289()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView292()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2822);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Supplies\r\n        [XODB.Module.BusinessObject");
@@ -13529,7 +13681,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.SupplyItems
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView290()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView293()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3636);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SupplyItems\r\n        [XODB.Module.BusinessObj");
@@ -13584,7 +13736,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.SupplyItemTaxes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView291()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView294()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.SupplyItemTaxes", "\r\n    SELECT VALUE -- Constructing SupplyItemTaxes\r\n        [XODB.Module.Business" +
                     "Objects.SupplyItemTax](T1.SupplyItemTax_SupplyItemTaxID, T1.SupplyItemTax_Supply" +
@@ -13611,7 +13763,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Accounts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView292()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView295()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Accounts", "\r\n    SELECT VALUE -- Constructing Accounts\r\n        [XODB.Module.BusinessObjects" +
                     ".Account](T1.Account_AccountID, T1.Account_ParentAccountID, T1.Account_AcountCod" +
@@ -13639,7 +13791,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AccountDiscounts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView293()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView296()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2238);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AccountDiscounts\r\n        [XODB.Module.Busine");
@@ -13676,7 +13828,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Assets
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView294()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView297()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2197);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Assets\r\n        [XODB.Module.BusinessObjects.");
@@ -13713,7 +13865,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssetAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView295()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView298()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssetAlias", "\r\n    SELECT VALUE -- Constructing AssetAlias\r\n        [XODB.Module.BusinessObjec" +
                     "ts.AssetAlias](T1.AssetAlias_AssetAliasID, T1.AssetAlias_AssetID, T1.AssetAlias_" +
@@ -13741,7 +13893,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssetMaintenances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView296()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView299()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssetMaintenances", "\r\n    SELECT VALUE -- Constructing AssetMaintenances\r\n        [XODB.Module.Busine" +
                     "ssObjects.AssetMaintenance](T1.AssetMaintenance_AssetMaintenanceID, T1.AssetMain" +
@@ -13770,7 +13922,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssetWarranties
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView297()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView300()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssetWarranties", "\r\n    SELECT VALUE -- Constructing AssetWarranties\r\n        [XODB.Module.Business" +
                     "Objects.AssetWarranty](T1.AssetWarranty_AssetyWarrantyID, T1.AssetWarranty_Asset" +
@@ -13802,7 +13954,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.CompanyAccounts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView298()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView301()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.CompanyAccounts", "\r\n    SELECT VALUE -- Constructing CompanyAccounts\r\n        [XODB.Module.Business" +
                     "Objects.CompanyAccount](T1.CompanyAccount_CompanyAccountID, T1.CompanyAccount_Co" +
@@ -13828,7 +13980,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ContractAssets
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView299()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView302()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ContractAssets", "\r\n    SELECT VALUE -- Constructing ContractAssets\r\n        [XODB.Module.BusinessO" +
                     "bjects.ContractAsset](T1.ContractAsset_ContractAssetID, T1.ContractAsset_Contrac" +
@@ -13857,7 +14009,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DeliveryAdvices
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView300()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView303()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3040);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DeliveryAdvices\r\n        [XODB.Module.Busines");
@@ -13905,7 +14057,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DeliveryAdviceItems
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView301()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView304()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2415);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DeliveryAdviceItems\r\n        [XODB.Module.Bus");
@@ -13945,7 +14097,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DicitonaryAssetStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView302()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView305()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DicitonaryAssetStatus", "\r\n    SELECT VALUE -- Constructing DicitonaryAssetStatus\r\n        [XODB.Module.Bu" +
                     "sinessObjects.DicitonaryAssetStatus](T1.DicitonaryAssetStatus_AssetStatusID, T1." +
@@ -13976,7 +14128,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDecontaminationStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView303()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView306()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2384);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDecontaminationStatus\r\n        [XOD");
@@ -14015,7 +14167,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDeliveryAdviceReasons
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView304()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView307()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2205);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDeliveryAdviceReasons\r\n        [XOD");
@@ -14052,7 +14204,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDeviceTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView305()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView308()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2482);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDeviceTypes\r\n        [XODB.Module.B");
@@ -14093,7 +14245,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryEventTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView306()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView309()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryEventTypes", "\r\n    SELECT VALUE -- Constructing DictionaryEventTypes\r\n        [XODB.Module.Bus" +
                     "inessObjects.DictionaryEventType](T1.DictionaryEventType_EventTypeID, T1.Diction" +
@@ -14123,7 +14275,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView307()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView310()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3025);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryParts\r\n        [XODB.Module.Busines");
@@ -14170,7 +14322,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryPartCategories
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView308()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView311()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPartCategories", "\r\n    SELECT VALUE -- Constructing DictionaryPartCategories\r\n        [XODB.Module" +
                     ".BusinessObjects.DictionaryPartCategory](T1.DictionaryPartCategory_PartCategoryI" +
@@ -14199,7 +14351,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryPartKits
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView309()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView312()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPartKits", "\r\n    SELECT VALUE -- Constructing DictionaryPartKits\r\n        [XODB.Module.Busin" +
                     "essObjects.DictionaryPartKit](T1.DictionaryPartKit_PartKitID, T1.DictionaryPartK" +
@@ -14228,7 +14380,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryPartKitItems
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView310()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView313()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPartKitItems", "\r\n    SELECT VALUE -- Constructing DictionaryPartKitItems\r\n        [XODB.Module.B" +
                     "usinessObjects.DictionaryPartKitItem](T1.DictionaryPartKitItem_PartKitItemID, T1" +
@@ -14259,7 +14411,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryProcedures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView311()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView314()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2903);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryProcedures\r\n        [XODB.Module.Bu");
@@ -14305,7 +14457,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryWarrantyTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView312()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView315()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryWarrantyTypes", "\r\n    SELECT VALUE -- Constructing DictionaryWarrantyTypes\r\n        [XODB.Module." +
                     "BusinessObjects.DictionaryWarrantyType](T1.DictionaryWarrantyType_WarrantyTypeID" +
@@ -14336,7 +14488,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView313()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView316()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ModelParts", @"
     SELECT VALUE -- Constructing ModelParts
@@ -14363,7 +14515,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelPartKits
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView314()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView317()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ModelPartKits", @"
     SELECT VALUE -- Constructing ModelPartKits
@@ -14390,7 +14542,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelProcedures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView315()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView318()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ModelProcedures", "\r\n    SELECT VALUE -- Constructing ModelProcedures\r\n        [XODB.Module.Business" +
                     "Objects.ModelProcedure](T1.ModelProcedure_ModelProcedureID, T1.ModelProcedure_Mo" +
@@ -14421,7 +14573,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelProcedureTasks
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView316()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView319()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2332);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ModelProcedureTasks\r\n        [XODB.Module.Bus");
@@ -14460,7 +14612,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelProcedureTaskParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView317()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView320()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ModelProcedureTaskParts", "\r\n    SELECT VALUE -- Constructing ModelProcedureTaskParts\r\n        [XODB.Module." +
                     "BusinessObjects.ModelProcedureTaskPart](T1.ModelProcedureTaskPart_ModelProcedure" +
@@ -14491,7 +14643,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelScheduleCycles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView318()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView321()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ModelScheduleCycles", "\r\n    SELECT VALUE -- Constructing ModelScheduleCycles\r\n        [XODB.Module.Busi" +
                     "nessObjects.ModelScheduleCycle](T1.ModelScheduleCycle_ModelScheduleCycleID, T1.M" +
@@ -14523,7 +14675,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelWarranties
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView319()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView322()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ModelWarranties", "\r\n    SELECT VALUE -- Constructing ModelWarranties\r\n        [XODB.Module.Business" +
                     "Objects.ModelWarranty](T1.ModelWarranty_ModelWarrantyID, T1.ModelWarranty_ModelI" +
@@ -14556,7 +14708,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectPlanTaskModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView320()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView323()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2662);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskModels\r\n        [XODB.Module.B");
@@ -14599,7 +14751,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectPlanTaskParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView321()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView324()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2605);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskParts\r\n        [XODB.Module.Bu");
@@ -14641,7 +14793,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Recalls
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView322()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView325()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Recalls", "\r\n    SELECT VALUE -- Constructing Recalls\r\n        [XODB.Module.BusinessObjects." +
                     "Recall](T1.Recall_RecallID, T1.Recall_GlobalRecallCode, T1.Recall_GlobalRecallOr" +
@@ -14673,7 +14825,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.RecallModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView323()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView326()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.RecallModels", @"
     SELECT VALUE -- Constructing RecallModels
@@ -14701,7 +14853,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.RecallModelAssets
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView324()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView327()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.RecallModelAssets", "\r\n    SELECT VALUE -- Constructing RecallModelAssets\r\n        [XODB.Module.Busine" +
                     "ssObjects.RecallModelAsset](T1.RecallModelAsset_RecallModelAssetID, T1.RecallMod" +
@@ -14729,7 +14881,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.SupplierModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView325()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView328()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2544);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SupplierModels\r\n        [XODB.Module.Business");
@@ -14770,7 +14922,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.SupplierParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView326()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView329()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2483);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SupplierParts\r\n        [XODB.Module.BusinessO");
@@ -14811,7 +14963,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Warehouses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView327()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView330()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Warehouses", "\r\n    SELECT VALUE -- Constructing Warehouses\r\n        [XODB.Module.BusinessObjec" +
                     "ts.Warehouse](T1.Warehouse_WarehouseID, T1.Warehouse_WarehouseName, T1.Warehouse" +
@@ -14838,7 +14990,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.WarehouseModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView328()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView331()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.WarehouseModels", "\r\n    SELECT VALUE -- Constructing WarehouseModels\r\n        [XODB.Module.Business" +
                     "Objects.WarehouseModel](T1.WarehouseModel_WarehouseModelID, T1.WarehouseModel_Mo" +
@@ -14871,7 +15023,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.WarehouseModelSuppliers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView329()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView332()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2204);
             viewString.Append("\r\n    SELECT VALUE -- Constructing WarehouseModelSuppliers\r\n        [XODB.Module");
@@ -14908,7 +15060,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.WarehouseParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView330()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView333()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.WarehouseParts", "\r\n    SELECT VALUE -- Constructing WarehouseParts\r\n        [XODB.Module.BusinessO" +
                     "bjects.WarehousePart](T1.WarehousePart_WarehousePartID, T1.WarehousePart_PartID," +
@@ -14940,7 +15092,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.WarehousePartSuppliers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView331()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView334()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2160);
             viewString.Append("\r\n    SELECT VALUE -- Constructing WarehousePartSuppliers\r\n        [XODB.Module.");
@@ -14977,7 +15129,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.WorkflowSchedules
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView332()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView335()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.WorkflowSchedules", "\r\n    SELECT VALUE -- Constructing WorkflowSchedules\r\n        [XODB.Module.Busine" +
                     "ssObjects.WorkflowSchedule](T1.WorkflowSchedule_WorkflowScheduleID, T1.WorkflowS" +
@@ -15008,7 +15160,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Addresses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView333()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView336()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Addresses", "\r\n    SELECT VALUE -- Constructing Addresses\r\n        [XODB.Module.BusinessObject" +
                     "s.Address](T1.Address_AddressID, T1.Address_AddressName, T1.Address_Street, T1.A" +
@@ -15040,7 +15192,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroups
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView334()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView337()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2070);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroups\r\n        [XODB.Module.BusinessObj");
@@ -15075,7 +15227,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroupStandardTestResults
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView335()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView338()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3306);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupStandardTestResults\r\n        [XODB.");
@@ -15126,7 +15278,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroupTests
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView336()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView339()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2215);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupTests\r\n        [XODB.Module.Busines");
@@ -15163,7 +15315,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroupTestResults
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView337()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView340()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2440);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupTestResults\r\n        [XODB.Module.B");
@@ -15203,7 +15355,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroupTestResultComments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView338()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView341()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupTestResultComments", "\r\n    SELECT VALUE -- Constructing AssayGroupTestResultComments\r\n        [XODB.Mo" +
                     "dule.BusinessObjects.AssayGroupTestResultComment](T1.AssayGroupTestResultComment" +
@@ -15235,7 +15387,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroupTestResultDuplicates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView339()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView342()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2593);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupTestResultDuplicates\r\n        [XODB");
@@ -15277,7 +15429,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.BlockModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView340()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView343()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4120);
             viewString.Append("\r\n    SELECT VALUE -- Constructing BlockModels\r\n        [XODB.Module.BusinessObj");
@@ -15338,7 +15490,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.BlockModelBlocks
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView341()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView344()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(6664);
             viewString.Append("\r\n    SELECT VALUE -- Constructing BlockModelBlocks\r\n        [XODB.Module.Busine");
@@ -15431,7 +15583,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.BlockModelBlockDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView342()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView345()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2059);
             viewString.Append("\r\n    SELECT VALUE -- Constructing BlockModelBlockDatas\r\n        [XODB.Module.Bu");
@@ -15466,7 +15618,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.BlockModelMetadatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView343()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView346()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.BlockModelMetadatas", "\r\n    SELECT VALUE -- Constructing BlockModelMetadatas\r\n        [XODB.Module.Busi" +
                     "nessObjects.BlockModelMetadata](T1.BlockModelMetadata_BlockModelMetadataID, T1.B" +
@@ -15499,7 +15651,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Casings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView344()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView347()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2085);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Casings\r\n        [XODB.Module.BusinessObjects");
@@ -15535,7 +15687,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Cementings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView345()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView348()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Cementings", "\r\n    SELECT VALUE -- Constructing Cementings\r\n        [XODB.Module.BusinessObjec" +
                     "ts.Cementing](T1.Cementing_CementingID, T1.Cementing_HeaderID, T1.Cementing_From" +
@@ -15563,7 +15715,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Companies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView346()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView349()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Companies", @"
     SELECT VALUE -- Constructing Companies
@@ -15592,7 +15744,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.CompanyAddresses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView347()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView350()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.CompanyAddresses", "\r\n    SELECT VALUE -- Constructing CompanyAddresses\r\n        [XODB.Module.Busines" +
                     "sObjects.CompanyAddress](T1.CompanyAddress_CompanyAddressID, T1.CompanyAddress_C" +
@@ -15618,7 +15770,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.CompanyRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView348()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView351()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.CompanyRelations", "\r\n    SELECT VALUE -- Constructing CompanyRelations\r\n        [XODB.Module.Busines" +
                     "sObjects.CompanyRelation](T1.CompanyRelation_CompanyRelationID, T1.CompanyRelati" +
@@ -15647,7 +15799,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Compliances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView349()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView352()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2079);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Compliances\r\n        [XODB.Module.BusinessObj");
@@ -15682,7 +15834,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ComplianceTasks
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView350()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView353()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ComplianceTasks", "\r\n    SELECT VALUE -- Constructing ComplianceTasks\r\n        [XODB.Module.Business" +
                     "Objects.ComplianceTask](T1.ComplianceTask_ComplianceTaskID, T1.ComplianceTask_Co" +
@@ -15710,7 +15862,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ComplianceWorkTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView351()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView354()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ComplianceWorkTypes", "\r\n    SELECT VALUE -- Constructing ComplianceWorkTypes\r\n        [XODB.Module.Busi" +
                     "nessObjects.ComplianceWorkType](T1.ComplianceWorkType_ComplianceWorkTypeID, T1.C" +
@@ -15738,7 +15890,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Contacts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView352()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView355()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2326);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Contacts\r\n        [XODB.Module.BusinessObject");
@@ -15777,7 +15929,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ContactAddresses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView353()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView356()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ContactAddresses", "\r\n    SELECT VALUE -- Constructing ContactAddresses\r\n        [XODB.Module.Busines" +
                     "sObjects.ContactAddress](T1.ContactAddress_ContactAddressID, T1.ContactAddress_C" +
@@ -15803,7 +15955,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Contracts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView354()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView357()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3207);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Contracts\r\n        [XODB.Module.BusinessObjec");
@@ -15853,7 +16005,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ContractConditions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView355()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView358()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2464);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ContractConditions\r\n        [XODB.Module.Busi");
@@ -15893,7 +16045,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ContractConditionModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView356()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView359()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ContractConditionModels", "\r\n    SELECT VALUE -- Constructing ContractConditionModels\r\n        [XODB.Module." +
                     "BusinessObjects.ContractConditionModel](T1.ContractConditionModel_ContractCondit" +
@@ -15923,7 +16075,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ContractConditionParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView357()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView360()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ContractConditionParts", "\r\n    SELECT VALUE -- Constructing ContractConditionParts\r\n        [XODB.Module.B" +
                     "usinessObjects.ContractConditionPart](T1.ContractConditionPart_ContractCondition" +
@@ -15952,7 +16104,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.CostEstimateModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView358()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView361()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2623);
             viewString.Append("\r\n    SELECT VALUE -- Constructing CostEstimateModels\r\n        [XODB.Module.Busi");
@@ -15994,7 +16146,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Defects
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView359()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView362()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3936);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Defects\r\n        [XODB.Module.BusinessObjects");
@@ -16053,7 +16205,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Desurveys
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView360()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView363()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Desurveys", @"
     SELECT VALUE -- Constructing Desurveys
@@ -16080,7 +16232,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAdjectives
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView361()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView364()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2350);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAdjectives\r\n        [XODB.Module.Bu");
@@ -16119,7 +16271,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAlterations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView362()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView365()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2404);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAlterations\r\n        [XODB.Module.B");
@@ -16159,7 +16311,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAssayMethods
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView363()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView366()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2458);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayMethods\r\n        [XODB.Module.");
@@ -16199,7 +16351,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAssayStandards
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView364()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView367()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2566);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayStandards\r\n        [XODB.Modul");
@@ -16241,7 +16393,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAssayTests
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView365()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView368()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2350);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayTests\r\n        [XODB.Module.Bu");
@@ -16280,7 +16432,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAssayTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView366()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView369()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2350);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayTypes\r\n        [XODB.Module.Bu");
@@ -16319,7 +16471,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryBasalContacts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView367()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView370()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2512);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryBasalContacts\r\n        [XODB.Module");
@@ -16360,7 +16512,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryBedSpacings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView368()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView371()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2404);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryBedSpacings\r\n        [XODB.Module.B");
@@ -16400,7 +16552,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryCharacteristics
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView369()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView372()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2566);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCharacteristics\r\n        [XODB.Modu");
@@ -16442,7 +16594,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryCharacteristicTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView370()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView373()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2510);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCharacteristicTypes\r\n        [XODB.");
@@ -16483,7 +16635,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryColours
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView371()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView374()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2188);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryColours\r\n        [XODB.Module.Busin");
@@ -16520,7 +16672,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryCommodities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView372()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView375()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2351);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCommodities\r\n        [XODB.Module.B");
@@ -16559,7 +16711,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryContractConditionTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView373()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView376()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2642);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryContractConditionTypes\r\n        [XO");
@@ -16602,7 +16754,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryCoreStates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView374()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView377()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2350);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCoreStates\r\n        [XODB.Module.Bu");
@@ -16641,7 +16793,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryCostTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView375()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView378()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2070);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCostTypes\r\n        [XODB.Module.Bus");
@@ -16676,7 +16828,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryCountries
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView376()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView379()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2543);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCountries\r\n        [XODB.Module.Bus");
@@ -16717,7 +16869,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryCountryStates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView377()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView380()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2612);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryCountryStates\r\n        [XODB.Module");
@@ -16759,7 +16911,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDataStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView378()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView381()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2403);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDataStatus\r\n        [XODB.Module.Bu");
@@ -16799,7 +16951,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDefectCompletenesses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView379()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView382()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2837);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDefectCompletenesses\r\n        [XODB");
@@ -16844,7 +16996,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDefectContinuities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView380()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView383()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2729);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDefectContinuities\r\n        [XODB.M");
@@ -16888,7 +17040,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDefectSpacings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView381()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView384()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2566);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDefectSpacings\r\n        [XODB.Modul");
@@ -16930,7 +17082,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDefectTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView382()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView385()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2404);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDefectTypes\r\n        [XODB.Module.B");
@@ -16970,7 +17122,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDesurveyAlgorithmTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView383()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView386()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2998);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDesurveyAlgorithmTypes\r\n        [XO");
@@ -17017,7 +17169,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDimensions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView384()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView387()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2456);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDimensions\r\n        [XODB.Module.Bu");
@@ -17057,7 +17209,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDipOrientationMethods
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView385()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView388()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2944);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDipOrientationMethods\r\n        [XOD");
@@ -17103,7 +17255,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDomains
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView386()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView389()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryDomains", "\r\n    SELECT VALUE -- Constructing DictionaryDomains\r\n        [XODB.Module.Busine" +
                     "ssObjects.DictionaryDomain](T1.DictionaryDomain_DomainID, T1.DictionaryDomain_St" +
@@ -17134,7 +17286,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDomainAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView387()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView390()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryDomainAlias", "\r\n    SELECT VALUE -- Constructing DictionaryDomainAlias\r\n        [XODB.Module.Bu" +
                     "sinessObjects.DictionaryDomainAlias](T1.DictionaryDomainAlias_DomainAliasID, T1." +
@@ -17167,7 +17319,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDrillBitTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView388()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView391()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2512);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDrillBitTypes\r\n        [XODB.Module");
@@ -17208,7 +17360,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDrillCasingTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView389()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView392()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2674);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDrillCasingTypes\r\n        [XODB.Mod");
@@ -17251,7 +17403,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDrillFluids
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView390()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView393()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2404);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDrillFluids\r\n        [XODB.Module.B");
@@ -17291,7 +17443,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDrillRigTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView391()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView394()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2512);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDrillRigTypes\r\n        [XODB.Module");
@@ -17332,7 +17484,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryDrillSizes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView392()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView395()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2350);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryDrillSizes\r\n        [XODB.Module.Bu");
@@ -17371,7 +17523,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryEstimatedStrengths
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView393()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView396()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2782);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryEstimatedStrengths\r\n        [XODB.M");
@@ -17415,7 +17567,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryFailureModes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView394()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView397()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2458);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryFailureModes\r\n        [XODB.Module.");
@@ -17455,7 +17607,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryFileTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView395()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView398()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2275);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryFileTypes\r\n        [XODB.Module.Bus");
@@ -17493,7 +17645,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryFlowTestTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView396()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView399()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2512);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryFlowTestTypes\r\n        [XODB.Module");
@@ -17534,7 +17686,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryGasDetecteds
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView397()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView400()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2458);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryGasDetecteds\r\n        [XODB.Module.");
@@ -17574,7 +17726,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryGeodeticDatums
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView398()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView401()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2566);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryGeodeticDatums\r\n        [XODB.Modul");
@@ -17616,7 +17768,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryGeophysicalLogTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView399()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView402()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2836);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryGeophysicalLogTypes\r\n        [XODB.");
@@ -17661,7 +17813,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryGroups
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView400()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView403()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2134);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryGroups\r\n        [XODB.Module.Busine");
@@ -17697,7 +17849,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryGroupMemberships
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView401()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView404()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2185);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryGroupMemberships\r\n        [XODB.Mod");
@@ -17734,7 +17886,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryHeightDatums
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView402()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView405()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2458);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryHeightDatums\r\n        [XODB.Module.");
@@ -17774,7 +17926,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryHolePurposes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView403()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView406()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2458);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryHolePurposes\r\n        [XODB.Module.");
@@ -17814,7 +17966,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryHoleStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView404()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView407()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2403);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryHoleStatus\r\n        [XODB.Module.Bu");
@@ -17854,7 +18006,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryHoleTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView405()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView408()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2296);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryHoleTypes\r\n        [XODB.Module.Bus");
@@ -17892,7 +18044,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryHorizons
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView406()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView409()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2242);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryHorizons\r\n        [XODB.Module.Busi");
@@ -17930,7 +18082,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryHues
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView407()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView410()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryHues", "\r\n    SELECT VALUE -- Constructing DictionaryHues\r\n        [XODB.Module.BusinessO" +
                     "bjects.DictionaryHue](T1.DictionaryHue_HueID, T1.DictionaryHue_StandardHueName, " +
@@ -17963,7 +18115,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryInfillModes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView408()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView411()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2404);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryInfillModes\r\n        [XODB.Module.B");
@@ -18003,7 +18155,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryInfillTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView409()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView412()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2404);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryInfillTypes\r\n        [XODB.Module.B");
@@ -18043,7 +18195,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryIntervalStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView410()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView413()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2619);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryIntervalStatus\r\n        [XODB.Modul");
@@ -18085,7 +18237,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryLeaseApplicationTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView411()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView414()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2944);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLeaseApplicationTypes\r\n        [XOD");
@@ -18131,7 +18283,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryLicenseTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView412()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView415()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2202);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLicenseTypes\r\n        [XODB.Module.");
@@ -18168,7 +18320,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryLithologyInterrelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView413()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView416()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3052);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLithologyInterrelations\r\n        [X");
@@ -18216,7 +18368,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryLithologyQualifiers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView414()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView417()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2836);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLithologyQualifiers\r\n        [XODB.");
@@ -18261,7 +18413,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryLithologyTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView415()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView418()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2566);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLithologyTypes\r\n        [XODB.Modul");
@@ -18303,7 +18455,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryLocationTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView416()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView419()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2512);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryLocationTypes\r\n        [XODB.Module");
@@ -18344,7 +18496,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryMechanicalStates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView417()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView420()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2674);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMechanicalStates\r\n        [XODB.Mod");
@@ -18387,7 +18539,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryMineralAbundances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView418()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView421()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2728);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralAbundances\r\n        [XODB.Mo");
@@ -18431,7 +18583,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryMineralAndFossilAbundances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView419()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView422()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3214);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralAndFossilAbundances\r\n       ");
@@ -18481,7 +18633,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryMineralAndFossilAssociations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView420()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView423()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3322);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralAndFossilAssociations\r\n     ");
@@ -18532,7 +18684,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryMineralAndFossilTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView421()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView424()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2944);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralAndFossilTypes\r\n        [XOD");
@@ -18578,7 +18730,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryMineralForms
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView422()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView425()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2458);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralForms\r\n        [XODB.Module.");
@@ -18618,7 +18770,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryMineralStyles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView423()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView426()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2512);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralStyles\r\n        [XODB.Module");
@@ -18659,7 +18811,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryMineralTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView424()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView427()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2458);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMineralTypes\r\n        [XODB.Module.");
@@ -18699,7 +18851,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryModels
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView425()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView428()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3177);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryModels\r\n        [XODB.Module.Busine");
@@ -18748,7 +18900,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryModelCategories
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView426()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView429()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryModelCategories", "\r\n    SELECT VALUE -- Constructing DictionaryModelCategories\r\n        [XODB.Modul" +
                     "e.BusinessObjects.DictionaryModelCategory](T1.DictionaryModelCategory_ModelCateg" +
@@ -18778,7 +18930,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryModelRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView427()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView430()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryModelRelations", "\r\n    SELECT VALUE -- Constructing DictionaryModelRelations\r\n        [XODB.Module" +
                     ".BusinessObjects.DictionaryModelRelation](T1.DictionaryModelRelation_ModelRelati" +
@@ -18810,7 +18962,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryModelStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView428()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView431()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2201);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryModelStatus\r\n        [XODB.Module.B");
@@ -18847,7 +18999,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryMoistureSensitivities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView429()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView432()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2891);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryMoistureSensitivities\r\n        [XOD");
@@ -18893,7 +19045,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryPartStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView430()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView433()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2157);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryPartStatus\r\n        [XODB.Module.Bu");
@@ -18929,7 +19081,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryPlasticities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView431()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView434()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2405);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryPlasticities\r\n        [XODB.Module.");
@@ -18969,7 +19121,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryPlies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView432()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView435()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPlies", "\r\n    SELECT VALUE -- Constructing DictionaryPlies\r\n        [XODB.Module.Business" +
                     "Objects.DictionaryPly](T1.DictionaryPly_PlyID, T1.DictionaryPly_StandardPlyName," +
@@ -19000,7 +19152,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryPlyAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView433()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView436()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryPlyAlias", "\r\n    SELECT VALUE -- Constructing DictionaryPlyAlias\r\n        [XODB.Module.Busin" +
                     "essObjects.DictionaryPlyAlias](T1.DictionaryPlyAlias_PlyAliasID, T1.DictionaryPl" +
@@ -19031,7 +19183,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryPointLoadTestTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView434()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView437()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2782);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryPointLoadTestTypes\r\n        [XODB.M");
@@ -19075,7 +19227,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryPositions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView435()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView438()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2296);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryPositions\r\n        [XODB.Module.Bus");
@@ -19113,7 +19265,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryProfessions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView436()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView439()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2404);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryProfessions\r\n        [XODB.Module.B");
@@ -19153,7 +19305,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryProvinceGroups
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView437()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView440()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2701);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryProvinceGroups\r\n        [XODB.Modul");
@@ -19196,7 +19348,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryProvinceTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView438()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView441()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2512);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryProvinceTypes\r\n        [XODB.Module");
@@ -19237,7 +19389,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryRelationTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView439()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView442()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2512);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryRelationTypes\r\n        [XODB.Module");
@@ -19278,7 +19430,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryRockMassUnitTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView440()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView443()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2728);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryRockMassUnitTypes\r\n        [XODB.Mo");
@@ -19322,7 +19474,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionarySampleCategories
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView441()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView444()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2621);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySampleCategories\r\n        [XODB.Mod");
@@ -19364,7 +19516,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionarySampleStates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView442()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView445()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2458);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySampleStates\r\n        [XODB.Module.");
@@ -19404,7 +19556,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionarySampleTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView443()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView446()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2404);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySampleTypes\r\n        [XODB.Module.B");
@@ -19444,7 +19596,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionarySeams
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView444()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView447()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionarySeams", "\r\n    SELECT VALUE -- Constructing DictionarySeams\r\n        [XODB.Module.Business" +
                     "Objects.DictionarySeam](T1.DictionarySeam_SeamID, T1.DictionarySeam_StandardSeam" +
@@ -19475,7 +19627,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionarySeamAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView445()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView448()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionarySeamAlias", "\r\n    SELECT VALUE -- Constructing DictionarySeamAlias\r\n        [XODB.Module.Busi" +
                     "nessObjects.DictionarySeamAlias](T1.DictionarySeamAlias_SeamAliasID, T1.Dictiona" +
@@ -19507,7 +19659,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionarySedimentaryFeatures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView446()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView449()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2836);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySedimentaryFeatures\r\n        [XODB.");
@@ -19552,7 +19704,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryShades
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView447()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView450()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2134);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryShades\r\n        [XODB.Module.Busine");
@@ -19588,7 +19740,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryShapes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView448()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView451()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2134);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryShapes\r\n        [XODB.Module.Busine");
@@ -19624,7 +19776,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryStratigraphies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView449()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView452()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2513);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryStratigraphies\r\n        [XODB.Modul");
@@ -19665,7 +19817,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionarySurfaceRoughnesses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView450()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView453()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2729);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySurfaceRoughnesses\r\n        [XODB.M");
@@ -19709,7 +19861,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionarySurveyAccuracies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView451()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView454()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2621);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionarySurveyAccuracies\r\n        [XODB.Mod");
@@ -19751,7 +19903,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryTextures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView452()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView455()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2242);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryTextures\r\n        [XODB.Module.Busi");
@@ -19789,7 +19941,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryUnits
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView453()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView456()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2470);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryUnits\r\n        [XODB.Module.Busines");
@@ -19829,7 +19981,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryUnitTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView454()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView457()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2070);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryUnitTypes\r\n        [XODB.Module.Bus");
@@ -19864,7 +20016,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryUsageAuditTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView455()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView458()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2161);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryUsageAuditTypes\r\n        [XODB.Modu");
@@ -19901,7 +20053,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryWeatherings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView456()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView459()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2404);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryWeatherings\r\n        [XODB.Module.B");
@@ -19941,7 +20093,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryWorkTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView457()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView460()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2162);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryWorkTypes\r\n        [XODB.Module.Bus");
@@ -19978,7 +20130,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryWorkTypeClasses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView458()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView461()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2567);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryWorkTypeClasses\r\n        [XODB.Modu");
@@ -20020,7 +20172,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryWorkTypeRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView459()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView462()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryWorkTypeRelations", "\r\n    SELECT VALUE -- Constructing DictionaryWorkTypeRelations\r\n        [XODB.Mod" +
                     "ule.BusinessObjects.DictionaryWorkTypeRelation](T1.DictionaryWorkTypeRelation_Wo" +
@@ -20051,7 +20203,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Drillings
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView460()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView463()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2491);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Drillings\r\n        [XODB.Module.BusinessObjec");
@@ -20092,7 +20244,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Experiences
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView461()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView464()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3687);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Experiences\r\n        [XODB.Module.BusinessObj");
@@ -20148,7 +20300,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.FileDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView462()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView465()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2131);
             viewString.Append("\r\n    SELECT VALUE -- Constructing FileDatas\r\n        [XODB.Module.BusinessObjec");
@@ -20184,7 +20336,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Geologies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView463()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView466()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Geologies", "\r\n    SELECT VALUE -- Constructing Geologies\r\n        [XODB.Module.BusinessObject" +
                     "s.Geology](T1.Geology_GeologyID, T1.Geology_HeaderID, T1.Geology_GeologyContactI" +
@@ -20210,7 +20362,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Geophysics
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView464()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView467()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Geophysics", "\r\n    SELECT VALUE -- Constructing Geophysics\r\n        [XODB.Module.BusinessObjec" +
                     "ts.Geophysics](T1.Geophysics_GeophysicsID, T1.Geophysics_FileName, T1.Geophysics" +
@@ -20242,7 +20394,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.GeophysicsDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView465()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView468()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.GeophysicsDatas", "\r\n    SELECT VALUE -- Constructing GeophysicsDatas\r\n        [XODB.Module.Business" +
                     "Objects.GeophysicsData](T1.GeophysicsData_GeophysicsDataID, T1.GeophysicsData_Ge" +
@@ -20271,7 +20423,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.GeophysicsMetadatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView466()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView469()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2137);
             viewString.Append("\r\n    SELECT VALUE -- Constructing GeophysicsMetadatas\r\n        [XODB.Module.Bus");
@@ -20307,7 +20459,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Headers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView467()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView470()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3668);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Headers\r\n        [XODB.Module.BusinessObjects");
@@ -20362,7 +20514,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.HeaderGeophysicalLogs
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView468()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView471()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2080);
             viewString.Append("\r\n    SELECT VALUE -- Constructing HeaderGeophysicalLogs\r\n        [XODB.Module.B");
@@ -20398,7 +20550,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.HeaderRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView469()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView472()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.HeaderRelations", "\r\n    SELECT VALUE -- Constructing HeaderRelations\r\n        [XODB.Module.Business" +
                     "Objects.HeaderRelation](T1.HeaderRelation_HeaderRelationID, T1.HeaderRelation_Or" +
@@ -20427,7 +20579,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Interpretations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView470()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView473()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3622);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Interpretations\r\n        [XODB.Module.Busines");
@@ -20482,7 +20634,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.InterpretationDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView471()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView474()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.InterpretationDatas", "\r\n    SELECT VALUE -- Constructing InterpretationDatas\r\n        [XODB.Module.Busi" +
                     "nessObjects.InterpretationData](T1.InterpretationData_InterpretationDataID, T1.I" +
@@ -20513,7 +20665,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Leases
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView472()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView475()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Leases", "\r\n    SELECT VALUE -- Constructing Leases\r\n        [XODB.Module.BusinessObjects.L" +
                     "ease](T1.Lease_LeaseID, T1.Lease_TenementID, T1.Lease_LeaseNumber, T1.Lease_Owne" +
@@ -20540,7 +20692,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LeaseApplications
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView473()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView476()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2394);
             viewString.Append("\r\n    SELECT VALUE -- Constructing LeaseApplications\r\n        [XODB.Module.Busin");
@@ -20579,7 +20731,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Lithologies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView474()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView477()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4660);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Lithologies\r\n        [XODB.Module.BusinessObj");
@@ -20647,7 +20799,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Locations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView475()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView478()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2290);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Locations\r\n        [XODB.Module.BusinessObjec");
@@ -20685,7 +20837,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LocationAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView476()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView479()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.LocationAlias", "\r\n    SELECT VALUE -- Constructing LocationAlias\r\n        [XODB.Module.BusinessOb" +
                     "jects.LocationAlias](T1.LocationAlias_LocationAliasID, T1.LocationAlias_Location" +
@@ -20713,7 +20865,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LocationDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView477()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView480()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.LocationDatas", "\r\n    SELECT VALUE -- Constructing LocationDatas\r\n        [XODB.Module.BusinessOb" +
                     "jects.LocationData](T1.LocationData_LocationDataID, T1.LocationData_ParentLocati" +
@@ -20741,7 +20893,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LocationTraces
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView478()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView481()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.LocationTraces", "\r\n    SELECT VALUE -- Constructing LocationTraces\r\n        [XODB.Module.BusinessO" +
                     "bjects.LocationTrace](T1.LocationTrace_LocationHistoryID, T1.LocationTrace_Locat" +
@@ -20770,7 +20922,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Mineralogies
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView479()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView482()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Mineralogies", "\r\n    SELECT VALUE -- Constructing Mineralogies\r\n        [XODB.Module.BusinessObj" +
                     "ects.Mineralogy](T1.Mineralogy_MineralogyID, T1.Mineralogy_HeaderID, T1.Mineralo" +
@@ -20803,7 +20955,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelCharacteristics
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView480()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView483()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ModelCharacteristics", "\r\n    SELECT VALUE -- Constructing ModelCharacteristics\r\n        [XODB.Module.Bus" +
                     "inessObjects.ModelCharacteristic](T1.ModelCharacteristic_ModelCharacteristicID, " +
@@ -20832,7 +20984,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Opportunities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView481()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView484()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2972);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Opportunities\r\n        [XODB.Module.BusinessO");
@@ -20879,7 +21031,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Parameters
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView482()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView485()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Parameters", "\r\n    SELECT VALUE -- Constructing Parameters\r\n        [XODB.Module.BusinessObjec" +
                     "ts.Parameter](T1.Parameter_ParameterID, T1.Parameter_ParameterType, T1.Parameter" +
@@ -20910,7 +21062,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ParameterDuplicates
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView483()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView486()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ParameterDuplicates", "\r\n    SELECT VALUE -- Constructing ParameterDuplicates\r\n        [XODB.Module.Busi" +
                     "nessObjects.ParameterDuplicate](T1.ParameterDuplicate_ParameterDuplicateID, T1.P" +
@@ -20938,7 +21090,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ParameterGroups
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView484()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView487()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ParameterGroups", "\r\n    SELECT VALUE -- Constructing ParameterGroups\r\n        [XODB.Module.Business" +
                     "Objects.ParameterGroup](T1.ParameterGroup_ParameterGroupID, T1.ParameterGroup_Pa" +
@@ -20964,7 +21116,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.PartCharacteristics
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView485()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView488()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.PartCharacteristics", "\r\n    SELECT VALUE -- Constructing PartCharacteristics\r\n        [XODB.Module.Busi" +
                     "nessObjects.PartCharacteristic](T1.PartCharacteristic_PartCharacteristicID, T1.P" +
@@ -20993,7 +21145,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.PointLoads
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView486()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView489()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2427);
             viewString.Append("\r\n    SELECT VALUE -- Constructing PointLoads\r\n        [XODB.Module.BusinessObje");
@@ -21033,7 +21185,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Projects
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView487()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView490()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Projects", "\r\n    SELECT VALUE -- Constructing Projects\r\n        [XODB.Module.BusinessObjects" +
                     ".Project](T1.Project_ProjectID, T1.Project_ParentProjectID, T1.Project_TenementI" +
@@ -21061,7 +21213,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectDeliverables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView488()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView491()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4079);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectDeliverables\r\n        [XODB.Module.Bus");
@@ -21121,7 +21273,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectPlans
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView489()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView492()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProjectPlans", "\r\n    SELECT VALUE -- Constructing ProjectPlans\r\n        [XODB.Module.BusinessObj" +
                     "ects.ProjectPlan](T1.ProjectPlan_ProjectPlanID, T1.ProjectPlan_ProjectID, T1.Pro" +
@@ -21150,7 +21302,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectPlanTasks
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView490()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView493()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2368);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTasks\r\n        [XODB.Module.Busine");
@@ -21189,7 +21341,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectPlanTaskComplianceResponses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView491()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView494()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2953);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskComplianceResponses\r\n        [");
@@ -21235,7 +21387,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectPlanTaskDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView492()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView495()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProjectPlanTaskDatas", "\r\n    SELECT VALUE -- Constructing ProjectPlanTaskDatas\r\n        [XODB.Module.Bus" +
                     "inessObjects.ProjectPlanTaskData](T1.ProjectPlanTaskData_ProjectPlanTaskDataID, " +
@@ -21267,7 +21419,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectPlanTaskResponses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView493()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView496()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3682);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskResponses\r\n        [XODB.Modul");
@@ -21323,7 +21475,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectPlanTaskResponseDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView494()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView497()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2243);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskResponseDatas\r\n        [XODB.M");
@@ -21361,7 +21513,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectPlanTaskWorkers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView495()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView498()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProjectPlanTaskWorkers", "\r\n    SELECT VALUE -- Constructing ProjectPlanTaskWorkers\r\n        [XODB.Module.B" +
                     "usinessObjects.ProjectPlanTaskWorker](T1.ProjectPlanTaskWorker_ProjectPlanTaskWo" +
@@ -21393,7 +21545,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProspectusProjects
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView496()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView499()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2923);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProspectusProjects\r\n        [XODB.Module.Busi");
@@ -21439,7 +21591,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProspectusProjectCommodities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView497()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView500()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProspectusProjectCommodities", "\r\n    SELECT VALUE -- Constructing ProspectusProjectCommodities\r\n        [XODB.Mo" +
                     "dule.BusinessObjects.ProspectusProjectCommodity](T1.ProspectusProjectCommodity_P" +
@@ -21470,7 +21622,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Provinces
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView498()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView501()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2344);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Provinces\r\n        [XODB.Module.BusinessObjec");
@@ -21509,7 +21661,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProvinceAlias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView499()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView502()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProvinceAlias", "\r\n    SELECT VALUE -- Constructing ProvinceAlias\r\n        [XODB.Module.BusinessOb" +
                     "jects.ProvinceAlias](T1.ProvinceAlias_ProvinceAliasID, T1.ProvinceAlias_Province" +
@@ -21537,7 +21689,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProvinceDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView500()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView503()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProvinceDatas", "\r\n    SELECT VALUE -- Constructing ProvinceDatas\r\n        [XODB.Module.BusinessOb" +
                     "jects.ProvinceData](T1.ProvinceData_ProvinceDataID, T1.ProvinceData_ParentProvin" +
@@ -21565,7 +21717,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProvinceRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView501()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView504()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProvinceRelations", "\r\n    SELECT VALUE -- Constructing ProvinceRelations\r\n        [XODB.Module.Busine" +
                     "ssObjects.ProvinceRelation](T1.ProvinceRelation_ProvinceRelationID, T1.ProvinceR" +
@@ -21595,7 +21747,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Recoveries
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView502()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView505()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Recoveries", "\r\n    SELECT VALUE -- Constructing Recoveries\r\n        [XODB.Module.BusinessObjec" +
                     "ts.Recovery](T1.Recovery_RecoveryID, T1.Recovery_HeaderID, T1.Recovery_FromDepth" +
@@ -21628,7 +21780,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Samples
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView503()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView506()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Samples", "\r\n    SELECT VALUE -- Constructing Samples\r\n        [XODB.Module.BusinessObjects." +
                     "Sample](T1.Sample_SampleID, T1.Sample_HeaderID, T1.Sample_SampleCategoryID, T1.S" +
@@ -21661,7 +21813,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.SecurityBlacklists
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView504()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView507()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3205);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SecurityBlacklists\r\n        [XODB.Module.Busi");
@@ -21711,7 +21863,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.SecurityWhitelists
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView505()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView508()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3205);
             viewString.Append("\r\n    SELECT VALUE -- Constructing SecurityWhitelists\r\n        [XODB.Module.Busi");
@@ -21761,7 +21913,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Surveys
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView506()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView509()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2111);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Surveys\r\n        [XODB.Module.BusinessObjects");
@@ -21797,7 +21949,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Tasks
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView507()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView510()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Tasks", "\r\n    SELECT VALUE -- Constructing Tasks\r\n        [XODB.Module.BusinessObjects.Ta" +
                     "sk](T1.Task_TaskID, T1.Task_TaskName, T1.Task_WorkTypeID, T1.Task_DefaultPriorit" +
@@ -21830,7 +21982,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.TaskDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView508()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView511()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.TaskDatas", @"
     SELECT VALUE -- Constructing TaskDatas
@@ -21859,7 +22011,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.TaskRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView509()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView512()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.TaskRelations", "\r\n    SELECT VALUE -- Constructing TaskRelations\r\n        [XODB.Module.BusinessOb" +
                     "jects.TaskRelation](T1.TaskRelation_TaskRelationID, T1.TaskRelation_OriginalTask" +
@@ -21888,7 +22040,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Tenements
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView510()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView513()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Tenements", "\r\n    SELECT VALUE -- Constructing Tenements\r\n        [XODB.Module.BusinessObject" +
                     "s.Tenement](T1.Tenement_TenementID, T1.Tenement_TenementName, T1.Tenement_Teneme" +
@@ -21920,7 +22072,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.TenementCommodities
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView511()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView514()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.TenementCommodities", "\r\n    SELECT VALUE -- Constructing TenementCommodities\r\n        [XODB.Module.Busi" +
                     "nessObjects.TenementCommodity](T1.TenementCommodity_TenementCommodityID, T1.Tene" +
@@ -21948,7 +22100,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.TenementProvinces
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView512()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView515()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.TenementProvinces", "\r\n    SELECT VALUE -- Constructing TenementProvinces\r\n        [XODB.Module.Busine" +
                     "ssObjects.TenementProvince](T1.TenementProvince_TenementProvinceID, T1.TenementP" +
@@ -21975,7 +22127,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.TenementRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView513()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView516()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.TenementRelations", "\r\n    SELECT VALUE -- Constructing TenementRelations\r\n        [XODB.Module.Busine" +
                     "ssObjects.TenementRelation](T1.TenementRelation_TenementRelationID, T1.TenementR" +
@@ -22002,7 +22154,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.UsageAuditViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView514()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView517()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.UsageAuditViews", "\r\n    SELECT VALUE -- Constructing UsageAuditViews\r\n        [XODB.Module.Business" +
                     "Objects.UsageAuditView](T1.UsageAuditView_UsageAuditID, T1.UsageAuditView_UsageI" +
@@ -22034,7 +22186,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.WaterFlows
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView515()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView518()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2314);
             viewString.Append("\r\n    SELECT VALUE -- Constructing WaterFlows\r\n        [XODB.Module.BusinessObje");
@@ -22072,7 +22224,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LithologyAdjectives
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView516()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView519()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.LithologyAdjectives", "\r\n    SELECT VALUE -- Constructing LithologyAdjectives\r\n        [XODB.Module.Busi" +
                     "nessObjects.LithologyAdjective](T1.LithologyAdjective_LithologyAdjectiveID, T1.L" +
@@ -22101,7 +22253,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LithologySedimentaryFeatures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView517()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView520()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.LithologySedimentaryFeatures", "\r\n    SELECT VALUE -- Constructing LithologySedimentaryFeatures\r\n        [XODB.Mo" +
                     "dule.BusinessObjects.LithologySedimentaryFeature](T1.LithologySedimentaryFeature" +
@@ -22134,7 +22286,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.HeaderHolePurposes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView518()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView521()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.HeaderHolePurposes", "\r\n    SELECT VALUE -- Constructing HeaderHolePurposes\r\n        [XODB.Module.Busin" +
                     "essObjects.HeaderHolePurpose](T1.HeaderHolePurpose_HeaderHolePurposeID, T1.Heade" +
@@ -22163,7 +22315,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LithologyRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView519()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView522()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.LithologyRelations", "\r\n    SELECT VALUE -- Constructing LithologyRelations\r\n        [XODB.Module.Busin" +
                     "essObjects.LithologyRelation](T1.LithologyRelation_LithologyRelationID, T1.Litho" +
@@ -22195,7 +22347,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.FileDataWorkTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView520()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView523()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.FileDataWorkTypes", "\r\n    SELECT VALUE -- Constructing FileDataWorkTypes\r\n        [XODB.Module.Busine" +
                     "ssObjects.FileDataWorkType](T1.FileDataWorkType_FileDataWorkTypeID, T1.FileDataW" +
@@ -22225,7 +22377,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryWorkflowTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView521()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView524()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryWorkflowTypes", "\r\n    SELECT VALUE -- Constructing DictionaryWorkflowTypes\r\n        [XODB.Module." +
                     "BusinessObjects.DictionaryWorkflowType](T1.DictionaryWorkflowType_WorkflowTypeID" +
@@ -22256,7 +22408,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Workflows
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView522()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView525()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Workflows", "\r\n    SELECT VALUE -- Constructing Workflows\r\n        [XODB.Module.BusinessObject" +
                     "s.Workflow](T1.Workflow_WorkflowID, T1.Workflow_WorkflowName, T1.Workflow_Workfl" +
@@ -22283,20 +22435,17 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroupSubsamples
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView523()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView526()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3770);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3098);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupSubsamples\r\n        [XODB.Module.Bu");
             viewString.Append("sinessObjects.AssayGroupSubsample](T1.AssayGroupSubsample_AssayGroupSubsampleID,");
             viewString.Append(" T1.AssayGroupSubsample_AssayGroupID, T1.AssayGroupSubsample_AssayGroupWorkflowP");
             viewString.Append("rocedureID, T1.AssayGroupSubsample_Sequence, T1.AssayGroupSubsample_LabSubsample");
             viewString.Append("Name, T1.AssayGroupSubsample_SampleAntecedentID, T1.AssayGroupSubsample_FromDept");
-            viewString.Append("h, T1.AssayGroupSubsample_ToDepth, T1.AssayGroupSubsample_VolumeUnitID, T1.Assay");
-            viewString.Append("GroupSubsample_VolumeMinimum, T1.AssayGroupSubsample_VolumeMaximum, T1.AssayGrou");
-            viewString.Append("pSubsample_AgitationMethodID, T1.AssayGroupSubsample_DurationProcedureSeconds, T");
-            viewString.Append("1.AssayGroupSubsample_DurationTotalSeconds, T1.AssayGroupSubsample_RackBlock, T1");
-            viewString.Append(".AssayGroupSubsample_RackPosition, T1.AssayGroupSubsample_ResultingPercentage, T");
-            viewString.Append("1.AssayGroupSubsample_ResultingKilograms, T1.AssayGroupSubsample_ResultingVolume");
+            viewString.Append("h, T1.AssayGroupSubsample_ToDepth, T1.AssayGroupSubsample_AgitationMethodID, T1.");
+            viewString.Append("AssayGroupSubsample_DurationProcedureSeconds, T1.AssayGroupSubsample_DurationTot");
+            viewString.Append("alSeconds, T1.AssayGroupSubsample_RackBlock, T1.AssayGroupSubsample_RackPosition");
             viewString.Append(", T1.AssayGroupSubsample_SubsampledBy, T1.AssayGroupSubsample_Subsampled, T1.Ass");
             viewString.Append("ayGroupSubsample_Comment, T1.AssayGroupSubsample_Version, T1.AssayGroupSubsample");
             viewString.Append("_VersionAntecedentID, T1.AssayGroupSubsample_VersionCertainty, T1.AssayGroupSubs");
@@ -22310,37 +22459,31 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("upSubsample_Sequence, \r\n            T.LabSubsampleName AS AssayGroupSubsample_La");
             viewString.Append("bSubsampleName, \r\n            T.SampleAntecedentID AS AssayGroupSubsample_Sample");
             viewString.Append("AntecedentID, \r\n            T.FromDepth AS AssayGroupSubsample_FromDepth, \r\n    ");
-            viewString.Append("        T.ToDepth AS AssayGroupSubsample_ToDepth, \r\n            T.VolumeUnitID A");
-            viewString.Append("S AssayGroupSubsample_VolumeUnitID, \r\n            T.VolumeMinimum AS AssayGroupS");
-            viewString.Append("ubsample_VolumeMinimum, \r\n            T.VolumeMaximum AS AssayGroupSubsample_Vol");
-            viewString.Append("umeMaximum, \r\n            T.AgitationMethodID AS AssayGroupSubsample_AgitationMe");
-            viewString.Append("thodID, \r\n            T.DurationProcedureSeconds AS AssayGroupSubsample_Duration");
-            viewString.Append("ProcedureSeconds, \r\n            T.DurationTotalSeconds AS AssayGroupSubsample_Du");
-            viewString.Append("rationTotalSeconds, \r\n            T.RackBlock AS AssayGroupSubsample_RackBlock, ");
-            viewString.Append("\r\n            T.RackPosition AS AssayGroupSubsample_RackPosition, \r\n            ");
-            viewString.Append("T.ResultingPercentage AS AssayGroupSubsample_ResultingPercentage, \r\n            ");
-            viewString.Append("T.ResultingKilograms AS AssayGroupSubsample_ResultingKilograms, \r\n            T.");
-            viewString.Append("ResultingVolume AS AssayGroupSubsample_ResultingVolume, \r\n            T.Subsampl");
-            viewString.Append("edBy AS AssayGroupSubsample_SubsampledBy, \r\n            T.Subsampled AS AssayGro");
-            viewString.Append("upSubsample_Subsampled, \r\n            T.Comment AS AssayGroupSubsample_Comment, ");
-            viewString.Append("\r\n            T.Version AS AssayGroupSubsample_Version, \r\n            T.VersionA");
-            viewString.Append("ntecedentID AS AssayGroupSubsample_VersionAntecedentID, \r\n            T.VersionC");
-            viewString.Append("ertainty AS AssayGroupSubsample_VersionCertainty, \r\n            T.VersionWorkflo");
-            viewString.Append("wInstanceID AS AssayGroupSubsample_VersionWorkflowInstanceID, \r\n            T.Ve");
-            viewString.Append("rsionUpdatedBy AS AssayGroupSubsample_VersionUpdatedBy, \r\n            T.VersionD");
-            viewString.Append("eletedBy AS AssayGroupSubsample_VersionDeletedBy, \r\n            T.VersionOwnerCo");
-            viewString.Append("ntactID AS AssayGroupSubsample_VersionOwnerContactID, \r\n            T.VersionOwn");
-            viewString.Append("erCompanyID AS AssayGroupSubsample_VersionOwnerCompanyID, \r\n            T.Versio");
-            viewString.Append("nUpdated AS AssayGroupSubsample_VersionUpdated, \r\n            True AS _from0\r\n  ");
-            viewString.Append("      FROM XODBModuleBusinessObjectsStoreContainer.X_AssayGroupSubsample AS T\r\n ");
-            viewString.Append("   ) AS T1");
+            viewString.Append("        T.ToDepth AS AssayGroupSubsample_ToDepth, \r\n            T.AgitationMetho");
+            viewString.Append("dID AS AssayGroupSubsample_AgitationMethodID, \r\n            T.DurationProcedureS");
+            viewString.Append("econds AS AssayGroupSubsample_DurationProcedureSeconds, \r\n            T.Duration");
+            viewString.Append("TotalSeconds AS AssayGroupSubsample_DurationTotalSeconds, \r\n            T.RackBl");
+            viewString.Append("ock AS AssayGroupSubsample_RackBlock, \r\n            T.RackPosition AS AssayGroup");
+            viewString.Append("Subsample_RackPosition, \r\n            T.SubsampledBy AS AssayGroupSubsample_Subs");
+            viewString.Append("ampledBy, \r\n            T.Subsampled AS AssayGroupSubsample_Subsampled, \r\n      ");
+            viewString.Append("      T.Comment AS AssayGroupSubsample_Comment, \r\n            T.Version AS Assay");
+            viewString.Append("GroupSubsample_Version, \r\n            T.VersionAntecedentID AS AssayGroupSubsamp");
+            viewString.Append("le_VersionAntecedentID, \r\n            T.VersionCertainty AS AssayGroupSubsample_");
+            viewString.Append("VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS AssayGroupSubsamp");
+            viewString.Append("le_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS AssayGroupSubs");
+            viewString.Append("ample_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS AssayGroupSubsample_");
+            viewString.Append("VersionDeletedBy, \r\n            T.VersionOwnerContactID AS AssayGroupSubsample_V");
+            viewString.Append("ersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS AssayGroupSubsamp");
+            viewString.Append("le_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS AssayGroupSubsample_");
+            viewString.Append("VersionUpdated, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObj");
+            viewString.Append("ectsStoreContainer.X_AssayGroupSubsample AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupSubsamples", viewString.ToString());
         }
         
         /// <Summary>
         /// return view for XODBC.AssayGroupSubsampleChemicals
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView524()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView527()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupSubsampleChemicals", "\r\n    SELECT VALUE -- Constructing AssayGroupSubsampleChemicals\r\n        [XODB.Mo" +
                     "dule.BusinessObjects.AssayGroupSubsampleChemical](T1.AssayGroupSubsampleChemical" +
@@ -22373,7 +22516,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroupSubsampleEquipments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView525()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView528()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupSubsampleEquipments", "\r\n    SELECT VALUE -- Constructing AssayGroupSubsampleEquipments\r\n        [XODB.M" +
                     "odule.BusinessObjects.AssayGroupSubsampleEquipment](T1.AssayGroupSubsampleEquipm" +
@@ -22405,78 +22548,85 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroupSubsamplePreconditions
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView526()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView529()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2355);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2684);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupSubsamplePreconditions\r\n        [XO");
             viewString.Append("DB.Module.BusinessObjects.AssayGroupSubsamplePrecondition](T1.AssayGroupSubsampl");
             viewString.Append("ePrecondition_AssayGroupSubsamplePreconditionID, T1.AssayGroupSubsamplePrecondit");
             viewString.Append("ion_AssayGroupSubsampleID, T1.AssayGroupSubsamplePrecondition_PreconditionName, ");
-            viewString.Append("T1.AssayGroupSubsamplePrecondition_PreconditionUnitID, T1.AssayGroupSubsamplePre");
-            viewString.Append("condition_PreconditionValue, T1.AssayGroupSubsamplePrecondition_Version, T1.Assa");
-            viewString.Append("yGroupSubsamplePrecondition_VersionAntecedentID, T1.AssayGroupSubsamplePrecondit");
-            viewString.Append("ion_VersionCertainty, T1.AssayGroupSubsamplePrecondition_VersionWorkflowInstance");
-            viewString.Append("ID, T1.AssayGroupSubsamplePrecondition_VersionUpdatedBy, T1.AssayGroupSubsampleP");
-            viewString.Append("recondition_VersionDeletedBy, T1.AssayGroupSubsamplePrecondition_VersionOwnerCon");
-            viewString.Append("tactID, T1.AssayGroupSubsamplePrecondition_VersionOwnerCompanyID, T1.AssayGroupS");
-            viewString.Append("ubsamplePrecondition_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T");
-            viewString.Append(".AssayGroupSubsamplePreconditionID AS AssayGroupSubsamplePrecondition_AssayGroup");
-            viewString.Append("SubsamplePreconditionID, \r\n            T.AssayGroupSubsampleID AS AssayGroupSubs");
-            viewString.Append("amplePrecondition_AssayGroupSubsampleID, \r\n            T.PreconditionName AS Ass");
-            viewString.Append("ayGroupSubsamplePrecondition_PreconditionName, \r\n            T.PreconditionUnitI");
-            viewString.Append("D AS AssayGroupSubsamplePrecondition_PreconditionUnitID, \r\n            T.Precond");
-            viewString.Append("itionValue AS AssayGroupSubsamplePrecondition_PreconditionValue, \r\n            T");
-            viewString.Append(".Version AS AssayGroupSubsamplePrecondition_Version, \r\n            T.VersionAnte");
-            viewString.Append("cedentID AS AssayGroupSubsamplePrecondition_VersionAntecedentID, \r\n            T");
-            viewString.Append(".VersionCertainty AS AssayGroupSubsamplePrecondition_VersionCertainty, \r\n       ");
-            viewString.Append("     T.VersionWorkflowInstanceID AS AssayGroupSubsamplePrecondition_VersionWorkf");
-            viewString.Append("lowInstanceID, \r\n            T.VersionUpdatedBy AS AssayGroupSubsamplePreconditi");
-            viewString.Append("on_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS AssayGroupSubsamplePrec");
-            viewString.Append("ondition_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS AssayGroupSu");
-            viewString.Append("bsamplePrecondition_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID");
-            viewString.Append(" AS AssayGroupSubsamplePrecondition_VersionOwnerCompanyID, \r\n            T.Versi");
-            viewString.Append("onUpdated AS AssayGroupSubsamplePrecondition_VersionUpdated, \r\n            True ");
-            viewString.Append("AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_AssayGroupSubs");
-            viewString.Append("amplePrecondition AS T\r\n    ) AS T1");
+            viewString.Append("T1.AssayGroupSubsamplePrecondition_Version, T1.AssayGroupSubsamplePrecondition_V");
+            viewString.Append("ersionAntecedentID, T1.AssayGroupSubsamplePrecondition_VersionCertainty, T1.Assa");
+            viewString.Append("yGroupSubsamplePrecondition_VersionWorkflowInstanceID, T1.AssayGroupSubsamplePre");
+            viewString.Append("condition_VersionUpdatedBy, T1.AssayGroupSubsamplePrecondition_VersionDeletedBy,");
+            viewString.Append(" T1.AssayGroupSubsamplePrecondition_VersionOwnerContactID, T1.AssayGroupSubsampl");
+            viewString.Append("ePrecondition_VersionOwnerCompanyID, T1.AssayGroupSubsamplePrecondition_VersionU");
+            viewString.Append("pdated, T1.AssayGroupSubsamplePrecondition_AssayPreconditionTypeID, T1.AssayGrou");
+            viewString.Append("pSubsamplePrecondition_PreconditionParameterID, T1.AssayGroupSubsamplePreconditi");
+            viewString.Append("on_PreconditionMinimum, T1.AssayGroupSubsamplePrecondition_PreconditionMaximum)\r");
+            viewString.Append("\n    FROM (\r\n        SELECT \r\n            T.AssayGroupSubsamplePreconditionID AS");
+            viewString.Append(" AssayGroupSubsamplePrecondition_AssayGroupSubsamplePreconditionID, \r\n          ");
+            viewString.Append("  T.AssayGroupSubsampleID AS AssayGroupSubsamplePrecondition_AssayGroupSubsample");
+            viewString.Append("ID, \r\n            T.PreconditionName AS AssayGroupSubsamplePrecondition_Precondi");
+            viewString.Append("tionName, \r\n            T.Version AS AssayGroupSubsamplePrecondition_Version, \r\n");
+            viewString.Append("            T.VersionAntecedentID AS AssayGroupSubsamplePrecondition_VersionAnte");
+            viewString.Append("cedentID, \r\n            T.VersionCertainty AS AssayGroupSubsamplePrecondition_Ve");
+            viewString.Append("rsionCertainty, \r\n            T.VersionWorkflowInstanceID AS AssayGroupSubsample");
+            viewString.Append("Precondition_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Assa");
+            viewString.Append("yGroupSubsamplePrecondition_VersionUpdatedBy, \r\n            T.VersionDeletedBy A");
+            viewString.Append("S AssayGroupSubsamplePrecondition_VersionDeletedBy, \r\n            T.VersionOwner");
+            viewString.Append("ContactID AS AssayGroupSubsamplePrecondition_VersionOwnerContactID, \r\n          ");
+            viewString.Append("  T.VersionOwnerCompanyID AS AssayGroupSubsamplePrecondition_VersionOwnerCompany");
+            viewString.Append("ID, \r\n            T.VersionUpdated AS AssayGroupSubsamplePrecondition_VersionUpd");
+            viewString.Append("ated, \r\n            T.AssayPreconditionTypeID AS AssayGroupSubsamplePrecondition");
+            viewString.Append("_AssayPreconditionTypeID, \r\n            T.PreconditionParameterID AS AssayGroupS");
+            viewString.Append("ubsamplePrecondition_PreconditionParameterID, \r\n            T.PreconditionMinimu");
+            viewString.Append("m AS AssayGroupSubsamplePrecondition_PreconditionMinimum, \r\n            T.Precon");
+            viewString.Append("ditionMaximum AS AssayGroupSubsamplePrecondition_PreconditionMaximum, \r\n        ");
+            viewString.Append("    True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_Assay");
+            viewString.Append("GroupSubsamplePrecondition AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupSubsamplePreconditions", viewString.ToString());
         }
         
         /// <Summary>
         /// return view for XODBC.AssayGroupSubsampleRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView527()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView530()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupSubsampleRelations", "\r\n    SELECT VALUE -- Constructing AssayGroupSubsampleRelations\r\n        [XODB.Mo" +
-                    "dule.BusinessObjects.AssayGroupSubsampleRelation](T1.AssayGroupSubsampleRelation" +
-                    "_AssayGroupSubsampleRelationID, T1.AssayGroupSubsampleRelation_SourceSubsampleID" +
-                    ", T1.AssayGroupSubsampleRelation_DestinationSubsampleID, T1.AssayGroupSubsampleR" +
-                    "elation_Version, T1.AssayGroupSubsampleRelation_VersionAntecedentID, T1.AssayGro" +
-                    "upSubsampleRelation_VersionCertainty, T1.AssayGroupSubsampleRelation_VersionWork" +
-                    "flowInstanceID, T1.AssayGroupSubsampleRelation_VersionUpdatedBy, T1.AssayGroupSu" +
-                    "bsampleRelation_VersionDeletedBy, T1.AssayGroupSubsampleRelation_VersionOwnerCon" +
-                    "tactID, T1.AssayGroupSubsampleRelation_VersionOwnerCompanyID, T1.AssayGroupSubsa" +
-                    "mpleRelation_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            T.AssayGr" +
-                    "oupSubsampleRelationID AS AssayGroupSubsampleRelation_AssayGroupSubsampleRelatio" +
-                    "nID, \r\n            T.SourceSubsampleID AS AssayGroupSubsampleRelation_SourceSubs" +
-                    "ampleID, \r\n            T.DestinationSubsampleID AS AssayGroupSubsampleRelation_D" +
-                    "estinationSubsampleID, \r\n            T.Version AS AssayGroupSubsampleRelation_Ve" +
-                    "rsion, \r\n            T.VersionAntecedentID AS AssayGroupSubsampleRelation_Versio" +
-                    "nAntecedentID, \r\n            T.VersionCertainty AS AssayGroupSubsampleRelation_V" +
-                    "ersionCertainty, \r\n            T.VersionWorkflowInstanceID AS AssayGroupSubsampl" +
-                    "eRelation_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS AssayGr" +
-                    "oupSubsampleRelation_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS Assay" +
-                    "GroupSubsampleRelation_VersionDeletedBy, \r\n            T.VersionOwnerContactID A" +
-                    "S AssayGroupSubsampleRelation_VersionOwnerContactID, \r\n            T.VersionOwne" +
-                    "rCompanyID AS AssayGroupSubsampleRelation_VersionOwnerCompanyID, \r\n            T" +
-                    ".VersionUpdated AS AssayGroupSubsampleRelation_VersionUpdated, \r\n            Tru" +
-                    "e AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_AssayGroupSu" +
-                    "bsampleRelation AS T\r\n    ) AS T1");
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2061);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupSubsampleRelations\r\n        [XODB.M");
+            viewString.Append("odule.BusinessObjects.AssayGroupSubsampleRelation](T1.AssayGroupSubsampleRelatio");
+            viewString.Append("n_AssayGroupSubsampleRelationID, T1.AssayGroupSubsampleRelation_SourceSubsampleI");
+            viewString.Append("D, T1.AssayGroupSubsampleRelation_DestinationSubsampleID, T1.AssayGroupSubsample");
+            viewString.Append("Relation_Version, T1.AssayGroupSubsampleRelation_VersionAntecedentID, T1.AssayGr");
+            viewString.Append("oupSubsampleRelation_VersionCertainty, T1.AssayGroupSubsampleRelation_VersionWor");
+            viewString.Append("kflowInstanceID, T1.AssayGroupSubsampleRelation_VersionUpdatedBy, T1.AssayGroupS");
+            viewString.Append("ubsampleRelation_VersionDeletedBy, T1.AssayGroupSubsampleRelation_VersionOwnerCo");
+            viewString.Append("ntactID, T1.AssayGroupSubsampleRelation_VersionOwnerCompanyID, T1.AssayGroupSubs");
+            viewString.Append("ampleRelation_VersionUpdated, T1.AssayGroupSubsampleRelation_Sequence)\r\n    FROM");
+            viewString.Append(" (\r\n        SELECT \r\n            T.AssayGroupSubsampleRelationID AS AssayGroupSu");
+            viewString.Append("bsampleRelation_AssayGroupSubsampleRelationID, \r\n            T.SourceSubsampleID");
+            viewString.Append(" AS AssayGroupSubsampleRelation_SourceSubsampleID, \r\n            T.DestinationSu");
+            viewString.Append("bsampleID AS AssayGroupSubsampleRelation_DestinationSubsampleID, \r\n            T");
+            viewString.Append(".Version AS AssayGroupSubsampleRelation_Version, \r\n            T.VersionAntecede");
+            viewString.Append("ntID AS AssayGroupSubsampleRelation_VersionAntecedentID, \r\n            T.Version");
+            viewString.Append("Certainty AS AssayGroupSubsampleRelation_VersionCertainty, \r\n            T.Versi");
+            viewString.Append("onWorkflowInstanceID AS AssayGroupSubsampleRelation_VersionWorkflowInstanceID, \r");
+            viewString.Append("\n            T.VersionUpdatedBy AS AssayGroupSubsampleRelation_VersionUpdatedBy,");
+            viewString.Append(" \r\n            T.VersionDeletedBy AS AssayGroupSubsampleRelation_VersionDeletedB");
+            viewString.Append("y, \r\n            T.VersionOwnerContactID AS AssayGroupSubsampleRelation_VersionO");
+            viewString.Append("wnerContactID, \r\n            T.VersionOwnerCompanyID AS AssayGroupSubsampleRelat");
+            viewString.Append("ion_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS AssayGroupSubsample");
+            viewString.Append("Relation_VersionUpdated, \r\n            T.Sequence AS AssayGroupSubsampleRelation");
+            viewString.Append("_Sequence, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObjectsS");
+            viewString.Append("toreContainer.X_AssayGroupSubsampleRelation AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupSubsampleRelations", viewString.ToString());
         }
         
         /// <Summary>
         /// return view for XODBC.AssayGroupTestEquipments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView528()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView531()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupTestEquipments", "\r\n    SELECT VALUE -- Constructing AssayGroupTestEquipments\r\n        [XODB.Module" +
                     ".BusinessObjects.AssayGroupTestEquipment](T1.AssayGroupTestEquipment_AssayGroupT" +
@@ -22506,7 +22656,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroupWorkflows
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView529()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView532()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupWorkflows", "\r\n    SELECT VALUE -- Constructing AssayGroupWorkflows\r\n        [XODB.Module.Busi" +
                     "nessObjects.AssayGroupWorkflow](T1.AssayGroupWorkflow_AssayGroupWorkflowID, T1.A" +
@@ -22535,7 +22685,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayGroupWorkflowProcedures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView530()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView533()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2210);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupWorkflowProcedures\r\n        [XODB.M");
@@ -22572,7 +22722,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayProcedures
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView531()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView534()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayProcedures", "\r\n    SELECT VALUE -- Constructing AssayProcedures\r\n        [XODB.Module.Business" +
                     "Objects.AssayProcedure](T1.AssayProcedure_AssayProcedureID, T1.AssayProcedure_As" +
@@ -22599,7 +22749,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayProcedureProtocols
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView532()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView535()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2263);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayProcedureProtocols\r\n        [XODB.Module");
@@ -22637,7 +22787,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.AssayProcedureProtocolEquipments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView533()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView536()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2050);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayProcedureProtocolEquipments\r\n        [XO");
@@ -22672,7 +22822,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAgitationMethods
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView534()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView537()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2889);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAgitationMethods\r\n        [XODB.Mod");
@@ -22718,7 +22868,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAssayProcedureMethods
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView535()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView538()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2944);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayProcedureMethods\r\n        [XOD");
@@ -22764,7 +22914,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAssayProcedureTechniques
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView536()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView539()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3106);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayProcedureTechniques\r\n        [");
@@ -22812,7 +22962,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAssayProcedureTypes
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView537()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView540()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2836);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayProcedureTypes\r\n        [XODB.");
@@ -22857,7 +23007,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryAssayTechniques
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView538()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView541()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2620);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayTechniques\r\n        [XODB.Modu");
@@ -22899,7 +23049,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryChemicals
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView539()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView542()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2296);
             viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryChemicals\r\n        [XODB.Module.Bus");
@@ -22935,9 +23085,136 @@ namespace Edm_EntityMappingGeneratedViews
         }
         
         /// <Summary>
+        /// return view for XODBC.AssayProcedureProtocolPreconditions
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView543()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2569);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing AssayProcedureProtocolPreconditions\r\n        ");
+            viewString.Append("[XODB.Module.BusinessObjects.AssayProcedureProtocolPrecondition](T1.AssayProcedu");
+            viewString.Append("reProtocolPrecondition_AssayProcedureProtocolPreconditionID, T1.AssayProcedurePr");
+            viewString.Append("otocolPrecondition_AssayProcedureProtocolID, T1.AssayProcedureProtocolPreconditi");
+            viewString.Append("on_AssayPreconditionTypeID, T1.AssayProcedureProtocolPrecondition_PreconditionNa");
+            viewString.Append("me, T1.AssayProcedureProtocolPrecondition_UnitID, T1.AssayProcedureProtocolPreco");
+            viewString.Append("ndition_Sequence, T1.AssayProcedureProtocolPrecondition_Version, T1.AssayProcedu");
+            viewString.Append("reProtocolPrecondition_VersionAntecedentID, T1.AssayProcedureProtocolPreconditio");
+            viewString.Append("n_VersionCertainty, T1.AssayProcedureProtocolPrecondition_VersionWorkflowInstanc");
+            viewString.Append("eID, T1.AssayProcedureProtocolPrecondition_VersionUpdatedBy, T1.AssayProcedurePr");
+            viewString.Append("otocolPrecondition_VersionDeletedBy, T1.AssayProcedureProtocolPrecondition_Versi");
+            viewString.Append("onOwnerContactID, T1.AssayProcedureProtocolPrecondition_VersionOwnerCompanyID, T");
+            viewString.Append("1.AssayProcedureProtocolPrecondition_VersionUpdated)\r\n    FROM (\r\n        SELECT");
+            viewString.Append(" \r\n            T.AssayProcedureProtocolPreconditionID AS AssayProcedureProtocolP");
+            viewString.Append("recondition_AssayProcedureProtocolPreconditionID, \r\n            T.AssayProcedure");
+            viewString.Append("ProtocolID AS AssayProcedureProtocolPrecondition_AssayProcedureProtocolID, \r\n   ");
+            viewString.Append("         T.AssayPreconditionTypeID AS AssayProcedureProtocolPrecondition_AssayPr");
+            viewString.Append("econditionTypeID, \r\n            T.PreconditionName AS AssayProcedureProtocolPrec");
+            viewString.Append("ondition_PreconditionName, \r\n            T.UnitID AS AssayProcedureProtocolPreco");
+            viewString.Append("ndition_UnitID, \r\n            T.Sequence AS AssayProcedureProtocolPrecondition_S");
+            viewString.Append("equence, \r\n            T.Version AS AssayProcedureProtocolPrecondition_Version, ");
+            viewString.Append("\r\n            T.VersionAntecedentID AS AssayProcedureProtocolPrecondition_Versio");
+            viewString.Append("nAntecedentID, \r\n            T.VersionCertainty AS AssayProcedureProtocolPrecond");
+            viewString.Append("ition_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS AssayProced");
+            viewString.Append("ureProtocolPrecondition_VersionWorkflowInstanceID, \r\n            T.VersionUpdate");
+            viewString.Append("dBy AS AssayProcedureProtocolPrecondition_VersionUpdatedBy, \r\n            T.Vers");
+            viewString.Append("ionDeletedBy AS AssayProcedureProtocolPrecondition_VersionDeletedBy, \r\n         ");
+            viewString.Append("   T.VersionOwnerContactID AS AssayProcedureProtocolPrecondition_VersionOwnerCon");
+            viewString.Append("tactID, \r\n            T.VersionOwnerCompanyID AS AssayProcedureProtocolPrecondit");
+            viewString.Append("ion_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS AssayProcedureProto");
+            viewString.Append("colPrecondition_VersionUpdated, \r\n            True AS _from0\r\n        FROM XODBM");
+            viewString.Append("oduleBusinessObjectsStoreContainer.X_AssayProcedureProtocolPrecondition AS T\r\n  ");
+            viewString.Append("  ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayProcedureProtocolPreconditions", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for XODBC.AssayWorkflowProcedureProtocols
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView544()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2282);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing AssayWorkflowProcedureProtocols\r\n        [XOD");
+            viewString.Append("B.Module.BusinessObjects.AssayWorkflowProcedureProtocol](T1.AssayWorkflowProcedu");
+            viewString.Append("reProtocol_AssayWorkflowProcedureProtocolID, T1.AssayWorkflowProcedureProtocol_W");
+            viewString.Append("orkflowID, T1.AssayWorkflowProcedureProtocol_WorkflowStateName, T1.AssayWorkflow");
+            viewString.Append("ProcedureProtocol_AssayProcedureProtocolID, T1.AssayWorkflowProcedureProtocol_Se");
+            viewString.Append("quence, T1.AssayWorkflowProcedureProtocol_Version, T1.AssayWorkflowProcedureProt");
+            viewString.Append("ocol_VersionAntecedentID, T1.AssayWorkflowProcedureProtocol_VersionCertainty, T1");
+            viewString.Append(".AssayWorkflowProcedureProtocol_VersionWorkflowInstanceID, T1.AssayWorkflowProce");
+            viewString.Append("dureProtocol_VersionUpdatedBy, T1.AssayWorkflowProcedureProtocol_VersionDeletedB");
+            viewString.Append("y, T1.AssayWorkflowProcedureProtocol_VersionOwnerContactID, T1.AssayWorkflowProc");
+            viewString.Append("edureProtocol_VersionOwnerCompanyID, T1.AssayWorkflowProcedureProtocol_VersionUp");
+            viewString.Append("dated)\r\n    FROM (\r\n        SELECT \r\n            T.AssayWorkflowProcedureProtoco");
+            viewString.Append("lID AS AssayWorkflowProcedureProtocol_AssayWorkflowProcedureProtocolID, \r\n      ");
+            viewString.Append("      T.WorkflowID AS AssayWorkflowProcedureProtocol_WorkflowID, \r\n            T");
+            viewString.Append(".WorkflowStateName AS AssayWorkflowProcedureProtocol_WorkflowStateName, \r\n      ");
+            viewString.Append("      T.AssayProcedureProtocolID AS AssayWorkflowProcedureProtocol_AssayProcedur");
+            viewString.Append("eProtocolID, \r\n            T.Sequence AS AssayWorkflowProcedureProtocol_Sequence");
+            viewString.Append(", \r\n            T.Version AS AssayWorkflowProcedureProtocol_Version, \r\n         ");
+            viewString.Append("   T.VersionAntecedentID AS AssayWorkflowProcedureProtocol_VersionAntecedentID, ");
+            viewString.Append("\r\n            T.VersionCertainty AS AssayWorkflowProcedureProtocol_VersionCertai");
+            viewString.Append("nty, \r\n            T.VersionWorkflowInstanceID AS AssayWorkflowProcedureProtocol");
+            viewString.Append("_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS AssayWorkflowPro");
+            viewString.Append("cedureProtocol_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS AssayWorkfl");
+            viewString.Append("owProcedureProtocol_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS A");
+            viewString.Append("ssayWorkflowProcedureProtocol_VersionOwnerContactID, \r\n            T.VersionOwne");
+            viewString.Append("rCompanyID AS AssayWorkflowProcedureProtocol_VersionOwnerCompanyID, \r\n          ");
+            viewString.Append("  T.VersionUpdated AS AssayWorkflowProcedureProtocol_VersionUpdated, \r\n         ");
+            viewString.Append("   True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_AssayW");
+            viewString.Append("orkflowProcedureProtocol AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayWorkflowProcedureProtocols", viewString.ToString());
+        }
+        
+        /// <Summary>
+        /// return view for XODBC.DictionaryAssayPreconditionTypes
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView545()
+        {
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2998);
+            viewString.Append("\r\n    SELECT VALUE -- Constructing DictionaryAssayPreconditionTypes\r\n        [XO");
+            viewString.Append("DB.Module.BusinessObjects.DictionaryAssayPreconditionType](T1.DictionaryAssayPre");
+            viewString.Append("conditionType_AssayPreconditionTypeID, T1.DictionaryAssayPreconditionType_Standa");
+            viewString.Append("rdAssayPreconditionTypeName, T1.DictionaryAssayPreconditionType_CoalAssayPrecond");
+            viewString.Append("itionTypeName, T1.DictionaryAssayPreconditionType_GoldAssayPreconditionTypeName,");
+            viewString.Append(" T1.DictionaryAssayPreconditionType_CustomAssayPreconditionTypeName, T1.Dictiona");
+            viewString.Append("ryAssayPreconditionType_Description, T1.DictionaryAssayPreconditionType_FullDesc");
+            viewString.Append("ription, T1.DictionaryAssayPreconditionType_Thumbnail, T1.DictionaryAssayPrecond");
+            viewString.Append("itionType_OriginalFileDataID, T1.DictionaryAssayPreconditionType_Version, T1.Dic");
+            viewString.Append("tionaryAssayPreconditionType_VersionAntecedentID, T1.DictionaryAssayPrecondition");
+            viewString.Append("Type_VersionCertainty, T1.DictionaryAssayPreconditionType_VersionWorkflowInstanc");
+            viewString.Append("eID, T1.DictionaryAssayPreconditionType_VersionUpdatedBy, T1.DictionaryAssayPrec");
+            viewString.Append("onditionType_VersionDeletedBy, T1.DictionaryAssayPreconditionType_VersionOwnerCo");
+            viewString.Append("ntactID, T1.DictionaryAssayPreconditionType_VersionOwnerCompanyID, T1.Dictionary");
+            viewString.Append("AssayPreconditionType_VersionUpdated)\r\n    FROM (\r\n        SELECT \r\n            ");
+            viewString.Append("T.AssayPreconditionTypeID AS DictionaryAssayPreconditionType_AssayPreconditionTy");
+            viewString.Append("peID, \r\n            T.StandardAssayPreconditionTypeName AS DictionaryAssayPrecon");
+            viewString.Append("ditionType_StandardAssayPreconditionTypeName, \r\n            T.CoalAssayPrecondit");
+            viewString.Append("ionTypeName AS DictionaryAssayPreconditionType_CoalAssayPreconditionTypeName, \r\n");
+            viewString.Append("            T.GoldAssayPreconditionTypeName AS DictionaryAssayPreconditionType_G");
+            viewString.Append("oldAssayPreconditionTypeName, \r\n            T.CustomAssayPreconditionTypeName AS");
+            viewString.Append(" DictionaryAssayPreconditionType_CustomAssayPreconditionTypeName, \r\n            ");
+            viewString.Append("T.Description AS DictionaryAssayPreconditionType_Description, \r\n            T.Fu");
+            viewString.Append("llDescription AS DictionaryAssayPreconditionType_FullDescription, \r\n            ");
+            viewString.Append("T.Thumbnail AS DictionaryAssayPreconditionType_Thumbnail, \r\n            T.Origin");
+            viewString.Append("alFileDataID AS DictionaryAssayPreconditionType_OriginalFileDataID, \r\n          ");
+            viewString.Append("  T.Version AS DictionaryAssayPreconditionType_Version, \r\n            T.VersionA");
+            viewString.Append("ntecedentID AS DictionaryAssayPreconditionType_VersionAntecedentID, \r\n          ");
+            viewString.Append("  T.VersionCertainty AS DictionaryAssayPreconditionType_VersionCertainty, \r\n    ");
+            viewString.Append("        T.VersionWorkflowInstanceID AS DictionaryAssayPreconditionType_VersionWo");
+            viewString.Append("rkflowInstanceID, \r\n            T.VersionUpdatedBy AS DictionaryAssayPreconditio");
+            viewString.Append("nType_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS DictionaryAssayPreco");
+            viewString.Append("nditionType_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS Dictionar");
+            viewString.Append("yAssayPreconditionType_VersionOwnerContactID, \r\n            T.VersionOwnerCompan");
+            viewString.Append("yID AS DictionaryAssayPreconditionType_VersionOwnerCompanyID, \r\n            T.Ve");
+            viewString.Append("rsionUpdated AS DictionaryAssayPreconditionType_VersionUpdated, \r\n            Tr");
+            viewString.Append("ue AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_DictionaryA");
+            viewString.Append("ssayPreconditionType AS T\r\n    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryAssayPreconditionTypes", viewString.ToString());
+        }
+        
+        /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.sysdiagrams
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView540()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView546()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.sysdiagrams", @"
     SELECT VALUE -- Constructing sysdiagrams
@@ -22957,7 +23234,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.sysdiagrams
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView541()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView547()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.sysdiagrams", @"
     SELECT VALUE -- Constructing sysdiagrams
@@ -22977,7 +23254,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_CompanyServer
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView542()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView548()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_CompanyServer", "\r\n    SELECT VALUE -- Constructing X_CompanyServer\r\n        [XODB.Module.Business" +
                     "Objects.Store.X_CompanyServer](T1.[X_CompanyServer.CompanyServerID], T1.[X_Compa" +
@@ -23004,7 +23281,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.CompanyServers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView543()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView549()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.CompanyServers", @"
     SELECT VALUE -- Constructing CompanyServers
@@ -23031,7 +23308,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_Dictionary
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView544()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView550()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_Dictionary", @"
     SELECT VALUE -- Constructing X_Dictionary
@@ -23058,7 +23335,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Dictionaries
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView545()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView551()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Dictionaries", @"
     SELECT VALUE -- Constructing Dictionaries
@@ -23085,7 +23362,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_License
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView546()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView552()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(6161);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_License\r\n        [XODB.Module.BusinessObjec");
@@ -23172,7 +23449,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Licenses
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView547()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView553()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(5675);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Licenses\r\n        [XODB.Module.BusinessObject");
@@ -23252,7 +23529,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_LicenseAsset
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView548()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView554()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_LicenseAsset", "\r\n    SELECT VALUE -- Constructing X_LicenseAsset\r\n        [XODB.Module.BusinessO" +
                     "bjects.Store.X_LicenseAsset](T1.[X_LicenseAsset.LicenseAssetID], T1.[X_LicenseAs" +
@@ -23281,7 +23558,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LicenseAssets
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView549()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView555()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.LicenseAssets", "\r\n    SELECT VALUE -- Constructing LicenseAssets\r\n        [XODB.Module.BusinessOb" +
                     "jects.LicenseAsset](T1.LicenseAsset_LicenseAssetID, T1.LicenseAsset_LicenseID, T" +
@@ -23308,7 +23585,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_LicenseAssetModelPart
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView550()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView556()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_LicenseAssetModelPart", "\r\n    SELECT VALUE -- Constructing X_LicenseAssetModelPart\r\n        [XODB.Module." +
                     "BusinessObjects.Store.X_LicenseAssetModelPart](T1.[X_LicenseAssetModelPart.Licen" +
@@ -23339,7 +23616,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LicenseAssetModelParts
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView551()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView557()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.LicenseAssetModelParts", "\r\n    SELECT VALUE -- Constructing LicenseAssetModelParts\r\n        [XODB.Module.B" +
                     "usinessObjects.LicenseAssetModelPart](T1.LicenseAssetModelPart_LicenseAssetModel" +
@@ -23369,7 +23646,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_LicenseHistory
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView552()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView558()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_LicenseHistory", "\r\n    SELECT VALUE -- Constructing X_LicenseHistory\r\n        [XODB.Module.Busines" +
                     "sObjects.Store.X_LicenseHistory](T1.[X_LicenseHistory.LicenseeGUID], T1.[X_Licen" +
@@ -23397,7 +23674,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LicenseHistories
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView553()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView559()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.LicenseHistories", "\r\n    SELECT VALUE -- Constructing LicenseHistories\r\n        [XODB.Module.Busines" +
                     "sObjects.LicenseHistory](T1.LicenseHistory_LicenseeGUID, T1.LicenseHistory_LastL" +
@@ -23424,7 +23701,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_MetaData
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView554()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView560()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_MetaData", @"
     SELECT VALUE -- Constructing X_MetaData
@@ -23451,7 +23728,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_MetaDataRelation
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView555()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView561()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_MetaDataRelation", "\r\n    SELECT VALUE -- Constructing X_MetaDataRelation\r\n        [XODB.Module.Busin" +
                     "essObjects.Store.X_MetaDataRelation](T1.[X_MetaDataRelation.MetaDataRelationID]," +
@@ -23480,7 +23757,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.MetaDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView556()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView562()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.MetaDatas", @"
     SELECT VALUE -- Constructing MetaDatas
@@ -23507,7 +23784,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.MetaDataRelations
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView557()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView563()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.MetaDataRelations", "\r\n    SELECT VALUE -- Constructing MetaDataRelations\r\n        [XODB.Module.Busine" +
                     "ssObjects.MetaDataRelation](T1.MetaDataRelation_MetaDataRelationID, T1.MetaDataR" +
@@ -23535,7 +23812,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_PrivateData
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView558()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView564()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2142);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_PrivateData\r\n        [XODB.Module.BusinessO");
@@ -23571,7 +23848,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.PrivateDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView559()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView565()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.PrivateDatas", "\r\n    SELECT VALUE -- Constructing PrivateDatas\r\n        [XODB.Module.BusinessObj" +
                     "ects.PrivateData](T1.PrivateData_PrivateDataID, T1.PrivateData_UniqueID, T1.Priv" +
@@ -23604,7 +23881,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_Server
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView560()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView566()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_Server", "\r\n    SELECT VALUE -- Constructing X_Server\r\n        [XODB.Module.BusinessObjects" +
                     ".Store.X_Server](T1.[X_Server.ServerID], T1.[X_Server.Hostname], T1.[X_Server.Do" +
@@ -23635,7 +23912,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Servers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView561()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView567()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Servers", "\r\n    SELECT VALUE -- Constructing Servers\r\n        [XODB.Module.BusinessObjects." +
                     "Server](T1.Server_ServerID, T1.Server_Hostname, T1.Server_Domain, T1.Server_IP, " +
@@ -23665,7 +23942,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_ServerApplication
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView562()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView568()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_ServerApplication", "\r\n    SELECT VALUE -- Constructing X_ServerApplication\r\n        [XODB.Module.Busi" +
                     "nessObjects.Store.X_ServerApplication](T1.[X_ServerApplication.ServerApplication" +
@@ -23693,7 +23970,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ServerApplications
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView563()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView569()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ServerApplications", "\r\n    SELECT VALUE -- Constructing ServerApplications\r\n        [XODB.Module.Busin" +
                     "essObjects.ServerApplication](T1.ServerApplication_ServerApplicationID, T1.Serve" +
@@ -23720,7 +23997,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_Usage
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView564()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView570()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_Usage", "\r\n    SELECT VALUE -- Constructing X_Usage\r\n        [XODB.Module.BusinessObjects." +
                     "Store.X_Usage](T1.[X_Usage.UsageID], T1.[X_Usage.AssetID], T1.[X_Usage.ModelID]," +
@@ -23748,7 +24025,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Usages
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView565()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView571()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.Usages", "\r\n    SELECT VALUE -- Constructing Usages\r\n        [XODB.Module.BusinessObjects.U" +
                     "sage](T1.Usage_UsageID, T1.Usage_AssetID, T1.Usage_ModelID, T1.Usage_PartID, T1." +
@@ -23775,7 +24052,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_UserData
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView566()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView572()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_UserData", "\r\n    SELECT VALUE -- Constructing X_UserData\r\n        [XODB.Module.BusinessObjec" +
                     "ts.Store.X_UserData](T1.[X_UserData.UserDataID], T1.[X_UserData.TableType], T1.[" +
@@ -23803,7 +24080,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.UserDatas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView567()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView573()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.UserDatas", "\r\n    SELECT VALUE -- Constructing UserDatas\r\n        [XODB.Module.BusinessObject" +
                     "s.UserData](T1.UserData_UserDataID, T1.UserData_TableType, T1.UserData_Reference" +
@@ -23830,7 +24107,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.DefinitionIdentityTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView568()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView574()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.DefinitionIdentityTable", @"
     SELECT VALUE -- Constructing DefinitionIdentityTable
@@ -23854,7 +24131,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DefinitionIdentityTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView569()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView575()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DefinitionIdentityTables", @"
     SELECT VALUE -- Constructing DefinitionIdentityTables
@@ -23878,7 +24155,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.IdentityOwnerTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView570()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView576()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.IdentityOwnerTable", @"
     SELECT VALUE -- Constructing IdentityOwnerTable
@@ -23895,7 +24172,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.IdentityOwnerTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView571()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView577()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.IdentityOwnerTables", @"
     SELECT VALUE -- Constructing IdentityOwnerTables
@@ -23912,7 +24189,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.InstanceMetadataChangesTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView572()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView578()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.InstanceMetadataChangesTable", @"
     SELECT VALUE -- Constructing InstanceMetadataChangesTable
@@ -23931,7 +24208,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.InstanceMetadataChangesTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView573()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView579()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.InstanceMetadataChangesTables", @"
     SELECT VALUE -- Constructing InstanceMetadataChangesTables
@@ -23950,7 +24227,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.InstancePromotedPropertiesTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView574()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView580()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4133);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancePromotedPropertiesTable\r\n        [XOD");
@@ -24011,7 +24288,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.InstancePromotedPropertiesTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView575()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView581()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(4161);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancePromotedPropertiesTables\r\n        [XO");
@@ -24073,7 +24350,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.InstancesTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView576()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView582()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3007);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancesTable\r\n        [XODB.Module.Business");
@@ -24120,7 +24397,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.InstancesTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView577()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView583()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3035);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancesTables\r\n        [XODB.Module.Busines");
@@ -24167,7 +24444,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.KeysTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView578()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView584()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.KeysTable", @"
     SELECT VALUE -- Constructing KeysTable
@@ -24188,7 +24465,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.KeysTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView579()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView585()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.KeysTables", @"
     SELECT VALUE -- Constructing KeysTables
@@ -24209,7 +24486,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.LockOwnersTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView580()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView586()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.LockOwnersTable", "\r\n    SELECT VALUE -- Constructing LockOwnersTable\r\n        [XODB.Module.Business" +
                     "Objects.Store.LockOwnersTable](T1.LockOwnersTable_Id, T1.LockOwnersTable_Surroga" +
@@ -24238,7 +24515,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LockOwnersTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView581()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView587()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.LockOwnersTables", "\r\n    SELECT VALUE -- Constructing LockOwnersTables\r\n        [XODB.Module.Busines" +
                     "sObjects.LockOwnersTable](T1.LockOwnersTable_Id, T1.LockOwnersTable_SurrogateLoc" +
@@ -24267,7 +24544,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.RunnableInstancesTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView582()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView588()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.RunnableInstancesTable", @"
     SELECT VALUE -- Constructing RunnableInstancesTable
@@ -24287,7 +24564,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.RunnableInstancesTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView583()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView589()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.RunnableInstancesTables", @"
     SELECT VALUE -- Constructing RunnableInstancesTables
@@ -24307,7 +24584,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.ServiceDeploymentsTable
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView584()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView590()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.ServiceDeploymentsTable", @"
     SELECT VALUE -- Constructing ServiceDeploymentsTable
@@ -24329,7 +24606,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ServiceDeploymentsTables
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView585()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView591()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ServiceDeploymentsTables", @"
     SELECT VALUE -- Constructing ServiceDeploymentsTables
@@ -24351,7 +24628,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.vw_aspnet_Applications
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView586()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView592()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.vw_aspnet_Applications", @"
     SELECT VALUE -- Constructing vw_aspnet_Applications
@@ -24370,7 +24647,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ApplicationsViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView587()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView593()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ApplicationsViews", @"
     SELECT VALUE -- Constructing ApplicationsViews
@@ -24389,7 +24666,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.vw_aspnet_MembershipUsers
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView588()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView594()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3212);
             viewString.Append("\r\n    SELECT VALUE -- Constructing vw_aspnet_MembershipUsers\r\n        [XODB.Modu");
@@ -24439,7 +24716,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.MembershipUsersViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView589()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView595()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2866);
             viewString.Append("\r\n    SELECT VALUE -- Constructing MembershipUsersViews\r\n        [XODB.Module.Bu");
@@ -24484,7 +24761,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.vw_aspnet_Profiles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView590()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView596()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.vw_aspnet_Profiles", @"
     SELECT VALUE -- Constructing vw_aspnet_Profiles
@@ -24502,7 +24779,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProfilesViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView591()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView597()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProfilesViews", @"
     SELECT VALUE -- Constructing ProfilesViews
@@ -24520,7 +24797,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.vw_aspnet_Roles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView592()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView598()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.vw_aspnet_Roles", @"
     SELECT VALUE -- Constructing vw_aspnet_Roles
@@ -24540,7 +24817,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.RolesViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView593()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView599()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.RolesViews", @"
     SELECT VALUE -- Constructing RolesViews
@@ -24560,7 +24837,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.vw_aspnet_Users
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView594()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView600()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.vw_aspnet_Users", @"
     SELECT VALUE -- Constructing vw_aspnet_Users
@@ -24582,7 +24859,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.UsersViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView595()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView601()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.UsersViews", @"
     SELECT VALUE -- Constructing UsersViews
@@ -24604,7 +24881,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.vw_aspnet_UsersInRoles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView596()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView602()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.vw_aspnet_UsersInRoles", @"
     SELECT VALUE -- Constructing vw_aspnet_UsersInRoles
@@ -24621,7 +24898,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.UsersInRolesViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView597()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView603()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.UsersInRolesViews", @"
     SELECT VALUE -- Constructing UsersInRolesViews
@@ -24638,7 +24915,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_Paths
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView598()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView604()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_Paths", @"
     SELECT VALUE -- Constructing vw_aspnet_WebPartState_Paths
@@ -24657,7 +24934,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.WebPartState_PathsView
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView599()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView605()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.WebPartState_PathsView", @"
     SELECT VALUE -- Constructing WebPartState_PathsView
@@ -24676,7 +24953,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_Shared
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView600()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView606()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_Shared", @"
     SELECT VALUE -- Constructing vw_aspnet_WebPartState_Shared
@@ -24694,7 +24971,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.WebPartState_SharedView
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView601()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView607()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.WebPartState_SharedView", @"
     SELECT VALUE -- Constructing WebPartState_SharedView
@@ -24712,7 +24989,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_User
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView602()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView608()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.vw_aspnet_WebPartState_User", @"
     SELECT VALUE -- Constructing vw_aspnet_WebPartState_User
@@ -24731,7 +25008,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.WebPartState_UserView
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView603()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView609()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.WebPartState_UserView", @"
     SELECT VALUE -- Constructing WebPartState_UserView
@@ -24750,7 +25027,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_Company
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView604()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView610()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_VW_Company", @"
     SELECT VALUE -- Constructing X_VW_Company
@@ -24768,7 +25045,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.CompanyViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView605()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView611()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.CompanyViews", @"
     SELECT VALUE -- Constructing CompanyViews
@@ -24786,7 +25063,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_DictionaryHeader
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView606()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView612()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_VW_DictionaryHeader", @"
     SELECT VALUE -- Constructing X_VW_DictionaryHeader
@@ -24803,7 +25080,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryHeaderViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView607()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView613()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryHeaderViews", @"
     SELECT VALUE -- Constructing DictionaryHeaderViews
@@ -24820,7 +25097,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_ExperienceBasicView
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView608()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView614()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3665);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_VW_ExperienceBasicView\r\n        [XODB.Modul");
@@ -24875,7 +25152,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ExperienceBasicViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView609()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView615()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3282);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ExperienceBasicViews\r\n        [XODB.Module.Bu");
@@ -24926,7 +25203,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_License
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView610()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView616()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(5532);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_VW_License\r\n        [XODB.Module.BusinessOb");
@@ -25005,7 +25282,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.LicenseViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView611()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView617()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(5229);
             viewString.Append("\r\n    SELECT VALUE -- Constructing LicenseViews\r\n        [XODB.Module.BusinessOb");
@@ -25080,7 +25357,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_ModelsCurrent
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView612()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView618()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_VW_ModelsCurrent", "\r\n    SELECT VALUE -- Constructing X_VW_ModelsCurrent\r\n        [XODB.Module.Busin" +
                     "essObjects.Store.X_VW_ModelsCurrent](T1.[X_VW_ModelsCurrent.ProjectID], T1.[X_VW" +
@@ -25109,7 +25386,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelsCurrentViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView613()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView619()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ModelsCurrentViews", "\r\n    SELECT VALUE -- Constructing ModelsCurrentViews\r\n        [XODB.Module.Busin" +
                     "essObjects.ModelsCurrentView](T1.ModelsCurrentView_ProjectID, T1.ModelsCurrentVi" +
@@ -25137,7 +25414,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_ModelStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView614()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView620()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_VW_ModelStatus", "\r\n    SELECT VALUE -- Constructing X_VW_ModelStatus\r\n        [XODB.Module.Busines" +
                     "sObjects.Store.X_VW_ModelStatus](T1.[X_VW_ModelStatus.ProjectID], T1.[X_VW_Model" +
@@ -25165,7 +25442,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelStatusViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView615()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView621()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ModelStatusViews", "\r\n    SELECT VALUE -- Constructing ModelStatusViews\r\n        [XODB.Module.Busines" +
                     "sObjects.ModelStatusView](T1.ModelStatusView_ProjectID, T1.ModelStatusView_Proje" +
@@ -25192,7 +25469,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_ProjectModelsAwaitingAuthorisation
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView616()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView622()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_VW_ProjectModelsAwaitingAuthorisation", "\r\n    SELECT VALUE -- Constructing X_VW_ProjectModelsAwaitingAuthorisation\r\n     " +
                     "   [XODB.Module.BusinessObjects.Store.X_VW_ProjectModelsAwaitingAuthorisation](T" +
@@ -25223,7 +25500,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectModelsAwaitingAuthorisationViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView617()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView623()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProjectModelsAwaitingAuthorisationViews", "\r\n    SELECT VALUE -- Constructing ProjectModelsAwaitingAuthorisationViews\r\n     " +
                     "   [XODB.Module.BusinessObjects.ProjectModelsAwaitingAuthorisationView](T1.Proje" +
@@ -25253,7 +25530,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_ProjectStatus
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView618()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView624()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_VW_ProjectStatus", @"
     SELECT VALUE -- Constructing X_VW_ProjectStatus
@@ -25277,7 +25554,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ProjectStatusViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView619()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView625()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProjectStatusViews", @"
     SELECT VALUE -- Constructing ProjectStatusViews
@@ -25301,7 +25578,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_SurveyViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView620()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView626()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_VW_SurveyViews", @"
     SELECT VALUE -- Constructing X_VW_SurveyViews
@@ -25327,7 +25604,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.SurveyViewsViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView621()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView627()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.SurveyViewsViews", @"
     SELECT VALUE -- Constructing SurveyViewsViews
@@ -25353,7 +25630,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_WorkType
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView622()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView628()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_VW_WorkType", @"
     SELECT VALUE -- Constructing X_VW_WorkType
@@ -25372,7 +25649,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.WorkTypeViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView623()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView629()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.WorkTypeViews", @"
     SELECT VALUE -- Constructing WorkTypeViews
@@ -25391,7 +25668,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.InstancePromotedProperties
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView624()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView630()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3873);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancePromotedProperties\r\n        [XODB.Mod");
@@ -25449,7 +25726,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.InstancePromotedProperties
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView625()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView631()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3759);
             viewString.Append("\r\n    SELECT VALUE -- Constructing InstancePromotedProperties\r\n        [XODB.Mod");
@@ -25505,7 +25782,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.Instances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView626()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView632()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2534);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Instances\r\n        [XODB.Module.BusinessObjec");
@@ -25546,7 +25823,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.Instances
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView627()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView633()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2511);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Instances\r\n        [XODB.Module.BusinessObjec");
@@ -25587,7 +25864,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.ServiceDeployments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView628()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView634()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.ServiceDeployments", @"
     SELECT VALUE -- Constructing ServiceDeployments
@@ -25608,7 +25885,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ServiceDeployments
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView629()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView635()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ServiceDeployments", @"
     SELECT VALUE -- Constructing ServiceDeployments
@@ -25629,7 +25906,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.M_VW_DictionaryCompositeCoal
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView630()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView636()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.M_VW_DictionaryCompositeCoal", @"
     SELECT VALUE -- Constructing M_VW_DictionaryCompositeCoal
@@ -25648,7 +25925,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryCompositeCoalViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView631()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView637()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryCompositeCoalViews", @"
     SELECT VALUE -- Constructing DictionaryCompositeCoalViews
@@ -25667,7 +25944,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_DictionaryCompositeStandard
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView632()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView638()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_VW_DictionaryCompositeStandard", @"
     SELECT VALUE -- Constructing X_VW_DictionaryCompositeStandard
@@ -25686,7 +25963,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.DictionaryCompositeStandardViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView633()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView639()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.DictionaryCompositeStandardViews", @"
     SELECT VALUE -- Constructing DictionaryCompositeStandardViews
@@ -25705,7 +25982,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBModuleBusinessObjectsStoreContainer.X_VW_ModelPartInfo
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView634()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView640()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3459);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_VW_ModelPartInfo\r\n        [XODB.Module.Busi");
@@ -25758,7 +26035,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for XODBC.ModelPartInfoViews
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView635()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView641()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(3312);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ModelPartInfoViews\r\n        [XODB.Module.Busi");
