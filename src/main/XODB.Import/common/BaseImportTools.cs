@@ -564,22 +564,22 @@ namespace XODB.Import
             colListP = PruneColumnList(removeStubs, colList);
 
             ColumnMetaInfo ci0 = new ColumnMetaInfo();
-            ci0.columnName = "[PROCESS]";
+            ci0.columnName = "[PROGRAM]";
             ci0.fkSpec = null;
             colListP.Insert(0, ci0);
             
             ColumnMetaInfo ci2 = new ColumnMetaInfo();
-            ci2.columnName = "[SCREEN]";
+            ci2.columnName = "[STAGE]";
             ci2.fkSpec = null;
             colListP.Insert(2, ci2);
             
             ColumnMetaInfo ci3 = new ColumnMetaInfo();
-            ci3.columnName = "[FLOAT]";
+            ci3.columnName = "[SIZE FRACTION]";
             ci3.fkSpec = null;
             colListP.Insert(3, ci3);
 
             ColumnMetaInfo ci4 = new ColumnMetaInfo();
-            ci4.columnName = "[QUALITY]";
+            ci4.columnName = "[WASH FRACTION]";
             ci4.fkSpec = null;
             colListP.Insert(4, ci4);
 

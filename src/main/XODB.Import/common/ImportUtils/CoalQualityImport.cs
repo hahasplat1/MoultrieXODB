@@ -307,6 +307,8 @@ namespace XODB.Import.ImportUtils
 
                                         entityObj.Samples.AddObject(xs);
                                     }
+                                    // Now iddentify the  program, Stage, Size fraction and wash fraction
+
 
                                     // now pick out all the mapped values
                                     // iterate over all [ASSAY RESULT] columns
