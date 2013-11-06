@@ -563,26 +563,31 @@ namespace XODB.Import
             List<ColumnMetaInfo> colListP = new List<ColumnMetaInfo>();
             colListP = PruneColumnList(removeStubs, colList);
 
-            ColumnMetaInfo ci0 = new ColumnMetaInfo();
-            ci0.columnName = "[PROGRAM]";
-            ci0.fkSpec = null;
-            colListP.Insert(0, ci0);
+            ColumnMetaInfo ci5 = new ColumnMetaInfo();
+            ci5.columnName = "[RESULT]";
+            ci5.fkSpec = null;
+            colListP.Insert(0, ci5);
             
-            ColumnMetaInfo ci2 = new ColumnMetaInfo();
-            ci2.columnName = "[STAGE]";
-            ci2.fkSpec = null;
-            colListP.Insert(2, ci2);
-            
-            ColumnMetaInfo ci3 = new ColumnMetaInfo();
-            ci3.columnName = "[SIZE FRACTION]";
-            ci3.fkSpec = null;
-            colListP.Insert(3, ci3);
 
             ColumnMetaInfo ci4 = new ColumnMetaInfo();
             ci4.columnName = "[WASH FRACTION]";
             ci4.fkSpec = null;
-            colListP.Insert(4, ci4);
+            colListP.Insert(0, ci4);
 
+            ColumnMetaInfo ci3 = new ColumnMetaInfo();
+            ci3.columnName = "[SIZE FRACTION]";
+            ci3.fkSpec = null;
+            colListP.Insert(0, ci3);
+
+            ColumnMetaInfo ci2 = new ColumnMetaInfo();
+            ci2.columnName = "[STAGE]";
+            ci2.fkSpec = null;
+            colListP.Insert(0, ci2);
+
+            ColumnMetaInfo ci0 = new ColumnMetaInfo();
+            ci0.columnName = "[PROGRAM]";
+            ci0.fkSpec = null;
+            colListP.Insert(0, ci0);
 
             // now mark only the mandatory fields - for assay this will be header id, from, to and result
             foreach (ColumnMetaInfo c in colListP) {

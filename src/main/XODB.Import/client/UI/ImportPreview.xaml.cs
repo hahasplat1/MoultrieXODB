@@ -151,8 +151,22 @@ namespace XODB.Import.Client.UI
                 foreach (string req in fields) {
                     cli.Add("->"+req + " (" + rdr.dataItems[i] + ")");
                 }
-
-                columnNames.Add(rdr.dataItems[i], i);
+                if (columnNames.ContainsKey(rdr.dataItems[i]))
+                {
+                    int ctr = 1;
+                    while (true) {
+                        string newName = rdr.dataItems[i] = " (" + ctr + ")";
+                        if (!columnNames.ContainsKey(newName)) {
+                            columnNames.Add(rdr.dataItems[i], i);
+                            break;
+                        }
+                        ctr++;
+                    }
+                }
+                else
+                {
+                    columnNames.Add(rdr.dataItems[i], i);
+                }
 
                 dropDown.SelectionChanged += new SelectionChangedEventHandler(dropDown_SelectionChanged);
                 dropDown.ItemsSource = cli;

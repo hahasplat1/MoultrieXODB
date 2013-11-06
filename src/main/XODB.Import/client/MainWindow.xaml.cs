@@ -962,7 +962,7 @@ namespace XODB.Import.Client
             workerCoalQualityDataImport.RunWorkerCompleted += bw_CoalQualityImportRunWorkerCompleted;
 
 
-            workerAssayDataImport.RunWorkerAsync(importMap);
+            workerCoalQualityDataImport.RunWorkerAsync(importMap);
 
             e.Handled = true;
         }
