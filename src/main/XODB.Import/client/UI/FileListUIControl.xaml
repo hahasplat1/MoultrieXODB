@@ -11,6 +11,7 @@
         <Button Content="..." HorizontalAlignment="Left" Margin="94,26,0,0" VerticalAlignment="Top" Width="23" Click="Button_Click_1"/>
         <Button x:Name="buttonClearList" Content="Clear" HorizontalAlignment="Left" Margin="10,317,0,0" VerticalAlignment="Top" Width="37" Click="buttonClearList_Click"/>
         <Button x:Name="buttonDelItemFromList" Content="Del" HorizontalAlignment="Left" Margin="52,317,0,0" VerticalAlignment="Top" Width="38" Click="buttonDelItemFromList_Click"/>
+        <Button Content="Recursive..." HorizontalAlignment="Left" Margin="136,27,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

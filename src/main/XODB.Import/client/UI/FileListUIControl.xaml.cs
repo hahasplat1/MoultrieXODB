@@ -15,6 +15,7 @@ namespace XODB.Import.Client.UI
     public partial class FileListUIControl : UserControl
     {
         public static string lastFolder = "";
+        private List<string> fileList = new List<string>();
 
         public string GetLastFolderUsed() { return lastFolder; }
         public void SetLastFolderUsed(string lf) { lastFolder = lf; }
@@ -33,12 +34,49 @@ namespace XODB.Import.Client.UI
             System.Windows.Forms.DialogResult result = dlg.ShowDialog(this.GetIWin32Window());
             if (result == System.Windows.Forms.DialogResult.OK)
             {
+
                 string path = dlg.SelectedPath;
              //   MessageBox.Show("Path selected: " + path);
                 this.SetLastFolderUsed(path);
 
                 string[] filePaths = Directory.GetFiles(@path, "*.LAS");
                 listBoxFiles.ItemsSource = filePaths;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            fileList.Clear();
+            var dlg = new System.Windows.Forms.FolderBrowserDialog();
+            dlg.SelectedPath = GetLastFolderUsed();
+            System.Windows.Forms.DialogResult result = dlg.ShowDialog(this.GetIWin32Window());
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+
+                string path = dlg.SelectedPath;
+                //   MessageBox.Show("Path selected: " + path);
+                this.SetLastFolderUsed(path);
+
+                DirSearch(@path);
+                
+                listBoxFiles.ItemsSource = fileList.ToArray();
+            }
+        }
+
+        private void DirSearch(string dir)
+        {
+            try
+            {
+                foreach (var d in Directory.GetDirectories(dir))
+                {
+                    string[] filePaths = Directory.GetFiles(@d, "*.LAS");
+                    fileList.AddRange(filePaths);
+                    DirSearch(d);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
