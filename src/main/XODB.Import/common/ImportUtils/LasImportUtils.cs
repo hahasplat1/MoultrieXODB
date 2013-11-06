@@ -23,7 +23,7 @@ namespace XODB.Import.ImportUtils
             li = tempHoleIDa.LastIndexOf(".");
             string tempHoleID = tempHoleIDa.Substring(1, li - 1);
             int rowCounter = 0;
-            // now try and get teh hole name from a header item.  Typically the header name might be in
+            // now try and get the hole name from a header item.  Typically the header name might be in
             // WELL in the Well information header section
             string res = lasFile.LookupWellHeaderSection("WELL");
             if (res != null && res.Trim().Length > 0) {
@@ -131,7 +131,7 @@ namespace XODB.Import.ImportUtils
                 }
 
                 
-                bulkCopy.WriteToServer(geoDataList.AsDataReader());
+                bulkCopy.WriteToServerAsync(geoDataList.AsDataReader());
 
                 //entityObj.SaveChanges();
              
@@ -140,6 +140,8 @@ namespace XODB.Import.ImportUtils
             catch (Exception ex) {
                 mos.errorMessages.Add("Failed to complete import of LAS file: " + origFilename);
                 mos.errorMessages.Add("Details: " + ex.Message.ToString());
+                mos.errorMessages.Add("Inner Exception: " + ex.InnerException.Message.ToString());
+                mos.errorMessages.Add("Row: " + rowCounter);
             }
             mos.recordsAdded = rowCounter;
             

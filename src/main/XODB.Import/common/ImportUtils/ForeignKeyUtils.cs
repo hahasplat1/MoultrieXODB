@@ -11,7 +11,7 @@ namespace XODB.Import.ImportUtils
 {
     public static class ForeignKeyUtils
     {
-
+        const int dictLen = 12; //i.e. X_Dictionary
         public static string FindFKValueInDictionary(string columnValue, ColumnMap cmap, SqlConnection connection, bool genNewFK)
         {
             // first check for an empty lookup - no point in doing an empty lookup or inserting blanks into the dictionaries
@@ -30,7 +30,8 @@ namespace XODB.Import.ImportUtils
             // using typical predicatable naming
             if (fkTable == null || !fkTable.StartsWith("Dictionary"))
             {
-                string lookupColName = fkTable.Substring("".Length) + "Name";
+                string lookupColName = "Standard" + fkTable.Substring(dictLen) + "Name";
+                //string lookupColName = fkTable.Substring("".Length) + "Name";
                 string guid = FindFKValueInOther(columnValue, cmap, connection, genNewFK, lookupColName);
                 results.Add(guid);
 

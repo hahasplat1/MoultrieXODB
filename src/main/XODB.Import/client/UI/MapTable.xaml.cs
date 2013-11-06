@@ -31,6 +31,7 @@ namespace XODB.Import.Client.UI
         public string assayPrimaryTableName = "X_AssayGroup";
         public string surveyPrimaryTableName = "X_Survey";
         public string lithoPrimaryTableName = "X_Lithology";
+        public string coalqualPrimaryTableName = "X_AssayGroup";
 
 
         public static ObservableCollection<string> targetColumns { get; set; }

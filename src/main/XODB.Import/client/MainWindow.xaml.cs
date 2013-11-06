@@ -2031,7 +2031,10 @@ namespace XODB.Import.Client
 
                 groupBoxBatchLas.Visibility = Visibility.Visible;
             }
-
+            if (ButtonImportCoalQuality.IsVisible)
+            {
+                ImportDataPreview.targetMainDataType = MapConfigTable.coalqualPrimaryTableName; //.lithoPrimaryTableName;
+            }
 
             return;
         }
