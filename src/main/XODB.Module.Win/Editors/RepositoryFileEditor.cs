@@ -16,7 +16,6 @@ using DevExpress.ExpressApp.Utils;
 using DevExpress.ExpressApp;
 using System.IO;
 using System.Diagnostics;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,28 +24,7 @@ using System.Data.Common;
 using System.Runtime.Serialization;
 using DevExpress.Data.Filtering;
 using DevExpress.Data.Filtering.Helpers;
-using DevExpress.ExpressApp.DC;
-//using DevExpress.ExpressApp.DC.Xpo;
 using DevExpress.ExpressApp.Localization;
-using DevExpress.ExpressApp.Utils;
-//using DevExpress.ExpressApp.Xpo;
-using DevExpress.Persistent.Base;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
-using System.Runtime.Serialization;
-using DevExpress.Data.Filtering;
-using DevExpress.Data.Filtering.Helpers;
-using DevExpress.ExpressApp.DC;
-//using DevExpress.ExpressApp.DC.Xpo;
-using DevExpress.ExpressApp.Localization;
-using DevExpress.ExpressApp.Utils;
-//using DevExpress.ExpressApp.Xpo;
-using DevExpress.Persistent.Base;
-
 
 namespace XODB.Module.Win.Editors
 {

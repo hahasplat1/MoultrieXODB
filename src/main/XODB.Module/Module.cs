@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp;
 using System.Reflection;
 using DevExpress.ExpressApp.EF;
-using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Model;
 using XODB.Module.Extenders;
 

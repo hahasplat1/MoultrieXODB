@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Persistent.Base;
-using System;
 using System.ComponentModel;
 namespace XODB.Module.Win.Editors
 {
