@@ -25,6 +25,21 @@ namespace XODB.Module.Win.Controllers
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+            DoSend();
+        }
+
+        private void txtRecipients_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //pressing return should send the email
+            if (e.KeyChar == (Char)Keys.Return)
+            {
+                //return pressed, process the send
+                DoSend();
+            }
+        }
+
+        private void DoSend()
+        {
             if (Application != null)
                 Application.SaveModelChanges();
             try
