@@ -88,7 +88,7 @@ namespace XODB.Import.ImportUtils
                     {
                         ss1 = cm.sourceColumnName;
                     }
-                    Guid pid = FindParameterForAssayTypeName(cm.sourceColumnName);
+                    Guid pid = FindParameter("AssayTypeName", cm.sourceColumnName);
                     xt.ParameterID = pid;
                     xt.AssayTestName = ss1;
                     xt.AssayGroupID = agGuid;
@@ -371,6 +371,7 @@ namespace XODB.Import.ImportUtils
                                     agSS.AssayGroupWorkflowProcedureID = agWorkflowStage.AssayGroupWorkflowProcedureID;
                                     seqNum++;
                                     AssayGroupSubsamplePrecondition agSizeFraction = GetAssayGroupPrecondition(entityObj, sizeFraction, agSS.AssayGroupSubsampleID);
+                                    
                                     AssayGroupSubsamplePrecondition agWashFraction = GetAssayGroupPrecondition(entityObj, washFraction, agSS.AssayGroupSubsampleID);
 
                                     // now pick out all the mapped values
@@ -506,7 +507,11 @@ namespace XODB.Import.ImportUtils
                 agw.PreconditionName = preconditionName;
                 agw.AssayGroupSubsampleID = ssGuid;
                 agw.AssayGroupSubsamplePreconditionID = Guid.NewGuid();
-                agw.PreconditionParameterID = new Guid("6f49ded6-fe9b-487f-be48-eb8c88d9beef"); //Sixe mm TODO FIX
+                //TODO - make this more efficient by storing the Parameters in a dicitonary so lookup is fast rather than 
+                // hitting the DB for every record
+                Guid gParam = this.FindParameter("AssayPrecondition", preconditionName);
+                agw.PreconditionParameterID = gParam;
+                //agw.PreconditionParameterID = new Guid("6f49ded6-fe9b-487f-be48-eb8c88d9beef"); //Sixe mm TODO FIX
 
                 entityObj.AssayGroupSubsamplePreconditions.AddObject(agw);
                 entityObj.SaveChanges();
@@ -572,7 +577,10 @@ namespace XODB.Import.ImportUtils
 
         }
 
-        private Guid FindParameterForAssayTypeName(string pName)
+
+      
+
+        private Guid FindParameter(string typeName, string pName)
         {
             Guid pid = new Guid();
             Parameter xp = new Parameter();
@@ -580,7 +588,7 @@ namespace XODB.Import.ImportUtils
             using (var entityObj = new XODBC(BaseImportTools.XSTRING, null))
             {
                 bool found = false;
-                IQueryable<Parameter> res = entityObj.Parameters.Where(c => c.ParameterType.Equals("AssayTypeName") && c.ParameterName.Equals(pName));
+                IQueryable<Parameter> res = entityObj.Parameters.Where(c => c.ParameterType.Equals(typeName) && c.ParameterName.Equals(pName));
                 foreach (Parameter xx in res)
                 {
                     found = true;
@@ -592,7 +600,7 @@ namespace XODB.Import.ImportUtils
                     Parameter pp = new Parameter();
                     pid = Guid.NewGuid();
                     pp.ParameterID = pid;
-                    pp.ParameterType = "AssayTypeName";
+                    pp.ParameterType = typeName;
                     pp.ParameterName = pName;
                     pp.Description = pName;
                     pp.VersionUpdated = DateTime.UtcNow;
