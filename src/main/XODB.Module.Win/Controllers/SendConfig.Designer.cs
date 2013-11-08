@@ -67,6 +67,7 @@
             this.txtRecipients.Size = new System.Drawing.Size(347, 20);
             this.txtRecipients.StyleController = this.layoutControl1;
             this.txtRecipients.TabIndex = 5;
+            this.txtRecipients.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRecipients_KeyPress);
             // 
             // btnSend
             // 

@@ -10,12 +10,11 @@ using DevExpress.Utils.Menu;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Drawing;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+
 namespace XODB.Module.Win.Editors
 {
 	[ToolboxItem(false)]
