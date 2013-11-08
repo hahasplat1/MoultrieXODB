@@ -506,12 +506,12 @@ namespace XODB.Import
         {
             List<ColumnMetaInfo> colList = new List<ColumnMetaInfo>();
 
-            List<FKSpecification> fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "Sample");
+            List<FKSpecification> fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "X_Sample");
 
             Sample xag = new Sample();
             QueryColumnData(colList, fkList, xag);
             AssayGroupTestResult xtr = new AssayGroupTestResult();
-            fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "AssayGroupTestResult");
+            fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "X_AssayGroupTestResult");
             QueryColumnData(colList, fkList, xtr);
 
             List<string> removeStubs = new List<string>();
@@ -547,16 +547,18 @@ namespace XODB.Import
         {
             List<ColumnMetaInfo> colList = new List<ColumnMetaInfo>();
 
-            List<FKSpecification> fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "Sample");
+            List<FKSpecification> fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "X_Sample");
 
             Sample xag = new Sample();
             QueryColumnData(colList, fkList, xag);
             AssayGroupTestResult xtr = new AssayGroupTestResult();
-            fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "AssayGroupTestResult");
+            fkList = ForeignKeyUtils.QueryForeignKeyRelationships(connectionString, "X_AssayGroupTestResult");
             QueryColumnData(colList, fkList, xtr);
 
             List<string> removeStubs = new List<string>();
-            removeStubs.Add("Sample");
+            removeStubs.Add("SampleCategoryID");
+            removeStubs.Add("SampleStateID");
+            removeStubs.Add("SampleTypeID");
             removeStubs.Add("Assay");
             removeStubs.Add("Version");
             removeStubs.Add("Dict");
@@ -687,7 +689,7 @@ namespace XODB.Import
         public List<ColumnMetaInfo> GetCollarColumns(string connString)
         {
             Header ob = new Header();            
-            string tableName = "Header";
+            string tableName = "X_Header";
             List<ColumnMetaInfo> colList = this.QueryColumns(connString, ob, tableName);
 
             List<string> removeStubs = new List<string>();
@@ -729,7 +731,7 @@ namespace XODB.Import
         {
             Survey ob = new Survey();
 
-            string tableName = "Survey";
+            string tableName = "X_Survey";
 
             List<ColumnMetaInfo> colList = QueryColumns(connString, ob, tableName);
 

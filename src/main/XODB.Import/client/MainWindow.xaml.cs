@@ -860,7 +860,7 @@ namespace XODB.Import.Client
         private void OpenCoalQualityFormatCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
 
-            if (this.SelectedImportType == GeneralParameters.ASSAY)
+            if (this.SelectedImportType == GeneralParameters.COAL_QUALITY)
             {
                 e.CanExecute = true;
             }

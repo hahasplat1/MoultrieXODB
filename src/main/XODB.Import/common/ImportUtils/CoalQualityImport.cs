@@ -20,7 +20,7 @@ namespace XODB.Import.ImportUtils
                                     int batchSize, Action<string, double> UpdateStatus, int approxNumLines, 
                                     string connectionString, Guid XODBProjectID, bool checkForDuplicates, bool doImportOverwrite)
         {
-            bool commitToDB = false;
+            bool commitToDB = true;
             DateTime currentUpdateTimestamp = DateTime.UtcNow;
             // first set up an assay group object - we can do this through the edm
             using (var entityObj = new XODBC(connectionString, null))
@@ -48,7 +48,7 @@ namespace XODB.Import.ImportUtils
                 ColumnMap cmWashFraction = null;
                 foreach (ColumnMap cim in importMap.columnMap)
                 {
-                    if (cim.targetColumnName.Trim().StartsWith("[ASSAY"))
+                    if (cim.targetColumnName.Trim().StartsWith("[RESULT"))
                     {
                         // this is a test category
                         resultsColumns.Add(cim, Guid.NewGuid());
@@ -69,6 +69,7 @@ namespace XODB.Import.ImportUtils
                     {
                         cmWashFraction = cim;
                     }
+                    
                 }
                 UpdateStatus("Setting up assay tests ", 2);
 
@@ -153,11 +154,12 @@ namespace XODB.Import.ImportUtils
                     PopulateCMapShortcut("FromDepth", importMap, columnIDX);
                     PopulateCMapShortcut("ToDepth", importMap, columnIDX);
                     PopulateCMapShortcut("SampleNumber", importMap, columnIDX);
+                    PopulateCMapShortcut("SampleName", importMap, columnIDX);
                     PopulateCMapShortcut("LabSampleNumber", importMap, columnIDX);
                     PopulateCMapShortcut("LabBatchNumber", importMap, columnIDX);
                     ColumnMap headerCmap = importMap.FindItemsByTargetName("HeaderID");
                     AssayQueries assayQueries = new AssayQueries();
-
+                    int seqNum = 1;
                     if (sr != null)
                     {
                         while ((line = sr.ReadLine()) != null)
@@ -179,6 +181,7 @@ namespace XODB.Import.ImportUtils
                                 Decimal fromDepth = new Decimal(-9999999999);
                                 Decimal toDepth = new Decimal(-9999999999);
                                 string sampleNumber = null;
+                                string sampleName = null;
                                 string labBatchNumber = null;
                                 string labsampleNumber = null;
 
@@ -295,7 +298,14 @@ namespace XODB.Import.ImportUtils
                                         sampleNumber = ii;
 
                                     }
+                                    idxVal = 0;
+                                    foundEntry = columnIDX.TryGetValue("SampleName", out idxVal);
+                                    if (foundEntry)
+                                    {
+                                        string ii = items[idxVal];
+                                        sampleName = ii;
 
+                                    }
                                     idxVal = 0;
                                     foundEntry = columnIDX.TryGetValue("SampleNumber", out idxVal);
                                     if (foundEntry)
@@ -320,7 +330,9 @@ namespace XODB.Import.ImportUtils
                                     }
                                     else
                                     {
-                                        xs.SampleID = Guid.NewGuid();
+                                        xs.SampleID = Guid.NewGuid();                                        
+                                        xs.SampleName = sampleName;
+                                        xs.SampleNumber = sampleNumber;
                                         xs.FromDepth = fromDepth;
                                         xs.ToDepth = toDepth;
                                         xs.HeaderID = holeID;
@@ -353,10 +365,11 @@ namespace XODB.Import.ImportUtils
 
                                     
                                     AssayGroupWorkflow agWorkflowProgram = GetAssayGroupWorkflow(entityObj, programType, agGuid);
-                                    AssayGroupWorkflow agWorkflowStage = GetAssayGroupWorkflow(entityObj, stage, agGuid);
-
-                                    AssayGroupSubsample agSS = GetAssayGroupSubSample(entityObj, agGuid, agWorkflowProgram.WorkflowID, xs);
-
+                                    AssayGroupWorkflowProcedure agWorkflowStage = GetAssayGroupWorkflowProcedure(entityObj, stage, agWorkflowProgram.WorkflowID);
+                                    
+                                    AssayGroupSubsample agSS = GetAssayGroupSubSample(entityObj, agGuid, agWorkflowProgram.WorkflowID, xs, seqNum);
+                                    agSS.AssayGroupWorkflowProcedureID = agWorkflowStage.AssayGroupWorkflowProcedureID;
+                                    seqNum++;
                                     AssayGroupSubsamplePrecondition agSizeFraction = GetAssayGroupPrecondition(entityObj, sizeFraction, agSS.AssayGroupSubsampleID);
                                     AssayGroupSubsamplePrecondition agWashFraction = GetAssayGroupPrecondition(entityObj, washFraction, agSS.AssayGroupSubsampleID);
 
@@ -463,11 +476,13 @@ namespace XODB.Import.ImportUtils
             }
         }
 
-        private AssayGroupSubsample GetAssayGroupSubSample(XODBC entityObj, Guid agGuid, Guid? workflowID, Sample originalSample)
+        private AssayGroupSubsample GetAssayGroupSubSample(XODBC entityObj, Guid agGuid, Guid? workflowID, Sample originalSample, int seqNum)
         {
             AssayGroupSubsample agw = new AssayGroupSubsample();
             agw.AssayGroupID = agGuid;
+            agw.Sequence = seqNum;
             agw.AssayGroupSubsampleID = Guid.NewGuid();
+            agw.SampleAntecedentID = originalSample.SampleID;
             agw.AssayGroupWorkflowProcedureID = workflowID;
             agw.OriginalSample = originalSample;
             entityObj.AssayGroupSubsamples.AddObject(agw);
@@ -480,18 +495,19 @@ namespace XODB.Import.ImportUtils
         private AssayGroupSubsamplePrecondition GetAssayGroupPrecondition(XODBC entityObj, string preconditionName, Guid ssGuid)
         {
             AssayGroupSubsamplePrecondition agw = null;
-            IQueryable<AssayGroupSubsamplePrecondition> res = entityObj.AssayGroupSubsamplePreconditions.Where(c => c.PreconditionName.Trim().Equals(preconditionName.Trim()) && c.AssayGroupSubsampleID == ssGuid);
-            foreach (AssayGroupSubsamplePrecondition xx in res)
-            {
-                agw = xx;
-            }
+            //IQueryable<AssayGroupSubsamplePrecondition> res = entityObj.AssayGroupSubsamplePreconditions.Where(c => c.PreconditionName.Trim().Equals(preconditionName.Trim()) && c.AssayGroupSubsampleID == ssGuid);
+            //foreach (AssayGroupSubsamplePrecondition xx in res)
+            //{
+            //    agw = xx;
+            //}
             if (agw == null)
             {
                 agw = new AssayGroupSubsamplePrecondition();
                 agw.PreconditionName = preconditionName;
                 agw.AssayGroupSubsampleID = ssGuid;
                 agw.AssayGroupSubsamplePreconditionID = Guid.NewGuid();
-                
+                agw.PreconditionParameterID = new Guid("6f49ded6-fe9b-487f-be48-eb8c88d9beef"); //Sixe mm TODO FIX
+
                 entityObj.AssayGroupSubsamplePreconditions.AddObject(agw);
                 entityObj.SaveChanges();
 
@@ -512,7 +528,29 @@ namespace XODB.Import.ImportUtils
                 agw.AssayGroupID = assayGroupID;
                 agw.AssayGroupWorkflowID = Guid.NewGuid();
                 agw.WorkflowName = programType;
+                
                 entityObj.AssayGroupWorkflows.AddObject(agw);
+                entityObj.SaveChanges();
+
+            }
+            return agw;
+        }
+
+        private AssayGroupWorkflowProcedure GetAssayGroupWorkflowProcedure(XODBC entityObj, string stage, Guid? assayGroupWorkflowID)
+        {
+            AssayGroupWorkflowProcedure agw = null;
+            IQueryable<AssayGroupWorkflowProcedure> res = entityObj.AssayGroupWorkflowProcedures.Where(c => c.WorkflowStateName.Trim().Equals(stage.Trim()) && c.AssayGroupWorkflowID == assayGroupWorkflowID);
+            foreach (AssayGroupWorkflowProcedure xx in res)
+            {
+                agw = xx;
+            }
+            if (agw == null)
+            {
+                agw = new AssayGroupWorkflowProcedure();
+                agw.AssayGroupWorkflowID = assayGroupWorkflowID;
+                agw.AssayGroupWorkflowProcedureID = Guid.NewGuid();
+                agw.WorkflowStateName = stage;
+                entityObj.AssayGroupWorkflowProcedures.AddObject(agw);
                 entityObj.SaveChanges();
 
             }
