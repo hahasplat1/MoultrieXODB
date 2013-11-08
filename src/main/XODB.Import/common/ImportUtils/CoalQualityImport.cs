@@ -370,9 +370,9 @@ namespace XODB.Import.ImportUtils
                                     AssayGroupSubsample agSS = GetAssayGroupSubSample(entityObj, agGuid, agWorkflowProgram.WorkflowID, xs, seqNum);
                                     agSS.AssayGroupWorkflowProcedureID = agWorkflowStage.AssayGroupWorkflowProcedureID;
                                     seqNum++;
-                                    AssayGroupSubsamplePrecondition agSizeFraction = GetAssayGroupPrecondition(entityObj, sizeFraction, agSS.AssayGroupSubsampleID);
+                                    AssayGroupSubsamplePrecondition agSizeFraction = GetAssayGroupPrecondition(entityObj, sizeFraction, "Size fraction", agSS.AssayGroupSubsampleID);
                                     
-                                    AssayGroupSubsamplePrecondition agWashFraction = GetAssayGroupPrecondition(entityObj, washFraction, agSS.AssayGroupSubsampleID);
+                                    AssayGroupSubsamplePrecondition agWashFraction = GetAssayGroupPrecondition(entityObj, washFraction, "Wash fraction",  agSS.AssayGroupSubsampleID);
 
                                     // now pick out all the mapped values
                                     // iterate over all [ASSAY RESULT] columns
@@ -493,7 +493,7 @@ namespace XODB.Import.ImportUtils
             return agw;
         }
 
-        private AssayGroupSubsamplePrecondition GetAssayGroupPrecondition(XODBC entityObj, string preconditionName, Guid ssGuid)
+        private AssayGroupSubsamplePrecondition GetAssayGroupPrecondition(XODBC entityObj, string preconditionName, string preconditionType, Guid ssGuid)
         {
             AssayGroupSubsamplePrecondition agw = null;
             //IQueryable<AssayGroupSubsamplePrecondition> res = entityObj.AssayGroupSubsamplePreconditions.Where(c => c.PreconditionName.Trim().Equals(preconditionName.Trim()) && c.AssayGroupSubsampleID == ssGuid);
@@ -509,7 +509,7 @@ namespace XODB.Import.ImportUtils
                 agw.AssayGroupSubsamplePreconditionID = Guid.NewGuid();
                 //TODO - make this more efficient by storing the Parameters in a dicitonary so lookup is fast rather than 
                 // hitting the DB for every record
-                Guid gParam = this.FindParameter("AssayPrecondition", preconditionName);
+                Guid gParam = this.FindParameter("AssayPrecondition", preconditionType);
                 agw.PreconditionParameterID = gParam;
                 //agw.PreconditionParameterID = new Guid("6f49ded6-fe9b-487f-be48-eb8c88d9beef"); //Sixe mm TODO FIX
 
