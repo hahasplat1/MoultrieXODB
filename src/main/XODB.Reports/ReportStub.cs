@@ -10,7 +10,7 @@ using System.Data;
 using System.Transactions;
 using System.Data.SqlClient;
 
-namespace WindowsApplication1
+namespace XODB.Reports
 {
     public partial class ReportStub : Utils.TableReport , IReport
     {
@@ -61,9 +61,9 @@ namespace WindowsApplication1
                 using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
                     SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = new SqlConnection("Server=xodbdb;Database=XODB;Timeout=60;Persist Security Info=True;User ID=xodb_user1;Password=password;Integrated Security=False;MultipleActiveResultSets=True");
+                    cmd.Connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                     //////Get Curves
-                    cmd.CommandText = "[dbo].[X_SP_GetLocationDocs]";
+                    cmd.CommandText = "[X_SP_GetAssaysByWorkflow]";
                     //cmd.CommandText = "[dbo].[X_SP_GetAssays]";
                     cmd.CommandType = CommandType.StoredProcedure;
 

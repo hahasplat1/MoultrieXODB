@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using DevExpress.XtraReports.UI;
 
-namespace WindowsApplication1
+namespace XODB.Reports
 {
     public interface IReport
     {
