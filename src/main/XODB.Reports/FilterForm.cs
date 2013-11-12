@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraReports.UI;
 
-namespace WindowsApplication1
+namespace XODB.Reports
 {
     public partial class FilterForm : Form
     {

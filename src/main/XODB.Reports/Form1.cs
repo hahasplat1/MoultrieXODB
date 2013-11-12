@@ -9,7 +9,7 @@ using DevExpress.XtraReports.UI;
 
 using System.IO;
 
-namespace WindowsApplication1
+namespace XODB.Reports
 {
     public partial class Form1 : Form
     {

@@ -10,7 +10,7 @@ using System.Data;
 using System.Transactions;
 using System.Data.SqlClient;
 
-namespace WindowsApplication1
+namespace XODB.Reports
 {
     public partial class ReportStub : Utils.TableReport , IReport
     {
@@ -61,9 +61,9 @@ namespace WindowsApplication1
                 using (new TransactionScope(TransactionScopeOption.Suppress))
                 {
                     SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = new SqlConnection("Server=xodbdb;Database=XODB;Timeout=60;Persist Security Info=True;User ID=xodb_user1;Password=password;Integrated Security=False;MultipleActiveResultSets=True");
+                    cmd.Connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                     //////Get Curves
-                    cmd.CommandText = "[dbo].[X_SP_GetLocationDocs]";
+                    cmd.CommandText = "[X_SP_GetAssaysByWorkflow]";
                     //cmd.CommandText = "[dbo].[X_SP_GetAssays]";
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -97,17 +97,17 @@ namespace WindowsApplication1
                 //report.Parameters["ParameterProjectID"].Value = o.ProjectID;
                 //report.Parameters["ParameterUserName"].Value = o.ReportExecutedByUserName;
               
-                var tr1 = new XRTableRow { Name = "tr1" };
-                tr1.Cells.AddRange((from k in ds.Tables[0].Columns.Cast<DataColumn>() select new XRTableCell { Name = k.ColumnName, Text = k.ColumnName }).ToArray());
-                var h = new XRTable { Name = "h", LocationF = new DevExpress.Utils.PointFloat(0F, 0F), SizeF = new System.Drawing.SizeF(600.0000F, 25F), KeepTogether = true };
-                h.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] { tr1 });
-                report.Bands["Detail"].Controls.Add(h);
+                //var tr1 = new XRTableRow { Name = "tr1" };
+                //tr1.Cells.AddRange((from k in ds.Tables[0].Columns.Cast<DataColumn>() select new XRTableCell { Name = k.ColumnName, Text = k.ColumnName }).ToArray());
+                //var h = new XRTable { Name = "h", LocationF = new DevExpress.Utils.PointFloat(0F, 0F), SizeF = new System.Drawing.SizeF(600.0000F, 25F), KeepTogether = true };
+                //h.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] { tr1 });
+                //report.Bands["Detail"].Controls.Add(h);
               
-                var tr2 = new XRTableRow { Name = "tr2" };
-                tr2.Cells.AddRange((from k in ds.Tables[0].Columns.Cast<DataColumn>() select new XRTableCell { Name = string.Format("{0}_data", k.ColumnName), Text = string.Format("[{0}]",k.ColumnName) }).ToArray());
-                var t = new XRTable { Name = "t", LocationF = new DevExpress.Utils.PointFloat(0F, 0F), SizeF = new System.Drawing.SizeF(600.0000F, 25F), KeepTogether= true };
-                t.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] { tr2 });                
-                ((DetailReportBand)report.Bands["DetailReport"]).Bands["DetailBand"].Controls.Add(t);
+                //var tr2 = new XRTableRow { Name = "tr2" };
+                //tr2.Cells.AddRange((from k in ds.Tables[0].Columns.Cast<DataColumn>() select new XRTableCell { Name = string.Format("{0}_data", k.ColumnName), Text = string.Format("[{0}]",k.ColumnName) }).ToArray());
+                //var t = new XRTable { Name = "t", LocationF = new DevExpress.Utils.PointFloat(0F, 0F), SizeF = new System.Drawing.SizeF(600.0000F, 25F), KeepTogether= true };
+                //t.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] { tr2 });                
+                //((DetailReportBand)report.Bands["DetailReport"]).Bands["DetailBand"].Controls.Add(t);
               
             }
         }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
-namespace WindowsApplication1
+namespace XODB.Reports
 {
     public class Utils
     {

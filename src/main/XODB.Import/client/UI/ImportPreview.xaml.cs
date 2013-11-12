@@ -112,21 +112,24 @@ namespace XODB.Import.Client.UI
         {
             dtTMP = dt;
             // get the number of columns to display
-            int maxCols = 0;
-            firstLineIsHeader = _firstLineIsHeader;    
-            foreach (RawDataRow r in dt)
+            //int maxCols = 0;
+            firstLineIsHeader = _firstLineIsHeader;
+            /*foreach (RawDataRow r in dt)
             {
                 int ct = r.dataItems.Count;
                 
                 maxCols = Math.Max(ct, maxCols);
-            }
+            }*/
+
+            var counter = dt.Max(x => x.dataItems.Count());
 
             columnNames = new Dictionary<string, int>();
-           
+
             RawDataRow rdr = dt[0];
             List<string> newBMFieldList = new List<string>();
 
-            foreach (ColumnMetaInfo ss in bmRequiredFields) {
+            foreach (ColumnMetaInfo ss in bmRequiredFields)
+            {
                 newBMFieldList.Add(ss.columnName);
             }
             foreach (ColumnMetaInfo ss in bmOptionalFields)
@@ -135,49 +138,52 @@ namespace XODB.Import.Client.UI
             }
 
 
-            for (int i = 0; i < maxCols; i++)
+            for (int i = 0; i < counter; i++)
             {
+                bool errorinColumn = false;
                 var col1 = new DataGridTextColumn();
-           
+
                 ComboBox dropDown = new ComboBox();
                 dropDown.Width = 80;
-                dropDown.HorizontalAlignment =   HorizontalAlignment.Stretch;
+                dropDown.HorizontalAlignment = HorizontalAlignment.Stretch;
                 List<string> cli = new List<string>();
                 cli.Add(rdr.dataItems[i]);
                 cli.Add("");
                 List<string> fields = new List<string>();
                 fields = newBMFieldList;
                 // add in the optional fields
-                foreach (string req in fields) {
-                    cli.Add("->"+req + " (" + rdr.dataItems[i] + ")");
-                }
-                if (columnNames.ContainsKey(rdr.dataItems[i]))
+                foreach (string req in fields)
                 {
-                    int ctr = 1;
-                    while (true) {
-                        string newName = rdr.dataItems[i] = " (" + ctr + ")";
-                        if (!columnNames.ContainsKey(newName)) {
-                            columnNames.Add(rdr.dataItems[i], i);
-                            break;
-                        }
-                        ctr++;
-                    }
+                    cli.Add("->" + req + " (" + rdr.dataItems[i] + ")");
                 }
-                else
+
+                try
                 {
                     columnNames.Add(rdr.dataItems[i], i);
                 }
+                catch (Exception ex)
+                {
+                    if (ex is ArgumentException) //i.e. column names are probably not unique, drop out with a more useful error message
+                    {
+                        MessageBox.Show(String.Format("Column {0}, \"{1}\" in file: {2} is a duplicate, please ensure all column headings are unique, removing column for import", i, rdr.dataItems[i],
+                            ((XODB.Import.Client.MainWindow)(((System.Delegate)(this.ColumnsMapped)).Target)).SelectedFile));
+                        errorinColumn = true;
+                    }
+                }
 
-                dropDown.SelectionChanged += new SelectionChangedEventHandler(dropDown_SelectionChanged);
-                dropDown.ItemsSource = cli;
-                dropDown.SelectedValue = "";
-                    
-                col1.Header = dropDown;
-               
-                col1.Binding = new Binding("dataItems["+i+"]");
-                PreviewGrid.Columns.Add(col1);
+                if (!errorinColumn)
+                {
+                    dropDown.SelectionChanged += new SelectionChangedEventHandler(dropDown_SelectionChanged);
+                    dropDown.ItemsSource = cli;
+                    dropDown.SelectedValue = "";
+
+                    col1.Header = dropDown;
+
+                    col1.Binding = new Binding("dataItems[" + i + "]");
+                    PreviewGrid.Columns.Add(col1);
+                }
             }
-            
+
             PreviewGrid.ItemsSource = dt;
             isFileLoaded = true;
         }

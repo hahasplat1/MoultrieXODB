@@ -48,10 +48,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="XODB.Module.BusinessObjects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\XODB.Module.BusinessObjects\bin\Debug\XODB.Module.BusinessObjects.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseImportTools.cs" />
@@ -95,6 +91,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\XODB.Module.BusinessObjects\XODB.Module.BusinessObjects.csproj">
+      <Project>{380151d5-c92f-404a-8b89-b788f574d228}</Project>
+      <Name>XODB.Module.BusinessObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
