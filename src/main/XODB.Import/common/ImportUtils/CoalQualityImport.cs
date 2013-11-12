@@ -13,6 +13,7 @@ namespace XODB.Import.ImportUtils
 {
     public class CoalQualityImport
     {
+        int WorkflowProcedureSequenceNumber = 1;
 
         public CoalQualityImport() { }
 
@@ -20,6 +21,10 @@ namespace XODB.Import.ImportUtils
                                     int batchSize, Action<string, double> UpdateStatus, int approxNumLines, 
                                     string connectionString, Guid XODBProjectID, bool checkForDuplicates, bool doImportOverwrite)
         {
+            WorkflowProcedureSequenceNumber = 1;
+            Guid? lastHoleID = new Guid();
+            decimal lastFromDepth = -999999;
+            decimal lastToDepth = -999999;
             bool commitToDB = true;
             DateTime currentUpdateTimestamp = DateTime.UtcNow;
             // first set up an assay group object - we can do this through the edm
@@ -264,6 +269,14 @@ namespace XODB.Import.ImportUtils
                                             hasTo = true;
                                         }
                                     }
+
+                                    // see if the interfal has changed, wherby we will need to reset the sequence ID
+                                    if (holeID != lastHoleID) {
+                                        if (fromDepth != lastFromDepth && toDepth != lastToDepth) {
+                                            WorkflowProcedureSequenceNumber = 1;
+                                        }
+                                    }
+
                                     List<Sample> duplicateList = null;
                                     bool isDuplicateInterval = false;
                                     //if (checkForDuplicates)
@@ -365,10 +378,19 @@ namespace XODB.Import.ImportUtils
 
                                     
                                     AssayGroupWorkflow agWorkflowProgram = GetAssayGroupWorkflow(entityObj, programType, agGuid);
-                                    AssayGroupWorkflowProcedure agWorkflowStage = GetAssayGroupWorkflowProcedure(entityObj, stage, agWorkflowProgram.WorkflowID);
-                                    
-                                    AssayGroupSubsample agSS = GetAssayGroupSubSample(entityObj, agGuid, agWorkflowProgram.WorkflowID, xs, seqNum);
+                                    AssayGroupWorkflowProcedure agWorkflowStage = GetAssayGroupWorkflowProcedure(entityObj, stage, agWorkflowProgram);
+
+
+                                    AssayGroupSubsample agSS = new AssayGroupSubsample();
+                                    agSS.AssayGroupID = agGuid;
+                                    agSS.Sequence = seqNum;
+                                    agSS.AssayGroupSubsampleID = Guid.NewGuid();
+                                    agSS.SampleAntecedentID = xs.SampleID;
+                                    agSS.OriginalSample = xs;
                                     agSS.AssayGroupWorkflowProcedureID = agWorkflowStage.AssayGroupWorkflowProcedureID;
+                                    agSS.AssayGroupWorkflowProcedure = agWorkflowStage;
+                                    entityObj.AssayGroupSubsamples.AddObject(agSS);
+                                    entityObj.SaveChanges();
                                     seqNum++;
                                     AssayGroupSubsamplePrecondition agSizeFraction = GetAssayGroupPrecondition(entityObj, sizeFraction, "Size fraction", agSS.AssayGroupSubsampleID);
                                     
@@ -477,21 +499,14 @@ namespace XODB.Import.ImportUtils
             }
         }
 
-        private AssayGroupSubsample GetAssayGroupSubSample(XODBC entityObj, Guid agGuid, Guid? workflowID, Sample originalSample, int seqNum)
-        {
-            AssayGroupSubsample agw = new AssayGroupSubsample();
-            agw.AssayGroupID = agGuid;
-            agw.Sequence = seqNum;
-            agw.AssayGroupSubsampleID = Guid.NewGuid();
-            agw.SampleAntecedentID = originalSample.SampleID;
-            agw.AssayGroupWorkflowProcedureID = workflowID;
-            agw.OriginalSample = originalSample;
-            entityObj.AssayGroupSubsamples.AddObject(agw);
-            entityObj.SaveChanges();
+        //private AssayGroupSubsample GetAssayGroupSubSample(XODBC entityObj, Guid agGuid, Guid? workflowID, Sample originalSample, int seqNum)
+        //{
+            
+            
 
             
-            return agw;
-        }
+        //    return agw;
+        //}
 
         private AssayGroupSubsamplePrecondition GetAssayGroupPrecondition(XODBC entityObj, string preconditionName, string preconditionType, Guid ssGuid)
         {
@@ -532,8 +547,7 @@ namespace XODB.Import.ImportUtils
                 agw = new AssayGroupWorkflow();
                 agw.AssayGroupID = assayGroupID;
                 agw.AssayGroupWorkflowID = Guid.NewGuid();
-                agw.WorkflowName = programType;
-                
+                agw.WorkflowName = programType;                
                 entityObj.AssayGroupWorkflows.AddObject(agw);
                 entityObj.SaveChanges();
 
@@ -541,20 +555,25 @@ namespace XODB.Import.ImportUtils
             return agw;
         }
 
-        private AssayGroupWorkflowProcedure GetAssayGroupWorkflowProcedure(XODBC entityObj, string stage, Guid? assayGroupWorkflowID)
+        private AssayGroupWorkflowProcedure GetAssayGroupWorkflowProcedure(XODBC entityObj, string stage, AssayGroupWorkflow assayGroupWorkflow)
         {
             AssayGroupWorkflowProcedure agw = null;
-            IQueryable<AssayGroupWorkflowProcedure> res = entityObj.AssayGroupWorkflowProcedures.Where(c => c.WorkflowStateName.Trim().Equals(stage.Trim()) && c.AssayGroupWorkflowID == assayGroupWorkflowID);
+            IQueryable<AssayGroupWorkflowProcedure> res = entityObj.AssayGroupWorkflowProcedures.Where(c => c.WorkflowStateName.Trim().Equals(stage.Trim()) && c.AssayGroupWorkflowID == assayGroupWorkflow.AssayGroupWorkflowID);
             foreach (AssayGroupWorkflowProcedure xx in res)
             {
                 agw = xx;
             }
             if (agw == null)
             {
+                
                 agw = new AssayGroupWorkflowProcedure();
-                agw.AssayGroupWorkflowID = assayGroupWorkflowID;
+                agw.AssayGroupWorkflowID = assayGroupWorkflow.AssayGroupWorkflowID;
+                agw.AssayGroupWorkflow = assayGroupWorkflow;
                 agw.AssayGroupWorkflowProcedureID = Guid.NewGuid();
                 agw.WorkflowStateName = stage;
+                agw.Sequence = WorkflowProcedureSequenceNumber;
+                
+                WorkflowProcedureSequenceNumber++;
                 entityObj.AssayGroupWorkflowProcedures.AddObject(agw);
                 entityObj.SaveChanges();
 
