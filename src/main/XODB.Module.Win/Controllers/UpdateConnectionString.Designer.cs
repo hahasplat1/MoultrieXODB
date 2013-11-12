@@ -67,6 +67,7 @@
             this.txtXString.Size = new System.Drawing.Size(355, 20);
             this.txtXString.StyleController = this.layoutControl1;
             this.txtXString.TabIndex = 5;
+            this.txtXString.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtXString_KeyPress);
             // 
             // btnUpdate
             // 
