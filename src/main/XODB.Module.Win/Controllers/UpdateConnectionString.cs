@@ -30,6 +30,21 @@ namespace XODB.Module.Win.Controllers
       
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            DoUpdate();
+        }
+
+        private void txtXString_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //pressing return should send the email
+            if (e.KeyChar == (Char)Keys.Return)
+            {
+                //return pressed, process the send
+                DoUpdate();
+            }
+        }
+
+        private bool DoUpdate()
+        {
             if (Application != null)
                 Application.SaveModelChanges();
             try
@@ -40,9 +55,13 @@ namespace XODB.Module.Win.Controllers
                 config.Save();
                 System.Diagnostics.Process.Start(System.Windows.Forms.Application.ExecutablePath);
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
+                return true;
             }
             //Do nothing if it fails
-            catch { }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
