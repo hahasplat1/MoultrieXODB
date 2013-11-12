@@ -23,6 +23,7 @@ namespace XODB.Import.ImportUtils
         {
             WorkflowProcedureSequenceNumber = 1;
             Guid? lastHoleID = new Guid();
+            string lastStage = "";
             decimal lastFromDepth = -999999;
             decimal lastToDepth = -999999;
             bool commitToDB = true;
@@ -270,12 +271,7 @@ namespace XODB.Import.ImportUtils
                                         }
                                     }
 
-                                    // see if the interfal has changed, wherby we will need to reset the sequence ID
-                                    if (holeID != lastHoleID) {
-                                        if (fromDepth != lastFromDepth && toDepth != lastToDepth) {
-                                            WorkflowProcedureSequenceNumber = 1;
-                                        }
-                                    }
+                                    
 
                                     List<Sample> duplicateList = null;
                                     bool isDuplicateInterval = false;
@@ -376,7 +372,24 @@ namespace XODB.Import.ImportUtils
                                         washFraction = items[cmWashFraction.sourceColumnNumber];
                                     }
 
-                                    
+                                    // see if the interfal has changed, wherby we will need to reset the sequence ID
+                                    if (holeID != lastHoleID)
+                                    {
+                                        if (fromDepth != lastFromDepth && toDepth != lastToDepth)
+                                        {
+                                            // new interval
+                                            WorkflowProcedureSequenceNumber = 1;
+                                        }
+                                        
+                                    }
+                                    if (!stage.Trim().Equals(lastStage))
+                                    {
+                                        WorkflowProcedureSequenceNumber = 1;
+                                    }
+                                    lastHoleID = holeID;
+                                    lastFromDepth = fromDepth;
+                                    lastToDepth = toDepth;
+                                    lastStage = stage;
                                     AssayGroupWorkflow agWorkflowProgram = GetAssayGroupWorkflow(entityObj, programType, agGuid);
                                     AssayGroupWorkflowProcedure agWorkflowStage = GetAssayGroupWorkflowProcedure(entityObj, stage, agWorkflowProgram);
 
@@ -558,13 +571,13 @@ namespace XODB.Import.ImportUtils
         private AssayGroupWorkflowProcedure GetAssayGroupWorkflowProcedure(XODBC entityObj, string stage, AssayGroupWorkflow assayGroupWorkflow)
         {
             AssayGroupWorkflowProcedure agw = null;
-            IQueryable<AssayGroupWorkflowProcedure> res = entityObj.AssayGroupWorkflowProcedures.Where(c => c.WorkflowStateName.Trim().Equals(stage.Trim()) && c.AssayGroupWorkflowID == assayGroupWorkflow.AssayGroupWorkflowID);
-            foreach (AssayGroupWorkflowProcedure xx in res)
-            {
-                agw = xx;
-            }
-            if (agw == null)
-            {
+            //IQueryable<AssayGroupWorkflowProcedure> res = entityObj.AssayGroupWorkflowProcedures.Where(c => c.WorkflowStateName.Trim().Equals(stage.Trim()) && c.AssayGroupWorkflowID == assayGroupWorkflow.AssayGroupWorkflowID);
+            //foreach (AssayGroupWorkflowProcedure xx in res)
+            //{
+            //    agw = xx;
+            //}
+            //if (agw == null)
+            //{
                 
                 agw = new AssayGroupWorkflowProcedure();
                 agw.AssayGroupWorkflowID = assayGroupWorkflow.AssayGroupWorkflowID;
@@ -577,7 +590,7 @@ namespace XODB.Import.ImportUtils
                 entityObj.AssayGroupWorkflowProcedures.AddObject(agw);
                 entityObj.SaveChanges();
 
-            }
+            //}
             return agw;
         }
 
