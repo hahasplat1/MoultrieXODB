@@ -551,11 +551,52 @@ namespace XODB.Import.ImportUtils
         private List<string> parseTestLine(string ln, char delim)
         {
             string[] items = ln.Split(new char[] { delim }, StringSplitOptions.None);
-            return new List<string>(items);
 
+            if (ln.Contains("\""))
+            {
+                List<string> templist = new List<string>();
+                string tempstring = "";
+                //int count = 0;
+                bool insideQuotes = false;
+                bool endQuotes = false;
+
+                for (int i = 0; i < items.Count(); i++) //quick dirty approximate count
+                {
+                    //we know we have quotes inside the line, iterate through each item in the items array and add to templist
+                    //count++;
+                    if (items[i].Contains("\"") || insideQuotes)
+                    {
+                        if (!insideQuotes)
+                        {
+                            templist.Add(items[i]);
+                            templist[templist.Count - 1] += ",";
+                        }
+                        else
+                        {
+                            tempstring += items[i];
+                            if (!items[i].Contains("\""))
+                                tempstring += ",";
+                        }
+
+                        if (items[i].Contains("\"") && insideQuotes)
+                        {
+                            insideQuotes = false;
+                            templist[templist.Count - 1] += tempstring;
+                            endQuotes = true;
+                        }
+
+                        if (!endQuotes)
+                        {
+                            insideQuotes = true;
+                        }
+
+                    }
+                    else
+                        templist.Add(items[i]);
+                }
+                items = templist.ToArray();
+            }
+            return items.ToList<string>();
         }
-
-
-        
     }
 }

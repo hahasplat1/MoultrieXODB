@@ -298,19 +298,60 @@ namespace XODB.Import.Client.IO
 
         private void ParseLineIntoColumns(int recordNumber, string line, int numColumns)
         {
-            
+            //check here to see if the line contains any quotes "", if so change the way the split operates
+            string[] items = line.Split(splitArray, StringSplitOptions.None); ;
+            if (line.Contains("\""))
+            {
+                List<string> templist = new List<string>();
+                string tempstring = "";
+                //int count = 0;
+                bool insideQuotes = false;
+                bool endQuotes = false;
 
-            string[] items = line.Split(splitArray, StringSplitOptions.None);
+                for (int i = 0; i < items.Count(); i++) //quick dirty approximate count
+                {
+                    //we know we have quotes inside the line, iterate through each item in the items array and add to templist
+                    //count++;
+                    if (items[i].Contains("\"") || insideQuotes)
+                    {
+                        if (!insideQuotes)
+                        {
+                            templist.Add(items[i]);
+                            templist[templist.Count - 1] += ",";
+                        }
+                        else
+                        {
+                            tempstring += items[i];
+                            if (!items[i].Contains("\""))
+                                tempstring += ",";
+                        }
+
+                        if (items[i].Contains("\"") && insideQuotes)
+                        {
+                            insideQuotes = false;
+                            templist[templist.Count - 1] += tempstring;
+                            endQuotes = true;
+                        }
+
+                        if (!endQuotes)
+                        {
+                            insideQuotes = true;
+                        }
+
+                    }
+                    else
+                        templist.Add(items[i]);
+                }
+            }
+
             int columnIndex = 0;
             columnManager.AddIndexColumn(recordNumber);
-            foreach (string s in items) {     
-           
+            foreach (string s in items)
+            {
+
                 columnManager.AddDataPointToColumn(s, columnIndex, recordNumber);
                 columnIndex++;
             }
-
-        
-   
         }
 
         public string GetColumnStats() {
