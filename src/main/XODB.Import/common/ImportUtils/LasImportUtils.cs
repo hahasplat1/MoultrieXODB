@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using XODB.Module.BusinessObjects;
 using Xstract.Import.LAS;
@@ -48,7 +49,7 @@ namespace XODB.Import.ImportUtils
                 {
                     xG.HeaderID = holeGuid;
                 }
-                Guid unitGuid = new Guid("2395DE56-8F6F-4B0C-806C-DD2606B9902B");
+                Guid unitGuid = new Guid("2395DE56-8F6F-4B0C-806C-DD2606B9902B"); //FIXME: Magic Number
                 UnitQueries uq = new UnitQueries();
                 DictionaryUnit xu = uq.FindUnits("m");
                 if (xu != null)
@@ -56,10 +57,36 @@ namespace XODB.Import.ImportUtils
                     unitGuid = xu.UnitID;
                 }
                 xG.DimensionUnitID = unitGuid;
+                xG.LasVersion = string.Format("{0:N1}",lasFile.versionValue);
+                xG.LasWrap = lasFile.versionWrap;
+                xG.LasNullValue = string.Format("{0:N2}",lasFile.nullValue);
+
+                FileData fD = new FileData();
+                FileStream sr = null;
+                try
+                {
+                    sr = new FileStream(lasFile.filePath, FileMode.Open);
+                }
+                catch (FileNotFoundException fex)
+                {
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+                XODB.Module.BusinessObjects.File F = new XODB.Module.BusinessObjects.File();
+                F.LoadFromStream(lasFile.FileName(), sr);
+                Guid fGUID = Guid.NewGuid();
+                fD.FileDataID = fGUID;
+                fD.ReferenceID = gg;
+                fD.TableType = "X_Geophysics";
+                fD.FileInfo = F;
+                fD.FileName = F.FileName;
+                xG.FileData = fD;
 
                 entityObj.Geophysics.AddObject(xG);
-
-
 
                 Dictionary<string, Guid> metaDataIDLookup = new Dictionary<string, Guid>();
                 // here we need to add a GeophysicsMetadata item for each column

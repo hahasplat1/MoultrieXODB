@@ -81,6 +81,7 @@ namespace Xstract.Import.LAS
             try
             {
                 sr = new StreamReader(inputFile);
+                res.filePath = inputFile;
             }
             catch (FileNotFoundException fex)
             {
@@ -248,16 +249,16 @@ namespace Xstract.Import.LAS
 
                                     }
                                 }
-
-                                if (line.Trim().StartsWith("WRAP."))
+                                else if (line.Trim().StartsWith("WRAP."))
                                 {
-                                    // parse the line to get the null value
+                                    // parse the line to get the wrap value
                                     try
                                     {
                                         int idx = line.IndexOf('.');
                                         int endIdx = line.IndexOf(':');
                                         string leftOver = line.Substring(idx + 1, endIdx - idx - 1);
                                         string wrap = leftOver.Trim();
+                                        res.versionWrap = wrap;
                                         if (wrap.ToUpper().Equals("YES"))
                                         {
                                             errorInfo.Add("The selected LAS file has WRAP set to 'YES'.  This feature is not supported by this software, LAS files must have one depth step per line.");
@@ -265,6 +266,7 @@ namespace Xstract.Import.LAS
                                     }
                                     catch (Exception ex)
                                     {
+
                                     }
                                 }
 

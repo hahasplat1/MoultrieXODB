@@ -17,10 +17,23 @@ namespace Xstract.Import.LAS
         public LASHeaderSection VersionHeaders = new LASHeaderSection();
         public LASHeaderSection ParameterHeaders = new LASHeaderSection();
 
-        public string filename { get; set; }
+        //public string filename { get; set; }
 
         public double nullValue = -99999.0;
         public double versionValue = 2.0;
+        public string versionWrap = "NO";
+        public string filePath = "";
+        
+        public string FileName()
+        {
+            string fname = "";
+
+            if (this.filePath != "")
+            {
+                fname = this.filePath.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries).LastOrDefault();
+            }
+            return fname;
+        }
 
         public List<string> errorDetails { get; set; }
 
