@@ -304,13 +304,13 @@ namespace XODB.Import.Client
                     var bulkCopy = new SqlBulkCopy(BaseImportTools.XSTRING);
                     if (x1.GetType() == typeof(List<FileData>))
                     {
-                        //tableType = "X_FileData";
-                        //var tableReader = (List<FileData>)x1;
-                        //bulkCopy.DestinationTableName = tableType;
-                        //bulkCopy.WriteToServer(tableReader.AsDataReader());
-                        var entityObj = new XODBC(BaseImportTools.XSTRING, null, false);
-                        entityObj.FileDatas.AddObject(((List<FileData>)x1).First());
-                        entityObj.SaveChanges();
+                        tableType = "X_FileData";
+                        var tableReader = (List<FileData>)x1;
+                        bulkCopy.DestinationTableName = tableType;
+                        bulkCopy.WriteToServer(tableReader.AsDataReader());
+                        //var entityObj = new XODBC(BaseImportTools.XSTRING, null, false);
+                        //entityObj.FileDatas.AddObject(((List<FileData>)x1).First());
+                        //entityObj.SaveChanges();
                     }
                     else if (x1.GetType() == typeof(List<Geophysics>))
                     {

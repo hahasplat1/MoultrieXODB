@@ -88,7 +88,7 @@ namespace XODB.Import.ImportUtils
                 fD.TableType = "X_Geophysics";
                 fD.FileInfo = F;
                 fD.FileName = F.FileName;
-                fD.FileChecksum = Hash.ComputeHash(sr);
+                fD.FileChecksum = Hash.ComputeHash(fD.FileBytes);
                 fD.MimeType = MimeTypes.MimeTypeHelper.GetMimeTypeByFileName(fD.FileName);
                 xG.OriginalFileDataID = fD.FileDataID;
                 physDataList.Add(xG);
