@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xstract.Import.LAS;
+using System.Data.Objects.DataClasses;
 
 namespace XODB.Import.Client.Processing
 {
@@ -18,12 +19,13 @@ namespace XODB.Import.Client.Processing
         }
 
 
-        public string ProcessLASFile(LASFile lasFile, string origFilename, ModelImportStatus mis, Guid currentProjectID, BackgroundWorker backgroundWorker)
+        public List<object> ProcessLASFile(LASFile lasFile, string origFilename, ModelImportStatus mis, Guid currentProjectID, BackgroundWorker backgroundWorker)
         {
 
             BaseImportTools bit = new BaseImportTools();
-            bit.ImportLasFile(lasFile, origFilename, mis, currentProjectID, backgroundWorker);
-            return "";
+            List<object> data = new List<object>();
+            data = bit.ImportLasFile(lasFile, origFilename, mis, currentProjectID, backgroundWorker);
+            return data;
         
         }
 

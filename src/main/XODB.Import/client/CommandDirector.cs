@@ -1,6 +1,5 @@
 ﻿using XODB.Import.Client.IO;
 using XODB.Import.Client.Processing;
-using XODB.Import.Client.IO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,8 +10,13 @@ using System.Threading.Tasks;
 using XODB.Import;
 using XODB.Import.DataWrappers;
 using XODB.Import.FormatSpecification;
-using XODB.Import.Client.Processing;
 using Xstract.Import.LAS;
+using System.Data.Objects.DataClasses;
+using System.Data.SqlClient;
+using System.Data;
+using XODB.Module.BusinessObjects;
+using Microsoft.Samples.EntityDataReader;
+
 
 namespace XODB.Import.Client
 {
@@ -204,8 +208,12 @@ namespace XODB.Import.Client
             int fileCount = filePaths.Length;
             int thisFileNum = 0;
 
+            var dataDict = new Dictionary<string, List<object>>();
+            int holeCount = 0;
+
             foreach (string file in filePaths)
-            { 
+            {
+                var data = new List<object>();
                 double pct = ((double)thisFileNum / (double)fileCount) * 100.0;
                 thisFileNum++; 
                
@@ -227,13 +235,13 @@ namespace XODB.Import.Client
                     continue;
                 }
 
-                string msg = ll.ProcessLASFile(lf, file, mis, currentProjectID, this.backgroundWorker);
+                data = ll.ProcessLASFile(lf, file, mis, currentProjectID, this.backgroundWorker);
+                string msg = "";
                 if (msg != null)
                 {
                     messages.Add(msg);
                     report += msg + "\n";
                     failCount++;
-
                 }
                 else
                 {
@@ -241,9 +249,22 @@ namespace XODB.Import.Client
                 }
 
                 mosList.Add(file, mis);
+                dataDict.Add(file, data);
 
+                if (thisFileNum % 5 == 0 || (filePaths.Length-thisFileNum) < 1) //FIXME magic number, should look at used memory and make a choice on that
+                {
+                    //insert into DB to avoid memory issues
+                    var subdict = dataDict;
+                    dataDict = new Dictionary<string, List<object>>();
+
+                    this.PushToDB(subdict);
+                    subdict = null;
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+
+                }
             }
-
+            
             string finalReport = "Immport status:\nFiles imported:" + importCount + "\nFailed files:" + failCount + "\n\nMessages:\n";
 
             finalReport += report;
@@ -256,9 +277,7 @@ namespace XODB.Import.Client
                 totLinesReadCount += ms.linesReadFromSource;
                 if (ms.finalErrorCode != ModelImportStatus.OK) {
                     finalStatus.finalErrorCode = ModelImportStatus.GENERAL_LOAD_ERROR;
-
                 }
-
                 foreach (string m in ms.warningMessages) {
                     finalStatus.warningMessages.Add(m);
                 }
@@ -266,10 +285,7 @@ namespace XODB.Import.Client
                 {
                     finalStatus.errorMessages.Add(m);
                 }
-
-            
             }
-
             finalStatus.linesReadFromSource = totLinesReadCount;
             finalStatus.recordsAdded = totRecordsAddedCount;
 
@@ -277,6 +293,63 @@ namespace XODB.Import.Client
 
         }
 
+        private void PushToDB(Dictionary<string, List<object>> dataDict)
+        {
+            //push data to DB
+            foreach (var f in dataDict)
+            {
+                foreach (object x1 in f.Value)
+                {
+                    string tableType = "";
+                    var bulkCopy = new SqlBulkCopy(BaseImportTools.XSTRING);
+                    if (x1.GetType() == typeof(List<Geophysics>))
+                    {
+                        tableType = "X_Geophysics";
+                        var tableReader = (List<Geophysics>)x1;
+                        bulkCopy.DestinationTableName = tableType;
+                        bulkCopy.WriteToServer(tableReader.AsDataReader());
+                    }
+                    else if (x1.GetType() == typeof(List<FileData>))
+                    {
+                        //tableType = "X_FileData";
+                        //var tableReader = (List<FileData>)x1;
+                        //bulkCopy.DestinationTableName = tableType;
+                        //bulkCopy.WriteToServer(tableReader.AsDataReader());
+                        var entityObj = new XODBC(BaseImportTools.XSTRING, null, false);
+                        entityObj.FileDatas.AddObject(((List<FileData>)x1).First());
+                        entityObj.SaveChanges();
+                    }
+                    else if (x1.GetType() == typeof(List<DictionaryUnit>))
+                    {
+                        tableType = "X_DictionaryUnit";
+                        var tableReader = (List<DictionaryUnit>)x1;
+                        bulkCopy.DestinationTableName = tableType;
+                        bulkCopy.WriteToServer(tableReader.AsDataReader());
+                    }
+                    else if (x1.GetType() == typeof(List<Parameter>))
+                    {
+                        tableType = "X_Parameter";
+                        var tableReader = (List<Parameter>)x1;
+                        bulkCopy.DestinationTableName = tableType;
+                        bulkCopy.WriteToServer(tableReader.AsDataReader());
+                    }
+                    else if (x1.GetType() == typeof(List<GeophysicsMetadata>))
+                    {
+                        tableType = "X_GeophysicsMetadata";
+                        var tableReader = (List<GeophysicsMetadata>)x1;
+                        bulkCopy.DestinationTableName = tableType;
+                        bulkCopy.WriteToServer(tableReader.AsDataReader());
+                    }
+                    else if (x1.GetType() == typeof(List<GeophysicsData>))
+                    {
+                        tableType = "X_GeophysicsData";
+                        var tableReader = (List<GeophysicsData>)x1;
+                        bulkCopy.DestinationTableName = tableType;
+                        bulkCopy.WriteToServer(tableReader.AsDataReader());
+                    }
+                }
+            }
+        }
         internal int GetXODBVersion()
         {
             BaseImportTools bit = new BaseImportTools();

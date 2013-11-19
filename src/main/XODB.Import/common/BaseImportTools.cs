@@ -858,14 +858,15 @@ namespace XODB.Import
             return collars;
         }
 
-        public void ImportLasFile(Xstract.Import.LAS.LASFile lasFile, string origFilename, ModelImportStatus mos, Guid currentProjectID, System.ComponentModel.BackgroundWorker backgroundWorker)
+        public List<object> ImportLasFile(Xstract.Import.LAS.LASFile lasFile, string origFilename, ModelImportStatus mos, Guid currentProjectID, System.ComponentModel.BackgroundWorker backgroundWorker)
         {
             this.currentWorker = backgroundWorker;
             // get the pre holeID from the filename
+            List<object> data = new List<object>();
             LasImportUtils liu = new LasImportUtils();
-            liu.ImportLASFile(lasFile, origFilename, mos, currentProjectID, UpdateStatus);
+            data = liu.ImportLASFile(lasFile, origFilename, mos, currentProjectID, UpdateStatus);
 
-          
+            return data;
         }
     }
 
