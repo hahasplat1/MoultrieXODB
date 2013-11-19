@@ -90,7 +90,7 @@ namespace XODB.Import.ImportUtils
                 fD.FileName = F.FileName;
                 fD.FileChecksum = Hash.ComputeHash(sr);
                 fD.MimeType = MimeTypes.MimeTypeHelper.GetMimeTypeByFileName(fD.FileName);
-                //xG.FileData = fD;
+                xG.OriginalFileDataID = fD.FileDataID;
                 physDataList.Add(xG);
                 fdDataList.Add(fD);
                 //fDataList.Add(F);
@@ -206,9 +206,9 @@ namespace XODB.Import.ImportUtils
                 //async here as all prereqs should be inplace, blast the data in, need to handle this better on program exit
                 //on exit test that all waiting sql server threads have completed
                 //bulkCopyData.WriteToServerAsync(geoDataList.AsDataReader());
-                
-                dataList.Add(physDataList.ToList());
+
                 dataList.Add(fdDataList);
+                dataList.Add(physDataList.ToList());
                 dataList.Add(unitDataList);
                 dataList.Add(paramDataList);
                 dataList.Add(metaDataList);

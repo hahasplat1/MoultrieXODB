@@ -67,6 +67,7 @@
     <Compile Include="LAS\LASFile.cs" />
     <Compile Include="LAS\LASFileReader.cs" />
     <Compile Include="LAS\LASHeaderSection.cs" />
+    <Compile Include="MimeTypes\MimeTypeHelper.cs" />
     <Compile Include="ModelImportStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ImportUtils\AssayImport.cs" />

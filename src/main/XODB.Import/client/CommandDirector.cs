@@ -302,14 +302,7 @@ namespace XODB.Import.Client
                 {
                     string tableType = "";
                     var bulkCopy = new SqlBulkCopy(BaseImportTools.XSTRING);
-                    if (x1.GetType() == typeof(List<Geophysics>))
-                    {
-                        tableType = "X_Geophysics";
-                        var tableReader = (List<Geophysics>)x1;
-                        bulkCopy.DestinationTableName = tableType;
-                        bulkCopy.WriteToServer(tableReader.AsDataReader());
-                    }
-                    else if (x1.GetType() == typeof(List<FileData>))
+                    if (x1.GetType() == typeof(List<FileData>))
                     {
                         //tableType = "X_FileData";
                         //var tableReader = (List<FileData>)x1;
@@ -318,6 +311,13 @@ namespace XODB.Import.Client
                         var entityObj = new XODBC(BaseImportTools.XSTRING, null, false);
                         entityObj.FileDatas.AddObject(((List<FileData>)x1).First());
                         entityObj.SaveChanges();
+                    }
+                    else if (x1.GetType() == typeof(List<Geophysics>))
+                    {
+                        tableType = "X_Geophysics";
+                        var tableReader = (List<Geophysics>)x1;
+                        bulkCopy.DestinationTableName = tableType;
+                        bulkCopy.WriteToServer(tableReader.AsDataReader());
                     }
                     else if (x1.GetType() == typeof(List<DictionaryUnit>))
                     {

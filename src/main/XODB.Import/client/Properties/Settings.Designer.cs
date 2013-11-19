@@ -25,7 +25,7 @@ namespace XODB.Import.Client.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("G:\\Projects\\Shandong RMT\\02 EPC890 Rocklands Project\\01 Historic\\LAS")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
         public string LasDirOpened {
             get {
                 return ((string)(this["LasDirOpened"]));
