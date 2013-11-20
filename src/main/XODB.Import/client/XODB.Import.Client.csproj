@@ -76,6 +76,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\..\..\..\deps\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="ImpromptuInterface">
+      <HintPath>..\..\XODB.Orchard\lib\impromptu-interface-bin\ImpromptuInterface.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />

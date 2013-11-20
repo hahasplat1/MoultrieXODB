@@ -40,7 +40,7 @@ namespace XODB.Module.BusinessObjects
     }
 
     [FileAttachmentAttribute("FileInfo")]
-    public partial class FileData : IFileData
+    public partial class FileData : DevExpress.Persistent.Base.IFileData
     {
         File fFile;
         [Size(SizeAttribute.Unlimited)]
@@ -83,9 +83,9 @@ namespace XODB.Module.BusinessObjects
             stream.Write(FileBytes, 0, FileBytes.Length);
         }
     }
-    
-    
-    public partial class File : IFileData
+
+
+    public partial class File : DevExpress.Persistent.Base.IFileData
     {
 
         

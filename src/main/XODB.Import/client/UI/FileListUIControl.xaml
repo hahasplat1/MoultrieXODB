@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Margin="0,0,0,-51">
-        <ListBox x:Name="listBoxFiles" HorizontalAlignment="Stretch" Height="225" Margin="0,65,0,0" VerticalAlignment="Top" />
+        <ListBox x:Name="listBoxFiles" HorizontalAlignment="Stretch" Height="225" Margin="0,65,0,0" VerticalAlignment="Top" SelectionMode="Extended" PreviewKeyUp="listBoxFiles_PreviewKeyUp"/>
         <Label Content="Select folder:" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top"/>
         <Button Content="..." HorizontalAlignment="Left" Margin="94,26,0,0" VerticalAlignment="Top" Width="23" Click="Button_Click_1"/>
         <Button x:Name="buttonClearList" Content="Clear" HorizontalAlignment="Left" Margin="10,317,0,0" VerticalAlignment="Top" Width="37" Click="buttonClearList_Click"/>

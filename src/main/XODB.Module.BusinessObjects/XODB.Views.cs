@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsF5471E6CEE7DFA8970503A2A6692CF0D9000BC12BDA261604759BA9ADFD9F869))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets3CCBD77C0E9521C1FF1E63CA32B9C7A9F600C66873FD14B40D27B597B1AED2BD))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySetsF5471E6CEE7DFA8970503A2A6692CF0D9000BC12BDA261604759BA9ADFD9F869 : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets3CCBD77C0E9521C1FF1E63CA32B9C7A9F600C66873FD14B40D27B597B1AED2BD : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySetsF5471E6CEE7DFA8970503A2A6692CF0D9000BC12BDA261604759BA9ADFD9F869()
+        public ViewsForBaseEntitySets3CCBD77C0E9521C1FF1E63CA32B9C7A9F600C66873FD14B40D27B597B1AED2BD()
         {
             this.EdmEntityContainerName = "XODBC";
             this.StoreEntityContainerName = "XODBModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "616471f501cd5594a7626919a2c32aa759979c86aa9cac6e8f8288c1ed143a5f";
-            this.HashOverAllExtentViews = "3837c35a6bb8794f215a3b70bd6d19dc9dff174a77225e39526053d7705206eb";
+            this.HashOverMappingClosure = "a1f6ce6e9bb5011f4d98aebc22f65055cb02b8577e32a77b89e46dc20848436d";
+            this.HashOverAllExtentViews = "6a9cd9f75d28ad8e6157372ea699b629051440f015b8c458eefffd00220a37a4";
             this.ViewCount = 642;
         }
         
@@ -11495,56 +11495,58 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView234()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3872);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(4015);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_ProjectPlanTaskResponse\r\n        [XODB.Modu");
             viewString.Append("le.BusinessObjects.Store.X_ProjectPlanTaskResponse](T1.[X_ProjectPlanTaskRespons");
             viewString.Append("e.ProjectPlanTaskResponseID], T1.[X_ProjectPlanTaskResponse.ProjectPlanTaskID], ");
-            viewString.Append("T1.[X_ProjectPlanTaskResponse.ResponsibleContactID], T1.[X_ProjectPlanTaskRespon");
-            viewString.Append("se.ActualWorkTypeID], T1.[X_ProjectPlanTaskResponse.Began], T1.[X_ProjectPlanTas");
-            viewString.Append("kResponse.Completed], T1.[X_ProjectPlanTaskResponse.Hours], T1.[X_ProjectPlanTas");
-            viewString.Append("kResponse.EstimatedProRataUnits], T1.[X_ProjectPlanTaskResponse.EstimatedProRata");
-            viewString.Append("Cost], T1.[X_ProjectPlanTaskResponse.EstimatedValue], T1.[X_ProjectPlanTaskRespo");
-            viewString.Append("nse.PerformanceMetricParameterID], T1.[X_ProjectPlanTaskResponse.PerformanceMetr");
-            viewString.Append("icQuantity], T1.[X_ProjectPlanTaskResponse.PerformanceMetricContributedPercent],");
-            viewString.Append(" T1.[X_ProjectPlanTaskResponse.ApprovedProRataUnits], T1.[X_ProjectPlanTaskRespo");
-            viewString.Append("nse.ApprovedProRataCost], T1.[X_ProjectPlanTaskResponse.Approved], T1.[X_Project");
-            viewString.Append("PlanTaskResponse.ApprovedBy], T1.[X_ProjectPlanTaskResponse.Comments], T1.[X_Pro");
-            viewString.Append("jectPlanTaskResponse.Version], T1.[X_ProjectPlanTaskResponse.VersionAntecedentID");
-            viewString.Append("], T1.[X_ProjectPlanTaskResponse.VersionCertainty], T1.[X_ProjectPlanTaskRespons");
-            viewString.Append("e.VersionWorkflowInstanceID], T1.[X_ProjectPlanTaskResponse.VersionUpdatedBy], T");
-            viewString.Append("1.[X_ProjectPlanTaskResponse.VersionDeletedBy], T1.[X_ProjectPlanTaskResponse.Ve");
-            viewString.Append("rsionOwnerContactID], T1.[X_ProjectPlanTaskResponse.VersionOwnerCompanyID], T1.[");
-            viewString.Append("X_ProjectPlanTaskResponse.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n       ");
-            viewString.Append("     T.ProjectPlanTaskResponseID AS [X_ProjectPlanTaskResponse.ProjectPlanTaskRe");
-            viewString.Append("sponseID], \r\n            T.ProjectPlanTaskID AS [X_ProjectPlanTaskResponse.Proje");
-            viewString.Append("ctPlanTaskID], \r\n            T.ResponsibleContactID AS [X_ProjectPlanTaskRespons");
-            viewString.Append("e.ResponsibleContactID], \r\n            T.ActualWorkTypeID AS [X_ProjectPlanTaskR");
-            viewString.Append("esponse.ActualWorkTypeID], \r\n            T.Began AS [X_ProjectPlanTaskResponse.B");
-            viewString.Append("egan], \r\n            T.Completed AS [X_ProjectPlanTaskResponse.Completed], \r\n   ");
-            viewString.Append("         T.Hours AS [X_ProjectPlanTaskResponse.Hours], \r\n            T.Estimated");
-            viewString.Append("ProRataUnits AS [X_ProjectPlanTaskResponse.EstimatedProRataUnits], \r\n           ");
-            viewString.Append(" T.EstimatedProRataCost AS [X_ProjectPlanTaskResponse.EstimatedProRataCost], \r\n ");
-            viewString.Append("           T.EstimatedValue AS [X_ProjectPlanTaskResponse.EstimatedValue], \r\n   ");
-            viewString.Append("         T.PerformanceMetricParameterID AS [X_ProjectPlanTaskResponse.Performanc");
-            viewString.Append("eMetricParameterID], \r\n            T.PerformanceMetricQuantity AS [X_ProjectPlan");
-            viewString.Append("TaskResponse.PerformanceMetricQuantity], \r\n            T.PerformanceMetricContri");
-            viewString.Append("butedPercent AS [X_ProjectPlanTaskResponse.PerformanceMetricContributedPercent],");
-            viewString.Append(" \r\n            T.ApprovedProRataUnits AS [X_ProjectPlanTaskResponse.ApprovedProR");
-            viewString.Append("ataUnits], \r\n            T.ApprovedProRataCost AS [X_ProjectPlanTaskResponse.App");
-            viewString.Append("rovedProRataCost], \r\n            T.Approved AS [X_ProjectPlanTaskResponse.Approv");
-            viewString.Append("ed], \r\n            T.ApprovedBy AS [X_ProjectPlanTaskResponse.ApprovedBy], \r\n   ");
-            viewString.Append("         T.Comments AS [X_ProjectPlanTaskResponse.Comments], \r\n            T.Ver");
-            viewString.Append("sion AS [X_ProjectPlanTaskResponse.Version], \r\n            T.VersionAntecedentID");
-            viewString.Append(" AS [X_ProjectPlanTaskResponse.VersionAntecedentID], \r\n            T.VersionCert");
-            viewString.Append("ainty AS [X_ProjectPlanTaskResponse.VersionCertainty], \r\n            T.VersionWo");
-            viewString.Append("rkflowInstanceID AS [X_ProjectPlanTaskResponse.VersionWorkflowInstanceID], \r\n   ");
-            viewString.Append("         T.VersionUpdatedBy AS [X_ProjectPlanTaskResponse.VersionUpdatedBy], \r\n ");
-            viewString.Append("           T.VersionDeletedBy AS [X_ProjectPlanTaskResponse.VersionDeletedBy], \r");
-            viewString.Append("\n            T.VersionOwnerContactID AS [X_ProjectPlanTaskResponse.VersionOwnerC");
-            viewString.Append("ontactID], \r\n            T.VersionOwnerCompanyID AS [X_ProjectPlanTaskResponse.V");
-            viewString.Append("ersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_ProjectPlanTaskRespo");
-            viewString.Append("nse.VersionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.ProjectPla");
-            viewString.Append("nTaskResponses AS T\r\n    ) AS T1");
+            viewString.Append("T1.[X_ProjectPlanTaskResponse.ResponsibleCompanyID], T1.[X_ProjectPlanTaskRespon");
+            viewString.Append("se.ResponsibleContactID], T1.[X_ProjectPlanTaskResponse.ActualWorkTypeID], T1.[X");
+            viewString.Append("_ProjectPlanTaskResponse.Began], T1.[X_ProjectPlanTaskResponse.Completed], T1.[X");
+            viewString.Append("_ProjectPlanTaskResponse.Hours], T1.[X_ProjectPlanTaskResponse.EstimatedProRataU");
+            viewString.Append("nits], T1.[X_ProjectPlanTaskResponse.EstimatedProRataCost], T1.[X_ProjectPlanTas");
+            viewString.Append("kResponse.EstimatedValue], T1.[X_ProjectPlanTaskResponse.PerformanceMetricParame");
+            viewString.Append("terID], T1.[X_ProjectPlanTaskResponse.PerformanceMetricQuantity], T1.[X_ProjectP");
+            viewString.Append("lanTaskResponse.PerformanceMetricContributedPercent], T1.[X_ProjectPlanTaskRespo");
+            viewString.Append("nse.ApprovedProRataUnits], T1.[X_ProjectPlanTaskResponse.ApprovedProRataCost], T");
+            viewString.Append("1.[X_ProjectPlanTaskResponse.Approved], T1.[X_ProjectPlanTaskResponse.ApprovedBy");
+            viewString.Append("], T1.[X_ProjectPlanTaskResponse.Comments], T1.[X_ProjectPlanTaskResponse.Versio");
+            viewString.Append("n], T1.[X_ProjectPlanTaskResponse.VersionAntecedentID], T1.[X_ProjectPlanTaskRes");
+            viewString.Append("ponse.VersionCertainty], T1.[X_ProjectPlanTaskResponse.VersionWorkflowInstanceID");
+            viewString.Append("], T1.[X_ProjectPlanTaskResponse.VersionUpdatedBy], T1.[X_ProjectPlanTaskRespons");
+            viewString.Append("e.VersionDeletedBy], T1.[X_ProjectPlanTaskResponse.VersionOwnerContactID], T1.[X");
+            viewString.Append("_ProjectPlanTaskResponse.VersionOwnerCompanyID], T1.[X_ProjectPlanTaskResponse.V");
+            viewString.Append("ersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.ProjectPlanTaskRespo");
+            viewString.Append("nseID AS [X_ProjectPlanTaskResponse.ProjectPlanTaskResponseID], \r\n            T.");
+            viewString.Append("ProjectPlanTaskID AS [X_ProjectPlanTaskResponse.ProjectPlanTaskID], \r\n          ");
+            viewString.Append("  T.ResponsibleCompanyID AS [X_ProjectPlanTaskResponse.ResponsibleCompanyID], \r\n");
+            viewString.Append("            T.ResponsibleContactID AS [X_ProjectPlanTaskResponse.ResponsibleCont");
+            viewString.Append("actID], \r\n            T.ActualWorkTypeID AS [X_ProjectPlanTaskResponse.ActualWor");
+            viewString.Append("kTypeID], \r\n            T.Began AS [X_ProjectPlanTaskResponse.Began], \r\n        ");
+            viewString.Append("    T.Completed AS [X_ProjectPlanTaskResponse.Completed], \r\n            T.Hours ");
+            viewString.Append("AS [X_ProjectPlanTaskResponse.Hours], \r\n            T.EstimatedProRataUnits AS [");
+            viewString.Append("X_ProjectPlanTaskResponse.EstimatedProRataUnits], \r\n            T.EstimatedProRa");
+            viewString.Append("taCost AS [X_ProjectPlanTaskResponse.EstimatedProRataCost], \r\n            T.Esti");
+            viewString.Append("matedValue AS [X_ProjectPlanTaskResponse.EstimatedValue], \r\n            T.Perfor");
+            viewString.Append("manceMetricParameterID AS [X_ProjectPlanTaskResponse.PerformanceMetricParameterI");
+            viewString.Append("D], \r\n            T.PerformanceMetricQuantity AS [X_ProjectPlanTaskResponse.Perf");
+            viewString.Append("ormanceMetricQuantity], \r\n            T.PerformanceMetricContributedPercent AS [");
+            viewString.Append("X_ProjectPlanTaskResponse.PerformanceMetricContributedPercent], \r\n            T.");
+            viewString.Append("ApprovedProRataUnits AS [X_ProjectPlanTaskResponse.ApprovedProRataUnits], \r\n    ");
+            viewString.Append("        T.ApprovedProRataCost AS [X_ProjectPlanTaskResponse.ApprovedProRataCost]");
+            viewString.Append(", \r\n            T.Approved AS [X_ProjectPlanTaskResponse.Approved], \r\n          ");
+            viewString.Append("  T.ApprovedBy AS [X_ProjectPlanTaskResponse.ApprovedBy], \r\n            T.Commen");
+            viewString.Append("ts AS [X_ProjectPlanTaskResponse.Comments], \r\n            T.Version AS [X_Projec");
+            viewString.Append("tPlanTaskResponse.Version], \r\n            T.VersionAntecedentID AS [X_ProjectPla");
+            viewString.Append("nTaskResponse.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Proje");
+            viewString.Append("ctPlanTaskResponse.VersionCertainty], \r\n            T.VersionWorkflowInstanceID ");
+            viewString.Append("AS [X_ProjectPlanTaskResponse.VersionWorkflowInstanceID], \r\n            T.Versio");
+            viewString.Append("nUpdatedBy AS [X_ProjectPlanTaskResponse.VersionUpdatedBy], \r\n            T.Vers");
+            viewString.Append("ionDeletedBy AS [X_ProjectPlanTaskResponse.VersionDeletedBy], \r\n            T.Ve");
+            viewString.Append("rsionOwnerContactID AS [X_ProjectPlanTaskResponse.VersionOwnerContactID], \r\n    ");
+            viewString.Append("        T.VersionOwnerCompanyID AS [X_ProjectPlanTaskResponse.VersionOwnerCompan");
+            viewString.Append("yID], \r\n            T.VersionUpdated AS [X_ProjectPlanTaskResponse.VersionUpdate");
+            viewString.Append("d], \r\n            True AS _from0\r\n        FROM XODBC.ProjectPlanTaskResponses AS");
+            viewString.Append(" T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_ProjectPlanTaskResponse", viewString.ToString());
         }
         
@@ -21421,7 +21423,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView496()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3682);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3817);
             viewString.Append("\r\n    SELECT VALUE -- Constructing ProjectPlanTaskResponses\r\n        [XODB.Modul");
             viewString.Append("e.BusinessObjects.ProjectPlanTaskResponse](T1.ProjectPlanTaskResponse_ProjectPla");
             viewString.Append("nTaskResponseID, T1.ProjectPlanTaskResponse_ProjectPlanTaskID, T1.ProjectPlanTas");
@@ -21439,36 +21441,37 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("wInstanceID, T1.ProjectPlanTaskResponse_VersionUpdatedBy, T1.ProjectPlanTaskResp");
             viewString.Append("onse_VersionDeletedBy, T1.ProjectPlanTaskResponse_VersionOwnerContactID, T1.Proj");
             viewString.Append("ectPlanTaskResponse_VersionOwnerCompanyID, T1.ProjectPlanTaskResponse_VersionUpd");
-            viewString.Append("ated)\r\n    FROM (\r\n        SELECT \r\n            T.ProjectPlanTaskResponseID AS P");
-            viewString.Append("rojectPlanTaskResponse_ProjectPlanTaskResponseID, \r\n            T.ProjectPlanTas");
-            viewString.Append("kID AS ProjectPlanTaskResponse_ProjectPlanTaskID, \r\n            T.ResponsibleCon");
-            viewString.Append("tactID AS ProjectPlanTaskResponse_ResponsibleContactID, \r\n            T.ActualWo");
-            viewString.Append("rkTypeID AS ProjectPlanTaskResponse_ActualWorkTypeID, \r\n            T.Began AS P");
-            viewString.Append("rojectPlanTaskResponse_Began, \r\n            T.Completed AS ProjectPlanTaskRespon");
-            viewString.Append("se_Completed, \r\n            T.Hours AS ProjectPlanTaskResponse_Hours, \r\n        ");
-            viewString.Append("    T.EstimatedProRataUnits AS ProjectPlanTaskResponse_EstimatedProRataUnits, \r\n");
-            viewString.Append("            T.EstimatedProRataCost AS ProjectPlanTaskResponse_EstimatedProRataCo");
-            viewString.Append("st, \r\n            T.EstimatedValue AS ProjectPlanTaskResponse_EstimatedValue, \r\n");
-            viewString.Append("            T.PerformanceMetricParameterID AS ProjectPlanTaskResponse_Performanc");
-            viewString.Append("eMetricParameterID, \r\n            T.PerformanceMetricQuantity AS ProjectPlanTask");
-            viewString.Append("Response_PerformanceMetricQuantity, \r\n            T.PerformanceMetricContributed");
-            viewString.Append("Percent AS ProjectPlanTaskResponse_PerformanceMetricContributedPercent, \r\n      ");
-            viewString.Append("      T.ApprovedProRataUnits AS ProjectPlanTaskResponse_ApprovedProRataUnits, \r\n");
-            viewString.Append("            T.ApprovedProRataCost AS ProjectPlanTaskResponse_ApprovedProRataCost");
-            viewString.Append(", \r\n            T.Approved AS ProjectPlanTaskResponse_Approved, \r\n            T.");
-            viewString.Append("ApprovedBy AS ProjectPlanTaskResponse_ApprovedBy, \r\n            T.Comments AS Pr");
-            viewString.Append("ojectPlanTaskResponse_Comments, \r\n            T.Version AS ProjectPlanTaskRespon");
-            viewString.Append("se_Version, \r\n            T.VersionAntecedentID AS ProjectPlanTaskResponse_Versi");
-            viewString.Append("onAntecedentID, \r\n            T.VersionCertainty AS ProjectPlanTaskResponse_Vers");
-            viewString.Append("ionCertainty, \r\n            T.VersionWorkflowInstanceID AS ProjectPlanTaskRespon");
-            viewString.Append("se_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS ProjectPlanTas");
-            viewString.Append("kResponse_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS ProjectPlanTaskR");
-            viewString.Append("esponse_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS ProjectPlanTa");
-            viewString.Append("skResponse_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS Proje");
-            viewString.Append("ctPlanTaskResponse_VersionOwnerCompanyID, \r\n            T.VersionUpdated AS Proj");
-            viewString.Append("ectPlanTaskResponse_VersionUpdated, \r\n            True AS _from0\r\n        FROM X");
-            viewString.Append("ODBModuleBusinessObjectsStoreContainer.X_ProjectPlanTaskResponse AS T\r\n    ) AS ");
-            viewString.Append("T1");
+            viewString.Append("ated, T1.ProjectPlanTaskResponse_ResponsibleCompanyID)\r\n    FROM (\r\n        SELE");
+            viewString.Append("CT \r\n            T.ProjectPlanTaskResponseID AS ProjectPlanTaskResponse_ProjectP");
+            viewString.Append("lanTaskResponseID, \r\n            T.ProjectPlanTaskID AS ProjectPlanTaskResponse_");
+            viewString.Append("ProjectPlanTaskID, \r\n            T.ResponsibleContactID AS ProjectPlanTaskRespon");
+            viewString.Append("se_ResponsibleContactID, \r\n            T.ActualWorkTypeID AS ProjectPlanTaskResp");
+            viewString.Append("onse_ActualWorkTypeID, \r\n            T.Began AS ProjectPlanTaskResponse_Began, \r");
+            viewString.Append("\n            T.Completed AS ProjectPlanTaskResponse_Completed, \r\n            T.H");
+            viewString.Append("ours AS ProjectPlanTaskResponse_Hours, \r\n            T.EstimatedProRataUnits AS ");
+            viewString.Append("ProjectPlanTaskResponse_EstimatedProRataUnits, \r\n            T.EstimatedProRataC");
+            viewString.Append("ost AS ProjectPlanTaskResponse_EstimatedProRataCost, \r\n            T.EstimatedVa");
+            viewString.Append("lue AS ProjectPlanTaskResponse_EstimatedValue, \r\n            T.PerformanceMetric");
+            viewString.Append("ParameterID AS ProjectPlanTaskResponse_PerformanceMetricParameterID, \r\n         ");
+            viewString.Append("   T.PerformanceMetricQuantity AS ProjectPlanTaskResponse_PerformanceMetricQuant");
+            viewString.Append("ity, \r\n            T.PerformanceMetricContributedPercent AS ProjectPlanTaskRespo");
+            viewString.Append("nse_PerformanceMetricContributedPercent, \r\n            T.ApprovedProRataUnits AS");
+            viewString.Append(" ProjectPlanTaskResponse_ApprovedProRataUnits, \r\n            T.ApprovedProRataCo");
+            viewString.Append("st AS ProjectPlanTaskResponse_ApprovedProRataCost, \r\n            T.Approved AS P");
+            viewString.Append("rojectPlanTaskResponse_Approved, \r\n            T.ApprovedBy AS ProjectPlanTaskRe");
+            viewString.Append("sponse_ApprovedBy, \r\n            T.Comments AS ProjectPlanTaskResponse_Comments,");
+            viewString.Append(" \r\n            T.Version AS ProjectPlanTaskResponse_Version, \r\n            T.Ver");
+            viewString.Append("sionAntecedentID AS ProjectPlanTaskResponse_VersionAntecedentID, \r\n            T");
+            viewString.Append(".VersionCertainty AS ProjectPlanTaskResponse_VersionCertainty, \r\n            T.V");
+            viewString.Append("ersionWorkflowInstanceID AS ProjectPlanTaskResponse_VersionWorkflowInstanceID, \r");
+            viewString.Append("\n            T.VersionUpdatedBy AS ProjectPlanTaskResponse_VersionUpdatedBy, \r\n ");
+            viewString.Append("           T.VersionDeletedBy AS ProjectPlanTaskResponse_VersionDeletedBy, \r\n   ");
+            viewString.Append("         T.VersionOwnerContactID AS ProjectPlanTaskResponse_VersionOwnerContactI");
+            viewString.Append("D, \r\n            T.VersionOwnerCompanyID AS ProjectPlanTaskResponse_VersionOwner");
+            viewString.Append("CompanyID, \r\n            T.VersionUpdated AS ProjectPlanTaskResponse_VersionUpda");
+            viewString.Append("ted, \r\n            T.ResponsibleCompanyID AS ProjectPlanTaskResponse_Responsible");
+            viewString.Append("CompanyID, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObjectsS");
+            viewString.Append("toreContainer.X_ProjectPlanTaskResponse AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.ProjectPlanTaskResponses", viewString.ToString());
         }
         

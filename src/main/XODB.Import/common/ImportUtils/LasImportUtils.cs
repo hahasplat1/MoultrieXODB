@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using XODB.Module.BusinessObjects;
 using Xstract.Import.LAS;
 using System.Data.Objects.DataClasses;
+using System.Dynamic;
+using ImpromptuInterface;
 
 namespace XODB.Import.ImportUtils
 {
@@ -65,7 +67,7 @@ namespace XODB.Import.ImportUtils
                 xG.LasWrap = lasFile.versionWrap;
                 xG.LasNullValue = string.Format("{0:N2}",lasFile.nullValue);
 
-                FileData fD = new FileData();
+               
                 FileStream sr = null;
                 try
                 {
@@ -83,16 +85,19 @@ namespace XODB.Import.ImportUtils
                 XODB.Module.BusinessObjects.File F = new XODB.Module.BusinessObjects.File();
                 F.LoadFromStream(lasFile.FileName(), sr);
                 Guid fdGUID = Guid.NewGuid();
-                fD.FileDataID = fdGUID;
-                fD.ReferenceID = xG.GeophysicsID;
-                fD.TableType = "X_Geophysics";
-                fD.FileInfo = F;
-                fD.FileName = F.FileName;
-                fD.FileChecksum = Hash.ComputeHash(fD.FileBytes);
-                fD.MimeType = MimeTypes.MimeTypeHelper.GetMimeTypeByFileName(fD.FileName);
-                xG.OriginalFileDataID = fD.FileDataID;
+                var fd = new FileData
+                {
+                    Author = default(string),
+                    FileDataID = fdGUID,
+                    ReferenceID = xG.GeophysicsID,
+                    TableType = "X_Geophysics",
+                    FileName = F.FileName,
+                    FileChecksum = Hash.ComputeHash(F.FileBytes),
+                    MimeType = MimeTypes.MimeTypeHelper.GetMimeTypeByFileName(F.FileName)
+                };
+                xG.OriginalFileDataID = fdGUID;
                 physDataList.Add(xG);
-                fdDataList.Add(fD);
+                fdDataList.Add(fd);
                 //fDataList.Add(F);
                 //entityObj.Geophysics.AddObject(xG);
                 //entityObj.SaveChanges();

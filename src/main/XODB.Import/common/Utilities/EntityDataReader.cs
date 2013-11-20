@@ -90,10 +90,10 @@ namespace Microsoft.Samples.EntityDataReader
     static List<Attribute> scalarAttributesPlusRelatedObjectScalarAttributes;
     static List<Attribute> scalarAttributesPlusRelatedObjectKeyAttributes;
 
-    readonly List<Attribute> attributes;
+    readonly  List<Attribute> attributes;
 
     #region Attribute inner type
-    private class Attribute
+    public class Attribute
     {
       //PropertyInfo propertyInfo;
       public readonly Type Type;
@@ -234,13 +234,13 @@ namespace Microsoft.Samples.EntityDataReader
 
     #region Constructors
 
-    public EntityDataReader(IEnumerable<T> col) 
-      : this(col,EntityDataReaderOptions.Default,null) { }
+    public EntityDataReader(IEnumerable<T> col, params string[] ignoreAttributeNames) 
+      : this(col,EntityDataReaderOptions.Default,null, ignoreAttributeNames) { }
 
-    public EntityDataReader(IEnumerable<T> col, EntityDataReaderOptions options)
-      : this(col, options, null) { }
+    public EntityDataReader(IEnumerable<T> col, EntityDataReaderOptions options, params string[] ignoreAttributeNames)
+      : this(col, options, null, ignoreAttributeNames) { }
 
-    public EntityDataReader(IEnumerable<T> col, EntityDataReaderOptions options, ObjectContext objectContext) 
+    public EntityDataReader(IEnumerable<T> col, EntityDataReaderOptions options, ObjectContext objectContext, params string[] ignoreAttributeNames) 
     {
       this.enumerator = col.GetEnumerator();
       this.options = options;
@@ -253,7 +253,7 @@ namespace Microsoft.Samples.EntityDataReader
       //done without a lock, so we risk running twice
       if (scalarAttributes == null)
       {
-         scalarAttributes = DiscoverScalarAttributes(typeof(T));
+         scalarAttributes = DiscoverScalarAttributes(typeof(T), ignoreAttributeNames);
       }
       if (options.FlattenRelatedObjects && scalarAttributesPlusRelatedObjectScalarAttributes == null)
       {
@@ -283,7 +283,7 @@ namespace Microsoft.Samples.EntityDataReader
     }
 
 
-    static List<Attribute> DiscoverScalarAttributes(Type thisType)
+    static List<Attribute> DiscoverScalarAttributes(Type thisType, params string[] ignoreAttributeNames)
     {     
 
       //Not a collection of entities, just an IEnumerable<String> or other scalar type.
@@ -293,10 +293,10 @@ namespace Microsoft.Samples.EntityDataReader
         return new List<Attribute> { new Attribute("Value","Value", thisType, t => t,false) };
       }
 
-
+      
       //find all the scalar properties
       var allProperties = (from p in thisType.GetProperties()
-                           where IsScalarType(p.PropertyType)
+                           where IsScalarType(p.PropertyType) && !ignoreAttributeNames.Contains(p.Name)
                            select p).ToList();
 
       //Look for a constructor with arguments that match the properties on name and type
@@ -892,7 +892,7 @@ namespace Microsoft.Samples.EntityDataReader
     /// <typeparam name="T"></typeparam>
     /// <param name="collection"></param>
     /// <returns></returns>
-    public static IDataReader AsDataReader<T>(this IEnumerable<T> collection)
+      public static IDataReader AsDataReader<T>(this IEnumerable<T> collection, params string[] ignoreAttributeNames)
     {
 
       //For anonymous type projections default to flattening related objects and not prefixing columns
@@ -903,9 +903,9 @@ namespace Microsoft.Samples.EntityDataReader
         var options = EntityDataReaderOptions.Default;
         options.FlattenRelatedObjects = true;
         options.PrefixRelatedObjectColumns = false;
-        return new EntityDataReader<T>(collection,options);
+        return new EntityDataReader<T>(collection,options, ignoreAttributeNames);
       }
-      return new EntityDataReader<T>(collection);
+      return new EntityDataReader<T>(collection, ignoreAttributeNames);
     }
 
     /// <summary>
@@ -915,11 +915,11 @@ namespace Microsoft.Samples.EntityDataReader
     /// <typeparam name="T"></typeparam>
     /// <param name="collection"></param>
     /// <returns></returns>
-    public static IDataReader AsDataReader<T>(this IEnumerable<T> collection, bool exposeNullableColumns, bool flattenRelatedObjects)
+    public static IDataReader AsDataReader<T>(this IEnumerable<T> collection, bool exposeNullableColumns, bool flattenRelatedObjects, params string[] ignoreAttributeNames)
     {
       EntityDataReaderOptions options = new EntityDataReaderOptions(exposeNullableColumns, flattenRelatedObjects, true, false);
       
-      return new EntityDataReader<T>(collection,options,null);
+      return new EntityDataReader<T>(collection,options,null, ignoreAttributeNames);
     }
 
 

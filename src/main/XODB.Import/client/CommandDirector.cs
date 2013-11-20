@@ -16,7 +16,7 @@ using System.Data.SqlClient;
 using System.Data;
 using XODB.Module.BusinessObjects;
 using Microsoft.Samples.EntityDataReader;
-
+using ImpromptuInterface;
 
 namespace XODB.Import.Client
 {
@@ -307,7 +307,11 @@ namespace XODB.Import.Client
                         tableType = "X_FileData";
                         var tableReader = (List<FileData>)x1;
                         bulkCopy.DestinationTableName = tableType;
-                        bulkCopy.WriteToServer(tableReader.AsDataReader());
+                        Microsoft.Samples.EntityDataReader.EntityDataReader<XODB.Module.BusinessObjects.FileData> dr = 
+                            (Microsoft.Samples.EntityDataReader.EntityDataReader<XODB.Module.BusinessObjects.FileData>) tableReader.AsDataReader("Size");
+                        
+
+                        bulkCopy.WriteToServer(dr);
                         //var entityObj = new XODBC(BaseImportTools.XSTRING, null, false);
                         //entityObj.FileDatas.AddObject(((List<FileData>)x1).First());
                         //entityObj.SaveChanges();

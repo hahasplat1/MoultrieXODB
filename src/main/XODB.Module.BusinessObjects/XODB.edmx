@@ -8461,7 +8461,7 @@
           <Property Name="FromDepth" Type="numeric" Precision="7" Scale="3" />
           <Property Name="ToDepth" Type="numeric" Precision="7" Scale="3" />
           <Property Name="RunNumber" Type="int" />
-          <Property Name="RecoveredThickness" Type="numeric" Precision="5" Scale="3" />
+          <Property Name="RecoveredThickness" Type="numeric" Precision="7" Scale="3" />
           <Property Name="DrillingDate" Type="date" />
           <Property Name="DrillingCompanyID" Type="uniqueidentifier" />
           <Property Name="DrillRigNumber" Type="nvarchar" MaxLength="16" />
@@ -8645,7 +8645,7 @@
           <Property Name="GeophysicsMetadataID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="GeophysicsID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ParameterID" Type="uniqueidentifier" />
-          <Property Name="Mnemonic" Type="nvarchar" MaxLength="16" />
+          <Property Name="Mnemonic" Type="nvarchar" MaxLength="50" />
           <Property Name="Unit" Type="nvarchar(max)" />
           <Property Name="Data" Type="nvarchar(max)" />
           <Property Name="Code" Type="nvarchar(max)" />
@@ -9585,6 +9585,7 @@
           </Key>
           <Property Name="ProjectPlanTaskResponseID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ProjectPlanTaskID" Type="uniqueidentifier" />
+          <Property Name="ResponsibleCompanyID" Type="uniqueidentifier" />
           <Property Name="ResponsibleContactID" Type="uniqueidentifier" />
           <Property Name="ActualWorkTypeID" Type="uniqueidentifier" />
           <Property Name="Began" Type="datetime" />
@@ -19835,6 +19836,7 @@
           <Parameter Name="Out" Type="nvarchar(max)" Mode="InOut" />
         </Function>
         <Function Name="X_SP_CreateVersioning" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="X_SP_CreateVersioningOnDictionaries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="X_SP_CreateVersioningTrigger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="table" Type="nvarchar(max)" Mode="In" />
         </Function>
@@ -19872,6 +19874,11 @@
         <Function Name="X_SP_GetAssaysByParameters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="assay_group_projectid" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="assay_groupid" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="X_SP_GetAssaysByWorkflow" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="assay_group_projectid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="assay_groupid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="records_max" Type="int" Mode="In" />
         </Function>
         <Function Name="X_SP_GetAssaysInterpreted" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="assay_group_projectid" Type="uniqueidentifier" Mode="In" />
@@ -20220,16 +20227,6 @@
           <Parameter Name="instanceId" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="handleInstanceVersion" Type="bigint" Mode="In" />
         </Function>
-        <!--Errors Found During Generation:
-      warning 6013: The table/view 'XODB.System.Activities.DurableInstancing.SqlWorkflowInstanceStoreVersionTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="SqlWorkflowInstanceStoreVersionTable">
-        <Property Name="Major" Type="bigint" />
-        <Property Name="Minor" Type="bigint" />
-        <Property Name="Build" Type="bigint" />
-        <Property Name="Revision" Type="bigint" />
-        <Property Name="LastUpdated" Type="datetime" />
-      </EntityType>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -24147,6 +24144,12 @@
             <End Role="AssayGroupSubsample" EntitySet="AssayGroupSubsamples" />
             <End Role="AssayGroupSubsamplePrecondition" EntitySet="AssayGroupSubsamplePreconditions" />
           </AssociationSet>
+          <FunctionImport Name="X_SP_CreateVersioningOnDictionaries" />
+          <FunctionImport Name="X_SP_GetAssaysByWorkflow">
+            <Parameter Name="assay_group_projectid" Mode="In" Type="Guid" />
+            <Parameter Name="assay_groupid" Mode="In" Type="Guid" />
+            <Parameter Name="records_max" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Split_Result">
           <Property Name="id" Type="Int32" Nullable="false" />
@@ -29334,7 +29337,7 @@
           <Property Name="FromDepth" Type="Decimal" Precision="7" Scale="3" />
           <Property Name="ToDepth" Type="Decimal" Precision="7" Scale="3" />
           <Property Name="RunNumber" Type="Int32" />
-          <Property Name="RecoveredThickness" Type="Decimal" Precision="5" Scale="3" />
+          <Property Name="RecoveredThickness" Type="Decimal" Precision="7" Scale="3" />
           <Property Name="DrillingDate" Type="DateTime" Precision="0" />
           <Property Name="DrillingCompanyID" Type="Guid" />
           <Property Name="DrillRigNumber" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
@@ -29647,7 +29650,7 @@
           <Property Name="GeophysicsMetadataID" Type="Guid" Nullable="false" />
           <Property Name="GeophysicsID" Type="Guid" Nullable="false" />
           <Property Name="ParameterID" Type="Guid" />
-          <Property Name="Mnemonic" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="Mnemonic" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Unit" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Data" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Code" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -30773,6 +30776,7 @@
           <NavigationProperty Name="ProjectPlanTask" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskResponse_X_ProjectPlanTask" FromRole="X_ProjectPlanTaskResponse" ToRole="X_ProjectPlanTask" />
           <NavigationProperty Name="ProjectPlanTaskComplianceResponse" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskComplianceResponse_X_ProjectPlanTaskResponse" FromRole="X_ProjectPlanTaskResponse" ToRole="X_ProjectPlanTaskComplianceResponse" />
           <NavigationProperty Name="ProjectPlanTaskResponseData" Relationship="XODB.Module.BusinessObjects.FK_X_ProjectPlanTaskResponseID_X_ProjectPlanTaskResponseID" FromRole="X_ProjectPlanTaskResponse" ToRole="X_ProjectPlanTaskResponseData" />
+          <Property Type="Guid" Name="ResponsibleCompanyID" />
         </EntityType>
         <EntityType Name="ProjectPlanTaskResponseData">
           <Key>
@@ -47064,6 +47068,7 @@
           <EntitySetMapping Name="ProjectPlanTaskResponses">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.ProjectPlanTaskResponse">
               <MappingFragment StoreEntitySet="X_ProjectPlanTaskResponse">
+                <ScalarProperty Name="ResponsibleCompanyID" ColumnName="ResponsibleCompanyID" />
                 <ScalarProperty Name="ProjectPlanTaskResponseID" ColumnName="ProjectPlanTaskResponseID" />
                 <ScalarProperty Name="ProjectPlanTaskID" ColumnName="ProjectPlanTaskID" />
                 <ScalarProperty Name="ResponsibleContactID" ColumnName="ResponsibleContactID" />
@@ -49334,6 +49339,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="X_SP_CreateVersioningOnDictionaries" FunctionName="XODB.Module.BusinessObjects.Store.X_SP_CreateVersioningOnDictionaries" />
+          <FunctionImportMapping FunctionImportName="X_SP_GetAssaysByWorkflow" FunctionName="XODB.Module.BusinessObjects.Store.X_SP_GetAssaysByWorkflow" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
