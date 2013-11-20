@@ -307,11 +307,7 @@ namespace XODB.Import.Client
                         tableType = "X_FileData";
                         var tableReader = (List<FileData>)x1;
                         bulkCopy.DestinationTableName = tableType;
-                        Microsoft.Samples.EntityDataReader.EntityDataReader<XODB.Module.BusinessObjects.FileData> dr = 
-                            (Microsoft.Samples.EntityDataReader.EntityDataReader<XODB.Module.BusinessObjects.FileData>) tableReader.AsDataReader("Size");
-                        
-
-                        bulkCopy.WriteToServer(dr);
+                        bulkCopy.WriteToServer(tableReader.AsDataReader("Size"));
                         //var entityObj = new XODBC(BaseImportTools.XSTRING, null, false);
                         //entityObj.FileDatas.AddObject(((List<FileData>)x1).First());
                         //entityObj.SaveChanges();
