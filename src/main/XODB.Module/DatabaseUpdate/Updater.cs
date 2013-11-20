@@ -42,7 +42,7 @@ namespace XODB.Module.DatabaseUpdate
                 TryReboot();
                 return;
             }
-            else if (xodbSchemaVersion != CurrentVersion && System.Windows.Forms.Application.ProductName.Contains("Win") && System.Windows.Forms.Application.ProductName.Contains("XODB"))
+            else if (xodbSchemaVersion < CurrentVersion && System.Windows.Forms.Application.ProductName.Contains("Win") && System.Windows.Forms.Application.ProductName.Contains("XODB"))
             {
                 //Do backup
                 try
@@ -63,8 +63,14 @@ namespace XODB.Module.DatabaseUpdate
                     ExecuteSQLFromZip("v4.data.sql.zip"); //Query too large to execute - users can do it themselves
             }
 
-            if (xodbSchemaVersion != CurrentVersion)
+            if (xodbSchemaVersion < CurrentVersion)
                 TryReboot();
+            if (xodbSchemaVersion > CurrentVersion)
+            {
+                var result = System.Windows.Forms.MessageBox.Show("Your database version is newer than your application.\r\nThis could lead to an error or data corruption.", "Shutdown Application?", System.Windows.Forms.MessageBoxButtons.OKCancel, System.Windows.Forms.MessageBoxIcon.Warning);
+                if (result == System.Windows.Forms.DialogResult.OK)
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+            }
           
             base.UpdateDatabaseBeforeUpdateSchema();
         }

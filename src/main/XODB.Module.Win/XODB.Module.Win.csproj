@@ -162,11 +162,11 @@
     <Compile Include="Controllers\UpdateConfigController.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Editors\DateAndTimeEditor.cs" />
     <Compile Include="WinGroupFooterViewController.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Editors\CustomFileOperationEventArgs.cs" />
-	<Compile Include="DateAndTimeEditor.cs" />
     <Compile Include="Editors\DocGridListEditor.cs" />
     <Compile Include="Editors\FileDataEdit.cs">
       <SubType>Component</SubType>
