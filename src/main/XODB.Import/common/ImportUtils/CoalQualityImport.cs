@@ -540,6 +540,33 @@ namespace XODB.Import.ImportUtils
                 Guid gParam = this.FindParameter("AssayPrecondition", preconditionType);
                 agw.PreconditionParameterID = gParam;
                 //agw.PreconditionParameterID = new Guid("6f49ded6-fe9b-487f-be48-eb8c88d9beef"); //Sixe mm TODO FIX
+                
+                //+32 bigger than 32 (Size fractions)
+                //-32 smaller than 32
+                //+16 bigger than 16
+                //-16+8 smaller than 16, bigger than 8
+                //-8+4
+                //-4+2
+                //-2+1
+                //-1+0.5
+
+                //F1.45 Floatation (density floats)
+                //F1.45
+                //S1.45-F1.50
+                //S1.50-F1.55
+                //S1.55-F1.60
+                //S1.60-F1.70
+                //S1.70-F1.80
+                //S1.80-F2.00
+                //S2.00 (sinks)
+
+                //P2 Froth duration (30 sec)
+                //P3
+                //P4
+                //P5
+                //T2
+                //T1
+
 
                 entityObj.AssayGroupSubsamplePreconditions.AddObject(agw);
                 entityObj.SaveChanges();

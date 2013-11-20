@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets3CCBD77C0E9521C1FF1E63CA32B9C7A9F600C66873FD14B40D27B597B1AED2BD))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsE9AAB789EEDEDC842978F4BE5EF3BB06E8D3D22C02D8AEFB2CDA9717E5DC8F12))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -17,18 +17,18 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySets3CCBD77C0E9521C1FF1E63CA32B9C7A9F600C66873FD14B40D27B597B1AED2BD : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySetsE9AAB789EEDEDC842978F4BE5EF3BB06E8D3D22C02D8AEFB2CDA9717E5DC8F12 : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySets3CCBD77C0E9521C1FF1E63CA32B9C7A9F600C66873FD14B40D27B597B1AED2BD()
+        public ViewsForBaseEntitySetsE9AAB789EEDEDC842978F4BE5EF3BB06E8D3D22C02D8AEFB2CDA9717E5DC8F12()
         {
             this.EdmEntityContainerName = "XODBC";
             this.StoreEntityContainerName = "XODBModuleBusinessObjectsStoreContainer";
-            this.HashOverMappingClosure = "a1f6ce6e9bb5011f4d98aebc22f65055cb02b8577e32a77b89e46dc20848436d";
-            this.HashOverAllExtentViews = "6a9cd9f75d28ad8e6157372ea699b629051440f015b8c458eefffd00220a37a4";
+            this.HashOverMappingClosure = "95f39ee17fc1034b8f365de71d93ab9fdc6c26570e8967654f1d3fcce26a436d";
+            this.HashOverAllExtentViews = "7736e936cd02e953adbf48ca23140ef352316ae56e96c7b27992fd57fc7680f8";
             this.ViewCount = 642;
         }
         
@@ -5056,7 +5056,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView76()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3464);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3746);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_AssayGroupStandardTestResult\r\n        [XODB");
             viewString.Append(".Module.BusinessObjects.Store.X_AssayGroupStandardTestResult](T1.[X_AssayGroupSt");
             viewString.Append("andardTestResult.AssayGroupStandardTestResultID], T1.[X_AssayGroupStandardTestRe");
@@ -5065,42 +5065,45 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("dTestResult.SampleCategoryID], T1.[X_AssayGroupStandardTestResult.SampleStateID]");
             viewString.Append(", T1.[X_AssayGroupStandardTestResult.SampleTypeID], T1.[X_AssayGroupStandardTest");
             viewString.Append("Result.LabResultText], T1.[X_AssayGroupStandardTestResult.LabResult], T1.[X_Assa");
-            viewString.Append("yGroupStandardTestResult.LabSampleName], T1.[X_AssayGroupStandardTestResult.LabB");
-            viewString.Append("atchNumber], T1.[X_AssayGroupStandardTestResult.Sampled], T1.[X_AssayGroupStanda");
-            viewString.Append("rdTestResult.AddressID], T1.[X_AssayGroupStandardTestResult.SampledBy], T1.[X_As");
-            viewString.Append("sayGroupStandardTestResult.Version], T1.[X_AssayGroupStandardTestResult.VersionA");
-            viewString.Append("ntecedentID], T1.[X_AssayGroupStandardTestResult.VersionCertainty], T1.[X_AssayG");
-            viewString.Append("roupStandardTestResult.VersionWorkflowInstanceID], T1.[X_AssayGroupStandardTestR");
-            viewString.Append("esult.VersionUpdatedBy], T1.[X_AssayGroupStandardTestResult.VersionDeletedBy], T");
-            viewString.Append("1.[X_AssayGroupStandardTestResult.VersionOwnerContactID], T1.[X_AssayGroupStanda");
-            viewString.Append("rdTestResult.VersionOwnerCompanyID], T1.[X_AssayGroupStandardTestResult.VersionU");
-            viewString.Append("pdated])\r\n    FROM (\r\n        SELECT \r\n            T.AssayGroupStandardTestResul");
-            viewString.Append("tID AS [X_AssayGroupStandardTestResult.AssayGroupStandardTestResultID], \r\n      ");
-            viewString.Append("      T.AssayGroupTestSampleID AS [X_AssayGroupStandardTestResult.AssayGroupTest");
-            viewString.Append("SampleID], \r\n            T.AssayGroupTestID AS [X_AssayGroupStandardTestResult.A");
-            viewString.Append("ssayGroupTestID], \r\n            T.AssayStandardID AS [X_AssayGroupStandardTestRe");
-            viewString.Append("sult.AssayStandardID], \r\n            T.SampleCategoryID AS [X_AssayGroupStandard");
-            viewString.Append("TestResult.SampleCategoryID], \r\n            T.SampleStateID AS [X_AssayGroupStan");
-            viewString.Append("dardTestResult.SampleStateID], \r\n            T.SampleTypeID AS [X_AssayGroupStan");
-            viewString.Append("dardTestResult.SampleTypeID], \r\n            T.LabResultText AS [X_AssayGroupStan");
-            viewString.Append("dardTestResult.LabResultText], \r\n            T.LabResult AS [X_AssayGroupStandar");
-            viewString.Append("dTestResult.LabResult], \r\n            T.LabSampleName AS [X_AssayGroupStandardTe");
-            viewString.Append("stResult.LabSampleName], \r\n            T.LabBatchNumber AS [X_AssayGroupStandard");
-            viewString.Append("TestResult.LabBatchNumber], \r\n            T.Sampled AS [X_AssayGroupStandardTest");
-            viewString.Append("Result.Sampled], \r\n            T.AddressID AS [X_AssayGroupStandardTestResult.Ad");
-            viewString.Append("dressID], \r\n            T.SampledBy AS [X_AssayGroupStandardTestResult.SampledBy");
-            viewString.Append("], \r\n            T.Version AS [X_AssayGroupStandardTestResult.Version], \r\n      ");
-            viewString.Append("      T.VersionAntecedentID AS [X_AssayGroupStandardTestResult.VersionAntecedent");
-            viewString.Append("ID], \r\n            T.VersionCertainty AS [X_AssayGroupStandardTestResult.Version");
-            viewString.Append("Certainty], \r\n            T.VersionWorkflowInstanceID AS [X_AssayGroupStandardTe");
-            viewString.Append("stResult.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [X_Assa");
-            viewString.Append("yGroupStandardTestResult.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS ");
-            viewString.Append("[X_AssayGroupStandardTestResult.VersionDeletedBy], \r\n            T.VersionOwnerC");
-            viewString.Append("ontactID AS [X_AssayGroupStandardTestResult.VersionOwnerContactID], \r\n          ");
-            viewString.Append("  T.VersionOwnerCompanyID AS [X_AssayGroupStandardTestResult.VersionOwnerCompany");
-            viewString.Append("ID], \r\n            T.VersionUpdated AS [X_AssayGroupStandardTestResult.VersionUp");
-            viewString.Append("dated], \r\n            True AS _from0\r\n        FROM XODBC.AssayGroupStandardTestR");
-            viewString.Append("esults AS T\r\n    ) AS T1");
+            viewString.Append("yGroupStandardTestResult.LabResultMinimum], T1.[X_AssayGroupStandardTestResult.L");
+            viewString.Append("abResultMaximum], T1.[X_AssayGroupStandardTestResult.LabSampleName], T1.[X_Assay");
+            viewString.Append("GroupStandardTestResult.LabBatchNumber], T1.[X_AssayGroupStandardTestResult.Samp");
+            viewString.Append("led], T1.[X_AssayGroupStandardTestResult.AddressID], T1.[X_AssayGroupStandardTes");
+            viewString.Append("tResult.SampledBy], T1.[X_AssayGroupStandardTestResult.Version], T1.[X_AssayGrou");
+            viewString.Append("pStandardTestResult.VersionAntecedentID], T1.[X_AssayGroupStandardTestResult.Ver");
+            viewString.Append("sionCertainty], T1.[X_AssayGroupStandardTestResult.VersionWorkflowInstanceID], T");
+            viewString.Append("1.[X_AssayGroupStandardTestResult.VersionUpdatedBy], T1.[X_AssayGroupStandardTes");
+            viewString.Append("tResult.VersionDeletedBy], T1.[X_AssayGroupStandardTestResult.VersionOwnerContac");
+            viewString.Append("tID], T1.[X_AssayGroupStandardTestResult.VersionOwnerCompanyID], T1.[X_AssayGrou");
+            viewString.Append("pStandardTestResult.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T");
+            viewString.Append(".AssayGroupStandardTestResultID AS [X_AssayGroupStandardTestResult.AssayGroupSta");
+            viewString.Append("ndardTestResultID], \r\n            T.AssayGroupTestSampleID AS [X_AssayGroupStand");
+            viewString.Append("ardTestResult.AssayGroupTestSampleID], \r\n            T.AssayGroupTestID AS [X_As");
+            viewString.Append("sayGroupStandardTestResult.AssayGroupTestID], \r\n            T.AssayStandardID AS");
+            viewString.Append(" [X_AssayGroupStandardTestResult.AssayStandardID], \r\n            T.SampleCategor");
+            viewString.Append("yID AS [X_AssayGroupStandardTestResult.SampleCategoryID], \r\n            T.Sample");
+            viewString.Append("StateID AS [X_AssayGroupStandardTestResult.SampleStateID], \r\n            T.Sampl");
+            viewString.Append("eTypeID AS [X_AssayGroupStandardTestResult.SampleTypeID], \r\n            T.LabRes");
+            viewString.Append("ultText AS [X_AssayGroupStandardTestResult.LabResultText], \r\n            T.LabRe");
+            viewString.Append("sult AS [X_AssayGroupStandardTestResult.LabResult], \r\n            T.LabResultMin");
+            viewString.Append("imum AS [X_AssayGroupStandardTestResult.LabResultMinimum], \r\n            T.LabRe");
+            viewString.Append("sultMaximum AS [X_AssayGroupStandardTestResult.LabResultMaximum], \r\n            ");
+            viewString.Append("T.LabSampleName AS [X_AssayGroupStandardTestResult.LabSampleName], \r\n           ");
+            viewString.Append(" T.LabBatchNumber AS [X_AssayGroupStandardTestResult.LabBatchNumber], \r\n        ");
+            viewString.Append("    T.Sampled AS [X_AssayGroupStandardTestResult.Sampled], \r\n            T.Addre");
+            viewString.Append("ssID AS [X_AssayGroupStandardTestResult.AddressID], \r\n            T.SampledBy AS");
+            viewString.Append(" [X_AssayGroupStandardTestResult.SampledBy], \r\n            T.Version AS [X_Assay");
+            viewString.Append("GroupStandardTestResult.Version], \r\n            T.VersionAntecedentID AS [X_Assa");
+            viewString.Append("yGroupStandardTestResult.VersionAntecedentID], \r\n            T.VersionCertainty ");
+            viewString.Append("AS [X_AssayGroupStandardTestResult.VersionCertainty], \r\n            T.VersionWor");
+            viewString.Append("kflowInstanceID AS [X_AssayGroupStandardTestResult.VersionWorkflowInstanceID], \r");
+            viewString.Append("\n            T.VersionUpdatedBy AS [X_AssayGroupStandardTestResult.VersionUpdate");
+            viewString.Append("dBy], \r\n            T.VersionDeletedBy AS [X_AssayGroupStandardTestResult.Versio");
+            viewString.Append("nDeletedBy], \r\n            T.VersionOwnerContactID AS [X_AssayGroupStandardTestR");
+            viewString.Append("esult.VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_AssayG");
+            viewString.Append("roupStandardTestResult.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS");
+            viewString.Append(" [X_AssayGroupStandardTestResult.VersionUpdated], \r\n            True AS _from0\r\n");
+            viewString.Append("        FROM XODBC.AssayGroupStandardTestResults AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_AssayGroupStandardTestResult", viewString.ToString());
         }
         
@@ -5148,40 +5151,43 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView78()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2566);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2816);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_AssayGroupTestResult\r\n        [XODB.Module.");
             viewString.Append("BusinessObjects.Store.X_AssayGroupTestResult](T1.[X_AssayGroupTestResult.AssayGr");
             viewString.Append("oupTestResultID], T1.[X_AssayGroupTestResult.SampleID], T1.[X_AssayGroupTestResu");
             viewString.Append("lt.AssayGroupSubsampleID], T1.[X_AssayGroupTestResult.LabSampleName], T1.[X_Assa");
             viewString.Append("yGroupTestResult.AssayGroupTestID], T1.[X_AssayGroupTestResult.LabResultText], T");
-            viewString.Append("1.[X_AssayGroupTestResult.LabResult], T1.[X_AssayGroupTestResult.LabBatchNumber]");
-            viewString.Append(", T1.[X_AssayGroupTestResult.Sampled], T1.[X_AssayGroupTestResult.SampledBy], T1");
-            viewString.Append(".[X_AssayGroupTestResult.Version], T1.[X_AssayGroupTestResult.VersionAntecedentI");
-            viewString.Append("D], T1.[X_AssayGroupTestResult.VersionCertainty], T1.[X_AssayGroupTestResult.Ver");
-            viewString.Append("sionWorkflowInstanceID], T1.[X_AssayGroupTestResult.VersionUpdatedBy], T1.[X_Ass");
-            viewString.Append("ayGroupTestResult.VersionDeletedBy], T1.[X_AssayGroupTestResult.VersionOwnerCont");
-            viewString.Append("actID], T1.[X_AssayGroupTestResult.VersionOwnerCompanyID], T1.[X_AssayGroupTestR");
-            viewString.Append("esult.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.AssayGroupTes");
-            viewString.Append("tResultID AS [X_AssayGroupTestResult.AssayGroupTestResultID], \r\n            T.Sa");
-            viewString.Append("mpleID AS [X_AssayGroupTestResult.SampleID], \r\n            T.AssayGroupSubsample");
-            viewString.Append("ID AS [X_AssayGroupTestResult.AssayGroupSubsampleID], \r\n            T.LabSampleN");
-            viewString.Append("ame AS [X_AssayGroupTestResult.LabSampleName], \r\n            T.AssayGroupTestID ");
-            viewString.Append("AS [X_AssayGroupTestResult.AssayGroupTestID], \r\n            T.LabResultText AS [");
-            viewString.Append("X_AssayGroupTestResult.LabResultText], \r\n            T.LabResult AS [X_AssayGrou");
-            viewString.Append("pTestResult.LabResult], \r\n            T.LabBatchNumber AS [X_AssayGroupTestResul");
-            viewString.Append("t.LabBatchNumber], \r\n            T.Sampled AS [X_AssayGroupTestResult.Sampled], ");
-            viewString.Append("\r\n            T.SampledBy AS [X_AssayGroupTestResult.SampledBy], \r\n            T");
-            viewString.Append(".Version AS [X_AssayGroupTestResult.Version], \r\n            T.VersionAntecedentI");
-            viewString.Append("D AS [X_AssayGroupTestResult.VersionAntecedentID], \r\n            T.VersionCertai");
-            viewString.Append("nty AS [X_AssayGroupTestResult.VersionCertainty], \r\n            T.VersionWorkflo");
-            viewString.Append("wInstanceID AS [X_AssayGroupTestResult.VersionWorkflowInstanceID], \r\n           ");
-            viewString.Append(" T.VersionUpdatedBy AS [X_AssayGroupTestResult.VersionUpdatedBy], \r\n            ");
-            viewString.Append("T.VersionDeletedBy AS [X_AssayGroupTestResult.VersionDeletedBy], \r\n            T");
-            viewString.Append(".VersionOwnerContactID AS [X_AssayGroupTestResult.VersionOwnerContactID], \r\n    ");
-            viewString.Append("        T.VersionOwnerCompanyID AS [X_AssayGroupTestResult.VersionOwnerCompanyID");
-            viewString.Append("], \r\n            T.VersionUpdated AS [X_AssayGroupTestResult.VersionUpdated], \r\n");
-            viewString.Append("            True AS _from0\r\n        FROM XODBC.AssayGroupTestResults AS T\r\n    )");
-            viewString.Append(" AS T1");
+            viewString.Append("1.[X_AssayGroupTestResult.LabResult], T1.[X_AssayGroupTestResult.LabResultMinimu");
+            viewString.Append("m], T1.[X_AssayGroupTestResult.LabResultMaximum], T1.[X_AssayGroupTestResult.Lab");
+            viewString.Append("BatchNumber], T1.[X_AssayGroupTestResult.Sampled], T1.[X_AssayGroupTestResult.Sa");
+            viewString.Append("mpledBy], T1.[X_AssayGroupTestResult.Version], T1.[X_AssayGroupTestResult.Versio");
+            viewString.Append("nAntecedentID], T1.[X_AssayGroupTestResult.VersionCertainty], T1.[X_AssayGroupTe");
+            viewString.Append("stResult.VersionWorkflowInstanceID], T1.[X_AssayGroupTestResult.VersionUpdatedBy");
+            viewString.Append("], T1.[X_AssayGroupTestResult.VersionDeletedBy], T1.[X_AssayGroupTestResult.Vers");
+            viewString.Append("ionOwnerContactID], T1.[X_AssayGroupTestResult.VersionOwnerCompanyID], T1.[X_Ass");
+            viewString.Append("ayGroupTestResult.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n            T.A");
+            viewString.Append("ssayGroupTestResultID AS [X_AssayGroupTestResult.AssayGroupTestResultID], \r\n    ");
+            viewString.Append("        T.SampleID AS [X_AssayGroupTestResult.SampleID], \r\n            T.AssayGr");
+            viewString.Append("oupSubsampleID AS [X_AssayGroupTestResult.AssayGroupSubsampleID], \r\n            ");
+            viewString.Append("T.LabSampleName AS [X_AssayGroupTestResult.LabSampleName], \r\n            T.Assay");
+            viewString.Append("GroupTestID AS [X_AssayGroupTestResult.AssayGroupTestID], \r\n            T.LabRes");
+            viewString.Append("ultText AS [X_AssayGroupTestResult.LabResultText], \r\n            T.LabResult AS ");
+            viewString.Append("[X_AssayGroupTestResult.LabResult], \r\n            T.LabResultMinimum AS [X_Assay");
+            viewString.Append("GroupTestResult.LabResultMinimum], \r\n            T.LabResultMaximum AS [X_AssayG");
+            viewString.Append("roupTestResult.LabResultMaximum], \r\n            T.LabBatchNumber AS [X_AssayGrou");
+            viewString.Append("pTestResult.LabBatchNumber], \r\n            T.Sampled AS [X_AssayGroupTestResult.");
+            viewString.Append("Sampled], \r\n            T.SampledBy AS [X_AssayGroupTestResult.SampledBy], \r\n   ");
+            viewString.Append("         T.Version AS [X_AssayGroupTestResult.Version], \r\n            T.VersionA");
+            viewString.Append("ntecedentID AS [X_AssayGroupTestResult.VersionAntecedentID], \r\n            T.Ver");
+            viewString.Append("sionCertainty AS [X_AssayGroupTestResult.VersionCertainty], \r\n            T.Vers");
+            viewString.Append("ionWorkflowInstanceID AS [X_AssayGroupTestResult.VersionWorkflowInstanceID], \r\n ");
+            viewString.Append("           T.VersionUpdatedBy AS [X_AssayGroupTestResult.VersionUpdatedBy], \r\n  ");
+            viewString.Append("          T.VersionDeletedBy AS [X_AssayGroupTestResult.VersionDeletedBy], \r\n   ");
+            viewString.Append("         T.VersionOwnerContactID AS [X_AssayGroupTestResult.VersionOwnerContactI");
+            viewString.Append("D], \r\n            T.VersionOwnerCompanyID AS [X_AssayGroupTestResult.VersionOwne");
+            viewString.Append("rCompanyID], \r\n            T.VersionUpdated AS [X_AssayGroupTestResult.VersionUp");
+            viewString.Append("dated], \r\n            True AS _from0\r\n        FROM XODBC.AssayGroupTestResults A");
+            viewString.Append("S T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_AssayGroupTestResult", viewString.ToString());
         }
         
@@ -5222,41 +5228,45 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView80()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2703);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2989);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_AssayGroupTestResultDuplicate\r\n        [XOD");
             viewString.Append("B.Module.BusinessObjects.Store.X_AssayGroupTestResultDuplicate](T1.[X_AssayGroup");
             viewString.Append("TestResultDuplicate.AssayGroupTestResultDuplicateID], T1.[X_AssayGroupTestResult");
             viewString.Append("Duplicate.AssayGroupTestResultID], T1.[X_AssayGroupTestResultDuplicate.LabResult");
             viewString.Append("Text], T1.[X_AssayGroupTestResultDuplicate.LabResult], T1.[X_AssayGroupTestResul");
-            viewString.Append("tDuplicate.LabSampleName], T1.[X_AssayGroupTestResultDuplicate.LabBatchNumber], ");
-            viewString.Append("T1.[X_AssayGroupTestResultDuplicate.Sampled], T1.[X_AssayGroupTestResultDuplicat");
-            viewString.Append("e.SampledBy], T1.[X_AssayGroupTestResultDuplicate.Version], T1.[X_AssayGroupTest");
-            viewString.Append("ResultDuplicate.VersionAntecedentID], T1.[X_AssayGroupTestResultDuplicate.Versio");
-            viewString.Append("nCertainty], T1.[X_AssayGroupTestResultDuplicate.VersionWorkflowInstanceID], T1.");
-            viewString.Append("[X_AssayGroupTestResultDuplicate.VersionUpdatedBy], T1.[X_AssayGroupTestResultDu");
-            viewString.Append("plicate.VersionDeletedBy], T1.[X_AssayGroupTestResultDuplicate.VersionOwnerConta");
-            viewString.Append("ctID], T1.[X_AssayGroupTestResultDuplicate.VersionOwnerCompanyID], T1.[X_AssayGr");
-            viewString.Append("oupTestResultDuplicate.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n          ");
-            viewString.Append("  T.AssayGroupTestResultDuplicateID AS [X_AssayGroupTestResultDuplicate.AssayGro");
-            viewString.Append("upTestResultDuplicateID], \r\n            T.AssayGroupTestResultID AS [X_AssayGrou");
-            viewString.Append("pTestResultDuplicate.AssayGroupTestResultID], \r\n            T.LabResultText AS [");
-            viewString.Append("X_AssayGroupTestResultDuplicate.LabResultText], \r\n            T.LabResult AS [X_");
-            viewString.Append("AssayGroupTestResultDuplicate.LabResult], \r\n            T.LabSampleName AS [X_As");
-            viewString.Append("sayGroupTestResultDuplicate.LabSampleName], \r\n            T.LabBatchNumber AS [X");
-            viewString.Append("_AssayGroupTestResultDuplicate.LabBatchNumber], \r\n            T.Sampled AS [X_As");
-            viewString.Append("sayGroupTestResultDuplicate.Sampled], \r\n            T.SampledBy AS [X_AssayGroup");
-            viewString.Append("TestResultDuplicate.SampledBy], \r\n            T.Version AS [X_AssayGroupTestResu");
-            viewString.Append("ltDuplicate.Version], \r\n            T.VersionAntecedentID AS [X_AssayGroupTestRe");
-            viewString.Append("sultDuplicate.VersionAntecedentID], \r\n            T.VersionCertainty AS [X_Assay");
-            viewString.Append("GroupTestResultDuplicate.VersionCertainty], \r\n            T.VersionWorkflowInsta");
-            viewString.Append("nceID AS [X_AssayGroupTestResultDuplicate.VersionWorkflowInstanceID], \r\n        ");
-            viewString.Append("    T.VersionUpdatedBy AS [X_AssayGroupTestResultDuplicate.VersionUpdatedBy], \r\n");
-            viewString.Append("            T.VersionDeletedBy AS [X_AssayGroupTestResultDuplicate.VersionDelete");
-            viewString.Append("dBy], \r\n            T.VersionOwnerContactID AS [X_AssayGroupTestResultDuplicate.");
-            viewString.Append("VersionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_AssayGroupTe");
-            viewString.Append("stResultDuplicate.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_A");
-            viewString.Append("ssayGroupTestResultDuplicate.VersionUpdated], \r\n            True AS _from0\r\n    ");
-            viewString.Append("    FROM XODBC.AssayGroupTestResultDuplicates AS T\r\n    ) AS T1");
+            viewString.Append("tDuplicate.LabResultMinimum], T1.[X_AssayGroupTestResultDuplicate.LabResultMaxim");
+            viewString.Append("um], T1.[X_AssayGroupTestResultDuplicate.LabSampleName], T1.[X_AssayGroupTestRes");
+            viewString.Append("ultDuplicate.LabBatchNumber], T1.[X_AssayGroupTestResultDuplicate.Sampled], T1.[");
+            viewString.Append("X_AssayGroupTestResultDuplicate.SampledBy], T1.[X_AssayGroupTestResultDuplicate.");
+            viewString.Append("Version], T1.[X_AssayGroupTestResultDuplicate.VersionAntecedentID], T1.[X_AssayG");
+            viewString.Append("roupTestResultDuplicate.VersionCertainty], T1.[X_AssayGroupTestResultDuplicate.V");
+            viewString.Append("ersionWorkflowInstanceID], T1.[X_AssayGroupTestResultDuplicate.VersionUpdatedBy]");
+            viewString.Append(", T1.[X_AssayGroupTestResultDuplicate.VersionDeletedBy], T1.[X_AssayGroupTestRes");
+            viewString.Append("ultDuplicate.VersionOwnerContactID], T1.[X_AssayGroupTestResultDuplicate.Version");
+            viewString.Append("OwnerCompanyID], T1.[X_AssayGroupTestResultDuplicate.VersionUpdated])\r\n    FROM ");
+            viewString.Append("(\r\n        SELECT \r\n            T.AssayGroupTestResultDuplicateID AS [X_AssayGro");
+            viewString.Append("upTestResultDuplicate.AssayGroupTestResultDuplicateID], \r\n            T.AssayGro");
+            viewString.Append("upTestResultID AS [X_AssayGroupTestResultDuplicate.AssayGroupTestResultID], \r\n  ");
+            viewString.Append("          T.LabResultText AS [X_AssayGroupTestResultDuplicate.LabResultText], \r\n");
+            viewString.Append("            T.LabResult AS [X_AssayGroupTestResultDuplicate.LabResult], \r\n      ");
+            viewString.Append("      T.LabResultMinimum AS [X_AssayGroupTestResultDuplicate.LabResultMinimum], ");
+            viewString.Append("\r\n            T.LabResultMaximum AS [X_AssayGroupTestResultDuplicate.LabResultMa");
+            viewString.Append("ximum], \r\n            T.LabSampleName AS [X_AssayGroupTestResultDuplicate.LabSam");
+            viewString.Append("pleName], \r\n            T.LabBatchNumber AS [X_AssayGroupTestResultDuplicate.Lab");
+            viewString.Append("BatchNumber], \r\n            T.Sampled AS [X_AssayGroupTestResultDuplicate.Sample");
+            viewString.Append("d], \r\n            T.SampledBy AS [X_AssayGroupTestResultDuplicate.SampledBy], \r\n");
+            viewString.Append("            T.Version AS [X_AssayGroupTestResultDuplicate.Version], \r\n          ");
+            viewString.Append("  T.VersionAntecedentID AS [X_AssayGroupTestResultDuplicate.VersionAntecedentID]");
+            viewString.Append(", \r\n            T.VersionCertainty AS [X_AssayGroupTestResultDuplicate.VersionCe");
+            viewString.Append("rtainty], \r\n            T.VersionWorkflowInstanceID AS [X_AssayGroupTestResultDu");
+            viewString.Append("plicate.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [X_Assay");
+            viewString.Append("GroupTestResultDuplicate.VersionUpdatedBy], \r\n            T.VersionDeletedBy AS ");
+            viewString.Append("[X_AssayGroupTestResultDuplicate.VersionDeletedBy], \r\n            T.VersionOwner");
+            viewString.Append("ContactID AS [X_AssayGroupTestResultDuplicate.VersionOwnerContactID], \r\n        ");
+            viewString.Append("    T.VersionOwnerCompanyID AS [X_AssayGroupTestResultDuplicate.VersionOwnerComp");
+            viewString.Append("anyID], \r\n            T.VersionUpdated AS [X_AssayGroupTestResultDuplicate.Versi");
+            viewString.Append("onUpdated], \r\n            True AS _from0\r\n        FROM XODBC.AssayGroupTestResul");
+            viewString.Append("tDuplicates AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_AssayGroupTestResultDuplicate", viewString.ToString());
         }
         
@@ -12679,42 +12689,44 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView267()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2786);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2921);
             viewString.Append("\r\n    SELECT VALUE -- Constructing X_AssayGroupSubsamplePrecondition\r\n        [X");
             viewString.Append("ODB.Module.BusinessObjects.Store.X_AssayGroupSubsamplePrecondition](T1.[X_AssayG");
             viewString.Append("roupSubsamplePrecondition.AssayGroupSubsamplePreconditionID], T1.[X_AssayGroupSu");
             viewString.Append("bsamplePrecondition.AssayGroupSubsampleID], T1.[X_AssayGroupSubsamplePreconditio");
             viewString.Append("n.AssayPreconditionTypeID], T1.[X_AssayGroupSubsamplePrecondition.PreconditionNa");
             viewString.Append("me], T1.[X_AssayGroupSubsamplePrecondition.PreconditionParameterID], T1.[X_Assay");
-            viewString.Append("GroupSubsamplePrecondition.PreconditionMinimum], T1.[X_AssayGroupSubsamplePrecon");
-            viewString.Append("dition.PreconditionMaximum], T1.[X_AssayGroupSubsamplePrecondition.Version], T1.");
-            viewString.Append("[X_AssayGroupSubsamplePrecondition.VersionAntecedentID], T1.[X_AssayGroupSubsamp");
-            viewString.Append("lePrecondition.VersionCertainty], T1.[X_AssayGroupSubsamplePrecondition.VersionW");
-            viewString.Append("orkflowInstanceID], T1.[X_AssayGroupSubsamplePrecondition.VersionUpdatedBy], T1.");
-            viewString.Append("[X_AssayGroupSubsamplePrecondition.VersionDeletedBy], T1.[X_AssayGroupSubsampleP");
-            viewString.Append("recondition.VersionOwnerContactID], T1.[X_AssayGroupSubsamplePrecondition.Versio");
-            viewString.Append("nOwnerCompanyID], T1.[X_AssayGroupSubsamplePrecondition.VersionUpdated])\r\n    FR");
-            viewString.Append("OM (\r\n        SELECT \r\n            T.AssayGroupSubsamplePreconditionID AS [X_Ass");
-            viewString.Append("ayGroupSubsamplePrecondition.AssayGroupSubsamplePreconditionID], \r\n            T");
-            viewString.Append(".AssayGroupSubsampleID AS [X_AssayGroupSubsamplePrecondition.AssayGroupSubsample");
-            viewString.Append("ID], \r\n            T.AssayPreconditionTypeID AS [X_AssayGroupSubsamplePreconditi");
-            viewString.Append("on.AssayPreconditionTypeID], \r\n            T.PreconditionName AS [X_AssayGroupSu");
-            viewString.Append("bsamplePrecondition.PreconditionName], \r\n            T.PreconditionParameterID A");
-            viewString.Append("S [X_AssayGroupSubsamplePrecondition.PreconditionParameterID], \r\n            T.P");
-            viewString.Append("reconditionMinimum AS [X_AssayGroupSubsamplePrecondition.PreconditionMinimum], \r");
-            viewString.Append("\n            T.PreconditionMaximum AS [X_AssayGroupSubsamplePrecondition.Precond");
-            viewString.Append("itionMaximum], \r\n            T.Version AS [X_AssayGroupSubsamplePrecondition.Ver");
-            viewString.Append("sion], \r\n            T.VersionAntecedentID AS [X_AssayGroupSubsamplePrecondition");
-            viewString.Append(".VersionAntecedentID], \r\n            T.VersionCertainty AS [X_AssayGroupSubsampl");
-            viewString.Append("ePrecondition.VersionCertainty], \r\n            T.VersionWorkflowInstanceID AS [X");
-            viewString.Append("_AssayGroupSubsamplePrecondition.VersionWorkflowInstanceID], \r\n            T.Ver");
-            viewString.Append("sionUpdatedBy AS [X_AssayGroupSubsamplePrecondition.VersionUpdatedBy], \r\n       ");
-            viewString.Append("     T.VersionDeletedBy AS [X_AssayGroupSubsamplePrecondition.VersionDeletedBy],");
-            viewString.Append(" \r\n            T.VersionOwnerContactID AS [X_AssayGroupSubsamplePrecondition.Ver");
-            viewString.Append("sionOwnerContactID], \r\n            T.VersionOwnerCompanyID AS [X_AssayGroupSubsa");
-            viewString.Append("mplePrecondition.VersionOwnerCompanyID], \r\n            T.VersionUpdated AS [X_As");
-            viewString.Append("sayGroupSubsamplePrecondition.VersionUpdated], \r\n            True AS _from0\r\n   ");
-            viewString.Append("     FROM XODBC.AssayGroupSubsamplePreconditions AS T\r\n    ) AS T1");
+            viewString.Append("GroupSubsamplePrecondition.Precondition], T1.[X_AssayGroupSubsamplePrecondition.");
+            viewString.Append("PreconditionMinimum], T1.[X_AssayGroupSubsamplePrecondition.PreconditionMaximum]");
+            viewString.Append(", T1.[X_AssayGroupSubsamplePrecondition.Version], T1.[X_AssayGroupSubsamplePreco");
+            viewString.Append("ndition.VersionAntecedentID], T1.[X_AssayGroupSubsamplePrecondition.VersionCerta");
+            viewString.Append("inty], T1.[X_AssayGroupSubsamplePrecondition.VersionWorkflowInstanceID], T1.[X_A");
+            viewString.Append("ssayGroupSubsamplePrecondition.VersionUpdatedBy], T1.[X_AssayGroupSubsamplePreco");
+            viewString.Append("ndition.VersionDeletedBy], T1.[X_AssayGroupSubsamplePrecondition.VersionOwnerCon");
+            viewString.Append("tactID], T1.[X_AssayGroupSubsamplePrecondition.VersionOwnerCompanyID], T1.[X_Ass");
+            viewString.Append("ayGroupSubsamplePrecondition.VersionUpdated])\r\n    FROM (\r\n        SELECT \r\n    ");
+            viewString.Append("        T.AssayGroupSubsamplePreconditionID AS [X_AssayGroupSubsamplePreconditio");
+            viewString.Append("n.AssayGroupSubsamplePreconditionID], \r\n            T.AssayGroupSubsampleID AS [");
+            viewString.Append("X_AssayGroupSubsamplePrecondition.AssayGroupSubsampleID], \r\n            T.AssayP");
+            viewString.Append("reconditionTypeID AS [X_AssayGroupSubsamplePrecondition.AssayPreconditionTypeID]");
+            viewString.Append(", \r\n            T.PreconditionName AS [X_AssayGroupSubsamplePrecondition.Precond");
+            viewString.Append("itionName], \r\n            T.PreconditionParameterID AS [X_AssayGroupSubsamplePre");
+            viewString.Append("condition.PreconditionParameterID], \r\n            T.Precondition AS [X_AssayGrou");
+            viewString.Append("pSubsamplePrecondition.Precondition], \r\n            T.PreconditionMinimum AS [X_");
+            viewString.Append("AssayGroupSubsamplePrecondition.PreconditionMinimum], \r\n            T.Preconditi");
+            viewString.Append("onMaximum AS [X_AssayGroupSubsamplePrecondition.PreconditionMaximum], \r\n        ");
+            viewString.Append("    T.Version AS [X_AssayGroupSubsamplePrecondition.Version], \r\n            T.Ve");
+            viewString.Append("rsionAntecedentID AS [X_AssayGroupSubsamplePrecondition.VersionAntecedentID], \r\n");
+            viewString.Append("            T.VersionCertainty AS [X_AssayGroupSubsamplePrecondition.VersionCert");
+            viewString.Append("ainty], \r\n            T.VersionWorkflowInstanceID AS [X_AssayGroupSubsamplePreco");
+            viewString.Append("ndition.VersionWorkflowInstanceID], \r\n            T.VersionUpdatedBy AS [X_Assay");
+            viewString.Append("GroupSubsamplePrecondition.VersionUpdatedBy], \r\n            T.VersionDeletedBy A");
+            viewString.Append("S [X_AssayGroupSubsamplePrecondition.VersionDeletedBy], \r\n            T.VersionO");
+            viewString.Append("wnerContactID AS [X_AssayGroupSubsamplePrecondition.VersionOwnerContactID], \r\n  ");
+            viewString.Append("          T.VersionOwnerCompanyID AS [X_AssayGroupSubsamplePrecondition.VersionO");
+            viewString.Append("wnerCompanyID], \r\n            T.VersionUpdated AS [X_AssayGroupSubsamplePrecondi");
+            viewString.Append("tion.VersionUpdated], \r\n            True AS _from0\r\n        FROM XODBC.AssayGrou");
+            viewString.Append("pSubsamplePreconditions AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBModuleBusinessObjectsStoreContainer.X_AssayGroupSubsamplePrecondition", viewString.ToString());
         }
         
@@ -15231,7 +15243,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView338()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3306);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(3572);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupStandardTestResults\r\n        [XODB.");
             viewString.Append("Module.BusinessObjects.AssayGroupStandardTestResult](T1.AssayGroupStandardTestRe");
             viewString.Append("sult_AssayGroupStandardTestResultID, T1.AssayGroupStandardTestResult_AssayGroupT");
@@ -15247,33 +15259,36 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("pdatedBy, T1.AssayGroupStandardTestResult_VersionDeletedBy, T1.AssayGroupStandar");
             viewString.Append("dTestResult_VersionOwnerContactID, T1.AssayGroupStandardTestResult_VersionOwnerC");
             viewString.Append("ompanyID, T1.AssayGroupStandardTestResult_VersionUpdated, T1.AssayGroupStandardT");
-            viewString.Append("estResult_LabSampleName, T1.AssayGroupStandardTestResult_AddressID)\r\n    FROM (\r");
-            viewString.Append("\n        SELECT \r\n            T.AssayGroupStandardTestResultID AS AssayGroupStan");
-            viewString.Append("dardTestResult_AssayGroupStandardTestResultID, \r\n            T.AssayGroupTestSam");
-            viewString.Append("pleID AS AssayGroupStandardTestResult_AssayGroupTestSampleID, \r\n            T.As");
-            viewString.Append("sayGroupTestID AS AssayGroupStandardTestResult_AssayGroupTestID, \r\n            T");
-            viewString.Append(".AssayStandardID AS AssayGroupStandardTestResult_AssayStandardID, \r\n            ");
-            viewString.Append("T.SampleCategoryID AS AssayGroupStandardTestResult_SampleCategoryID, \r\n         ");
-            viewString.Append("   T.SampleStateID AS AssayGroupStandardTestResult_SampleStateID, \r\n            ");
-            viewString.Append("T.SampleTypeID AS AssayGroupStandardTestResult_SampleTypeID, \r\n            T.Lab");
-            viewString.Append("ResultText AS AssayGroupStandardTestResult_LabResultText, \r\n            T.LabRes");
-            viewString.Append("ult AS AssayGroupStandardTestResult_LabResult, \r\n            T.LabBatchNumber AS");
-            viewString.Append(" AssayGroupStandardTestResult_LabBatchNumber, \r\n            T.Sampled AS AssayGr");
-            viewString.Append("oupStandardTestResult_Sampled, \r\n            T.SampledBy AS AssayGroupStandardTe");
-            viewString.Append("stResult_SampledBy, \r\n            T.Version AS AssayGroupStandardTestResult_Vers");
-            viewString.Append("ion, \r\n            T.VersionAntecedentID AS AssayGroupStandardTestResult_Version");
-            viewString.Append("AntecedentID, \r\n            T.VersionCertainty AS AssayGroupStandardTestResult_V");
-            viewString.Append("ersionCertainty, \r\n            T.VersionWorkflowInstanceID AS AssayGroupStandard");
-            viewString.Append("TestResult_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS AssayG");
-            viewString.Append("roupStandardTestResult_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS Ass");
-            viewString.Append("ayGroupStandardTestResult_VersionDeletedBy, \r\n            T.VersionOwnerContactI");
-            viewString.Append("D AS AssayGroupStandardTestResult_VersionOwnerContactID, \r\n            T.Version");
-            viewString.Append("OwnerCompanyID AS AssayGroupStandardTestResult_VersionOwnerCompanyID, \r\n        ");
-            viewString.Append("    T.VersionUpdated AS AssayGroupStandardTestResult_VersionUpdated, \r\n         ");
-            viewString.Append("   T.LabSampleName AS AssayGroupStandardTestResult_LabSampleName, \r\n            ");
-            viewString.Append("T.AddressID AS AssayGroupStandardTestResult_AddressID, \r\n            True AS _fr");
-            viewString.Append("om0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_AssayGroupStandardTe");
-            viewString.Append("stResult AS T\r\n    ) AS T1");
+            viewString.Append("estResult_LabSampleName, T1.AssayGroupStandardTestResult_AddressID, T1.AssayGrou");
+            viewString.Append("pStandardTestResult_LabResultMinimum, T1.AssayGroupStandardTestResult_LabResultM");
+            viewString.Append("aximum)\r\n    FROM (\r\n        SELECT \r\n            T.AssayGroupStandardTestResult");
+            viewString.Append("ID AS AssayGroupStandardTestResult_AssayGroupStandardTestResultID, \r\n           ");
+            viewString.Append(" T.AssayGroupTestSampleID AS AssayGroupStandardTestResult_AssayGroupTestSampleID");
+            viewString.Append(", \r\n            T.AssayGroupTestID AS AssayGroupStandardTestResult_AssayGroupTes");
+            viewString.Append("tID, \r\n            T.AssayStandardID AS AssayGroupStandardTestResult_AssayStanda");
+            viewString.Append("rdID, \r\n            T.SampleCategoryID AS AssayGroupStandardTestResult_SampleCat");
+            viewString.Append("egoryID, \r\n            T.SampleStateID AS AssayGroupStandardTestResult_SampleSta");
+            viewString.Append("teID, \r\n            T.SampleTypeID AS AssayGroupStandardTestResult_SampleTypeID,");
+            viewString.Append(" \r\n            T.LabResultText AS AssayGroupStandardTestResult_LabResultText, \r\n");
+            viewString.Append("            T.LabResult AS AssayGroupStandardTestResult_LabResult, \r\n           ");
+            viewString.Append(" T.LabBatchNumber AS AssayGroupStandardTestResult_LabBatchNumber, \r\n            ");
+            viewString.Append("T.Sampled AS AssayGroupStandardTestResult_Sampled, \r\n            T.SampledBy AS ");
+            viewString.Append("AssayGroupStandardTestResult_SampledBy, \r\n            T.Version AS AssayGroupSta");
+            viewString.Append("ndardTestResult_Version, \r\n            T.VersionAntecedentID AS AssayGroupStanda");
+            viewString.Append("rdTestResult_VersionAntecedentID, \r\n            T.VersionCertainty AS AssayGroup");
+            viewString.Append("StandardTestResult_VersionCertainty, \r\n            T.VersionWorkflowInstanceID A");
+            viewString.Append("S AssayGroupStandardTestResult_VersionWorkflowInstanceID, \r\n            T.Versio");
+            viewString.Append("nUpdatedBy AS AssayGroupStandardTestResult_VersionUpdatedBy, \r\n            T.Ver");
+            viewString.Append("sionDeletedBy AS AssayGroupStandardTestResult_VersionDeletedBy, \r\n            T.");
+            viewString.Append("VersionOwnerContactID AS AssayGroupStandardTestResult_VersionOwnerContactID, \r\n ");
+            viewString.Append("           T.VersionOwnerCompanyID AS AssayGroupStandardTestResult_VersionOwnerC");
+            viewString.Append("ompanyID, \r\n            T.VersionUpdated AS AssayGroupStandardTestResult_Version");
+            viewString.Append("Updated, \r\n            T.LabSampleName AS AssayGroupStandardTestResult_LabSample");
+            viewString.Append("Name, \r\n            T.AddressID AS AssayGroupStandardTestResult_AddressID, \r\n   ");
+            viewString.Append("         T.LabResultMinimum AS AssayGroupStandardTestResult_LabResultMinimum, \r\n");
+            viewString.Append("            T.LabResultMaximum AS AssayGroupStandardTestResult_LabResultMaximum,");
+            viewString.Append(" \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContai");
+            viewString.Append("ner.X_AssayGroupStandardTestResult AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupStandardTestResults", viewString.ToString());
         }
         
@@ -15319,7 +15334,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView340()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2440);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2674);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupTestResults\r\n        [XODB.Module.B");
             viewString.Append("usinessObjects.AssayGroupTestResult](T1.AssayGroupTestResult_AssayGroupTestResul");
             viewString.Append("tID, T1.AssayGroupTestResult_SampleID, T1.AssayGroupTestResult_AssayGroupTestID,");
@@ -15331,26 +15346,29 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("ssayGroupTestResult_VersionDeletedBy, T1.AssayGroupTestResult_VersionOwnerContac");
             viewString.Append("tID, T1.AssayGroupTestResult_VersionOwnerCompanyID, T1.AssayGroupTestResult_Vers");
             viewString.Append("ionUpdated, T1.AssayGroupTestResult_AssayGroupSubsampleID, T1.AssayGroupTestResu");
-            viewString.Append("lt_LabSampleName)\r\n    FROM (\r\n        SELECT \r\n            T.AssayGroupTestResu");
-            viewString.Append("ltID AS AssayGroupTestResult_AssayGroupTestResultID, \r\n            T.SampleID AS");
-            viewString.Append(" AssayGroupTestResult_SampleID, \r\n            T.AssayGroupTestID AS AssayGroupTe");
-            viewString.Append("stResult_AssayGroupTestID, \r\n            T.LabResultText AS AssayGroupTestResult");
-            viewString.Append("_LabResultText, \r\n            T.LabResult AS AssayGroupTestResult_LabResult, \r\n ");
-            viewString.Append("           T.LabBatchNumber AS AssayGroupTestResult_LabBatchNumber, \r\n          ");
-            viewString.Append("  T.Sampled AS AssayGroupTestResult_Sampled, \r\n            T.SampledBy AS AssayG");
-            viewString.Append("roupTestResult_SampledBy, \r\n            T.Version AS AssayGroupTestResult_Versio");
-            viewString.Append("n, \r\n            T.VersionAntecedentID AS AssayGroupTestResult_VersionAntecedent");
-            viewString.Append("ID, \r\n            T.VersionCertainty AS AssayGroupTestResult_VersionCertainty, \r");
-            viewString.Append("\n            T.VersionWorkflowInstanceID AS AssayGroupTestResult_VersionWorkflow");
-            viewString.Append("InstanceID, \r\n            T.VersionUpdatedBy AS AssayGroupTestResult_VersionUpda");
-            viewString.Append("tedBy, \r\n            T.VersionDeletedBy AS AssayGroupTestResult_VersionDeletedBy");
-            viewString.Append(", \r\n            T.VersionOwnerContactID AS AssayGroupTestResult_VersionOwnerCont");
-            viewString.Append("actID, \r\n            T.VersionOwnerCompanyID AS AssayGroupTestResult_VersionOwne");
-            viewString.Append("rCompanyID, \r\n            T.VersionUpdated AS AssayGroupTestResult_VersionUpdate");
-            viewString.Append("d, \r\n            T.AssayGroupSubsampleID AS AssayGroupTestResult_AssayGroupSubsa");
-            viewString.Append("mpleID, \r\n            T.LabSampleName AS AssayGroupTestResult_LabSampleName, \r\n ");
-            viewString.Append("           True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.");
-            viewString.Append("X_AssayGroupTestResult AS T\r\n    ) AS T1");
+            viewString.Append("lt_LabSampleName, T1.AssayGroupTestResult_LabResultMinimum, T1.AssayGroupTestRes");
+            viewString.Append("ult_LabResultMaximum)\r\n    FROM (\r\n        SELECT \r\n            T.AssayGroupTest");
+            viewString.Append("ResultID AS AssayGroupTestResult_AssayGroupTestResultID, \r\n            T.SampleI");
+            viewString.Append("D AS AssayGroupTestResult_SampleID, \r\n            T.AssayGroupTestID AS AssayGro");
+            viewString.Append("upTestResult_AssayGroupTestID, \r\n            T.LabResultText AS AssayGroupTestRe");
+            viewString.Append("sult_LabResultText, \r\n            T.LabResult AS AssayGroupTestResult_LabResult,");
+            viewString.Append(" \r\n            T.LabBatchNumber AS AssayGroupTestResult_LabBatchNumber, \r\n      ");
+            viewString.Append("      T.Sampled AS AssayGroupTestResult_Sampled, \r\n            T.SampledBy AS As");
+            viewString.Append("sayGroupTestResult_SampledBy, \r\n            T.Version AS AssayGroupTestResult_Ve");
+            viewString.Append("rsion, \r\n            T.VersionAntecedentID AS AssayGroupTestResult_VersionAntece");
+            viewString.Append("dentID, \r\n            T.VersionCertainty AS AssayGroupTestResult_VersionCertaint");
+            viewString.Append("y, \r\n            T.VersionWorkflowInstanceID AS AssayGroupTestResult_VersionWork");
+            viewString.Append("flowInstanceID, \r\n            T.VersionUpdatedBy AS AssayGroupTestResult_Version");
+            viewString.Append("UpdatedBy, \r\n            T.VersionDeletedBy AS AssayGroupTestResult_VersionDelet");
+            viewString.Append("edBy, \r\n            T.VersionOwnerContactID AS AssayGroupTestResult_VersionOwner");
+            viewString.Append("ContactID, \r\n            T.VersionOwnerCompanyID AS AssayGroupTestResult_Version");
+            viewString.Append("OwnerCompanyID, \r\n            T.VersionUpdated AS AssayGroupTestResult_VersionUp");
+            viewString.Append("dated, \r\n            T.AssayGroupSubsampleID AS AssayGroupTestResult_AssayGroupS");
+            viewString.Append("ubsampleID, \r\n            T.LabSampleName AS AssayGroupTestResult_LabSampleName,");
+            viewString.Append(" \r\n            T.LabResultMinimum AS AssayGroupTestResult_LabResultMinimum, \r\n  ");
+            viewString.Append("          T.LabResultMaximum AS AssayGroupTestResult_LabResultMaximum, \r\n       ");
+            viewString.Append("     True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_Assa");
+            viewString.Append("yGroupTestResult AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupTestResults", viewString.ToString());
         }
         
@@ -15391,7 +15409,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView342()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2593);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2863);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupTestResultDuplicates\r\n        [XODB");
             viewString.Append(".Module.BusinessObjects.AssayGroupTestResultDuplicate](T1.AssayGroupTestResultDu");
             viewString.Append("plicate_AssayGroupTestResultDuplicateID, T1.AssayGroupTestResultDuplicate_AssayG");
@@ -15404,27 +15422,30 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("cate_VersionUpdatedBy, T1.AssayGroupTestResultDuplicate_VersionDeletedBy, T1.Ass");
             viewString.Append("ayGroupTestResultDuplicate_VersionOwnerContactID, T1.AssayGroupTestResultDuplica");
             viewString.Append("te_VersionOwnerCompanyID, T1.AssayGroupTestResultDuplicate_VersionUpdated, T1.As");
-            viewString.Append("sayGroupTestResultDuplicate_LabSampleName)\r\n    FROM (\r\n        SELECT \r\n       ");
-            viewString.Append("     T.AssayGroupTestResultDuplicateID AS AssayGroupTestResultDuplicate_AssayGro");
-            viewString.Append("upTestResultDuplicateID, \r\n            T.AssayGroupTestResultID AS AssayGroupTes");
-            viewString.Append("tResultDuplicate_AssayGroupTestResultID, \r\n            T.LabResultText AS AssayG");
-            viewString.Append("roupTestResultDuplicate_LabResultText, \r\n            T.LabResult AS AssayGroupTe");
-            viewString.Append("stResultDuplicate_LabResult, \r\n            T.LabBatchNumber AS AssayGroupTestRes");
-            viewString.Append("ultDuplicate_LabBatchNumber, \r\n            T.Sampled AS AssayGroupTestResultDupl");
-            viewString.Append("icate_Sampled, \r\n            T.SampledBy AS AssayGroupTestResultDuplicate_Sample");
-            viewString.Append("dBy, \r\n            T.Version AS AssayGroupTestResultDuplicate_Version, \r\n       ");
-            viewString.Append("     T.VersionAntecedentID AS AssayGroupTestResultDuplicate_VersionAntecedentID,");
-            viewString.Append(" \r\n            T.VersionCertainty AS AssayGroupTestResultDuplicate_VersionCertai");
-            viewString.Append("nty, \r\n            T.VersionWorkflowInstanceID AS AssayGroupTestResultDuplicate_");
-            viewString.Append("VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS AssayGroupTestRes");
-            viewString.Append("ultDuplicate_VersionUpdatedBy, \r\n            T.VersionDeletedBy AS AssayGroupTes");
-            viewString.Append("tResultDuplicate_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS Assa");
-            viewString.Append("yGroupTestResultDuplicate_VersionOwnerContactID, \r\n            T.VersionOwnerCom");
-            viewString.Append("panyID AS AssayGroupTestResultDuplicate_VersionOwnerCompanyID, \r\n            T.V");
-            viewString.Append("ersionUpdated AS AssayGroupTestResultDuplicate_VersionUpdated, \r\n            T.L");
-            viewString.Append("abSampleName AS AssayGroupTestResultDuplicate_LabSampleName, \r\n            True ");
-            viewString.Append("AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_AssayGroupTest");
-            viewString.Append("ResultDuplicate AS T\r\n    ) AS T1");
+            viewString.Append("sayGroupTestResultDuplicate_LabSampleName, T1.AssayGroupTestResultDuplicate_LabR");
+            viewString.Append("esultMinimum, T1.AssayGroupTestResultDuplicate_LabResultMaximum)\r\n    FROM (\r\n  ");
+            viewString.Append("      SELECT \r\n            T.AssayGroupTestResultDuplicateID AS AssayGroupTestRe");
+            viewString.Append("sultDuplicate_AssayGroupTestResultDuplicateID, \r\n            T.AssayGroupTestRes");
+            viewString.Append("ultID AS AssayGroupTestResultDuplicate_AssayGroupTestResultID, \r\n            T.L");
+            viewString.Append("abResultText AS AssayGroupTestResultDuplicate_LabResultText, \r\n            T.Lab");
+            viewString.Append("Result AS AssayGroupTestResultDuplicate_LabResult, \r\n            T.LabBatchNumbe");
+            viewString.Append("r AS AssayGroupTestResultDuplicate_LabBatchNumber, \r\n            T.Sampled AS As");
+            viewString.Append("sayGroupTestResultDuplicate_Sampled, \r\n            T.SampledBy AS AssayGroupTest");
+            viewString.Append("ResultDuplicate_SampledBy, \r\n            T.Version AS AssayGroupTestResultDuplic");
+            viewString.Append("ate_Version, \r\n            T.VersionAntecedentID AS AssayGroupTestResultDuplicat");
+            viewString.Append("e_VersionAntecedentID, \r\n            T.VersionCertainty AS AssayGroupTestResultD");
+            viewString.Append("uplicate_VersionCertainty, \r\n            T.VersionWorkflowInstanceID AS AssayGro");
+            viewString.Append("upTestResultDuplicate_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedB");
+            viewString.Append("y AS AssayGroupTestResultDuplicate_VersionUpdatedBy, \r\n            T.VersionDele");
+            viewString.Append("tedBy AS AssayGroupTestResultDuplicate_VersionDeletedBy, \r\n            T.Version");
+            viewString.Append("OwnerContactID AS AssayGroupTestResultDuplicate_VersionOwnerContactID, \r\n       ");
+            viewString.Append("     T.VersionOwnerCompanyID AS AssayGroupTestResultDuplicate_VersionOwnerCompan");
+            viewString.Append("yID, \r\n            T.VersionUpdated AS AssayGroupTestResultDuplicate_VersionUpda");
+            viewString.Append("ted, \r\n            T.LabSampleName AS AssayGroupTestResultDuplicate_LabSampleNam");
+            viewString.Append("e, \r\n            T.LabResultMinimum AS AssayGroupTestResultDuplicate_LabResultMi");
+            viewString.Append("nimum, \r\n            T.LabResultMaximum AS AssayGroupTestResultDuplicate_LabResu");
+            viewString.Append("ltMaximum, \r\n            True AS _from0\r\n        FROM XODBModuleBusinessObjectsS");
+            viewString.Append("toreContainer.X_AssayGroupTestResultDuplicate AS T\r\n    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupTestResultDuplicates", viewString.ToString());
         }
         
@@ -22553,7 +22574,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView529()
         {
-            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2684);
+            System.Text.StringBuilder viewString = new System.Text.StringBuilder(2811);
             viewString.Append("\r\n    SELECT VALUE -- Constructing AssayGroupSubsamplePreconditions\r\n        [XO");
             viewString.Append("DB.Module.BusinessObjects.AssayGroupSubsamplePrecondition](T1.AssayGroupSubsampl");
             viewString.Append("ePrecondition_AssayGroupSubsamplePreconditionID, T1.AssayGroupSubsamplePrecondit");
@@ -22566,28 +22587,30 @@ namespace Edm_EntityMappingGeneratedViews
             viewString.Append("ePrecondition_VersionOwnerCompanyID, T1.AssayGroupSubsamplePrecondition_VersionU");
             viewString.Append("pdated, T1.AssayGroupSubsamplePrecondition_AssayPreconditionTypeID, T1.AssayGrou");
             viewString.Append("pSubsamplePrecondition_PreconditionParameterID, T1.AssayGroupSubsamplePreconditi");
-            viewString.Append("on_PreconditionMinimum, T1.AssayGroupSubsamplePrecondition_PreconditionMaximum)\r");
-            viewString.Append("\n    FROM (\r\n        SELECT \r\n            T.AssayGroupSubsamplePreconditionID AS");
-            viewString.Append(" AssayGroupSubsamplePrecondition_AssayGroupSubsamplePreconditionID, \r\n          ");
-            viewString.Append("  T.AssayGroupSubsampleID AS AssayGroupSubsamplePrecondition_AssayGroupSubsample");
-            viewString.Append("ID, \r\n            T.PreconditionName AS AssayGroupSubsamplePrecondition_Precondi");
-            viewString.Append("tionName, \r\n            T.Version AS AssayGroupSubsamplePrecondition_Version, \r\n");
-            viewString.Append("            T.VersionAntecedentID AS AssayGroupSubsamplePrecondition_VersionAnte");
-            viewString.Append("cedentID, \r\n            T.VersionCertainty AS AssayGroupSubsamplePrecondition_Ve");
-            viewString.Append("rsionCertainty, \r\n            T.VersionWorkflowInstanceID AS AssayGroupSubsample");
-            viewString.Append("Precondition_VersionWorkflowInstanceID, \r\n            T.VersionUpdatedBy AS Assa");
-            viewString.Append("yGroupSubsamplePrecondition_VersionUpdatedBy, \r\n            T.VersionDeletedBy A");
-            viewString.Append("S AssayGroupSubsamplePrecondition_VersionDeletedBy, \r\n            T.VersionOwner");
-            viewString.Append("ContactID AS AssayGroupSubsamplePrecondition_VersionOwnerContactID, \r\n          ");
-            viewString.Append("  T.VersionOwnerCompanyID AS AssayGroupSubsamplePrecondition_VersionOwnerCompany");
-            viewString.Append("ID, \r\n            T.VersionUpdated AS AssayGroupSubsamplePrecondition_VersionUpd");
-            viewString.Append("ated, \r\n            T.AssayPreconditionTypeID AS AssayGroupSubsamplePrecondition");
-            viewString.Append("_AssayPreconditionTypeID, \r\n            T.PreconditionParameterID AS AssayGroupS");
-            viewString.Append("ubsamplePrecondition_PreconditionParameterID, \r\n            T.PreconditionMinimu");
-            viewString.Append("m AS AssayGroupSubsamplePrecondition_PreconditionMinimum, \r\n            T.Precon");
-            viewString.Append("ditionMaximum AS AssayGroupSubsamplePrecondition_PreconditionMaximum, \r\n        ");
-            viewString.Append("    True AS _from0\r\n        FROM XODBModuleBusinessObjectsStoreContainer.X_Assay");
-            viewString.Append("GroupSubsamplePrecondition AS T\r\n    ) AS T1");
+            viewString.Append("on_PreconditionMinimum, T1.AssayGroupSubsamplePrecondition_PreconditionMaximum, ");
+            viewString.Append("T1.AssayGroupSubsamplePrecondition_Precondition)\r\n    FROM (\r\n        SELECT \r\n ");
+            viewString.Append("           T.AssayGroupSubsamplePreconditionID AS AssayGroupSubsamplePreconditio");
+            viewString.Append("n_AssayGroupSubsamplePreconditionID, \r\n            T.AssayGroupSubsampleID AS As");
+            viewString.Append("sayGroupSubsamplePrecondition_AssayGroupSubsampleID, \r\n            T.Preconditio");
+            viewString.Append("nName AS AssayGroupSubsamplePrecondition_PreconditionName, \r\n            T.Versi");
+            viewString.Append("on AS AssayGroupSubsamplePrecondition_Version, \r\n            T.VersionAntecedent");
+            viewString.Append("ID AS AssayGroupSubsamplePrecondition_VersionAntecedentID, \r\n            T.Versi");
+            viewString.Append("onCertainty AS AssayGroupSubsamplePrecondition_VersionCertainty, \r\n            T");
+            viewString.Append(".VersionWorkflowInstanceID AS AssayGroupSubsamplePrecondition_VersionWorkflowIns");
+            viewString.Append("tanceID, \r\n            T.VersionUpdatedBy AS AssayGroupSubsamplePrecondition_Ver");
+            viewString.Append("sionUpdatedBy, \r\n            T.VersionDeletedBy AS AssayGroupSubsamplePreconditi");
+            viewString.Append("on_VersionDeletedBy, \r\n            T.VersionOwnerContactID AS AssayGroupSubsampl");
+            viewString.Append("ePrecondition_VersionOwnerContactID, \r\n            T.VersionOwnerCompanyID AS As");
+            viewString.Append("sayGroupSubsamplePrecondition_VersionOwnerCompanyID, \r\n            T.VersionUpda");
+            viewString.Append("ted AS AssayGroupSubsamplePrecondition_VersionUpdated, \r\n            T.AssayPrec");
+            viewString.Append("onditionTypeID AS AssayGroupSubsamplePrecondition_AssayPreconditionTypeID, \r\n   ");
+            viewString.Append("         T.PreconditionParameterID AS AssayGroupSubsamplePrecondition_Preconditi");
+            viewString.Append("onParameterID, \r\n            T.PreconditionMinimum AS AssayGroupSubsamplePrecond");
+            viewString.Append("ition_PreconditionMinimum, \r\n            T.PreconditionMaximum AS AssayGroupSubs");
+            viewString.Append("amplePrecondition_PreconditionMaximum, \r\n            T.Precondition AS AssayGrou");
+            viewString.Append("pSubsamplePrecondition_Precondition, \r\n            True AS _from0\r\n        FROM ");
+            viewString.Append("XODBModuleBusinessObjectsStoreContainer.X_AssayGroupSubsamplePrecondition AS T\r\n");
+            viewString.Append("    ) AS T1");
             return new System.Collections.Generic.KeyValuePair<string, string>("XODBC.AssayGroupSubsamplePreconditions", viewString.ToString());
         }
         

@@ -5082,6 +5082,8 @@
           <Property Name="SampleTypeID" Type="uniqueidentifier" />
           <Property Name="LabResultText" Type="nvarchar" MaxLength="58" />
           <Property Name="LabResult" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="LabResultMinimum" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="LabResultMaximum" Type="numeric" Precision="38" Scale="20" />
           <Property Name="LabSampleName" Type="nvarchar" Nullable="false" MaxLength="16" />
           <Property Name="LabBatchNumber" Type="nvarchar" MaxLength="16" />
           <Property Name="Sampled" Type="date" />
@@ -5171,6 +5173,7 @@
           <Property Name="AssayPreconditionTypeID" Type="uniqueidentifier" />
           <Property Name="PreconditionName" Type="nvarchar" MaxLength="50" />
           <Property Name="PreconditionParameterID" Type="uniqueidentifier" />
+          <Property Name="Precondition" Type="numeric" Precision="38" Scale="20" />
           <Property Name="PreconditionMinimum" Type="numeric" Precision="38" Scale="20" />
           <Property Name="PreconditionMaximum" Type="numeric" Precision="38" Scale="20" />
           <Property Name="Version" Type="int" Nullable="false" />
@@ -5253,6 +5256,8 @@
           <Property Name="AssayGroupTestID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="LabResultText" Type="nvarchar" MaxLength="58" />
           <Property Name="LabResult" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="LabResultMinimum" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="LabResultMaximum" Type="numeric" Precision="38" Scale="20" />
           <Property Name="LabBatchNumber" Type="nvarchar" MaxLength="16" />
           <Property Name="Sampled" Type="date" />
           <Property Name="SampledBy" Type="nvarchar" MaxLength="50" />
@@ -5291,6 +5296,8 @@
           <Property Name="AssayGroupTestResultID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="LabResultText" Type="nvarchar" MaxLength="58" />
           <Property Name="LabResult" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="LabResultMinimum" Type="numeric" Precision="38" Scale="20" />
+          <Property Name="LabResultMaximum" Type="numeric" Precision="38" Scale="20" />
           <Property Name="LabSampleName" Type="nvarchar" MaxLength="16" />
           <Property Name="LabBatchNumber" Type="nvarchar" MaxLength="16" />
           <Property Name="Sampled" Type="date" />
@@ -25864,6 +25871,8 @@
           <NavigationProperty Name="SampleType" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupStandardTestResult_X_DictionarySampleType" FromRole="X_AssayGroupStandardTestResult" ToRole="X_DictionarySampleType" />
           <Property Type="String" Name="LabSampleName" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="AddressID" />
+          <Property Type="Decimal" Name="LabResultMinimum" Precision="38" Scale="20" />
+          <Property Type="Decimal" Name="LabResultMaximum" Precision="38" Scale="20" />
         </EntityType>
         <EntityType Name="AssayGroupTest">
           <Key>
@@ -25926,6 +25935,8 @@
           <Property Type="Guid" Name="AssayGroupSubsampleID" />
           <Property Type="String" Name="LabSampleName" MaxLength="16" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AssayGroupSubsample" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTestResult_X_AssayGroupSubsample" FromRole="AssayGroupTestResult" ToRole="X_AssayGroupSubsample" />
+          <Property Type="Decimal" Name="LabResultMinimum" Precision="38" Scale="20" />
+          <Property Type="Decimal" Name="LabResultMaximum" Precision="38" Scale="20" />
         </EntityType>
         <EntityType Name="AssayGroupTestResultComment">
           <Key>
@@ -25967,6 +25978,8 @@
           <Property Name="VersionUpdated" Type="DateTime" Precision="3" />
           <NavigationProperty Name="AssayGroupTestResult" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupTestResultDuplicate_X_AssayGroupTestResult" FromRole="X_AssayGroupTestResultDuplicate" ToRole="X_AssayGroupTestResult" />
           <Property Type="String" Name="LabSampleName" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="LabResultMinimum" Precision="38" Scale="20" />
+          <Property Type="Decimal" Name="LabResultMaximum" Precision="38" Scale="20" />
         </EntityType>
         <EntityType Name="BlockModel">
           <Key>
@@ -40527,6 +40540,7 @@
           <NavigationProperty Name="AssayPreconditionType" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_DictionaryAssayPreconditionType" FromRole="AssayGroupSubsamplePrecondition" ToRole="X_DictionaryAssayPreconditionType" />
           <NavigationProperty Name="Parameter" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_Parameter" FromRole="AssayGroupSubsamplePrecondition" ToRole="Parameter" />
           <NavigationProperty Name="X_AssayGroupSubsample" Relationship="XODB.Module.BusinessObjects.FK_X_AssayGroupSubsamplePrecondition_X_AssayGroupSubsample" FromRole="AssayGroupSubsamplePrecondition" ToRole="AssayGroupSubsample" />
+          <Property Type="Decimal" Name="Precondition" Precision="38" Scale="20" />
         </EntityType>
         <EntityType Name="AssayGroupSubsampleRelation">
           <Key>
@@ -42906,6 +42920,8 @@
           <EntitySetMapping Name="AssayGroupStandardTestResults">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.AssayGroupStandardTestResult">
               <MappingFragment StoreEntitySet="X_AssayGroupStandardTestResult">
+                <ScalarProperty Name="LabResultMaximum" ColumnName="LabResultMaximum" />
+                <ScalarProperty Name="LabResultMinimum" ColumnName="LabResultMinimum" />
                 <ScalarProperty Name="AddressID" ColumnName="AddressID" />
                 <ScalarProperty Name="LabSampleName" ColumnName="LabSampleName" />
                 <ScalarProperty Name="AssayGroupStandardTestResultID" ColumnName="AssayGroupStandardTestResultID" />
@@ -42960,6 +42976,8 @@
           <EntitySetMapping Name="AssayGroupTestResults">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.AssayGroupTestResult">
               <MappingFragment StoreEntitySet="X_AssayGroupTestResult">
+                <ScalarProperty Name="LabResultMaximum" ColumnName="LabResultMaximum" />
+                <ScalarProperty Name="LabResultMinimum" ColumnName="LabResultMinimum" />
                 <ScalarProperty Name="LabSampleName" ColumnName="LabSampleName" />
                 <ScalarProperty Name="AssayGroupSubsampleID" ColumnName="AssayGroupSubsampleID" />
                 <ScalarProperty Name="AssayGroupTestResultID" ColumnName="AssayGroupTestResultID" />
@@ -43003,6 +43021,8 @@
           <EntitySetMapping Name="AssayGroupTestResultDuplicates">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.AssayGroupTestResultDuplicate">
               <MappingFragment StoreEntitySet="X_AssayGroupTestResultDuplicate">
+                <ScalarProperty Name="LabResultMaximum" ColumnName="LabResultMaximum" />
+                <ScalarProperty Name="LabResultMinimum" ColumnName="LabResultMinimum" />
                 <ScalarProperty Name="LabSampleName" ColumnName="LabSampleName" />
                 <ScalarProperty Name="AssayGroupTestResultDuplicateID" ColumnName="AssayGroupTestResultDuplicateID" />
                 <ScalarProperty Name="AssayGroupTestResultID" ColumnName="AssayGroupTestResultID" />
@@ -48941,6 +48961,7 @@
           <EntitySetMapping Name="AssayGroupSubsamplePreconditions">
             <EntityTypeMapping TypeName="XODB.Module.BusinessObjects.AssayGroupSubsamplePrecondition">
               <MappingFragment StoreEntitySet="X_AssayGroupSubsamplePrecondition">
+                <ScalarProperty Name="Precondition" ColumnName="Precondition" />
                 <ScalarProperty Name="PreconditionMaximum" ColumnName="PreconditionMaximum" />
                 <ScalarProperty Name="PreconditionMinimum" ColumnName="PreconditionMinimum" />
                 <ScalarProperty Name="PreconditionParameterID" ColumnName="PreconditionParameterID" />
