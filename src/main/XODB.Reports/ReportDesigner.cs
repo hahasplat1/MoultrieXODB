@@ -11,14 +11,16 @@ using System.IO;
 
 namespace XODB.Reports
 {
-    public partial class Form1 : Form
+    public partial class ReportDesigner : Form
     {
-        public Form1()
+        private ReportStub report;
+
+        public ReportDesigner()
         {
             InitializeComponent();
             //XtraReport1 report = new XtraReport1();
 
-            var report = new ReportStub(new ReportStub.DataProvider()) { DataAdapter = null };
+            report = new ReportStub(new ReportStub.DataProvider()) { DataAdapter = null };          
             //report.DataSourceSchema = "C:\\temp\\myDataSourceSchema.xml";
             this.xrDesignPanel1.OpenReport(report);
             //report.DataSourceSchema = File.ReadAllText("C:\\temp\\myDataSourceSchema.xml");
@@ -31,6 +33,24 @@ namespace XODB.Reports
             Form2 frm = new Form2(r.FilterString);
             frm.ShowDialog();
             this.xrDesignPanel1.Report.FilterString = frm.Criteria;
+        }
+
+
+        private void barSubItem16_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FilterForm filter = new FilterForm(report.FilterString);
+            DialogResult res = filter.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                report.FilterString = filter.Criteria;
+                if (this.xrDesignPanel1.SelectedTabIndex == 1)
+                {
+                    //TODO: look at this
+                    xrDesignPanel1.CloseReport();
+                    xrDesignPanel1.OpenReport(report);
+                    xrDesignPanel1.SelectedTabIndex = 1;
+                }
+            }
         }
     }
 }

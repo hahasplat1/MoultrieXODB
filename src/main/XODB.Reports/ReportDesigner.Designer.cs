@@ -1,6 +1,6 @@
 namespace XODB.Reports
 {
-    partial class Form1
+    partial class ReportDesigner
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace XODB.Reports
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDesigner));
             this.xrDesignBarManager1 = new DevExpress.XtraReports.UserDesigner.XRDesignBarManager(this.components);
             this.designBar1 = new DevExpress.XtraReports.UserDesigner.DesignBar();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
@@ -125,6 +125,7 @@ namespace XODB.Reports
             this.propertyGridDockPanel1_Container = new DevExpress.XtraReports.UserDesigner.DesignControlContainer();
             this.toolBoxDockPanel1 = new DevExpress.XtraReports.UserDesigner.ToolBoxDockPanel();
             this.toolBoxDockPanel1_Container = new DevExpress.XtraReports.UserDesigner.DesignControlContainer();
+            this.barSubItem16 = new DevExpress.XtraBars.BarSubItem();
             ((System.ComponentModel.ISupportInitialize)(this.xrDesignBarManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recentlyUsedItemsComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.designRepositoryItemComboBox1)).BeginInit();
@@ -230,10 +231,11 @@ namespace XODB.Reports
             this.commandBarItem44,
             this.xrZoomBarEditItem1,
             this.commandBarItem45,
-            this.barSubItem15});
+            this.barSubItem15,
+            this.barSubItem16});
             this.xrDesignBarManager1.LayoutToolbar = this.designBar4;
             this.xrDesignBarManager1.MainMenu = this.designBar1;
-            this.xrDesignBarManager1.MaxItemId = 69;
+            this.xrDesignBarManager1.MaxItemId = 71;
             this.xrDesignBarManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.recentlyUsedItemsComboBox1,
             this.designRepositoryItemComboBox1,
@@ -254,7 +256,8 @@ namespace XODB.Reports
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem2),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem3),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem6),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem15)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem15),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem16)});
             this.designBar1.OptionsBar.MultiLine = true;
             this.designBar1.OptionsBar.UseWholeRow = true;
             this.designBar1.Text = "Main Menu";
@@ -899,6 +902,7 @@ namespace XODB.Reports
             this.barSubItem15.Caption = "Preview with Filter";
             this.barSubItem15.Id = 68;
             this.barSubItem15.Name = "barSubItem15";
+            this.barSubItem15.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barSubItem15.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSubItem15_ItemClick);
             // 
             // designBar2
@@ -1139,7 +1143,7 @@ namespace XODB.Reports
             this.panelContainer2.ID = new System.Guid("3a2c886a-dc91-4cdc-b68e-9a6b1fa96109");
             this.panelContainer2.Location = new System.Drawing.Point(0, 0);
             this.panelContainer2.Name = "panelContainer2";
-            this.panelContainer2.OriginalSize = new System.Drawing.Size(234, 156);
+            this.panelContainer2.OriginalSize = new System.Drawing.Size(234, 241);
             this.panelContainer2.Size = new System.Drawing.Size(234, 241);
             this.panelContainer2.Tabbed = true;
             this.panelContainer2.Text = "panelContainer2";
@@ -1152,7 +1156,7 @@ namespace XODB.Reports
             this.reportExplorerDockPanel1.ImageIndex = 2;
             this.reportExplorerDockPanel1.Location = new System.Drawing.Point(4, 23);
             this.reportExplorerDockPanel1.Name = "reportExplorerDockPanel1";
-            this.reportExplorerDockPanel1.OriginalSize = new System.Drawing.Size(228, 105);
+            this.reportExplorerDockPanel1.OriginalSize = new System.Drawing.Size(226, 186);
             this.reportExplorerDockPanel1.Size = new System.Drawing.Size(226, 186);
             this.reportExplorerDockPanel1.Text = "Report Explorer";
             this.reportExplorerDockPanel1.XRDesignPanel = this.xrDesignPanel1;
@@ -1167,10 +1171,10 @@ namespace XODB.Reports
             // xrDesignPanel1
             // 
             this.xrDesignPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xrDesignPanel1.Location = new System.Drawing.Point(63, 84);
+            this.xrDesignPanel1.Location = new System.Drawing.Point(75, 84);
             this.xrDesignPanel1.Name = "xrDesignPanel1";
             this.xrDesignPanel1.Padding = new System.Windows.Forms.Padding(1);
-            this.xrDesignPanel1.Size = new System.Drawing.Size(737, 484);
+            this.xrDesignPanel1.Size = new System.Drawing.Size(725, 484);
             this.xrDesignPanel1.TabIndex = 4;
             // 
             // fieldListDockPanel1
@@ -1181,7 +1185,7 @@ namespace XODB.Reports
             this.fieldListDockPanel1.ImageIndex = 0;
             this.fieldListDockPanel1.Location = new System.Drawing.Point(4, 23);
             this.fieldListDockPanel1.Name = "fieldListDockPanel1";
-            this.fieldListDockPanel1.OriginalSize = new System.Drawing.Size(228, 105);
+            this.fieldListDockPanel1.OriginalSize = new System.Drawing.Size(226, 186);
             this.fieldListDockPanel1.Size = new System.Drawing.Size(226, 186);
             this.fieldListDockPanel1.Text = "Field List";
             this.fieldListDockPanel1.XRDesignPanel = this.xrDesignPanel1;
@@ -1201,7 +1205,7 @@ namespace XODB.Reports
             this.propertyGridDockPanel1.ImageIndex = 1;
             this.propertyGridDockPanel1.Location = new System.Drawing.Point(0, 241);
             this.propertyGridDockPanel1.Name = "propertyGridDockPanel1";
-            this.propertyGridDockPanel1.OriginalSize = new System.Drawing.Size(234, 157);
+            this.propertyGridDockPanel1.OriginalSize = new System.Drawing.Size(234, 243);
             this.propertyGridDockPanel1.Size = new System.Drawing.Size(234, 243);
             this.propertyGridDockPanel1.Text = "Property Grid";
             this.propertyGridDockPanel1.XRDesignPanel = this.xrDesignPanel1;
@@ -1221,8 +1225,8 @@ namespace XODB.Reports
             this.toolBoxDockPanel1.ImageIndex = 3;
             this.toolBoxDockPanel1.Location = new System.Drawing.Point(0, 84);
             this.toolBoxDockPanel1.Name = "toolBoxDockPanel1";
-            this.toolBoxDockPanel1.OriginalSize = new System.Drawing.Size(63, 305);
-            this.toolBoxDockPanel1.Size = new System.Drawing.Size(63, 484);
+            this.toolBoxDockPanel1.OriginalSize = new System.Drawing.Size(75, 305);
+            this.toolBoxDockPanel1.Size = new System.Drawing.Size(75, 484);
             this.toolBoxDockPanel1.Text = "Tool Box";
             this.toolBoxDockPanel1.XRDesignPanel = this.xrDesignPanel1;
             // 
@@ -1230,23 +1234,30 @@ namespace XODB.Reports
             // 
             this.toolBoxDockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.toolBoxDockPanel1_Container.Name = "toolBoxDockPanel1_Container";
-            this.toolBoxDockPanel1_Container.Size = new System.Drawing.Size(55, 457);
+            this.toolBoxDockPanel1_Container.Size = new System.Drawing.Size(67, 457);
             this.toolBoxDockPanel1_Container.TabIndex = 0;
             // 
-            // Form1
+            // barSubItem16
+            // 
+            this.barSubItem16.Caption = "Filter";
+            this.barSubItem16.Id = 70;
+            this.barSubItem16.Name = "barSubItem16";
+            this.barSubItem16.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSubItem16_ItemClick);
+            // 
+            // ReportDesigner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 593);
             this.Controls.Add(this.xrDesignPanel1);
-            this.Controls.Add(this.panelContainer1);
             this.Controls.Add(this.toolBoxDockPanel1);
+            this.Controls.Add(this.panelContainer1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "ReportDesigner";
+            this.Text = "Report Designer";
             ((System.ComponentModel.ISupportInitialize)(this.xrDesignBarManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recentlyUsedItemsComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.designRepositoryItemComboBox1)).EndInit();
@@ -1360,6 +1371,7 @@ namespace XODB.Reports
         private DevExpress.XtraReports.UserDesigner.PropertyGridDockPanel propertyGridDockPanel1;
         private DevExpress.XtraReports.UserDesigner.DesignControlContainer propertyGridDockPanel1_Container;
         private DevExpress.XtraBars.BarSubItem barSubItem15;
+        private DevExpress.XtraBars.BarSubItem barSubItem16;
     }
 }
 

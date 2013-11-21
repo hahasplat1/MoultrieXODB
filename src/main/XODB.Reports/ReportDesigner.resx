@@ -120,31 +120,6 @@
   <metadata name="xrDesignBarManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="commandColorBarItem1.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABB0lE
-        QVQ4T2MY3EBt+uf/qlM//odySQcgzSqT3/9XmfjaFypEPFCZ+s5XZfK7/8oT3/xX6ntFuitUJr37r9L3
-        2lep7+V/xe7n/xXbnxDvCpWJ73yVJ7wG2wrSrND55L982yPiXQHSrNj3HGyjXPszY/m2h//lmu//l228
-        RdgVYGf3vgA6+9l/hQ6QzSDN9/7LNtz5L1N3k7ArIJpR/SvXdMcYpFm6+tp/qfLLuF0B9K+vYtfT/7Kd
-        D6WgQnAgXXWtWari8n+xonOHoEKoQLH3RYwCULNC++P/cq0PpkOFwUC68moMSLNk6YX/EkVn/4sXnCY/
-        ceECIBPJwXCATZIYDAfYJInADAwABPumB65BAKQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="commandColorBarItem2.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABYklE
-        QVQ4T62QTUsCURSG/RuRmqmjTYuERGjR5FqibdAyQmpV+2jRLqKNjdqHabl0GwQVQlvDMqK/EFRmWmnq
-        OApv9+gMDl2lIB94YRbzvOecaxoYYrKFXhk7aWpR4T6mNOBKNKBpXf4quhIKhLjSv+CnSLg10cVEIV6H
-        cFTjC3RRZyXdbIuEUXTGanDEqr0L9FWNohE5p8Jx+AU7i6Z1ITF819J+7UATCSebGLzolNkPKhjdL/MF
-        dCNBqy5fdjYgkaCpwfN6+5tk294nX0CinOu+AUGikdCNAlv0AyPRd77A2X6gKpMo7E5tVX2iLlojJVjD
-        Jb7gd5GFiZZwEWb5jS8gUZf7iRYmmncLGA698gX/ph4IoOL3o+TzQc1msf2wgI3rWaxdTWPpbAL3L03M
-        xIuYihQwudNjg7Ikoej1Ii+KUDIZrKYlLJ56MJ9yYC45hNtHFZ6tPMY3nyGsPw3qBJPpGzyhxScMcMnh
-        AAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="xrDesignDockManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>179, 17</value>
   </metadata>
@@ -568,6 +543,31 @@
         WuwB+LcOxdpTX/ZhYlh0fXb9ttjnwDjmzUQuTYmalhfXtFOFylYuv7KZzy3VclW6vmBDJwONaQhamoGe
         ZlI/kaJM3WlODMreduDYmY+wu6CcnNKnSNVmXut6iqtIL/Yn8hKT+5Kc0senUVQHjdmI/ejFrjUH3waf
         vyKn9HGrHtUt6hSIhnuw0pYFsv43HJWZmumKBwg0PK4nq/9BJrsDdMYUIJvbSKUAAAAASUVORK5CYIIL
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="commandColorBarItem1.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7BAAAOwQG4kWvtAAABB0lE
+        QVQ4T2MY3EBt+uf/qlM//odySQcgzSqT3/9XmfjaFypEPFCZ+s5XZfK7/8oT3/xX6ntFuitUJr37r9L3
+        2lep7+V/xe7n/xXbnxDvCpWJ73yVJ7wG2wrSrND55L982yPiXQHSrNj3HGyjXPszY/m2h//lmu//l228
+        RdgVYGf3vgA6+9l/hQ6QzSDN9/7LNtz5L1N3k7ArIJpR/SvXdMcYpFm6+tp/qfLLuF0B9K+vYtfT/7Kd
+        D6WgQnAgXXWtWari8n+xonOHoEKoQLH3RYwCULNC++P/cq0PpkOFwUC68moMSLNk6YX/EkVn/4sXnCY/
+        ceECIBPJwXCATZIYDAfYJInADAwABPumB65BAKQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="commandColorBarItem2.Glyph" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7BAAAOwQG4kWvtAAABYklE
+        QVQ4T62QTUsCURSG/RuRmqmjTYuERGjR5FqibdAyQmpV+2jRLqKNjdqHabl0GwQVQlvDMqK/EFRmWmnq
+        OApv9+gMDl2lIB94YRbzvOecaxoYYrKFXhk7aWpR4T6mNOBKNKBpXf4quhIKhLjSv+CnSLg10cVEIV6H
+        cFTjC3RRZyXdbIuEUXTGanDEqr0L9FWNohE5p8Jx+AU7i6Z1ITF819J+7UATCSebGLzolNkPKhjdL/MF
+        dCNBqy5fdjYgkaCpwfN6+5tk294nX0CinOu+AUGikdCNAlv0AyPRd77A2X6gKpMo7E5tVX2iLlojJVjD
+        Jb7gd5GFiZZwEWb5jS8gUZf7iRYmmncLGA698gX/ph4IoOL3o+TzQc1msf2wgI3rWaxdTWPpbAL3L03M
+        xIuYihQwudNjg7Ikoej1Ii+KUDIZrKYlLJ56MJ9yYC45hNtHFZ6tPMY3nyGsPw3qBJPpGzyhxScMcMnh
+        AAAAAElFTkSuQmCC
 </value>
   </data>
 </root>
