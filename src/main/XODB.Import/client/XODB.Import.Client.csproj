@@ -170,6 +170,9 @@
     </Compile>
     <Compile Include="UI\SourceConv.cs" />
     <Compile Include="UI\TargetConv.cs" />
+    <Compile Include="UI\UpdateConnectionString.xaml.cs">
+      <DependentUpon>UpdateConnectionString.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -221,6 +224,10 @@
     <Page Include="UI\MapTable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\UpdateConnectionString.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

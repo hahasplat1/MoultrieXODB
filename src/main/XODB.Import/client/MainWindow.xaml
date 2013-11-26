@@ -44,7 +44,9 @@
                     <RibbonApplicationMenuItem Header="ResetMapping"
                                               x:Name="MenuItemResetMapping"
                                               ImageSource="/XODB Importer;component/images/save_32.png" Click="MenuItemResetMapping_Click"/>
-                   
+                    <RibbonApplicationMenuItem Header="UpdateConnection"
+                                              x:Name="MenuItemUpdateConStr"
+                                              ImageSource="/XODB Importer;component/images/save_32.png" Click="MenuItemUpdateConStr_Click"/>
 
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
