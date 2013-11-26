@@ -54,7 +54,7 @@ namespace XODB.Import.Client
         RawFileReader blockRawFileReader = new RawFileReader();
         ModelColumnDefinitions columnDefs;
 
-        ModelImportStatus lastestImportUpdateStatus = null;
+        ModelImportStatus latestImportUpdateStatus = null;
 
         //public List<ColumnMetaInfo> currentDBFieldsMetaInfo { get; set; }
         public List<ColumnMetaInfo> bmDBFields { get; set; }
@@ -249,10 +249,19 @@ namespace XODB.Import.Client
 
             try
             {
+                string constr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                string catalog = constr.Split(';').Where(x => x.StartsWith("Initial Catalog=")).FirstOrDefault().Split('=').LastOrDefault();
+
                 if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
                 {
                     System.Deployment.Application.ApplicationDeployment ad = System.Deployment.Application.ApplicationDeployment.CurrentDeployment;
                     LabelVersion.Content = ad.CurrentVersion.ToString();
+                    LabelDB.Content = !string.IsNullOrWhiteSpace(catalog) ? catalog : "XODB???";
+                }
+                else //we arnt network deployed or we are not published yet!
+                {
+                    LabelVersion.Content = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                    LabelDB.Content = !string.IsNullOrWhiteSpace(catalog) ? catalog : "XODB???";
                 }
 
             }
@@ -511,7 +520,7 @@ namespace XODB.Import.Client
             ImportDataMap importMap = (ImportDataMap)e.Argument;
             commandDirector.SetCurrentWorkerThread(workerLithoDataImport);
             ModelImportStatus status = commandDirector.DoLithoImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, XODBProjectID, doImportOverwrite, this.doDuplicateCheck);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
             workerLithoDataImport.ReportProgress((int)0, "");
 
         }
@@ -604,7 +613,7 @@ namespace XODB.Import.Client
 
             blockRawFileReader = new RawFileReader();
             ModelColumnDefinitions columnDefs = new ModelColumnDefinitions();
-            lastestImportUpdateStatus = null;
+            latestImportUpdateStatus = null;
             SelectedFormatFile = "";
             LabelLoadedFile.Content = "no file loaded";
             //currentDBFieldsMetaInfo = new List<ColumnMetaInfo>();
@@ -722,7 +731,7 @@ namespace XODB.Import.Client
             commandDirector.SetCurrentWorkerThread(workerAssayDataImport);
             ModelImportStatus status = commandDirector.DoAssayImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader,
                 XODBProjectID, doDuplicateCheck, doImportOverwrite);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
         }
 
         /// <summary>
@@ -732,10 +741,10 @@ namespace XODB.Import.Client
         /// <param name="e"></param>
         private void bw_AssayImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (lastestImportUpdateStatus != null)
+            if (latestImportUpdateStatus != null)
             {
                 ImportStatusWindow ii = new ImportStatusWindow();
-                ii.SetData(lastestImportUpdateStatus);
+                ii.SetData(latestImportUpdateStatus);
                 ii.ShowDialog();
             }
 
@@ -747,14 +756,14 @@ namespace XODB.Import.Client
             ImportDataMap importMap = (ImportDataMap)e.Argument;
             commandDirector.SetCurrentWorkerThread(workerSurveyDataImport);
             ModelImportStatus status = commandDirector.DoSurveyImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, XODBProjectID, doImportOverwrite, this.doDuplicateCheck);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
             workerSurveyDataImport.ReportProgress((int)0, "");
         }
 
         private void bw_SurveyImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             ImportStatusWindow ii = new ImportStatusWindow();
-            ii.SetData(lastestImportUpdateStatus);
+            ii.SetData(latestImportUpdateStatus);
             ii.ShowDialog();
         }
 
@@ -762,7 +771,7 @@ namespace XODB.Import.Client
         private void bw_LithoImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             ImportStatusWindow ii = new ImportStatusWindow();
-            ii.SetData(lastestImportUpdateStatus);
+            ii.SetData(latestImportUpdateStatus);
             ii.ShowDialog();
         }
 
@@ -978,7 +987,7 @@ namespace XODB.Import.Client
             commandDirector.SetCurrentWorkerThread(workerCoalQualityDataImport);
             ModelImportStatus status = commandDirector.DoCoalQualityImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader,
                 XODBProjectID, doDuplicateCheck, doImportOverwrite);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
         }
 
         /// <summary>
@@ -988,10 +997,10 @@ namespace XODB.Import.Client
         /// <param name="e"></param>
         private void bw_CoalQualityImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (lastestImportUpdateStatus != null)
+            if (latestImportUpdateStatus != null)
             {
                 ImportStatusWindow ii = new ImportStatusWindow();
-                ii.SetData(lastestImportUpdateStatus);
+                ii.SetData(latestImportUpdateStatus);
                 ii.ShowDialog();
             }
 
@@ -1588,7 +1597,7 @@ namespace XODB.Import.Client
         private void bw_LASBatchImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             ImportStatusWindow ii = new ImportStatusWindow();
-            ii.SetData(lastestImportUpdateStatus);
+            ii.SetData(latestImportUpdateStatus);
             ii.ShowDialog();
         }
 
@@ -1597,17 +1606,9 @@ namespace XODB.Import.Client
             string[] ss = (string[])e.Argument;
             commandDirector.SetCurrentWorkerThread(workerLASBatchDataImport);
             ModelImportStatus status = commandDirector.BatchImportLasFiles(ss, XODBProjectID);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
             workerLASBatchDataImport.ReportProgress((int)0, "");
         }
-
-
-
-
-
-
-
-
 
         private void LASImportExecuted(object sender, ExecutedRoutedEventArgs e)
         {
@@ -1762,7 +1763,7 @@ namespace XODB.Import.Client
 
 
             ModelImportStatus status = commandDirector.DoCollarImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, XODBProjectID, overwrite);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
             //if(status.finalErrorCode != ModelImportStatus.OK){
             //    string ss = status.GenerateStringMessage(true);
             //    lastestImportUpdateStatus.SaveReportData();
@@ -1782,10 +1783,10 @@ namespace XODB.Import.Client
 
             //}
 
-            if (lastestImportUpdateStatus != null)
+            if (latestImportUpdateStatus != null)
             {
                 ImportStatusWindow ii = new ImportStatusWindow();
-                ii.SetData(lastestImportUpdateStatus);
+                ii.SetData(latestImportUpdateStatus);
                 ii.ShowDialog();
             }
 

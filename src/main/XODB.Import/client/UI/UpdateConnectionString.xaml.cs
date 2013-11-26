@@ -29,18 +29,26 @@ namespace XODB.Import.Client.UI
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            try
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
+
+            if (txtXString.Text != connectionStringsSection.ConnectionStrings["ConnectionString"].ConnectionString) //ie we have changed
             {
-                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
-                connectionStringsSection.ConnectionStrings["ConnectionString"].ConnectionString = txtXString.Text;
-                config.Save(ConfigurationSaveMode.Modified);
-                System.Diagnostics.Process.Start(System.Windows.Forms.Application.ExecutablePath);
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                try
+                {
+                    connectionStringsSection.ConnectionStrings["ConnectionString"].ConnectionString = txtXString.Text;
+                    config.Save(ConfigurationSaveMode.Modified);
+                    System.Diagnostics.Process.Start(System.Windows.Forms.Application.ExecutablePath);
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.MessageBox.Show("Could not update connection string: {0}", ex.ToString());
+                }
             }
-            catch
+            else
             {
-                //do nothing, FIXME
+                this.Close();
             }
         }
     }
