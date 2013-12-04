@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 using XODB.Module.BusinessObjects;
 using Xstract.Import.LAS;
 using System.Data.Objects.DataClasses;
-using System.Dynamic;
-using ImpromptuInterface;
 
 namespace XODB.Import.ImportUtils
 {
@@ -67,7 +65,6 @@ namespace XODB.Import.ImportUtils
                 xG.LasWrap = lasFile.versionWrap;
                 xG.LasNullValue = string.Format("{0:N2}",lasFile.nullValue);
 
-               
                 FileStream sr = null;
                 try
                 {
@@ -75,115 +72,109 @@ namespace XODB.Import.ImportUtils
                 }
                 catch (FileNotFoundException fex)
                 {
-
+                    Console.WriteLine("FileNotFoundException:" + fex.ToString());
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex.ToString());
                 }
 
                 XODB.Module.BusinessObjects.File F = new XODB.Module.BusinessObjects.File();
                 F.LoadFromStream(lasFile.FileName(), sr);
+                sr = null;
                 Guid fdGUID = Guid.NewGuid();
-                var fd = new FileData
+                var fD = new FileData
                 {
                     Author = default(string),
                     FileDataID = fdGUID,
                     ReferenceID = xG.GeophysicsID,
                     TableType = "X_Geophysics",
                     FileName = F.FileName,
+                    FileBytes = F.FileBytes,
                     FileChecksum = Hash.ComputeHash(F.FileBytes),
                     MimeType = MimeTypes.MimeTypeHelper.GetMimeTypeByFileName(F.FileName)
                 };
-                xG.OriginalFileDataID = fdGUID;
+                xG.OriginalFileDataID = fD.FileDataID;
                 physDataList.Add(xG);
-                fdDataList.Add(fd);
-                //fDataList.Add(F);
-                //entityObj.Geophysics.AddObject(xG);
-                //entityObj.SaveChanges();
+                fdDataList.Add(fD);
+                F = null;
 
                 // here we need to add a GeophysicsMetadata item for each column
                 Dictionary<string, Guid> metaDataIDLookup = new Dictionary<string, Guid>();
-                //var bulkCopyUnit = new SqlBulkCopy(BaseImportTools.XSTRING);
-                //bulkCopyUnit.DestinationTableName = "X_DictionaryUnit";
                 var unitDataList = new List<DictionaryUnit>();
-                //var bulkCopyParam = new SqlBulkCopy(BaseImportTools.XSTRING);
-                //bulkCopyParam.DestinationTableName = "X_Parameter";
                 var paramDataList = new List<Parameter>();
-                //var bulkCopyMeta = new SqlBulkCopy(BaseImportTools.XSTRING);
-                //bulkCopyMeta.DestinationTableName = "X_GeophysicsMetaData";
                 var metaDataList = new List<GeophysicsMetadata>();
 
                 foreach (string s in lasFile.columnHeaders)
                 {
                     Parameter xp = null;
                     xp = GetParameterIDFor(entityObj, "LAS data column", s);
-                    if (xp == null)
-                    {
-                        xp = new Parameter();
-                        Guid pg = Guid.NewGuid();
-                        xp.ParameterID = pg;
-                        xp.ParameterType = "LAS data column";
-                        xp.ParameterName = s;
 
-                        //test to see if we already have the unit
-                        string splitter = s.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries).LastOrDefault().Trim();
-                        UnitQueries uq2 = new UnitQueries();
-                        DictionaryUnit xu2 = uq2.FindUnits(splitter);
-                        DictionaryUnit unitFound = null;
+                    //test to see if we already have the unit
+                    string splitter = s.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries).LastOrDefault().Trim();
+                    uq = new UnitQueries();
+                    xu = uq.FindUnits(splitter);
+
+                    if (xp != null && xu != null)
+                    {
+                        xp.UnitID = xu.UnitID;
+                        //xp.Unit = xu;
+                    }
+                    else
+                    {
+                        bool xpnull = false;
+                        if (xp == null)
+                        {
+                            xpnull = true;
+                            xp = new Parameter();
+                            Guid pg = Guid.NewGuid();
+                            xp.ParameterID = pg;
+                            xp.ParameterType = "LAS data column";
+                            xp.ParameterName = s;
+                        }
 
                         //test to see if we already have added a unit into the list
-                        if (unitDataList.Count > 0)
+                        if (unitDataList.Count > 0 && xu == null)
                         {
-                            unitFound = unitDataList.Where(c => c.StandardUnitName == splitter).FirstOrDefault();
-                            //add the unit id to the parameter list
-                            if (unitFound != null)
-                            {
-                                xp.UnitID = unitFound.UnitID;
-                                xp.Unit = unitFound;
-                            }
+                            xu = unitDataList.Where(c => c.StandardUnitName == splitter).FirstOrDefault();
                         }
-                        if (xu2 == null && unitFound == null)
+                        if (xu == null)
                         {
                             //create new unit here store it and pass to parameters
                             Guid ug = Guid.NewGuid();
-                            DictionaryUnit du = new DictionaryUnit();
-                            
-                            du.UnitID = ug;
-                            du.StandardUnitName = splitter;
-                            du.CoalUnitName = splitter;
-                            du.StrictlySI = false;
-                            unitDataList.Add(du);
-                            //add the unit id to the parameter object
-                            xp.UnitID = du.UnitID;
-                            xp.Unit = du;
-                            //entityObj.DictionaryUnits.AddObject(du);
-                            //entityObj.SaveChanges();
+                            xu = new DictionaryUnit
+                            {
+                                UnitID = ug,
+                                StandardUnitName = splitter,
+                                CoalUnitName = splitter,
+                                StrictlySI = false
+                            };
+
+                            unitDataList.Add(xu);
                         }
-                        paramDataList.Add(xp);
-                        //entityObj.Parameters.AddObject(xp);
-                        //entityObj.SaveChanges();
+                        
+                        xp.UnitID = xu.UnitID;
+                        if (xpnull)
+                        {
+                            paramDataList.Add(xp);
+                        }
                     }
-                    GeophysicsMetadata xgm = new GeophysicsMetadata();
-                    xgm.GeophysicsID = gg;
+
                     Guid gmid = Guid.NewGuid();
-                    xgm.GeophysicsMetadataID = gmid;
-                    //xgm.Unit = xp.Unit.StandardUnitName;
-                    xgm.Mnemonic = s;
-                    xgm.ParameterID = xp.ParameterID;
+                    GeophysicsMetadata xgm = new GeophysicsMetadata
+                    {
+                        GeophysicsID = gg,
+                        GeophysicsMetadataID = gmid,
+                        Unit = xu.StandardUnitName,
+                        Mnemonic = s,
+                        ParameterID = xp.ParameterID
+                    };
+
                     metaDataList.Add(xgm);
-                    //entityObj.GeophysicsMetadatas.AddObject(xgm);
                     metaDataIDLookup.Add(s, gmid);
                 }
-                //non async so we ensure the data gets written in the correct order
-                //bulkCopyUnit.WriteToServer(unitDataList.AsDataReader());
-                //bulkCopyParam.WriteToServer(paramDataList.AsDataReader());
-                //bulkCopyMeta.WriteToServer(metaDataList.AsDataReader());
-                //entityObj.SaveChanges();
                 
                 int insertCounter = 0;
-                //var bulkCopyData = new SqlBulkCopy(BaseImportTools.XSTRING);
-                //bulkCopyData.DestinationTableName = "X_GeophysicsData";
                 var geoDataList = new List<GeophysicsData>();
                 foreach (LASDataRow ldr in lasFile.dataRows)
                 {
@@ -208,24 +199,23 @@ namespace XODB.Import.ImportUtils
                     insertCounter++;
                     rowCounter++;
                 }
-                //async here as all prereqs should be inplace, blast the data in, need to handle this better on program exit
-                //on exit test that all waiting sql server threads have completed
-                //bulkCopyData.WriteToServerAsync(geoDataList.AsDataReader());
+
+                lasFile = null;
 
                 dataList.Add(fdDataList);
-                dataList.Add(physDataList.ToList());
+                dataList.Add(physDataList);
                 dataList.Add(unitDataList);
                 dataList.Add(paramDataList);
                 dataList.Add(metaDataList);
                 dataList.Add(geoDataList);
-                //IEnumerable<EntityObject> dataList = l.ConvertAll(obj => (EntityObject)obj);
-                    //dataList.Concat(physDataList, fdDataList, unitDataList, paramDataList, metaDataIDLookup, geoDataList);
-                //dataList = dataList.Concat(physDataList);
-                //dataList.Concat(fdDataList);
-                //dataList.Concat(unitDataList);
-                //dataList.Concat(paramDataList);
-                //dataList.Concat(metaDataList);
-                //dataList.Concat(geoDataList);
+
+                fdDataList = null;
+                physDataList = null;
+                unitDataList = null;
+                paramDataList = null;
+                metaDataIDLookup = null;
+                metaDataList = null;
+                geoDataList = null;
             }
             catch (Exception ex) {
                 mos.errorMessages.Add("Failed to complete import of LAS file: " + origFilename);
@@ -249,7 +239,5 @@ namespace XODB.Import.ImportUtils
             }
             return res;
         }
-
-
     }
 }

@@ -16,7 +16,6 @@ using System.Data.SqlClient;
 using System.Data;
 using XODB.Module.BusinessObjects;
 using Microsoft.Samples.EntityDataReader;
-using ImpromptuInterface;
 
 namespace XODB.Import.Client
 {
@@ -209,7 +208,6 @@ namespace XODB.Import.Client
             int thisFileNum = 0;
 
             var dataDict = new Dictionary<string, List<object>>();
-            int holeCount = 0;
 
             foreach (string file in filePaths)
             {
@@ -251,20 +249,21 @@ namespace XODB.Import.Client
                 mosList.Add(file, mis);
                 dataDict.Add(file, data);
 
-                if (thisFileNum % 5 == 0 || (filePaths.Length-thisFileNum) < 1) //FIXME magic number, should look at used memory and make a choice on that
-                {
+                //if (thisFileNum % 2 == 0 || (filePaths.Length-thisFileNum) < 1) //FIXME magic number, should look at used memory and make a choice on that
+                //{
                     //insert into DB to avoid memory issues
-                    var subdict = dataDict;
-                    dataDict = new Dictionary<string, List<object>>();
+                    //var subdict = dataDict;
+                PushToDB(dataDict);    
+                dataDict = new Dictionary<string, List<object>>();
 
-                    this.PushToDB(subdict);
-                    subdict = null;
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-
-                }
+                    //PushToDB(subdict);
+                    //subdict = null;
+                
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                //}
             }
-            
+
             string finalReport = "Immport status:\nFiles imported:" + importCount + "\nFailed files:" + failCount + "\n\nMessages:\n";
 
             finalReport += report;
@@ -301,16 +300,14 @@ namespace XODB.Import.Client
                 foreach (object x1 in f.Value)
                 {
                     string tableType = "";
-                    var bulkCopy = new SqlBulkCopy(BaseImportTools.XSTRING);
+                    var bulkCopy = new SqlBulkCopy(BaseImportTools.XSTRING,SqlBulkCopyOptions.UseInternalTransaction);
+                    bulkCopy.BulkCopyTimeout = 0; //dangerous really should set a vaguely decent timeout, 0 means no timeout
                     if (x1.GetType() == typeof(List<FileData>))
                     {
                         tableType = "X_FileData";
                         var tableReader = (List<FileData>)x1;
                         bulkCopy.DestinationTableName = tableType;
                         bulkCopy.WriteToServer(tableReader.AsDataReader("Size"));
-                        //var entityObj = new XODBC(BaseImportTools.XSTRING, null, false);
-                        //entityObj.FileDatas.AddObject(((List<FileData>)x1).First());
-                        //entityObj.SaveChanges();
                     }
                     else if (x1.GetType() == typeof(List<Geophysics>))
                     {
@@ -345,7 +342,14 @@ namespace XODB.Import.Client
                         tableType = "X_GeophysicsData";
                         var tableReader = (List<GeophysicsData>)x1;
                         bulkCopy.DestinationTableName = tableType;
-                        bulkCopy.WriteToServer(tableReader.AsDataReader());
+                        try
+                        {
+                            bulkCopy.WriteToServer(tableReader.AsDataReader());
+                        }
+                        catch (IOException iox)
+                        {
+                            Console.WriteLine(iox.ToString());
+                        }
                     }
                 }
             }
