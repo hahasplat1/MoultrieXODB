@@ -2,8 +2,6 @@
 using XODB.Import.Client.Definitions;
 using XODB.Import.Client.IO;
 using XODB.Import.Client.Processing;
-using XODB.Import.Client.IO;
-using XODB.Import.Client.Processing;
 using XODB.Import.Client.UI;
 using XODB.Import.Client.UICommands;
 using XODB.Import.Client.UIUtils;
@@ -56,7 +54,7 @@ namespace XODB.Import.Client
         RawFileReader blockRawFileReader = new RawFileReader();
         ModelColumnDefinitions columnDefs;
 
-        ModelImportStatus lastestImportUpdateStatus = null;
+        ModelImportStatus latestImportUpdateStatus = null;
 
         //public List<ColumnMetaInfo> currentDBFieldsMetaInfo { get; set; }
         public List<ColumnMetaInfo> bmDBFields { get; set; }
@@ -105,10 +103,10 @@ namespace XODB.Import.Client
 
         public static RoutedCommand CollarPreview = new RoutedCommand();
 
-        public static RoutedCommand BatchImportLAS= new RoutedCommand();
+        public static RoutedCommand BatchImportLAS = new RoutedCommand();
 
-        
-        private string FileDescription  = "Data files (.csv, .txt)|*.csv;*.txt|All files (*.*)|*.*"; 
+
+        private string FileDescription = "Data files (.csv, .txt)|*.csv;*.txt|All files (*.*)|*.*";
         private string FileExtension = "*.csv";
 
         private string LASFileDescription = "LAS files (.las)|*.las;|All files (*.*)|*.*";
@@ -150,8 +148,8 @@ namespace XODB.Import.Client
             CommandBinding cb19 = new CommandBinding(SaveSurveyFormat, SaveSurveyFormatExecuted, SaveSurveyFormatCanExecute);
             CommandBinding cb20 = new CommandBinding(SurveyImport, SurveyImportExecuted, SurveyImportCanExecute);
 
-            
-            
+
+
             CommandBinding cb21 = new CommandBinding(CollarPreview, CollarPreviewExecuted, CollarPreviewCanExecute);
 
             CommandBinding cb22 = new CommandBinding(OpenLitho, OpenLithoExecuted, OpenLithoCanExecute);
@@ -166,7 +164,7 @@ namespace XODB.Import.Client
             CommandBinding cb29 = new CommandBinding(SaveCoalQualityFormat, SaveCoalQualityFormatExecuted, SaveCoalQualityFormatCanExecute);
             CommandBinding cb30 = new CommandBinding(CoalQualityImport, CoalQualityImportExecuted, CoalQualityImportCanExecute);
 
-            
+
             this.CommandBindings.Add(cb1);
             this.CommandBindings.Add(cb2);
             this.CommandBindings.Add(cb3);
@@ -196,7 +194,7 @@ namespace XODB.Import.Client
             this.CommandBindings.Add(cb23);
             this.CommandBindings.Add(cb24);
             this.CommandBindings.Add(cb25);
-            
+
             this.CommandBindings.Add(cb26);
 
             this.CommandBindings.Add(cb27);
@@ -221,7 +219,7 @@ namespace XODB.Import.Client
             commandMapping.Add(ButtonOpenCollar, OpenCollar);
             commandMapping.Add(ButtonOpenCollarFormat, OpenCollarFormat);
             commandMapping.Add(ButtonSaveCollarFormat, SaveCollarFormat);
-            commandMapping.Add(ButtonImportCollar, CollarImport);            
+            commandMapping.Add(ButtonImportCollar, CollarImport);
             commandMapping.Add(ButtonOpenAssay, OpenAssay);
             commandMapping.Add(ButtonOpenAssayFormat, OpenAssayFormat);
             commandMapping.Add(ButtonSaveAssayFormat, SaveAssayFormat);
@@ -243,25 +241,35 @@ namespace XODB.Import.Client
             commandMapping.Add(ButtonSaveCoalQualityFormat, SaveCoalQualityFormat);
             commandMapping.Add(ButtonImportCoalQuality, CoalQualityImport);
 
-            AssignEventsToButtons(commandMapping);            
+            AssignEventsToButtons(commandMapping);
 
             ImportDataPreview.targetMainDataType = MapConfigTable.collarPrimaryTableName;
-           // LocateSqlInstances();
+            // LocateSqlInstances();
             InitialiseDatabaseColumnHeadings();
 
-            try {
+            try
+            {
+                string constr = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+                string catalog = constr.Split(';').Where(x => x.StartsWith("Initial Catalog=")).FirstOrDefault().Split('=').LastOrDefault();
+
                 if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
                 {
                     System.Deployment.Application.ApplicationDeployment ad = System.Deployment.Application.ApplicationDeployment.CurrentDeployment;
                     LabelVersion.Content = ad.CurrentVersion.ToString();
+                    LabelDB.Content = !string.IsNullOrWhiteSpace(catalog) ? catalog : "XODB???";
                 }
-                
+                else //we arnt network deployed or we are not published yet!
+                {
+                    LabelVersion.Content = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                    LabelDB.Content = !string.IsNullOrWhiteSpace(catalog) ? catalog : "XODB???";
+                }
+
             }
             catch (Exception exc1) { }
             SelectedImportType = -1;
         }
 
-        
+
 
 
         /// <summary>
@@ -281,7 +289,7 @@ namespace XODB.Import.Client
                 MessageBox.Show("Download and install XODB client if not already installed.", "Couldn't connect to data source.");
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
             }
-            
+
             //TODO:
             using (DataTable sqlSources = SqlDataSourceEnumerator.Instance.GetDataSources())
             {
@@ -296,14 +304,14 @@ namespace XODB.Import.Client
                     }
                     else
                     {
-                        servername = ""+source["ServerName"];
+                        servername = "" + source["ServerName"];
                     }
                     Console.WriteLine(" Server Name:{0}", servername);
                     Console.WriteLine("     Version:{0}", source["Version"]);
                     Console.WriteLine();
 
                 }
-               
+
             }
         }
 
@@ -321,7 +329,7 @@ namespace XODB.Import.Client
             e.Handled = true;
         }
 
-       
+
 
         private void SaveLithoFormatCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -368,7 +376,7 @@ namespace XODB.Import.Client
 
         private void OpenLithoExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            
+
             string fileName = UIFileUtils.ShowOpenFileChoose(FileExtension, FileDescription, SelectedFile);
             if (fileName == null)
             {
@@ -405,7 +413,7 @@ namespace XODB.Import.Client
             else
             {
                 e.CanExecute = false;
-            } 
+            }
             e.Handled = true;
         }
 
@@ -508,16 +516,16 @@ namespace XODB.Import.Client
 
         private void bw_DoLithoImportWork(object sender, DoWorkEventArgs e)
         {
-         
+
             ImportDataMap importMap = (ImportDataMap)e.Argument;
             commandDirector.SetCurrentWorkerThread(workerLithoDataImport);
             ModelImportStatus status = commandDirector.DoLithoImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, XODBProjectID, doImportOverwrite, this.doDuplicateCheck);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
             workerLithoDataImport.ReportProgress((int)0, "");
-        
+
         }
 
-        
+
 
 
         private void SaveSurveyFormatCanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -568,7 +576,7 @@ namespace XODB.Import.Client
 
         private void OpenSurveyExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            
+
             string fileName = UIFileUtils.ShowOpenFileChoose(FileExtension, FileDescription, SelectedFile);
             if (fileName == null)
             {
@@ -594,16 +602,18 @@ namespace XODB.Import.Client
             e.Handled = true;
         }
 
-        public void ResetFormatData() {
+        public void ResetFormatData()
+        {
             ImportDataPreview.ResetMapping();
             MapConfigTable.ResetView();
         }
 
-        public void ResetUI(){
-            
+        public void ResetUI()
+        {
+
             blockRawFileReader = new RawFileReader();
             ModelColumnDefinitions columnDefs = new ModelColumnDefinitions();
-            lastestImportUpdateStatus = null;
+            latestImportUpdateStatus = null;
             SelectedFormatFile = "";
             LabelLoadedFile.Content = "no file loaded";
             //currentDBFieldsMetaInfo = new List<ColumnMetaInfo>();
@@ -614,7 +624,7 @@ namespace XODB.Import.Client
 
         }
 
-      
+
         /// <summary>
         /// 
         /// </summary>
@@ -622,15 +632,16 @@ namespace XODB.Import.Client
         /// <param name="e"></param>
         private void myWin_Loaded(object sender, RoutedEventArgs e)
         {
-              // set up initial data 
-            try {
+            // set up initial data 
+            try
+            {
 
                 int version = commandDirector.GetXODBVersion(); ;
                 Dictionary<Guid, string> projects = commandDirector.GetProjectList();
 
                 ComboBoxProjectList.ItemsSource = projects;
 
-                
+
             }
             catch (Exception ex) { }
         }
@@ -639,12 +650,13 @@ namespace XODB.Import.Client
         private void AssignEventsToButtons(Dictionary<RibbonButton, RoutedCommand> commandMapping)
         {
             int i = 1;
-            foreach(KeyValuePair<RibbonButton, RoutedCommand> kvp in commandMapping){            
+            foreach (KeyValuePair<RibbonButton, RoutedCommand> kvp in commandMapping)
+            {
                 AssignCommandToButton(kvp.Key, kvp.Value);
                 i++;
             }
 
-            
+
         }
 
         private void AssignCommandToButton(RibbonButton theButton, RoutedCommand theCommand)
@@ -653,12 +665,13 @@ namespace XODB.Import.Client
             {
                 theButton.Command = theCommand;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 string err = ex.ToString();
             }
         }
 
-        
+
 
         private void AssayImportCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -669,7 +682,7 @@ namespace XODB.Import.Client
             else
             {
                 e.CanExecute = false;
-            } 
+            }
             e.Handled = true;
         }
 
@@ -687,7 +700,7 @@ namespace XODB.Import.Client
             XODBProjectID = gg;
             ImportDataMap importMap = MapConfigTable.GetImportDataMap(MapConfigTable.assayPrimaryTableName);
             // add into map details of which columns are foreign keys
-            
+
             if (assayDBFields != null)
             {
                 importMap.UpdateWithFKInof(assayDBFields);
@@ -705,20 +718,20 @@ namespace XODB.Import.Client
             // Method to run after BackgroundWorker has completed?
             workerAssayDataImport.RunWorkerCompleted += bw_AssayImportRunWorkerCompleted;
 
-            
+
             workerAssayDataImport.RunWorkerAsync(importMap);
 
             e.Handled = true;
         }
 
-       
+
         private void bw_DoAssayImportWork(object sender, DoWorkEventArgs e)
         {
             ImportDataMap importMap = (ImportDataMap)e.Argument;
-            commandDirector.SetCurrentWorkerThread(workerAssayDataImport);         
+            commandDirector.SetCurrentWorkerThread(workerAssayDataImport);
             ModelImportStatus status = commandDirector.DoAssayImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader,
                 XODBProjectID, doDuplicateCheck, doImportOverwrite);
-            lastestImportUpdateStatus = status;           
+            latestImportUpdateStatus = status;
         }
 
         /// <summary>
@@ -728,10 +741,10 @@ namespace XODB.Import.Client
         /// <param name="e"></param>
         private void bw_AssayImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (lastestImportUpdateStatus != null)
+            if (latestImportUpdateStatus != null)
             {
                 ImportStatusWindow ii = new ImportStatusWindow();
-                ii.SetData(lastestImportUpdateStatus);
+                ii.SetData(latestImportUpdateStatus);
                 ii.ShowDialog();
             }
 
@@ -743,14 +756,14 @@ namespace XODB.Import.Client
             ImportDataMap importMap = (ImportDataMap)e.Argument;
             commandDirector.SetCurrentWorkerThread(workerSurveyDataImport);
             ModelImportStatus status = commandDirector.DoSurveyImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, XODBProjectID, doImportOverwrite, this.doDuplicateCheck);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
             workerSurveyDataImport.ReportProgress((int)0, "");
         }
 
         private void bw_SurveyImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             ImportStatusWindow ii = new ImportStatusWindow();
-            ii.SetData(lastestImportUpdateStatus);
+            ii.SetData(latestImportUpdateStatus);
             ii.ShowDialog();
         }
 
@@ -758,7 +771,7 @@ namespace XODB.Import.Client
         private void bw_LithoImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             ImportStatusWindow ii = new ImportStatusWindow();
-            ii.SetData(lastestImportUpdateStatus);
+            ii.SetData(latestImportUpdateStatus);
             ii.ShowDialog();
         }
 
@@ -771,7 +784,7 @@ namespace XODB.Import.Client
             else
             {
                 e.CanExecute = false;
-            } 
+            }
             e.Handled = true;
         }
 
@@ -791,7 +804,7 @@ namespace XODB.Import.Client
             else
             {
                 e.CanExecute = false;
-            } 
+            }
             e.Handled = true;
         }
 
@@ -804,13 +817,13 @@ namespace XODB.Import.Client
 
         private void OpenAssayCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            
+
             e.CanExecute = true;
             e.Handled = true;
         }
 
         private void OpenAssayExecuted(object sender, ExecutedRoutedEventArgs e)
-        {           
+        {
             string fileName = UIFileUtils.ShowOpenFileChoose(FileExtension, FileDescription, SelectedFile);
             if (fileName == null)
             {
@@ -824,10 +837,10 @@ namespace XODB.Import.Client
                 if (fileName != null && fileName.Trim().Length > 0)
                 {
                     LoadTextDataForPreview(fileName);
-              
+
                 }
                 LabelLoadedFile.Content = fileName;
-                this.Title = titleText + " - " +fileName;
+                this.Title = titleText + " - " + fileName;
 
                 SetRibbonEnabledStatus(GeneralParameters.ASSAY);
 
@@ -836,7 +849,7 @@ namespace XODB.Import.Client
             e.Handled = true;
         }
 
-       
+
         //-------------------------
         private void SaveCoalQualityFormatCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -974,7 +987,7 @@ namespace XODB.Import.Client
             commandDirector.SetCurrentWorkerThread(workerCoalQualityDataImport);
             ModelImportStatus status = commandDirector.DoCoalQualityImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader,
                 XODBProjectID, doDuplicateCheck, doImportOverwrite);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
         }
 
         /// <summary>
@@ -984,19 +997,19 @@ namespace XODB.Import.Client
         /// <param name="e"></param>
         private void bw_CoalQualityImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (lastestImportUpdateStatus != null)
+            if (latestImportUpdateStatus != null)
             {
                 ImportStatusWindow ii = new ImportStatusWindow();
-                ii.SetData(lastestImportUpdateStatus);
+                ii.SetData(latestImportUpdateStatus);
                 ii.ShowDialog();
             }
 
         }
 
         //-------------------------
-       
 
-         
+
+
         /// <summary>
         /// initiate a connection to the database to collect fieldnames from he block model table 
         /// </summary>
@@ -1005,23 +1018,24 @@ namespace XODB.Import.Client
             BaseImportTools bit = new BaseImportTools();
             List<string> ls = bit.GetBMColumns();
             List<ColumnMetaInfo> cmi = new List<ColumnMetaInfo>();
-            foreach (string s in ls) { 
-            
-                cmi.Add(new ColumnMetaInfo(){ columnName=s,hasFK=false, isMandatory=true});
-                
+            foreach (string s in ls)
+            {
+
+                cmi.Add(new ColumnMetaInfo() { columnName = s, hasFK = false, isMandatory = true });
+
             }
 
 
 
             return cmi;
-                 
+
         }
 
         private List<ColumnMetaInfo> GetCollarFieldsFromXODB()
         {
             BaseImportTools bit = new BaseImportTools();
-            
-            
+
+
             List<ColumnMetaInfo> ls = bit.GetCollarColumns(CommandDirector.ConnectionString);
 
             return ls;
@@ -1031,7 +1045,7 @@ namespace XODB.Import.Client
         private List<ColumnMetaInfo> GetAssayFieldsFromXODB()
         {
             BaseImportTools bit = new BaseImportTools();
-            List<ColumnMetaInfo> ls = bit.GetAssayColumns( CommandDirector.ConnectionString);
+            List<ColumnMetaInfo> ls = bit.GetAssayColumns(CommandDirector.ConnectionString);
 
             return ls;
         }
@@ -1074,22 +1088,23 @@ namespace XODB.Import.Client
                 dbFields = lithoDBFields;
             }
             else
-            { 
-            
+            {
+
             }
             ImportDataPreview.SetMandatoryMappingColumns(dbFields);
             ImportDataPreview.SetPreviewType("MODEL");
 
             bool firstLineIsHeader = true;
             List<RawDataRow> dt = blockRawFileReader.LoadRawDataForPreview(inputFilename, ares);
-            if (inputFilename.ToLower().EndsWith("las")) {
+            if (inputFilename.ToLower().EndsWith("las"))
+            {
                 ImportDataPreview.ResetTable(dt, false);
-                
+
             }
             else
             {
                 ImportDataPreview.ResetTable(dt, firstLineIsHeader);
-                
+
             }
         }
 
@@ -1119,19 +1134,20 @@ namespace XODB.Import.Client
             return dbFields;
         }
 
-        private void InitialiseDatabaseColumnHeadings(){
-            
-                bmDBFields = GetBMFieldsFromXODB();
-                collarDBFields = GetCollarFieldsFromXODB();
-                assayDBFields = GetAssayFieldsFromXODB();
-                coalQualityDBFields = GetCoalQualityDBFieldsFromXODB();
-                lasDBFields = GetGeophysicsFieldsFromXODB();
-                surveyDBFields = GetSurveyFieldsFromXODB();
-                lithoDBFields = GetLithoFieldsFromXODB();
-                
+        private void InitialiseDatabaseColumnHeadings()
+        {
+
+            bmDBFields = GetBMFieldsFromXODB();
+            collarDBFields = GetCollarFieldsFromXODB();
+            assayDBFields = GetAssayFieldsFromXODB();
+            coalQualityDBFields = GetCoalQualityDBFieldsFromXODB();
+            lasDBFields = GetGeophysicsFieldsFromXODB();
+            surveyDBFields = GetSurveyFieldsFromXODB();
+            lithoDBFields = GetLithoFieldsFromXODB();
+
         }
 
-        
+
 
 
 
@@ -1146,7 +1162,7 @@ namespace XODB.Import.Client
             ImportDataPreview.SetPreviewType("GEOPHYISCS");
 
             bool firstLineIsHeader = true;
-            
+
             if (inputFilename.ToLower().EndsWith("las"))
             {
                 LASFileReader lfr = new LASFileReader();
@@ -1157,28 +1173,31 @@ namespace XODB.Import.Client
                 RawDataRow rdh = new RawDataRow();
                 rdh.dataItems = new List<string>();
                 rdh.dataItems.Add("Depth");
-                foreach (string ss in fl.columnHeaders) {
+                foreach (string ss in fl.columnHeaders)
+                {
                     rdh.dataItems.Add(ss);
                 }
 
                 dt.Add(rdh);
-                foreach (LASDataRow ldr in fl.dataRows) {
+                foreach (LASDataRow ldr in fl.dataRows)
+                {
                     RawDataRow rd = new RawDataRow();
-                    rd.dataItems.Add(""+ldr.depth);
-                    foreach (double d in ldr.rowData) {
-                        rd.dataItems.Add("" + d); 
+                    rd.dataItems.Add("" + ldr.depth);
+                    foreach (double d in ldr.rowData)
+                    {
+                        rd.dataItems.Add("" + d);
                     }
                     dt.Add(rd);
                 }
 
                 ImportDataPreview.ResetTable(dt, true);
-                
+
             }
             else
             {
                 List<RawDataRow> dt = blockRawFileReader.LoadRawDataForPreview(inputFilename, ares);
                 ImportDataPreview.ResetTable(dt, firstLineIsHeader);
-                
+
             }
         }
 
@@ -1191,7 +1210,7 @@ namespace XODB.Import.Client
                 workerLoadData = new BackgroundWorker();
                 workerLoadData.WorkerReportsProgress = true;
                 workerLoadData.WorkerSupportsCancellation = true;
-     workerLoadData.DoWork += bw_DoWork;
+                workerLoadData.DoWork += bw_DoWork;
                 // Method to call when Progress has changed
                 workerLoadData.ProgressChanged += bw_ProgressChanged;
                 // Method to run after BackgroundWorker has completed?
@@ -1200,7 +1219,7 @@ namespace XODB.Import.Client
                 this.Title = titleText + " - " + fn;
 
             }
-            
+
         }
 
         private void GeophysicsFileSelected(string fn)
@@ -1220,13 +1239,13 @@ namespace XODB.Import.Client
             workerLoadData.ReportProgress(0);
             string fileToLoad = (string)e.Argument;
             LoadFileForPreview(fileToLoad);
-            workerLoadData.ReportProgress(50);        
+            workerLoadData.ReportProgress(50);
         }
 
         private void LoadFileForPreview(string fileToLoad)
         {
             IOResults ares = new IOResults();
-            
+
             bool firstLineIsHeader = true;// (bool)dataEntryForm.checkBoxModelFirstRowHeader.IsChecked;
             List<RawDataRow> dt = blockRawFileReader.LoadRawData(firstLineIsHeader, fileToLoad, ares);
             blockRawFileReader.PerformColumnLoad(fileToLoad, ares, blockRawFileReader.MaxCols, firstLineIsHeader, workerLoadData);
@@ -1244,7 +1263,7 @@ namespace XODB.Import.Client
             StatusLabel.Content = "Input loaded";
             dataLoadComplete = true;
             BlockDimensionsControl.Reset();
-           
+
         }
 
         void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1263,16 +1282,17 @@ namespace XODB.Import.Client
         /// <param name="e"></param>
         private void BlockModelPreview_ColumnsMapped(object sender, EventArgs e)
         {
-           // set the  primary data type
+            // set the  primary data type
             RibbonSelectionChanged(null, null);
 
-           // collect a column map and present it in the column map table 
+            // collect a column map and present it in the column map table 
             ImportDataMap impMap = ImportDataPreview.GenerateColumnMap();
-           if (impMap != null) {
-               MapConfigTable.SetMap(impMap);
-               // try and guess various propoerties of the model
-               PresetDimensionData(impMap);
-           }
+            if (impMap != null)
+            {
+                MapConfigTable.SetMap(impMap);
+                // try and guess various propoerties of the model
+                PresetDimensionData(impMap);
+            }
         }
 
         private void PresetDimensionData(ImportDataMap impMap)
@@ -1319,12 +1339,12 @@ namespace XODB.Import.Client
         }
 
 
-         ////////////////////////////////////
+        ////////////////////////////////////
         ///////////////////////////////////
         // COMMANDS
 
 
-        
+
         private void OpenBMCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
@@ -1333,8 +1353,8 @@ namespace XODB.Import.Client
 
         private void OpenBMExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            
-            
+
+
             string fileName = UIFileUtils.ShowOpenFileChoose(FileExtension, FileDescription, SelectedFile);
             if (fileName == null)
             {
@@ -1374,7 +1394,8 @@ namespace XODB.Import.Client
             e.Handled = true;
         }
 
-        public void OpenFormatDataFile(){
+        public void OpenFormatDataFile()
+        {
             string fileName = UIFileUtils.ShowOpenFileChoose(FormatFileExtension, FormatFileDescription, SelectedFormatFile);
             if (fileName == null)
             {
@@ -1400,14 +1421,15 @@ namespace XODB.Import.Client
                     }
                     PresetDimensionData(idm);
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
 
                     MessageBox.Show("There was an error applying the selected format file to the data.\nMake sure the format file you select is appropriate for hte input data.");
 
                 }
             }
 
-           
+
         }
 
 
@@ -1476,20 +1498,20 @@ namespace XODB.Import.Client
             workerBMDataImport.RunWorkerCompleted += bw_BMImportRunWorkerCompleted;
             workerBMDataImport.RunWorkerAsync(importMap);
             e.Handled = true;
-            
+
         }
-        
+
         private void bw_DoBMImportWork(object sender, DoWorkEventArgs e)
         {
             ImportDataMap importMap = (ImportDataMap)e.Argument;
             commandDirector.SetCurrentWorkerThread(workerBMDataImport);
             bool status = commandDirector.DoBMImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, XODBProjectID.ToString(), blockModellName);
-                       
+
         }
 
         private void bw_BMImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            
+
             progressBar1.Value = 0;
             StatusLabel.Content = "Block model load complete";
 
@@ -1502,7 +1524,7 @@ namespace XODB.Import.Client
             int pp = e.ProgressPercentage;
             progressBar1.Value = pp;
         }
-                       
+
         private void HelpCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
@@ -1525,12 +1547,13 @@ namespace XODB.Import.Client
             else
             {
                 e.CanExecute = false;
-            } 
+            }
             e.Handled = true;
         }
 
         private void BatchImportLASCanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {   e.CanExecute = true;
+        {
+            e.CanExecute = true;
             e.Handled = true;
         }
 
@@ -1544,18 +1567,19 @@ namespace XODB.Import.Client
                 MessageBox.Show("You must select a project before importing");
                 return;
             }
-            if (ss == null || ss.Length == 0) {
+            if (ss == null || ss.Length == 0)
+            {
                 fileListUIControlLAS.BorderBrush = Brushes.Red;
                 MessageBox.Show("You must select some LAS files before importing");
                 return;
-                
+
             }
             fileListUIControlLAS.BorderBrush = Brushes.Black;
             Guid gg = (Guid)ComboBoxProjectList.SelectedValue;
             // get the selected project ID
             XODBProjectID = gg;
-            
-            
+
+
             workerLASBatchDataImport = new BackgroundWorker();
             workerLASBatchDataImport.WorkerReportsProgress = true;
             workerLASBatchDataImport.WorkerSupportsCancellation = false;
@@ -1573,7 +1597,7 @@ namespace XODB.Import.Client
         private void bw_LASBatchImportRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             ImportStatusWindow ii = new ImportStatusWindow();
-            ii.SetData(lastestImportUpdateStatus);
+            ii.SetData(latestImportUpdateStatus);
             ii.ShowDialog();
         }
 
@@ -1582,17 +1606,9 @@ namespace XODB.Import.Client
             string[] ss = (string[])e.Argument;
             commandDirector.SetCurrentWorkerThread(workerLASBatchDataImport);
             ModelImportStatus status = commandDirector.BatchImportLasFiles(ss, XODBProjectID);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
             workerLASBatchDataImport.ReportProgress((int)0, "");
         }
-
-
-
-       
-
-
-            
-    
 
         private void LASImportExecuted(object sender, ExecutedRoutedEventArgs e)
         {
@@ -1609,11 +1625,11 @@ namespace XODB.Import.Client
             //int failCount = 0;
             //string report = "";
             //foreach (string file in filePaths) {
-                
+
             //    XODB.Import.Client.Processing.LASImport li = new XODB.Import.Client.Processing.LASImport();
             //    LASFile lf = li.GetLASFile(file);
 
-                
+
             //    string msg = ll.ProcessLASFile(lf, file);
             //    if (msg != null)
             //    {
@@ -1647,7 +1663,7 @@ namespace XODB.Import.Client
             else
             {
                 e.CanExecute = false;
-            } 
+            }
             e.Handled = true;
         }
 
@@ -1667,7 +1683,7 @@ namespace XODB.Import.Client
             else
             {
                 e.CanExecute = false;
-            } 
+            }
             e.Handled = true;
         }
 
@@ -1678,15 +1694,15 @@ namespace XODB.Import.Client
 
         private void OpenLASCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            
+
             e.CanExecute = true;
             e.Handled = true;
         }
 
         private void OpenLASExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            
-            
+
+
             string fileName = UIFileUtils.ShowOpenFileChoose(LASFileExtension, LASFileDescription, SelectedFile);
             if (fileName == null)
             {
@@ -1726,15 +1742,16 @@ namespace XODB.Import.Client
 
         private void CollarImportExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            if (ComboBoxProjectList.SelectedValue == null) {
+            if (ComboBoxProjectList.SelectedValue == null)
+            {
                 ComboBoxProjectList.BorderBrush = Brushes.Red;
                 MessageBox.Show("You must select a project before importing");
-                return;            
+                return;
             }
             Guid XODBProjectID = (Guid)ComboBoxProjectList.SelectedValue;
             bool overwrite = (bool)checkBoxOverwrite.IsChecked;
-            
-            
+
+
             ImportDataMap importMap = MapConfigTable.GetImportDataMap(MapConfigTable.collarPrimaryTableName);
             // add into map details of which columns are foreign keys
             if (collarDBFields != null)
@@ -1746,7 +1763,7 @@ namespace XODB.Import.Client
 
 
             ModelImportStatus status = commandDirector.DoCollarImport(SelectedFile, SelectedFormatFile, importMap, blockRawFileReader, XODBProjectID, overwrite);
-            lastestImportUpdateStatus = status;
+            latestImportUpdateStatus = status;
             //if(status.finalErrorCode != ModelImportStatus.OK){
             //    string ss = status.GenerateStringMessage(true);
             //    lastestImportUpdateStatus.SaveReportData();
@@ -1761,15 +1778,15 @@ namespace XODB.Import.Client
             //    }
 
             //}else{
-                
+
             //    MessageBox.Show("Import complete.  "+status.linesReadFromSource+" data lines read, "+status.recordsAdded+" new records added \n"+status.recordsUpdated+" existing records updated.");
-            
+
             //}
-            
-            if (lastestImportUpdateStatus != null)
+
+            if (latestImportUpdateStatus != null)
             {
                 ImportStatusWindow ii = new ImportStatusWindow();
-                ii.SetData(lastestImportUpdateStatus);
+                ii.SetData(latestImportUpdateStatus);
                 ii.ShowDialog();
             }
 
@@ -1815,14 +1832,14 @@ namespace XODB.Import.Client
             else
             {
                 e.CanExecute = false;
-            } 
+            }
             e.Handled = true;
         }
 
         private void OpenCollarFormatExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             SelectedImportType = GeneralParameters.COLLAR;
-            OpenFormatDataFile();           
+            OpenFormatDataFile();
 
             e.Handled = true;
         }
@@ -1835,8 +1852,8 @@ namespace XODB.Import.Client
 
         private void OpenCollarExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-         
-            
+
+
             string fileName = UIFileUtils.ShowOpenFileChoose(FileExtension, FileDescription, SelectedFile);
             if (fileName == null)
             {
@@ -1851,7 +1868,7 @@ namespace XODB.Import.Client
                 FileSelected(fileName);
                 LabelLoadedFile.Content = fileName;
                 SetRibbonEnabledStatus(GeneralParameters.COLLAR);
-                
+
 
             }
 
@@ -1873,30 +1890,39 @@ namespace XODB.Import.Client
 
         private void SetRibbonEnabledStatus(int selectedType)
         {
-            
+
             ReSetRibbonEnabledStatus(false);
 
-            if (selectedType == GeneralParameters.COLLAR) {
+            if (selectedType == GeneralParameters.COLLAR)
+            {
                 RibbonTabCollarFile.IsEnabled = true;
-            }else if(selectedType == GeneralParameters.SURVEY) {
+            }
+            else if (selectedType == GeneralParameters.SURVEY)
+            {
                 RibbonTabSurveyFile.IsEnabled = true;
-            }else if(selectedType == GeneralParameters.BLOCKMODEL) {
+            }
+            else if (selectedType == GeneralParameters.BLOCKMODEL)
+            {
                 RibbonTabBlockModel.IsEnabled = true;
-            }else if(selectedType == GeneralParameters.LITHO) {
+            }
+            else if (selectedType == GeneralParameters.LITHO)
+            {
                 RibbonTabLithoFile.IsEnabled = true;
-            }else if(selectedType == GeneralParameters.LAS) {
+            }
+            else if (selectedType == GeneralParameters.LAS)
+            {
                 RibbonTabLASFile.IsEnabled = true;
             }
             else if (selectedType == GeneralParameters.ASSAY)
             {
                 RibbonTabAssayFile.IsEnabled = true;
             }
-     
+
 
         }
 
         public string SelectedFile { get; set; }
-        
+
 
 
 
@@ -1923,7 +1949,7 @@ namespace XODB.Import.Client
             bool firstLineIsHeader = true;
             List<RawDataRow> dt = blockRawFileReader.LoadRawDataForPreview(inputFilename, ares);
             ImportDataPreview.ResetTable(dt, firstLineIsHeader);
-            
+
         }
 
         private List<ColumnMetaInfo> GetGeophysicsFieldsFromXODB()
@@ -1952,7 +1978,7 @@ namespace XODB.Import.Client
 
         private void Ribbon_ContextMenuOpening_1(object sender, ContextMenuEventArgs e)
         {
-            
+
         }
 
         private void RibbonTab_ContextMenuOpening_1(object sender, ContextMenuEventArgs e)
@@ -1993,7 +2019,8 @@ namespace XODB.Import.Client
                 ModelDefGroupBox.Visibility = Visibility.Visible;
                 ImportDataPreview.targetMainDataType = MapConfigTable.bmPrimaryTableName;
             }
-            else {
+            else
+            {
                 ModelDefGroupBox.Visibility = Visibility.Hidden;
             }
 
@@ -2039,12 +2066,9 @@ namespace XODB.Import.Client
             return;
         }
 
-
-
-
         private void MenuItemAbout_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("XODB Importer version "+versionNumber+" alpha. "+releaseDate);
+            MessageBox.Show("XODB Importer version " + versionNumber + " alpha. " + releaseDate);
         }
 
         private void MenuItemHelp_Click(object sender, RoutedEventArgs e)
@@ -2055,8 +2079,15 @@ namespace XODB.Import.Client
             hw.Show();
         }
 
-        private void MenuItemResetMapping_Click(object sender, RoutedEventArgs e) {
+        private void MenuItemResetMapping_Click(object sender, RoutedEventArgs e)
+        {
             ResetFormatData();
+        }
+
+        private void MenuItemUpdateConStr_Click(object sender, RoutedEventArgs e)
+        {
+            var update = new UpdateConnectionString();
+            update.ShowDialog();
         }
 
         private void MenuItemClean_Click(object sender, RoutedEventArgs e)
@@ -2076,25 +2107,19 @@ namespace XODB.Import.Client
                 cpv.SetCollarData(existingHoles);
                 cpv.ShowDialog();
             }
-            else {
+            else
+            {
                 ComboBoxProjectList.BorderBrush = Brushes.Red;
                 MessageBox.Show("You must select a project to view first");
             }
 
         }
 
-
-
-
-
-
         public bool doDuplicateCheck { get; set; }
-
-
 
         public string blockModellName { get; set; }
     }
 
 
-    
+
 }

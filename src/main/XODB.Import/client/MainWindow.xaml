@@ -8,11 +8,11 @@
         Title="XODB Importer - Xstract Mining Consultants" Height="1000" Width="1000" Icon="images/xicon4.ico" Loaded="myWin_Loaded">
 
     <Window.CommandBindings>
-        
+
         <CommandBinding Command="Help" CanExecute="HelpCanExecute" Executed="HelpExecuted" />
     </Window.CommandBindings>
-  
-    
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="59*"/>
@@ -23,7 +23,7 @@
             <RowDefinition Height="60"/>
             <RowDefinition/>
             <RowDefinition Height="300"/>
-          
+
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
@@ -44,7 +44,9 @@
                     <RibbonApplicationMenuItem Header="ResetMapping"
                                               x:Name="MenuItemResetMapping"
                                               ImageSource="/XODB Importer;component/images/save_32.png" Click="MenuItemResetMapping_Click"/>
-                   
+                    <RibbonApplicationMenuItem Header="UpdateConnection"
+                                              x:Name="MenuItemUpdateConStr"
+                                              ImageSource="/XODB Importer;component/images/save_32.png" Click="MenuItemUpdateConStr_Click"/>
 
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
@@ -64,7 +66,7 @@
                 <RibbonGroup Header="Tools">
 
                     <RibbonButton x:Name="ButtonImportCollar" Label="Import" LargeImageSource="/XODB Importer;component/images/refresh_32.png"/>
-                    
+
                 </RibbonGroup>
 
                 <RibbonGroup Header="Viewer">
@@ -150,7 +152,7 @@
             </RibbonTab>
 
             <RibbonTab Header="LAS batch import" Name="RibbonTabMultiLAS" Visibility="Visible">
-                
+
                 <RibbonGroup Header="Tools">
 
                     <RibbonButton x:Name="ButtonImportBatchLAS" Label="Import" LargeImageSource="/XODB Importer;component/images/refresh_32.png"/>
@@ -158,7 +160,7 @@
                 </RibbonGroup>
 
             </RibbonTab>
-            
+
             <RibbonTab Header="Block model" Name="RibbonTabBlockModel" RequestBringIntoView="RibbonTabBlockModel_RequestBringIntoView"  >
                 <RibbonGroup Header="Data file">
                     <RibbonButton x:Name="ButtonOpenBM" Label="Open" LargeImageSource="/XODB Importer;component/images/open_32.png"/>
@@ -171,10 +173,10 @@
                 </RibbonGroup>
 
                 <RibbonGroup Header="Tools">
-                    
+
                     <RibbonButton x:Name="ButtonImportBM" Label="Import" LargeImageSource="/XODB Importer;component/images/refresh_32.png"/>
-                    
-                    
+
+
                 </RibbonGroup>
             </RibbonTab>
 
@@ -198,7 +200,7 @@
             </RibbonTab>
 
 
-            
+
         </Ribbon>
         <GroupBox x:Name="groupBoxBatchLas" Header="LAS File selection" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Hidden" Grid.ColumnSpan="2">
 
@@ -229,24 +231,25 @@
 
 
 
-        
+
         <UI:ImportPreview x:Name="ImportDataPreview" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Stretch" ColumnsMapped="BlockModelPreview_ColumnsMapped" Grid.ColumnSpan="2"/>
         <Grid HorizontalAlignment="Stretch"  Grid.Row="4" VerticalAlignment="Stretch" Grid.ColumnSpan="2" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*"/>
-                <ColumnDefinition Width="50*"/>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="206*"/>
+                <ColumnDefinition Width="581*"/>
+                <ColumnDefinition Width="205"/>
             </Grid.ColumnDefinitions>
-            <ProgressBar x:Name="progressBar1"  HorizontalAlignment="Stretch" Height="25" Margin="5,0,0,0" VerticalAlignment="Center" />
-            <Label Name="StatusLabel"  Content="Status" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
-            <Label x:Name="LabelVersion" Content="-" Grid.Column="2" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"/>
+            <ProgressBar x:Name="progressBar1"  HorizontalAlignment="Left" Height="26" Margin="5,12,0,12" VerticalAlignment="Center" Width="195" />
+            <Label Name="StatusLabel"  Content="Status" Grid.Column="1" HorizontalAlignment="Left" Margin="10,12,0,12" VerticalAlignment="Center" Height="26" Width="42"/>
+            <Label x:Name="LabelVersion" Content="-" Grid.Column="2" HorizontalAlignment="Left" Margin="15,12,0,12" VerticalAlignment="Center" Height="26" Width="65" RenderTransformOrigin="0.5,0.5"/>
+            <Label x:Name="LabelDB" Content="XODB-" Grid.Column="2" HorizontalAlignment="Right" Margin="0,12" VerticalAlignment="Center" Height="26" Width="120"/>
         </Grid>
 
         <Grid Grid.Row="3" Grid.ColumnSpan="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*"></ColumnDefinition>
                 <ColumnDefinition Width="50*"></ColumnDefinition>
-                
+
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -255,7 +258,7 @@
             <GroupBox x:Name="groupBoxMapConfigTable" Grid.Row="0"  Grid.RowSpan="2" Header="Mapped columns" HorizontalAlignment="Stretch" Grid.Column="0" Margin="10,10,0,0" VerticalAlignment="Stretch">
                 <UI:MapTable x:Name="MapConfigTable" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch"/>
             </GroupBox>
-            
+
             <GroupBox Grid.Column="1" Grid.Row="1" Name="ModelDefGroupBox" Header="Model definitions" HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Stretch" >
                 <Grid>
                     <Grid.RowDefinitions>
@@ -266,7 +269,7 @@
                         <ColumnDefinition Width="115*"/>
                         <ColumnDefinition Width="359*"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <UI:BlockDimensions Grid.Row="1"  Grid.ColumnSpan="2" x:Name="BlockDimensionsControl" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Height="Auto" Margin="0,0,0,-28" />
                     <Label Content="Model name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="95"/>
                     <TextBox x:Name="textBoxModelName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -280,7 +283,7 @@
             </GroupBox>
 
         </Grid>
-        
+
 
 
 
